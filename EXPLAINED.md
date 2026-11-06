@@ -890,15 +890,16 @@ Grouped by how badly a failure would hurt. `runtests.py` runs them all.
 
 | file | what it is |
 |---|---|
-| `v1_params.json`, `v2_params.json`, `v2b_params.json`, `v3_params.json`, `v4_params.json`, `v5_params.json`, `v6_params.json` | the tuned versions in order. `v2b` was a variant branch of v2. **`v6` is the current shipped weight set** |
+| `v1_params.json` … `v7_params.json` (plus `v2b`, a variant branch of v2) | the tuned versions in order. **`v7` is the current shipped weight set** — tuned against the rebuilt field with the confirmation stage, and shipped with `tie_home: 1` for seat symmetry |
 | `v4_seed.json`, `v5_seed.json`, `v6_seed.json` | the seeds those runs started from |
 | `nemesis1.json`, `nemesis2.json`, `nemesis3.json` | counter-bots bred to beat a named version of this bot |
 | `pro_params_v1.json` | the frozen independent rival. **Committed**, because `field.py` depends on it; without it the field silently falls back to the untuned version |
 | `snapshots.json` | the registry `rivals.py` reads |
-| `best_params.json`, `turn_fit.json` | the tuner's default output path; the fitted mid-game turn estimator |
+| `turn_fit.json` | the fitted mid-game turn estimator |
 
-Live tuner output (`v7_params.json`, `pro_params.json`, `v7_seed.json`) is
-**gitignored**, so a half-tuned file cannot be mistaken for a decision.
+A run in progress writes to `best_params.json`, which is **gitignored** along
+with `pro_params.json`, so a half-tuned file cannot be mistaken for a decision.
+Harvested results are copied to an explicit `vN_params.json` and committed.
 
 ### 7.9 Scratch files — not load-bearing
 
@@ -1006,6 +1007,41 @@ discriminating tier, two flipped:
 
 `choose.py` now encodes the lesson, and prints a warning when the reference sits
 above 2.4 on realistic.
+
+### 8.3b ...and it can be biased toward your own architecture
+
+The fix for saturation introduced a subtler problem, and finding it required
+being suspicious of a result that flattered the work.
+
+The `peer` tier discriminates because every game in it is close. But **six of its
+eleven entrants are my own parameter snapshots** (v3, v4, v6, nemesis1–3). So
+"good on peer" partly means "good against my own lineage", which is nothing like
+the Round 1 field. The tell was an older version, v3, scoring *best of all* on
+peer while regressing significantly on held-out opponents.
+
+So a fourth tier was added — **`strangers`**: 14 opponents, strong and varied,
+and **not one of them a version of this bot**. The newly tuned candidate measured
+across all four:
+
+| tier | gain over v6 | contains my own versions? |
+|---|---|---|
+| peer | **+0.251** (z +6.05) | **yes — 6 of 11** |
+| realistic | +0.012 | 4 of 23 |
+| **strangers** | **+0.024** (z +1.23) | **no** |
+| heldout | −0.024 | no |
+
+**The large gain exists only on the tier dominated by my own lineage.** On every
+field of non-self opponents it is +0.02 and not statistically significant. The
+candidate had been tuned against a field where my own snapshots carry 8.2 of
+about 35 total weight, so peer was measuring exactly what the tuner had optimised.
+
+The gain is real — just far narrower than the headline number suggested. The
+candidate still ships, because it is weakly better or level on every field and
+never significantly worse, with consistently higher raw scores. But it ships as a
+**marginal** improvement, and the general lesson is sharper than the specific
+one: *a discriminating measurement is not automatically an unbiased one, and a
+field containing your own past work measures family resemblance as much as
+strength.*
 
 ### 8.4 Symmetry as a correctness test
 
@@ -1148,6 +1184,8 @@ limits.
   mis-calibration costs a 3-turn freeze and a stationary robot cannot miss its
   cell. That argues for a path-length penalty and a bias toward staying put —
   neither of which is in the bot, because neither helps in Round 1.
-- **The tuning run against the rebuilt field was still in progress** when this was
-  written. `bot.py` carries v6's weights plus the correctness fixes and seat
-  symmetry — verified, but not the strongest parameter set now available.
+- **The tuned gain is marginal on unfamiliar opponents.** `bot.py` now carries
+  v7, which is weakly better or level on every field and never significantly
+  worse — but the headline +0.251 was measured on a field containing six of my
+  own snapshots, and against strangers it is +0.024 and not significant
+  (§8.3b). The search converged: twenty further generations added +0.007.

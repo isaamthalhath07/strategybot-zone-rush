@@ -72,11 +72,12 @@ success. See [Mistakes found and fixed](#mistakes-found-and-fixed).
 assumed, and one of those measurements corrected an earlier claim in this file.
 See [that section](#what-the-bots-strength-actually-rests-on).
 
-A caveat on this branch: the tuning run against the rebuilt field was still in
-progress when it was pushed. `bot.py` here therefore carries **v6's weights plus
-the correctness fixes and seat symmetry** — verified, and strictly better than
-what was on `main` — not a newly tuned parameter set. Live tuner output is
-gitignored so a half-tuned file cannot be mistaken for a decision.
+`bot.py` now carries **v7** — tuned against the rebuilt field with the
+confirmation stage, shipped with `tie_home: 1`, and passing every submission
+check at 13.8 ms worst case. It is weakly better or level on all four measurement
+fields and never significantly worse, but the gain against *unfamiliar*
+opponents is +0.024 and not statistically significant; the large +0.251 was
+measured on a field containing six of my own snapshots. See §8.3b.
 
 ## Quickstart
 
@@ -819,6 +820,14 @@ headroom, the confirmed search found it, and a saturated measurement hid it
 completely. Version decisions should lean on `peer` and the held-out tier;
 `realistic` answers "is this strong against the expected field", not "is this
 better than that".
+
+There is a second, subtler trap underneath this one. The `peer` tier
+discriminates, but **six of its eleven entrants are my own snapshots**, so "good
+on peer" partly means "good against my own lineage". A fourth tier (`strangers`,
+14 opponents, none of them a version of this bot) shows the newly tuned candidate
+gaining **+0.251 on peer but only +0.024 on strangers and −0.024 on held-out** --
+the large number existed only where the field was my own family. A
+discriminating measurement is not automatically an unbiased one.
 
 It also puts an asterisk on the negative results below. Several were measured on
 the saturated tier, so some may be false negatives rather than dead ends -- the

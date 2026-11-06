@@ -55,6 +55,13 @@ TIERS = {
                   "hunter", "pro", "pro_tuned"],
     "peer": ["v3", "v4", "v6", "nemesis1", "nemesis2", "nemesis3", "ai_hawk",
              "ai_homefort", "spine", "pro", "pro_tuned"],
+    # Discriminating but containing NONE of my own snapshots. The peer tier is
+    # six-elevenths my own lineage, so "good on peer" partly means "good against
+    # my own architecture", which is not the Round 1 field. This is the fix:
+    # strong, varied, and all of it written as an opponent rather than as me.
+    "strangers": ["pro_tuned", "pro", "spine", "camper", "ai_hawk", "ai_homefort",
+                  "ai_marginal", "ai_cheapraid", "turtle", "cdraider", "centre",
+                  "hunter", "ai_route", "ai_elo"],
     "designs": [c for c in ("ai_marginal", "ai_cheapraid", "ai_homefort",
                             "ai_centre", "ai_route", "ai_hawk", "ai_elo")],
     "legacy": ["spine", "camper", "greedy_value", "greedy_shield", "raider",
