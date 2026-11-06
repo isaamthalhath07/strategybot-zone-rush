@@ -26,6 +26,12 @@ track that was tried and rejected.
 
 
 
+> **New here?** [`EXPLAINED.md`](EXPLAINED.md) explains the whole thing from
+> scratch — the rules and the arithmetic behind them, every strategy anyone could
+> play and what each one actually does, every file in the repository, and the four
+> methodological lessons that decide whether any of the numbers below mean
+> anything. This readme assumes you already know the game; that one does not.
+
 ## What this round changed
 
 This branch is the second pass over the bot, prompted by the organisers
@@ -778,11 +784,46 @@ has to win its own draw and then beat the incumbent again on a fresh draw that i
 was not selected on. Accepting costs a second evaluation; accepting noise costs
 the whole run.
 
-Worth stating plainly, because it cuts the other way too: this is evidence that
-v6 sits close to a local optimum for this architecture. Every hand-designed
-feature measured neutral or negative, an independently-built architecture tuned to
-parity, and a biased search could not find real headroom. The remaining gains
-here are small.
+I drew the wrong conclusion from this at first, and the retraction is instructive
+enough to keep. Seeing no transferable gain, I wrote that v6 must sit close to a
+local optimum and that the remaining headroom was small. **That was the measuring
+instrument, not the bot.**
+
+### The field you measure on can be saturated
+
+The `realistic` tier is a fair model of the Round 1 field, weak entries included
+-- and that is exactly what makes it useless for separating two strong bots. v6
+already scores 2.556 of a maximum 3.0 there, winning roughly 85% of its pairings,
+so a genuine improvement has almost nowhere left to register. The `peer` tier,
+where v6 sits at 1.71, has real headroom.
+
+The same candidate, ten generations into the confirmed tune, measured on both:
+
+| tier | v6 | v7 | dPW | z |
+|---|---|---|---|---|
+| realistic (saturated) | 2.556 | 2.549 | −0.007 +/- 0.025 | −0.27 |
+| **peer** | **1.713** | **1.966** | **+0.2535 +/- 0.0377** | **+6.73** |
+
+Against three copies of a single opponent it is better across the board, not
+specialised toward the rival it was tuned against:
+
+| vs 3 copies of | v6 | v7 |
+|---|---|---|
+| pro_tuned | 0.80 | **1.20** |
+| ai_hawk | 2.48 | **2.64** |
+| spine | 1.89 | **1.95** |
+| camper | 2.93 | **2.98** |
+
+So the honest reading is the opposite of what I first wrote: there *was* real
+headroom, the confirmed search found it, and a saturated measurement hid it
+completely. Version decisions should lean on `peer` and the held-out tier;
+`realistic` answers "is this strong against the expected field", not "is this
+better than that".
+
+It also puts an asterisk on the negative results below. Several were measured on
+the saturated tier, so some may be false negatives rather than dead ends -- the
+ones with a sound mechanism are worth re-running on `peer`, and the tuner is in
+any case exploring those parameters directly on a field whose baseline is 2.41.
 
 ## Mistakes found and fixed
 

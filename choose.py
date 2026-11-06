@@ -73,28 +73,44 @@ def main():
             summary.setdefault(n, {})[tier] = sum(x[0] for x in b) / float(len(b))
 
     ref = variants[0][0]
-    print("\n" + "=" * 72)
+    print("\n" + "=" * 76)
     print("%-10s %10s %10s %10s    %s"
           % ("variant", "realistic", "peer", "heldout", "verdict vs %s" % ref))
-    print("-" * 72)
+    print("-" * 76)
+    # The three tiers are NOT equal evidence, which cost a wrong conclusion once.
+    # `realistic` is a fair model of the Round 1 field, weak entries included --
+    # and that is exactly why it saturates: the bot already wins about 85% of its
+    # pairings there, so a real improvement has almost nowhere to register. The
+    # same candidate measured -0.007 on realistic and +0.254 on peer. So peer
+    # decides, realistic only has to not regress, and heldout catches a candidate
+    # that was fitted to the training field.
     for n, _ in variants:
         d = summary[n]
         if n == ref:
             note = "reference"
         else:
-            deltas = [d[t] - summary[ref][t] for t in TIERS]
-            wins = [t for t, x in zip(TIERS, deltas) if x > 0.004]
-            losses = [t for t, x in zip(TIERS, deltas) if x < -0.004]
-            if not losses:
-                note = "better on %s" % ", ".join(wins) if wins else "level"
-            elif not wins:
-                note = "worse everywhere"
+            dp = d["peer"] - summary[ref]["peer"]
+            dr = d["realistic"] - summary[ref]["realistic"]
+            dh = d["heldout"] - summary[ref]["heldout"]
+            if dr < -0.03 or dh < -0.03:
+                note = "REJECT: regressed on %s" % (
+                    "realistic" if dr < -0.03 else "heldout")
+            elif dp > 0.02:
+                note = "SHIP: +%.3f on peer, no regression" % dp
+            elif dp < -0.02:
+                note = "reject: %.3f on peer" % dp
             else:
-                note = "mixed: wins %s, loses %s" % (", ".join(wins),
-                                                     ", ".join(losses))
+                note = "level on peer (%+.3f) -- no reason to switch" % dp
         print("%-10s %10.3f %10.3f %10.3f    %s"
               % (n, d["realistic"], d["peer"], d["heldout"], note))
-    print("\nShip a candidate only if it is at least level on all three tiers.")
+    print("\npeer decides (it discriminates); realistic must not regress;")
+    print("heldout catches a candidate fitted to the training field.")
+    if len(variants) > 1:
+        sat = summary[ref]["realistic"]
+        if sat > 2.4:
+            print("\nnote: realistic is at %.3f of a maximum 3.000 for the "
+                  "reference, so it is\n      near its ceiling and cannot "
+                  "separate strong candidates." % sat)
 
 
 if __name__ == "__main__":
