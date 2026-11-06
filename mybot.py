@@ -61,6 +61,8 @@ PARAMS = {
     "stickiness": 1.06,        # bonus for continuing last turn's objective
     "ncand": 14,               # work-cells considered per turn
     "reach": 7,                # ignore work further away than this
+    "tail": 0.00,              # credit for turns a walk leaves unused, as a
+                               # fraction of R per turn (0 = off)
     # --- economy ------------------------------------------------------------
     "w_claim": 1.00,
     "w_upgrade": 1.00,
@@ -84,6 +86,10 @@ PARAMS = {
     "freeze_cost": 2.10,       # a freeze costs this many action-turns
     "q_prior": 0.55,           # prior P(a rival shields a raider off its land)
     "q_weight": 4.0,
+    "qmode": 0,                # 1: judge raid risk by situation (imminent take,
+                               # cell worth defending) instead of one pooled rate
+    "q_weight2": 3.0,          # how fast a situation's own record overrides the
+                               # pooled rate
     "raid_risk": 1.00,
     # --- defence ------------------------------------------------------------
     "shield_cost": 1.60,       # shielding costs this many action-turns
@@ -165,6 +171,12 @@ class Tracker(object):
         # opponent model: shield-on-sight, as Beta counts
         self.sh_yes = [0.0] * 4
         self.sh_no = [0.0] * 4
+        # the same, split by situation: [imminent take? x cell worth >= 2?]. Most
+        # bots only shield when a take is about to complete, and many ignore
+        # 1-point cells, so a single pooled rate under-prices exactly the raids
+        # that get caught
+        self.sq_yes = [[0.0] * 4 for _ in range(4)]
+        self.sq_no = [[0.0] * 4 for _ in range(4)]
         self.raids = [0] * 4        # turns a bot committed while on rival land
         self.takes = [0] * 4        # completed raids (used for score reconstruction)
         self.baits = [0.0] * 4      # turns a bot bailed out instead of committing
@@ -341,6 +353,14 @@ class Tracker(object):
                     self.sh_yes[o - 1] += 1.0
                 else:
                     self.sh_no[o - 1] += 1.0
+                if not home_of[pp]:
+                    need = 3 if pupg[pp] else 1
+                    k = (2 if need - self.prog[i] <= 1 else 0) + \
+                        (1 if base[pp] * (2 if pupg[pp] else 1) >= 2 else 0)
+                    if (o - 1) in shielders:
+                        self.sq_yes[o - 1][k] += 1.0
+                    else:
+                        self.sq_no[o - 1][k] += 1.0
             # did the raider bail out instead of committing?
             if newpos[i] != pp:
                 self.baits[i] += 1.0
@@ -427,6 +447,13 @@ class Tracker(object):
         """Posterior P(this bot shields when a raider is on its land)."""
         y, n = self.sh_yes[seat_idx], self.sh_no[seat_idx]
         return (y + prior * weight) / (y + n + weight)
+
+    def q_situ(self, seat_idx, imminent, high, prior, weight, weight2):
+        """P(shield) in one situation, shrunk toward this bot's pooled rate."""
+        pooled = self.q_shield(seat_idx, prior, weight)
+        k = (2 if imminent else 0) + (1 if high else 0)
+        y, n = self.sq_yes[seat_idx][k], self.sq_no[seat_idx][k]
+        return (y + pooled * weight2) / (y + n + weight2)
 
 
 class Agent(object):
@@ -675,7 +702,7 @@ class Agent(object):
             take = 8.0 * v * lvl
             inc = v * rem
             den = v * lvl * rem * P["w_denial"] * care[o - 1]
-            q = self._shield_risk(o - 1, travel, need)
+            q = self._shield_risk(o - 1, travel, need, v * lvl >= 2)
             lc = P["lead_caution"]
             if lc > 0.0:
                 q += lc * self._standing(seat) * (1.0 - q)
@@ -783,6 +810,17 @@ class Agent(object):
         for (_, p, kind, v, need) in cands:
             if p not in cellbit:
                 cellbit[p] = len(cellbit)
+        # A walk is only credited for the jobs on it, so without this a walk that
+        # burns 28 turns on upgrades looks as good as one that finishes 7 claims in
+        # 14 and still has 14 turns to spare. Credit unused turns up to the horizon
+        # at a fraction of what a turn is worth by then (it decays with the clock).
+        tl = P["tail"]
+        if tl > 0.0:
+            H = horizon
+            tailv = [tl * (H - u) * (R - (H - 1 + u) * 0.5) if u < H else 0.0
+                     for u in range(H + 1)]
+        else:
+            tailv = [0.0] * (horizon + 1)
         # state -> (value, first_cell)   state = (pos, used, mask)
         beam = {(me, 0, 0): (0.0, None)}
         bestby = {}
@@ -813,15 +851,20 @@ class Agent(object):
                     cur = nxt.get(st)
                     if cur is None or cur[0] < nv:
                         nxt[st] = (nv, f)
-                    if bestby.get(f, -1e18) < nv:
-                        bestby[f] = nv
+                    rv = nv + tailv[nu]
+                    if bestby.get(f, -1e18) < rv:
+                        bestby[f] = rv
             if not nxt:
                 break
             width = int(P["beam"] * self._beam_scale)
             if width < 8:
                 width = 8
             if len(nxt) > width:
-                items = sorted(nxt.items(), key=lambda kv: -kv[1][0])[:width]
+                if tl > 0.0:
+                    items = sorted(nxt.items(),
+                                   key=lambda kv: -(kv[1][0] + tailv[kv[0][1]]))[:width]
+                else:
+                    items = sorted(nxt.items(), key=lambda kv: -kv[1][0])[:width]
                 beam = dict(items)
             else:
                 beam = nxt
@@ -857,7 +900,7 @@ class Agent(object):
         return self._step(me, best, occ, owner, seat)
 
     # -------------------------------------------------------------- defence
-    def _shield_risk(self, ridx, travel, need):
+    def _shield_risk(self, ridx, travel, need, high=True):
         """P(this raid gets shielded before it completes)."""
         P = self.P
         tr = self.tr
@@ -869,6 +912,15 @@ class Agent(object):
         exposed = need if cd <= travel else max(0, travel + need - cd)
         if exposed <= 0:
             return 0.0
+        if P["qmode"]:
+            # the last exposed stay is the one where the take is imminent; any
+            # earlier ones are judged by how this landlord treats early raiders
+            w2 = P["q_weight2"]
+            q_last = tr.q_situ(ridx, True, high, P["q_prior"], P["q_weight"], w2)
+            if exposed == 1:
+                return q_last
+            q_early = tr.q_situ(ridx, False, high, P["q_prior"], P["q_weight"], w2)
+            return 1.0 - (1.0 - q_early) ** (exposed - 1) * (1.0 - q_last)
         q = tr.q_shield(ridx, P["q_prior"], P["q_weight"])
         return 1.0 - (1.0 - q) ** exposed
 

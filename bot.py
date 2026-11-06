@@ -53,44 +53,47 @@ for _a in range(NC):
 PARAMS = {
     'beam': 400,
     'budget_ms': 60.0,
-    'care_mode': 4,
+    'care_mode': 0,
     'combo': 0.0,
-    'combo_pri': 0.6502766807520636,
-    'commit_prior': 0.9,
+    'combo_pri': 1.0,
+    'commit_prior': 0.8509372039599801,
     'consolidate': 0.0,
-    'contest_penalty': 0.27992054896480734,
-    'def_kappa': 0.4377999347395527,
+    'contest_penalty': 0.41019692066890845,
+    'def_kappa': 0.4,
     'free_shield_turns': 1,
-    'freeze_cost': 1.8100145066553317,
+    'freeze_cost': 2.548697121275551,
     'hold': 0.0,
     'horizon': 40,
-    'kappa': 0.818213720800295,
+    'kappa': 0.5387366915857155,
     'lead_caution': 0.0,
     'ncand': 8,
-    'perish': 0.0,
-    'q_prior': 0.3735393059845649,
-    'q_weight': 8.152235570504962,
+    'perish': 0.3752701146933879,
+    'q_prior': 0.552400047641314,
+    'q_weight': 7.89583039574921,
+    'q_weight2': 3.0,
+    'qmode': 0,
     'raid_risk': 1.6,
     'reach': 4,
-    'retake_credit': 0.5045778438356959,
-    'safe_discount': 0.9550375341494743,
-    'shield_bias': 3.0,
-    'shield_certain': 0.6,
-    'shield_cost': 1.8541033508307005,
-    'squat_penalty': 0.05,
+    'retake_credit': 0.0,
+    'safe_discount': 0.9169217238100247,
+    'shield_bias': 1.807233593301326,
+    'shield_certain': 0.9170718314491652,
+    'shield_cost': 0.4,
+    'squat_penalty': 0.2368921135529352,
     'steal': 0.0,
     'steal_min': 3,
     'steal_until': 20,
     'stickiness': 1.35,
-    'tau': 219.3965402269196,
+    'tail': 0.0,
+    'tau': 197.40179278523604,
     'throttle': 1,
     'visits': 7,
-    'w_claim': 0.8500623553430193,
-    'w_denial': 0.21991516374732598,
-    'w_raid': 1.5165347951593473,
-    'w_raid_late': 1.9222520672146663,
-    'w_upgrade': 1.3406278448985105,
-    'zone_bonus': 1.0669057399720059,
+    'w_claim': 0.9973100110042268,
+    'w_denial': 1.2109690577575216,
+    'w_raid': 1.0523299969914037,
+    'w_raid_late': 0.7028514430489812,
+    'w_upgrade': 1.3056092153721313,
+    'zone_bonus': 1.0216992123469346,
 }
 
 
@@ -149,6 +152,12 @@ class Tracker(object):
         # opponent model: shield-on-sight, as Beta counts
         self.sh_yes = [0.0] * 4
         self.sh_no = [0.0] * 4
+        # the same, split by situation: [imminent take? x cell worth >= 2?]. Most
+        # bots only shield when a take is about to complete, and many ignore
+        # 1-point cells, so a single pooled rate under-prices exactly the raids
+        # that get caught
+        self.sq_yes = [[0.0] * 4 for _ in range(4)]
+        self.sq_no = [[0.0] * 4 for _ in range(4)]
         self.raids = [0] * 4        # turns a bot committed while on rival land
         self.takes = [0] * 4        # completed raids (used for score reconstruction)
         self.baits = [0.0] * 4      # turns a bot bailed out instead of committing
@@ -325,6 +334,14 @@ class Tracker(object):
                     self.sh_yes[o - 1] += 1.0
                 else:
                     self.sh_no[o - 1] += 1.0
+                if not home_of[pp]:
+                    need = 3 if pupg[pp] else 1
+                    k = (2 if need - self.prog[i] <= 1 else 0) + \
+                        (1 if base[pp] * (2 if pupg[pp] else 1) >= 2 else 0)
+                    if (o - 1) in shielders:
+                        self.sq_yes[o - 1][k] += 1.0
+                    else:
+                        self.sq_no[o - 1][k] += 1.0
             # did the raider bail out instead of committing?
             if newpos[i] != pp:
                 self.baits[i] += 1.0
@@ -411,6 +428,13 @@ class Tracker(object):
         """Posterior P(this bot shields when a raider is on its land)."""
         y, n = self.sh_yes[seat_idx], self.sh_no[seat_idx]
         return (y + prior * weight) / (y + n + weight)
+
+    def q_situ(self, seat_idx, imminent, high, prior, weight, weight2):
+        """P(shield) in one situation, shrunk toward this bot's pooled rate."""
+        pooled = self.q_shield(seat_idx, prior, weight)
+        k = (2 if imminent else 0) + (1 if high else 0)
+        y, n = self.sq_yes[seat_idx][k], self.sq_no[seat_idx][k]
+        return (y + pooled * weight2) / (y + n + weight2)
 
 
 class Agent(object):
@@ -659,7 +683,7 @@ class Agent(object):
             take = 8.0 * v * lvl
             inc = v * rem
             den = v * lvl * rem * P["w_denial"] * care[o - 1]
-            q = self._shield_risk(o - 1, travel, need)
+            q = self._shield_risk(o - 1, travel, need, v * lvl >= 2)
             lc = P["lead_caution"]
             if lc > 0.0:
                 q += lc * self._standing(seat) * (1.0 - q)
@@ -767,6 +791,17 @@ class Agent(object):
         for (_, p, kind, v, need) in cands:
             if p not in cellbit:
                 cellbit[p] = len(cellbit)
+        # A walk is only credited for the jobs on it, so without this a walk that
+        # burns 28 turns on upgrades looks as good as one that finishes 7 claims in
+        # 14 and still has 14 turns to spare. Credit unused turns up to the horizon
+        # at a fraction of what a turn is worth by then (it decays with the clock).
+        tl = P["tail"]
+        if tl > 0.0:
+            H = horizon
+            tailv = [tl * (H - u) * (R - (H - 1 + u) * 0.5) if u < H else 0.0
+                     for u in range(H + 1)]
+        else:
+            tailv = [0.0] * (horizon + 1)
         # state -> (value, first_cell)   state = (pos, used, mask)
         beam = {(me, 0, 0): (0.0, None)}
         bestby = {}
@@ -797,15 +832,20 @@ class Agent(object):
                     cur = nxt.get(st)
                     if cur is None or cur[0] < nv:
                         nxt[st] = (nv, f)
-                    if bestby.get(f, -1e18) < nv:
-                        bestby[f] = nv
+                    rv = nv + tailv[nu]
+                    if bestby.get(f, -1e18) < rv:
+                        bestby[f] = rv
             if not nxt:
                 break
             width = int(P["beam"] * self._beam_scale)
             if width < 8:
                 width = 8
             if len(nxt) > width:
-                items = sorted(nxt.items(), key=lambda kv: -kv[1][0])[:width]
+                if tl > 0.0:
+                    items = sorted(nxt.items(),
+                                   key=lambda kv: -(kv[1][0] + tailv[kv[0][1]]))[:width]
+                else:
+                    items = sorted(nxt.items(), key=lambda kv: -kv[1][0])[:width]
                 beam = dict(items)
             else:
                 beam = nxt
@@ -841,7 +881,7 @@ class Agent(object):
         return self._step(me, best, occ, owner, seat)
 
     # -------------------------------------------------------------- defence
-    def _shield_risk(self, ridx, travel, need):
+    def _shield_risk(self, ridx, travel, need, high=True):
         """P(this raid gets shielded before it completes)."""
         P = self.P
         tr = self.tr
@@ -853,6 +893,15 @@ class Agent(object):
         exposed = need if cd <= travel else max(0, travel + need - cd)
         if exposed <= 0:
             return 0.0
+        if P["qmode"]:
+            # the last exposed stay is the one where the take is imminent; any
+            # earlier ones are judged by how this landlord treats early raiders
+            w2 = P["q_weight2"]
+            q_last = tr.q_situ(ridx, True, high, P["q_prior"], P["q_weight"], w2)
+            if exposed == 1:
+                return q_last
+            q_early = tr.q_situ(ridx, False, high, P["q_prior"], P["q_weight"], w2)
+            return 1.0 - (1.0 - q_early) ** (exposed - 1) * (1.0 - q_last)
         q = tr.q_shield(ridx, P["q_prior"], P["q_weight"])
         return 1.0 - (1.0 - q) ** exposed
 

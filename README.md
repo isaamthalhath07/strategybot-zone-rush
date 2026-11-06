@@ -60,7 +60,10 @@ one-on-one results, so `PW/3` is how many of the three rivals were outscored.
 entry.** The `stay` row matters too: a bot that crashes, times out or returns an
 illegal action plays `STAY` and finishes there.
 
-`bot.py` ships **v6**, a later version that beats v3 on six of seven matchups:
+> `bot.py` now ships **v7** — see [Re-tested against an independent field](#re-tested-against-an-independent-field-v7)
+> below. The rest of this section describes v6, which shipped before it.
+
+v6 was a later version that beats v3 on six of seven matchups:
 
 | matchup | v3 | v6 |
 |---|---|---|
@@ -85,9 +88,108 @@ illegal action plays `STAY` and finishes there.
 | four identical copies against each other | 5% score spread, 1st to 4th |
 
 v6 is the strongest version *and* the most exploitable one (v3 gives up only
-1.72). It ships anyway, because no competing team has this source to breed a
+1.72). It shipped anyway, because no competing team has this source to breed a
 counter from, and v6 generalises better to opponents it was never tuned against.
-`python ship.py v3_params.json` swaps the other way in one command.
+`python ship.py v6_params.json` rebuilds it in one command.
+
+---
+
+## Re-tested against an independent field (v7)
+
+Every opponent above was written alongside the bot, so it shares the bot's
+assumptions — the caveat this README used to end on. `newfield.py` adds eight
+agents written afterwards from the rules alone, each in a style another team could
+plausibly ship:
+
+| agent | style |
+|---|---|
+| `rate` | points-per-turn greedy over every claim, upgrade and raid |
+| `route` | claims and upgrades good cells in one visit, works outward, raids late, resists baiting |
+| `vulture` | farms, but raids any rival that is frozen or on shield cooldown |
+| `guard` | farms, and physically stands on its best cells when a rival is near |
+| `grab` | sprints for the centre, claim + upgrade on arrival, then backfills |
+| `harass` | farms, then goes after the score leader |
+| `rollout` | Monte-Carlo: plays each first move out in its own model of the game |
+| `seq` | exhaustive three-deep search over the best ten jobs |
+
+Two of them (`route`, `grab`) are stronger than anything in the original zoo.
+**v6 was much weaker against this field than against the one it was tuned on**:
+1.42 / 3 against three `route` farmers — barely above average. The game is mostly
+a farming race, and v6 farmed no better than a 30-line heuristic.
+
+`bot.py` now ships **v7: v3's economic weights with v6's deeper route search**
+(`visits 7, beam 400, horizon 40, ncand 8, reach 4`). The difference that matters
+is v3's objective: it counts a *close* rival's loss heavily (`care_mode 0,
+w_denial 1.21`), where v6 learned to ignore rivals. Against the old zoo, ignoring
+rivals was right; against opponents that farm as well as it does, taking points
+from whoever is level with you is what wins the pairing.
+
+Fresh games the tuning never saw (`bench2.py`, 160 per scenario, common random
+numbers, PW out of 3):
+
+| scenario | v6 | **v7** |
+|---|---|---|
+| vs 3× `route` | 1.42 | **1.73** |
+| vs 3× `vulture` | 1.83 | **2.01** |
+| vs 3× `grab` | 1.82 | **1.97** |
+| vs 3× `seq` | 2.34 | **2.53** |
+| strong mix (route, seq, spine, camper, v3, v6) | 1.88 | **2.10** |
+| vs 3× v6 itself | 1.47 | **1.78** |
+| old zoo, mixed | 2.85 | **2.90** |
+| new field, mixed | **2.47** | 2.45 |
+| vs 3× `rate` / `harass` / `guard` | **2.67 / 2.85 / 2.96** | 2.62 / 2.79 / 2.91 |
+| old holdout, mixed | **2.93** | 2.79 |
+| everything, mixed | **2.67** | 2.62 |
+| **mean of 14 scenarios** | 2.368 | **2.443** |
+
+On opponents never used to tune *either* version (`grab`, `seq`, `rollout` and
+the original holdouts; 1,500 games each) v7 scores **2.456 against v6's 2.402**.
+
+`ship.py` and `test_robust.py` both pass for v7: no crash, illegal action or
+hidden exception, slowest turn 13 ms against the 200 ms limit, and 2.78 / 3 with
+all five ambiguous rules flipped at once (2.81 on the defaults).
+
+The trade is deliberate: v7 gives up 0.05–0.14 against weak or mixed fields, which
+every version wins comfortably anyway, and gains 0.15–0.31 against the strong
+farmers that actually decide placings.
+
+Open league (`league.py`, 2,400 random four-bot games, 26 entrants):
+
+| bot | Elo | PW/3 | score | 1st |
+|---|---|---|---|---|
+| **v7** | **1944** | **2.54** | 2574 | 63% |
+| v3 | 1943 | 2.51 | 2552 | 61% |
+| v6 | 1904 | 2.51 | 2569 | 63% |
+| v1 | 1854 | 2.29 | 2385 | 51% |
+| `route` | 1788 | 2.20 | 2430 | 43% |
+| `grab` | 1788 | 2.23 | 2358 | 43% |
+| `rate` | 1701 | 1.91 | 2156 | 31% |
+| `seq` | 1696 | 1.98 | 2146 | 36% |
+| `spine` | 1617 | 1.79 | 2049 | 28% |
+
+### Tried in this round and not shipped
+
+- **Re-tuning on the broad field** (`tune2.py`: old zoo + five newfield agents +
+  v3/v6 snapshots, 18 generations from v7). It gained a lot against its training
+  opponents (3× `route` 1.73 → 2.22, 3× v6 1.78 → 1.93) and lost it all on the
+  held-out ones (2.456 → 2.399, no better than v6; 3× `seq` 2.40 → 2.23). The
+  same lesson as v5: select on an external field, not the training score. Kept
+  as `v7_broadtune_params.json`.
+- **Crediting a walk's unused turns** (`tail`): the planner credits a walk only
+  for its jobs, which looked like a bias toward slow upgrades. Removing it is
+  clearly worse (2.10 → 1.87–1.93): upgrades in your own quadrant are safe value,
+  quick claims are mostly on contested ground. Off by default.
+- **Situation-aware shield model** (`qmode 1`): estimate a rival's shield rate
+  separately for imminent vs early takes and 1-point vs valuable cells, instead of
+  one pooled rate. Neutral (2.104 → 2.112). Off by default, kept switchable.
+- **Less cautious raiding** (`raid_risk` 1.6 → 1.0): much worse (2.10 → 1.88).
+- **No raiding at all**: much worse (2.10 → 1.73).
+
+```bash
+python bench2.py 160 bot.py mybot.py:v6_params.json     # every scenario, both versions
+python league.py 2400                                     # open league
+python test_newfield.py                                   # the new agents never error silently
+```
 
 ---
 
@@ -173,6 +275,11 @@ free to expand, the bot scores 3,404.
 | `engine.py` | rules engine; the five ambiguous rules are flags in `RULES` |
 | `zoo.py` | opponent archetypes used for tuning |
 | `holdout.py` | opponents never used in tuning, for the overfitting check |
+| `newfield.py` | eight independently written opponents (see above) |
+| `bench2.py` | parallel benchmark of any bot version across 14 opponent scenarios |
+| `league.py` | parallel open league with Elo, every bot against every bot |
+| `tune2.py` | the broad-field re-tune (its result overfitted; not shipped) |
+| `diag_new.py` | where the points go in one matchup: moves, raids, freezes, cells lost |
 | `arena.py` | Elo tournament harness |
 | `tune.py` | (1+λ) evolutionary weight search, multiprocess |
 | `strategies.py` | macro-strategy sweep across three opponent fields |
@@ -328,10 +435,11 @@ on an external tournament rather than on each run's own training score.
 ## Caveats
 
 Every number here is measured against opponents written for this project. The
-300-Elo margin is real, but `spine` is an educated guess at a strong competitor,
-not an actual one. **The highest-value remaining work is replacing the opponent
-zoo with bots generated by several different AI models**, then re-tuning — the
-field you tune against matters more than the algorithm.
+`newfield.py` agents are a second, independent author, not real competitors —
+they showed the original field was too easy, and they are still a guess. Re-tuning
+on them overfitted within 18 generations, so **more independent opponents beat
+more tuning**: the next step is bots from several *other* AI models or real teams,
+used only for selection, never for training.
 
 The bot assumes an 80-turn game. It degrades gracefully if the server keeps no
 module state between calls (2.67 → 2.02 pairwise wins) but is meaningfully
