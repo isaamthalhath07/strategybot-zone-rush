@@ -1,0 +1,25 @@
+{
+  "recommended": "outputs/bot.py",
+  "exact_source": "bot_evolved.py",
+  "sha256": "fe71fcc6a82122aa09d311db0bba92ab90639b2e679bb1ef3abbcc0d87dd0486",
+  "bytes": 20669,
+  "transfer_promoted": false,
+  "acceptance_status": "pass",
+  "original_user_submission_still_matches_snapshot": true,
+  "training_epochs": 22,
+  "actual_training_games": 33312,
+  "promotion_conditions": {
+    "no_recorded_faults": true,
+    "positive_lower_map_block_95pct_delta": false,
+    "no_decline_mean_strict_first": true
+  },
+  "fresh_audit_summary": {
+    "games": 1024,
+    "pairwise": 0.6412760416666666,
+    "strict_first": 0.373046875,
+    "first_share": 0.3779296875,
+    "latency_mean_ms": 0.3550806837850473,
+    "max_ms": 41.816100012511015,
+    "errors": 0
+  }
+}
