@@ -53,7 +53,11 @@ PARAMS = {
     "horizon": 20,             # turns of walk the planner looks ahead
     "visits": 4,               # work-cells per planned walk
     "beam": 140,
-    "budget_ms": 120.0,        # hard internal deadline, well under the 200 ms limit
+    "throttle": 1,             # 0 disables adaptive beam scaling, which makes play
+                               # deterministic again for reproducibility tests
+    "budget_ms": 60.0,         # hard internal deadline. Deliberately far under
+                               # the 200 ms limit: the competition server may be
+                               # loaded, and a late turn is scored as STAY
     "stickiness": 1.06,        # bonus for continuing last turn's objective
     "ncand": 14,               # work-cells considered per turn
     "reach": 7,                # ignore work further away than this
@@ -90,6 +94,19 @@ PARAMS = {
     "free_shield_turns": 2,    # last turns where a backfire costs nothing
     # --- objective shaping --------------------------------------------------
     "tau": 170.0,              # score-margin scale for the placement sigmoid
+    "care_mode": 0,            # who to aim at: 0 margin, 1 leader, 2 weakest,
+                               # 3 nearest on the board, 4 uniform
+    "steal": 0.00,             # extra weight on high-value cells in a RIVAL's
+                               # quadrant early on (the centre-steal opening)
+    "steal_until": 20,         # turns during which the steal bonus applies
+    "steal_min": 3,            # minimum cell value worth stealing
+    "consolidate": 0.00,       # tilt from claiming toward upgrading as the clock
+                               # runs down: claiming pays v x turns-remaining, so
+                               # it is worth most early, while an upgrade of a cell
+                               # you already hold keeps its value longer
+    "lead_caution": 0.00,      # when ahead, treat raids as riskier than they are
+                               # (low variance protects a lead); when behind,
+                               # treat them as safer (gamble to catch up)
 }
 
 
@@ -421,6 +438,7 @@ class Agent(object):
         self.last_action = None
         self.plan_target = None
         self._deadline = 0.0
+        self._beam_scale = 1.0
         self.rng = seed * 2654435761 % 4294967291 or 12345
 
     def rand(self):
@@ -429,6 +447,7 @@ class Agent(object):
 
     # ------------------------------------------------------------------ entry
     def __call__(self, view):
+        t0 = time.perf_counter()
         try:
             a = self.decide(view)
         except Exception:
@@ -436,11 +455,28 @@ class Agent(object):
         if a not in view.legal_actions:
             a = "STAY"
         self.last_action = a
+        # Self-throttle. The grader's machine may be slower or busier than the one
+        # these weights were tuned on, and a late turn is scored as STAY. So shrink
+        # the search when a turn runs long and let it grow back when there is room.
+        if not self.P["throttle"]:
+            return a
+        budget = self.P["budget_ms"] / 1000.0
+        spent = time.perf_counter() - t0
+        if spent > 0.55 * budget:
+            self._beam_scale *= 0.65
+            if self._beam_scale < 0.12:
+                self._beam_scale = 0.12
+        elif spent < 0.15 * budget and self._beam_scale < 1.0:
+            self._beam_scale *= 1.25
+            if self._beam_scale > 1.0:
+                self._beam_scale = 1.0
         return a
 
     def decide(self, view):
         P = self.P
-        self._deadline = time.perf_counter() + P["budget_ms"] / 1000.0
+        t_start = time.perf_counter()
+        self._deadline = t_start + P["budget_ms"] / 1000.0
+        self._t_start = t_start
         bd = view.board
         if bd and isinstance(bd[0], (list, tuple)):
             cells = [bd[r][c] for r in range(N) for c in range(N)]
@@ -500,11 +536,32 @@ class Agent(object):
         tr = self.tr
         mine = tr.score[seat - 1]
         tau = P["tau"]
+        mode = P["care_mode"]
         care = [0.0] * 4
+        rivals = [j for j in range(4) if j != seat - 1]
+        if mode == 4:
+            for j in rivals:
+                care[j] = 1.0
+            return care
+        if mode == 1 or mode == 2:
+            # aim at the leader, or at the weakest (whose land is easiest to take)
+            pick = max(rivals, key=lambda j: tr.score[j]) if mode == 1 else                 min(rivals, key=lambda j: tr.score[j])
+            for j in rivals:
+                care[j] = 2.0 if j == pick else 0.5
+            return care
+        if mode == 3:
+            here = tr.pos[seat - 1]
+            if here is None:
+                for j in rivals:
+                    care[j] = 1.0
+                return care
+            pick = min(rivals, key=lambda j: MANH[here][tr.pos[j]]
+                       if tr.pos[j] is not None else 99)
+            for j in rivals:
+                care[j] = 2.0 if j == pick else 0.5
+            return care
         tot = 0.0
-        for j in range(4):
-            if j == seat - 1:
-                continue
+        for j in rivals:
             x = (mine - tr.score[j]) / tau
             if x > 12:
                 x = 12.0
@@ -583,19 +640,33 @@ class Agent(object):
             # holding denies entry outright, which is strictly stronger than a
             # shield here: no backfire risk and no cooldown
             return self._threat(p, owner, upg, None, occ, seat, R, care) * P["hold"]
+        cons = P["consolidate"]
+        if cons != 0.0:
+            f = 1.0 - (R / float(MAX_TURNS))
+            if f < 0.0:
+                f = 0.0
+            elif f > 1.0:
+                f = 1.0
+            wc = P["w_claim"] * (1.0 - cons * f)
+            wu = P["w_upgrade"] * (1.0 + cons * f)
+            if wc < 0.0:
+                wc = 0.0
+        else:
+            wc = P["w_claim"]
+            wu = P["w_upgrade"]
         if kind == 0:
             if rem <= 0:
                 return None
-            g = v * rem * P["w_claim"]
+            g = v * rem * wc
         elif kind == 3:
             rem1 = R - used - 1               # level-1 income starts after 1 stay
             if rem <= 0 or rem1 <= 0:
                 return None
-            g = (v * rem1 * P["w_claim"] + v * rem * P["w_upgrade"]) * P["combo"]
+            g = (v * rem1 * wc + v * rem * wu) * P["combo"]
         elif kind == 1:
             if rem <= 0:
                 return None
-            g = v * rem * P["w_upgrade"]
+            g = v * rem * wu
         else:
             if rem < 0:
                 return None
@@ -605,6 +676,13 @@ class Agent(object):
             inc = v * rem
             den = v * lvl * rem * P["w_denial"] * care[o - 1]
             q = self._shield_risk(o - 1, travel, need)
+            lc = P["lead_caution"]
+            if lc > 0.0:
+                q += lc * self._standing(seat) * (1.0 - q)
+                if q > 1.0:
+                    q = 1.0
+                elif q < 0.0:
+                    q = 0.0
             g = ((take + inc + den) * (1.0 - q * P["raid_risk"])
                  - q * P["raid_risk"] * P["freeze_cost"] * kappa)
             # A raid bonus is one-off, so unlike income it does not decay with the
@@ -621,6 +699,20 @@ class Agent(object):
         # its neighbour and the bot oscillates between the two forever.
         g *= self._cellmod[p]
         return g
+
+    def _standing(self, seat):
+        """+1 when comfortably ahead of the field, -1 when clearly behind."""
+        tr = self.tr
+        mine = tr.score[seat - 1]
+        others = [tr.score[j] for j in range(4) if j != seat - 1]
+        if not others:
+            return 0.0
+        gap = (mine - max(others)) / self.P["tau"]
+        if gap > 1.0:
+            return 1.0
+        if gap < -1.0:
+            return -1.0
+        return gap
 
     def _threat(self, p, owner, upg, base, occ, seat, R, care):
         """What an adjacent rival would gain by taking cell p from me."""
@@ -672,6 +764,12 @@ class Agent(object):
                 m = safe                      # nobody can contest it: it can wait
             if zone[p] == seat:
                 m *= zb
+            elif (P["steal"] > 0.0 and tr.turn <= P["steal_until"]
+                  and base[p] >= P["steal_min"]):
+                # the centre-steal opening: a rival's best cells are 6-8 moves
+                # from their home but only 5-7 from mine, so there is a window
+                # before they arrive
+                m *= (1.0 + P["steal"])
             if occ[p] and p != me:
                 m *= sq
             mod[p] = m
@@ -688,11 +786,15 @@ class Agent(object):
         # state -> (value, first_cell)   state = (pos, used, mask)
         beam = {(me, 0, 0): (0.0, None)}
         bestby = {}
+        tick = 0
         for _ in range(P["visits"]):
             if time.perf_counter() > self._deadline:
                 break                         # out of time: use the best walk so far
             nxt = {}
             for (pos, used, mask), (val, first) in beam.items():
+                tick += 1
+                if not (tick & 7) and time.perf_counter() > self._deadline:
+                    break                     # bail mid-iteration too
                 for (_, p, kind, v, need) in cands:
                     k = cellbit[p]
                     if (mask >> k) & 1:
@@ -715,8 +817,11 @@ class Agent(object):
                         bestby[f] = nv
             if not nxt:
                 break
-            if len(nxt) > P["beam"]:
-                items = sorted(nxt.items(), key=lambda kv: -kv[1][0])[:P["beam"]]
+            width = int(P["beam"] * self._beam_scale)
+            if width < 8:
+                width = 8
+            if len(nxt) > width:
+                items = sorted(nxt.items(), key=lambda kv: -kv[1][0])[:width]
                 beam = dict(items)
             else:
                 beam = nxt

@@ -29,7 +29,7 @@ FIELD = [
 # param -> (low, high, is_integer, mutation step as a fraction of the range)
 BOUNDS = {
     "horizon":        (8, 40, True, 0.12),
-    "visits":         (5, 8, True, 0.14),
+    "visits":         (5, 10, True, 0.14),
     "beam":           (40, 400, True, 0.12),
     "ncand":          (8, 26, True, 0.12),
     "reach":          (4, 10, True, 0.12),
@@ -40,6 +40,8 @@ BOUNDS = {
     "w_raid_late":    (0.3, 3.0, False, 0.12),
     "combo":          (0.0, 1.6, False, 0.12),
     "hold":           (0.0, 1.2, False, 0.12),
+    "consolidate":    (-0.8, 0.9, False, 0.12),
+    "lead_caution":   (0.0, 0.8, False, 0.12),
     "combo_pri":      (0.3, 2.0, False, 0.12),
     "w_denial":       (0.0, 1.5, False, 0.12),
     "perish":         (0.0, 1.0, False, 0.12),

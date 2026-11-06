@@ -113,9 +113,13 @@ def verify(out="bot.py", params_file="best_params.json"):
     for s_ in range(12):
         base = engine.make_map(seed=1500 + s_)
         g = engine.Game(base=base, start_token=(s_ % 4) + 1)
-        dev = mybot.Agent(seed=4242, params=P)
+        Pd = dict(P)
+        Pd["throttle"] = 0           # wall-clock-dependent throttling would make
+                                     # this comparison flaky, not the bot wrong
+        dev = mybot.Agent(seed=4242, params=Pd)
         shipped._AGENTS.clear()
         ships = shipped.Agent(seed=4242)
+        ships.P["throttle"] = 0
         opp = [zoo.CamperBot(i) for i in range(3)]
         while not g.over():
             vs = g.views()
@@ -243,9 +247,9 @@ def verify(out="bot.py", params_file="best_params.json"):
              1000 * sum(t_all) / len(t_all)))
     if bad_n:
         problems.append("%d crashes/illegal actions under stress" % bad_n)
-    if worst > 0.15:
-        problems.append("max turn time %.0f ms is too close to the 200 ms limit"
-                        % (worst * 1000))
+    if worst > 0.10:
+        problems.append("max turn time %.0f ms leaves too little margin under the "
+                        "200 ms limit on a loaded server" % (worst * 1000))
 
     print("  file size: %.1f KB, %d lines"
           % (len(src) / 1024.0, len(src.splitlines())))
