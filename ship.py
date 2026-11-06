@@ -191,6 +191,46 @@ def verify(out="bot.py", params_file="best_params.json"):
         problems.append("decide() raises internally (%d times): %s"
                         % (len(raised), raised[0]))
 
+    # 4c. the fallback policy has to survive into the shipped file. If decide()
+    #     ever raises on the real server, this is the whole difference between a
+    #     mediocre bot and 80 turns of STAY.
+    if not hasattr(shipped, "_fallback"):
+        problems.append("the shipped file has no _fallback policy")
+        print("  fallback policy: MISSING")
+    else:
+        fb_score = stay_score = 0
+        for s_ in range(6):
+            base = engine.make_map(seed=4700 + s_)
+            for which in ("fallback", "stay"):
+                g = engine.Game(base=base, start_token=(s_ % 4) + 1)
+                opp = [zoo.SpineFarmerBot(s_ * 4 + i) for i in range(1, 4)]
+                while not g.over():
+                    vs = g.views()
+                    if which == "fallback":
+                        try:
+                            a = shipped._fallback(vs[0])
+                        except Exception as e:
+                            problems.append("_fallback raised: %r" % (e,))
+                            a = "STAY"
+                    else:
+                        a = "STAY"
+                    if a not in vs[0].legal_actions:
+                        problems.append("_fallback returned illegal %r" % a)
+                        a = "STAY"
+                    acts = [a] + [opp[i](vs[i + 1]) for i in range(3)]
+                    acts = [x if x in vs[i].legal_actions else "STAY"
+                            for i, x in enumerate(acts)]
+                    g.step(acts)
+                if which == "fallback":
+                    fb_score += g.score[0]
+                else:
+                    stay_score += g.score[0]
+        ratio = fb_score / float(max(1, stay_score))
+        print("  fallback policy: scores %.1fx the skeleton (%.0f vs %.0f)"
+              % (ratio, fb_score / 6.0, stay_score / 6.0))
+        if ratio < 2.0:
+            problems.append("fallback policy is no better than STAY (%.1fx)" % ratio)
+
     # 5. stress: never crash, never illegal, never slow
     worst = 0.0
     bad_n = 0

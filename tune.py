@@ -6,6 +6,16 @@ Common random numbers -- every candidate in a generation plays the identical set
 of (map, seat, opponent-lineup) tasks -- so a generation compares policies, not
 luck. The task set is refreshed periodically and the incumbent re-scored on it,
 and there is a held-out validation set at the end to catch overfitting.
+
+Selection also has a CONFIRMATION STAGE, which turned out to matter more than
+anything else here. Taking the best of `lam` candidates on one draw of games is a
+maximum over noisy estimates: with a few hundred games the standard error is
+around 0.06 pairwise wins, and the best of thirteen draws is biased upward by
+roughly 1.5 of those -- more than the improvements being searched for. Without
+confirmation the search spends most of its generations accepting luck, and the
+tell is that the incumbent drops by about that much every time the task set is
+refreshed. A candidate now has to win twice: once on its own draw, then again
+against the incumbent on games it was not selected on.
 """
 import json
 import multiprocessing
@@ -26,14 +36,34 @@ FIELD = [
     ("stay", 0.15),
 ]
 
+# The field that should actually drive decisions. Near-peers are weighted up
+# because they are what decides Elo: beating a bot that barely works is worth
+# the same single pairwise win as beating the best team in the room, but there
+# are far more games in which the close calls are against serious entries.
+REALISTIC = [
+    ("v6", 3.0), ("v3", 2.0), ("nemesis2", 1.6), ("nemesis3", 1.6),
+    ("pro_tuned", 3.0), ("pro", 0.8),
+    ("ai_hawk", 2.2), ("ai_homefort", 2.2), ("ai_marginal", 1.8),
+    ("ai_cheapraid", 1.8), ("ai_elo", 1.2), ("ai_centre", 1.0),
+    ("ai_route", 1.0), ("spine", 2.5), ("camper", 2.0),
+    ("cdraider", 1.2), ("turtle", 1.0), ("centre", 1.0), ("hunter", 1.0),
+    ("greedy", 1.2), ("greedyshield", 1.2), ("raider", 0.8), ("baiter", 0.8),
+    ("random", 0.2), ("stay", 0.15),
+]
+PEER = [
+    ("v6", 3.0), ("v3", 2.0), ("nemesis1", 1.5), ("nemesis2", 1.5),
+    ("nemesis3", 1.5), ("ai_hawk", 2.0), ("ai_homefort", 2.0), ("spine", 2.0),
+    ("pro_tuned", 3.0),
+]
+
 # param -> (low, high, is_integer, mutation step as a fraction of the range)
 BOUNDS = {
-    "horizon":        (8, 40, True, 0.12),
+    "horizon":        (8, 50, True, 0.12),
     "visits":         (5, 10, True, 0.14),
     "beam":           (40, 400, True, 0.12),
-    "ncand":          (8, 26, True, 0.12),
-    "reach":          (4, 10, True, 0.12),
-    "stickiness":     (1.00, 1.35, False, 0.10),
+    "ncand":          (6, 26, True, 0.12),
+    "reach":          (3, 10, True, 0.12),
+    "stickiness":     (1.00, 1.80, False, 0.10),
     "w_claim":        (0.5, 1.8, False, 0.10),
     "w_upgrade":      (0.5, 2.0, False, 0.10),
     "w_raid":         (0.3, 2.0, False, 0.10),
@@ -54,14 +84,25 @@ BOUNDS = {
     "freeze_cost":    (0.5, 4.0, False, 0.12),
     "q_prior":        (0.2, 0.9, False, 0.10),
     "q_weight":       (1.0, 12.0, False, 0.12),
-    "raid_risk":      (0.4, 1.6, False, 0.10),
+    "raid_risk":      (0.3, 2.5, False, 0.10),
     "shield_cost":    (0.4, 4.0, False, 0.12),
-    "shield_bias":    (0.3, 3.0, False, 0.12),
-    "shield_certain": (0.6, 1.0, False, 0.08),
+    "shield_bias":    (0.15, 6.0, False, 0.12),
+    "shield_certain": (0.40, 1.0, False, 0.08),
     "retake_credit":  (0.0, 0.9, False, 0.12),
-    "commit_prior":   (0.15, 0.9, False, 0.12),
+    "commit_prior":   (0.10, 0.98, False, 0.12),
     "free_shield_turns": (1, 5, True, 0.15),
     "tau":            (60.0, 420.0, False, 0.12),
+    # added once the ruleset was confirmed
+    "care_mode":      (0, 4, True, 0.30),
+    "proj_care":      (0.0, 1.0, False, 0.20),
+    "home_bonus":     (0.70, 1.60, False, 0.10),
+    "upg_risk":       (0.0, 1.5, False, 0.12),
+    "own_prog":       (0.0, 2.0, False, 0.12),
+    "intent":         (0.0, 0.8, False, 0.12),
+    "intent_turns":   (1, 4, True, 0.30),
+    "endgame_care":   (0, 30, True, 0.18),
+    "endgame_denial": (0.5, 4.0, False, 0.12),
+    "tie_home":       (-1, 1, True, 0.40),
 }
 
 
@@ -81,7 +122,10 @@ def get_field(spec):
         return f
     if spec.startswith("counter:"):
         return [(spec.split(":", 1)[1], 1.0)]
-    raise SystemExit("unknown field spec %r (want default|mixed|counter:NAME)" % spec)
+    if spec in ("realistic", "peer"):
+        return list(REALISTIC if spec == "realistic" else PEER)
+    raise SystemExit("unknown field spec %r "
+                     "(want default|mixed|realistic|peer|counter:NAME)" % spec)
 
 
 def make_tasks(n, seed, field=None):
@@ -109,18 +153,25 @@ def make_tasks(n, seed, field=None):
 
 
 def _factory(name):
-    """Opponent by name: a zoo archetype, or a frozen snapshot of this bot."""
-    if name in _ZOO:
-        return _ZOO[name]
-    return rivals.factory(name)
-
-
-_ZOO = dict((c.name, c) for c in zoo.ZOO)
+    """Opponent by name -- see field.opponent for the single resolver."""
+    import field as fieldmod
+    return fieldmod.opponent(name)
 
 
 def play_task(params, task):
     map_seed, myseat, opps, token = task
     base = engine.make_map(seed=map_seed)
+    # Determinism for measurement. Two things make play depend on wall-clock
+    # time: the adaptive beam (throttle) and the hard deadline inside the beam
+    # search, which truncates it when a turn runs long. Switching off only the
+    # first is not enough -- under load the deadline still bites, and two
+    # identical parameter sets then differ by as much as 0.06 pairwise wins,
+    # which is the size of a real improvement. Both are shipping insurance
+    # against a slow grader, not part of the policy, so evaluation runs with the
+    # search always completing and bot.py keeps the guards.
+    params = dict(params)
+    params["throttle"] = 0
+    params["budget_ms"] = 10000.0
     ag = mybot.Agent(seed=map_seed & 0xffff, params=params)
     bots = []
     k = 0
@@ -207,6 +258,7 @@ def main():
     fieldspec = sys.argv[4] if len(sys.argv) > 4 else "default"
     outfile = sys.argv[5] if len(sys.argv) > 5 else "best_params.json"
     seedfile = sys.argv[6] if len(sys.argv) > 6 else outfile
+    nverify = int(sys.argv[7]) if len(sys.argv) > 7 else max(160, ntasks)
     field = get_field(fieldspec)
     print("field: %s" % ", ".join("%s(%.1f)" % (n_, w) for n_, w in field))
     start = dict(mybot.PARAMS)
@@ -232,13 +284,27 @@ def main():
         res = evaluate(pool, cands, tasks)
         bi = max(range(lam), key=lambda i: res[i][0])
         bpw, bsc = res[bi]
+        tag = "  keep"
         if bpw > curpw:
-            cur, curpw, cursc = cands[bi], bpw, bsc
-            sigma = min(2.0, sigma * 1.18)
-            tag = "accept"
-        else:
+            # CONFIRMATION STAGE. Taking the best of `lam` candidates on one draw
+            # of games is a maximum over noisy estimates, so the winner's score is
+            # biased upward by roughly 1.5 standard errors -- with 264 games that
+            # is about +0.09 pairwise wins of pure luck, which is larger than the
+            # improvements being searched for. The symptom is unmistakable: every
+            # time the task set was refreshed, the incumbent dropped by about that
+            # much. So a candidate now has to beat the incumbent AGAIN on games it
+            # was not selected on, with both re-scored on the same fresh draw.
+            vt = make_tasks(nverify, 7700000 + gen * 17, field)
+            (vnew, _vs), (vcur, _cs) = evaluate(pool, [cands[bi], cur], vt)
+            if vnew > vcur:
+                cur, curpw, cursc = cands[bi], bpw, bsc
+                sigma = min(2.0, sigma * 1.18)
+                tag = "accept"
+            else:
+                sigma = max(0.22, sigma * 0.95)
+                tag = "reject"          # won its own draw, lost the confirmation
+        if tag == "  keep":
             sigma = max(0.22, sigma * 0.90)
-            tag = "  keep"
         hist.append(curpw)
         print("gen %2d  %s  PW %.4f  score %.0f  sigma %.2f  (%.0fs)"
               % (gen, tag, curpw, cursc, sigma, time.time() - t0))

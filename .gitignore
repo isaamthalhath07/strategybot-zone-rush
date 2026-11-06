@@ -7,3 +7,10 @@ StrategyBot_RuleBook.pdf
 
 # RL virtualenv (large, local only)
 .venv-rl/
+
+# Live tuner output. A run rewrites these every generation, so committing one
+# mid-run would publish a half-tuned parameter set as if it were a decision.
+# Frozen snapshots get explicit names instead (pro_params_v1.json, v6_params.json).
+v7_params.json
+v7_seed.json
+pro_params.json

@@ -172,33 +172,41 @@ for mt in (10, 40, 150):
 if odd:
     fails.append("non-80-turn games")
 
-# every seat, repeated, to be sure nothing is hardcoded to a corner
+# Every seat, to be sure nothing is hardcoded to a corner.
+#
+# This has to be done as SELF-PLAY. The map is four-fold mirrored, so four copies
+# of one bot must average exactly 1.50 pairwise wins in each seat, and any
+# deviation is that bot's own bias. Measuring against three copies of one
+# opponent does NOT work: it reported this bot as 2.1/2.4/1.3/1.2 across the
+# seats, which looked alarming and turned out to be SpineFarmerBot's own seat
+# bias leaking in -- replacing a strong seat with my bot is a different
+# experiment from replacing a weak one. See diag_seat.py.
 seat_pw = []
 for seat in range(4):
     tot = 0.0
     n = 0
-    for s in range(24):
-        base = engine.make_map(seed=8000 + s)
-        ag = mybot.Agent(seed=s, params=PARAMS)
-        bots = [ag if i == seat else zoo.SpineFarmerBot(s * 4 + i) for i in range(4)]
-        g = engine.Game(base=base, start_token=(s % 4) + 1)
+    for s_ in range(30):
+        base = engine.make_map(seed=8000 + s_)
+        bots = [mybot.Agent(seed=s_ * 4 + i, params=PARAMS) for i in range(4)]
+        g = engine.Game(base=base, start_token=(s_ % 4) + 1)
         while not g.over():
             vs = g.views()
             acts = []
             for i in range(4):
-                a = bots[i](vs[i])
-                if a not in vs[i].legal_actions:
-                    a = "STAY"
-                acts.append(a)
+                a_ = bots[i](vs[i])
+                if a_ not in vs[i].legal_actions:
+                    a_ = "STAY"
+                acts.append(a_)
             g.step(acts)
         pl = g.places()
         tot += sum(1.0 for j in range(4) if j != seat and pl[seat] < pl[j])
+        tot += 0.5 * sum(1 for j in range(4) if j != seat and pl[seat] == pl[j])
         n += 1
     seat_pw.append(tot / n)
-print("  PW by seat (1,2,3,4)             : %s" %
+print("  PW by seat in self-play (1.50 each by symmetry) : %s" %
       "  ".join("%.2f" % x for x in seat_pw))
-if max(seat_pw) - min(seat_pw) > 0.6:
-    fails.append("seat-dependent strength: %s" % seat_pw)
+if max(seat_pw) - min(seat_pw) > 0.30:
+    fails.append("seat-dependent strength in self-play: %s" % seat_pw)
 
 print("\n=== C. mirror match (the convergent-field scenario) ====================")
 tot = 0.0

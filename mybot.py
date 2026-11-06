@@ -40,6 +40,28 @@ for _p in range(NC):
         if _q in NEIGH[_p]:
             STEP_NAME[(_p, _q)] = _nm
 
+# Cell p's index as seen from each seat's own corner. The board is four-fold
+# mirrored, so seat 1 at (0,0), seat 2 at (0,7), seat 3 at (7,7) and seat 4 at
+# (7,0) see geometrically identical games -- but only if the bot's own
+# tie-breaking is expressed in its own frame. It was not: equal-priority cells
+# were ordered by raw cell index, which always favours the bottom-right, so
+# seats 3 and 4 broke ties toward their own homes and seats 1 and 2 broke them
+# away. In self-play, where symmetry fixes every seat at 1.50 pairwise wins, that
+# showed up as 1.37 / 1.48 / 1.56 / 1.59.
+CANON = [None] * 5
+for _s in range(1, 5):
+    _flip_r = _s in (3, 4)
+    _flip_c = _s in (2, 3)
+    _t = [0] * NC
+    for _p in range(NC):
+        _r, _c = divmod(_p, N)
+        if _flip_r:
+            _r = N - 1 - _r
+        if _flip_c:
+            _c = N - 1 - _c
+        _t[_p] = _r * N + _c
+    CANON[_s] = _t
+
 MANH = [[0] * NC for _ in range(NC)]
 for _a in range(NC):
     _ar, _ac = divmod(_a, N)
@@ -107,6 +129,46 @@ PARAMS = {
     "lead_caution": 0.00,      # when ahead, treat raids as riskier than they are
                                # (low variance protects a lead); when behind,
                                # treat them as safer (gamble to catch up)
+    # --- added after the organisers confirmed the ruleset -------------------
+    "proj_care": 0.00,         # 0 compares rivals on their CURRENT score, 1 on
+                               # score + income x turns-left. Round 1 scores each
+                               # game as three one-on-one results, so what matters
+                               # is the FINAL ordering; current score is a poor
+                               # proxy for it early, when almost nothing is banked
+    "home_bonus": 1.00,        # multiplier on work on my own home. A home can
+                               # never be captured, so upgrading it is the only
+                               # doubling on the board that cannot be raided back
+    "upg_risk": 0.00,          # upgrading doubles the raid bounty on a cell
+                               # (8 x v x 2 instead of 8 x v x 1), so upgrading an
+                               # exposed cell invites the raid it is worth
+    "first_turn_ms": 0.0,      # extra think time on turn 1 only (the server
+                               # allows 2 s there against 200 ms afterwards);
+                               # 0 keeps the per-turn budget
+    "first_turn_mult": 1.0,    # beam/horizon multiplier for that deeper turn-1 plan
+    "own_prog": 0.00,          # cost of the capture/upgrade progress a SHIELD
+                               # throws away, in action-turns per lost stay
+    "intent": 0.00,            # discount on cells a rival is visibly walking
+                               # toward: arriving second wastes the whole trip
+    "intent_turns": 3,         # how many turns of approach count as intent
+    "endgame_care": 0,         # turns at the end during which the bot switches
+                               # from "maximise my own score" to "win the
+                               # pairings that are still in play". Round 1 scores
+                               # each game as three one-on-one results, so a cell
+                               # that lifts me past the rival just above me is
+                               # worth a whole pairwise win, while the same cell
+                               # is worth nothing once I am clear of everybody.
+                               # 0 keeps the single all-game objective
+    "tie_home": 1,             # how equal-priority cells are ordered:
+                               #   0  raw cell index -- the old behaviour, which
+                               #      is not symmetric between the four corners
+                               #   1  nearest my own corner first
+                               #  -1  farthest from my own corner first
+                               # Only breaks exact ties, but those are common:
+                               # priority is v x (R-d-need)/(d+need) over small
+                               # integers, so many cells score identically
+    "endgame_denial": 1.0,     # multiplier on the denial term inside that window:
+                               # taking points off the rival I am chasing closes
+                               # the gap from both ends at once
 }
 
 
@@ -130,6 +192,9 @@ def _all_pairs():
 
 
 DIST = _all_pairs()
+_ONES = [1.0] * NC
+_ZEROS = [0.0] * NC
+_IDENT = list(range(NC))
 
 
 def _bfs(start, blocked):
@@ -172,6 +237,12 @@ class Tracker(object):
         self.base = None
         self.home_of = None
         self.zone = None
+        self.trail = [[], [], [], []]   # recent positions, newest last
+        # Does progress carry over from a capture into the upgrade? Unknown until
+        # the board shows us. None = not yet observed, assume the slow reading.
+        self.carry = None
+        self._claimed_at = [None] * 4   # (cell, stays since the capture)
+        self.new_game = True            # the Agent clears its own state on this
 
     # -- static board facts, computed once -----------------------------------
     def init_static(self, base, home_of):
@@ -195,6 +266,7 @@ class Tracker(object):
     # -- per-turn update ------------------------------------------------------
     def observe(self, owner, upg, occ, frz, seat, is_token, base, home_of,
                 my_last=None):
+        self.new_game = False
         fresh = self._is_fresh(owner, occ, home_of)
         if fresh or self.prev is None or self.turn > 400:
             self.reset()
@@ -367,11 +439,45 @@ class Tracker(object):
             self.prog[i] += 1
             if self.prog[i] >= need:
                 self.prog[i] = 0
-        # ownership changes that completed this turn also zero progress
+        # ownership changes that completed this turn also zero progress -- or not,
+        # if the server carries it over. self.carry holds whatever the board has
+        # shown us so far; until then take the conservative reading.
+        carrying = bool(self.carry)
         for i in range(4):
-            if newpos[i] is not None and owner[newpos[i]] == i + 1 and \
-                    pow_[newpos[i]] != i + 1:
-                self.prog[i] = 0
+            p = newpos[i]
+            if p is None:
+                self._claimed_at[i] = None
+                continue
+            just_claimed = owner[p] == i + 1 and pow_[p] != i + 1
+            if just_claimed:
+                # If progress carries over it keeps the value that just satisfied
+                # the requirement, which is 3 after taking an UPGRADED rival cell
+                # and 1 otherwise -- not always 1. Getting this wrong matters:
+                # under the carry-over reading, taking an upgraded cell leaves
+                # enough progress to re-upgrade it on the very next stay.
+                if carrying:
+                    po = pow_[p]
+                    self.prog[i] = 3 if (po and po != i + 1 and pupg[p]) else 1
+                else:
+                    self.prog[i] = 0
+                self._claimed_at[i] = [p, 0]
+                continue
+            # watch a capture ripen into an upgrade and read the rule off it
+            w = self._claimed_at[i]
+            if w is None:
+                continue
+            if p != w[0] or owner[p] != i + 1 or self.frozen[i] > 0:
+                self._claimed_at[i] = None
+                continue
+            if upg[p] and not pupg[p]:
+                # it upgraded after w[1] + 1 stays beyond the capturing stay
+                if self.carry is None:
+                    self.carry = (w[1] + 1) <= 2
+                self._claimed_at[i] = None
+            else:
+                w[1] += 1
+                if w[1] > 4:
+                    self._claimed_at[i] = None
 
         # raid bonuses, then income
         for p in range(NC):
@@ -381,8 +487,35 @@ class Tracker(object):
                 self.score[b - 1] += 8 * base[p] * lvl
                 self.takes[b - 1] += 1
         self._accrue_income(owner, upg)
+        for i in range(4):
+            if newpos[i] is not None:
+                t = self.trail[i]
+                t.append(newpos[i])
+                if len(t) > 6:
+                    del t[0]
         self.pos = newpos
         self.prev = (owner[:], upg[:], occ[:], frz[:])
+
+    def approaching(self, j, p, turns):
+        """Is rival j visibly closing on cell p over its last few moves?
+
+        Returns the number of consecutive recent turns over which its distance
+        to p strictly decreased. A rival three turns into a walk toward a cell is
+        going to claim it in one stay when it arrives, and arriving second on a
+        contested cell costs the whole trip for nothing.
+        """
+        t = self.trail[j]
+        if len(t) < 2:
+            return 0
+        n = 0
+        k = len(t) - 1
+        while k > 0 and n < turns:
+            if MANH[t[k]][p] < MANH[t[k - 1]][p]:
+                n += 1
+                k -= 1
+            else:
+                break
+        return n
 
     def _need(self, owner, upg, p, seat):
         """Stays needed to finish what a bot on cell p is doing, or None if nothing."""
@@ -440,6 +573,8 @@ class Agent(object):
         self._deadline = 0.0
         self._beam_scale = 1.0
         self.rng = seed * 2654435761 % 4294967291 or 12345
+        self._rng0 = self.rng           # so a new game restarts the same stream
+        self._nturns = 0
 
     def rand(self):
         self.rng = (1103515245 * self.rng + 12345) % 2147483648
@@ -451,7 +586,18 @@ class Agent(object):
         try:
             a = self.decide(view)
         except Exception:
-            a = "STAY"
+            # Never fall all the way back to STAY. Returning STAY here is the
+            # worst failure mode available: one bad assumption about the state
+            # object degrades the bot to the skeleton for all 80 turns while
+            # every stress test still reports "no crashes", because the
+            # exception never escapes. That happened once, from a single missing
+            # parameter key. _fallback is a crude policy that still captures
+            # cells -- about 8x the skeleton's score -- and this path costs
+            # nothing while decide() is healthy.
+            try:
+                a = _fallback(view)
+            except Exception:
+                a = "STAY"
         if a not in view.legal_actions:
             a = "STAY"
         self.last_action = a
@@ -475,7 +621,14 @@ class Agent(object):
     def decide(self, view):
         P = self.P
         t_start = time.perf_counter()
-        self._deadline = t_start + P["budget_ms"] / 1000.0
+        ms = P["budget_ms"]
+        if self._nturns == 0 and P["first_turn_ms"] > ms:
+            ms = P["first_turn_ms"]           # the server allows 2 s on turn 1
+        self._deep = (P["first_turn_mult"] if self._nturns == 0 else 1.0)
+        self._nturns += 1
+        self._deadline = t_start + ms / 1000.0
+        self._cellmod = _ONES
+        self._expose = _ZEROS
         self._t_start = t_start
         bd = view.board
         if bd and isinstance(bd[0], (list, tuple)):
@@ -502,6 +655,12 @@ class Agent(object):
         tr = self.tr
         tr.observe(owner, upg, occ, frz, seat, view.is_priority_token, base,
                    home_of, self.last_action)
+        if tr.new_game:
+            self.plan_target = None
+            self._beam_scale = 1.0
+            self._nturns = 1
+            self._deep = 1.0
+            self.rng = self._rng0
         me = tr.pos[seat - 1]
         if me is None:
             return "STAY"
@@ -512,11 +671,17 @@ class Agent(object):
         R = MAX_TURNS - tr.turn + 1           # turns left, including this one
         if R < 1:
             R = 1
-        care = self._care(seat)
+        care = self._care(seat, R)
         kappa = max(1.0, P["kappa"] * R)
 
         # ---- defence: the shield/raid subgame -------------------------------
-        if "SHIELD" in legal:
+        # Trust legal_actions, but do not rely on it alone. The rulebook says a
+        # shield cannot be repeated for four turns, and my engine therefore drops
+        # SHIELD from the legal list during cooldown -- but if the real server
+        # leaves it in and simply treats the attempt as STAY, shielding on
+        # cooldown would waste the turn AND make the tracker believe a shield went
+        # up. The tracker knows its own cooldown exactly, so check both.
+        if "SHIELD" in legal and tr.cd[seat - 1] == 0:
             dkappa = P["def_kappa"] * R
             if dkappa < 1.0:
                 dkappa = 1.0
@@ -530,13 +695,36 @@ class Agent(object):
         return act if act is not None else "STAY"
 
     # ------------------------------------------------------------ objective
-    def _care(self, seat):
+    def _proj(self, seat, R):
+        """Projected final scores if ownership never changed again.
+
+        Round 1 turns each game into three one-on-one results, so the only thing
+        that matters about a rival is whether I finish above it. Current score is
+        a bad estimate of that: on turn 10 nobody has banked anything, while the
+        income already on the board decides most of the remaining 70 turns.
+        """
+        tr = self.tr
+        f = self.P["proj_care"]
+        if f <= 0.0:
+            return list(tr.score)
+        return [tr.score[j] + f * tr.income[j] * R for j in range(4)]
+
+    def _care(self, seat, R=1):
         """Placement objective: weight each rival by how contested that pairing is."""
         P = self.P
         tr = self.tr
-        mine = tr.score[seat - 1]
+        proj = self._proj(seat, R)
+        mine = proj[seat - 1]
         tau = P["tau"]
         mode = P["care_mode"]
+        if P["endgame_care"] and R <= P["endgame_care"]:
+            # Inside the endgame window, compare on projected FINAL scores
+            # whatever proj_care says, and weight each rival by how nearly level
+            # that pairing is -- those are the only ones still worth actions.
+            inc = self.tr.income
+            proj = [self.tr.score[j] + inc[j] * R for j in range(4)]
+            mine = proj[seat - 1]
+            mode = 0
         care = [0.0] * 4
         rivals = [j for j in range(4) if j != seat - 1]
         if mode == 4:
@@ -545,7 +733,7 @@ class Agent(object):
             return care
         if mode == 1 or mode == 2:
             # aim at the leader, or at the weakest (whose land is easiest to take)
-            pick = max(rivals, key=lambda j: tr.score[j]) if mode == 1 else                 min(rivals, key=lambda j: tr.score[j])
+            pick = max(rivals, key=lambda j: proj[j]) if mode == 1 else                 min(rivals, key=lambda j: proj[j])
             for j in rivals:
                 care[j] = 2.0 if j == pick else 0.5
             return care
@@ -562,7 +750,7 @@ class Agent(object):
             return care
         tot = 0.0
         for j in rivals:
-            x = (mine - tr.score[j]) / tau
+            x = (mine - proj[j]) / tau
             if x > 12:
                 x = 12.0
             elif x < -12:
@@ -584,6 +772,12 @@ class Agent(object):
         dist = DIST[me]
         out = []
         maxd = P["reach"]
+        th = P["tie_home"]
+        if th == 0:
+            tie = _IDENT                      # raw cell index, as before
+        else:
+            can = CANON[seat]
+            tie = [-can[p] for p in range(NC)] if th > 0 else can
         for p in range(NC):
             d = dist[p]
             if d > maxd:
@@ -617,15 +811,16 @@ class Agent(object):
                 pri *= 0.3
             if tr.zone[p] == seat:
                 pri *= P["zone_bonus"]
-            out.append((pri, p, kind, v, need))
+            tb = tie[p]
+            out.append((pri, tb, p, kind, v, need))
             if p == me and o == seat and P["hold"] > 0.0:
                 thr = self._threat(p, owner, upg, base, occ, seat, R, care)
                 if thr > 0.0:
-                    out.append((thr, p, 4, v, 1))
+                    out.append((thr, tb, p, 4, v, 1))
             # claiming and upgrading in one visit costs 4 stays and no extra
             # travel; doing it as two visits costs a round trip as well
             if kind == 0 and P["combo"] > 0.0 and d + 4 <= R:
-                out.append((pri * P["combo_pri"], p, 3, v, need + 3))
+                out.append((pri * P["combo_pri"], tb, p, 3, v, need + 3))
         out.sort(reverse=True)
         return out[:P["ncand"]]
 
@@ -674,11 +869,14 @@ class Agent(object):
             lvl = 2 if upg[p] else 1
             take = 8.0 * v * lvl
             inc = v * rem
-            den = v * lvl * rem * P["w_denial"] * care[o - 1]
+            wden = P["w_denial"]
+            if P["endgame_care"] and R <= P["endgame_care"]:
+                wden *= P["endgame_denial"]
+            den = v * lvl * rem * wden * care[o - 1]
             q = self._shield_risk(o - 1, travel, need)
             lc = P["lead_caution"]
             if lc > 0.0:
-                q += lc * self._standing(seat) * (1.0 - q)
+                q += lc * self._standing(seat, R) * (1.0 - q)
                 if q > 1.0:
                     q = 1.0
                 elif q < 0.0:
@@ -694,17 +892,28 @@ class Agent(object):
             elif f > 1.0:
                 f = 1.0
             g *= P["w_raid"] + (P["w_raid_late"] - P["w_raid"]) * f
+        # An upgrade doubles the raid bounty on the cell it improves: a level-2
+        # 3-pointer pays its taker 48 points instead of 24. Upgrading a cell a
+        # rival can reach therefore buys income and sells a target at once, and
+        # the bot had no way to express that.
+        if P["upg_risk"] > 0.0 and kind in (1, 3):
+            g -= P["upg_risk"] * 8.0 * v * self._expose[p]
+        # A home can never be captured, so work on it is the only improvement on
+        # the board that cannot be taken back.
+        if P["home_bonus"] != 1.0 and self.tr.home_of[p] == seat:
+            g *= P["home_bonus"]
         # Cell-intrinsic modifiers only. These must NOT depend on where the walk
         # currently stands, or the cell under my feet gets penalised relative to
         # its neighbour and the bot oscillates between the two forever.
         g *= self._cellmod[p]
         return g
 
-    def _standing(self, seat):
+    def _standing(self, seat, R=1):
         """+1 when comfortably ahead of the field, -1 when clearly behind."""
         tr = self.tr
-        mine = tr.score[seat - 1]
-        others = [tr.score[j] for j in range(4) if j != seat - 1]
+        proj = self._proj(seat, R)
+        mine = proj[seat - 1]
+        others = [proj[j] for j in range(4) if j != seat - 1]
         if not others:
             return 0.0
         gap = (mine - max(others)) / self.P["tau"]
@@ -744,11 +953,14 @@ class Agent(object):
         # per-cell modifiers, computed once per turn and stable across the walk
         mydist = DIST[me]
         mod = [1.0] * NC
+        expose = [0.0] * NC
         zone = tr.zone
         perish = 1.0 + P["perish"]
         safe = P["safe_discount"]
         zb = P["zone_bonus"]
         sq = P["squat_penalty"]
+        intent = P["intent"]
+        itn = max(1, int(P["intent_turns"]))
         for p in range(NC):
             m = 1.0
             rd = 99
@@ -758,6 +970,12 @@ class Agent(object):
                 dj = MANH[tr.pos[j]][p]
                 if dj < rd:
                     rd = dj
+            # how quickly a live rival could be standing on this cell. Used to
+            # price the fact that upgrading a cell doubles the bounty on it.
+            if rd <= 1:
+                expose[p] = 1.0
+            elif rd < 8:
+                expose[p] = 1.0 / float(rd)
             if rd < mydist[p]:
                 m = perish                    # a rival gets there first: take it now
             elif rd > mydist[p] + 3:
@@ -772,22 +990,39 @@ class Agent(object):
                 m *= (1.0 + P["steal"])
             if occ[p] and p != me:
                 m *= sq
+            if intent > 0.0 and rd <= mydist[p]:
+                # only cells a rival can reach no later than I can are at risk
+                worst = 0
+                for j in range(4):
+                    if j == seat - 1 or tr.pos[j] is None:
+                        continue
+                    if tr.frozen[j] > 0:
+                        continue
+                    k = tr.approaching(j, p, itn)
+                    if k > worst:
+                        worst = k
+                if worst:
+                    m *= 1.0 - intent * (float(worst) / itn)
             mod[p] = m
         self._cellmod = mod
+        self._expose = expose
 
         cands = self._candidates(owner, upg, base, home_of, occ, seat, me, R, care)
         if not cands:
             return self._idle(owner, upg, base, occ, seat, me, R, care)
-        horizon = R if R < P["horizon"] else P["horizon"]
+        deep = self._deep
+        horizon = int(P["horizon"] * deep)
+        if horizon > R:
+            horizon = R
         cellbit = {}
-        for (_, p, kind, v, need) in cands:
+        for (_, _tb, p, kind, v, need) in cands:
             if p not in cellbit:
                 cellbit[p] = len(cellbit)
         # state -> (value, first_cell)   state = (pos, used, mask)
         beam = {(me, 0, 0): (0.0, None)}
         bestby = {}
         tick = 0
-        for _ in range(P["visits"]):
+        for _ in range(int(P["visits"] * deep + 0.5)):
             if time.perf_counter() > self._deadline:
                 break                         # out of time: use the best walk so far
             nxt = {}
@@ -795,7 +1030,7 @@ class Agent(object):
                 tick += 1
                 if not (tick & 7) and time.perf_counter() > self._deadline:
                     break                     # bail mid-iteration too
-                for (_, p, kind, v, need) in cands:
+                for (_, _tb, p, kind, v, need) in cands:
                     k = cellbit[p]
                     if (mask >> k) & 1:
                         continue
@@ -817,7 +1052,7 @@ class Agent(object):
                         bestby[f] = nv
             if not nxt:
                 break
-            width = int(P["beam"] * self._beam_scale)
+            width = int(P["beam"] * self._beam_scale * deep)
             if width < 8:
                 width = 8
             if len(nxt) > width:
@@ -923,6 +1158,11 @@ class Agent(object):
         backfire = (1.0 - best_commit) * P["freeze_cost"] * kappa
         # the shield turn itself produces nothing, and costs 4 turns of cover
         cost = kappa * P["shield_cost"]
+        # ...and it resets my own progress. Shielding on the third stay of an
+        # upgrade throws away the two stays already banked, which is a real cost
+        # the 2x2 was silently ignoring.
+        if P["own_prog"] > 0.0:
+            cost += P["own_prog"] * tr.prog[seat - 1] * kappa
         net = gain - backfire - cost
         # shield_bias is a threshold on how far ahead the shield must be before
         # it is worth burning. Scaling the cost term was useless, since gain is
@@ -955,6 +1195,14 @@ class Agent(object):
         cands = [w for w in NEIGH[me] if w not in blocked and d[w] == want]
         if not cands:
             cands = [w for w in NEIGH[me] if w not in blocked and d[w] < d[me]]
+        # NEIGH is built in a fixed north/south/west/east order, so two equally
+        # good steps were separated by a rule that is not the same in all four
+        # corners. Order them in this seat's own frame instead, for the same
+        # reason the candidate list is ordered that way.
+        if len(cands) > 1 and self.P["tie_home"]:
+            can = CANON[seat]
+            cands.sort(key=lambda w: can[w],
+                       reverse=self.P["tie_home"] < 0)
         if not cands:
             return "STAY"
         myrank = (seat - tr.token) % 4 if tr.token_known else 0
@@ -978,6 +1226,61 @@ class Agent(object):
 
 
 _AGENTS = {}
+
+
+_DELTA = dict(MOVE_DELTA)
+
+
+def _fallback(view):
+    """Last-resort policy. Reads only what the starter kit documents, allocates
+    almost nothing, and has no dependency on the tracker or the planner."""
+    bd = view.board
+    if bd and isinstance(bd[0], (list, tuple)):
+        cells = [bd[r][c] for r in range(N) for c in range(N)]
+    else:
+        cells = list(bd)
+    seat = view.bot_id
+    legal = view.legal_actions
+    me = None
+    for p in range(NC):
+        if cells[p].occupant == seat:
+            me = p
+            break
+    if me is None:
+        return "STAY"
+    here = cells[me]
+    # Staying is how cells are captured and upgraded, so standing on anything
+    # unfinished is already the right move.
+    if here.owner != seat or not here.is_upgraded:
+        if not (here.owner != seat and here.is_home):
+            return "STAY" if "STAY" in legal else legal[0]
+    # otherwise walk toward the most valuable cell that is not already mine
+    best, bestv = None, -1.0
+    mr, mc = divmod(me, N)
+    for p in range(NC):
+        c = cells[p]
+        if c.owner == seat or (c.is_home and c.owner != seat) or c.occupant:
+            continue
+        r2, c2 = divmod(p, N)
+        d = abs(mr - r2) + abs(mc - c2)
+        v = c.base_points / (1.0 + d)
+        if v > bestv:
+            bestv, best = v, p
+    if best is None:
+        return "STAY" if "STAY" in legal else legal[0]
+    br, bc = divmod(best, N)
+    for name, cond in (("NORTH", br < mr), ("SOUTH", br > mr),
+                       ("WEST", bc < mc), ("EAST", bc > mc)):
+        if cond and name in legal:
+            nxt = me + _DELTA[name]
+            if nxt in NEIGH[me] and not cells[nxt].occupant:
+                return name
+    for name in ("NORTH", "SOUTH", "EAST", "WEST"):
+        if name in legal:
+            nxt = me + _DELTA[name]
+            if nxt in NEIGH[me] and not cells[nxt].occupant:
+                return name
+    return "STAY" if "STAY" in legal else legal[0]
 
 
 def act(state):
