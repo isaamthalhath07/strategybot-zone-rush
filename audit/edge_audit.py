@@ -19,8 +19,18 @@ variants  `base`, or fixes/overrides joined with `+`:
           free        last-turn shield only for a real, worthwhile threat (B4)
           offby1      count income from the turn a take completes (B6)
           KEY:VALUE   any PARAMS override, e.g. q_weight:1.5
+          @FILE.json  a whole parameter file, e.g. @v8_params.json
           e.g.  base nol1 nol1+home+free q_weight:1.5
+
+Which bot is audited is set by the environment variable AUDIT_BOT:
+          bot         (default) the shipped bot.py
+          mybot       the development source, so parameter files can be compared
+          PATH.py     any bot file, e.g. an old version pulled out of git:
+                      git show 961e729:bot.py > /tmp/bot_v7.py
+                      AUDIT_BOT=/tmp/bot_v7.py python audit/edge_audit.py ...
 """
+import importlib
+import importlib.util
 import json
 import math
 import multiprocessing as mp
@@ -29,11 +39,23 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(HERE)
+_CWD = os.getcwd()
 sys.path.insert(0, REPO)
 sys.path.insert(0, HERE)
 os.chdir(REPO)                    # field.py loads pro_params_v1.json relative to cwd
 
-import bot  # noqa: E402
+
+def _load_bot(which):
+    if which.endswith(".py"):
+        path = which if os.path.isabs(which) else os.path.join(_CWD, which)
+        spec = importlib.util.spec_from_file_location("audited_bot", path)
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        return mod
+    return importlib.import_module(which)
+
+
+bot = _load_bot(os.environ.get("AUDIT_BOT", "bot"))
 import engine  # noqa: E402
 import field as fieldmod  # noqa: E402
 import measure  # noqa: E402
@@ -145,6 +167,12 @@ def parse_variant(spec):
     fixes = []
     for part in spec.split("+"):
         if part == "base":
+            continue
+        if part.startswith("@"):
+            with open(os.path.join(REPO, part[1:])) as f:
+                params.update(json.load(f))
+            params["throttle"] = 0           # a file must not undo the pinning
+            params["budget_ms"] = 10000.0
             continue
         if ":" in part:
             k, v = part.split(":", 1)
@@ -327,8 +355,11 @@ def main():
     rdir = os.path.join(HERE, "results")
     if not os.path.isdir(rdir):
         os.makedirs(rdir)
-    stem = "%s_%d_%s" % (tier.replace(":", "-"), games, "_".join(
-        s.replace(":", "-").replace("+", "_") for s in specs))[:120]
+    tag = os.environ.get("AUDIT_BOT", "bot")
+    tag = "" if tag == "bot" else os.path.basename(tag).replace(".py", "") + "_"
+    stem = (tag + "%s_%d_%s" % (tier.replace(":", "-"), games, "_".join(
+        s.replace(":", "-").replace("+", "_").replace("@", "").replace(".json", "")
+        for s in specs)))[:140]
     with open(os.path.join(rdir, stem + ".txt"), "w", encoding="utf-8") as f:
         f.write(txt + "\n")
 

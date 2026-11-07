@@ -4,7 +4,10 @@ freeze is not caused by any shield, but the tracker's attribution solver assumes
 every new freeze is. Inject penalty freezes into the engine and measure how often
 the tracker then believes a rival is on shield cooldown when it is not (finding C1).
 
-    python audit/penalty.py
+    python audit/penalty.py [variant]
+
+`variant` is any edge_audit variant spec (default `base`); AUDIT_BOT chooses the
+bot, as for edge_audit.py. E.g. AUDIT_BOT=mybot python audit/penalty.py @v8_params.json
 """
 import os
 import sys
@@ -13,7 +16,11 @@ REPO = os.path.dirname(HERE)
 sys.path.insert(0, REPO)
 os.chdir(REPO)
 import random
-import bot, engine, measure
+import engine, measure
+import edge_audit
+
+bot = edge_audit.bot
+SPEC = sys.argv[1] if len(sys.argv) > 1 else "base"
 
 def run(p_pen, games=60):
     tasks = measure.make_tasks(games, "strangers", seed=11)
@@ -24,7 +31,7 @@ def run(p_pen, games=60):
         bots, k = [], 0
         for i in range(4):
             if i == myseat:
-                ag = bot.Agent(seed=1, params={"throttle": 0, "budget_ms": 10000.0}); bots.append(ag)
+                ag = bot.Agent(seed=1, params=edge_audit.parse_variant(SPEC)[0]); bots.append(ag)
             else:
                 bots.append(measure._make(opps[k], map_seed * 4 + i)); k += 1
         g = engine.Game(base=engine.make_map(seed=map_seed), start_token=token)
