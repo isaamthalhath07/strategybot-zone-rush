@@ -23,7 +23,7 @@ def one(task):
         else:
             bots.append(measure._make(opps[k], map_seed * 4 + i)); k += 1
     g = engine.Game(base=engine.make_map(seed=map_seed), start_token=token)
-    out = {"tries": 0, "blocked": 0, "won": 0, "lost_pts": 0, "planned_r2": 0, "r2_blocked": 0}
+    out = {"tries": 0, "blocked": 0, "won": 0, "lost_pts": 0}
     while not g.over():
         vs = g.views()
         acts = []
