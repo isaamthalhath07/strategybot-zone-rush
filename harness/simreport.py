@@ -561,7 +561,91 @@ def analyze(session, games, bootstrap=200, seed=12345):
             "counted": counted, "excluded": excluded, "duplicates": duplicates,
             "map_counts": map_counts, "token_counts": token_counts,
             "cell_tiebreak_games": cell_tiebreak_games, "bootstrap": len(boot),
-            "mean_seconds": statistics.mean(seconds) if seconds else None}
+            "mean_seconds": statistics.mean(seconds) if seconds else None,
+            "focus": focus_view(session, counted, rows, index)}
+
+
+UNSTYLED = "not in the manifest"
+
+
+def _worst_first(item):
+    """Sort key: lowest score for the focus bot first, then the largest deficit; unplayed last."""
+    return (item["score"] is None, item["score"] if item["score"] is not None else 0.0,
+            item["margin"] if item["margin"] is not None else 0.0, item["key"])
+
+
+def focus_view(session, counted, rows, index):
+    """The focus bot's one-on-one record against each opponent and, when the manifest gave
+    styles, against each style. None unless the session had a focus bot."""
+    code = (session.get("settings") or {}).get("focus")
+    if code not in index:
+        return None
+    entrants = session["entrants"]
+    opp = dict((e["code"], {"key": e["code"], "code": e["code"], "name": e["name"], "style": e.get("style"),
+                            "W": 0, "D": 0, "L": 0, "games": set(), "margins": [], "mine": [], "theirs": []})
+               for e in entrants if e["code"] != code)
+    seat_games = dict((k, 0) for k in (1, 2, 3, 4))
+    offset_games = dict((k, 0) for k in (0, 1, 2, 3))
+    with_focus = 0
+    for g in counted:
+        mine = [s for s in g["seats"] if s["entrant"] == code]
+        if not mine:
+            continue
+        with_focus += 1
+        for f in mine:
+            seat_games[f["seat"]] += 1
+            offset_games[(f["seat"] - g["token"]) % 4] += 1
+            for o in g["seats"]:
+                if o["entrant"] == code:
+                    continue
+                p = opp[o["entrant"]]
+                v = one_on_one(f["score"], o["score"])
+                p["W" if v == 1.0 else "D" if v == 0.5 else "L"] += 1
+                p["games"].add(g["n"])
+                p["margins"].append(f["score"] - o["score"])
+                p["mine"].append(f["score"])
+                p["theirs"].append(o["score"])
+
+    def finish(p):
+        tot = p["W"] + p["D"] + p["L"]
+        pts = p["W"] + 0.5 * p["D"]
+        lo, hi = wilson(pts, tot) if tot else (None, None)
+        p.update(pairings=tot, score=pts / tot if tot else None, lo=lo, hi=hi,
+                 clear="loses" if tot >= 10 and hi < 0.5 else "wins" if tot >= 10 and lo > 0.5 else None)
+        return p
+
+    opponents = []
+    for p in opp.values():
+        finish(p)
+        p["games"] = len(p["games"])
+        p["margin"] = statistics.mean(p["margins"]) if p["margins"] else None
+        p["mine"] = statistics.mean(p["mine"]) if p["mine"] else None
+        p["theirs"] = statistics.mean(p["theirs"]) if p["theirs"] else None
+        del p["margins"]
+        opponents.append(p)
+    opponents.sort(key=_worst_first)
+    styled = any(p["style"] for p in opponents)
+    styles = []
+    if styled:
+        by = {}
+        for p in opponents:
+            by.setdefault(p["style"] or UNSTYLED, []).append(p)
+        for style, members in by.items():
+            margins = [p["margin"] * p["pairings"] for p in members if p["margin"] is not None]
+            tot = sum(p["pairings"] for p in members)
+            styles.append(finish({"key": style, "style": style, "codes": [p["code"] for p in members],
+                                  "W": sum(p["W"] for p in members), "D": sum(p["D"] for p in members),
+                                  "L": sum(p["L"] for p in members),
+                                  "meetings": sum(p["games"] for p in members),
+                                  "margin": sum(margins) / tot if tot else None}))
+        styles.sort(key=_worst_first)
+    me = rows[index[code]]
+    return {"code": code, "name": me["name"], "games": with_focus, "without": len(counted) - with_focus,
+            "pairwise": me["pairwise"], "W": me["W"], "D": me["D"], "L": me["L"],
+            "mean_place": me["mean_place"], "firsts": me["firsts"], "seat_games": seat_games,
+            "offset_games": offset_games, "seat": me["seat"], "offset": me["offset"],
+            "opponents": opponents, "styles": styles,
+            "manifest": (session.get("manifest") or {}).get("paths") or []}
 
 
 def leaderboard_order(rows, h2h, index):
@@ -751,6 +835,9 @@ def render(an):
         for w in warnings:
             add("- " + w)
         add("")
+
+    if an.get("focus"):
+        render_focus(an, add, name, by_code)
 
     # ---- leaderboard
     add("## 1. Round 1 leaderboard (rulebook 3.2)")
@@ -1115,12 +1202,23 @@ def render(an):
         "module memory persists between turns (allowed by the organisers) and is private to the seat; "
         "`act(state)` receives the starter kit's `Game`/`Cell` objects with an 8x8 board; the time "
         "limit is measured around `act()` alone. Every game starts fresh processes.")
-    add("- **Schedule**: games come in blocks of four on one map and one starting token, with the four bots "
-        "rotated through all four seats, so every bot plays every corner and every token position equally "
-        "(the server mixes opponents and seats, rulebook 3.2). Line-ups are chosen to even out how often each "
-        "bot plays and how often each pair meets%s." % (
-            "; fewer than four bots were entered, so some games seat a bot more than once and those "
-            "self-pairings are ignored by the ratings" if an["duplicates"] else ""))
+    fv = an.get("focus")
+    if fv:
+        add("- **Schedule (focus mode)**: %s played every game. Games come in blocks of four on one map and "
+            "one starting token, with the line-up rotated through all four seats, so the focus bot plays every "
+            "corner and every token position equally. Each block's three opponents are the ones that had met it "
+            "least (then those that had met each other least), and they are placed so each sits one, two and "
+            "three seats after it about equally often. Opponents only ever meet each other alongside the focus bot, "
+            "so the leaderboard ranks this field, not a round-robin%s." % (
+                fv["code"], "; with fewer than three opponents some games seat one twice, and those "
+                "self-pairings are ignored by the ratings" if an["duplicates"] else ""))
+    else:
+        add("- **Schedule**: games come in blocks of four on one map and one starting token, with the four bots "
+            "rotated through all four seats, so every bot plays every corner and every token position equally "
+            "(the server mixes opponents and seats, rulebook 3.2). Line-ups are chosen to even out how often "
+            "each bot plays and how often each pair meets%s." % (
+                "; fewer than four bots were entered, so some games seat a bot more than once and those "
+                "self-pairings are ignored by the ratings" if an["duplicates"] else ""))
     add("- **Maps**: drawn from `%s`. `example` is the rulebook's example map (section 2.2); `random` is the "
         "harness generator (`referee.random_map`, the same as `engine.make_map`): mirrored, values 1-3, rising "
         "toward the middle, as rulebook 2.1 describes. The official generator is not published." % ",".join(st.get("maps") or []))
@@ -1139,6 +1237,77 @@ def render(an):
         "`legal_excludes_occupied`), and Round 2's robot penalties. Results describe this simulated field only.")
     add("")
     return "\n".join(L) + "\n"
+
+
+def render_focus(an, add, name, by_code):
+    fv = an["focus"]
+    me = by_code[fv["code"]]
+    add("## Focus bot: %s" % name(me))
+    add("")
+    add("Every game seated %s; the other three seats were drawn from the %d other bot(s) so that each met it "
+        "equally often (to within one block of four games), and it rotated through all four seats and token "
+        "positions. Each row is its one-on-one record against that opponent (above it a win, below a loss, "
+        "equal scores a draw), **worst first**." % (fv["code"], len(fv["opponents"])))
+    add("")
+    if fv["games"]:
+        add("Overall: pairwise score %s (%d-%d-%d) over %d games, mean place %s, %d 1st place(s)." % (
+            _pct(fv["pairwise"]), fv["W"], fv["D"], fv["L"], fv["games"], _num(fv["mean_place"], 2), fv["firsts"]))
+        add("")
+        add("Games per seat: %s. Games per token position: %s (token turn k = the seat first holds the "
+            "priority token on turn k)." % (
+                ", ".join("seat %d %d (%s)" % (k, fv["seat_games"][k], _pct(fv["seat"].get(k))) for k in (1, 2, 3, 4)),
+                ", ".join("turn %d %d (%s)" % (k + 1, fv["offset_games"][k], _pct(fv["offset"].get(k)))
+                          for k in (0, 1, 2, 3))))
+        add("")
+    else:
+        add("No complete games with the focus bot yet.")
+        add("")
+    if fv["without"]:
+        add("%d counted game(s) did not include the focus bot and are left out of this section." % fv["without"])
+        add("")
+
+    def clear(p):
+        return "**loses**" if p["clear"] == "loses" else "wins" if p["clear"] == "wins" else "-"
+
+    def interval(p):
+        return "-" if p["lo"] is None else "%s-%s" % (_pct(p["lo"], 0), _pct(p["hi"], 0))
+
+    def opponent_table(members):
+        head = ["Opponent", "Games together", "W-D-L", "Focus score", "95% interval", "Focus mean score",
+                "Their mean score", "Mean lead", "Clear?"]
+        body = []
+        for p in members:
+            body.append([name(by_code[p["code"]], star=False), p["games"], "%d-%d-%d" % (p["W"], p["D"], p["L"]),
+                         _pct(p["score"]), interval(p), _num(p["mine"]), _num(p["theirs"]), _num(p["margin"], 1),
+                         clear(p)])
+        return _table(head, body, ["l"] + ["r"] * 7 + ["l"])
+
+    if fv["styles"]:
+        add("Styles from `%s`, worst first:" % "`, `".join(fv["manifest"]))
+        add("")
+        head = ["Style", "Opponents", "W-D-L", "Focus score", "95% interval", "Mean lead", "Clear?"]
+        add(_table(head, [[s["style"], ", ".join(s["codes"]), "%d-%d-%d" % (s["W"], s["D"], s["L"]),
+                           _pct(s["score"]), interval(s), _num(s["margin"], 1), clear(s)] for s in fv["styles"]],
+                   ["l", "l"] + ["r"] * 4 + ["l"]))
+        add("")
+        by_style = {}
+        for p in fv["opponents"]:
+            by_style.setdefault(p["style"] or UNSTYLED, []).append(p)
+        for s in fv["styles"]:
+            add("### %s: %s (%d-%d-%d)" % (s["style"], _pct(s["score"]), s["W"], s["D"], s["L"]))
+            add("")
+            add(opponent_table(by_style[s["style"]]))
+            add("")
+    else:
+        if fv["manifest"]:
+            add("`%s` gave none of these opponents a style, so they are not grouped." % "`, `".join(fv["manifest"]))
+            add("")
+        add(opponent_table(fv["opponents"]))
+        add("")
+    add("*Focus score* is %s's share of one-on-one points against that opponent, with a Wilson 95%% interval; "
+        "*Mean lead* is its score minus the opponent's, averaged over their games together. *Clear?* needs at "
+        "least 10 results and an interval that excludes 50%%." % fv["code"])
+    add("")
 
 
 def collect_warnings(an):
@@ -1199,7 +1368,20 @@ def summary_json(an):
             "leaderboard": [dict((k, rows[i].get(k)) for k in keep) for i in order],
             "head_to_head": dict((rows[i]["code"], dict((rows[j]["code"], an["h2h"][i][j]) for j in order if j != i))
                                  for i in order),
-            "order": codes, "warnings": collect_warnings(an)}
+            "order": codes, "warnings": collect_warnings(an), "focus": focus_json(an.get("focus"))}
+
+
+def focus_json(fv):
+    if not fv:
+        return None
+    keep = ("code", "name", "style", "games", "pairings", "W", "D", "L", "score", "lo", "hi", "margin", "mine",
+            "theirs", "clear")
+    return {"code": fv["code"], "name": fv["name"], "games": fv["games"], "pairwise": fv["pairwise"],
+            "W": fv["W"], "D": fv["D"], "L": fv["L"], "seat_games": fv["seat_games"],
+            "offset_games": fv["offset_games"], "manifest": fv["manifest"],
+            "opponents": [dict((k, p.get(k)) for k in keep) for p in fv["opponents"]],
+            "styles": [dict((k, s.get(k)) for k in ("style", "codes", "meetings", "pairings", "W", "D", "L",
+                                                    "score", "lo", "hi", "margin", "clear")) for s in fv["styles"]]}
 
 
 def write_report(folder, games=None, session=None, bootstrap=200):

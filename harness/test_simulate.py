@@ -219,6 +219,56 @@ class Schedule(unittest.TestCase):
             sch.next_block()
         self.assertLessEqual(max(sch.appear) - min(sch.appear), 4)
 
+    def focus_tally(self, sch, blocks, check_each=True):
+        n, f = sch.n, sch.focus
+        meet = [0] * n
+        seat_token = {}
+        rel = [[0] * 4 for _ in range(n)]
+        for _ in range(blocks):
+            for g in sch.next_block():
+                seats = g["seats"]
+                self.assertEqual(seats.count(f), 1, "the focus bot is in every game, once")
+                s = seats.index(f)
+                seat_token[(s + 1, g["token"])] = seat_token.get((s + 1, g["token"]), 0) + 1
+                for k in (1, 2, 3):
+                    rel[seats[(s + k) % 4]][k] += 1
+                for e in seats:
+                    if e != f:
+                        meet[e] += 1
+            if check_each:
+                others = [meet[i] for i in range(n) if i != f]
+                self.assertLessEqual(max(others) - min(others), 4, "never more than one block apart")
+        return meet, seat_token, rel
+
+    def test_focus_bot_meets_every_opponent_equally_in_every_seat_and_token_position(self):
+        sch = simulate.Scheduler(7, ["example", "random"], random.Random(8), focus=2)
+        meet, seat_token, rel = self.focus_tally(sch, 24)
+        # 24 blocks x 3 opponent seats over 6 opponents = 12 blocks = 48 games each
+        self.assertEqual([meet[i] for i in range(7) if i != 2], [48] * 6)
+        self.assertEqual(meet[2], 0)
+        # every seat with every starting token, equally: 24 blocks / 4 tokens, once per seat each
+        self.assertEqual(seat_token, dict(((s, t), 6) for s in (1, 2, 3, 4) for t in (1, 2, 3, 4)))
+        for i in range(7):
+            if i != 2:      # each opponent sits 1, 2 and 3 seats after the focus bot about equally
+                self.assertLessEqual(max(rel[i][1:]) - min(rel[i][1:]), 8, rel[i])     # two blocks
+                self.assertEqual(sum(rel[i]), 48)
+        for block in [sch.next_block() for _ in range(5)]:
+            self.assertEqual(len(set(block[0]["seats"])), 4, "four different bots when there are enough")
+
+    def test_focus_with_a_large_field_stays_balanced(self):
+        sch = simulate.Scheduler(40, ["random"], random.Random(3), focus=0)    # C(39, 3) > 3000 line-ups
+        meet, _, _ = self.focus_tally(sch, 130)
+        self.assertEqual(set(meet[1:]), {40})                                    # 130 x 3 / 39 = 10 blocks
+
+    def test_focus_with_fewer_than_three_opponents_repeats_them_evenly(self):
+        sch = simulate.Scheduler(3, ["example"], random.Random(1), focus=1)
+        meet, _, _ = self.focus_tally(sch, 20)
+        self.assertEqual(meet, [120, 0, 120])
+        one = simulate.Scheduler(2, ["example"], random.Random(1), focus=0)
+        self.assertEqual(sorted(one.next_block()[0]["seats"]), [0, 1, 1, 1])
+        with self.assertRaises(ValueError):
+            simulate.Scheduler(1, ["example"], random.Random(1), focus=0)
+
     def test_map_specs_are_valid(self):
         maps = simulate.parse_maps("example,random,custom:3333/3333/3333/3333")
         sch = simulate.Scheduler(4, maps, random.Random(9))
@@ -286,6 +336,84 @@ class SourceChecks(unittest.TestCase):
         c = simulate.clip("research/evolution:outputs/bot_transfer_candidate.py", 30)
         self.assertEqual(len(c), 30)
         self.assertTrue(c.endswith("candidate.py"))
+
+
+def entrant(code, name, aliases, source="upload"):
+    return {"code": code, "name": name, "primary": aliases[0], "aliases": list(aliases), "source": source}
+
+
+class FocusAndStyles(unittest.TestCase):
+    def manifest(self, text):
+        tmp = tempfile.mkdtemp()
+        self.addCleanup(shutil.rmtree, tmp, True)
+        path = os.path.join(tmp, "MANIFEST.md")
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(text)
+        return path
+
+    def test_manifest_as_a_table(self):
+        styles = simulate.read_manifest(self.manifest(
+            "# Opponents\n\nIntro mentioning bot.py.\n\n"
+            "| Name | File | Play style | Notes |\n|:--|---|--:|---|\n"
+            "| Raider | `opponents/raider.py` | Aggressive | hits level 2, unlike turtle.py |\n"
+            "| Turtle | [turtle.py](turtle.py) | **Defensive** | shields |\n"
+            "| Greedy | greedy | Greedy | |\n"))
+        self.assertEqual(styles, {"raider": "Aggressive", "turtle": "Defensive", "greedy": "Greedy"})
+
+    def test_manifest_as_headings_lists_and_style_lines(self):
+        styles = simulate.read_manifest(self.manifest(
+            "# Opponents\n\nSee also bot.py.\n\n## Raiders\n\n- raider_a.py - hunts level 2; beats greedy.py\n"
+            "- `raider_b.py`\n\n## Turtles\n\n1. turtle.py\n\n### shield_bot.py\n\nStyle: Shield spam\n"
+            "It copies other.py.\n\n## Misc\n\n- `mixed.py` (style: Mixed, a bit of everything)\n"
+            "**Style:** ignored with no file\n\n```text\n- fenced.py (style: Nope)\n```\n\n"
+            "| file | notes |\n|---|---|\n| tabled.py | no style column: takes the heading |\n"))
+        self.assertEqual(styles, {"raider_a": "Raiders", "raider_b": "Raiders", "turtle": "Turtles",
+                                  "shield_bot": "Shield spam", "mixed": "Mixed", "tabled": "Misc"})
+
+    def test_styles_match_bots_by_file_name(self):
+        es = [entrant("A", "main:bot.py", ["origin/main:bot.py"], "git"),
+              entrant("B", "file:raider.py", ["file:/tmp/opp/Raider.py"]),
+              entrant("C", "main:opponents/turtle.py", ["origin/main:opponents/turtle.py", "file:x/turtle.py"], "git"),
+              entrant("D", "builtin:raider.py", ["builtin:raider.py"], "builtin")]
+        unmatched = simulate.assign_styles(es, {"raider": "Aggressive", "turtle": "Defensive", "ghost": "?"})
+        self.assertEqual([e["style"] for e in es], [None, "Aggressive", "Defensive", None])
+        self.assertEqual(unmatched, ["ghost"])
+
+    def test_manifests_are_found_in_added_folders_and_opponents(self):
+        root = tempfile.mkdtemp()
+        self.addCleanup(shutil.rmtree, root, True)
+        os.makedirs(os.path.join(root, "opponents"))
+        os.makedirs(os.path.join(root, "more"))
+        for d in ("opponents", "more"):
+            with open(os.path.join(root, d, "MANIFEST.md"), "w") as f:
+                f.write("x")
+        self.assertEqual(simulate.find_manifests(root), [os.path.join(root, "opponents", "MANIFEST.md")])
+        found = simulate.find_manifests(root, [os.path.join(root, "more"), os.path.join(root, "opponents")])
+        self.assertEqual(found, [os.path.join(root, "more", "MANIFEST.md"),
+                                 os.path.join(root, "opponents", "MANIFEST.md")])
+        self.assertEqual(simulate.find_manifests(os.path.join(root, "more")), [])
+
+    def test_resolve_focus(self):
+        here = os.path.join(tempfile.gettempdir(), "opp", "raider.py")
+        es = [entrant("A", "main:bot.py", ["origin/main:bot.py", "origin/dev:bot.py"], "git"),
+              entrant("B", "file:raider.py", ["file:" + here]),
+              entrant("C", "builtin:skeleton.py (always STAY)", ["builtin:skeleton.py"], "builtin"),
+              entrant("D", "dev:mybot.py", ["origin/dev:mybot.py"], "git")]
+        pick = lambda text: simulate.resolve_focus(es, text)["code"]
+        self.assertEqual(pick("b"), "B")
+        self.assertEqual(pick("main:bot.py"), "A")
+        self.assertEqual(pick("dev:bot.py"), "A")                   # any branch that has the same file
+        self.assertEqual(pick("origin/dev:mybot.py"), "D")
+        self.assertEqual(pick(here), "B")
+        self.assertEqual(pick("raider"), "B")
+        self.assertEqual(pick("skeleton.py"), "C")
+        self.assertEqual(pick("*mybot*"), "D")
+        with self.assertRaisesRegex(simulate.SourceError, "matches 2 bots"):
+            pick("*bot.py")
+        with self.assertRaisesRegex(simulate.SourceError, "matches no bot"):
+            pick("nobody.py")
+        with self.assertRaisesRegex(simulate.SourceError, "was not entered: crashes"):
+            simulate.resolve_focus(es, "broken.py", [{"alias": "main:broken.py", "reason": "crashes"}])
 
 
 class Discovery(unittest.TestCase):
@@ -373,6 +501,42 @@ class Discovery(unittest.TestCase):
         finally:
             shutil.rmtree(tmp, ignore_errors=True)
 
+    def test_added_folder_enters_every_bot_file(self):
+        tmp = tempfile.mkdtemp()
+        try:
+            def write(name, text):
+                with open(os.path.join(tmp, name), "w") as f:
+                    f.write(text)
+            write("same.py", "import random\ndef act(state):\n    return 'STAY'\n")      # = main:bot.py
+            write("east.py", "def act(state):\n    return 'EAST' if 'EAST' in state.legal_actions else 'STAY'\n")
+            write("west.py", "def act(state):\n    return 'WEST' if 'WEST' in state.legal_actions else 'STAY'\n")
+            write("west_copy.py", "def act(state):\n    return 'WEST' if 'WEST' in state.legal_actions else 'STAY'\n")
+            write("helpers.py", "X = 1\n")
+            write("__init__.py", "")
+            write("notes.txt", "def act(state):\n")
+            entrants, skipped = simulate.discover(self.repo, "submissions", add_dirs=[tmp])
+            self.assertEqual(sorted(e["name"] for e in entrants), ["feature:bot.py", "file:east.py", "file:west.py",
+                                                                   "main:bot.py"])
+            main = [e for e in entrants if e["name"] == "main:bot.py"][0]
+            self.assertIn("file:" + os.path.join(tmp, "same.py"), main["aliases"])
+            west = [e for e in entrants if e["name"] == "file:west.py"][0]
+            self.assertIn("file:" + os.path.join(tmp, "west_copy.py"), west["aliases"])
+            self.assertEqual(west["source"], "upload")              # snapshotted like --add
+            why = dict((s["alias"], s["reason"]) for s in skipped)
+            self.assertIn("not a bot", why["file:" + os.path.join(tmp, "helpers.py")])
+            self.assertIn("file:" + os.path.join(tmp, "__init__.py"), why)
+            self.assertEqual([e["code"] for e in entrants], ["A", "B", "C", "D"])
+            write("needs_helper.py", "import helpers\ndef act(state):\n    return 'STAY'\n")
+            with self.assertRaisesRegex(simulate.SourceError, "self-contained"):
+                simulate.discover(self.repo, "submissions", add_dirs=[tmp])
+            with self.assertRaisesRegex(simulate.SourceError, "not a folder"):
+                simulate.discover(self.repo, "submissions", add_dirs=[os.path.join(tmp, "missing")])
+            os.makedirs(os.path.join(tmp, "empty"))
+            with self.assertRaisesRegex(simulate.SourceError, "no .py files"):
+                simulate.discover(self.repo, "submissions", add_dirs=[os.path.join(tmp, "empty")])
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+
     def test_preflight_finds_bots_that_cannot_run(self):
         entrants, _ = simulate.discover(self.repo, "all", refs=["feature"])
         simulate.preflight(self.repo, entrants, dict(simulate.DEFAULT_TIMING), 2)
@@ -439,6 +603,80 @@ class Report(unittest.TestCase):
         text = simreport.render(an)
         self.assertIn("seated the same bot twice", text)
 
+    def focus_games(self, styles=None):
+        """A plays every game; B beats it, G loses to it, the rest are level with it."""
+        codes = list("ABCDEFG")
+        strength = {"A": 1000, "B": 1500, "C": 1000, "D": 1000, "E": 1000, "F": 1000, "G": 500}
+        sch = simulate.Scheduler(7, ["example"], random.Random(2), focus=0)
+        rnd = random.Random(6)
+        games = []
+        for _ in range(30):
+            for g in sch.next_block():
+                seats = [codes[i] for i in g["seats"]]
+                games.append(row_for(g["n"], g["block"], seats, [strength[c] + rnd.randint(-300, 300) for c in seats]))
+        session = session_for(codes, focus="A")
+        for e in session["entrants"]:
+            e["style"] = (styles or {}).get(e["code"])
+        if styles:
+            session["manifest"] = {"paths": ["opponents/MANIFEST.md"], "styles": {}, "unmatched": []}
+        return session, games
+
+    def test_focus_section_lists_opponents_worst_first(self):
+        session, games = self.focus_games()
+        an = simreport.analyze(session, games, bootstrap=20)
+        fv = an["focus"]
+        self.assertEqual(fv["code"], "A")
+        self.assertEqual(fv["games"], len(games))
+        self.assertEqual(fv["without"], 0)
+        self.assertEqual(fv["seat_games"], {1: 30, 2: 30, 3: 30, 4: 30})
+        opp = fv["opponents"]
+        self.assertEqual(opp[0]["code"], "B")
+        self.assertEqual(opp[-1]["code"], "G")
+        self.assertEqual((opp[0]["clear"], opp[-1]["clear"]), ("loses", "wins"))
+        self.assertEqual(sorted(p["code"] for p in opp), list("BCDEFG"))
+        self.assertEqual(len(set(p["games"] for p in opp)), 1, "each opponent met A equally often")
+        scores = [p["score"] for p in opp]
+        self.assertEqual(scores, sorted(scores))
+        a = an["rows"][an["index"]["A"]]
+        self.assertEqual(sum(p["W"] for p in opp), a["W"])
+        self.assertEqual(fv["styles"], [])
+        text = simreport.render(an)
+        self.assertIn("## Focus bot: A bot A", text)
+        self.assertLess(text.index("## Focus bot"), text.index("## 1. Round 1 leaderboard"))
+        section = text[text.index("## Focus bot"):text.index("## 1. Round 1")]
+        self.assertLess(section.index("| B bot B |"), section.index("| G bot G |"))
+        self.assertNotIn("### ", section)
+        self.assertIn("Schedule (focus mode)", text)
+        summary = simreport.summary_json(an)
+        self.assertEqual(summary["focus"]["opponents"][0]["code"], "B")
+        json.dumps(summary)
+        self.assertIn("Worst match-ups first", simulate.final_summary(an))
+
+    def test_focus_section_groups_by_style(self):
+        session, games = self.focus_games({"B": "Raider", "C": "Raider", "D": "Turtle", "E": "Turtle", "G": "Turtle"})
+        an = simreport.analyze(session, games, bootstrap=20)
+        styles = an["focus"]["styles"]
+        self.assertEqual(styles[0]["style"], "Raider")                   # holds B, the worst match-up
+        self.assertEqual([s["style"] for s in styles][-1], "Turtle")     # holds G, which A beats
+        self.assertEqual(set(s["style"] for s in styles), {"Raider", "Turtle", simreport.UNSTYLED})
+        self.assertEqual(sorted(c for s in styles for c in s["codes"]), list("BCDEFG"))
+        raider = styles[0]
+        self.assertEqual(raider["W"] + raider["D"] + raider["L"], raider["pairings"])
+        text = simreport.render(an)
+        section = text[text.index("## Focus bot"):text.index("## 1. Round 1")]
+        self.assertIn("`opponents/MANIFEST.md`", section)
+        self.assertLess(section.index("### Raider"), section.index("### Turtle"))
+        self.assertIn("### %s" % simreport.UNSTYLED, section)
+        turtle = section[section.index("### Turtle"):]                    # the last group
+        self.assertLess(max(turtle.index("| D bot D |"), turtle.index("| E bot E |")), turtle.index("| G bot G |"))
+        self.assertNotIn("| B bot B |", turtle)
+
+    def test_no_focus_section_without_a_focus_bot(self):
+        an = simreport.analyze(session_for(list("ABCD")), [row_for(1, 0, list("ABCD"), [4, 3, 2, 1])], bootstrap=10)
+        self.assertIsNone(an["focus"])
+        self.assertNotIn("Focus bot", simreport.render(an))
+        self.assertIsNone(simreport.summary_json(an)["focus"])
+
     def test_round_trip_survives_a_truncated_last_line(self):
         tmp = tempfile.mkdtemp()
         try:
@@ -497,6 +735,68 @@ class EndToEnd(unittest.TestCase):
         report = read(os.path.join(out, "report.md"))
         self.assertIn("Games were 20 turns, not the rulebook's 80", report)
         self.assertIn("seated the same bot twice", report)
+
+    def opponents_dir(self):
+        tmp = tempfile.mkdtemp()
+        self.dirs = getattr(self, "dirs", []) + [tmp]
+        for name, move in (("east.py", "EAST"), ("south.py", "SOUTH")):
+            with open(os.path.join(tmp, name), "w") as f:
+                f.write("def act(state):\n    return %r if %r in state.legal_actions else 'STAY'\n" % (move, move))
+        with open(os.path.join(tmp, "MANIFEST.md"), "w") as f:
+            f.write("| File | Style |\n|---|---|\n| east.py | Walker |\n| south.py | Walker |\n"
+                    "| random_bot.py | Chaos |\n")
+        return tmp
+
+    def test_focus_run_seats_the_focus_bot_in_every_game(self):
+        opp = self.opponents_dir()
+        out, cmd = self.run_cli(["--add-dir", opp, "--focus", "skeleton.py", "--max-games", "8", "--turns", "8"])
+        self.dirs.append(out)
+        res = subprocess.run(cmd, capture_output=True, text=True, timeout=300, stdin=subprocess.DEVNULL)
+        self.assertEqual(res.returncode, 0, res.stdout + res.stderr)
+        session = json.loads(read(os.path.join(out, "session.json")))
+        focus = session["settings"]["focus"]
+        names = dict((e["code"], e["name"]) for e in session["entrants"])
+        self.assertTrue(names[focus].startswith("builtin:skeleton.py"))
+        self.assertEqual(sorted(names.values())[2:], ["file:east.py", "file:south.py"])
+        self.assertEqual(dict((e["name"], e["style"]) for e in session["entrants"] if e["style"]),
+                         {"file:east.py": "Walker", "file:south.py": "Walker"})
+        rows = read_rows(os.path.join(out, "games.jsonl"))
+        self.assertEqual(len(rows), 8)
+        for r in rows:
+            codes = [s["entrant"] for s in r["seats"]]
+            self.assertEqual(codes.count(focus), 1)
+            self.assertEqual(len(set(codes)), 4)
+        seats = sorted(s["seat"] for r in rows for s in r["seats"] if s["entrant"] == focus)
+        self.assertEqual(seats, [1, 1, 2, 2, 3, 3, 4, 4])                 # two blocks: every seat twice
+        report = read(os.path.join(out, "report.md"))
+        self.assertIn("## Focus bot: %s builtin:skeleton.py" % focus, report)
+        self.assertIn("### Walker", report)
+        self.assertIn("### " + simreport.UNSTYLED, report)        # random_bot.py is a built-in, not an opponent file
+        self.assertIn("[FOCUS]", res.stdout)
+        self.assertIn("Worst match-ups first", res.stdout)
+
+    def test_minutes_stops_by_itself_and_prints_the_session_folder(self):
+        out, cmd = self.run_cli(["--minutes", "0.04", "--turns", "5"])
+        self.dirs = [out]
+        res = subprocess.run(cmd, capture_output=True, text=True, timeout=300, stdin=subprocess.DEVNULL)
+        self.assertEqual(res.returncode, 0, res.stdout + res.stderr)
+        session = json.loads(read(os.path.join(out, "session.json")))
+        self.assertEqual(session["stop_reason"], "reached --minutes 0.04")
+        self.assertGreater(session["counts"]["done"], 0)
+        self.assertIn("reached --minutes 0.04", read(os.path.join(out, "report.md")))
+        self.assertIn("Session folder: %s" % os.path.abspath(out), res.stdout)
+        self.assertIn("Stops by itself after 0.04 minute(s)", res.stdout)
+
+    def test_bad_new_options_are_refused_before_any_game(self):
+        for extra, message in ((["--minutes", "0"], "--minutes must be more than 0"),
+                               (["--focus", "nobody.py"], "matches no bot"),
+                               (["--add-dir", os.path.join(HERE, "no_such_folder")], "not a folder")):
+            out, cmd = self.run_cli(extra + ["--max-games", "1"])
+            res = subprocess.run(cmd, capture_output=True, text=True, timeout=120, stdin=subprocess.DEVNULL)
+            self.assertEqual(res.returncode, 2, res.stdout + res.stderr)
+            self.assertIn(message, res.stdout)
+            self.assertFalse(os.path.exists(os.path.join(out, "games.jsonl")))
+            shutil.rmtree(out, ignore_errors=True)
 
     def test_enter_stops_and_finishes_games_in_progress(self):
         out, cmd = self.run_cli([])
