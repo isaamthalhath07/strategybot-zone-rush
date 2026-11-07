@@ -14,7 +14,10 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(HERE)
 sys.path.insert(0, REPO)
 os.chdir(REPO)
-import bot, engine
+import engine
+import edge_audit
+
+bot = edge_audit.bot              # honours AUDIT_BOT
 
 def fresh_agent(base, seat=1):
     a = bot.Agent(seed=1, params={"throttle": 0, "budget_ms": 10000.0})

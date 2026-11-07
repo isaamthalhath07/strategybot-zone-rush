@@ -32,6 +32,69 @@ track that was tried and rejected.
 > methodological lessons that decide whether any of the numbers below mean
 > anything. This readme assumes you already know the game; that one does not.
 
+## v8: fixes from the strategy audit
+
+`bot.py` now carries **v8**: v7's tuned weights, unchanged, plus ten corrections
+found by an adversarial audit of v7 against the rulebook. The audit, its method,
+and every number below are in [`audit/README.md`](audit/README.md).
+
+```bash
+python ship.py v8_params.json
+```
+
+### What changed
+
+Every fix sits behind a switch in `mybot.PARAMS` whose default reproduces v7, and
+`v8_params.json` switches them on. `audit/check_v7_compat.py` proves the defaults
+are behaviour-neutral: **4,800 decisions over 60 games, identical** to the v7
+`bot.py` read from git history. `python ship.py v7_params.json` still builds v7.
+
+| switch | finding | what was wrong in v7 |
+|---|---|---|
+| `shield_l1: 0` | B2 | It spent shields defending **level-1** cells. A caught raider is frozen 2 turns and then needs 1 stay, while the shield is down for 4 (2 + 1 ≤ 4), so the cell falls anyway: **79–89%** were lost to the same raider within six turns. Upgraded cells (2 + 3 = 5 > 4) are still defended. |
+| `shield_home: 0` | B3 | A rival standing on the bot's **home** was priced as a capture threat. Homes can never be taken; with a 2-point home the shield fired on every turn. |
+| `last_shield_value: 1` | B4 | On turn 80 it shielded against *any* intruder, even ones that could take nothing, and ignored what its own last stay was worth. |
+| `turn_guard: 1` | C2 | If state survived into a new game whose first turn was missed, the turn counter ran past 80 and the **whole game was played as its last turn**: 156 points against rivals' ~2,700. v8 scores 2,584 in the same scenario. |
+| `calibrate: 1` | C3 | The cooldown (4) and freeze (2) were assumed. v8 reads the cooldown off its own `legal_actions`, bounds it from rivals shielding twice, and takes the freeze length from observed freezes. |
+| `penalty_undo: 1` | C1 | A Round 2 time-penalty freeze (3 turns, §4.4) was read as a shield, so the bot believed a ready rival could not shield. v8 withdraws that inference once the freeze outlasts a shield freeze. |
+| `solver_retry`, `backfire_prod`, `contest_owner`, `canon_home` | C4 | Smaller model and tracker corrections. |
+
+### What it measured
+
+Paired against v7 on identical games, never-tuned-against fields included:
+
+| field | pairwise wins (of 3) | points |
+|---|---|---|
+| strangers (600 games) | −0.002 (n.s.) | **+7.2 ± 1.8 (z +3.9)** |
+| peer (400) | +0.000 | **+3.5 ± 1.3 (z +2.8)** |
+| realistic (500) | +0.008 (n.s.) | **+4.3 ± 1.9 (z +2.3)** |
+| unknown: outside designs + strangers (400) | +0.010 (n.s.) | +3.2 ± 2.2 (n.s.) |
+| eight outside designs (400) | +0.005 (n.s.) | +2.6 ± 1.7 (n.s.) |
+| never-shield opponents (300) | +0.007 (n.s.) | +4.5 ± 3.6 (n.s.) |
+| standard referee (300) | **+0.013 (z +2.0)** | **+6.2 ± 2.9 (z +2.1)** |
+| referee counting cooldown or freeze one turn differently (300 each) | −0.003 to +0.030 | **+14 to +36 (z +2.3 to +4.3)** |
+
+Points are positive in all eleven comparisons and pairwise wins are never
+significantly worse. This is a robustness release, not a strength jump: the
+largest gains are under rule readings that differ from the engine's.
+
+### What was deliberately not changed
+
+- **`q_weight`, the raid-shield prior (B1).** Learning faster gains 48 points
+  against never-shield opponents but costs **0.111 pairwise wins (z −3.9)** on the
+  peer field, where placements are actually contested. It stays at v7's value.
+- **The one-turn-short income horizon (B6).** Real, but the tuned weights absorb
+  it (fix measured +0.4 ± 2.3); it needs a retune, not a patch.
+- **Turn-80 raid pricing (B5).** Field-dependent; 78% of last-turn raids succeed
+  against this field.
+- **`risk_frozen`.** Implemented, correct in principle, measured slightly worse;
+  left off.
+- **The bot's edge still depends on how the server counts the cooldown and the
+  freeze**: under a referee that counts either one turn differently, v8 is still
+  0.15–0.24 pairwise wins below its own standard-rules result. Calibration fixes
+  the tracker, not the tuned weights. Ask the organisers, or retune on an engine
+  that matches the server.
+
 ## What this round changed
 
 This branch is the second pass over the bot, prompted by the organisers
@@ -72,8 +135,8 @@ success. See [Mistakes found and fixed](#mistakes-found-and-fixed).
 assumed, and one of those measurements corrected an earlier claim in this file.
 See [that section](#what-the-bots-strength-actually-rests-on).
 
-`bot.py` now carries **v7** — tuned against the rebuilt field with the
-confirmation stage, shipped with `tie_home: 1`, and passing every submission
+This round shipped **v7** (since superseded by v8, above) — tuned against the
+rebuilt field with the confirmation stage, shipped with `tie_home: 1`, and passing every submission
 check at 13.8 ms worst case. It is weakly better or level on all four measurement
 fields and never significantly worse, but the gain against *unfamiliar*
 opponents is +0.024 and not statistically significant; the large +0.251 was
@@ -84,14 +147,12 @@ measured on a field containing six of my own snapshots. See §8.3b.
 
 
 ```bash
-
-python ship.py
-
+python ship.py v8_params.json
 ```
 
-
-
-Rebuilds `bot.py` from the tuned weights and verifies it. It refuses to pass
+Rebuilds `bot.py` from the shipped weights and verifies it. (With no argument it
+reads `best_params.json`, a tuner's working file that is gitignored and absent
+from a fresh clone.) It refuses to pass
 
 unless: imports are stdlib-only, `act(state)` is unchanged, the built file plays
 
@@ -419,9 +480,11 @@ free to expand, the bot scores 3,404.
 
 | `nnbot.py` | pure-Python inference twin of the learned policy |
 
-| `v*_params.json` | tuned weight snapshots |
+| `v*_params.json` | tuned weight snapshots; **`v8_params.json` is the shipped set** (v7's weights + the audit switches) |
 
 | `nemesis*.json` | counter-bots bred to beat a given version |
+
+| `audit/` | the strategy audit behind v8: write-up, paired harness, eight outside opponent designs, alternative-referee and Round 2 penalty probes, the v7-compatibility check, and every result table ([`audit/README.md`](audit/README.md)) |
 
 
 
@@ -844,7 +907,9 @@ repository at the deadline is played once, by a server that cannot be inspected
 
 beforehand. So the search for errors is worth as much as the search for strength.
 
-These are the ones that were real.
+These are the ones that were real. The strategy audit found ten more in v7 and v8
+fixes them; they are listed in [v8: fixes from the strategy audit](#v8-fixes-from-the-strategy-audit)
+and explained in full in [`audit/README.md`](audit/README.md).
 
 
 

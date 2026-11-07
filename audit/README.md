@@ -5,11 +5,17 @@ disagrees with the official rules, every edge case where it is suboptimal, and a
 test against opponents — and referees — that were **not** written in this
 repository.
 
-**Nothing in `bot.py` or `mybot.py` was changed.** Every candidate fix below
-exists only as a switch in [`edge_audit.py`](edge_audit.py), so it can be
-measured without touching the submission. Each claim is backed by at least one
-of: a rule citation plus a code citation, a constructed scenario you can re-run,
-or a paired measurement you can re-run. Commands are in
+> **Status: the fixes have shipped as v8.** Sections 1–11 are the audit of
+> **v7** (`bot.py` at commit `961e729`) as it was carried out; code locations
+> such as `bot.py:1103` refer to that file, and every number in them reproduces
+> against it ([§9](#9-reproducing)). What v8 changed, what it measured, and what
+> was deliberately left alone is in [§12](#12-what-v8-changed).
+
+During the audit itself nothing in `bot.py` or `mybot.py` was changed: every
+candidate fix existed only as a switch in [`edge_audit.py`](edge_audit.py), so it
+could be measured without touching the submission. Each claim is backed by at
+least one of: a rule citation plus a code citation, a constructed scenario you can
+re-run, or a paired measurement you can re-run. Commands are in
 [§9 Reproducing](#9-reproducing).
 
 Rulebook sections are cited as **§x.y** (official StrategyBot rulebook, 9 pages).
@@ -31,6 +37,7 @@ Rulebook sections are cited as **§x.y** (official StrategyBot rulebook, 9 pages
 9. [Reproducing](#9-reproducing)
 10. [Recommended actions](#10-recommended-actions)
 11. [Limitations](#11-limitations)
+12. [What v8 changed](#12-what-v8-changed)
 
 ---
 
@@ -538,6 +545,24 @@ counting being the server's counting. See C3 for what to do.
 All commands run from the repository root; each writes its table to
 `audit/results/`. They use up to 4 worker processes.
 
+**`bot.py` is now v8.** The commands audit whichever bot `AUDIT_BOT` names
+(default: `bot.py`), so to reproduce the v7 tables below, pull v7 out of git
+history first and point the harness at it. Its result files then carry a
+`bot_v7_` prefix:
+
+```bash
+git show 961e729:bot.py > /tmp/bot_v7.py
+```
+
+```bash
+AUDIT_BOT=/tmp/bot_v7.py python audit/edge_audit.py 600 strangers base nol1 home free offby1 q_prior:0.35
+```
+
+The same prefix works for every command in this section. `scenarios.py`,
+`penalty.py` and `lastturn.py` import the bot through `edge_audit`, so
+`AUDIT_BOT` applies to them too. The v8-against-v7 tables of [§12](#12-what-v8-changed)
+compare parameter files on the development source instead; see there.
+
 ```bash
 python audit/scenarios.py
 ```
@@ -598,13 +623,14 @@ committed scripts and reproduced exactly; see [§11](#11-limitations).
    "frozen for 2 turns" and "the next 4 turns", or observe both in one Arena
    game. A one-turn difference costs up to 0.22 PW; if the server differs,
    retune on an engine that matches it.
-3. **Decide B1.** It is the largest measured effect in either direction, and it
+3. **Decide B1.** *(v8: decided — kept at v7's value; see §12.)* It is the largest measured effect in either direction, and it
    is a judgement about the real field, not a bug. `q_weight 1.5` is the hedge;
    retune with it before shipping.
 4. **Cheap, consistent wins:** B2 (`nol1`), B3 (`home`), B4 (`free`) — together
-   **+7.6 pts (z +3.3)** on strangers, positive everywhere tested.
+   **+7.6 pts (z +3.3)** on strangers, positive everywhere tested. *(Shipped in v8.)*
 5. **Before the Round 2 code lock:** C1 (undo a freeze that lasts 3 turns), C2
-   (reset past turn 80), and a move-averse variant.
+   (reset past turn 80), and a move-averse variant. *(C1 and C2 shipped in v8; the
+   move-averse variant is still open.)*
 6. **Any change goes into `mybot.py` and is rebuilt with `python ship.py`** —
    `bot.py` is generated, and `ship.py` verifies the result plays move-for-move
    identically to the source, never raises internally, and stays far inside the
@@ -636,3 +662,165 @@ committed scripts and reproduced exactly; see [§11](#11-limitations).
   `q_prior 0.35` +119.14 ± 17.62; identical penalty, turn-80 and scenario
   outputs. Play is deterministic with the guards pinned, so the same Python
   version (3.13 here) reproduces every table exactly.
+
+---
+
+## 12. What v8 changed
+
+`bot.py` now carries **v8**: v7's tuned weights, every one unchanged, plus the
+switches below. It is built with:
+
+```bash
+python ship.py v8_params.json
+```
+
+It passes every `ship.py` check: standard library only, `act(state)` untouched,
+identical play to `mybot.py`, no internal exceptions, the fallback intact, and 40
+stress games with no failure (worst turn 23 ms against the 200 ms limit).
+
+### 12.1 Status of every finding
+
+| id | finding | in v8 | switch |
+|---|---|---|---|
+| A1–A3 | submission risks | **open — team actions**, not code | — |
+| B1 | raid prior is a field bet | **kept as v7** — faster learning costs 0.111 PW on the peer field (12.4) | `q_prior`, `q_weight` unchanged |
+| B2 | shields spent on level-1 cells | **fixed** | `shield_l1: 0` |
+| B3 | rival on my home priced as a threat | **fixed** — the S1 scenario now fires at no turn at all (`results/scenarios_v8.txt`) | `shield_home: 0` |
+| B4 | turn-80 shield ignores my own last stay | **fixed** | `last_shield_value: 1` |
+| B5 | turn-80 raids priced optimistically | open — field-dependent | — |
+| B6 | income horizon one turn short | open — the tuned weights absorb it; needs a retune | — |
+| C1 | Round 2 penalty freezes read as shields | **partly fixed** — unsafe beliefs cut by 20–27% (12.6) | `penalty_undo: 1` |
+| C2 | stale state pins R = 1 all game | **fixed** — 156 points → **2,584** in the S2 scenario | `turn_guard: 1` |
+| C3 | edge tuned to one reading of the durations | **partly fixed** — v8 is never worse than v7 under any reading (12.3); the weights still encode 4 and 2 | `calibrate: 1` |
+| C4 | minor leaks | **fixed**: own shield that never happened, backfire product, owner-wins contests, home-derived frame. `risk_frozen` implemented, measured slightly worse, left off | `solver_retry`, `backfire_prod`, `contest_owner`, `canon_home`: 1; `risk_frozen`: 0 |
+| D | Round 2 movement and ranking | open | — |
+
+`calibrate` measures three things at runtime: the cooldown from the turn
+`SHIELD` returns to the bot's own `legal_actions`; an upper bound on it from the
+same rival shielding twice; and the freeze length as the shortest freeze seen to
+start mid-game (a penalty can only make a freeze look longer).
+
+### 12.2 Proof that the refactor changed nothing by itself
+
+Every switch's default in `mybot.PARAMS` reproduces v7. Three independent checks:
+
+- [`check_v7_compat.py`](check_v7_compat.py): `mybot.py` with `v7_params.json`
+  against the v7 `bot.py` read from git history — **60 games, 4,800 decisions,
+  identical.** Run again after every later change to the tracker.
+- The v7 row of every v8 table reproduces the original audit exactly, e.g.
+  strangers 600 at **2.7600 / 2579.7**, and the whole alternative-referee table.
+- `test_tracker.py`, `test_guards.py` and `test_determinism.py` pass.
+
+### 12.3 v8 against v7
+
+Paired on identical games (`AUDIT_BOT=mybot`, `@v7_params.json` against
+`@v8_params.json`; `results/mybot_*_v7_params_v8_params.txt`):
+
+| field | PW / 3 (v7) | dPW | dScore |
+|---|---|---|---|
+| strangers (600) | 2.760 | −0.002 ± 0.005 | **+7.2 ± 1.8 (z +3.9)** |
+| peer (400) | 1.951 | +0.000 ± 0.005 | **+3.5 ± 1.3 (z +2.8)** |
+| realistic (500) | 2.529 | +0.008 ± 0.008 | **+4.3 ± 1.9 (z +2.3)** |
+| unknown (400) | 2.660 | +0.010 ± 0.008 | +3.2 ± 2.2 |
+| outsiders (400) | 2.625 | +0.005 ± 0.005 | +2.6 ± 1.7 |
+| nonshield (300) | 2.877 | +0.007 ± 0.005 | +4.5 ± 3.6 |
+
+Under each referee reading, paired over the same 300 strangers games
+(`results/referee_strangers_300_*_mybot.json`):
+
+| referee | dPW | dScore |
+|---|---|---|
+| standard: cooldown 4, freeze 2 | **+0.013 ± 0.007 (z +2.0)** | **+6.2 ± 2.9 (z +2.1)** |
+| cooldown 3 | +0.023 ± 0.019 | **+26.4 ± 6.7 (z +3.9)** |
+| cooldown 5 | +0.023 ± 0.016 | **+14.4 ± 4.8 (z +3.0)** |
+| freeze 1 | −0.003 ± 0.023 | **+18.8 ± 8.4 (z +2.3)** |
+| freeze 3 | **+0.030 ± 0.014 (z +2.2)** | **+35.6 ± 8.2 (z +4.3)** |
+
+Points improve in all eleven comparisons, eight significantly; pairwise wins are
+never significantly worse. v8 is a robustness release, not a strength jump: its
+largest gains come under rule readings that differ from the engine's. And the
+sensitivity in C3 remains: under any alternative reading, v8 still sits 0.15–0.24
+PW below its own standard-rules result.
+
+### 12.4 How the configuration was chosen
+
+The draft v8 switched everything on. Isolating the two uncertain switches and the
+B1 hedge on that draft (`results/mybot_*_v8draft_*.txt`):
+
+| change on the draft | strangers (600) | unknown (400) | other fields |
+|---|---|---|---|
+| `q_weight` 1.5 | **−0.020 PW (z −2.1)** | +0.028 PW (z +1.7), +17.4 pts (z +2.5) | peer **−0.111 PW (z −3.9)**; nonshield +48 pts (z +3.7); realistic and outsiders n.s. |
+| `risk_frozen` off | +7.2 pts (draft with it on: +6.7) | +3.2 pts (on: +0.7) | — |
+| `backfire_prod` off | +6.7 pts (identical) | +1.1 pts (on: +0.7) | — |
+
+- **`q_weight` stays at v7's value.** The hedge gains points mostly where the bot
+  already wins about 96% of pairings and loses placements where they are actually
+  contested. Round 1 is Elo, where beating strong bots matters most.
+- **`risk_frozen` is off.** It is the more correct model, but it measured slightly
+  worse on both fields where it was isolated, presumably because the tuned raid
+  weights were fitted without it.
+- **`backfire_prod` is on.** It is inert in measurement and the more correct model.
+
+### 12.5 A regression caught before shipping
+
+The draft v8 was measured against alternative referees before it shipped, and one
+reading exposed a bug in the new code (`results/referee_strangers_300_v8draft_mybot.*`):
+
+| referee | draft v8 − v7 | shipped v8 − v7 |
+|---|---|---|
+| freeze 3 | **−0.070 PW (z −3.0), −32.6 pts** | **+0.030 PW (z +2.2), +35.6 pts** |
+
+**Cause.** `penalty_undo` treats a freeze that outlasts a shield freeze as a Round 2
+penalty. When the server's shield freeze itself lasts 3 turns, and before the
+freeze length had been calibrated, every real shield looked like a penalty, so
+real cooldowns were withdrawn. The draft also calibrated only from freezes the
+bot's own shield caused, and v8 shields less often.
+
+**Fix.**
+
+- The freeze length is now the minimum over every freeze that starts mid-game.
+- Freezes already present on the first board are ignored.
+- `penalty_undo` acts only once the freeze length has been seen.
+- The cooldown gains an upper bound from rivals shielding twice.
+
+### 12.6 Round 2 penalty freezes
+
+`penalty.py`, 60 strangers games per row (`results/penalty_mybot_v7.txt`,
+`results/penalty_mybot_v8.txt`):
+
+| penalty rate per robot-turn | v7 unsafe beliefs | v8 unsafe beliefs |
+|---|---|---|
+| 0 (Round 1) | 0.01% | 0.01% |
+| 1% | 2.51% | **2.01%** |
+| 3% | 7.04% | **5.11%** |
+
+A partial fix by construction: for its first two turns a 3-turn penalty is
+indistinguishable from a 2-turn shield freeze, so the withdrawal can only happen
+on the third.
+
+### 12.7 Reproducing §12
+
+```bash
+python audit/check_v7_compat.py 60
+```
+
+```bash
+AUDIT_BOT=mybot python audit/edge_audit.py 600 strangers @v7_params.json @v8_params.json
+```
+
+```bash
+AUDIT_BOT=mybot python audit/referee.py 300 strangers @v7_params.json
+```
+
+```bash
+AUDIT_BOT=mybot python audit/referee.py 300 strangers @v8_params.json
+```
+
+```bash
+AUDIT_BOT=mybot python audit/penalty.py @v8_params.json
+```
+
+The other fields take the same form as the first `edge_audit.py` command with
+`peer 400`, `realistic 500`, `unknown 400`, `outsiders 400` or `nonshield 300`.
+The referee probe saves per-game results as JSON, so the paired v8 − v7 table in
+12.3 is computed from the two `referee_strangers_300_*_mybot.json` files.

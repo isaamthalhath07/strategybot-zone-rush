@@ -11,7 +11,10 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(HERE)
 sys.path.insert(0, REPO)
 os.chdir(REPO)
-import bot, engine, measure
+import engine, measure
+import edge_audit
+
+bot = edge_audit.bot              # honours AUDIT_BOT
 import multiprocessing as mp
 
 def one(task):

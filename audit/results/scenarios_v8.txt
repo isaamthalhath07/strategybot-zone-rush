@@ -1,0 +1,24 @@
+canonical home values: [1, 1, 1, 1]
+
+[S1] rival (seat 2) standing on my home cell 0; I am seat 1 elsewhere; homes can never be taken
+  rival raid-commit history =  0 stays: shield fires at R in []
+  rival raid-commit history = 20 stays: shield fires at R in []
+  same, 2-point home, committed rival: shield fires at R in []
+  same, 2-point home, NO history (prior only, rng-dependent mixing): fires at R in []
+
+[S1c] what _should_shield believes an L1 shield saves vs what it really saves
+  R=60  3-pt L1 cell: modelled income saved 86 pts; real (committed raider takes it 3 turns later) 9 pts
+  R=40  3-pt L1 cell: modelled income saved 57 pts; real (committed raider takes it 3 turns later) 9 pts
+  R=20  3-pt L1 cell: modelled income saved 28 pts; real (committed raider takes it 3 turns later) 9 pts
+  R=10  3-pt L1 cell: modelled income saved 13 pts; real (committed raider takes it 3 turns later) 9 pts
+
+[S8] final turn (R=1), I stand on a NEUTRAL 3-pt cell; staying claims it and it scores this turn
+  base_points here: 3
+  bot plays: NORTH (STAY would score +3)
+  R=2: claim-in-place modelled at 3.36 (x w_claim); true income 6
+  R=3: claim-in-place modelled at 6.70 (x w_claim); true income 9
+
+[S2] module state survives into a new game AND the turn-1 call is missed
+  after game 1: tracker turn = 80
+  game 2: R the bot believed (first 5 turns): [80, 79, 78, 77, 76] ... last: 2
+  game 2 score: 2584 vs rivals [804, 2736, 2729]

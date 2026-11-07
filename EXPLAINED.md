@@ -741,7 +741,8 @@ So the guards matter as much as the strategy.
 
 ## 6. Every parameter, and what it controls
 
-The bot has 51 tunable numbers. Grouped by what they *mean*:
+The bot has 51 tunable numbers, plus 11 on/off switches added in v8 (listed last).
+Grouped by what they *mean*:
 
 **Planning**
 
@@ -924,7 +925,8 @@ Grouped by how badly a failure would hurt. `runtests.py` runs them all.
 
 | file | what it is |
 |---|---|
-| `v1_params.json` … `v7_params.json` (plus `v2b`, a variant branch of v2) | the tuned versions in order. **`v7` is the current shipped weight set** — tuned against the rebuilt field with the confirmation stage, and shipped with `tie_home: 1` for seat symmetry |
+| `v1_params.json` … `v7_params.json` (plus `v2b`, a variant branch of v2) | the tuned versions in order. `v7` was tuned against the rebuilt field with the confirmation stage, and shipped with `tie_home: 1` for seat symmetry |
+| **`v8_params.json`** | **the shipped set**: v7's weights, unchanged, plus the eleven audit switches of §6 (ten on, `risk_frozen` measured and left off). Not a retune — every v7 weight is identical |
 | `v4_seed.json`, `v5_seed.json`, `v6_seed.json` | the seeds those runs started from |
 | `nemesis1.json`, `nemesis2.json`, `nemesis3.json` | counter-bots bred to beat a named version of this bot |
 | `pro_params_v1.json` | the frozen independent rival. **Committed**, because `field.py` depends on it; without it the field silently falls back to the untuned version |
@@ -1212,6 +1214,24 @@ Plus one in an opponent: `ai_route` paced NORTH/SOUTH 66 times in 80 turns and
 banked 10 stays, the same class of bug that once halved this bot's score.
 `audit.py` now flags it.
 
+**Found later by the strategy audit, and fixed in v8** (full write-up in
+[`audit/README.md`](audit/README.md)):
+
+| bug | consequence | v8 |
+|---|---|---|
+| **A missed turn-1 call left the turn counter running past 80** | if module state survived into a new game, the whole game was played as its last turn: 156 points against rivals' ~2,700 | `turn_guard` re-estimates the turn; 2,584 in the same scenario |
+| **Level-1 cells were defended with shields** | 2 frozen turns + 1 stay ≤ a 4-turn cooldown, so 79–89% fell to the same raider anyway (§2.6) | `shield_l1: 0` |
+| **A rival on the bot's home was priced as a capture threat** | homes can never be taken; with a 2-point home the shield fired on every turn | `shield_home: 0` |
+| **Round 2 time penalties read as shields** | the tracker believed a ready rival could not shield: unsafe on 2.5–7.0% of rival-turns | `penalty_undo` cuts it by 20–27% |
+| **Cooldown and freeze lengths assumed, never measured** | the bot's edge depends on them: a server counting either one turn differently costs v7 0.16–0.22 PW | `calibrate` measures both; v8 beats v7 under every reading |
+| **The turn-80 shield ignored the bot's own last stay** | gave up a completed raid to stop one that could not happen | `last_shield_value` |
+
+And one in the first v8 draft, caught before shipping by testing against an
+alternative referee: the penalty fix could not tell a 3-turn *shield* freeze from
+a 3-turn *penalty* before it had seen one, so it withdrew real cooldowns
+(**−0.070 PW**). It now waits until the freeze length has been observed, and the
+shipped v8 is **+0.030 PW** against v7 under that referee.
+
 ---
 
 ## 10. What is still open
@@ -1234,9 +1254,25 @@ limits.
 - **Round 2 is a different game.** It is played on physical robots, where
   mis-calibration costs a 3-turn freeze and a stationary robot cannot miss its
   cell. That argues for a path-length penalty and a bias toward staying put —
-  neither of which is in the bot, because neither helps in Round 1.
-- **The tuned gain is marginal on unfamiliar opponents.** `bot.py` now carries
-  v7, which is weakly better or level on every field and never significantly
-  worse — but the headline +0.251 was measured on a field containing six of my
-  own snapshots, and against strangers it is +0.024 and not significant
-  (§8.3b). The search converged: twenty further generations added +0.007.
+  neither of which is in the bot, because neither helps in Round 1. v8 makes the
+  tracker tolerate those freezes better (`penalty_undo`), but the first two turns
+  of a penalty still look exactly like a shield freeze.
+- **The tuned gain is marginal on unfamiliar opponents.** v7 was weakly better or
+  level on every field and never significantly worse — but the headline +0.251
+  was measured on a field containing six of my own snapshots, and against
+  strangers it is +0.024 and not significant (§8.3b). The search converged:
+  twenty further generations added +0.007. v8 keeps those weights and only adds
+  corrections; it is a robustness release, not a strength jump.
+- **The weights encode one reading of two rule durations.** Under a referee that
+  counts the shield cooldown or the freeze one turn differently from `engine.py`,
+  the bot drops 0.15–0.24 PW from its own standard-rules result. v8 measures both
+  durations at runtime and beats v7 under every reading, but calibration fixes the
+  tracker, not the weights. The real fix is to confirm the counting with the
+  organisers and, if it differs, retune on an engine that matches.
+- **The raid-shield prior is a bet on the field** (`q_prior`, `q_weight`).
+  Learning faster gains 48 points against never-shield opponents and loses 0.111
+  PW against strong ones; v8 keeps v7's setting. If the real field turns out
+  mostly naive, this is the first thing to revisit.
+- **The income horizon is one turn short** (`rem = R - used - need`; a cell
+  taken this turn also scores this turn). The tuned weights absorb it, so fixing
+  it alone measures nothing; it belongs in the next retune.
