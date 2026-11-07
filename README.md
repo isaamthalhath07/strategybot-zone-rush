@@ -32,6 +32,15 @@ track that was tried and rejected.
 > methodological lessons that decide whether any of the numbers below mean
 > anything. This readme assumes you already know the game; that one does not.
 
+> **Apex.** [`apex/`](apex/README.md) holds a challenger built to beat the evolved
+> bot from `research/evolution-2026-11-07` (and the fused `bot.py` that plays like
+> it): an exact simulator of that bot for every rival seat, an exact tracker,
+> prediction-aware tactics, search over the whole game when every rival is a known
+> copy and over the last 20 turns otherwise, and a safety net under all of it.
+> On fresh paired games it beats the evolved bot by +0.114 pairwise wins with one
+> evolved bot at the table (z = +7.6) and +0.045 on the broad field (z = +3.7). The root `bot.py` here is unchanged;
+> `python apex/build.py bot.py` swaps Apex in.
+
 ## What this round changed
 
 This branch is the second pass over the bot, prompted by the organisers
