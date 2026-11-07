@@ -1,0 +1,3 @@
+[solo:x_fort] 80 paired games, reference = base
+base                     PW 2.9875  score  2869.8
+    per game: shields=0.00, last_shields=0.00, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.00, l1_lost_anyway=0.00, backfires=0.00, raids=0.04, raids_early=0.00, cells_lost=0.00, idle=1.26, idle_late=0.04, moves=23.48, turns90=14.44, reversals=3.51
