@@ -1,0 +1,9 @@
+[nonshield] 300 paired games, reference = base
+base                     PW 2.8767  score  2822.8
+    per game: shields=6.64, last_shields=0.27, last_no_imminent=0.01, home_shields=0.00, l1_shields=0.78, l1_lost_anyway=0.68, backfires=0.00, raids=8.59, raids_early=1.19, cells_lost=2.46, idle=0.50, idle_late=0.00, moves=22.03, turns90=13.70, reversals=1.23
+q_prior:0.35             PW 2.9233  score  2942.0  dPW +0.0467 +/- 0.0235 (z +1.99)  dScore +119.14 +/- 17.62 (z +6.76)  games changed 38
+    per game: shields=6.89, last_shields=0.20, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.70, l1_lost_anyway=0.59, backfires=0.00, raids=10.48, raids_early=2.72, cells_lost=2.46, idle=0.49, idle_late=0.00, moves=21.42, turns90=13.34, reversals=1.22
+q_weight:1.5             PW 2.9167  score  2874.4  dPW +0.0400 +/- 0.0193 (z +2.07)  dScore +51.57 +/- 12.71 (z +4.06)  games changed 31
+    per game: shields=6.80, last_shields=0.24, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.87, l1_lost_anyway=0.74, backfires=0.00, raids=10.24, raids_early=2.11, cells_lost=2.79, idle=0.48, idle_late=0.00, moves=22.10, turns90=13.94, reversals=1.34
+q_weight:1.5+q_prior:0.5 PW 2.8933  score  2864.6  dPW +0.0167 +/- 0.0214 (z +0.78)  dScore +41.80 +/- 15.59 (z +2.68)  games changed 35
+    per game: shields=6.84, last_shields=0.24, last_no_imminent=0.01, home_shields=0.00, l1_shields=0.95, l1_lost_anyway=0.81, backfires=0.00, raids=10.51, raids_early=2.31, cells_lost=3.01, idle=0.48, idle_late=0.00, moves=22.04, turns90=13.96, reversals=1.39
