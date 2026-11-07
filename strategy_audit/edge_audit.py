@@ -111,11 +111,16 @@ def result_path(probe, *parts, **kw):
 
 
 class _Tee(object):
-    """Mirror a probe's console output into its results file."""
+    """Mirror a probe's console output into its results file.
+
+    Written to <path>.partial (gitignored) and renamed into place only when the
+    probe exits normally, so an interrupted or still-running probe can never
+    leave an empty or half-written file that looks like a result."""
 
     def __init__(self, path):
         self.out = sys.stdout
-        self.f = open(path, "w", encoding="utf-8")
+        self.path = path
+        self.f = open(path + ".partial", "w", encoding="utf-8")
 
     def write(self, s):
         self.out.write(s)
@@ -125,9 +130,22 @@ class _Tee(object):
         self.out.flush()
         self.f.flush()
 
+    def finish(self):
+        self.f.close()
+        os.replace(self.path + ".partial", self.path)
+
 
 def tee_to(path):
-    sys.stdout = _Tee(path)
+    import atexit
+    t = _Tee(path)
+    sys.stdout = t
+    pid = os.getpid()
+
+    def _done():
+        if os.getpid() == pid:          # never from a forked worker
+            sys.stdout = t.out
+            t.finish()
+    atexit.register(_done)
     return path
 
 
@@ -428,8 +446,9 @@ def main():
     txt = report(tier, specs, out)
     print(txt)
     path = result_path("edge", tier, games, *specs)
-    with open(path, "w", encoding="utf-8") as f:
+    with open(path + ".partial", "w", encoding="utf-8") as f:
         f.write(txt + "\n")
+    os.replace(path + ".partial", path)
     print("-> %s" % os.path.relpath(path, REPO))
 
 

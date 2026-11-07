@@ -1,0 +1,35 @@
+[unknown] 200 games, bot v8, forecaster constants fixed (beta 2, rho 0.9, kappa 3)
+
+NEXT DESTINATION of a moving rival (the next cell it stays on)
+opponent        cases   top-1: forecast/prior/stay P(true): fcst/prior   arrival err (turns)
+x_literal         557    73.6%  73.4%   0.0%    0.101   0.100        0.00
+pro               497    72.0%  74.6%   0.0%    0.105   0.103        0.00
+ai_homefort       419    69.9%  70.9%   0.0%    0.108   0.105        0.00
+ai_marginal       452    69.9%  71.0%   0.0%    0.105   0.102        0.00
+ai_elo            628    66.7%  67.8%   0.2%    0.101   0.097        0.00
+ai_cheapraid      567    64.2%  65.6%   0.0%    0.104   0.099        0.01
+ai_hawk           900    54.1%  55.8%   0.2%    0.095   0.092        0.01
+x_leech           703    53.5%  53.6%   0.0%    0.093   0.085        0.01
+x_jackal          608    53.0%  53.5%   0.2%    0.097   0.087        0.00
+centre            289    52.6%  51.9%   0.0%    0.096   0.091        0.00
+hunter            387    51.7%  51.9%   0.0%    0.088   0.085        0.01
+x_sim             383    46.0%  47.3%   2.6%    0.095   0.086        0.14
+cdraider          648    38.6%  38.3%   0.0%    0.077   0.072        0.02
+pro_tuned         562    36.8%  36.7%   0.0%    0.098   0.091        0.00
+spine             184    35.3%  35.3%   0.0%    0.075   0.070        0.00
+x_vulture         852    34.7%  33.8%   0.1%    0.070   0.063        0.03
+turtle            358    34.4%  32.1%   0.0%    0.076   0.061        0.00
+x_homebait        910    32.2%  31.1%  11.4%    0.076   0.057        0.70
+camper            267    30.3%  29.2%   0.0%    0.079   0.068        0.00
+ai_route          246    20.3%  20.3%   0.0%    0.082   0.072        0.00
+x_flaky           371    19.9%  21.3%   0.3%    0.053   0.049        0.00
+x_fort            480    19.6%  16.9%   0.0%    0.061   0.046        0.00
+ALL             11268    48.0%  48.1%   1.1%    0.088   0.081        0.05
+
+POSITION k turns ahead: mean Manhattan error (lower is better)
+k      cases   forecast    prior     stay momentum
+1      11268       0.78     0.80     1.00     1.00
+2      11268       0.97     0.99     1.13     1.26
+3      11216       1.31     1.32     1.55     1.76
+5      11047       1.59     1.61     1.89     2.24
+8      10781       2.17     2.18     2.54     2.86
