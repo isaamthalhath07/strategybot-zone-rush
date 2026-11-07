@@ -1,0 +1,3 @@
+[solo:x_literal] 80 paired games, reference = base
+base                     PW 2.5625  score  2520.2
+    per game: shields=5.44, last_shields=0.24, last_no_imminent=0.10, home_shields=0.00, l1_shields=0.23, l1_lost_anyway=0.21, backfires=0.40, raids=6.88, raids_early=1.05, cells_lost=1.34, idle=0.57, idle_late=0.00, moves=25.36, turns90=15.47, reversals=2.69
