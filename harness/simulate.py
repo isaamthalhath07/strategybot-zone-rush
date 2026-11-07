@@ -4,11 +4,23 @@
     python harness/simulate.py --list                # show which bots would play, then exit
     python harness/simulate.py --bots submissions    # only each branch's bot.py
     python harness/simulate.py --builtins            # add the skeleton and random bots as baselines
+    python harness/simulate.py --add-dir opponents --focus main:bot.py --minutes 30
+                                                     # one bot against a folder of opponents, 30 min
     python harness/simulate.py --report harness/simulations/<session>   # rebuild a session's report
 
 Stopping: press Enter. Games already in progress finish and count, then the report is written.
 Press Enter again to abandon those games instead. Ctrl+C works the same way (once to stop, twice
-to abandon). SIGTERM, or creating the STOP file named at start-up, stops it too.
+to abandon). SIGTERM, or creating the STOP file named at start-up, stops it too. --minutes N and
+--max-games N stop it by themselves the same way, then it prints the session folder.
+
+Focus mode (--focus NAME_OR_CODE): that bot plays in every game and the other three seats come
+from the remaining bots, chosen so each opponent meets it equally often, placed so each sits in
+each position relative to it about equally often, and rotated so the focus bot plays every seat and
+every token position. The report then opens with the focus bot's record against each opponent,
+worst first. If opponents/MANIFEST.md (or MANIFEST.md in an --add-dir folder) gives each
+opponent a style, that record is also grouped by style. The manifest may be a table with a file
+(or bot/name) column and a style column, headings that name a style with the files listed under
+them, or lines such as "- raider.py (style: aggressive)"; entries match bots by file name.
 
 Every game is a real visual-harness game: harness/referee.py applies the rulebook's rules,
 each seat runs in its own worker process exactly as harness/match.py runs it, with the server's
@@ -156,8 +168,23 @@ def code_for(i):
     return s
 
 
-def discover(repo, mode="candidates", refs=None, include=(), exclude=(), builtins=False, add=()):
-    """Every bot that should play, deduplicated by content. Returns (entrants, skipped)."""
+def dir_files(dirs):
+    """The .py files directly inside each --add-dir folder, in name order."""
+    out = []
+    for d in dirs or ():
+        if not os.path.isdir(d):
+            raise SourceError("--add-dir %s is not a folder" % d)
+        names = sorted(n for n in os.listdir(d) if n.endswith(".py") and os.path.isfile(os.path.join(d, n)))
+        if not names:
+            raise SourceError("--add-dir %s holds no .py files" % d)
+        out.extend(os.path.join(d, n) for n in names)
+    return out
+
+
+def discover(repo, mode="candidates", refs=None, include=(), exclude=(), builtins=False, add=(), add_dirs=()):
+    """Every bot that should play, deduplicated by content. Returns (entrants, skipped).
+    Each file in an add_dirs folder is entered exactly as --add enters a file, except that a .py
+    file with no def act(state) at all (a helper, __init__.py) is listed as skipped, not an error."""
     groups = {}
     skipped = []
     for ref in repo.refs():
@@ -212,13 +239,17 @@ def discover(repo, mode="candidates", refs=None, include=(), exclude=(), builtin
              "repro": "%s:%s" % (p["commit"], p["path"])}
         entrants.append(e)
     entrants.sort(key=lambda e: (not e["submission"], e["name"].lower(), e["commit"]))
-    for path in add or ():
+    added = [(p, "--add") for p in add or ()] + [(p, "--add-dir") for p in dir_files(add_dirs)]
+    for path, flag in added:
         try:
             with open(path, "rb") as f:
                 body = f.read()
         except OSError as exc:
-            raise SourceError("cannot read --add %s: %s" % (path, exc.strerror or exc))
+            raise SourceError("cannot read %s %s: %s" % (flag, path, exc.strerror or exc))
         if not ACT_RE.search(body):
+            if flag == "--add-dir":
+                skipped.append({"alias": "file:%s" % path, "reason": "no top-level def act(state), so not a bot"})
+                continue
             raise SourceError("%s has no top-level def act(state)" % path)
         listing = []
         folder = os.path.dirname(os.path.abspath(path))
@@ -267,6 +298,193 @@ def discover(repo, mode="candidates", refs=None, include=(), exclude=(), builtin
     return entrants, skipped
 
 
+# -- opponent styles and the focus bot ------------------------------------------------------
+
+MANIFEST = os.path.join("opponents", "MANIFEST.md")
+PY_RE = re.compile(r"[\w.\-/]*\w\.py\b")
+STYLE_LINE_RE = re.compile(r"\b(?:style|archetype)\b\s*\**\s*[:=]\s*(.+)", re.I)
+LIST_RE = re.compile(r"^(?:[-*+]|\d+[.)])\s+")
+SEPARATOR_RE = re.compile(r"^\|?\s*:?-+:?\s*(\|\s*:?-+:?\s*)*\|?$")
+STYLE_COLUMNS = ("style", "archetype", "strategy", "family", "category", "group", "type", "kind", "class")
+FILE_COLUMNS = ("file", "path", "filename", "bot", "opponent", "entrant", "name", "script")
+
+
+def _md_clean(text):
+    text = re.sub(r"\[([^\]]*)\]\([^)]*\)", r"\1", text)          # [label](link) -> label
+    text = text.replace("`", "").replace("*", "")
+    return text.strip(" \t-:;,.()[]–—")
+
+
+def _stem(name):
+    base = os.path.basename(name.strip().replace("\\", "/")).lower()
+    return base[:-3] if base.endswith(".py") else base
+
+
+def _column(heads, words, skip=None):
+    for word in words:
+        for i, h in enumerate(heads):
+            if i != skip and re.search(r"\b%s\b" % word, h):
+                return i
+    return None
+
+
+def read_manifest(path):
+    """Opponent file name (lower case, no .py) -> style, from a Markdown manifest. Understands
+    a table with a file/bot/name column and a style column (a table without a style column
+    takes the heading above it); files listed under a heading, which names their style; and an
+    explicit 'style: X' on a list item or under a heading that names one file. Explicit styles
+    win over headings."""
+    with open(path, encoding="utf-8", errors="replace") as f:
+        lines = f.read().splitlines()
+    explicit, implied = {}, {}
+    heads = {}               # heading level -> (title, is a file heading)
+    table = None             # (file column, style column) inside a table
+    named = []               # files named by the latest heading, for a following "Style: X" line
+    fence = False
+
+    def section():
+        for level in sorted(heads, reverse=True):
+            title, is_file = heads[level]
+            if level >= 2 and not is_file and title:
+                return title
+        return None
+
+    for k, raw in enumerate(lines):
+        line = raw.strip()
+        if line.startswith("```") or line.startswith("~~~"):
+            fence = not fence
+            continue
+        if fence:
+            continue
+        if line.startswith("|"):
+            cells = [c.strip() for c in line.strip().strip("|").split("|")]
+            if SEPARATOR_RE.match(line):
+                continue
+            if table is None:
+                following = lines[k + 1].strip() if k + 1 < len(lines) else ""
+                if SEPARATOR_RE.match(following) and "-" in following:
+                    lower = [_md_clean(c).lower() for c in cells]
+                    scol = _column(lower, STYLE_COLUMNS)
+                    fcol = _column(lower, FILE_COLUMNS, skip=scol)
+                    table = (fcol if fcol is not None else (1 if scol == 0 else 0), scol)
+                    continue
+                table = (0, None)
+            fcol, scol = table
+            if fcol >= len(cells):
+                continue
+            found = PY_RE.findall(cells[fcol])
+            key = _stem(found[0]) if found else _stem(_md_clean(cells[fcol]))
+            if not key:
+                continue
+            style = _md_clean(cells[scol]) if scol is not None and scol < len(cells) else None
+            if style:
+                explicit[key] = style
+            elif section():
+                implied.setdefault(key, section())
+            continue
+        table = None
+        m = re.match(r"^(#{1,6})\s+(.*?)\s*#*$", line)
+        if m:
+            level, title = len(m.group(1)), _md_clean(m.group(2))
+            files = PY_RE.findall(title)
+            for lv in [lv for lv in heads if lv >= level]:
+                del heads[lv]
+            heads[level] = (title, bool(files))
+            named = files
+            for f in files:
+                if section():
+                    implied.setdefault(_stem(f), section())
+            continue
+        files = PY_RE.findall(line)
+        listed = bool(LIST_RE.match(line))
+        sm = STYLE_LINE_RE.search(line)
+        if sm:
+            style = _md_clean(re.split(r"[;,|(]|\s[-–—]\s", sm.group(1))[0])
+            targets = files[:1] if files else named
+            for f in targets:
+                if style:
+                    explicit[_stem(f)] = style
+        elif listed and files and section():
+            implied.setdefault(_stem(files[0]), section())
+    implied.update(explicit)
+    return implied
+
+
+def find_manifests(root, add_dirs=()):
+    """MANIFEST.md in each --add-dir folder, then opponents/MANIFEST.md in the repository."""
+    out, seen = [], set()
+    for path in [os.path.join(d, "MANIFEST.md") for d in add_dirs or ()] + [os.path.join(root, MANIFEST)]:
+        real = os.path.realpath(path)
+        if real not in seen and os.path.isfile(path):
+            seen.add(real)
+            out.append(path)
+    return out
+
+
+def assign_styles(entrants, styles):
+    """Give each entrant the style its file name has in the manifest. Returns the manifest's
+    names that matched no entrant."""
+    used = set()
+    for e in entrants:
+        e["style"] = None
+        if e["source"] == "builtin":
+            continue
+        for alias in [e["primary"]] + e["aliases"]:       # identical files under other names share it
+            key = _stem(alias.split(":", 1)[1] if ":" in alias else alias)
+            if key in styles:
+                e["style"] = e["style"] or styles[key]
+                used.add(key)
+    return sorted(k for k in styles if k not in used)
+
+
+def shown_path(path, root):
+    """Relative to the repository when inside it, else absolute."""
+    rel = os.path.relpath(os.path.abspath(path), root)
+    return os.path.abspath(path) if rel.startswith("..") else rel.replace(os.sep, "/")
+
+
+def resolve_focus(entrants, text, skipped=()):
+    """The entrant --focus names: by code, name, any alias (branch:path, file:path), the file's
+    path or name, or a glob. Raises SourceError if it names none or several."""
+    want = (text or "").strip()
+    if not want:
+        raise SourceError("--focus needs a bot's code or name (see --list)")
+
+    def forms(e):
+        out = set(e["aliases"]) | {e["name"], e["primary"]}
+        for a in e["aliases"]:
+            ref, _, path = a.partition(":")
+            if ref.startswith("origin/"):
+                out.add(ref[len("origin/"):] + ":" + path)
+        return out
+
+    def paths(e):
+        return [a.split(":", 1)[1] for a in e["aliases"] if ":" in a]
+
+    def same_file(a, b):
+        return os.path.normcase(os.path.abspath(a)) == os.path.normcase(os.path.abspath(b))
+
+    passes = (lambda e: e["code"] == want.upper(),
+              lambda e: want in forms(e),
+              lambda e: any(a.startswith("file:") and same_file(a[5:], want) for a in e["aliases"]),
+              lambda e: any(os.path.basename(p) in (want, want + ".py") for p in paths(e)),
+              lambda e: any(fnmatch.fnmatchcase(f, want) for f in forms(e)))
+    for test in passes:
+        hits = [e for e in entrants if test(e)]
+        if len(hits) == 1:
+            return hits[0]
+        if hits:
+            raise SourceError("--focus %s matches %d bots: %s; give its code instead" % (
+                want, len(hits), ", ".join("%s %s" % (e["code"], e["name"]) for e in hits)))
+    for s in skipped:
+        alias = s.get("alias") or ""
+        if want in (alias, alias.split(":", 1)[-1], os.path.basename(alias.split(":", 1)[-1])):
+            raise SourceError("--focus %s was not entered: %s" % (want, s.get("reason")))
+    raise SourceError("--focus %s matches no bot; the bots are: %s" % (
+        want, ", ".join("%s %s" % (e["code"], e["name"]) for e in entrants[:30]) +
+        (" ..." if len(entrants) > 30 else "")))
+
+
 BROKEN_STATUSES = ("crash", "illegal", "died", "killed", "load-failed")
 
 
@@ -312,23 +530,66 @@ def preflight(repo, entrants, timing, jobs):
 class Scheduler(object):
     """Games come in blocks of four: one line-up, one map and one starting token, with the line-up
     rotated through all four seats, so each bot plays every corner and every token position once.
-    Line-ups even out first how often each bot plays, then how often each pair meets."""
+    Line-ups even out first how often each bot plays, then how often each pair meets.
 
-    def __init__(self, n, maps, rng):
+    With a focus bot, it is in every line-up and the other three are the opponents that have met
+    it least (ties: those that have met each other least, then at random), so meetings never
+    differ by more than one block. They are then placed around it so each opponent sits one,
+    two and three seats after it about equally often (to within a block or two). The block's
+    rotation takes the focus bot through all four seats, and so through all four positions
+    relative to the token."""
+
+    def __init__(self, n, maps, rng, focus=None):
         if n < 1:
             raise ValueError("no bots to schedule")
+        if focus is not None and not (0 <= focus < n and n >= 2):
+            raise ValueError("a focus bot needs at least one opponent")
         self.n = n
         self.maps = list(maps)
         self.rng = rng
+        self.focus = focus
         self.appear = [0] * n
         self.pair = [[0] * n for _ in range(n)]
+        self.rel = [[0] * 4 for _ in range(n)]     # blocks spent k seats after the focus bot
         self.blocks = 0
         self.next_n = 1
         self.map_deck = []
         self.token_deck = []
 
+    def focus_lineup(self):
+        f, rng = self.focus, self.rng
+        others = [i for i in range(self.n) if i != f]
+        if len(others) >= 3:
+            ranked = sorted(others, key=lambda i: self.appear[i])
+            cut = self.appear[ranked[2]]
+            must = [i for i in others if self.appear[i] < cut]
+            pool = [i for i in others if self.appear[i] == cut]
+            need = 3 - len(must)
+            if math.comb(len(pool), need) <= MAX_CANDIDATE_LINEUPS:
+                cands = itertools.combinations(pool, need)
+            else:
+                cands = (rng.sample(pool, need) for _ in range(MAX_CANDIDATE_LINEUPS))
+            best = None
+            for c in cands:
+                trio = must + list(c)
+                cost = (sum(self.pair[a][b] for a, b in itertools.combinations(trio, 2)), rng.random())
+                if best is None or cost < best[0]:
+                    best = (cost, trio)
+            opps = best[1]
+        else:
+            opps = []                                   # one or two opponents: repeat the least used
+            while len(opps) < 3:
+                opps.append(min((self.appear[i] + 4 * opps.count(i), rng.random(), i) for i in others)[2])
+        best = min((sum(self.rel[o][k + 1] for k, o in enumerate(p)), rng.random(), p)
+                   for p in itertools.permutations(opps))
+        lineup = [f] + list(best[2])
+        r = rng.randrange(4)                            # which seat the focus bot starts the block in
+        return lineup[r:] + lineup[:r]
+
     def lineup(self):
         n, rng = self.n, self.rng
+        if self.focus is not None:
+            return self.focus_lineup()
         if n >= 4:
             ids = list(range(n))
             if math.comb(n, 4) <= MAX_CANDIDATE_LINEUPS:
@@ -375,6 +636,10 @@ class Scheduler(object):
         for a, c in itertools.combinations(distinct, 2):
             self.pair[a][c] += 1
             self.pair[c][a] += 1
+        if self.focus is not None:
+            at = lineup.index(self.focus)
+            for k in range(1, 4):
+                self.rel[lineup[(at + k) % 4]][k] += 1
         games = []
         for r in range(4):
             games.append({"n": self.next_n, "block": b, "rot": r, "map": spec, "token": token,
@@ -628,6 +893,7 @@ def build_parser():
                     "a detailed report.", formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="Examples:\n  python harness/simulate.py\n  python harness/simulate.py --bots submissions --builtins\n"
                "  python harness/simulate.py --exclude '*agent_new.py' --jobs 2\n"
+               "  python harness/simulate.py --add-dir opponents --focus main:bot.py --minutes 30\n"
                "  python harness/simulate.py --report harness/simulations/20261107-120000")
     g = ap.add_argument_group("which bots play")
     g.add_argument("--bots", choices=("candidates", "submissions", "all"), default="candidates",
@@ -641,6 +907,11 @@ def build_parser():
                    help="leave out files whose 'branch:path' matches, e.g. '*agent_new.py' (repeatable)")
     g.add_argument("--builtins", action="store_true", help="add the harness's skeleton (always STAY) and random bots")
     g.add_argument("--add", action="append", default=[], metavar="FILE", help="also enter a local bot file (repeatable)")
+    g.add_argument("--add-dir", action="append", default=[], metavar="DIR",
+                   help="also enter every .py file in DIR, each checked as --add checks a file (repeatable)")
+    g.add_argument("--focus", metavar="NAME_OR_CODE",
+                   help="play this bot in every game against the others, each opponent equally often, and "
+                        "report its record against each one (code from --list, name, branch:path or file)")
     g.add_argument("--keep-broken", action="store_true",
                    help="keep bots that fail to load or to answer turn 1 (they play STAY all game)")
     g.add_argument("--no-fetch", action="store_true", help="do not run 'git fetch --all' first")
@@ -657,7 +928,9 @@ def build_parser():
     g.add_argument("--turns", type=int, default=RULEBOOK_TURNS, help="turns per game (rulebook: 80)")
     g.add_argument("--no-timing", action="store_true", help="report slow turns but do not play them as STAY")
     g.add_argument("--max-games", type=int, help="stop by itself after this many games")
-    g.add_argument("--minutes", type=float, help="stop by itself after this many minutes")
+    g.add_argument("--minutes", type=float,
+                   help="stop by itself after this many minutes (games in progress finish), write the report "
+                        "and print the session folder")
     g = ap.add_argument_group("output")
     g.add_argument("--out", help="session folder (default harness/simulations/<timestamp>)")
     g.add_argument("--replays", choices=REPLAY_MODES, default="notable",
@@ -683,9 +956,11 @@ class Printer(object):
             sys.stdout.flush()
 
 
-def print_entrants(say, entrants, skipped):
+def print_entrants(say, entrants, skipped, focus=None):
     say("", "Bots (%d):" % len(entrants))
     for e in entrants:
+        tags = ("  [FOCUS]" if focus is not None and e is focus else "") + \
+            ("  style: %s" % e["style"] if e.get("style") else "")
         pre = e.get("preflight") or {}
         load = ""
         if pre:
@@ -702,8 +977,8 @@ def print_entrants(say, entrants, skipped):
                 flags.append("imports siblings")
             if ck.get("signature") and not ck.get("signature_ok"):
                 flags.append(ck["signature"])
-        say("  %-3s %s%s%s%s" % (e["code"], e["name"], "  [bot.py]" if e["submission"] else "", load,
-                                 ("  (" + "; ".join(flags) + ")") if flags else ""))
+        say("  %-3s %s%s%s%s%s" % (e["code"], e["name"], "  [bot.py]" if e["submission"] else "", tags, load,
+                                   ("  (" + "; ".join(flags) + ")") if flags else ""))
         others = [a for a in e["aliases"] if a != e["primary"]]
         if others:
             say("        same file: " + ", ".join(others[:5]) + (" (+%d more)" % (len(others) - 5) if len(others) > 5 else ""))
@@ -763,6 +1038,8 @@ def simulate(args, say):
         raise SourceError("--turns must be 1-500")
     if args.max_games is not None and args.max_games < 1:
         raise SourceError("--max-games must be at least 1")
+    if args.minutes is not None and not args.minutes > 0:
+        raise SourceError("--minutes must be more than 0")
     maps = parse_maps(args.maps)
     overrides = parse_rules(args.rule)
     rules = dict(DEFAULT_RULES, **overrides)
@@ -783,9 +1060,23 @@ def simulate(args, say):
             else:
                 os.environ["GIT_TERMINAL_PROMPT"] = prompt
     say("Looking for bots on every branch of %s ..." % repo.root)
-    entrants, skipped = discover(repo, args.bots, args.refs, args.include, args.exclude, args.builtins, args.add)
+    entrants, skipped = discover(repo, args.bots, args.refs, args.include, args.exclude, args.builtins, args.add,
+                                 args.add_dir)
     if not entrants:
         raise SourceError("no bots found (see --bots, --refs, --include and --exclude)")
+    manifest = None
+    paths = find_manifests(repo.root, args.add_dir)
+    if paths:
+        styles = {}
+        for path in reversed(paths):                     # the first manifest found wins a clash
+            styles.update(read_manifest(path))
+        unmatched = assign_styles(entrants, styles)
+        manifest = {"paths": [shown_path(p, repo.root) for p in paths],
+                    "styles": styles, "unmatched": unmatched}
+        say("Styles from %s: %d named, %d bot(s) matched%s." % (
+            ", ".join(manifest["paths"]), len(styles), sum(1 for e in entrants if e.get("style")),
+            "; no bot is named %s" % ", ".join(unmatched[:8]) + (" ..." if len(unmatched) > 8 else "")
+            if unmatched else ""))
     say("Checking that each bot loads and answers turn 1 ...")
     preflight(repo, entrants, timing, args.jobs)
     broken = [e for e in entrants if not runs(e)]
@@ -798,7 +1089,8 @@ def simulate(args, say):
         entrants = [e for e in entrants if runs(e)]
         for i, e in enumerate(entrants):
             e["code"] = code_for(i)
-    print_entrants(say, entrants, skipped)
+    focus = resolve_focus(entrants, args.focus, skipped) if args.focus is not None else None
+    print_entrants(say, entrants, skipped, focus)
     for e in entrants:
         pre = e["preflight"]
         if pre.get("status") not in (None, "ok"):
@@ -808,14 +1100,20 @@ def simulate(args, say):
         return 0
     if not entrants:
         raise SourceError("no bot passed the turn-1 check (use --keep-broken to play them anyway)")
-    if len(entrants) < 4:
+    if focus is not None and len(entrants) < 2:
+        raise SourceError("--focus needs at least one other bot to play against")
+    if focus is not None and len(entrants) < 4:
+        say("", "Only %d opponent(s) for %s: games will seat an opponent more than once (Round 1 never "
+                "does)." % (len(entrants) - 1, focus["code"]))
+    elif len(entrants) < 4:
         say("", "Only %d bot(s): some games will seat a bot more than once (Round 1 never does)." % len(entrants))
 
     folder, sid = session_folder(args.out)
     seed = args.seed if args.seed is not None else random.SystemRandom().randrange(1, 2 ** 31)
     cpus, _ = default_jobs()
     settings = {"jobs": args.jobs, "bots": args.bots, "refs": args.refs, "include": args.include,
-                "exclude": args.exclude, "builtins": args.builtins, "add": args.add, "maps": maps, "seed": seed,
+                "exclude": args.exclude, "builtins": args.builtins, "add": args.add, "add_dir": args.add_dir,
+                "focus": focus["code"] if focus is not None else None, "maps": maps, "seed": seed,
                 "max_games": args.max_games, "minutes": args.minutes, "replays": args.replays, "rules": rules,
                 "rule_overrides": overrides, "timing": timing, "turns": args.turns, "elo_k": args.elo_k,
                 "elo_start": args.elo_start, "bootstrap": args.bootstrap, "keep_broken": args.keep_broken}
@@ -825,12 +1123,13 @@ def simulate(args, say):
                "environment": {"python": platform.python_version(), "platform": platform.platform(),
                                "cpus": cpus, "executable": sys.executable},
                "entrants": [dict((k, v) for k, v in e.items()) for e in entrants], "skipped": skipped,
-               "counts": {}}
+               "manifest": manifest, "counts": {}}
     write_json(os.path.join(folder, "session.json"), session)
     stop_file = os.path.join(folder, "STOP")
     control = Control(stop_file)
     ctx = Context(repo, entrants, settings, sid, control)
-    scheduler = Scheduler(len(entrants), maps, random.Random(seed))
+    scheduler = Scheduler(len(entrants), maps, random.Random(seed),
+                          focus=entrants.index(focus) if focus is not None else None)
     live = Live(entrants, args.elo_k, args.elo_start)
     rows = []
 
@@ -853,8 +1152,13 @@ def simulate(args, say):
     threading.Thread(target=listen_stdin, args=(control,), daemon=True).start()
 
     say("", "Session %s, %d game(s) at a time, schedule seed %d." % (sid, args.jobs, seed),
-        "Results: %s" % folder,
-        "Press Enter to stop (games in progress finish, then the report is written); press Enter again "
+        "Results: %s" % folder)
+    if focus is not None:
+        say("Focus: %s %s plays every game; the other seats rotate through its %d opponent(s)." % (
+            focus["code"], focus["name"], len(entrants) - 1))
+    if args.minutes is not None:
+        say("Stops by itself after %g minute(s), then writes the report." % args.minutes)
+    say("Press Enter to stop (games in progress finish, then the report is written); press Enter again "
         "to abandon them.",
         "Or press Ctrl+C, or create the file %s" % stop_file, "")
     t0 = time.time()
@@ -956,7 +1260,8 @@ def simulate(args, say):
     path, an = simreport.write_report(folder, games=rows, session=session, bootstrap=args.bootstrap)
     say("", final_summary(an), "", "Full report: %s" % path,
         "Summary:     %s" % os.path.join(folder, "summary.json"),
-        "Every game:  %s" % results_path)
+        "Every game:  %s" % results_path,
+        "Session folder: %s" % folder)
     if os.path.exists(stop_file):
         try:
             os.remove(stop_file)
@@ -981,6 +1286,18 @@ def final_summary(an):
             r["rank"], r["code"], clip(r["name"] + (" *" if r["submission"] else ""), 46), r["rating"], ci,
             simreport._pct(r["pairwise"]), r["games"],
             simreport._pct(r["p_next"], 0) if r.get("p_next") is not None else "-"))
+    fv = an.get("focus")
+    if fv:
+        lines.append("")
+        lines.append("Focus %s %s: pairwise %s over %d games. Worst match-ups first:" % (
+            fv["code"], clip(fv["name"], 40), simreport._pct(fv["pairwise"]), fv["games"]))
+        for p in fv["opponents"][:8]:
+            lines.append("  %-3s %-46s %7s %9s over %d games%s" % (
+                p["code"], clip(p["name"] + (" [%s]" % p["style"] if p["style"] else ""), 46),
+                simreport._pct(p["score"]), "%d-%d-%d" % (p["W"], p["D"], p["L"]), p["games"],
+                "  (clearly loses)" if p["clear"] == "loses" else ""))
+        if len(fv["opponents"]) > 8:
+            lines.append("  ... %d more in the report" % (len(fv["opponents"]) - 8))
     warnings = simreport.collect_warnings(an)
     if warnings:
         lines.append("")

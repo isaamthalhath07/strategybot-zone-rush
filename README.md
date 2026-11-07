@@ -178,6 +178,27 @@ and score trajectories, the Round 2 view, seat, token and map breakdowns, what e
 actually does (action mix, claims, upgrades, raids, shields, freezes), rule compliance
 and timing per bot, notable games with a command to replay each one, and the method.
 
+To test one bot against a folder of opponents:
+
+```bash
+python harness/simulate.py --add-dir opponents --focus main:bot.py --minutes 30
+```
+
+- `--add-dir DIR` enters every `.py` file in `DIR`, each checked exactly as `--add`
+  checks a file (self-contained, then the turn-1 check); files with no `act(state)` at
+  all, such as helpers, are listed as not entered.
+- `--focus NAME_OR_CODE` (a code from `--list`, a name, `branch:path`, or a file name)
+  seats that bot in every game. The other three seats come from the remaining bots so
+  each opponent meets it equally often (within one block of four games), and the block
+  rotation takes it through every seat and token position. The report opens with its
+  record against each opponent, worst first. If `opponents/MANIFEST.md` (or a
+  `MANIFEST.md` in the `--add-dir` folder) gives the opponents styles, that record is
+  also grouped by style, worst style first. The manifest can be a table with a file
+  column and a style column, `## Style` headings with the files listed under them, or
+  lines such as `- raider.py (style: aggressive)`. Entries match bots by file name.
+- `--minutes N` stops by itself after N minutes (games in progress finish), writes the
+  report and prints the session folder.
+
 
 
 ---
