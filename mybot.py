@@ -215,6 +215,12 @@ PARAMS = {
     "fc_kappa": 3.0,           # prior temperature.           them on the measured
     "fc_chain": 2,             # targets forecast beyond the  fields would bring
                                # current one.                 back the overfitting
+    "fc_defend": 0,            # 1 = also use the forecast for DEFENCE: a rival
+                               # heading for one of my level-1 cells (which a
+                               # shield cannot save, B2) makes reaching it first
+                               # and upgrading it worth what the raid would cost
+                               # me. Valued with the tuned shield terms; adds no
+                               # new tuned number. 0 reproduces v9 exactly
 }
 
 
@@ -876,7 +882,7 @@ class Forecaster(object):
             for c in range(NC):
                 pc = b[c]
                 if pc >= self.floor:
-                    threat[c].append((row[c], pc))
+                    threat[c].append((row[c], pc, j))
                     if pc > bp:
                         bp, best = pc, c
             self.goal[j] = best
@@ -897,21 +903,22 @@ class Forecaster(object):
                     if nxt is None:
                         break
                     t += MANH[here][nxt]
-                    threat[nxt].append((t, pk))
+                    threat[nxt].append((t, pk, j))
                     seen.add(nxt)
                     t += nd2[nxt]
                     here = nxt
         self.threat = threat
 
-    def survival(self, c, start):
+    def survival(self, c, start, owned=False):
         """P(cell c is still mine to work on when I first stand on it at turn
         offset `start`): every rival forecast to stand there first takes it from
-        me with its probability; arriving on the same turn is a contest, ~even."""
+        me with its probability; arriving on the same turn is a contest -- won
+        outright if I own the cell (2.3: the owner wins), otherwise ~even."""
         s = 1.0
-        for t, pc in self.threat[c]:
+        for t, pc, _j in self.threat[c]:
             if t < start:
                 s *= 1.0 - pc
-            elif t == start:
+            elif t == start and not owned:
                 s *= 1.0 - 0.5 * pc
         return s
 
@@ -933,6 +940,7 @@ class Agent(object):
         self._canon_cache = {}
         self.fc = None                  # v9: Forecaster, built on first use
         self._surv = None
+        self._defend = False
 
     def rand(self):
         self.rng = (1103515245 * self.rng + 12345) % 2147483648
@@ -1025,6 +1033,7 @@ class Agent(object):
         if P["calibrate"]:
             self._calibrate_cooldown(legal, seat)
         self._surv = None
+        self._defend = False
         if P["forecast"]:
             # Every turn, including the ones I spend frozen: each observed step
             # of a rival is evidence about where it is going.
@@ -1034,6 +1043,7 @@ class Agent(object):
             self.fc.update(tr, owner, upg, base, home_of, seat,
                            max(1, MAX_TURNS - tr.turn + 1))
             self._surv = self.fc
+            self._defend = bool(P["fc_defend"])
         me = tr.pos[seat - 1]
         if me is None:
             return "STAY"
@@ -1112,6 +1122,30 @@ class Agent(object):
         if upg[me]:
             return 17 * v if prog >= 2 else 0     # 16v bonus + v income
         return 9 * v                             # 8v bonus + v income
+
+    def _defence_value(self, p, v, start, R, care):
+        """fc_defend: what standing on my own level-1 cell p from turn offset
+        `start` is worth as defence.
+
+        A shield cannot save a level-1 cell (finding B2: 2 frozen turns + 1 stay
+        <= the 4-turn cooldown), but occupancy can: a cell I stand on cannot be
+        entered, a same-turn contest for it goes to me as its owner (2.3), and
+        staying there upgrades it into one a shield CAN hold. So every rival
+        forecast to arrive no earlier than I do loses its raid, weighted by the
+        forecast probability. The worth of a prevented take uses the same terms
+        the shield decision already uses -- the income kept, net of the chance to
+        retake it, plus the rival's bonus and income denied -- so this adds no
+        new tuned number."""
+        P = self.P
+        val = 0.0
+        for t, pc, j in self._surv.threat[p]:
+            if start <= t:
+                rem = R - t
+                if rem > 0:
+                    lost = v * rem * (1.0 - P["retake_credit"])
+                    their = (8.0 * v + v * rem) * P["w_denial"] * care[j]
+                    val += pc * (lost + their)
+        return val
 
     def _canon(self, seat):
         """My tie-break frame. CANON assumes seat 1..4 sit at the corners
@@ -1245,6 +1279,8 @@ class Agent(object):
             pri = v * (R - d - need) / float(d + need)
             if kind == 2:
                 pri += 8.0 * v * (2 if upg[p] else 1) / float(d + need)
+            if self._defend and kind == 1 and not home_of[p]:
+                pri += self._defence_value(p, v, d, R, care) / float(d + need)
             if occ[p] and p != me:
                 pri *= 0.3
             if tr.zone[p] == seat:
@@ -1348,7 +1384,11 @@ class Agent(object):
             # v9: the work needs me standing on p from turn offset `used`. A
             # rival forecast to stand there first -- to claim it, raid it, or
             # come home to it -- closes the cell and takes the work with it.
-            g *= self._surv.survival(p, used)
+            g *= self._surv.survival(p, used,
+                                     owned=self._defend and owner[p] == seat)
+        if self._defend and kind == 1 and not self.tr.home_of[p]:
+            # fc_defend: reaching my threatened level-1 cell first saves it
+            g += self._defence_value(p, v, used, R, care)
         return g
 
     def _standing(self, seat, R=1):
