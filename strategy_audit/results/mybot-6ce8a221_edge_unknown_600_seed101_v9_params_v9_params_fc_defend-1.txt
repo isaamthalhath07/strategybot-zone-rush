@@ -1,0 +1,28 @@
+[unknown] 600 paired games, reference = @v9_params.json, task seed 101
+@v9_params.json          PW 2.7317  score  2619.8
+    per game: shields=4.27, last_shields=0.14, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.20, l1_lost_anyway=0.18, backfires=0.28, raids=6.18, raids_early=1.18, cells_lost=1.91, idle=0.64, idle_late=0.00, moves=24.68, turns90=15.09, reversals=2.51
+@v9_params.json+fc_defend:1 PW 2.7383  score  2624.3  dPW +0.0067 +/- 0.0094 (z +0.71)  dScore +4.55 +/- 3.62 (z +1.26)  games changed 23
+    per game: shields=4.29, last_shields=0.14, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.18, l1_lost_anyway=0.16, backfires=0.27, raids=6.11, raids_early=1.17, cells_lost=1.77, idle=0.65, idle_late=0.00, moves=24.36, turns90=14.94, reversals=2.49
+    @v9_params.json pairwise win rate vs each opponent:
+      pro_tuned      0.573  (n=89)
+      x_vulture      0.793  (n=87)
+      x_jackal       0.852  (n=81)
+      x_sim          0.861  (n=79)
+      x_literal      0.867  (n=75)
+      spine          0.876  (n=89)
+      ai_homefort    0.889  (n=81)
+      ai_route       0.907  (n=86)
+      ai_cheapraid   0.911  (n=79)
+      ai_hawk        0.918  (n=85)
+      cdraider       0.924  (n=79)
+      x_flaky        0.950  (n=80)
+      ai_marginal    0.951  (n=81)
+      camper         0.953  (n=85)
+      x_homebait     0.953  (n=86)
+      x_leech        0.955  (n=88)
+      ai_elo         0.966  (n=88)
+      x_fort         0.989  (n=92)
+      hunter         1.000  (n=75)
+      turtle         1.000  (n=63)
+      pro            1.000  (n=82)
+      centre         1.000  (n=70)
