@@ -1,0 +1,5 @@
+[solo:x_literal] 120 paired games, reference = @v9_params.json
+@v9_params.json          PW 2.6583  score  2538.0
+    per game: shields=5.28, last_shields=0.06, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.17, l1_lost_anyway=0.17, backfires=0.37, raids=6.79, raids_early=1.16, cells_lost=1.55, idle=0.54, idle_late=0.00, moves=25.07, turns90=14.90, reversals=2.75
+@v9_params.json+fc_defend:1 PW 2.6667  score  2535.3  dPW +0.0083 +/- 0.0324 (z +0.26)  dScore -2.70 +/- 7.52 (z -0.36)  games changed 9
+    per game: shields=5.31, last_shields=0.06, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.10, l1_lost_anyway=0.10, backfires=0.38, raids=6.59, raids_early=1.10, cells_lost=1.34, idle=0.57, idle_late=0.00, moves=24.81, turns90=14.88, reversals=2.71
