@@ -257,6 +257,7 @@ class Tracker(object):
         # they are replaced by what the board shows; kept across reset() because
         # they belong to the server, not to one game.
         self.cd_len = 4
+        self.cd_known = False           # measured exactly off my own legal_actions
         self.frz_len = 2
         self.frz_known = False
         self.reset()
@@ -289,8 +290,8 @@ class Tracker(object):
         self.new_game = True            # the Agent clears its own state on this
         self.frz_streak = [0] * 4       # consecutive turns each bot showed is_frozen
         self.explains = {}              # frozen seat -> shielders inferred from it alone
-        self._probe = {}                # seats my own shield froze: their freeze
-                                        # length is the server's freeze length
+        self._skip = set()              # frozen before I first looked: length unknown
+        self.last_shield = [None] * 4   # turn of each seat's last attributed shield
 
     # -- static board facts, computed once -----------------------------------
     def init_static(self, base, home_of):
@@ -348,6 +349,16 @@ class Tracker(object):
                     est = MAX_TURNS
                 self.turn = est
             self.pos = self._positions(occ)
+            if cfg.get("calibrate"):
+                # A bot already frozen on the first board I see (a late Round 2
+                # robot is frozen at home until placed) is not a NEW freeze: do not
+                # make the attribution solver explain it, and do not let its
+                # unknown-length streak calibrate the freeze length.
+                for i in range(4):
+                    pi = self.pos[i]
+                    if pi is not None and frz[pi]:
+                        self.frozen[i] = 1
+                        self._skip.add(i)
             self.token = 1
             if is_token:
                 self.token = seat
@@ -381,12 +392,14 @@ class Tracker(object):
                 self.frozen[i] = flen if i in newly else max(1, self.frozen[i] - 1)
                 self.frz_streak[i] += 1
             else:
-                # C3: a freeze my own shield caused just ended, so its length is
-                # the server's freeze length. Keep the minimum seen: a Round 2
-                # time penalty can only make a freeze look longer, never shorter.
-                if (self.frz_streak[i] and self._probe.pop(i, None)
-                        and cfg.get("calibrate") and 1 <= self.frz_streak[i] <= 6):
-                    L = self.frz_streak[i]
+                # C3: a freeze that began while I was watching just ended, so its
+                # length is a sample of the server's freeze length. Keep the
+                # MINIMUM seen: shield freezes all last the same number of turns,
+                # and a Round 2 time penalty can only make one look longer.
+                L = self.frz_streak[i]
+                if i in self._skip:
+                    self._skip.discard(i)
+                elif L and cfg.get("calibrate") and 1 <= L <= 6:
                     self.frz_len = L if not self.frz_known else min(self.frz_len, L)
                     self.frz_known = True
                 self.frozen[i] = 0
@@ -395,8 +408,11 @@ class Tracker(object):
         # C1: a freeze still showing after a shield freeze would have ended was a
         # Round 2 time penalty (4.4: "frozen for the next 3 turns"), not a shield.
         # Any cooldown the tracker inferred from it alone is a phantom: it makes
-        # the bot believe a ready rival cannot shield. Undo it.
-        if cfg.get("penalty_undo"):
+        # the bot believe a ready rival cannot shield. Undo it -- but only once the
+        # real freeze length has been seen. Until then a 3-turn shield freeze and
+        # a 3-turn penalty look the same, and guessing "penalty" withdraws real
+        # cooldowns: measured -0.070 PW under a referee whose freeze is 3 turns.
+        if cfg.get("penalty_undo") and (self.frz_known or not cfg.get("calibrate")):
             for i in range(4):
                 if frozen_now[i] and self.frz_streak[i] == flen + 1:
                     for s in self.explains.pop(i, []):
@@ -404,6 +420,7 @@ class Tracker(object):
                             self.cd[s] = 0
                             cd_prev[s] = 0
                             self.shields_seen[s] -= 1
+                            self.last_shield[s] = None   # not a shield after all
 
         # Every shield is observable: it either catches someone (that bot freezes)
         # or it backfires (the shielder freezes). Attribution can be ambiguous
@@ -496,11 +513,24 @@ class Tracker(object):
                 # can be withdrawn if that freeze turns out to be a penalty
                 if len(expl) == 1 and expl[0] in newly_set:
                     self.explains.setdefault(expl[0], []).append(s)
-                # C3: freezes caused by MY shield measure the freeze length
-                if s == seat - 1 and my_last == "SHIELD":
-                    for j in expl:
-                        if j in newly_set:
-                            self._probe[j] = True
+                # C3: the same seat shielding twice bounds the cooldown from
+                # above -- gap - 1 turns at most. That is the dangerous direction
+                # (a shorter real cooldown makes the bot believe a ready rival
+                # cannot shield), and it is visible long before my own shield
+                # can measure it. Only strong evidence counts: a landlord
+                # catching a rival that stayed, or my own shield.
+                if cfg.get("calibrate") and (vic or (s == seat - 1 and my_last == "SHIELD")):
+                    last = self.last_shield[s]
+                    if last is not None and not self.cd_known:
+                        bound = self.turn - last - 1
+                        if 2 <= bound < self.cd_len:
+                            drop = self.cd_len - bound
+                            self.cd_len = bound
+                            for k in range(4):
+                                if k != s and self.cd[k] > 0:
+                                    self.cd[k] = max(0, self.cd[k] - drop)
+                            self.cd[s] = bound
+                    self.last_shield[s] = self.turn
 
         # opponent model: when a landlord COULD have shielded a raider off its
         # land last turn, did it?
@@ -828,6 +858,7 @@ class Agent(object):
                     L = self._cdw[0] - 1
                     if 1 <= L <= 10:
                         tr.cd_len = L
+                        tr.cd_known = True
                         tr.cd[seat - 1] = 0
                 self._cdw = None
             else:

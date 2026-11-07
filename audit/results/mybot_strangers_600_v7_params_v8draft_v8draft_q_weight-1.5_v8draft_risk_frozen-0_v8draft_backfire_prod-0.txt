@@ -1,4 +1,4 @@
-[strangers] 600 paired games, reference = @v7_params.json
+[strangers] 600 paired games, reference = @v7_params.json   [DRAFT v8: before the freeze-length fix; risk_frozen 1]
 @v7_params.json          PW 2.7600  score  2579.7
     per game: shields=4.86, last_shields=0.20, last_no_imminent=0.02, home_shields=0.00, l1_shields=0.35, l1_lost_anyway=0.31, backfires=0.28, raids=5.62, raids_early=1.34, cells_lost=1.77, idle=0.70, idle_late=0.00, moves=24.13, turns90=15.19, reversals=2.63
 @v8_params.json          PW 2.7583  score  2586.4  dPW -0.0017 +/- 0.0060 (z -0.28)  dScore +6.70 +/- 2.02 (z +3.32)  games changed 10
