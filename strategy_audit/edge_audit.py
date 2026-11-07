@@ -159,15 +159,74 @@ import field as fieldmod  # noqa: E402
 import measure  # noqa: E402
 import outsiders  # noqa: E402
 
+# Earlier versions of this bot as OPPONENTS, read straight out of git history so
+# the comparison cannot drift with the working tree. Guards pinned like the
+# audited bot's, so their play is deterministic too.
+VERSION_REVS = {"v7": "961e729", "v8": "1751ffb", "v9": "7c102e3"}
+_VERSION_MODS = {}
+
+
+def _version_bot(name):
+    mod = _VERSION_MODS.get(name)
+    if mod is None:
+        import subprocess
+        import tempfile
+        rev = VERSION_REVS[name]
+        d = os.path.join(tempfile.gettempdir(), "zone_rush_versions")
+        if not os.path.isdir(d):
+            os.makedirs(d)
+        path = os.path.join(d, "%s_%s.py" % (name, rev))
+        if not os.path.exists(path):
+            src = subprocess.check_output(["git", "show", rev + ":bot.py"], cwd=REPO)
+            with open(path + ".partial", "wb") as f:
+                f.write(src)
+            os.replace(path + ".partial", path)
+        spec = importlib.util.spec_from_file_location("version_" + name, path)
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        _VERSION_MODS[name] = mod
+    return mod
+
+
+# Opponents written by independent subagents (strategy_audit/novel/), each
+# designed without reading any bot in this repository. A file that does not
+# import cleanly is skipped with a warning rather than breaking the harness.
+NOVEL = {}
+_NOVEL_DIR = os.path.join(HERE, "novel")
+if os.path.isdir(_NOVEL_DIR):
+    for _f in sorted(os.listdir(_NOVEL_DIR)):
+        if not (_f.startswith("novel_") and _f.endswith(".py")):
+            continue
+        try:
+            _spec = importlib.util.spec_from_file_location(_f[:-3], os.path.join(_NOVEL_DIR, _f))
+            _m = importlib.util.module_from_spec(_spec)
+            _spec.loader.exec_module(_m)
+            for _c in _m.BOTS:
+                NOVEL[_c.name] = _c
+        except Exception as _e:
+            sys.stderr.write("edge_audit: skipping %s (%r)\n" % (_f, _e))
+
 fieldmod.TIERS.setdefault("outsiders", sorted(outsiders.REGISTRY))
 fieldmod.TIERS.setdefault("unknown", sorted(outsiders.REGISTRY) + fieldmod.TIERS["strangers"])
 fieldmod.TIERS.setdefault("nonshield", ["greedy"])
+# my own models: the eight outside designs plus the two previous versions
+fieldmod.TIERS.setdefault("mine", sorted(outsiders.REGISTRY) + ["v7", "v8"])
+if NOVEL:
+    fieldmod.TIERS.setdefault("novel", sorted(NOVEL))
+    fieldmod.TIERS.setdefault("grand", sorted(NOVEL) + sorted(outsiders.REGISTRY)
+                              + ["v8"] + fieldmod.TIERS["strangers"])
 
 
 def make_opponent(name, seed):
     c = outsiders.REGISTRY.get(name)
     if c is not None:
         return c(seed)
+    c = NOVEL.get(name)
+    if c is not None:
+        return c(seed)
+    if name in VERSION_REVS:
+        return _version_bot(name).Agent(seed=seed,
+                                        params={"throttle": 0, "budget_ms": 10000.0})
     return measure._make(name, seed)
 
 
@@ -430,16 +489,21 @@ def report(tier, specs, out):
         tot = dict((k, sum(x[k] for x in b)) for k in KEYS)
         lines.append("    per game: " + ", ".join("%s=%.2f" % (k, tot[k] / float(n))
                                                   for k in KEYS))
-    # pairwise win rate of the reference against each opponent design
-    per = {}
-    for x in ref:
-        for nm, r in x["vs"]:
-            per.setdefault(nm, []).append(r)
-    if len(per) > 1:
-        lines.append("    %s pairwise win rate vs each opponent:" % specs[0])
-        for nm in sorted(per, key=lambda k: sum(per[k]) / len(per[k])):
-            v = per[nm]
-            lines.append("      %-14s %.3f  (n=%d)" % (nm, sum(v) / len(v), len(v)))
+    # pairwise win rate against each opponent design, for every variant
+    per = [{} for _ in specs]
+    for si in range(len(specs)):
+        for x in out[si]:
+            for nm, r in x["vs"]:
+                per[si].setdefault(nm, []).append(r)
+    names = sorted(per[0], key=lambda k: sum(per[0][k]) / len(per[0][k]))
+    if len(names) > 1 or len(specs) > 1:
+        lines.append("    pairwise win rate vs each opponent (columns: variants in order)")
+        for nm in names:
+            cells = []
+            for si in range(len(specs)):
+                v = per[si].get(nm, [])
+                cells.append("%.3f" % (sum(v) / len(v)) if v else "  -  ")
+            lines.append("      %-16s %s  (n=%d)" % (nm, "  ".join(cells), len(per[0][nm])))
     return "\n".join(lines)
 
 
