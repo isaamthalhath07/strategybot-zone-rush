@@ -41,6 +41,7 @@ Rulebook sections are cited as **§x.y** (official StrategyBot rulebook, 9 pages
 10. [Recommended actions](#10-recommended-actions)
 11. [Limitations](#11-limitations)
 12. [What v8 changed](#12-what-v8-changed)
+13. [v9: forecasting rivals](#13-v9-forecasting-rivals)
 
 ---
 
@@ -848,3 +849,107 @@ The other fields take the same form as the first `edge_audit.py` command with
 `peer 400`, `realistic 500`, `unknown 400`, `outsiders 400` or `nonshield 300`.
 The referee probe saves per-game results as JSON, so the paired v8 − v7 table in
 12.3 is computed from the two `mybot_referee_strangers_300_*.json` files.
+
+---
+
+## 13. v9: forecasting rivals
+
+v9 is v8 plus one switch, `forecast: 1`: a Bayesian goal-inference forecaster
+(`Forecaster` in `mybot.py`; method in `EXPLAINED.md` §5.5). It infers each
+rival's target from that rival's own moves in the current game, instead of
+relying on a model of opponents fitted to the tuning field. Its constants (β 2,
+ρ 0.9, κ 3, a two-target chain) were fixed before any measurement and never tuned.
+
+Results were produced by `mybot.py` as shipped in v9, labelled `mybot-0ba97d3b`
+by its content hash, and by the shipped bots (`v8`, `v9`) for the forecast probe
+and scenarios.
+
+### 13.1 Can it see where rivals are going?
+
+[`forecast_probe.py`](forecast_probe.py) puts an observer in the bot's seat,
+forecasts every moving rival each turn, and scores the forecast against what the
+rival actually did (`results/v8_forecast_unknown_200.txt`,
+`results/v8_forecast_realistic_200.txt`).
+
+| held-out field: outside designs + strangers, 200 games | forecast | rule prior, no inference | stays put | keeps going |
+|---|---|---|---|---|
+| next destination found (11,268 cases) | **48.0%** | 48.1% | 1.1% | — |
+| probability given to the true destination | **0.088** | 0.081 | — | — |
+| position error, 1 turn ahead (cells) | **0.78** | 0.80 | 1.00 | 1.00 |
+| position error, 3 turns ahead | **1.31** | 1.32 | 1.55 | 1.76 |
+| position error, 8 turns ahead | **2.17** | 2.18 | 2.54 | 2.86 |
+
+The training-like field gives the same picture (47.0% against 47.6%; 0.091
+against 0.085; 2.09 against 2.43 and 2.77 at 8 turns). By design, the naive
+`x_literal` and `pro` are forecast 72–74% of the time and the erratic `x_flaky`,
+`x_fort` and `ai_route` about 20%.
+
+Most of the power comes from planning from the rival's point of view (the prior).
+Watching its moves adds calibration, not accuracy.
+
+The probe also found three modelling errors before anything shipped, each fixed
+and documented in the code:
+
+| version | finds the true destination |
+|---|---|
+| likelihood of the exact move | 2.5% |
+| goals persisting about ten turns | 19% |
+| every stay read as continuing work | 16% |
+| shipped: distance-event likelihood, current prior × decaying evidence, legs end when work finishes | 48% |
+
+### 13.2 Does using it win games?
+
+Paired against v8 on identical games (`AUDIT_BOT=mybot`, `@v8_params.json`
+against `@v8_params.json+forecast:1`; `results/mybot-0ba97d3b_edge_*`).
+
+| field | first draw | confirmation, fresh tasks (seed 101) | pooled |
+|---|---|---|---|
+| **unknown** (outside designs + strangers) | +0.045 PW (z +1.75), +22.6 pts | **+0.053 PW (z +2.57)**, −1.7 pts | **+0.050 ± 0.016 PW (z +3.1)**, +8.0 pts (n.s.) |
+| outside designs | +0.053 PW (z +1.97), +28.6 pts | +0.015 PW (z +0.64), +8.6 pts | +0.030 ± 0.018 PW (z +1.7), **+16.6 ± 7.5 pts (z +2.2)** |
+| **strangers** | −0.008 PW, −8.5 pts | **−0.040 PW (z −2.14)**, −18.2 pts | **−0.024 ± 0.014 PW (z −1.8)**, −13.3 ± 6.9 pts (z −1.95) |
+| peer (strongest) | +0.014 PW, +2.6 pts | — | — |
+| realistic | −0.007 PW, +6.1 pts | — | — |
+| never-shield | +0.030 PW (z +1.5), −6.5 pts | — | — |
+| 3× `x_jackal` | +0.033 PW, +18.2 pts; cells lost 3.72 → **3.02** | — | — |
+| 3× `x_leech` | +0.000 PW, −2.3 pts | — | — |
+
+The confirmation draw was run because the first draw's best numbers are biased
+upward (README: "The tuner was selecting luck"). It did its job: the outside-designs
+gain shrank from z +1.97 to +0.64, and the strangers loss grew.
+
+### 13.3 Decision
+
+Shipped, because the method's purpose is generalising to opponents the bot has
+never seen. The field built for that — mixed lineups with nothing tuned against —
+gains **+0.050 PW (z +3.1)** over 1,000 games, and nothing significant is lost
+against the strongest bots. The cost is real: **−0.024 PW (z −1.8)** against the
+repository's own strangers, and the points gain on the unknown field did not
+replicate. The forecaster's constants were not adjusted to remove that loss: doing
+so would fit them to the very field used to judge them.
+
+**Conservative alternative:** `forecast: 0` reproduces v8 move for move
+(`python ship.py v8_params.json`), and v8 is on branch `claude/strategy-audit-v8`.
+
+**Untested:** the forecast is only used to avoid cells a rival will reach first. Its
+other natural use, defence — reaching and holding a level-1 cell before a forecast
+raider arrives, since shields cannot save those (B2) — has not been tried.
+
+### 13.4 Reproducing §13
+
+```bash
+python strategy_audit/forecast_probe.py 200 unknown
+```
+
+```bash
+AUDIT_BOT=mybot python strategy_audit/edge_audit.py 400 unknown @v8_params.json @v8_params.json+forecast:1
+```
+
+```bash
+AUDIT_BOT=mybot AUDIT_SEED=101 python strategy_audit/edge_audit.py 600 unknown @v8_params.json @v8_params.json+forecast:1
+```
+
+The other rows take the same form with `outsiders`, `strangers`, `peer 400`,
+`realistic 500`, `nonshield 300`, `solo:x_jackal 120` or `solo:x_leech 120`. Runs
+land on exactly the committed file names as long as `mybot.py` is unchanged; an
+edited `mybot.py` gets a new label and writes new files instead of overwriting
+these.

@@ -737,11 +737,72 @@ So the guards matter as much as the strategy.
 | **Seat-canonical tie-breaking** | the bot playing a different game in each corner (§8.4) |
 | **Full parameter baking** | `ship.py` bakes the complete parameter set, so a key added after the last tuning run cannot go missing |
 
+### 5.5 Forecasting rivals: Bayesian goal inference (v9)
+
+Everything up to v8 sees the whole board but never asks where a rival is
+*going*. Its only model of opponents was the tuning field — weights fitted against
+bots written in this repository — which is overfitting by construction: it knows
+how the bots it trained against behave, not how a stranger will.
+
+`Forecaster` replaces that with **inverse planning**. Each rival is treated as a
+goal-directed agent playing by the same rules, and its goal is inferred from its
+own moves in the current game. Nothing is fitted to any pool of opponents.
+
+- **Prior — plan from the rival's chair.** For every cell, how good a target it is
+  *for that rival, from where it stands*: the points the work earns (value ×
+  turns it will pay, plus any raid bonus) per action-turn it costs (travel +
+  stays). The same arithmetic as §2.2, applied to someone else.
+- **Evidence — a noisy-rational move model.** Each step either brings the rival
+  closer to a candidate goal, holds, or takes it further away, with likelihoods
+  in the ratio e^β : 1 : e^−β (β = 2).
+- **Structure taken from the rules.**
+  - Rivals re-plan every turn, so the belief is the *current* prior times recent
+    evidence, with evidence fading by ρ = 0.9 per step.
+  - A stay is how work is done: a stay that *finishes* work (the tracker's progress
+    is back to 0) starts a fresh goal, and a stay mid-work marks the current cell
+    as the goal.
+- **Forecast.** The posterior gives each rival's likely destination and its
+  arrival turn. Chaining "its best next target after that one" twice carries the
+  forecast further out.
+- **Use.** Any piece of work in the walk planner is multiplied by the probability
+  that its cell is still free when the bot arrives: every rival forecast to stand
+  on it first takes it with that rival's probability, and arriving on the same
+  turn is a contest, counted as even.
+
+The constants — β 2, ρ 0.9, κ 3 (prior temperature), a two-target chain — were set
+on principle before any measurement and never tuned. Tuning them on the fields
+used to judge the method would reintroduce exactly the overfitting it replaces.
+
+**Three modelling errors**, found with `strategy_audit/forecast_probe.py` on the
+training-like field and each documented where it was fixed:
+
+| version | finds the true destination |
+|---|---|
+| likelihood of the exact move — splits credit among equally good moves, but real bots walk in straight lines | 2.5% |
+| goals persisting ten turns — rivals finish a target every few turns | 19% |
+| every stay read as "goal = here", even one that just finished the work | 16% |
+| **as shipped** | **48%** |
+
+**What it achieves.**
+
+- **Accuracy:** on the held-out field it finds a moving rival's next destination
+  48% of the time, against 1% for "it stays put". Its position error 8 turns
+  ahead is 2.17 cells, against 2.54 for "stays put" and 2.86 for "keeps going".
+  The rule prior alone is nearly as accurate (48.1%), so most of the power is in
+  planning from the rival's chair; watching its moves adds calibration (it gives
+  the truth 0.088 probability against 0.081).
+- **Strength:** paired against v8, **+0.050 PW (z +3.1)** over 1,000 games on the
+  field closest to Round 1 — mixed lineups of opponents the bot was never tuned
+  against — level against the strongest bots, and **−0.024 PW (z −1.8)** against
+  the repository's own strangers. Full tables are in the README's v9 section and
+  in `strategy_audit/README.md` §13.
+
 ---
 
 ## 6. Every parameter, and what it controls
 
-The bot has 51 tunable numbers, plus 11 on/off switches added in v8 (listed last).
+The bot has 51 tunable numbers, plus 11 on/off switches added in v8 and the v9
+forecaster's switch with its four fixed constants (both listed last).
 Grouped by what they *mean*:
 
 **Planning**
@@ -820,6 +881,18 @@ v7 exactly (checked move for move by `strategy_audit/check_v7_compat.py`);
 | `backfire_prod` | C4 | 1 | a shield backfires only if every rival on my land leaves |
 | `contest_owner` | C4 | 1 | the step tie-break knows a cell's owner always wins a contest for it |
 | `canon_home` | C4 | 1 | tie-break frame from my actual home cell, not my seat number |
+
+**v9 switch — forecasting rivals (§5.5)**
+
+| parameter | v9 | meaning |
+|---|---|---|
+| `forecast` | 1 | infer each rival's goal from its own moves and discount work on cells a rival will reach first; 0 reproduces v8 move for move |
+| `fc_beta` | 2.0 | rationality of the move model: closer : held : further = e^β : 1 : e^−β |
+| `fc_rho` | 0.9 | how much of the previous step's evidence survives each turn |
+| `fc_kappa` | 3.0 | prior temperature: the best target is e^κ ≈ 20× as likely a priori as a worthless one |
+| `fc_chain` | 2 | further targets forecast after the current one |
+
+Fixed on principle, not tuned (see §5.5).
 
 ---
 
@@ -926,7 +999,8 @@ Grouped by how badly a failure would hurt. `runtests.py` runs them all.
 | file | what it is |
 |---|---|
 | `v1_params.json` … `v7_params.json` (plus `v2b`, a variant branch of v2) | the tuned versions in order. `v7` was tuned against the rebuilt field with the confirmation stage, and shipped with `tie_home: 1` for seat symmetry |
-| **`v8_params.json`** | **the shipped set**: v7's weights, unchanged, plus the eleven audit switches of §6 (ten on, `risk_frozen` measured and left off). Not a retune — every v7 weight is identical |
+| `v8_params.json` | v7's weights, unchanged, plus the eleven audit switches of §6 (ten on, `risk_frozen` measured and left off). Not a retune — every v7 weight is identical |
+| **`v9_params.json`** | **the shipped set**: v8 plus `forecast: 1` and the forecaster's fixed constants (§5.5) |
 | `v4_seed.json`, `v5_seed.json`, `v6_seed.json` | the seeds those runs started from |
 | `nemesis1.json`, `nemesis2.json`, `nemesis3.json` | counter-bots bred to beat a named version of this bot |
 | `pro_params_v1.json` | the frozen independent rival. **Committed**, because `field.py` depends on it; without it the field silently falls back to the untuned version |
@@ -952,6 +1026,7 @@ fixes. Full write-up: [`strategy_audit/README.md`](strategy_audit/README.md).
 | `strategy_audit/penalty.py` | injects Round 2 time-penalty freezes and measures tracker error |
 | `strategy_audit/lastturn.py`, `strategy_audit/scenarios.py` | turn-80 raids; constructed edge cases run against the bot's internals |
 | `strategy_audit/check_v7_compat.py` | proves every v8 switch at its default plays move-for-move like the v7 `bot.py` in git history |
+| `strategy_audit/forecast_probe.py` | scores the v9 forecaster against what rivals actually did — next destination, position 1–8 turns ahead, arrival time — against no-inference, stay-put and momentum baselines |
 | `strategy_audit/results/` | every table the write-up quotes |
 
 ### 7.9 Scratch files — not load-bearing
@@ -1273,6 +1348,13 @@ limits.
   Learning faster gains 48 points against never-shield opponents and loses 0.111
   PW against strong ones; v8 keeps v7's setting. If the real field turns out
   mostly naive, this is the first thing to revisit.
+- **Forecasting helps where the opponents are unfamiliar and costs a little where
+  they are not.** v9's goal inference is +0.050 PW (z +3.1) on mixed lineups of
+  opponents never tuned against, but −0.024 PW (z −1.8) against the repository's
+  strangers, and its points gain did not replicate on fresh games. The forecast is
+  only used to avoid cells a rival will reach first; using it for defence — reaching
+  a level-1 cell before a forecast raider does — is untested. If Round 1 turns out to
+  look like the strangers rather than the outside designs, v8 is the safer build.
 - **The income horizon is one turn short** (`rem = R - used - need`; a cell
   taken this turn also scores this turn). The tuned weights absorb it, so fixing
   it alone measures nothing; it belongs in the next retune.
