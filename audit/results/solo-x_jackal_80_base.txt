@@ -1,0 +1,3 @@
+[solo:x_jackal] 80 paired games, reference = base
+base                     PW 2.8000  score  2677.4
+    per game: shields=1.38, last_shields=0.17, last_no_imminent=0.06, home_shields=0.00, l1_shields=1.31, l1_lost_anyway=1.11, backfires=0.17, raids=7.12, raids_early=0.71, cells_lost=3.40, idle=0.34, idle_late=0.00, moves=25.79, turns90=15.94, reversals=2.41
