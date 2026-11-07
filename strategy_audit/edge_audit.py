@@ -32,6 +32,10 @@ Which bot is audited is set by the environment variable AUDIT_BOT:
 Results are written to strategy_audit/results/ under a name that starts with the
 label of the bot that produced them (see bot_label), so a run of one version can
 never overwrite another version's evidence.
+
+AUDIT_SEED (default 7) draws a different task list -- fresh maps, seats,
+lineups and tokens -- for a confirmation run. A non-default seed is part of the
+result file name, so a confirmation never overwrites the draw it confirms.
 """
 import hashlib
 import importlib
@@ -377,8 +381,11 @@ def tasks_for(games, tier, seed=7):
     return measure.make_tasks(games, tier, seed=seed)
 
 
-def run(games, tier, specs, procs=None, seed=7):
-    tasks = tasks_for(games, tier, seed)
+SEED = int(os.environ.get("AUDIT_SEED", "7"))
+
+
+def run(games, tier, specs, procs=None, seed=None):
+    tasks = tasks_for(games, tier, SEED if seed is None else seed)
     pool = mp.Pool(procs or min(4, mp.cpu_count()))
     jobs, own = [], []
     for si, s in enumerate(specs):
@@ -405,7 +412,8 @@ def paired(a, b, key):
 def report(tier, specs, out):
     ref = out[0]
     n = len(ref)
-    lines = ["[%s] %d paired games, reference = %s" % (tier, n, specs[0])]
+    lines = ["[%s] %d paired games, reference = %s%s"
+             % (tier, n, specs[0], "" if SEED == 7 else ", task seed %d" % SEED)]
     for si, s in enumerate(specs):
         b = out[si]
         pw = sum(x["pw"] for x in b) / n
@@ -445,7 +453,8 @@ def main():
     out = run(games, tier, specs)
     txt = report(tier, specs, out)
     print(txt)
-    path = result_path("edge", tier, games, *specs)
+    extra = [] if SEED == 7 else ["seed%d" % SEED]
+    path = result_path("edge", tier, games, *(extra + list(specs)))
     with open(path + ".partial", "w", encoding="utf-8") as f:
         f.write(txt + "\n")
     os.replace(path + ".partial", path)
