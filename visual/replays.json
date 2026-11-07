@@ -2,7 +2,7 @@
   "format_version": 1,
   "engine": "Local reimplementation; not the official StrategyBot Arena",
   "bot_file": "bot.py",
-  "bot_sha256": "fb22c48593f4631363be3d8cfcffc1bf1779aed41f56253c23a01ac1bb7a2fdf",
+  "bot_sha256": "cefe2fa7bce14d7a90bd1b292333b7d5f3ed3325210da7e0b11b151494a261f4",
   "engine_sha256": "9ddf7b3a6a674d6d25d4f7aa2a44a7e412f0833c758579ca35317c53ef584cdd",
   "python": "3.12.10",
   "games": [

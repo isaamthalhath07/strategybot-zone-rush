@@ -9,7 +9,10 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def sha(path):
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    # Normalise line endings before hashing. git stores LF and may check a file
+    # out as CRLF, so hashing raw bytes made this pass on the machine that
+    # wrote the evidence and fail on every fresh clone.
+    return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
 
 
 def policy(path):
