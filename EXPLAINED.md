@@ -363,6 +363,19 @@ because most losses happen while your shield is *already* on cooldown or while y
 are frozen. `diag_loss.py` counts the ceiling on better defence at **about one
 cell per game** ([§9.3](#93-defence-has-a-ceiling)).
 
+**The converse, which v7 missed: a level-1 cell cannot be defended at all.** Run
+the same walk with a raider that needs **one** stay. You shield at `t1`; it is
+frozen through `t2`; it stays at `t3` and takes the cell — while your cooldown
+still blocks `t2` to `t5`. Freeze (2) plus one stay is 3, which is not more than
+the cooldown (4), so the shield buys three turns, not the cell. For an upgraded
+cell it is 2 + 3 = 5 > 4, which is why that one holds.
+
+v7 still valued a level-1 shield as if it saved the cell for the rest of the game
+(57 points at 40 turns left, against a real 9). Measured, **79–89%** of the
+level-1 cells it shielded were taken by the same raider within six turns anyway.
+v8 stops spending shields there (`shield_l1: 0`); see
+[`audit/README.md`](audit/README.md), finding B2.
+
 ### 2.7 The cooldown window is the real exploit
 
 When any bot shields, **its entire territory is undefendable for the next four
@@ -786,6 +799,27 @@ The bot has 51 tunable numbers. Grouped by what they *mean*:
 | `endgame_care`, `endgame_denial` | switch to winning still-live pairings near the end |
 | `lead_caution` | when ahead treat raids as riskier; when behind, safer |
 
+**v8 switches — fixes from the strategy audit**
+
+Not tuned weights but on/off corrections, each closing one finding in
+[`audit/README.md`](audit/README.md). Every default in `mybot.PARAMS` reproduces
+v7 exactly (checked move for move by `audit/check_v7_compat.py`);
+`v8_params.json` switches them all on.
+
+| parameter | finding | v8 | meaning |
+|---|---|---|---|
+| `shield_l1` | B2 | 0 | spend a shield to stop a take on a level-1 cell — it only delays the loss (§2.6) |
+| `shield_home` | B3 | 0 | count a rival on my home as a capture threat — homes can never be taken |
+| `last_shield_value` | B4 | 1 | on the last turn, shield only for a real take worth more than my own last stay |
+| `turn_guard` | C2 | 1 | a board after turn 80 is a game whose start was missed: re-estimate the turn |
+| `calibrate` | C3 | 1 | measure the shield cooldown and the freeze length instead of assuming 4 and 2 |
+| `penalty_undo` | C1 | 1 | a freeze outlasting a shield freeze was a Round 2 time penalty: withdraw the cooldown inferred from it |
+| `solver_retry` | C4 | 1 | if my own shield never happened, re-solve instead of dropping every shield seen |
+| `risk_frozen` | C4 | 1 | a frozen landlord cannot shield either: raid risk uses max(cooldown, freeze) |
+| `backfire_prod` | C4 | 1 | a shield backfires only if every rival on my land leaves |
+| `contest_owner` | C4 | 1 | the step tie-break knows a cell's owner always wins a contest for it |
+| `canon_home` | C4 | 1 | tie-break frame from my actual home cell, not my seat number |
+
 ---
 
 ## 7. Every file in the repository
@@ -900,6 +934,23 @@ Grouped by how badly a failure would hurt. `runtests.py` runs them all.
 A run in progress writes to `best_params.json`, which is **gitignored** along
 with `pro_params.json`, so a half-tuned file cannot be mistaken for a decision.
 Harvested results are copied to an explicit `vN_params.json` and committed.
+
+### 7.8b The strategy audit (`audit/`)
+
+An adversarial review of the shipped bot against the rulebook, and a test against
+opponents and referees written outside this repository. Its findings are what v8
+fixes. Full write-up: [`audit/README.md`](audit/README.md).
+
+| file | what it is |
+|---|---|
+| `audit/README.md` | every finding with its rule, code location, mechanism and paired evidence, and what v8 did about it |
+| `audit/edge_audit.py` | paired, instrumented harness. `AUDIT_BOT` picks the bot (`bot`, `mybot`, or a file such as an old version pulled from git); variants are fix switches, `KEY:VALUE` overrides or `@file.json` |
+| `audit/outsiders.py` | eight opponent designs written from the rulebook alone, sharing no code with the field here |
+| `audit/referee.py` | plays identical games under alternative readings of the cooldown and freeze durations |
+| `audit/penalty.py` | injects Round 2 time-penalty freezes and measures tracker error |
+| `audit/lastturn.py`, `audit/scenarios.py` | turn-80 raids; constructed edge cases run against the bot's internals |
+| `audit/check_v7_compat.py` | proves every v8 switch at its default plays move-for-move like the v7 `bot.py` in git history |
+| `audit/results/` | every table the write-up quotes |
 
 ### 7.9 Scratch files — not load-bearing
 
