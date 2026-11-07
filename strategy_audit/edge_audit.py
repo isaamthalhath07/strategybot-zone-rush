@@ -6,10 +6,10 @@ bot.py's two wall-clock guards pinned (throttle off, huge budget), so play is
 deterministic and variants are compared game-for-game -- the method measure.py
 uses. The bot is bot.py itself, not mybot.py: this audits what will be submitted.
 
-    python audit/edge_audit.py <games> <tier> <variant> [<variant> ...]
+    python strategy_audit/edge_audit.py <games> <tier> <variant> [<variant> ...]
 
 tiers     any tier in field.py (realistic, peer, strangers, ...), plus
-          outsiders   the eight designs in audit/outsiders.py
+          outsiders   the eight designs in strategy_audit/outsiders.py
           unknown     outsiders + strangers mixed (nothing tuned against)
           nonshield   three copies of `greedy`, the repo's never-shield bot
           solo:NAME   three copies of one opponent
@@ -27,8 +27,13 @@ Which bot is audited is set by the environment variable AUDIT_BOT:
           mybot       the development source, so parameter files can be compared
           PATH.py     any bot file, e.g. an old version pulled out of git:
                       git show 961e729:bot.py > /tmp/bot_v7.py
-                      AUDIT_BOT=/tmp/bot_v7.py python audit/edge_audit.py ...
+                      AUDIT_BOT=/tmp/bot_v7.py python strategy_audit/edge_audit.py ...
+
+Results are written to strategy_audit/results/ under a name that starts with the
+label of the bot that produced them (see bot_label), so a run of one version can
+never overwrite another version's evidence.
 """
+import hashlib
 import importlib
 import importlib.util
 import json
@@ -56,6 +61,76 @@ def _load_bot(which):
 
 
 bot = _load_bot(os.environ.get("AUDIT_BOT", "bot"))
+
+# Result files are named after the bot that produced them. bot.py is rewritten
+# whenever a version ships, so a name built only from the command line let a v8
+# run silently overwrite the committed v7 evidence. The label is taken from the
+# file's content (line endings normalised), so it is the same however the file
+# was obtained -- checked out, or pulled from git history into /tmp. Versions
+# that differ only in comments map to the same label.
+KNOWN_BOTS = {
+    "f4a4449efe2fa82d22154af3217588b4d41ab506": "v7",    # bot.py at 961e729
+    "fe5c2b1dc9197d8aaa0c00fe94b2d74618d5074d": "v8",    # first v8 build
+    "38728a78bfef2a607da31b88e7f0ff2e218c41ec": "v8",    # same, doc path fixed
+    "e678a727d75faaa2be3a388aae5923408e79ff8c": "mybot",  # source behind v8
+    "b4d9e70ddbfd1a259016c634266dde4e46701e3c": "mybot",  # same, doc path fixed
+}
+
+
+def bot_label(mod=None):
+    """v7, v8 or mybot for a known file; otherwise bot-<hash> / mybot-<hash>,
+    so an edited bot never writes over results of the one it replaced."""
+    mod = mod or bot
+    with open(mod.__file__, "rb") as f:
+        digest = hashlib.sha1(f.read().replace(b"\r\n", b"\n")).hexdigest()
+    if digest in KNOWN_BOTS:
+        return KNOWN_BOTS[digest]
+    stem = "mybot" if os.path.basename(mod.__file__) == "mybot.py" else "bot"
+    return "%s-%s" % (stem, digest[:8])
+
+
+def _slug(x):
+    return (str(x).replace(":", "-").replace("+", "_").replace("@", "")
+            .replace(".json", "").replace("/", "-"))
+
+
+def result_path(probe, *parts, **kw):
+    """strategy_audit/results/<bot label>_<probe>_<parts...><ext>.
+
+    Long names keep a readable prefix and end in a hash of the full name instead
+    of being cut short, since two runs whose names share a prefix would
+    otherwise collide."""
+    ext = kw.get("ext", ".txt")
+    name = "_".join([bot_label(), probe] + [_slug(p) for p in parts if p != ""])
+    if len(name) > 120:
+        name = name[:100] + "-" + hashlib.sha1(name.encode("utf-8")).hexdigest()[:10]
+    rdir = os.path.join(HERE, "results")
+    if not os.path.isdir(rdir):
+        os.makedirs(rdir)
+    return os.path.join(rdir, name + ext)
+
+
+class _Tee(object):
+    """Mirror a probe's console output into its results file."""
+
+    def __init__(self, path):
+        self.out = sys.stdout
+        self.f = open(path, "w", encoding="utf-8")
+
+    def write(self, s):
+        self.out.write(s)
+        self.f.write(s)
+
+    def flush(self):
+        self.out.flush()
+        self.f.flush()
+
+
+def tee_to(path):
+    sys.stdout = _Tee(path)
+    return path
+
+
 import engine  # noqa: E402
 import field as fieldmod  # noqa: E402
 import measure  # noqa: E402
@@ -352,16 +427,10 @@ def main():
     out = run(games, tier, specs)
     txt = report(tier, specs, out)
     print(txt)
-    rdir = os.path.join(HERE, "results")
-    if not os.path.isdir(rdir):
-        os.makedirs(rdir)
-    tag = os.environ.get("AUDIT_BOT", "bot")
-    tag = "" if tag == "bot" else os.path.basename(tag).replace(".py", "") + "_"
-    stem = (tag + "%s_%d_%s" % (tier.replace(":", "-"), games, "_".join(
-        s.replace(":", "-").replace("+", "_").replace("@", "").replace(".json", "")
-        for s in specs)))[:140]
-    with open(os.path.join(rdir, stem + ".txt"), "w", encoding="utf-8") as f:
+    path = result_path("edge", tier, games, *specs)
+    with open(path, "w", encoding="utf-8") as f:
         f.write(txt + "\n")
+    print("-> %s" % os.path.relpath(path, REPO))
 
 
 if __name__ == "__main__":

@@ -374,7 +374,7 @@ v7 still valued a level-1 shield as if it saved the cell for the rest of the gam
 (57 points at 40 turns left, against a real 9). Measured, **79–89%** of the
 level-1 cells it shielded were taken by the same raider within six turns anyway.
 v8 stops spending shields there (`shield_l1: 0`); see
-[`audit/README.md`](audit/README.md), finding B2.
+[`strategy_audit/README.md`](strategy_audit/README.md), finding B2.
 
 ### 2.7 The cooldown window is the real exploit
 
@@ -803,8 +803,8 @@ Grouped by what they *mean*:
 **v8 switches — fixes from the strategy audit**
 
 Not tuned weights but on/off corrections, each closing one finding in
-[`audit/README.md`](audit/README.md). Every default in `mybot.PARAMS` reproduces
-v7 exactly (checked move for move by `audit/check_v7_compat.py`);
+[`strategy_audit/README.md`](strategy_audit/README.md). Every default in `mybot.PARAMS` reproduces
+v7 exactly (checked move for move by `strategy_audit/check_v7_compat.py`);
 `v8_params.json` switches them all on.
 
 | parameter | finding | v8 | meaning |
@@ -937,22 +937,22 @@ A run in progress writes to `best_params.json`, which is **gitignored** along
 with `pro_params.json`, so a half-tuned file cannot be mistaken for a decision.
 Harvested results are copied to an explicit `vN_params.json` and committed.
 
-### 7.8b The strategy audit (`audit/`)
+### 7.8b The strategy audit (`strategy_audit/`)
 
 An adversarial review of the shipped bot against the rulebook, and a test against
 opponents and referees written outside this repository. Its findings are what v8
-fixes. Full write-up: [`audit/README.md`](audit/README.md).
+fixes. Full write-up: [`strategy_audit/README.md`](strategy_audit/README.md).
 
 | file | what it is |
 |---|---|
-| `audit/README.md` | every finding with its rule, code location, mechanism and paired evidence, and what v8 did about it |
-| `audit/edge_audit.py` | paired, instrumented harness. `AUDIT_BOT` picks the bot (`bot`, `mybot`, or a file such as an old version pulled from git); variants are fix switches, `KEY:VALUE` overrides or `@file.json` |
-| `audit/outsiders.py` | eight opponent designs written from the rulebook alone, sharing no code with the field here |
-| `audit/referee.py` | plays identical games under alternative readings of the cooldown and freeze durations |
-| `audit/penalty.py` | injects Round 2 time-penalty freezes and measures tracker error |
-| `audit/lastturn.py`, `audit/scenarios.py` | turn-80 raids; constructed edge cases run against the bot's internals |
-| `audit/check_v7_compat.py` | proves every v8 switch at its default plays move-for-move like the v7 `bot.py` in git history |
-| `audit/results/` | every table the write-up quotes |
+| `strategy_audit/README.md` | every finding with its rule, code location, mechanism and paired evidence, and what v8 did about it |
+| `strategy_audit/edge_audit.py` | paired, instrumented harness. `AUDIT_BOT` picks the bot (`bot`, `mybot`, or a file such as an old version pulled from git); variants are fix switches, `KEY:VALUE` overrides or `@file.json` |
+| `strategy_audit/outsiders.py` | eight opponent designs written from the rulebook alone, sharing no code with the field here |
+| `strategy_audit/referee.py` | plays identical games under alternative readings of the cooldown and freeze durations |
+| `strategy_audit/penalty.py` | injects Round 2 time-penalty freezes and measures tracker error |
+| `strategy_audit/lastturn.py`, `strategy_audit/scenarios.py` | turn-80 raids; constructed edge cases run against the bot's internals |
+| `strategy_audit/check_v7_compat.py` | proves every v8 switch at its default plays move-for-move like the v7 `bot.py` in git history |
+| `strategy_audit/results/` | every table the write-up quotes |
 
 ### 7.9 Scratch files — not load-bearing
 
@@ -1215,7 +1215,7 @@ banked 10 stays, the same class of bug that once halved this bot's score.
 `audit.py` now flags it.
 
 **Found later by the strategy audit, and fixed in v8** (full write-up in
-[`audit/README.md`](audit/README.md)):
+[`strategy_audit/README.md`](strategy_audit/README.md)):
 
 | bug | consequence | v8 |
 |---|---|---|

@@ -771,7 +771,7 @@ class Agent(object):
         until the cooldown ends; the first turn it is back gives the length.
         The rulebook says 4 and engine.py counts it that way, but a server that
         counts one turn differently costs this bot 0.16-0.18 pairwise wins
-        (audit/README.md, 7.3), so it is measured rather than assumed. A turn
+        (strategy_audit/README.md, 7.3), so it is measured rather than assumed. A turn
         spent frozen hides SHIELD for another reason, so a measurement taken
         straight after one is discarded. If the server lists SHIELD during the
         cooldown, nothing is measured and the defaults stand.

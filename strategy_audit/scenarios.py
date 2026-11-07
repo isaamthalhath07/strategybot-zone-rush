@@ -6,7 +6,7 @@ Constructed edge cases, run directly against bot.py internals (no statistics nee
   S8   on turn 80 the bot walks off a neutral cell instead of claiming it (B6)
   S2   stale module state + a missed turn-1 call: R pinned to 1 all game (C2)
 
-    python audit/scenarios.py
+    python strategy_audit/scenarios.py
 """
 import os
 import sys
@@ -18,6 +18,7 @@ import engine
 import edge_audit
 
 bot = edge_audit.bot              # honours AUDIT_BOT
+edge_audit.tee_to(edge_audit.result_path("scenarios"))
 
 def fresh_agent(base, seat=1):
     a = bot.Agent(seed=1, params={"throttle": 0, "budget_ms": 10000.0})

@@ -169,7 +169,7 @@ PARAMS = {
     "endgame_denial": 1.0,     # multiplier on the denial term inside that window:
                                # taking points off the rival I am chasing closes
                                # the gap from both ends at once
-    # --- v8: fixes from the strategy audit (audit/README.md) -----------------
+    # --- v8: fixes from the strategy audit (strategy_audit/README.md) -------
     # Every default below reproduces v7 exactly, so `ship.py v7_params.json`
     # still rebuilds the old bot; v8_params.json switches the fixes on. Each one
     # names the audit finding it closes.
@@ -841,7 +841,7 @@ class Agent(object):
         until the cooldown ends; the first turn it is back gives the length.
         The rulebook says 4 and engine.py counts it that way, but a server that
         counts one turn differently costs this bot 0.16-0.18 pairwise wins
-        (audit/README.md, 7.3), so it is measured rather than assumed. A turn
+        (strategy_audit/README.md, 7.3), so it is measured rather than assumed. A turn
         spent frozen hides SHIELD for another reason, so a measurement taken
         straight after one is discarded. If the server lists SHIELD during the
         cooldown, nothing is measured and the defaults stand.

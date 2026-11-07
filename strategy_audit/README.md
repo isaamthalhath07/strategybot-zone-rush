@@ -10,6 +10,9 @@ repository.
 > such as `bot.py:1103` refer to that file, and every number in them reproduces
 > against it ([§9](#9-reproducing)). What v8 changed, what it measured, and what
 > was deliberately left alone is in [§12](#12-what-v8-changed).
+>
+> This directory was called `audit/` until it was renamed: that name clashed with
+> the project's existing `audit.py` script, which `runtests.py` runs.
 
 During the audit itself nothing in `bot.py` or `mybot.py` was changed: every
 candidate fix existed only as a switch in [`edge_audit.py`](edge_audit.py), so it
@@ -177,8 +180,8 @@ cooldown or frozen, or that it has watched decline to shield several times.
 shields, except `greedy` — which `zoo.py` calls "my prediction for the modal
 unprompted-LLM bot". The prior was tuned on a field of shielders.
 
-**Measured** (paired, `results/nonshield_300_*`, `results/strangers_400_*`,
-`results/unknown_400_*`, `results/outsiders_400_*`):
+**Measured** (paired, `results/v7_edge_nonshield_300_*`, `results/v7_edge_strangers_400_*`,
+`results/v7_edge_unknown_400_*`, `results/v7_edge_outsiders_400_*`):
 
 | change | vs 3× never-shield | strangers | outsiders | unknown (untuned mix) |
 |---|---|---|---|---|
@@ -217,7 +220,7 @@ cost of the bot's own turn and four turns without cover elsewhere.
 **Code.** `bot.py:1103` values the shield as saving the cell for the rest of the
 game: `lost = v * lvl * (R - 1) * (1 - retake_credit)`. At R = 40 that is **57
 points** for a 3-point level-1 cell; against a committed raider the real saving
-is **9** (`results/scenarios.txt`, S1c).
+is **9** (`results/v7_scenarios.txt`, S1c).
 
 **Measured.**
 
@@ -252,7 +255,7 @@ wasted — but it can only freeze them, never save the cell.
 (`bot.py:1068-1072`), which includes the home, then values preventing its
 "loss" (`bot.py:1103-1104`). The turn-80 path does the same (`bot.py:1078-1083`).
 
-**Scenario** (`results/scenarios.txt`, S1):
+**Scenario** (`results/v7_scenarios.txt`, S1):
 
 - 1-point home: the shield fires only on turn 80.
 - **2-point home** and a rival with a committed raiding history: the shield
@@ -282,7 +285,7 @@ have been blocked anyway.
 
 On turn 80 a shield has no cooldown cost and no backfire cost, so a rational
 landlord with a free shield always uses it. The bot prices a raid completing on
-turn 80 with its ordinary mid-game estimate. **Measured** (`results/lastturn_strangers.txt`):
+turn 80 with its ordinary mid-game estimate. **Measured** (`results/v7_lastturn_strangers_base.txt`):
 120 last-turn raid attempts in 400 games, **26 blocked (22%)**, 579 points lost
 (~1.4 per game). This field mostly does not shield on turn 80; a field of
 rational bots would block nearly all of them.
@@ -295,7 +298,7 @@ turn scores this turn.
 **Code.** `bot.py:788`: `rem = R - used - need`, where `R` counts turns left
 including this one. The true number of paying turns is `rem + 1`.
 
-**Scenario** (`results/scenarios.txt`, S8): on turn 80, standing on a neutral
+**Scenario** (`results/v7_scenarios.txt`, S8): on turn 80, standing on a neutral
 3-point cell, the bot plays **`NORTH`** — staying would have scored 3. At R = 2
 a claim in place is valued at 3.4 against a true 6.
 
@@ -316,7 +319,7 @@ that exactly explains every new freeze. A penalty freeze gets "explained" as a
 shield — the frozen bot's own backfire, or its landlord catching it — and that
 seat's cooldown is set to 4.
 
-**Measured** (`results/penalty.txt`, 60 strangers games per row):
+**Measured** (`results/v7_penalty_base.txt`, 60 strangers games per row):
 
 | penalty rate per robot-turn | rival cooldown exact | **unsafe**: believes a ready rival cannot shield |
 |---|---|---|
@@ -337,7 +340,7 @@ module state survives into a new game *and* the turn-1 call is missed, the turn
 counter continues from 81. `R` is clamped to 1 (`bot.py:626-628`), so the bot
 plays the entire game as if it were the last turn.
 
-**Scenario** (`results/scenarios.txt`, S2): **156 points against rivals' 2,656 /
+**Scenario** (`results/v7_scenarios.txt`, S2): **156 points against rivals' 2,656 /
 2,736 / 2,736** — the do-nothing skeleton's level.
 
 **Probability.** The starter kit says globals "are cleared when a new game
@@ -449,11 +452,11 @@ score 1,500–2,050.
 
 ### 7.2 Results
 
-**Mixed field, all eight** (`results/outsiders_400_*`): **2.625 / 3**.
+**Mixed field, all eight** (`results/v7_edge_outsiders_400_*`): **2.625 / 3**.
 
-**Untuned field, outsiders + strangers** (`results/unknown_400_*`): **2.66 / 3**.
+**Untuned field, outsiders + strangers** (`results/v7_edge_unknown_400_*`): **2.66 / 3**.
 
-**Three copies of each** (`results/solo-*`), sorted hardest first:
+**Three copies of each** (`results/v7_edge_solo-*`), sorted hardest first:
 
 | opponent ×3 | PW / 3 | pts | what it reveals |
 |---|---|---|---|
@@ -502,7 +505,7 @@ under each reading:
 | freeze 3 | 2.820 | 2594 | +0.057 ± 0.028 (z +2.1) | 0.08% |
 
 300 paired games per reading on the strangers field
-(`results/referee_strangers_300.txt`). Every opponent plays under the same
+(`results/v7_referee_strangers_300_base.txt`). Every opponent plays under the same
 referee, so these are changes in the bot's *relative* standing.
 
 **This is the largest effect found in the audit.** A one-turn difference in
@@ -543,68 +546,89 @@ counting being the server's counting. See C3 for what to do.
 ## 9. Reproducing
 
 All commands run from the repository root; each writes its table to
-`audit/results/`. They use up to 4 worker processes.
+`strategy_audit/results/`. They use up to 4 worker processes.
 
-**`bot.py` is now v8.** The commands audit whichever bot `AUDIT_BOT` names
-(default: `bot.py`), so to reproduce the v7 tables below, pull v7 out of git
-history first and point the harness at it. Its result files then carry a
-`bot_v7_` prefix:
+**`bot.py` is now v8**, and every command audits whichever bot `AUDIT_BOT` names
+(default: the shipped `bot.py`). The tables in sections 1–11 are v7's, so to
+reproduce them, pull v7 out of git history and point the harness at it for the
+whole session:
 
 ```bash
-git show 961e729:bot.py > /tmp/bot_v7.py
+git show 961e729:bot.py > /tmp/v7.py
 ```
 
 ```bash
-AUDIT_BOT=/tmp/bot_v7.py python audit/edge_audit.py 600 strangers base nol1 home free offby1 q_prior:0.35
+export AUDIT_BOT=/tmp/v7.py
 ```
 
-The same prefix works for every command in this section. `scenarios.py`,
-`penalty.py` and `lastturn.py` import the bot through `edge_audit`, so
-`AUDIT_BOT` applies to them too. The v8-against-v7 tables of [§12](#12-what-v8-changed)
-compare parameter files on the development source instead; see there.
+Then run the commands below. Each writes to `strategy_audit/results/` under a
+name that starts with the label of the bot that produced it, read from the bot
+file's own content: `v7` here, wherever the file was saved. A re-run therefore
+lands on exactly the committed `v7_…` file, and reproduces it **byte for byte**
+(checked for the scenario, turn-80, penalty and solo probes). The same command
+run against the shipped bot writes a separate `v8_…` file, so neither version's
+evidence can overwrite the other's.
+
+**Result file names.**
+
+- The pattern is `<bot>_<probe>_<details>.txt`. `<probe>` is `edge`, `referee`,
+  `penalty`, `lastturn` or `scenarios`, and `<details>` is the tier, the number of
+  games and the variants.
+- The bot label comes from the file's content hash, line endings normalised:
+  `v7` and `v8` for the shipped versions, `mybot` for the development source
+  behind v8. Any other file gets `bot-<hash>` or `mybot-<hash>`, so an edited bot
+  never writes over the results of the one it replaced.
+- Names over 120 characters keep a readable prefix and end in a hash of the full
+  name instead of being cut short, so two long runs cannot collide.
+- The known hashes are listed in `KNOWN_BOTS` in [`edge_audit.py`](edge_audit.py).
+
+All five scripts honour `AUDIT_BOT`. The v8-against-v7 tables of
+[§12](#12-what-v8-changed) compare parameter files on the development source
+(`AUDIT_BOT=mybot`) instead; their commands are in §12.7. Run `unset AUDIT_BOT`
+afterwards to return to the shipped bot.
 
 ```bash
-python audit/scenarios.py
-```
-
-```bash
-python audit/edge_audit.py 600 strangers base nol1 home free offby1 q_prior:0.35
-```
-
-```bash
-python audit/edge_audit.py 300 nonshield base q_prior:0.35 q_weight:1.5 q_weight:1.5+q_prior:0.5
-```
-
-```bash
-python audit/edge_audit.py 500 realistic base nol1
-```
-
-```bash
-python audit/edge_audit.py 400 strangers base q_weight:1.5 q_weight:1.5+q_prior:0.5
-```
-
-```bash
-python audit/edge_audit.py 400 outsiders base nol1 home free q_weight:1.5 nol1+home+free
-```
-
-```bash
-python audit/edge_audit.py 400 unknown base nol1+home+free q_weight:1.5
+python strategy_audit/scenarios.py
 ```
 
 ```bash
-python audit/edge_audit.py 240 solo:x_leech base nol1
+python strategy_audit/edge_audit.py 600 strangers base nol1 home free offby1 q_prior:0.35
 ```
 
 ```bash
-python audit/penalty.py
+python strategy_audit/edge_audit.py 300 nonshield base q_prior:0.35 q_weight:1.5 q_weight:1.5+q_prior:0.5
 ```
 
 ```bash
-python audit/lastturn.py strangers
+python strategy_audit/edge_audit.py 500 realistic base nol1
 ```
 
 ```bash
-python audit/referee.py 300 strangers
+python strategy_audit/edge_audit.py 400 strangers base q_weight:1.5 q_weight:1.5+q_prior:0.5
+```
+
+```bash
+python strategy_audit/edge_audit.py 400 outsiders base nol1 home free q_weight:1.5 nol1+home+free
+```
+
+```bash
+python strategy_audit/edge_audit.py 400 unknown base nol1+home+free q_weight:1.5
+```
+
+```bash
+python strategy_audit/edge_audit.py 240 solo:x_leech base nol1
+```
+
+```bash
+python strategy_audit/penalty.py
+```
+
+```bash
+python strategy_audit/lastturn.py strangers
+```
+
+```bash
+python strategy_audit/referee.py 300 strangers
 ```
 
 Run time scales with games × variants, at roughly half a second per game per
@@ -685,7 +709,7 @@ stress games with no failure (worst turn 23 ms against the 200 ms limit).
 | A1–A3 | submission risks | **open — team actions**, not code | — |
 | B1 | raid prior is a field bet | **kept as v7** — faster learning costs 0.111 PW on the peer field (12.4) | `q_prior`, `q_weight` unchanged |
 | B2 | shields spent on level-1 cells | **fixed** | `shield_l1: 0` |
-| B3 | rival on my home priced as a threat | **fixed** — the S1 scenario now fires at no turn at all (`results/scenarios_v8.txt`) | `shield_home: 0` |
+| B3 | rival on my home priced as a threat | **fixed** — the S1 scenario now fires at no turn at all (`results/v8_scenarios.txt`) | `shield_home: 0` |
 | B4 | turn-80 shield ignores my own last stay | **fixed** | `last_shield_value: 1` |
 | B5 | turn-80 raids priced optimistically | open — field-dependent | — |
 | B6 | income horizon one turn short | open — the tuned weights absorb it; needs a retune | — |
@@ -714,7 +738,7 @@ Every switch's default in `mybot.PARAMS` reproduces v7. Three independent checks
 ### 12.3 v8 against v7
 
 Paired on identical games (`AUDIT_BOT=mybot`, `@v7_params.json` against
-`@v8_params.json`; `results/mybot_*_v7_params_v8_params.txt`):
+`@v8_params.json`; `results/mybot_edge_*_v7_params_v8_params.txt`):
 
 | field | PW / 3 (v7) | dPW | dScore |
 |---|---|---|---|
@@ -726,7 +750,7 @@ Paired on identical games (`AUDIT_BOT=mybot`, `@v7_params.json` against
 | nonshield (300) | 2.877 | +0.007 ± 0.005 | +4.5 ± 3.6 |
 
 Under each referee reading, paired over the same 300 strangers games
-(`results/referee_strangers_300_*_mybot.json`):
+(`results/mybot_referee_strangers_300_*.json`):
 
 | referee | dPW | dScore |
 |---|---|---|
@@ -745,7 +769,7 @@ PW below its own standard-rules result.
 ### 12.4 How the configuration was chosen
 
 The draft v8 switched everything on. Isolating the two uncertain switches and the
-B1 hedge on that draft (`results/mybot_*_v8draft_*.txt`):
+B1 hedge on that draft (`results/mybot_edge_*_v8draft_*.txt`):
 
 | change on the draft | strangers (600) | unknown (400) | other fields |
 |---|---|---|---|
@@ -764,7 +788,7 @@ B1 hedge on that draft (`results/mybot_*_v8draft_*.txt`):
 ### 12.5 A regression caught before shipping
 
 The draft v8 was measured against alternative referees before it shipped, and one
-reading exposed a bug in the new code (`results/referee_strangers_300_v8draft_mybot.*`):
+reading exposed a bug in the new code (`results/mybot_referee_strangers_300_v8draft.*`):
 
 | referee | draft v8 − v7 | shipped v8 − v7 |
 |---|---|---|
@@ -785,8 +809,8 @@ bot's own shield caused, and v8 shields less often.
 
 ### 12.6 Round 2 penalty freezes
 
-`penalty.py`, 60 strangers games per row (`results/penalty_mybot_v7.txt`,
-`results/penalty_mybot_v8.txt`):
+`penalty.py`, 60 strangers games per row (`results/mybot_penalty_v7_params.txt`,
+`results/mybot_penalty_v8_params.txt`):
 
 | penalty rate per robot-turn | v7 unsafe beliefs | v8 unsafe beliefs |
 |---|---|---|
@@ -801,26 +825,26 @@ on the third.
 ### 12.7 Reproducing §12
 
 ```bash
-python audit/check_v7_compat.py 60
+python strategy_audit/check_v7_compat.py 60
 ```
 
 ```bash
-AUDIT_BOT=mybot python audit/edge_audit.py 600 strangers @v7_params.json @v8_params.json
+AUDIT_BOT=mybot python strategy_audit/edge_audit.py 600 strangers @v7_params.json @v8_params.json
 ```
 
 ```bash
-AUDIT_BOT=mybot python audit/referee.py 300 strangers @v7_params.json
+AUDIT_BOT=mybot python strategy_audit/referee.py 300 strangers @v7_params.json
 ```
 
 ```bash
-AUDIT_BOT=mybot python audit/referee.py 300 strangers @v8_params.json
+AUDIT_BOT=mybot python strategy_audit/referee.py 300 strangers @v8_params.json
 ```
 
 ```bash
-AUDIT_BOT=mybot python audit/penalty.py @v8_params.json
+AUDIT_BOT=mybot python strategy_audit/penalty.py @v8_params.json
 ```
 
 The other fields take the same form as the first `edge_audit.py` command with
 `peer 400`, `realistic 500`, `unknown 400`, `outsiders 400` or `nonshield 300`.
 The referee probe saves per-game results as JSON, so the paired v8 − v7 table in
-12.3 is computed from the two `referee_strangers_300_*_mybot.json` files.
+12.3 is computed from the two `mybot_referee_strangers_300_*.json` files.

@@ -10,7 +10,7 @@ The v7 file is read straight out of git history (commit 961e729), so the check
 needs no stored copy. Both bots see the same view every turn; the game is driven
 by the v7 action, and the first divergence is reported.
 
-    python audit/check_v7_compat.py [games]
+    python strategy_audit/check_v7_compat.py [games]
 """
 import importlib.util
 import json

@@ -11,7 +11,7 @@ This plays identical tasks under several referee readings and reports, for each:
     cannot shield on a turn when the referee would let it), and
   * the bot's pairwise wins and score, paired against the standard reading.
 
-    python audit/referee.py [games] [tier] [variant]
+    python strategy_audit/referee.py [games] [tier] [variant]
 
 `variant` is any edge_audit variant spec (default `base`); AUDIT_BOT chooses the
 bot, as for edge_audit.py.
@@ -117,18 +117,13 @@ def main():
     txt = "\n".join(lines)
     print(txt)
     import json
-    tag0 = "" if spec == "base" else "_" + spec.replace("@", "").replace(".json", "").replace(":", "-").replace("+", "_")
-    bot_tag = os.environ.get("AUDIT_BOT", "bot")
-    bot_tag = "" if bot_tag == "bot" else "_" + os.path.basename(bot_tag).replace(".py", "")
-    with open(os.path.join(HERE, "results", "referee_%s_%d%s%s.json"
-                           % (tier, games, tag0, bot_tag)), "w", encoding="utf-8") as f:
-        json.dump(dict((k, [[x[0], x[1]] for x in v]) for k, v in res.items()), f)
-    tag = "" if spec == "base" else "_" + spec.replace("@", "").replace(".json", "").replace(":", "-").replace("+", "_")
-    bt = os.environ.get("AUDIT_BOT", "bot")
-    bt = "" if bt == "bot" else "_" + os.path.basename(bt).replace(".py", "")
-    with open(os.path.join(HERE, "results", "referee_%s_%d%s%s.txt" % (tier, games, tag, bt)),
+    with open(edge_audit.result_path("referee", tier, games, spec, ext=".json"),
               "w", encoding="utf-8") as f:
+        json.dump(dict((k, [[x[0], x[1]] for x in v]) for k, v in res.items()), f)
+    path = edge_audit.result_path("referee", tier, games, spec)
+    with open(path, "w", encoding="utf-8") as f:
         f.write(txt + "\n")
+    print("-> %s" % os.path.relpath(path, REPO))
 
 
 if __name__ == "__main__":

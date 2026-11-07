@@ -36,7 +36,7 @@ track that was tried and rejected.
 
 `bot.py` now carries **v8**: v7's tuned weights, unchanged, plus ten corrections
 found by an adversarial audit of v7 against the rulebook. The audit, its method,
-and every number below are in [`audit/README.md`](audit/README.md).
+and every number below are in [`strategy_audit/README.md`](strategy_audit/README.md).
 
 ```bash
 python ship.py v8_params.json
@@ -45,7 +45,7 @@ python ship.py v8_params.json
 ### What changed
 
 Every fix sits behind a switch in `mybot.PARAMS` whose default reproduces v7, and
-`v8_params.json` switches them on. `audit/check_v7_compat.py` proves the defaults
+`v8_params.json` switches them on. `strategy_audit/check_v7_compat.py` proves the defaults
 are behaviour-neutral: **4,800 decisions over 60 games, identical** to the v7
 `bot.py` read from git history. `python ship.py v7_params.json` still builds v7.
 
@@ -484,7 +484,7 @@ free to expand, the bot scores 3,404.
 
 | `nemesis*.json` | counter-bots bred to beat a given version |
 
-| `audit/` | the strategy audit behind v8: write-up, paired harness, eight outside opponent designs, alternative-referee and Round 2 penalty probes, the v7-compatibility check, and every result table ([`audit/README.md`](audit/README.md)) |
+| `strategy_audit/` | the strategy audit behind v8: write-up, paired harness, eight outside opponent designs, alternative-referee and Round 2 penalty probes, the v7-compatibility check, and every result table ([`strategy_audit/README.md`](strategy_audit/README.md)) |
 
 
 
@@ -909,7 +909,7 @@ beforehand. So the search for errors is worth as much as the search for strength
 
 These are the ones that were real. The strategy audit found ten more in v7 and v8
 fixes them; they are listed in [v8: fixes from the strategy audit](#v8-fixes-from-the-strategy-audit)
-and explained in full in [`audit/README.md`](audit/README.md).
+and explained in full in [`strategy_audit/README.md`](strategy_audit/README.md).
 
 
 

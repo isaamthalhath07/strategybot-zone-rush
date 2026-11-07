@@ -3,7 +3,10 @@ Turn-80 raids. On the last turn a shield costs the landlord nothing, so a ration
 landlord always shields. How often does the bot try to complete a raid on turn 80,
 and how often is it blocked (finding B5)?
 
-    python audit/lastturn.py [tier]
+    python strategy_audit/lastturn.py [tier] [variant]
+
+`variant` is any edge_audit variant spec (default `base`); AUDIT_BOT chooses the
+bot, as for edge_audit.py.
 """
 import os
 import sys
@@ -17,12 +20,16 @@ import edge_audit
 bot = edge_audit.bot              # honours AUDIT_BOT
 import multiprocessing as mp
 
+SPEC = sys.argv[2] if len(sys.argv) > 2 else "base"
+
+
 def one(task):
     map_seed, myseat, opps, token = task
     bots, k = [], 0
     for i in range(4):
         if i == myseat:
-            bots.append(bot.Agent(seed=map_seed & 0xffff, params={"throttle": 0, "budget_ms": 10000.0}))
+            bots.append(bot.Agent(seed=map_seed & 0xffff,
+                                  params=edge_audit.parse_variant(SPEC)[0]))
         else:
             bots.append(measure._make(opps[k], map_seed * 4 + i)); k += 1
     g = engine.Game(base=engine.make_map(seed=map_seed), start_token=token)
@@ -47,7 +54,9 @@ def one(task):
     return out
 
 if __name__ == "__main__":
-    tasks = measure.make_tasks(400, sys.argv[1] if len(sys.argv) > 1 else "strangers", seed=21)
+    tier = sys.argv[1] if len(sys.argv) > 1 else "strangers"
+    edge_audit.tee_to(edge_audit.result_path("lastturn", tier, SPEC))
+    tasks = measure.make_tasks(400, tier, seed=21)
     with mp.Pool(4) as pool:
         res = pool.map(one, tasks, chunksize=10)
     tot = dict((k, sum(r[k] for r in res)) for k in res[0])
