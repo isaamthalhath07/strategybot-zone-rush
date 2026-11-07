@@ -76,6 +76,7 @@ KNOWN_BOTS = {
     "f4a4449efe2fa82d22154af3217588b4d41ab506": "v7",    # bot.py at 961e729
     "fe5c2b1dc9197d8aaa0c00fe94b2d74618d5074d": "v8",    # first v8 build
     "38728a78bfef2a607da31b88e7f0ff2e218c41ec": "v8",    # same, doc path fixed
+    "abc3ec9e6ca9f9eaf14427980a09891c09e7d931": "v9",    # v8 + opponent forecast
     "e678a727d75faaa2be3a388aae5923408e79ff8c": "mybot",  # source behind v8
     "b4d9e70ddbfd1a259016c634266dde4e46701e3c": "mybot",  # same, doc path fixed
 }

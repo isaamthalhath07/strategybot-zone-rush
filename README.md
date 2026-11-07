@@ -32,11 +32,91 @@ track that was tried and rejected.
 > methodological lessons that decide whether any of the numbers below mean
 > anything. This readme assumes you already know the game; that one does not.
 
+## v9: forecasting rivals by Bayesian goal inference
+
+`bot.py` now carries **v9**: v8 plus one switch, `forecast: 1`.
+
+```bash
+python ship.py v9_params.json
+```
+
+### The problem
+
+Every earlier version sees the whole board but never asks where a rival is
+*going*. Its opponent model was the tuning field itself: weights fitted against
+bots written in this repository. That is overfitting by construction. It knows
+how the bots it trained against behave, not how a stranger will.
+
+### The method: infer each rival's goal from its own moves
+
+`Forecaster` in `mybot.py` is inverse planning. Nothing in it is fitted to any
+opponent pool; each rival's belief is learned from that rival's own moves, in
+the current game.
+
+- **Prior:** every cell's value as a target *from the rival's seat and
+  position*, by the arithmetic the bot applies to itself: points the work earns
+  per action-turn it costs.
+- **Evidence:** a noisy-rational move model. Each step either brings the rival
+  closer to a candidate goal, holds, or takes it further away.
+- **Structure from the rules:** rivals re-plan every turn, so the belief is the
+  *current* prior times recent evidence. A stay that finishes work starts a fresh
+  goal; a stay mid-work marks the current cell as the goal.
+- **Forecast:** each rival's likely destination and arrival turn, chained two
+  targets further out.
+- **Use:** the walk planner discounts any work on a cell a rival is forecast to
+  stand on first.
+
+The constants were fixed on principle before any measurement and never tuned:
+β = 2, ρ = 0.9, κ = 3, a two-target chain.
+
+### Can it see where rivals are going?
+
+On the held-out field (eight outside designs plus the repository's strangers),
+over 11,268 forecasts of moving rivals:
+
+| forecast | finds the rival's next destination | position error 8 turns ahead |
+|---|---|---|
+| **goal inference** | **48.0%** (P(true) **0.088**) | **2.17 cells** |
+| rule prior alone (no inference) | 48.1% (P(true) 0.081) | 2.18 |
+| "it stays put" | 1.1% | 2.54 |
+| "it keeps going the same way" | — | 2.86 |
+
+Most of the forecasting power comes from planning *from the rival's point of
+view*; watching its moves adds calibration. Building this exposed three modelling
+errors, each fixed and documented in the code: an action-level likelihood (2.5%),
+ten-turn goal persistence (19%), and reading every stay as continuing work (16%).
+
+### Does using it win games?
+
+Paired against v8 on identical games. Fields marked † were re-drawn on fresh games
+and pooled, because a single draw's best result is biased upward:
+
+| field | pairwise wins | points |
+|---|---|---|
+| **unknown: outside designs + strangers, mixed (1,000 games)†** | **+0.050 ± 0.016 (z +3.1)** | +8.0 (n.s.) |
+| outside designs (1,000)† | +0.030 ± 0.018 (z +1.7) | **+16.6 ± 7.5 (z +2.2)** |
+| never-shield opponents (300) | +0.030 (z +1.5) | −6.5 (n.s.) |
+| 3× `x_jackal`, the hardest outside design (120) | +0.033 (n.s.); cells lost **−19%** | +18.2 (n.s.) |
+| peer, the strongest (400) | +0.014 (n.s.) | +2.6 (n.s.) |
+| realistic (500) | −0.007 (n.s.) | +6.1 (n.s.) |
+| **strangers (1,200)†** | **−0.024 ± 0.014 (z −1.8)** | −13.3 ± 6.9 (z −1.95) |
+
+The gain is largest on the field closest to Round 1, mixed lineups of opponents
+the bot was never tuned against, which is the point of the method. It does not
+hurt against the strongest bots. It does cost a little against the repository's
+own strangers. And it wins *pairings*, not raw points, which is what Round 1's Elo
+counts.
+
+**If you want the conservative choice,** v8 is on branch
+`claude/strategy-audit-v8`, and `python ship.py v8_params.json` rebuilds it here:
+`forecast: 0` reproduces v8 move for move.
+
 ## v8: fixes from the strategy audit
 
-`bot.py` now carries **v8**: v7's tuned weights, unchanged, plus ten corrections
-found by an adversarial audit of v7 against the rulebook. The audit, its method,
-and every number below are in [`strategy_audit/README.md`](strategy_audit/README.md).
+v8 is v7's tuned weights, unchanged, plus ten corrections found by an
+adversarial audit of v7 against the rulebook. v9 keeps all of them. The audit,
+its method, and every number below are in
+[`strategy_audit/README.md`](strategy_audit/README.md).
 
 ```bash
 python ship.py v8_params.json
@@ -147,7 +227,7 @@ measured on a field containing six of my own snapshots. See §8.3b.
 
 
 ```bash
-python ship.py v8_params.json
+python ship.py v9_params.json
 ```
 
 Rebuilds `bot.py` from the shipped weights and verifies it. (With no argument it
@@ -480,7 +560,7 @@ free to expand, the bot scores 3,404.
 
 | `nnbot.py` | pure-Python inference twin of the learned policy |
 
-| `v*_params.json` | tuned weight snapshots; **`v8_params.json` is the shipped set** (v7's weights + the audit switches) |
+| `v*_params.json` | tuned weight snapshots; **`v9_params.json` is the shipped set** (v8 + `forecast: 1`); `v8_params.json` is v7's weights + the audit switches |
 
 | `nemesis*.json` | counter-bots bred to beat a given version |
 
