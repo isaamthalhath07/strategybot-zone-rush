@@ -25,12 +25,12 @@ settings (wall clock on). PW is pairwise wins out of 3, the Round 1 unit.
 |---|---|---|---|---|---|---|
 | one evolved bot + two from the field | 1,000 | 2.199 | **2.312** | **+0.114** | **+7.6** | **56.2%** of pairings won |
 | broad field (three from seven author groups) | 1,000 | 2.490 | **2.535** | **+0.045** | **+3.7** | 57.4% |
-| two evolved copies + one from the field | 160 | -- | -- | +0.16 over Apex without exact-world search | +3.6 | 60% |
-| three evolved copies | 40 | 1.66 (by symmetry 1.50) | **2.85** | -- | -- | **95%** |
+| two evolved copies + one from the field | 300 | 1.852 | **2.185** | **+0.333** | **+8.5** | **63.2%** |
+| three evolved copies | 200 | 1.423 | **2.603** | **+1.180** | **+17.7** | **86.8%** |
 
-The first two rows are the confirmation runs. The last two are development measurements on
-smaller samples (the exact-world search makes those games slow); they are being re-run on fresh
-seeds and the rows will be updated.
+All four rows are confirmation runs on seeds never used during development, played by the
+committed `apex_bot.py` byte for byte. With three copies at the table the evolved bot's own
+reference row sits near 1.50 by symmetry; Apex takes 86.8% of the pairings.
 
 Credit by opponent author group in the broad-field run (share of one-on-one pairings won):
 
@@ -42,9 +42,10 @@ Credit by opponent author group in the broad-field run (share of one-on-one pair
 Weakest pairing: main's v7 walk planner, 51.9% for Apex against 57.5% for the evolved bot
 (n = 80, about one standard error).
 
-Engineering: worst turn 108.8 ms in the confirmation runs and 102.5 ms with five processes
-fighting over four cores (limit 200); mean 3.5 to 4.6 ms in mixed games; first turn under
-7 ms (limit 2,000). Zero crashes, zero illegal actions. All eleven server-interface variants
+Engineering: worst turn 129.1 ms across the four confirmation runs and 102.5 ms with five
+processes fighting over four cores (limit 200); mean 3.5 to 7.4 ms per turn in mixed games and
+24.6 ms against three copies, where the exact-world search runs; first turn under 7 ms (limit
+2,000). Zero crashes, zero illegal actions. All eleven server-interface variants
 play cleanly.
 
 ---
@@ -110,7 +111,8 @@ with exact simulators in all four seats (its own continuation included), and the
 best expected pairwise result is played. One-step policy improvement over a perfect model is a
 guaranteed improvement, and it shows. Rollouts only change about 6% of decisions -- a third of
 them in the first ten turns, mostly "keep walking to the contested 3-point cells instead of
-stopping for a cheap one" -- and that is enough to win almost every game.
+stopping for a cheap one" -- and that is enough to take 86.8% of the pairings against three
+copies on fresh games.
 
 ### 5. It is myopic about the end of the game
 
@@ -195,7 +197,7 @@ All paired on the lab field, PW out of 3.
   opponents including 20 pasted from ChatGPT and Gemini, six map families, both `legal_actions`
   conventions -- but no real competitor's code has been played against.
 - **The largest margins need copies of public bots at the table.** Against three evolved
-  copies Apex wins almost every game; against a field with one evolved bot in it, the margin is
+  copies Apex takes 87% of the pairings; against a field with one evolved bot in it, the margin is
   the head-to-head row above. Against bots it cannot simulate, the gain comes from the endgame
   search and the tactics, not from prediction.
 - **Two modes read the wall clock** (exact-world and endgame search), so those decisions can

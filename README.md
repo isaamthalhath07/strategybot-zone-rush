@@ -38,7 +38,8 @@ track that was tried and rejected.
 > prediction-aware tactics, search over the whole game when every rival is a known
 > copy and over the last 20 turns otherwise, and a safety net under all of it.
 > On fresh paired games it beats the evolved bot by +0.114 pairwise wins with one
-> evolved bot at the table (z = +7.6) and +0.045 on the broad field (z = +3.7). The root `bot.py` here is unchanged;
+> evolved bot at the table (z = +7.6), +0.045 on the broad field (z = +3.7), and takes
+> 86.8% of its pairings against three evolved copies. The root `bot.py` here is unchanged;
 > `python apex/build.py bot.py` swaps Apex in.
 
 ## What this round changed
