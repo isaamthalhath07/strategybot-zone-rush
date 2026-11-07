@@ -318,9 +318,25 @@ class Game(object):
                 n += 1
         return n
 
-    def places(self):
-        """1-based place per seat; equal (score, cells) share a place."""
-        key = [(-self.score[i], -self.cells_owned(i)) for i in range(4)]
+    def places(self, round_number=1, round1_ranks=None):
+        """1-based mean place per seat under the selected competition round.
+
+        Round 1 compares final scores only (rulebook 3.2): equal scores are
+        draws regardless of cells. Round 2 first breaks score ties by cells
+        (5.3). Pool games then share the remaining ties. For a Round 2
+        semi-final or final, supply each seat's Round 1 rank, lower being
+        better, to apply the last knockout tiebreak.
+        """
+        if round_number not in (1, 2):
+            raise ValueError("round_number must be 1 or 2")
+        if round1_ranks is not None:
+            if round_number != 2 or len(round1_ranks) != 4:
+                raise ValueError("round1_ranks requires Round 2 and four seat ranks")
+        key = [(-self.score[i],) for i in range(4)]
+        if round_number == 2:
+            key = [key[i] + (-self.cells_owned(i),) for i in range(4)]
+            if round1_ranks is not None:
+                key = [key[i] + (round1_ranks[i],) for i in range(4)]
         order = sorted(range(4), key=lambda i: key[i])
         place = [0.0] * 4
         i = 0

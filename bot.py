@@ -4,9 +4,9 @@ StrategyBot / Zone Rush competition bot.
 Plan: reconstruct everything the state object hides (turn number, all four
 scores, take and upgrade progress, shield cooldowns, freeze counters, the
 priority-token holder) from board diffs; plan a whole walk of work rather than
-chasing one target at a time; and treat the shield/raid stand-off as the 2x2
-matrix game it actually is, with an opponent model that exploits a predictable
-defender and mixes when it has no read.
+chasing one target at a time; and estimate shield/raid payoffs using learned
+opponent tendencies. The planner and defensive mixing are heuristics, not a
+proof of optimality or an equilibrium strategy.
 
 Entry point: act(state) -> one of NORTH, EAST, SOUTH, WEST, STAY, SHIELD.
 Standard library only.
@@ -79,6 +79,7 @@ PARAMS = {
     'combo': 0.3372851530026109,
     'combo_pri': 0.5130215791090991,
     'commit_prior': 0.738408561698738,
+    'commit_weight': 3.0,
     'consolidate': -0.3091790691417158,
     'contest_penalty': 0.04276674446676251,
     'def_kappa': 0.3,
@@ -720,6 +721,11 @@ class Agent(object):
         return care
 
     # ------------------------------------------------------------- planning
+    def _home_frame(self, seat):
+        """Express tie breaks relative to the observed home, not a seat convention."""
+        home = self.tr.homes[seat - 1]
+        return CANON[CORNERS.index(home) + 1] if home in CORNERS else CANON[seat]
+
     def _candidates(self, owner, upg, base, home_of, occ, seat, me, R, care):
         """Pick the cells worth considering as work items this turn."""
         P = self.P
@@ -731,7 +737,7 @@ class Agent(object):
         if th == 0:
             tie = _IDENT                      # raw cell index, as before
         else:
-            can = CANON[seat]
+            can = self._home_frame(seat)
             tie = [-can[p] for p in range(NC)] if th > 0 else can
         for p in range(NC):
             d = dist[p]
@@ -759,7 +765,7 @@ class Agent(object):
             if d + need > R:
                 continue
             # a rough priority used only to trim the candidate list
-            pri = v * (R - d - need) / float(d + need)
+            pri = v * (R - d - need + 1) / float(d + need)
             if kind == 2:
                 pri += 8.0 * v * (2 if upg[p] else 1) / float(d + need)
             if occ[p] and p != me:
@@ -785,7 +791,8 @@ class Agent(object):
         `used` turns have already been spent."""
         P = self.P
         tr = self.tr
-        rem = R - used - need                 # turns the cell will pay out
+        # Income is paid after work resolves, including the completion turn.
+        rem = R - used - need + 1             # income ticks after completion
         if kind == 4:
             # holding denies entry outright, which is strictly stronger than a
             # shield here: no backfire risk and no cooldown
@@ -809,7 +816,7 @@ class Agent(object):
                 return None
             g = v * rem * wc
         elif kind == 3:
-            rem1 = R - used - 1               # level-1 income starts after 1 stay
+            rem1 = R - used                   # the first claim STAY pays income
             if rem <= 0 or rem1 <= 0:
                 return None
             g = (v * rem1 * wc + v * rem * wu) * P["combo"]
@@ -818,7 +825,7 @@ class Agent(object):
                 return None
             g = v * rem * wu
         else:
-            if rem < 0:
+            if rem <= 0:
                 return None
             o = owner[p]
             lvl = 2 if upg[p] else 1
@@ -828,6 +835,9 @@ class Agent(object):
             if P["endgame_care"] and R <= P["endgame_care"]:
                 wden *= P["endgame_denial"]
             den = v * lvl * rem * wden * care[o - 1]
+            # Optimistic local-leg forecast for later beam visits. This does
+            # not prove a currently observed cooldown will last until arrival;
+            # full elapsed-time risk needs separate calibration (see audit).
             q = self._shield_risk(o - 1, travel, need)
             lc = P["lead_caution"]
             if lc > 0.0:
@@ -881,6 +891,8 @@ class Agent(object):
     def _threat(self, p, owner, upg, base, occ, seat, R, care):
         """What an adjacent rival would gain by taking cell p from me."""
         tr = self.tr
+        if tr.home_of[p]:
+            return 0.0                       # homes cannot be captured
         v = (base or tr.base)[p]
         lvl = 2 if upg[p] else 1
         t = 0.0
@@ -990,10 +1002,16 @@ class Agent(object):
                     if (mask >> k) & 1:
                         continue
                     travel = 0 if p == pos else DIST[pos][p]
-                    nu = used + travel + need
+                    work_need = need
+                    if p == me and used > 0 and tr.prog[seat - 1]:
+                        # Banked STAYs apply only if we work here immediately.
+                        # Leaving and returning resets that progress.
+                        work_need = (4 if kind == 3 else 3 if kind == 1
+                                     or (kind == 2 and upg[p]) else 1)
+                    nu = used + travel + work_need
                     if nu > horizon or nu > R:
                         continue
-                    g = self._work_gain(p, kind, v, need, used + travel, owner, upg,
+                    g = self._work_gain(p, kind, v, work_need, used + travel, owner, upg,
                                         occ, seat, R, kappa, care, travel)
                     if g is None:
                         continue
@@ -1020,6 +1038,9 @@ class Agent(object):
         # stickiness: keep last turn's objective unless clearly beaten, so the bot
         # does not re-litigate its plan every turn and walk in circles
         stick = P["stickiness"]
+        # Even a negative surrogate can justify moving: the limited candidate
+        # set omits opportunities revealed by travel. A zero idle floor stalled
+        # the bot and lost strength in paired tests; keep the best available walk.
         target, tv = None, -1e18
         for f, v in bestby.items():
             s = v * (stick if f == self.plan_target else 1.0)
@@ -1068,7 +1089,8 @@ class Agent(object):
         intruders = []
         for p in range(NC):
             o = occ[p]
-            if o and o != seat and owner[p] == seat and not frz[p]:
+            if (o and o != seat and owner[p] == seat and not frz[p]
+                    and not tr.home_of[p]):
                 intruders.append((p, o - 1))
         if not intruders:
             return False
@@ -1080,7 +1102,7 @@ class Agent(object):
                 need = (3 if upg[p] else 1) - tr.prog[j]
                 if need <= 1:
                     return True
-            return R <= 1
+            return False                      # no intruder can complete a capture
 
         # The 2x2 game, written out properly:
         #   SHIELD + they stay  -> I keep the cell and freeze them
@@ -1100,8 +1122,8 @@ class Agent(object):
                 continue                      # not imminent: no need to burn a shield
             # what the take actually costs me, net of the fact that I own the cell
             # and so win the contest to retake it later (and collect a bonus myself)
-            lost = v * lvl * (R - 1) * (1.0 - P["retake_credit"])
-            their_gain = (8.0 * v * lvl + v * (R - 1)) * P["w_denial"] * care[j]
+            lost = v * lvl * R * (1.0 - P["retake_credit"])
+            their_gain = (8.0 * v * lvl + v * R) * P["w_denial"] * care[j]
             commit = self._commit_prob(j)
             gain += (lost + their_gain) * commit
             if commit > best_commit:
@@ -1124,7 +1146,7 @@ class Agent(object):
         # an order of magnitude larger; this is a real lever.
         if net <= 0.0 or gain < P["shield_bias"] * (backfire + cost):
             return False
-        # mix at the equilibrium so a predictable defender cannot be baited
+        # Heuristic mixing based on the estimated gain; not a Nash solution.
         q = net / (net + backfire + cost)
         if q >= P["shield_certain"]:
             return True
@@ -1136,7 +1158,8 @@ class Agent(object):
         seen = tr.raids[j] + tr.baits[j]
         if seen < 3:
             return P["commit_prior"]
-        return (tr.raids[j] + P["commit_prior"] * 3.0) / (seen + 3.0)
+        w = P["commit_weight"]
+        return (tr.raids[j] + P["commit_prior"] * w) / (seen + w)
 
     # ----------------------------------------------------------------- moves
     def _step(self, me, target, occ, owner, seat):
@@ -1155,7 +1178,7 @@ class Agent(object):
         # corners. Order them in this seat's own frame instead, for the same
         # reason the candidate list is ordered that way.
         if len(cands) > 1 and self.P["tie_home"]:
-            can = CANON[seat]
+            can = self._home_frame(seat)
             cands.sort(key=lambda w: can[w],
                        reverse=self.P["tie_home"] < 0)
         if not cands:

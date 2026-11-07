@@ -76,7 +76,7 @@ def head_to_head(params, cls, games=80, seed0=31000):
 
 
 if __name__ == "__main__":
-    cand = sys.argv[1] if len(sys.argv) > 1 else "best_params.json"
+    cand = sys.argv[1] if len(sys.argv) > 1 else "v7_params.json"
     P = dict(mybot.PARAMS)
     P.update(json.load(open(cand)))
     S = dict(mybot.PARAMS)             # untuned starting point

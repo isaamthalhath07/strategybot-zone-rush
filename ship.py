@@ -21,9 +21,9 @@ StrategyBot / Zone Rush competition bot.
 Plan: reconstruct everything the state object hides (turn number, all four
 scores, take and upgrade progress, shield cooldowns, freeze counters, the
 priority-token holder) from board diffs; plan a whole walk of work rather than
-chasing one target at a time; and treat the shield/raid stand-off as the 2x2
-matrix game it actually is, with an opponent model that exploits a predictable
-defender and mixes when it has no read.
+chasing one target at a time; and estimate shield/raid payoffs using learned
+opponent tendencies. The planner and defensive mixing are heuristics, not a
+proof of optimality or an equilibrium strategy.
 
 Entry point: act(state) -> one of NORTH, EAST, SOUTH, WEST, STAY, SHIELD.
 Standard library only.

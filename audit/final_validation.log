@@ -1,0 +1,87 @@
+
+CORRECTNESS ---------------------------------------------------------
+  test_engine.py       the engine against every worked example in the rulebook
+      | passed: 63
+      | ALL CHECKS PASS
+      -> PASS  (1s)
+  test_gpuenv.py       the batched tensor engine against the reference engine, all 5 rulesets
+      |   OK  no home upgrade      24 games x 80 turns
+      | state comparisons: 9600
+      | GPU ENGINE MATCHES engine.py EXACTLY (device=cpu)
+      -> PASS  (16s)
+  test_tracker.py      hidden-state reconstruction against the engine's private state
+      |   OK  score    mismatches: 0
+      |   OK  token    mismatches: 0
+      | TRACKER OK - exact except cooldowns (25/3200 = 0.8%, ambiguous cases)
+      -> PASS  (1s)
+  test_planner.py      completion income, legal defence, route progress and observed homes
+      | ----------------------------------------------------------------------
+      | Ran 11 tests in 0.001s
+      | OK
+      -> PASS  (0s)
+  test_determinism.py  the measurement harness itself: paired games must be reproducible
+      |   second run vs first: identical
+      | ====================================================================
+      | HARNESS IS DETERMINISTIC: paired differences mean what they say
+      -> PASS  (115s)
+
+SURVIVAL ------------------------------------------------------------
+  test_guards.py       progress-rule detection, the fallback policy, state reuse, odd inputs
+      |   files that are not valid UTF-8: none   OK
+      | ========================================================================
+      | ALL GUARDS PASS
+      -> PASS  (26s)
+  test_timing.py       graceful degradation on hardware up to 100x slower
+      |   OK: it shrank the search instead of running over
+      | ========================================================================
+      | TIMING SAFE: degrades smoothly, never illegal, never crashes
+      -> PASS  (6s)
+  test_amnesia.py      what losing module state between turns would cost
+      | state kept between turns   : PW 2.58/3  score 2474
+      | state wiped every turn     : PW 1.98/3  score 2196
+      | cost of losing module state: 0.60 PW, 278 points
+      -> PASS  (10s)
+  audit/test_input_contract.py the shipped public entry point: input immutability and legal output
+      | PASS: 1280 calls across four full games, four seats sharing one module; no input mutation or ill
+      -> PASS  (4s)
+
+CORRECTNESS ---------------------------------------------------------
+  test_visual_harness.py visual evidence replays exactly and matches submission source hashes
+      | ----------------------------------------------------------------------
+      | Ran 3 tests in 0.022s
+      | OK
+      -> PASS  (0s)
+
+STRENGTH ------------------------------------------------------------
+  audit.py             behavioural pathologies: pacing, shield-happiness, idle turns
+      | ai_hawk           2132   0.63   0.31   0.06   0.01   0.11     0     0     0.8  
+      | ai_elo            1606   0.55   0.38   0.07   0.11   0.16     0     0     0.7  
+      | flagged: ai_marginal, ai_centre, ai_route
+      -> CHECK  (34s)
+  diag_seat.py         seat bias in self-play, where symmetry fixes the answer at 1.50
+      | bot                               PW by seat 1..4   mean score by seat
+      | --------------------------------------------------------------------------------------
+      | mybot             1.50    1.50    1.50    1.50     2115   2115   2115   2115
+      -> PASS  (11s)
+
+========================================================================
+group          suite                  result  seconds
+------------------------------------------------------------------------
+correctness    test_engine.py           PASS        1
+correctness    test_gpuenv.py           PASS       16
+correctness    test_tracker.py          PASS        1
+correctness    test_planner.py          PASS        0
+correctness    test_determinism.py      PASS      115
+survival       test_guards.py           PASS       26
+survival       test_timing.py           PASS        6
+survival       test_robust.py        skipped        0
+survival       test_amnesia.py          PASS       10
+survival       audit/test_input_contract.py     PASS        4
+correctness    test_visual_harness.py     PASS        0
+strength       audit.py                CHECK       34
+strength       diag_seat.py             PASS       11
+strength       test_transfer.py      skipped        0
+------------------------------------------------------------------------
+total 224s
+
+ALL SUITES PASS

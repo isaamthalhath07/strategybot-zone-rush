@@ -1,5 +1,7 @@
 # StrategyBot — Zone Rush
 
+> Latest audit (7 November 2026): [strategy, rules, fresh paired results, and limitations](STRATEGY_REVIEW.md). [Open the local visual replay harness](visual/index.html). Round 1 tied-score ranking and planner bookkeeping were corrected. The final 600-task confirmation does not establish a tournament-strength gain; the older numbers below describe earlier experiments.
+
 
 
 A bot for **Zone Rush**, the four-player territory game used in StrategyBot
