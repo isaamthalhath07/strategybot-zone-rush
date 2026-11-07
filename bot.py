@@ -94,26 +94,32 @@ PARAMS = {
 }
 
 
-def _all_pairs():
-    d = []
-    for s in range(NC):
-        row = [99] * NC
-        row[s] = 0
-        q = [s]
-        head = 0
-        while head < len(q):
-            u = q[head]
-            head += 1
-            du = row[u] + 1
-            for w in NEIGH[u]:
-                if row[w] > du:
-                    row[w] = du
-                    q.append(w)
-        d.append(row)
-    return d
+DIST = MANH
 
-
-DIST = _all_pairs()
+SYM = []
+NEIGH_SYM = []
+for _s in range(4):
+    _row = [0] * NC
+    for _p in range(NC):
+        _r, _c = divmod(_p, N)
+        if _s in (2, 3):
+            _r = N - 1 - _r
+        if _s in (1, 2):
+            _c = N - 1 - _c
+        _row[_p] = _r * N + _c
+    SYM.append(tuple(_row))
+    _ns = []
+    for _p in range(NC):
+        _r, _c = divmod(_p, N)
+        _dr = -1 if _s in (0, 1) else 1
+        _dc = -1 if _s in (0, 3) else 1
+        _ord = []
+        for _d_r, _d_c in ((_dr, 0), (-_dr, 0), (0, _dc), (0, -_dc)):
+            _nr, _nc = _r + _d_r, _c + _d_c
+            if 0 <= _nr < N and 0 <= _nc < N:
+                _ord.append(_nr * N + _nc)
+        _ns.append(tuple(_ord))
+    NEIGH_SYM.append(tuple(_ns))
 
 
 def _bfs(start, blocked):
@@ -209,7 +215,7 @@ class Tracker(object):
                 self.token = seat
                 self.token_known = True
             # turn 1 has not resolved yet, so nothing has been scored
-            self.income = [0, 0, 0, 0]
+            self.income = [base[self.homes[i]] for i in range(4)]
             self.prev = (owner[:], upg[:], occ[:], frz[:])
             return
         self.turn += 1
@@ -253,14 +259,23 @@ class Tracker(object):
             if o and o != j + 1:
                 on_land.setdefault(o - 1, []).append(j)
         # a shield protects ALL of that bot's cells, so any seat that lost a cell
-        # last turn provably did not shield
+        # last turn provably did not shield; likewise a bot that moved or completed
+        # a claim/raid/upgrade this turn chose a move or STAY, not SHIELD
         lost_a_cell = [False] * 4
         for p in range(NC):
             a = pow_[p]
             if a and owner[p] != a:
                 lost_a_cell[a - 1] = True
+        did_work = [False] * 4
+        for i in range(4):
+            pi = newpos[i]
+            if pi is not None and stayed[i]:
+                if (owner[pi] == i + 1 and pow_[pi] != i + 1) or (
+                        owner[pi] == i + 1 and upg[pi] and not pupg[pi]):
+                    did_work[i] = True
         cand = [s for s in range(4)
-                if cd_prev[s] == 0 and not frozen_prev[s] and not lost_a_cell[s]]
+                if cd_prev[s] == 0 and not frozen_prev[s] and not lost_a_cell[s]
+                and stayed[s] and not did_work[s]]
         if my_last is not None:
             mi = seat - 1
             if my_last == "SHIELD":
@@ -318,7 +333,7 @@ class Tracker(object):
             if pp is None or frozen_prev[i]:
                 continue
             o = pow_[pp]
-            if not o or o == i + 1 or pfrz[pp]:
+            if not o or o == i + 1 or pfrz[pp] or home_of[pp]:
                 continue
             if cd_prev[o - 1] == 0 and not frozen_prev[o - 1]:
                 if (o - 1) in shielders:
@@ -486,11 +501,18 @@ class Agent(object):
         tr = self.tr
         tr.observe(owner, upg, occ, frz, seat, view.is_priority_token, base,
                    home_of, self.last_action)
+        if tr.turn == 1:
+            self.plan_target = None
+            self._beam_scale = 1.0
+        if tr.frozen[seat - 1] > 0:
+            self.plan_target = None
         me = tr.pos[seat - 1]
         if me is None:
+            self.last_action = "STAY"
             return "STAY"
         legal = view.legal_actions
         if len(legal) == 1:
+            self.last_action = legal[0]
             return legal[0]
 
         R = MAX_TURNS - tr.turn + 1           # turns left, including this one
@@ -506,12 +528,15 @@ class Agent(object):
                 dkappa = 1.0
             if self._should_shield(owner, upg, occ, frz, base, seat, R, dkappa, care):
                 self.plan_target = None
+                self.last_action = "SHIELD"
                 return "SHIELD"
 
         # ---- plan a whole walk, not a single target -------------------------
         act = self._plan_walk(owner, upg, base, home_of, occ, frz, seat, me, R,
                               kappa, care)
-        return act if act is not None else "STAY"
+        res = act if act is not None else "STAY"
+        self.last_action = res
+        return res
 
     # ------------------------------------------------------------ objective
     def _care(self, seat):
@@ -601,17 +626,19 @@ class Agent(object):
                 pri *= 0.3
             if tr.zone[p] == seat:
                 pri *= P["zone_bonus"]
-            out.append((pri, p, kind, v, need))
+            sp = SYM[seat - 1][p]
+            out.append((pri, sp, p, kind, v, need))
             if p == me and o == seat and P["hold"] > 0.0:
                 thr = self._threat(p, owner, upg, base, occ, seat, R, care)
                 if thr > 0.0:
-                    out.append((thr, p, 4, v, 1))
+                    out.append((thr, sp, p, 4, v, 1))
             # claiming and upgrading in one visit costs 4 stays and no extra
             # travel; doing it as two visits costs a round trip as well
             if kind == 0 and P["combo"] > 0.0 and d + 4 <= R:
-                out.append((pri * P["combo_pri"], p, 3, v, need + 3))
+                out.append((pri * P["combo_pri"], sp, p, 3, v, need + 3))
         out.sort(reverse=True)
-        return out[:P["ncand"]]
+        return [(pri, p, kind, v, need)
+                for (pri, _, p, kind, v, need) in out[:P["ncand"]]]
 
     def _work_gain(self, p, kind, v, need, used, owner, upg, occ, seat, R,
                    kappa, care, travel):
@@ -763,47 +790,122 @@ class Agent(object):
         if not cands:
             return self._idle(owner, upg, base, occ, seat, me, R, care)
         horizon = R if R < P["horizon"] else P["horizon"]
+
+        f_clk = 1.0 - (R / float(MAX_TURNS))
+        if f_clk < 0.0:
+            f_clk = 0.0
+        elif f_clk > 1.0:
+            f_clk = 1.0
+        cons = P["consolidate"]
+        if cons != 0.0:
+            wc = P["w_claim"] * (1.0 - cons * f_clk)
+            wu = P["w_upgrade"] * (1.0 + cons * f_clk)
+            if wc < 0.0:
+                wc = 0.0
+        else:
+            wc = P["w_claim"]
+            wu = P["w_upgrade"]
+        w_raid_cur = P["w_raid"] + (P["w_raid_late"] - P["w_raid"]) * f_clk
+        lc = P["lead_caution"]
+        standing = self._standing(seat) if lc > 0.0 else 0.0
+        w_denial = P["w_denial"]
+        rr = P["raid_risk"]
+        fc_kappa = P["freeze_cost"] * kappa
+        prog_me = tr.prog[seat - 1]
+
         cellbit = {}
+        prep = []
         for (_, p, kind, v, need) in cands:
-            if p not in cellbit:
-                cellbit[p] = len(cellbit)
+            k = cellbit.get(p)
+            if k is None:
+                k = len(cellbit)
+                cellbit[p] = k
+            bit = 1 << k
+            max_nu = horizon if horizon < R else R
+            if kind in (0, 1, 3) and max_nu >= R:
+                max_nu = R - 1
+            mp = mod[p]
+            if kind == 0:
+                sl = v * wc * mp
+                A = [sl * (R - need)] * 15
+                B = [sl] * 15
+            elif kind == 1:
+                sl = v * wu * mp
+                A = [sl * (R - need)] * 15
+                B = [sl] * 15
+            elif kind == 3:
+                s1 = v * wc * P["combo"] * mp
+                s2 = v * wu * P["combo"] * mp
+                sl = s1 + s2
+                A = [s1 * (R - 1) + s2 * (R - need)] * 15
+                B = [sl] * 15
+            elif kind == 4:
+                v4 = self._threat(p, owner, upg, None, occ, seat, R, care) * P["hold"] * mp
+                A = [v4] * 15
+                B = [0.0] * 15
+            else:
+                o = owner[p]
+                lvl = 2 if upg[p] else 1
+                take = 8.0 * v * lvl
+                rate = v * (1.0 + lvl * w_denial * care[o - 1])
+                mult = w_raid_cur * mp
+                A = [0.0] * 15
+                B = [0.0] * 15
+                for trv in range(15):
+                    q = self._shield_risk(o - 1, trv, need)
+                    if lc > 0.0:
+                        q += lc * standing * (1.0 - q)
+                        if q > 1.0:
+                            q = 1.0
+                        elif q < 0.0:
+                            q = 0.0
+                    surv = 1.0 - q * rr
+                    B[trv] = rate * surv * mult
+                    A[trv] = ((take + rate * (R - need)) * surv - q * rr * fc_kappa) * mult
+            only_t0 = (p == me and prog_me > 0)
+            prep.append((p, bit, need, max_nu, DIST[p], A, B, only_t0))
+
         # state -> (value, first_cell)   state = (pos, used, mask)
         beam = {(me, 0, 0): (0.0, None)}
         bestby = {}
         tick = 0
+        deadline = self._deadline
+        perf = time.perf_counter
+        width = int(P["beam"] * self._beam_scale)
+        if width < 8:
+            width = 8
         for _ in range(P["visits"]):
-            if time.perf_counter() > self._deadline:
+            if perf() > deadline:
                 break                         # out of time: use the best walk so far
             nxt = {}
+            nxt_get = nxt.get
+            best_get = bestby.get
             for (pos, used, mask), (val, first) in beam.items():
                 tick += 1
-                if not (tick & 7) and time.perf_counter() > self._deadline:
+                if not (tick & 15) and perf() > deadline:
                     break                     # bail mid-iteration too
-                for (_, p, kind, v, need) in cands:
-                    k = cellbit[p]
-                    if (mask >> k) & 1:
+                w_step = 1.0 - 0.005 * used
+                for (p, bit, need, max_nu, dist_p, A, B, only_t0) in prep:
+                    if mask & bit:
                         continue
-                    travel = 0 if p == pos else DIST[pos][p]
-                    nu = used + travel + need
-                    if nu > horizon or nu > R:
+                    if only_t0 and used > 0:
                         continue
-                    g = self._work_gain(p, kind, v, need, used + travel, owner, upg,
-                                        occ, seat, R, kappa, care, travel)
-                    if g is None:
+                    travel = dist_p[pos]
+                    ut = used + travel
+                    nu = ut + need
+                    if nu > max_nu:
                         continue
-                    nv = val + g
+                    g = A[travel] - B[travel] * ut
+                    nv = val + g * w_step
                     f = first if first is not None else p
-                    st = (p, nu, mask | (1 << k))
-                    cur = nxt.get(st)
+                    st = (p, nu, mask | bit)
+                    cur = nxt_get(st)
                     if cur is None or cur[0] < nv:
                         nxt[st] = (nv, f)
-                    if bestby.get(f, -1e18) < nv:
+                    if best_get(f, -1e18) < nv:
                         bestby[f] = nv
             if not nxt:
                 break
-            width = int(P["beam"] * self._beam_scale)
-            if width < 8:
-                width = 8
             if len(nxt) > width:
                 items = sorted(nxt.items(), key=lambda kv: -kv[1][0])[:width]
                 beam = dict(items)
@@ -828,10 +930,11 @@ class Agent(object):
         """Nothing productive in reach: sit on the most valuable thing I own."""
         if owner[me] == seat and not upg[me]:
             return "STAY"
-        best, bv = None, -1.0
+        best, bv = None, (-1e9, -1)
+        sym = SYM[seat - 1]
         for p in range(NC):
             if owner[p] == seat and not upg[p]:
-                s = base[p] * 1.0 - DIST[me][p] * 0.25
+                s = (base[p] * 1.0 - DIST[me][p] * 0.25, sym[p])
                 if s > bv:
                     bv, best = s, p
         if best is None:
@@ -854,6 +957,9 @@ class Agent(object):
         if exposed <= 0:
             return 0.0
         q = tr.q_shield(ridx, P["q_prior"], P["q_weight"])
+        if need > 1 and 0 < cd < travel + need and tr.shields_seen[ridx] > 0:
+            if q < 0.85:
+                q = 0.85
         return 1.0 - (1.0 - q) ** exposed
 
     def _should_shield(self, owner, upg, occ, frz, base, seat, R, kappa, care):
@@ -862,7 +968,7 @@ class Agent(object):
         intruders = []
         for p in range(NC):
             o = occ[p]
-            if o and o != seat and owner[p] == seat and not frz[p]:
+            if o and o != seat and owner[p] == seat and not frz[p] and not tr.home_of[p]:
                 intruders.append((p, o - 1))
         if not intruders:
             return False
@@ -936,9 +1042,10 @@ class Agent(object):
         if d[me] >= 99:
             d = DIST[target]
         want = d[me] - 1
-        cands = [w for w in NEIGH[me] if w not in blocked and d[w] == want]
+        nb = NEIGH_SYM[seat - 1][me]
+        cands = [w for w in nb if w not in blocked and d[w] == want]
         if not cands:
-            cands = [w for w in NEIGH[me] if w not in blocked and d[w] < d[me]]
+            cands = [w for w in nb if w not in blocked and d[w] < d[me]]
         if not cands:
             return "STAY"
         myrank = (seat - tr.token) % 4 if tr.token_known else 0
