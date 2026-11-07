@@ -18,3 +18,5 @@ pro_params.json
 # visual harness: unpacked branch snapshots, uploads and saved games
 harness/.cache/
 harness/replays/
+# harness/simulate.py sessions (results, reports)
+harness/simulations/
