@@ -1,0 +1,6 @@
+[strangers] 300 paired games per referee, variant @v7_params.json, bot mybot
+standard  cd4 frz2                 PW 2.763  score   2565  unsafe cooldown belief  0.04%
+cooldown 3 (off by one, shorter)   PW 2.607  score   2427  unsafe cooldown belief  5.19%   dPW -0.157 +/- 0.031 (z -5.01)
+cooldown 5 (off by one, longer)    PW 2.587  score   2454  unsafe cooldown belief  0.11%   dPW -0.177 +/- 0.041 (z -4.35)
+freeze 1 (current turn counted)    PW 2.543  score   2416  unsafe cooldown belief  0.07%   dPW -0.220 +/- 0.041 (z -5.39)
+freeze 3                           PW 2.820  score   2594  unsafe cooldown belief  0.08%   dPW +0.057 +/- 0.028 (z +2.06)
