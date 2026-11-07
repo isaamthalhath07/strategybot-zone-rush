@@ -1,0 +1,20 @@
+[strangers] 600 paired games, reference = @v8_params.json
+@v8_params.json          PW 2.7583  score  2586.9
+    per game: shields=4.69, last_shields=0.15, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.17, l1_lost_anyway=0.14, backfires=0.25, raids=5.66, raids_early=1.34, cells_lost=1.78, idle=0.69, idle_late=0.00, moves=24.18, turns90=15.21, reversals=2.59
+@v8_params.json+forecast:1 PW 2.7500  score  2578.4  dPW -0.0083 +/- 0.0195 (z -0.43)  dScore -8.49 +/- 10.17 (z -0.83)  games changed 105
+    per game: shields=5.08, last_shields=0.15, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.16, l1_lost_anyway=0.13, backfires=0.30, raids=5.75, raids_early=1.34, cells_lost=1.90, idle=0.67, idle_late=0.00, moves=24.32, turns90=15.24, reversals=2.72
+    @v8_params.json pairwise win rate vs each opponent:
+      pro_tuned      0.622  (n=127)
+      spine          0.858  (n=127)
+      ai_hawk        0.867  (n=120)
+      ai_homefort    0.881  (n=126)
+      camper         0.925  (n=147)
+      ai_marginal    0.952  (n=145)
+      ai_elo         0.955  (n=133)
+      cdraider       0.959  (n=122)
+      ai_route       0.959  (n=123)
+      ai_cheapraid   0.967  (n=122)
+      hunter         0.969  (n=130)
+      pro            0.970  (n=135)
+      turtle         0.982  (n=111)
+      centre         1.000  (n=132)

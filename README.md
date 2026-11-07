@@ -32,6 +32,157 @@ track that was tried and rejected.
 > methodological lessons that decide whether any of the numbers below mean
 > anything. This readme assumes you already know the game; that one does not.
 
+## v9: forecasting rivals by Bayesian goal inference
+
+`bot.py` now carries **v9**: v8 plus one switch, `forecast: 1`.
+
+```bash
+python ship.py v9_params.json
+```
+
+### The problem
+
+Every earlier version sees the whole board but never asks where a rival is
+*going*. Its opponent model was the tuning field itself: weights fitted against
+bots written in this repository. That is overfitting by construction. It knows
+how the bots it trained against behave, not how a stranger will.
+
+### The method: infer each rival's goal from its own moves
+
+`Forecaster` in `mybot.py` is inverse planning. Nothing in it is fitted to any
+opponent pool; each rival's belief is learned from that rival's own moves, in
+the current game.
+
+- **Prior:** every cell's value as a target *from the rival's seat and
+  position*, by the arithmetic the bot applies to itself: points the work earns
+  per action-turn it costs.
+- **Evidence:** a noisy-rational move model. Each step either brings the rival
+  closer to a candidate goal, holds, or takes it further away.
+- **Structure from the rules:** rivals re-plan every turn, so the belief is the
+  *current* prior times recent evidence. A stay that finishes work starts a fresh
+  goal; a stay mid-work marks the current cell as the goal.
+- **Forecast:** each rival's likely destination and arrival turn, chained two
+  targets further out.
+- **Use:** the walk planner discounts any work on a cell a rival is forecast to
+  stand on first.
+
+The constants were fixed on principle before any measurement and never tuned:
+β = 2, ρ = 0.9, κ = 3, a two-target chain.
+
+### Can it see where rivals are going?
+
+On the held-out field (eight outside designs plus the repository's strangers),
+over 11,268 forecasts of moving rivals:
+
+| forecast | finds the rival's next destination | position error 8 turns ahead |
+|---|---|---|
+| **goal inference** | **48.0%** (P(true) **0.088**) | **2.17 cells** |
+| rule prior alone (no inference) | 48.1% (P(true) 0.081) | 2.18 |
+| "it stays put" | 1.1% | 2.54 |
+| "it keeps going the same way" | — | 2.86 |
+
+Most of the forecasting power comes from planning *from the rival's point of
+view*; watching its moves adds calibration. Building this exposed three modelling
+errors, each fixed and documented in the code: an action-level likelihood (2.5%),
+ten-turn goal persistence (19%), and reading every stay as continuing work (16%).
+
+### Does using it win games?
+
+Paired against v8 on identical games. Fields marked † were re-drawn on fresh games
+and pooled, because a single draw's best result is biased upward:
+
+| field | pairwise wins | points |
+|---|---|---|
+| **unknown: outside designs + strangers, mixed (1,000 games)†** | **+0.050 ± 0.016 (z +3.1)** | +8.0 (n.s.) |
+| outside designs (1,000)† | +0.030 ± 0.018 (z +1.7) | **+16.6 ± 7.5 (z +2.2)** |
+| never-shield opponents (300) | +0.030 (z +1.5) | −6.5 (n.s.) |
+| 3× `x_jackal`, the hardest outside design (120) | +0.033 (n.s.); cells lost **−19%** | +18.2 (n.s.) |
+| peer, the strongest (400) | +0.014 (n.s.) | +2.6 (n.s.) |
+| realistic (500) | −0.007 (n.s.) | +6.1 (n.s.) |
+| **strangers (1,200)†** | **−0.024 ± 0.014 (z −1.8)** | −13.3 ± 6.9 (z −1.95) |
+
+The gain is largest on the field closest to Round 1, mixed lineups of opponents
+the bot was never tuned against, which is the point of the method. It does not
+hurt against the strongest bots. It does cost a little against the repository's
+own strangers. And it wins *pairings*, not raw points, which is what Round 1's Elo
+counts.
+
+**Defence was tried too, and is off.** `fc_defend: 1` uses the forecast to reach a
+threatened level-1 cell before the raider and upgrade it (shields cannot save
+level-1 cells). Against a decision rule fixed before measuring, it cut cells lost
+by about 12% in every one of 12 runs and was never harmful, but gained no
+measurable pairings: +0.006 PW (z +0.8) over 1,000 games on the unknown field,
+where the rule required z ≥ +2. Details in
+[`strategy_audit/README.md`](strategy_audit/README.md) §14.
+
+**If you want the conservative choice,** v8 is on branch
+`claude/strategy-audit-v8`, and `python ship.py v8_params.json` rebuilds it here:
+`forecast: 0` reproduces v8 move for move.
+
+## v8: fixes from the strategy audit
+
+v8 is v7's tuned weights, unchanged, plus ten corrections found by an
+adversarial audit of v7 against the rulebook. v9 keeps all of them. The audit,
+its method, and every number below are in
+[`strategy_audit/README.md`](strategy_audit/README.md).
+
+```bash
+python ship.py v8_params.json
+```
+
+### What changed
+
+Every fix sits behind a switch in `mybot.PARAMS` whose default reproduces v7, and
+`v8_params.json` switches them on. `strategy_audit/check_v7_compat.py` proves the defaults
+are behaviour-neutral: **4,800 decisions over 60 games, identical** to the v7
+`bot.py` read from git history. `python ship.py v7_params.json` still builds v7.
+
+| switch | finding | what was wrong in v7 |
+|---|---|---|
+| `shield_l1: 0` | B2 | It spent shields defending **level-1** cells. A caught raider is frozen 2 turns and then needs 1 stay, while the shield is down for 4 (2 + 1 ≤ 4), so the cell falls anyway: **79–89%** were lost to the same raider within six turns. Upgraded cells (2 + 3 = 5 > 4) are still defended. |
+| `shield_home: 0` | B3 | A rival standing on the bot's **home** was priced as a capture threat. Homes can never be taken; with a 2-point home the shield fired on every turn. |
+| `last_shield_value: 1` | B4 | On turn 80 it shielded against *any* intruder, even ones that could take nothing, and ignored what its own last stay was worth. |
+| `turn_guard: 1` | C2 | If state survived into a new game whose first turn was missed, the turn counter ran past 80 and the **whole game was played as its last turn**: 156 points against rivals' ~2,700. v8 scores 2,584 in the same scenario. |
+| `calibrate: 1` | C3 | The cooldown (4) and freeze (2) were assumed. v8 reads the cooldown off its own `legal_actions`, bounds it from rivals shielding twice, and takes the freeze length from observed freezes. |
+| `penalty_undo: 1` | C1 | A Round 2 time-penalty freeze (3 turns, §4.4) was read as a shield, so the bot believed a ready rival could not shield. v8 withdraws that inference once the freeze outlasts a shield freeze. |
+| `solver_retry`, `backfire_prod`, `contest_owner`, `canon_home` | C4 | Smaller model and tracker corrections. |
+
+### What it measured
+
+Paired against v7 on identical games, never-tuned-against fields included:
+
+| field | pairwise wins (of 3) | points |
+|---|---|---|
+| strangers (600 games) | −0.002 (n.s.) | **+7.2 ± 1.8 (z +3.9)** |
+| peer (400) | +0.000 | **+3.5 ± 1.3 (z +2.8)** |
+| realistic (500) | +0.008 (n.s.) | **+4.3 ± 1.9 (z +2.3)** |
+| unknown: outside designs + strangers (400) | +0.010 (n.s.) | +3.2 ± 2.2 (n.s.) |
+| eight outside designs (400) | +0.005 (n.s.) | +2.6 ± 1.7 (n.s.) |
+| never-shield opponents (300) | +0.007 (n.s.) | +4.5 ± 3.6 (n.s.) |
+| standard referee (300) | **+0.013 (z +2.0)** | **+6.2 ± 2.9 (z +2.1)** |
+| referee counting cooldown or freeze one turn differently (300 each) | −0.003 to +0.030 | **+14 to +36 (z +2.3 to +4.3)** |
+
+Points are positive in all eleven comparisons and pairwise wins are never
+significantly worse. This is a robustness release, not a strength jump: the
+largest gains are under rule readings that differ from the engine's.
+
+### What was deliberately not changed
+
+- **`q_weight`, the raid-shield prior (B1).** Learning faster gains 48 points
+  against never-shield opponents but costs **0.111 pairwise wins (z −3.9)** on the
+  peer field, where placements are actually contested. It stays at v7's value.
+- **The one-turn-short income horizon (B6).** Real, but the tuned weights absorb
+  it (fix measured +0.4 ± 2.3); it needs a retune, not a patch.
+- **Turn-80 raid pricing (B5).** Field-dependent; 78% of last-turn raids succeed
+  against this field.
+- **`risk_frozen`.** Implemented, correct in principle, measured slightly worse;
+  left off.
+- **The bot's edge still depends on how the server counts the cooldown and the
+  freeze**: under a referee that counts either one turn differently, v8 is still
+  0.15–0.24 pairwise wins below its own standard-rules result. Calibration fixes
+  the tracker, not the tuned weights. Ask the organisers, or retune on an engine
+  that matches the server.
+
 ## What this round changed
 
 This branch is the second pass over the bot, prompted by the organisers
@@ -72,8 +223,8 @@ success. See [Mistakes found and fixed](#mistakes-found-and-fixed).
 assumed, and one of those measurements corrected an earlier claim in this file.
 See [that section](#what-the-bots-strength-actually-rests-on).
 
-`bot.py` now carries **v7** — tuned against the rebuilt field with the
-confirmation stage, shipped with `tie_home: 1`, and passing every submission
+This round shipped **v7** (since superseded by v8, above) — tuned against the
+rebuilt field with the confirmation stage, shipped with `tie_home: 1`, and passing every submission
 check at 13.8 ms worst case. It is weakly better or level on all four measurement
 fields and never significantly worse, but the gain against *unfamiliar*
 opponents is +0.024 and not statistically significant; the large +0.251 was
@@ -84,14 +235,12 @@ measured on a field containing six of my own snapshots. See §8.3b.
 
 
 ```bash
-
-python ship.py
-
+python ship.py v9_params.json
 ```
 
-
-
-Rebuilds `bot.py` from the tuned weights and verifies it. It refuses to pass
+Rebuilds `bot.py` from the shipped weights and verifies it. (With no argument it
+reads `best_params.json`, a tuner's working file that is gitignored and absent
+from a fresh clone.) It refuses to pass
 
 unless: imports are stdlib-only, `act(state)` is unchanged, the built file plays
 
@@ -468,9 +617,11 @@ free to expand, the bot scores 3,404.
 
 | `nnbot.py` | pure-Python inference twin of the learned policy |
 
-| `v*_params.json` | tuned weight snapshots |
+| `v*_params.json` | tuned weight snapshots; **`v9_params.json` is the shipped set** (v8 + `forecast: 1`); `v8_params.json` is v7's weights + the audit switches |
 
 | `nemesis*.json` | counter-bots bred to beat a given version |
+
+| `strategy_audit/` | the strategy audit behind v8: write-up, paired harness, eight outside opponent designs, alternative-referee and Round 2 penalty probes, the v7-compatibility check, and every result table ([`strategy_audit/README.md`](strategy_audit/README.md)) |
 
 
 
@@ -893,7 +1044,9 @@ repository at the deadline is played once, by a server that cannot be inspected
 
 beforehand. So the search for errors is worth as much as the search for strength.
 
-These are the ones that were real.
+These are the ones that were real. The strategy audit found ten more in v7 and v8
+fixes them; they are listed in [v8: fixes from the strategy audit](#v8-fixes-from-the-strategy-audit)
+and explained in full in [`strategy_audit/README.md`](strategy_audit/README.md).
 
 
 

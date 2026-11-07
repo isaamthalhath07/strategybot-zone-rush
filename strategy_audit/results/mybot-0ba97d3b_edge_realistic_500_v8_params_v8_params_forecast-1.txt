@@ -1,0 +1,29 @@
+[realistic] 500 paired games, reference = @v8_params.json
+@v8_params.json          PW 2.5370  score  2553.8
+    per game: shields=4.20, last_shields=0.15, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.16, l1_lost_anyway=0.12, backfires=0.30, raids=5.39, raids_early=1.10, cells_lost=2.19, idle=0.56, idle_late=0.00, moves=24.46, turns90=15.21, reversals=2.62
+@v8_params.json+forecast:1 PW 2.5300  score  2559.9  dPW -0.0070 +/- 0.0257 (z -0.27)  dScore +6.11 +/- 10.09 (z +0.61)  games changed 116
+    per game: shields=4.50, last_shields=0.15, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.15, l1_lost_anyway=0.12, backfires=0.31, raids=5.23, raids_early=1.04, cells_lost=2.11, idle=0.59, idle_late=0.00, moves=24.29, turns90=15.07, reversals=2.60
+    @v8_params.json pairwise win rate vs each opponent:
+      v3             0.493  (n=75)
+      v6             0.513  (n=78)
+      nemesis3       0.525  (n=59)
+      nemesis2       0.535  (n=71)
+      pro_tuned      0.613  (n=80)
+      ai_centre      0.845  (n=71)
+      ai_homefort    0.863  (n=62)
+      ai_hawk        0.867  (n=60)
+      spine          0.868  (n=68)
+      ai_cheapraid   0.921  (n=63)
+      ai_route       0.935  (n=62)
+      turtle         0.952  (n=62)
+      camper         0.957  (n=70)
+      pro            0.963  (n=54)
+      cdraider       0.965  (n=57)
+      ai_elo         0.966  (n=59)
+      greedy         0.970  (n=66)
+      greedyshield   0.971  (n=69)
+      ai_marginal    0.972  (n=72)
+      hunter         1.000  (n=69)
+      centre         1.000  (n=48)
+      baiter         1.000  (n=63)
+      raider         1.000  (n=62)

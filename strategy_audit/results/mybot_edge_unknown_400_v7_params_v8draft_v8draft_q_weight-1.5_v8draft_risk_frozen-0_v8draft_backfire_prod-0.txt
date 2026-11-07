@@ -1,0 +1,34 @@
+[unknown] 400 paired games, reference = @v7_params.json   [DRAFT v8: before the freeze-length fix; risk_frozen 1]
+@v7_params.json          PW 2.6600  score  2610.5
+    per game: shields=4.62, last_shields=0.24, last_no_imminent=0.04, home_shields=0.00, l1_shields=0.40, l1_lost_anyway=0.34, backfires=0.30, raids=5.95, raids_early=1.07, cells_lost=1.89, idle=0.57, idle_late=0.00, moves=24.29, turns90=15.01, reversals=2.48
+@v8_params.json          PW 2.6650  score  2611.3  dPW +0.0050 +/- 0.0087 (z +0.58)  dScore +0.73 +/- 2.50 (z +0.29)  games changed 12
+    per game: shields=4.35, last_shields=0.18, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.18, l1_lost_anyway=0.16, backfires=0.25, raids=6.03, raids_early=1.06, cells_lost=1.99, idle=0.54, idle_late=0.00, moves=24.12, turns90=14.90, reversals=2.41
+@v8_params.json+q_weight:1.5 PW 2.6875  score  2628.0  dPW +0.0275 +/- 0.0164 (z +1.68)  dScore +17.44 +/- 7.06 (z +2.47)  games changed 40
+    per game: shields=4.33, last_shields=0.16, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.17, l1_lost_anyway=0.14, backfires=0.23, raids=6.34, raids_early=1.24, cells_lost=1.95, idle=0.54, idle_late=0.00, moves=23.54, turns90=14.47, reversals=2.15
+@v8_params.json+risk_frozen:0 PW 2.6700  score  2613.7  dPW +0.0100 +/- 0.0079 (z +1.27)  dScore +3.17 +/- 2.19 (z +1.44)  games changed 10
+    per game: shields=4.36, last_shields=0.17, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.18, l1_lost_anyway=0.16, backfires=0.27, raids=6.10, raids_early=1.06, cells_lost=1.99, idle=0.55, idle_late=0.00, moves=24.35, turns90=15.05, reversals=2.46
+@v8_params.json+backfire_prod:0 PW 2.6675  score  2611.7  dPW +0.0075 +/- 0.0090 (z +0.83)  dScore +1.13 +/- 2.53 (z +0.45)  games changed 13
+    per game: shields=4.33, last_shields=0.18, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.18, l1_lost_anyway=0.16, backfires=0.25, raids=6.04, raids_early=1.06, cells_lost=1.99, idle=0.54, idle_late=0.00, moves=24.12, turns90=14.89, reversals=2.40
+    @v7_params.json pairwise win rate vs each opponent:
+      pro_tuned      0.484  (n=64)
+      x_sim          0.814  (n=59)
+      ai_hawk        0.825  (n=63)
+      x_literal      0.826  (n=46)
+      x_vulture      0.845  (n=58)
+      x_jackal       0.855  (n=55)
+      cdraider       0.881  (n=42)
+      ai_route       0.895  (n=57)
+      ai_elo         0.895  (n=38)
+      pro            0.898  (n=59)
+      ai_cheapraid   0.900  (n=50)
+      ai_homefort    0.922  (n=51)
+      x_fort         0.928  (n=69)
+      camper         0.930  (n=57)
+      x_leech        0.938  (n=64)
+      spine          0.938  (n=48)
+      x_homebait     0.942  (n=52)
+      ai_marginal    0.947  (n=57)
+      x_flaky        0.968  (n=62)
+      hunter         0.978  (n=45)
+      turtle         0.983  (n=59)
+      centre         1.000  (n=45)

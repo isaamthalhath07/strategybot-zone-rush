@@ -1,0 +1,3 @@
+penalty rate 0.00/bot/turn: rival-cooldown exact 99.8%, UNSAFE (thinks rival can't shield, it can) 0.01%, of which rival fully ready 0.01%, safe-side errors 0.20%
+penalty rate 0.01/bot/turn: rival-cooldown exact 96.0%, UNSAFE (thinks rival can't shield, it can) 2.51%, of which rival fully ready 2.50%, safe-side errors 1.52%
+penalty rate 0.03/bot/turn: rival-cooldown exact 91.0%, UNSAFE (thinks rival can't shield, it can) 7.04%, of which rival fully ready 6.94%, safe-side errors 1.97%

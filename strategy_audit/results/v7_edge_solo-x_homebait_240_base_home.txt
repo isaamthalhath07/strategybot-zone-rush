@@ -1,0 +1,5 @@
+[solo:x_homebait] 240 paired games, reference = base
+base                     PW 2.4625  score  2315.6
+    per game: shields=8.52, last_shields=0.12, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.52, l1_lost_anyway=0.40, backfires=0.08, raids=5.69, raids_early=0.82, cells_lost=2.84, idle=0.54, idle_late=0.00, moves=22.66, turns90=13.92, reversals=1.90
+home                     PW 2.4583  score  2313.2  dPW -0.0042 +/- 0.0042 (z -1.00)  dScore -2.40 +/- 2.38 (z -1.01)  games changed 1
+    per game: shields=8.52, last_shields=0.12, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.51, l1_lost_anyway=0.39, backfires=0.08, raids=5.66, raids_early=0.82, cells_lost=2.83, idle=0.53, idle_late=0.00, moves=22.65, turns90=13.91, reversals=1.90

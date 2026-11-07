@@ -1,0 +1,7 @@
+[nonshield] 300 paired games, reference = @v7_params.json   [DRAFT v8: before the freeze-length fix; risk_frozen 1]
+@v7_params.json          PW 2.8767  score  2822.8
+    per game: shields=6.64, last_shields=0.27, last_no_imminent=0.01, home_shields=0.00, l1_shields=0.78, l1_lost_anyway=0.68, backfires=0.00, raids=8.59, raids_early=1.19, cells_lost=2.46, idle=0.50, idle_late=0.00, moves=22.03, turns90=13.70, reversals=1.23
+@v8_params.json          PW 2.8867  score  2830.2  dPW +0.0100 +/- 0.0058 (z +1.74)  dScore +7.36 +/- 3.73 (z +1.97)  games changed 3
+    per game: shields=6.32, last_shields=0.20, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.55, l1_lost_anyway=0.47, backfires=0.00, raids=8.77, raids_early=1.19, cells_lost=2.53, idle=0.46, idle_late=0.00, moves=22.08, turns90=13.77, reversals=1.22
+@v8_params.json+q_weight:1.5 PW 2.9100  score  2871.2  dPW +0.0333 +/- 0.0199 (z +1.67)  dScore +48.36 +/- 13.07 (z +3.70)  games changed 33
+    per game: shields=6.58, last_shields=0.20, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.70, l1_lost_anyway=0.64, backfires=0.00, raids=10.40, raids_early=2.13, cells_lost=3.07, idle=0.41, idle_late=0.00, moves=22.10, turns90=13.96, reversals=1.33

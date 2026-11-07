@@ -1,0 +1,14 @@
+[outsiders] 400 paired games, reference = @v7_params.json
+@v7_params.json          PW 2.6250  score  2684.8
+    per game: shields=3.39, last_shields=0.20, last_no_imminent=0.06, home_shields=0.00, l1_shields=0.52, l1_lost_anyway=0.41, backfires=0.23, raids=6.75, raids_early=0.72, cells_lost=2.28, idle=0.48, idle_late=0.00, moves=24.52, turns90=15.08, reversals=2.15
+@v8_params.json          PW 2.6300  score  2687.4  dPW +0.0050 +/- 0.0050 (z +1.00)  dScore +2.62 +/- 1.67 (z +1.57)  games changed 4
+    per game: shields=3.12, last_shields=0.15, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.24, l1_lost_anyway=0.20, backfires=0.16, raids=6.82, raids_early=0.71, cells_lost=2.36, idle=0.48, idle_late=0.00, moves=24.68, turns90=15.17, reversals=2.21
+    @v7_params.json pairwise win rate vs each opponent:
+      x_jackal       0.713  (n=157)
+      x_vulture      0.770  (n=152)
+      x_literal      0.793  (n=150)
+      x_flaky        0.918  (n=158)
+      x_leech        0.925  (n=147)
+      x_sim          0.947  (n=150)
+      x_fort         0.973  (n=148)
+      x_homebait     0.978  (n=138)

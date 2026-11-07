@@ -233,6 +233,18 @@ print("  shadowing files: %s   %s"
 if _clash:
     fails.append("these files shadow stdlib modules: %s" % _clash)
 
+# The same trap one level up: a directory with a module's name. The strategy
+# audit was first added as audit/ next to audit.py, which runtests.py runs.
+# `import audit` still found audit.py, but only because the directory had no
+# __init__.py -- one added file away from silently running the wrong thing.
+_dirs = set(d for d in _os.listdir(_here)
+            if _os.path.isdir(_os.path.join(_here, d)) and not d.startswith((".", "__")))
+_dclash = sorted(_mine & _dirs)
+print("  directory/module name clashes: %s   %s"
+      % (", ".join(_dclash) if _dclash else "none", "BAD" if _dclash else "OK"))
+if _dclash:
+    fails.append("these names are both a directory and a module: %s" % _dclash)
+
 print("\n=== H. my own shield cooldown must be exact ===========================")
 print("decide() refuses to shield unless BOTH legal_actions offers it and the")
 print("tracker believes the cooldown is clear -- insurance against a server that")
