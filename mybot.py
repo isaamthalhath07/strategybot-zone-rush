@@ -10,6 +10,7 @@ Three parts:
   Tactics  -- the shield/raid subgame solved as a 2x2 matrix game, an opponent model
               that best-responds when the read is strong, and an endgame raid chain.
 """
+import math
 import time
 from collections import deque
 
@@ -205,6 +206,15 @@ PARAMS = {
     "canon_home": 0,           # C4. 1 = derive my tie-break frame from my actual
                                # home cell, not from my seat number (Round 2 4.3:
                                # the organisers assign corners)
+    # --- v9: forecasting rivals by Bayesian goal inference (class Forecaster) -
+    "forecast": 0,             # 1 = infer each rival's target from its own moves
+                               # and discount walks needing a cell a rival will
+                               # stand on first. 0 reproduces v8 exactly
+    "fc_beta": 2.0,            # rationality of the move model. Fixed on principle,
+    "fc_rho": 0.9,             # goal persistence per turn.   not tuned -- tuning
+    "fc_kappa": 3.0,           # prior temperature.           them on the measured
+    "fc_chain": 2,             # targets forecast beyond the  fields would bring
+                               # current one.                 back the overfitting
 }
 
 
@@ -695,6 +705,217 @@ class Tracker(object):
         return (y + prior * weight) / (y + n + weight)
 
 
+class Forecaster(object):
+    """Where is each rival going, and when will it get there?
+
+    Bayesian goal inference -- inverse planning. Every rival is modelled as a
+    goal-directed agent playing by the same rules: it is walking to some cell to
+    claim, upgrade or raid it. Nothing here is fitted to any pool of opponents;
+    the belief about each rival is learned from that rival's own moves, in this
+    game, as they happen.
+
+      prior       how good each cell is as a target from the rival's seat and
+                  position, by the arithmetic the bot applies to itself: points
+                  the work earns (value x turns it will pay, plus any raid bonus)
+                  per action-turn it costs (travel + stays).
+      likelihood  a noisy-rational move model. Under goal g, a step that closes
+                  the distance is e^beta times as likely as standing still, and
+                  standing still e^beta times as likely as stepping away; at the
+                  goal, staying is the rational move.
+      transition  goals change -- one gets finished, a better one appears -- so
+                  each turn the belief relaxes a little toward the prior (a hidden
+                  Markov model over goals).
+
+    The posterior says where a rival is heading and its distance says when it
+    arrives. Chaining "its best next target after that one" carries the forecast
+    further out. threat[c] then lists (turn the rival first stands on c,
+    probability) for every cell, which the planner uses to discount any walk
+    that needs a cell a rival will occupy first.
+
+    The constants are fixed on principle, not tuned: beta = 2 (a step toward the
+    goal is ~7x as likely as idling), rho = 0.9 (a goal persists ~10 turns),
+    kappa = 3 (the best target is e^3 ~ 20x as likely a priori as a worthless one).
+    """
+
+    def __init__(self, beta=2.0, rho=0.9, kappa=3.0, chain=2, floor=0.03):
+        self.beta = beta
+        self.rho = rho
+        self.kappa = kappa
+        self.chain = chain
+        self.floor = floor
+        self.reset()
+
+    def reset(self):
+        self.belief = [None] * 4
+        self.lam = [None] * 4           # log-evidence per goal, decaying by rho
+        self.last = [None] * 4
+        self.was_frozen = [False] * 4
+        self.threat = [[] for _ in range(NC)]
+        self.goal = [None] * 4          # most likely current goal, for diagnostics
+
+    @staticmethod
+    def scores(s, pos, owner, upg, base, home_of, R):
+        """Target value of every cell for seat s standing at pos (0 = not a target),
+        and the stays each would need."""
+        sc = [0.0] * NC
+        nd = [1] * NC
+        row = MANH[pos]
+        for c in range(NC):
+            d = row[c]
+            if d >= R:
+                continue
+            o = owner[c]
+            v = base[c]
+            if o == s:
+                if upg[c]:
+                    continue
+                need = 3
+                val = v * (R - d - need)
+            elif o == 0:
+                need = 1
+                val = v * (R - d - need)
+            else:
+                if home_of[c]:
+                    continue                 # rival homes can never be taken
+                lvl = 2 if upg[c] else 1
+                need = 3 if lvl == 2 else 1
+                val = 8.0 * v * lvl + v * max(0, R - d - need)
+            if val <= 0:
+                continue
+            sc[c] = val / float(d + need)
+            nd[c] = need
+        return sc, nd
+
+    def _prior(self, sc):
+        top = max(sc)
+        if top <= 0.0:
+            return [1.0 / NC] * NC
+        k = self.kappa
+        low = 2.718281828 ** (-k - 2.0)
+        pr = [(2.718281828 ** (k * (x / top - 1.0)) if x > 0.0 else low) for x in sc]
+        z = sum(pr)
+        return [x / z for x in pr]
+
+    def update(self, tr, owner, upg, base, home_of, seat, R):
+        eb = 2.718281828 ** self.beta
+        ebn = 1.0 / eb
+        # log P(event | goal): a step closer / held / further; at the goal, a
+        # stay (work) or leaving it. Normalised per goal.
+        lzm = math.log(eb + 1.0 + ebn)
+        lzg = math.log(eb + ebn)
+        L_CLOSER = self.beta - lzm
+        L_FURTHER = -self.beta - lzm
+        L_STAY_OTHER = -lzm
+        L_STAY_GOAL = self.beta - lzg
+        L_LEAVE_GOAL = -self.beta - lzg
+        threat = [[] for _ in range(NC)]
+        for j in range(4):
+            if j == seat - 1:
+                continue
+            p = tr.pos[j]
+            if p is None:
+                self.belief[j] = None
+                continue
+            sc, nd = self.scores(j + 1, p, owner, upg, base, home_of, R)
+            prior = self._prior(sc)
+            lam = self.lam[j]
+            q = self.last[j]
+            if lam is None or q is None:
+                lam = [0.0] * NC
+            elif not self.was_frozen[j] and (p == q or p in NEIGH[q]):
+                # Evidence from the rival's last step: what it did to the distance
+                # to each goal g -- closer, held, or further. Deliberately NOT the
+                # likelihood of the exact move: an action-level model splits
+                # probability among the equally good moves toward g, so a diagonal
+                # goal gets half the credit of a goal straight ahead, while real
+                # bots break those ties deterministically and walk in straight
+                # lines. Measured, that version found the true destination 2.5%
+                # of the time, against 49% for no inference at all.
+                rq = MANH[q]
+                rp = MANH[p]
+                if p == q:
+                    # A stay is how work gets done, so it ends a leg: the walk
+                    # that led here says nothing about the next target. If the
+                    # work here is still in progress (an upgrade, or a raid on an
+                    # upgraded cell), the stay marks q as the goal. If the stay
+                    # just FINISHED the work -- the tracker's progress is back to
+                    # 0 -- the next target is a fresh choice and only the prior
+                    # speaks. Treating every stay as "goal = here" predicted that
+                    # rivals keep working a cell they had just claimed.
+                    if tr.prog[j] > 0:
+                        lam = [L_STAY_OTHER] * NC
+                        lam[q] = L_STAY_GOAL
+                    else:
+                        lam = [0.0] * NC
+                else:
+                    rho = self.rho
+                    for g in range(NC):
+                        if g == q:
+                            e = L_LEAVE_GOAL
+                        elif rp[g] < rq[g]:
+                            e = L_CLOSER
+                        else:
+                            e = L_FURTHER
+                        lam[g] = rho * lam[g] + e
+            self.lam[j] = lam
+            # Most bots re-choose their target every turn from where they now
+            # stand, so the belief is the CURRENT rule-derived prior times the
+            # recent evidence -- not an old prior carried forward, which lagged
+            # behind the plain prior as the rival closed in on its target.
+            top = max(lam)
+            b = [prior[c] * 2.718281828 ** (lam[c] - top) for c in range(NC)]
+            tot = sum(b)
+            if tot > 0.0:
+                b = [x / tot for x in b]
+            self.belief[j] = b
+            self.last[j] = p
+            self.was_frozen[j] = tr.frozen[j] > 0
+            # forecast: (turn the rival first stands on c, probability)
+            row = MANH[p]
+            best, bp = None, 0.0
+            for c in range(NC):
+                pc = b[c]
+                if pc >= self.floor:
+                    threat[c].append((row[c], pc))
+                    if pc > bp:
+                        bp, best = pc, c
+            self.goal[j] = best
+            # carry it further out: the best next target after finishing this one
+            if best is not None and bp >= 0.25 and self.chain > 0:
+                t = row[best] + nd[best]
+                here, pk = best, bp
+                seen = {best}
+                for _k in range(self.chain):
+                    pk *= 0.5
+                    if t >= R or pk < self.floor:
+                        break
+                    sc2, nd2 = self.scores(j + 1, here, owner, upg, base, home_of, R - t)
+                    nxt, nv = None, 0.0
+                    for c in range(NC):
+                        if c not in seen and sc2[c] > nv:
+                            nv, nxt = sc2[c], c
+                    if nxt is None:
+                        break
+                    t += MANH[here][nxt]
+                    threat[nxt].append((t, pk))
+                    seen.add(nxt)
+                    t += nd2[nxt]
+                    here = nxt
+        self.threat = threat
+
+    def survival(self, c, start):
+        """P(cell c is still mine to work on when I first stand on it at turn
+        offset `start`): every rival forecast to stand there first takes it from
+        me with its probability; arriving on the same turn is a contest, ~even."""
+        s = 1.0
+        for t, pc in self.threat[c]:
+            if t < start:
+                s *= 1.0 - pc
+            elif t == start:
+                s *= 1.0 - 0.5 * pc
+        return s
+
+
 class Agent(object):
     def __init__(self, seed=0, params=None):
         self.P = dict(PARAMS)
@@ -710,6 +931,8 @@ class Agent(object):
         self._nturns = 0
         self._cdw = None                # C3: [turns since my shield, frozen last turn]
         self._canon_cache = {}
+        self.fc = None                  # v9: Forecaster, built on first use
+        self._surv = None
 
     def rand(self):
         self.rng = (1103515245 * self.rng + 12345) % 2147483648
@@ -801,6 +1024,16 @@ class Agent(object):
         legal = view.legal_actions
         if P["calibrate"]:
             self._calibrate_cooldown(legal, seat)
+        self._surv = None
+        if P["forecast"]:
+            # Every turn, including the ones I spend frozen: each observed step
+            # of a rival is evidence about where it is going.
+            if self.fc is None or tr.new_game:
+                self.fc = Forecaster(P["fc_beta"], P["fc_rho"], P["fc_kappa"],
+                                     int(P["fc_chain"]))
+            self.fc.update(tr, owner, upg, base, home_of, seat,
+                           max(1, MAX_TURNS - tr.turn + 1))
+            self._surv = self.fc
         me = tr.pos[seat - 1]
         if me is None:
             return "STAY"
@@ -1111,6 +1344,11 @@ class Agent(object):
         # currently stands, or the cell under my feet gets penalised relative to
         # its neighbour and the bot oscillates between the two forever.
         g *= self._cellmod[p]
+        if self._surv is not None and kind != 4 and g > 0.0:
+            # v9: the work needs me standing on p from turn offset `used`. A
+            # rival forecast to stand there first -- to claim it, raid it, or
+            # come home to it -- closes the cell and takes the work with it.
+            g *= self._surv.survival(p, used)
         return g
 
     def _standing(self, seat, R=1):
