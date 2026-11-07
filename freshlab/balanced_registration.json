@@ -1,0 +1,22 @@
+{
+  "candidate": "raid_calibration",
+  "final_seed": 883917,
+  "repeats": 8,
+  "sources": {
+    "engine.py": "9ddf7b3a6a674d6d25d4f7aa2a44a7e412f0833c758579ca35317c53ef584cdd",
+    "maps.py": "b3f39ee4fa69a6e9b1360cb53517077fc9e378a1e019dfae69ae85c532887f29",
+    "botlib.py": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf",
+    "v7_params.json": "0b64e7f13600f359b30635db0a570f676ba2d913e1fd7d54a97a9bff3104e1f0",
+    "freshlab/baseline.py": "f7ec724c1473b23104a25c47a2fbc9e5f54e8ee476c5c91930b3dd3b120b670e",
+    "freshlab/model.py": "aef87fea5009bc0fc9ab1041345f00e261276b20e8e6e6f7f3398127510062d8",
+    "freshlab/candidate.py": "dea465f0c3bc079e1790a9d7aa11ed3541d361544ab5ca35d4dfad6f507221af",
+    "freshlab/population.py": "b92e8dfdf5329ba73f3e006d384bb54354c2920d32e6d48ed3e8a047bc18cad8",
+    "freshlab/evaluate.py": "864f2c7e17e474fe318e88df54bc2d976ec51598c4e58156505fa7ee5fce4830",
+    "freshlab/terminal.py": "1529815a5675e5f993666b8e63af4695320fd15616b78dd6af1da57eb7cc0c86"
+  },
+  "extra_sources": {
+    "freshlab/unseen.py": "d5d77f133f9baaa256b32057af5583148e4d2a2953a82bb105c6001055af8acd",
+    "freshlab/confirm.py": "b7cff783db1726dba52d428f42dbd816c2e9d0a901c2fa91704775cd98e14c46"
+  },
+  "note": "The original final design confounded map kinds with seat/token pairs. The paired result remains valid for that schedule. This additional pre-registered check balances them and adds four unused algorithms; no candidate change."
+}

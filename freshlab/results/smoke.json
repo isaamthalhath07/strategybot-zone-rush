@@ -1,0 +1,5080 @@
+{
+ "split": "train",
+ "seed": 183711,
+ "params": {
+  "horizon": 40,
+  "visits": 7,
+  "beam": 400,
+  "throttle": 0,
+  "budget_ms": 10000.0,
+  "stickiness": 1.228276644454352,
+  "ncand": 8,
+  "reach": 5,
+  "w_claim": 0.9065853137369807,
+  "w_upgrade": 1.5842582773978768,
+  "w_raid": 1.648359402231134,
+  "w_raid_late": 1.4321683445126716,
+  "combo": 0.3372851530026109,
+  "hold": 0.039812395355899075,
+  "combo_pri": 0.5130215791090991,
+  "w_denial": 0.20752972644616563,
+  "perish": 0.12508411521263113,
+  "safe_discount": 0.9496812183899669,
+  "zone_bonus": 1.0,
+  "squat_penalty": 0.05,
+  "contest_penalty": 0.04276674446676251,
+  "kappa": 0.871265646873602,
+  "def_kappa": 0.3,
+  "freeze_cost": 1.9897676204898689,
+  "q_prior": 0.6262098276170066,
+  "q_weight": 4.912705682120482,
+  "raid_risk": 1.5925150988216987,
+  "shield_cost": 1.4910998926274515,
+  "shield_bias": 2.351882159061404,
+  "shield_certain": 0.541032334099978,
+  "retake_credit": 0.5124636643323689,
+  "commit_prior": 0.738408561698738,
+  "commit_weight": 3.0,
+  "free_shield_turns": 1,
+  "tau": 295.09465653811793,
+  "care_mode": 4,
+  "steal": 0.0,
+  "steal_until": 20,
+  "steal_min": 3,
+  "consolidate": -0.3091790691417158,
+  "lead_caution": 0.05637305117375756,
+  "proj_care": 0.0,
+  "home_bonus": 0.8124607638770958,
+  "upg_risk": 0.0,
+  "first_turn_ms": 0,
+  "first_turn_mult": 1.0,
+  "own_prog": 0.5638901677881061,
+  "intent": 0.0,
+  "intent_turns": 3,
+  "endgame_care": 6,
+  "tie_home": 1,
+  "endgame_denial": 1.1489375774470736
+ },
+ "sources": {
+  "engine.py": "9ddf7b3a6a674d6d25d4f7aa2a44a7e412f0833c758579ca35317c53ef584cdd",
+  "maps.py": "b3f39ee4fa69a6e9b1360cb53517077fc9e378a1e019dfae69ae85c532887f29",
+  "v7_params.json": "0b64e7f13600f359b30635db0a570f676ba2d913e1fd7d54a97a9bff3104e1f0",
+  "freshlab/baseline.py": "f7ec724c1473b23104a25c47a2fbc9e5f54e8ee476c5c91930b3dd3b120b670e",
+  "freshlab/model.py": "aef87fea5009bc0fc9ab1041345f00e261276b20e8e6e6f7f3398127510062d8",
+  "freshlab/candidate.py": "f0d3abdbbf6a97a3551f8c383c2a4bc07c8e2f272d370e8de66387b6ac17d3c8",
+  "freshlab/population.py": "b92e8dfdf5329ba73f3e006d384bb54354c2920d32e6d48ed3e8a047bc18cad8",
+  "freshlab/evaluate.py": "a942f37de7e06aadc68edeaf3e5a16697401fa036d4b4cd87c7ce4c9eb4a2d81"
+ },
+ "variants": {
+  "baseline": {},
+  "observe_only": {},
+  "context_commit": {
+   "commit": 1.0
+  },
+  "context_defence": {
+   "defence": 1.0
+  },
+  "guarded": {
+   "commit": 0.5,
+   "defence": 0.5,
+   "uncertainty": 0.5
+  },
+  "context_both": {
+   "commit": 1.0,
+   "defence": 1.0
+  },
+  "future_window": {
+   "commit": 0.5,
+   "defence": 0.5,
+   "elapsed": 1.0
+  },
+  "dwell": {
+   "dwell": 0.5
+  }
+ },
+ "summary": {
+  "baseline": {
+   "n": 12,
+   "pw": 2.0833333333333335,
+   "score": 2851.6666666666665,
+   "difference": 0.0,
+   "se": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ],
+   "worst_ms": 24.214099976234138
+  },
+  "observe_only": {
+   "n": 12,
+   "pw": 2.0833333333333335,
+   "score": 2851.6666666666665,
+   "difference": 0.0,
+   "se": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ],
+   "worst_ms": 29.5916999457404
+  },
+  "context_commit": {
+   "n": 12,
+   "pw": 2.0833333333333335,
+   "score": 2851.6666666666665,
+   "difference": 0.0,
+   "se": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ],
+   "worst_ms": 28.047900064848363
+  },
+  "context_defence": {
+   "n": 12,
+   "pw": 1.9166666666666667,
+   "score": 2799.0,
+   "difference": -0.16666666666666666,
+   "se": 0.2706147136286629,
+   "ci95": [
+    -0.7024837996514192,
+    0.3691504663180859
+   ],
+   "worst_ms": 40.30300001613796
+  },
+  "guarded": {
+   "n": 12,
+   "pw": 1.8333333333333333,
+   "score": 2783.0,
+   "difference": -0.25,
+   "se": 0.2175970699446223,
+   "ci95": [
+    -0.6808421984903521,
+    0.18084219849035216
+   ],
+   "worst_ms": 41.58030007965863
+  },
+  "context_both": {
+   "n": 12,
+   "pw": 1.9166666666666667,
+   "score": 2799.0,
+   "difference": -0.16666666666666666,
+   "se": 0.2706147136286629,
+   "ci95": [
+    -0.7024837996514192,
+    0.3691504663180859
+   ],
+   "worst_ms": 38.96800009533763
+  },
+  "future_window": {
+   "n": 12,
+   "pw": 2.3333333333333335,
+   "score": 2886.0833333333335,
+   "difference": 0.25,
+   "se": 0.2175970699446223,
+   "ci95": [
+    -0.18084219849035216,
+    0.6808421984903521
+   ],
+   "worst_ms": 39.513399940915406
+  },
+  "dwell": {
+   "n": 12,
+   "pw": 2.0833333333333335,
+   "score": 2853.1666666666665,
+   "difference": 0.0,
+   "se": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ],
+   "worst_ms": 27.654399978928268
+  }
+ },
+ "caveat": "Synthetic opponents; shared public-state plumbing across families. Descriptive task-level intervals; training comparisons exploratory. No known competitors used.",
+ "elapsed_seconds": 28.416558599914424,
+ "rows": [
+  {
+   "task": {
+    "id": 0,
+    "seat": 0,
+    "token": 1,
+    "map_kind": "standard",
+    "base": [
+     1,
+     1,
+     1,
+     2,
+     2,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     2,
+     2,
+     1,
+     1,
+     1,
+     1,
+     1,
+     2,
+     2,
+     2,
+     2,
+     1,
+     1,
+     2,
+     2,
+     2,
+     3,
+     3,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     3,
+     3,
+     2,
+     2,
+     2,
+     1,
+     1,
+     2,
+     2,
+     2,
+     2,
+     1,
+     1,
+     1,
+     1,
+     1,
+     2,
+     2,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     2,
+     2,
+     1,
+     1,
+     1
+    ],
+    "map_seed": 123515855,
+    "specs": [
+     {
+      "seed": 1823314018,
+      "family": "sweep",
+      "claim": 0.9628936561157189,
+      "upgrade": 1.369324432970909,
+      "raid": 0.3499127798960739,
+      "commit": 1.5825362825588325,
+      "radius": 4,
+      "shelter": 0.11452897995676903,
+      "travel": 1.1696840867664131,
+      "shield": "imminent",
+      "shield_p": 0.7419177508567469,
+      "threshold": 31.916838231404256,
+      "raider": "patient",
+      "switch_turn": 26,
+      "temperature": 0.0021712554326019616
+     },
+     {
+      "seed": 2129805570,
+      "family": "risk",
+      "claim": 0.93963565124452,
+      "upgrade": 1.3307124761927749,
+      "raid": 0.3061588338327289,
+      "commit": 1.2915307769181759,
+      "radius": 7,
+      "shelter": 0.15576280273089047,
+      "travel": 1.0694694414132588,
+      "shield": "delayed",
+      "shield_p": 0.38611022356410846,
+      "threshold": 47.20915701361787,
+      "raider": "cooldown",
+      "switch_turn": 42,
+      "temperature": 0.031446750830252695
+     },
+     {
+      "seed": 1720224522,
+      "family": "rate",
+      "claim": 0.715763480352429,
+      "upgrade": 1.1712219659904453,
+      "raid": 0.5705972966920028,
+      "commit": 1.2032795132407041,
+      "radius": 10,
+      "shelter": 0.19534893629236771,
+      "travel": 1.1832103875501696,
+      "shield": "delayed",
+      "shield_p": 0.221305290384366,
+      "threshold": 48.19360884625068,
+      "raider": "patient",
+      "switch_turn": 48,
+      "temperature": 0.06454077755518581
+     }
+    ]
+   },
+   "results": {
+    "dwell": {
+     "pw": 3.0,
+     "score": 2715,
+     "scores": [
+      2715,
+      1786,
+      1952,
+      2144
+     ],
+     "calls": 320,
+     "action_hash": "0f0f999973ea2eedaaddf6502683a430c6ea96b39300008ae5bad9313dc506a1",
+     "max_ms": 6.399900070391595,
+     "action_counts": {
+      "SOUTH": 7,
+      "STAY": 61,
+      "EAST": 7,
+      "WEST": 1,
+      "NORTH": 3,
+      "SHIELD": 1
+     },
+     "learning": {
+      "defence": [
+       0.8922889356228395,
+       3
+      ],
+      "commit": [
+       3.3856243762806613,
+       15
+      ],
+      "finish": [
+       5.716136230962708,
+       172
+      ],
+      "ambiguous": 0,
+      "inconsistent": 0
+     }
+    },
+    "future_window": {
+     "pw": 3.0,
+     "score": 2720,
+     "scores": [
+      2720,
+      1786,
+      1928,
+      2144
+     ],
+     "calls": 320,
+     "action_hash": "ef2fb5ecf0b31d2a1d3574d3affaa4b69da47c7129bddb8ca4b175346044d9f0",
+     "max_ms": 6.996599957346916,
+     "action_counts": {
+      "SOUTH": 7,
+      "STAY": 55,
+      "EAST": 9,
+      "WEST": 3,
+      "NORTH": 5,
+      "SHIELD": 1
+     },
+     "learning": {
+      "defence": [
+       0.7699373782567351,
+       4
+      ],
+      "commit": [
+       5.466389655053057,
+       22
+      ],
+      "finish": [
+       6.460422861968491,
+       168
+      ],
+      "ambiguous": 0,
+      "inconsistent": 0
+     }
+    },
+    "context_both": {
+     "pw": 3.0,
+     "score": 2728,
+     "scores": [
+      2728,
+      1786,
+      2003,
+      2090
+     ],
+     "calls": 320,
+     "action_hash": "6ab8bd11ce6a2fdc84880eb22f7217c1804de8f0dd571e1b96b4832d04972931",
+     "max_ms": 7.00049998704344,
+     "action_counts": {
+      "SOUTH": 7,
+      "STAY": 51,
+      "EAST": 8,
+      "WEST": 6,
+      "NORTH": 6,
+      "SHIELD": 2
+     },
+     "learning": {
+      "defence": [
+       0.1969480334506641,
+       2
+      ],
+      "commit": [
+       3.8937571573804686,
+       20
+      ],
+      "finish": [
+       8.047457682569924,
+       168
+      ],
+      "ambiguous": 0,
+      "inconsistent": 0
+     }
+    },
+    "guarded": {
+     "pw": 3.0,
+     "score": 2740,
+     "scores": [
+      2740,
+      1780,
+      1928,
+      2126
+     ],
+     "calls": 320,
+     "action_hash": "cdb8464fc673e7a925c066ebd926737d176a661104abdf6f8a595f5442092672",
+     "max_ms": 7.945500081405044,
+     "action_counts": {
+      "SOUTH": 7,
+      "STAY": 54,
+      "EAST": 9,
+      "WEST": 3,
+      "NORTH": 6,
+      "SHIELD": 1
+     },
+     "learning": {
+      "defence": [
+       0.780890915837656,
+       3
+      ],
+      "commit": [
+       4.241450694883299,
+       18
+      ],
+      "finish": [
+       7.4178307007730595,
+       165
+      ],
+      "ambiguous": 0,
+      "inconsistent": 1
+     }
+    },
+    "context_defence": {
+     "pw": 3.0,
+     "score": 2728,
+     "scores": [
+      2728,
+      1786,
+      2003,
+      2090
+     ],
+     "calls": 320,
+     "action_hash": "6ab8bd11ce6a2fdc84880eb22f7217c1804de8f0dd571e1b96b4832d04972931",
+     "max_ms": 8.114399970509112,
+     "action_counts": {
+      "SOUTH": 7,
+      "STAY": 51,
+      "EAST": 8,
+      "WEST": 6,
+      "NORTH": 6,
+      "SHIELD": 2
+     },
+     "learning": {
+      "defence": [
+       0.1969480334506641,
+       2
+      ],
+      "commit": [
+       3.8937571573804686,
+       20
+      ],
+      "finish": [
+       8.047457682569924,
+       168
+      ],
+      "ambiguous": 0,
+      "inconsistent": 0
+     }
+    },
+    "context_commit": {
+     "pw": 3.0,
+     "score": 2715,
+     "scores": [
+      2715,
+      1786,
+      1952,
+      2144
+     ],
+     "calls": 320,
+     "action_hash": "0f0f999973ea2eedaaddf6502683a430c6ea96b39300008ae5bad9313dc506a1",
+     "max_ms": 5.787100060842931,
+     "action_counts": {
+      "SOUTH": 7,
+      "STAY": 61,
+      "EAST": 7,
+      "WEST": 1,
+      "NORTH": 3,
+      "SHIELD": 1
+     },
+     "learning": {
+      "defence": [
+       0.8922889356228395,
+       3
+      ],
+      "commit": [
+       3.3856243762806613,
+       15
+      ],
+      "finish": [
+       5.716136230962708,
+       172
+      ],
+      "ambiguous": 0,
+      "inconsistent": 0
+     }
+    },
+    "observe_only": {
+     "pw": 3.0,
+     "score": 2715,
+     "scores": [
+      2715,
+      1786,
+      1952,
+      2144
+     ],
+     "calls": 320,
+     "action_hash": "0f0f999973ea2eedaaddf6502683a430c6ea96b39300008ae5bad9313dc506a1",
+     "max_ms": 5.774900084361434,
+     "action_counts": {
+      "SOUTH": 7,
+      "STAY": 61,
+      "EAST": 7,
+      "WEST": 1,
+      "NORTH": 3,
+      "SHIELD": 1
+     },
+     "learning": {
+      "defence": [
+       0.8922889356228395,
+       3
+      ],
+      "commit": [
+       3.3856243762806613,
+       15
+      ],
+      "finish": [
+       5.716136230962708,
+       172
+      ],
+      "ambiguous": 0,
+      "inconsistent": 0
+     }
+    },
+    "baseline": {
+     "pw": 3.0,
+     "score": 2715,
+     "scores": [
+      2715,
+      1786,
+      1952,
+      2144
+     ],
+     "calls": 320,
+     "action_hash": "0f0f999973ea2eedaaddf6502683a430c6ea96b39300008ae5bad9313dc506a1",
+     "max_ms": 4.914700053632259,
+     "action_counts": {
+      "SOUTH": 7,
+      "STAY": 61,
+      "EAST": 7,
+      "WEST": 1,
+      "NORTH": 3,
+      "SHIELD": 1
+     },
+     "learning": {}
+    }
+   }
+  },
+  {
+   "task": {
+    "id": 1,
+    "seat": 1,
+    "token": 1,
+    "map_kind": "standard",
+    "base": [
+     1,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     1,
+     3,
+     2,
+     3,
+     3,
+     2,
+     3,
+     1,
+     2,
+     2,
+     3,
+     3,
+     3,
+     3,
+     2,
+     2,
+     2,
+     2,
+     3,
+     3,
+     3,
+     3,
+     2,
+     2,
+     1,
+     3,
+     2,
+     3,
+     3,
+     2,
+     3,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     1
+    ],
+    "map_seed": 532247957,
+    "specs": [
+     {
+      "seed": 386646013,
+      "family": "sweep",
+      "claim": 0.9536433010737467,
+      "upgrade": 0.9161511377493186,
+      "raid": 0.3912965569481246,
+      "commit": 1.1674050523168324,
+      "radius": 7,
+      "shelter": 0.15491982076547764,
+      "travel": 0.7974259873606928,
+      "shield": "imminent",
+      "shield_p": 0.4905298019887033,
+      "threshold": 34.41990874641811,
+      "raider": "cooldown",
+      "switch_turn": 50,
+      "temperature": 0.034585597648051795
+     },
+     {
+      "seed": 989272524,
+      "family": "rate",
+      "claim": 1.0088793955310111,
+      "upgrade": 1.0136219246023106,
+      "raid": 0.8428540473153472,
+      "commit": 1.4477808820640954,
+      "radius": 10,
+      "shelter": 0.1666328071519301,
+      "travel": 0.8172127521601837,
+      "shield": "never",
+      "shield_p": 0.7065355756532901,
+      "threshold": 10.873630925385381,
+      "raider": "feint",
+      "switch_turn": 29,
+      "temperature": 0.06497165298418983
+     },
+     {
+      "seed": 1931059230,
+      "family": "switch",
+      "claim": 0.7448295330299715,
+      "upgrade": 1.8966001735118945,
+      "raid": 1.2386516669539729,
+      "commit": 1.2745118989157525,
+      "radius": 7,
+      "shelter": 0.20347963417662882,
+      "travel": 1.1334394561171353,
+      "shield": "mixed",
+      "shield_p": 0.7369474162013065,
+      "threshold": 56.03303712861308,
+      "raider": "patient",
+      "switch_turn": 54,
+      "temperature": 0.07998048980449736
+     }
+    ]
+   },
+   "results": {
+    "baseline": {
+     "pw": 3.0,
+     "score": 3474,
+     "scores": [
+      2943,
+      3474,
+      2441,
+      2481
+     ],
+     "calls": 320,
+     "action_hash": "b116c3b00130821f42555118df14e4b7ba235acb7e6379ccb642fe14ce8ed46f",
+     "max_ms": 9.318600059486926,
+     "action_counts": {
+      "SOUTH": 7,
+      "STAY": 56,
+      "WEST": 7,
+      "NORTH": 3,
+      "EAST": 6,
+      "SHIELD": 1
+     },
+     "learning": {}
+    },
+    "observe_only": {
+     "pw": 3.0,
+     "score": 3474,
+     "scores": [
+      2943,
+      3474,
+      2441,
+      2481
+     ],
+     "calls": 320,
+     "action_hash": "b116c3b00130821f42555118df14e4b7ba235acb7e6379ccb642fe14ce8ed46f",
+     "max_ms": 10.295899934135377,
+     "action_counts": {
+      "SOUTH": 7,
+      "STAY": 56,
+      "WEST": 7,
+      "NORTH": 3,
+      "EAST": 6,
+      "SHIELD": 1
+     },
+     "learning": {
+      "defence": [
+       1.6705722016434166,
+       20
+      ],
+      "commit": [
+       4.80918195061402,
+       31
+      ],
+      "finish": [
+       22.018005437168807,
+       160
+      ],
+      "ambiguous": 4,
+      "inconsistent": 0
+     }
+    },
+    "context_commit": {
+     "pw": 3.0,
+     "score": 3474,
+     "scores": [
+      2943,
+      3474,
+      2441,
+      2481
+     ],
+     "calls": 320,
+     "action_hash": "b116c3b00130821f42555118df14e4b7ba235acb7e6379ccb642fe14ce8ed46f",
+     "max_ms": 10.610299999825656,
+     "action_counts": {
+      "SOUTH": 7,
+      "STAY": 56,
+      "WEST": 7,
+      "NORTH": 3,
+      "EAST": 6,
+      "SHIELD": 1
+     },
+     "learning": {
+      "defence": [
+       1.6705722016434166,
+       20
+      ],
+      "commit": [
+       4.80918195061402,
+       31
+      ],
+      "finish": [
+       22.018005437168807,
+       160
+      ],
+      "ambiguous": 4,
+      "inconsistent": 0
+     }
+    },
+    "context_defence": {
+     "pw": 3.0,
+     "score": 3633,
+     "scores": [
+      2878,
+      3633,
+      2455,
+      2481
+     ],
+     "calls": 320,
+     "action_hash": "fe464700674734c1993fff345926c19f996858da131dca4c3182f23db78e4eb2",
+     "max_ms": 16.552799963392317,
+     "action_counts": {
+      "SOUTH": 7,
+      "STAY": 56,
+      "WEST": 6,
+      "NORTH": 7,
+      "EAST": 4
+     },
+     "learning": {
+      "defence": [
+       0.7707004478731972,
+       10
+      ],
+      "commit": [
+       4.637097467680763,
+       31
+      ],
+      "finish": [
+       24.07177860688119,
+       166
+      ],
+      "ambiguous": 4,
+      "inconsistent": 0
+     }
+    },
+    "guarded": {
+     "pw": 3.0,
+     "score": 3488,
+     "scores": [
+      2943,
+      3488,
+      2395,
+      2481
+     ],
+     "calls": 320,
+     "action_hash": "88573d8ae8ada96e6b674f020cccd67d489da90f5cf49a724f8ce5c6c89705a7",
+     "max_ms": 13.598800054751337,
+     "action_counts": {
+      "SOUTH": 8,
+      "STAY": 57,
+      "WEST": 7,
+      "NORTH": 2,
+      "EAST": 5,
+      "SHIELD": 1
+     },
+     "learning": {
+      "defence": [
+       1.6950808734061742,
+       21
+      ],
+      "commit": [
+       5.0639264055548825,
+       34
+      ],
+      "finish": [
+       23.160865101501823,
+       157
+      ],
+      "ambiguous": 4,
+      "inconsistent": 0
+     }
+    },
+    "context_both": {
+     "pw": 3.0,
+     "score": 3633,
+     "scores": [
+      2878,
+      3633,
+      2455,
+      2481
+     ],
+     "calls": 320,
+     "action_hash": "fe464700674734c1993fff345926c19f996858da131dca4c3182f23db78e4eb2",
+     "max_ms": 18.636599997989833,
+     "action_counts": {
+      "SOUTH": 7,
+      "STAY": 56,
+      "WEST": 6,
+      "NORTH": 7,
+      "EAST": 4
+     },
+     "learning": {
+      "defence": [
+       0.7707004478731972,
+       10
+      ],
+      "commit": [
+       4.637097467680763,
+       31
+      ],
+      "finish": [
+       24.07177860688119,
+       166
+      ],
+      "ambiguous": 4,
+      "inconsistent": 0
+     }
+    },
+    "future_window": {
+     "pw": 3.0,
+     "score": 3504,
+     "scores": [
+      2943,
+      3504,
+      2480,
+      2481
+     ],
+     "calls": 320,
+     "action_hash": "5a7f10fe1bc95d0dec0d224bf691504a06a496840e44a865e2fa391d953e749e",
+     "max_ms": 36.43760003615171,
+     "action_counts": {
+      "SOUTH": 8,
+      "STAY": 57,
+      "WEST": 5,
+      "NORTH": 4,
+      "EAST": 6
+     },
+     "learning": {
+      "defence": [
+       0.8114564003030376,
+       13
+      ],
+      "commit": [
+       3.7665553619398913,
+       27
+      ],
+      "finish": [
+       23.119817999481707,
+       166
+      ],
+      "ambiguous": 4,
+      "inconsistent": 0
+     }
+    },
+    "dwell": {
+     "pw": 3.0,
+     "score": 3474,
+     "scores": [
+      2943,
+      3474,
+      2441,
+      2481
+     ],
+     "calls": 320,
+     "action_hash": "b116c3b00130821f42555118df14e4b7ba235acb7e6379ccb642fe14ce8ed46f",
+     "max_ms": 20.164300105534494,
+     "action_counts": {
+      "SOUTH": 7,
+      "STAY": 56,
+      "WEST": 7,
+      "NORTH": 3,
+      "EAST": 6,
+      "SHIELD": 1
+     },
+     "learning": {
+      "defence": [
+       1.6705722016434166,
+       20
+      ],
+      "commit": [
+       4.80918195061402,
+       31
+      ],
+      "finish": [
+       22.018005437168807,
+       160
+      ],
+      "ambiguous": 4,
+      "inconsistent": 0
+     }
+    }
+   }
+  },
+  {
+   "task": {
+    "id": 2,
+    "seat": 2,
+    "token": 1,
+    "map_kind": "noise",
+    "base": [
+     1,
+     1,
+     2,
+     2,
+     2,
+     2,
+     1,
+     1,
+     2,
+     2,
+     2,
+     3,
+     3,
+     2,
+     2,
+     2,
+     1,
+     3,
+     3,
+     2,
+     2,
+     3,
+     3,
+     1,
+     1,
+     2,
+     3,
+     1,
+     1,
+     3,
+     2,
+     1,
+     1,
+     2,
+     3,
+     1,
+     1,
+     3,
+     2,
+     1,
+     1,
+     3,
+     3,
+     2,
+     2,
+     3,
+     3,
+     1,
+     2,
+     2,
+     2,
+     3,
+     3,
+     2,
+     2,
+     2,
+     1,
+     1,
+     2,
+     2,
+     2,
+     2,
+     1,
+     1
+    ],
+    "map_seed": 2049057816,
+    "specs": [
+     {
+      "seed": 2080796594,
+      "family": "risk",
+      "claim": 0.8153324977283952,
+      "upgrade": 1.8171496114089518,
+      "raid": 0.7959832910194421,
+      "commit": 1.347447381019253,
+      "radius": 5,
+      "shelter": 0.0034188166768738615,
+      "travel": 0.9353102179219761,
+      "shield": "imminent",
+      "shield_p": 0.45262658006623296,
+      "threshold": 58.18749472952112,
+      "raider": "patient",
+      "switch_turn": 33,
+      "temperature": 0.04521681954301669
+     },
+     {
+      "seed": 562351755,
+      "family": "cluster",
+      "claim": 1.0154442180112921,
+      "upgrade": 1.0585275090932091,
+      "raid": 0.3648644503623513,
+      "commit": 1.4510444708608496,
+      "radius": 4,
+      "shelter": 0.12890205768164698,
+      "travel": 0.9568070839405587,
+      "shield": "imminent",
+      "shield_p": 0.3608699543629932,
+      "threshold": 60.06089705257744,
+      "raider": "patient",
+      "switch_turn": 41,
+      "temperature": 0.07543666392732509
+     },
+     {
+      "seed": 1249487941,
+      "family": "sweep",
+      "claim": 1.0083385236965896,
+      "upgrade": 1.2509650879433987,
+      "raid": 0.7594328946594374,
+      "commit": 1.4667595066664925,
+      "radius": 10,
+      "shelter": 0.04783972852380373,
+      "travel": 1.1193459859530515,
+      "shield": "delayed",
+      "shield_p": 0.3329813356557171,
+      "threshold": 30.82512714819033,
+      "raider": "cooldown",
+      "switch_turn": 43,
+      "temperature": 0.011101152876740654
+     }
+    ]
+   },
+   "results": {
+    "dwell": {
+     "pw": 0.0,
+     "score": 2740,
+     "scores": [
+      2864,
+      3083,
+      2740,
+      2819
+     ],
+     "calls": 320,
+     "action_hash": "7e9a1b91c66f948e005edebf82ad374433860eb90a024ffd7b8874af74cc7666",
+     "max_ms": 8.806099998764694,
+     "action_counts": {
+      "NORTH": 7,
+      "STAY": 56,
+      "WEST": 7,
+      "SOUTH": 7,
+      "EAST": 3
+     },
+     "learning": {
+      "defence": [
+       1.1433489483228818,
+       3
+      ],
+      "commit": [
+       2.5814993267573327,
+       13
+      ],
+      "finish": [
+       16.476054151952123,
+       175
+      ],
+      "ambiguous": 0,
+      "inconsistent": 0
+     }
+    },
+    "future_window": {
+     "pw": 1.0,
+     "score": 2818,
+     "scores": [
+      2911,
+      3026,
+      2818,
+      2764
+     ],
+     "calls": 320,
+     "action_hash": "1244559ccb1b144dd7c11c66f52b678f59410992c53f46e0cc73ec889780aa41",
+     "max_ms": 11.115500004962087,
+     "action_counts": {
+      "NORTH": 9,
+      "STAY": 53,
+      "WEST": 7,
+      "SOUTH": 8,
+      "EAST": 2,
+      "SHIELD": 1
+     },
+     "learning": {
+      "defence": [
+       1.1939306023360772,
+       4
+      ],
+      "commit": [
+       2.6954479204985247,
+       18
+      ],
+      "finish": [
+       17.489399275664116,
+       172
+      ],
+      "ambiguous": 1,
+      "inconsistent": 0
+     }
+    },
+    "context_both": {
+     "pw": 0.0,
+     "score": 2764,
+     "scores": [
+      2911,
+      3026,
+      2764,
+      2808
+     ],
+     "calls": 320,
+     "action_hash": "afc88ca6d015d5c4d339b02acfc769ebf70ecfe70ea538515cd7d199cb8a0c84",
+     "max_ms": 10.403100051917136,
+     "action_counts": {
+      "NORTH": 10,
+      "STAY": 52,
+      "WEST": 6,
+      "SOUTH": 9,
+      "EAST": 2,
+      "SHIELD": 1
+     },
+     "learning": {
+      "defence": [
+       1.0333105710716692,
+       3
+      ],
+      "commit": [
+       2.828178610944603,
+       18
+      ],
+      "finish": [
+       16.26639716149921,
+       172
+      ],
+      "ambiguous": 1,
+      "inconsistent": 0
+     }
+    },
+    "guarded": {
+     "pw": 0.0,
+     "score": 2708,
+     "scores": [
+      2864,
+      3026,
+      2708,
+      2848
+     ],
+     "calls": 320,
+     "action_hash": "a3134bb0870dab68f57e8d64edbf37bb8e5fdfce65330a5f966822cf925c0449",
+     "max_ms": 11.839799932204187,
+     "action_counts": {
+      "NORTH": 9,
+      "STAY": 55,
+      "WEST": 6,
+      "SOUTH": 7,
+      "EAST": 2,
+      "SHIELD": 1
+     },
+     "learning": {
+      "defence": [
+       0.780890915837656,
+       3
+      ],
+      "commit": [
+       3.2180603394692007,
+       13
+      ],
+      "finish": [
+       17.677870069244598,
+       176
+      ],
+      "ambiguous": 0,
+      "inconsistent": 0
+     }
+    },
+    "context_defence": {
+     "pw": 0.0,
+     "score": 2764,
+     "scores": [
+      2911,
+      3026,
+      2764,
+      2808
+     ],
+     "calls": 320,
+     "action_hash": "afc88ca6d015d5c4d339b02acfc769ebf70ecfe70ea538515cd7d199cb8a0c84",
+     "max_ms": 14.61889990605414,
+     "action_counts": {
+      "NORTH": 10,
+      "STAY": 52,
+      "WEST": 6,
+      "SOUTH": 9,
+      "EAST": 2,
+      "SHIELD": 1
+     },
+     "learning": {
+      "defence": [
+       1.0333105710716692,
+       3
+      ],
+      "commit": [
+       2.828178610944603,
+       18
+      ],
+      "finish": [
+       16.26639716149921,
+       172
+      ],
+      "ambiguous": 1,
+      "inconsistent": 0
+     }
+    },
+    "context_commit": {
+     "pw": 0.0,
+     "score": 2740,
+     "scores": [
+      2864,
+      3083,
+      2740,
+      2819
+     ],
+     "calls": 320,
+     "action_hash": "7e9a1b91c66f948e005edebf82ad374433860eb90a024ffd7b8874af74cc7666",
+     "max_ms": 7.855100091546774,
+     "action_counts": {
+      "NORTH": 7,
+      "STAY": 56,
+      "WEST": 7,
+      "SOUTH": 7,
+      "EAST": 3
+     },
+     "learning": {
+      "defence": [
+       1.1433489483228818,
+       3
+      ],
+      "commit": [
+       2.5814993267573327,
+       13
+      ],
+      "finish": [
+       16.476054151952123,
+       175
+      ],
+      "ambiguous": 0,
+      "inconsistent": 0
+     }
+    },
+    "observe_only": {
+     "pw": 0.0,
+     "score": 2740,
+     "scores": [
+      2864,
+      3083,
+      2740,
+      2819
+     ],
+     "calls": 320,
+     "action_hash": "7e9a1b91c66f948e005edebf82ad374433860eb90a024ffd7b8874af74cc7666",
+     "max_ms": 7.899299962446094,
+     "action_counts": {
+      "NORTH": 7,
+      "STAY": 56,
+      "WEST": 7,
+      "SOUTH": 7,
+      "EAST": 3
+     },
+     "learning": {
+      "defence": [
+       1.1433489483228818,
+       3
+      ],
+      "commit": [
+       2.5814993267573327,
+       13
+      ],
+      "finish": [
+       16.476054151952123,
+       175
+      ],
+      "ambiguous": 0,
+      "inconsistent": 0
+     }
+    },
+    "baseline": {
+     "pw": 0.0,
+     "score": 2740,
+     "scores": [
+      2864,
+      3083,
+      2740,
+      2819
+     ],
+     "calls": 320,
+     "action_hash": "7e9a1b91c66f948e005edebf82ad374433860eb90a024ffd7b8874af74cc7666",
+     "max_ms": 7.569200010038912,
+     "action_counts": {
+      "NORTH": 7,
+      "STAY": 56,
+      "WEST": 7,
+      "SOUTH": 7,
+      "EAST": 3
+     },
+     "learning": {}
+    }
+   }
+  },
+  {
+   "task": {
+    "id": 3,
+    "seat": 3,
+    "token": 1,
+    "map_kind": "flat",
+    "base": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "map_seed": 231061724,
+    "specs": [
+     {
+      "seed": 1725900887,
+      "family": "cluster",
+      "claim": 1.1555674374697107,
+      "upgrade": 1.6879476214101192,
+      "raid": 0.8813834024703896,
+      "commit": 1.3631461330084982,
+      "radius": 10,
+      "shelter": 0.028866856128254337,
+      "travel": 1.0654975120911971,
+      "shield": "never",
+      "shield_p": 0.4002570617206894,
+      "threshold": 39.50750065802245,
+      "raider": "flee",
+      "switch_turn": 56,
+      "temperature": 0.04526918313247189
+     },
+     {
+      "seed": 1439648520,
+      "family": "cluster",
+      "claim": 1.1897361945175038,
+      "upgrade": 0.9030610926034182,
+      "raid": 0.31834023250425375,
+      "commit": 1.1776763976017586,
+      "radius": 5,
+      "shelter": 0.1657871475249856,
+      "travel": 1.2078250925478007,
+      "shield": "value",
+      "shield_p": 0.6580033897471779,
+      "threshold": 12.29681594134152,
+      "raider": "patient",
+      "switch_turn": 46,
+      "temperature": 0.02712825002024607
+     },
+     {
+      "seed": 820465311,
+      "family": "risk",
+      "claim": 1.339900503049729,
+      "upgrade": 1.3259253983695494,
+      "raid": 0.9186782767096359,
+      "commit": 1.2403175888909588,
+      "radius": 7,
+      "shelter": 0.026206588036349773,
+      "travel": 0.7714587336987285,
+      "shield": "delayed",
+      "shield_p": 0.7602753119656198,
+      "threshold": 25.241658992444734,
+      "raider": "patient",
+      "switch_turn": 46,
+      "temperature": 0.059070374881854244
+     }
+    ]
+   },
+   "results": {
+    "baseline": {
+     "pw": 2.0,
+     "score": 2666,
+     "scores": [
+      2352,
+      2072,
+      2836,
+      2666
+     ],
+     "calls": 320,
+     "action_hash": "315452385825d470f255eb0ba7391395b3ece627ecb9157bd0c5de5eedaf9998",
+     "max_ms": 8.431099937297404,
+     "action_counts": {
+      "STAY": 49,
+      "NORTH": 13,
+      "SOUTH": 11,
+      "EAST": 6,
+      "WEST": 1
+     },
+     "learning": {}
+    },
+    "observe_only": {
+     "pw": 2.0,
+     "score": 2666,
+     "scores": [
+      2352,
+      2072,
+      2836,
+      2666
+     ],
+     "calls": 320,
+     "action_hash": "315452385825d470f255eb0ba7391395b3ece627ecb9157bd0c5de5eedaf9998",
+     "max_ms": 8.609000011347234,
+     "action_counts": {
+      "STAY": 49,
+      "NORTH": 13,
+      "SOUTH": 11,
+      "EAST": 6,
+      "WEST": 1
+     },
+     "learning": {
+      "defence": [
+       2.5461213615791087,
+       14
+      ],
+      "commit": [
+       7.404333985572749,
+       41
+      ],
+      "finish": [
+       21.162766932711516,
+       146
+      ],
+      "ambiguous": 0,
+      "inconsistent": 0
+     }
+    },
+    "context_commit": {
+     "pw": 2.0,
+     "score": 2666,
+     "scores": [
+      2352,
+      2072,
+      2836,
+      2666
+     ],
+     "calls": 320,
+     "action_hash": "315452385825d470f255eb0ba7391395b3ece627ecb9157bd0c5de5eedaf9998",
+     "max_ms": 18.111000070348382,
+     "action_counts": {
+      "STAY": 49,
+      "NORTH": 13,
+      "SOUTH": 11,
+      "EAST": 6,
+      "WEST": 1
+     },
+     "learning": {
+      "defence": [
+       2.5461213615791087,
+       14
+      ],
+      "commit": [
+       7.404333985572749,
+       41
+      ],
+      "finish": [
+       21.162766932711516,
+       146
+      ],
+      "ambiguous": 0,
+      "inconsistent": 0
+     }
+    },
+    "context_defence": {
+     "pw": 2.0,
+     "score": 2642,
+     "scores": [
+      2452,
+      1880,
+      3036,
+      2642
+     ],
+     "calls": 320,
+     "action_hash": "8af19460cce7f059b485050e9e1cebc7babc93d6a09903af5fe14b3e78ad5579",
+     "max_ms": 34.62629998102784,
+     "action_counts": {
+      "STAY": 51,
+      "NORTH": 9,
+      "SOUTH": 9,
+      "EAST": 7,
+      "WEST": 4
+     },
+     "learning": {
+      "defence": [
+       1.8480217280107187,
+       12
+      ],
+      "commit": [
+       8.086452129418726,
+       41
+      ],
+      "finish": [
+       19.77897442756378,
+       149
+      ],
+      "ambiguous": 0,
+      "inconsistent": 0
+     }
+    },
+    "guarded": {
+     "pw": 2.0,
+     "score": 2690,
+     "scores": [
+      2408,
+      2074,
+      2722,
+      2690
+     ],
+     "calls": 320,
+     "action_hash": "09ca1487a76b1bfa23b8efe2b9ba2e13f0f2cbc664c52e95341c69c98b254f55",
+     "max_ms": 34.47229997254908,
+     "action_counts": {
+      "STAY": 46,
+      "NORTH": 12,
+      "SOUTH": 12,
+      "EAST": 8,
+      "WEST": 2
+     },
+     "learning": {
+      "defence": [
+       1.4071224848580919,
+       13
+      ],
+      "commit": [
+       8.241196823165911,
+       39
+      ],
+      "finish": [
+       20.57180826142314,
+       147
+      ],
+      "ambiguous": 0,
+      "inconsistent": 0
+     }
+    },
+    "context_both": {
+     "pw": 2.0,
+     "score": 2642,
+     "scores": [
+      2452,
+      1880,
+      3036,
+      2642
+     ],
+     "calls": 320,
+     "action_hash": "8af19460cce7f059b485050e9e1cebc7babc93d6a09903af5fe14b3e78ad5579",
+     "max_ms": 32.05050004180521,
+     "action_counts": {
+      "STAY": 51,
+      "NORTH": 9,
+      "SOUTH": 9,
+      "EAST": 7,
+      "WEST": 4
+     },
+     "learning": {
+      "defence": [
+       1.8480217280107187,
+       12
+      ],
+      "commit": [
+       8.086452129418726,
+       41
+      ],
+      "finish": [
+       19.77897442756378,
+       149
+      ],
+      "ambiguous": 0,
+      "inconsistent": 0
+     }
+    },
+    "future_window": {
+     "pw": 2.0,
+     "score": 2678,
+     "scores": [
+      2294,
+      1884,
+      2994,
+      2678
+     ],
+     "calls": 320,
+     "action_hash": "dbbcff373d4926ad1c917080497c7cb64908c128f4664a2947dbb50ec51e4297",
+     "max_ms": 34.06400000676513,
+     "action_counts": {
+      "STAY": 48,
+      "NORTH": 11,
+      "SOUTH": 6,
+      "EAST": 8,
+      "WEST": 6,
+      "SHIELD": 1
+     },
+     "learning": {
+      "defence": [
+       2.2652410219882038,
+       15
+      ],
+      "commit": [
+       9.367278348287398,
+       44
+      ],
+      "finish": [
+       21.08992078985884,
+       142
+      ],
+      "ambiguous": 0,
+      "inconsistent": 0
+     }
+    },
+    "dwell": {
+     "pw": 2.0,
+     "score": 2666,
+     "scores": [
+      2352,
+      2072,
+      2836,
+      2666
+     ],
+     "calls": 320,
+     "action_hash": "315452385825d470f255eb0ba7391395b3ece627ecb9157bd0c5de5eedaf9998",
+     "max_ms": 24.704999988898635,
+     "action_counts": {
+      "STAY": 49,
+      "NORTH": 13,
+      "SOUTH": 11,
+      "EAST": 6,
+      "WEST": 1
+     },
+     "learning": {
+      "defence": [
+       2.5461213615791087,
+       14
+      ],
+      "commit": [
+       7.404333985572749,
+       41
+      ],
+      "finish": [
+       21.162766932711516,
+       146
+      ],
+      "ambiguous": 0,
+      "inconsistent": 0
+     }
+    }
+   }
+  },
+  {
+   "task": {
+    "id": 4,
+    "seat": 0,
+    "token": 2,
+    "map_kind": "edge",
+    "base": [
+     1,
+     3,
+     3,
+     3,
+     3,
+     3,
+     3,
+     1,
+     3,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     3,
+     3,
+     2,
+     1,
+     1,
+     1,
+     1,
+     2,
+     3,
+     3,
+     2,
+     2,
+     1,
+     1,
+     2,
+     2,
+     3,
+     3,
+     2,
+     2,
+     1,
+     1,
+     2,
+     2,
+     3,
+     3,
+     2,
+     1,
+     1,
+     1,
+     1,
+     2,
+     3,
+     3,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     3,
+     1,
+     3,
+     3,
+     3,
+     3,
+     3,
+     3,
+     1
+    ],
+    "map_seed": 1644628655,
+    "specs": [
+     {
+      "seed": 1436223243,
+      "family": "rate",
+      "claim": 0.792585049183262,
+      "upgrade": 1.5391776795450558,
+      "raid": 0.5185853917996217,
+      "commit": 1.0898405638245103,
+      "radius": 5,
+      "shelter": 0.0033115534205580754,
+      "travel": 0.9589275334162628,
+      "shield": "value",
+      "shield_p": 0.8904640502825107,
+      "threshold": 41.32467786639802,
+      "raider": "patient",
+      "switch_turn": 37,
+      "temperature": 0.017441906499535993
+     },
+     {
+      "seed": 1391244986,
+      "family": "rate",
+      "claim": 0.7991243954551756,
+      "upgrade": 0.8336308102232506,
+      "raid": 1.0733461961686075,
+      "commit": 1.2430813971275214,
+      "radius": 5,
+      "shelter": 0.19482434952649547,
+      "travel": 0.8833866445469511,
+      "shield": "mixed",
+      "shield_p": 0.6288254320796449,
+      "threshold": 57.05629273222961,
+      "raider": "patient",
+      "switch_turn": 44,
+      "temperature": 0.0005985006850881636
+     },
+     {
+      "seed": 79150362,
+      "family": "bounty",
+      "claim": 1.13918227586788,
+      "upgrade": 1.732002463208511,
+      "raid": 0.5347755333819244,
+      "commit": 1.2650473493738974,
+      "radius": 10,
+      "shelter": 0.13333718399803982,
+      "travel": 0.8738551516446494,
+      "shield": "value",
+      "shield_p": 0.5912639587522093,
+      "threshold": 70.85609156533116,
+      "raider": "flee",
+      "switch_turn": 39,
+      "temperature": 0.018683969632185774
+     }
+    ]
+   },
+   "results": {
+    "dwell": {
+     "pw": 1.0,
+     "score": 3081,
+     "scores": [
+      3081,
+      3317,
+      2976,
+      3164
+     ],
+     "calls": 320,
+     "action_hash": "c5d2fc6e515062f2a664039a5b8df726cd943db9d2ca1709c2dc62982652d3af",
+     "max_ms": 9.911700035445392,
+     "action_counts": {
+      "EAST": 7,
+      "STAY": 61,
+      "SOUTH": 7,
+      "WEST": 3,
+      "NORTH": 1,
+      "SHIELD": 1
+     },
+     "learning": {
+      "defence": [
+       3.0140499641852205,
+       13
+      ],
+      "commit": [
+       7.105195259105212,
+       34
+      ],
+      "finish": [
+       15.271931360828356,
+       159
+      ],
+      "ambiguous": 1,
+      "inconsistent": 0
+     }
+    },
+    "future_window": {
+     "pw": 0.0,
+     "score": 2824,
+     "scores": [
+      2824,
+      3250,
+      3211,
+      3155
+     ],
+     "calls": 320,
+     "action_hash": "9feeee8a31bb446332dc83a27f486795d005f5457738f0f4e2428428f72425f8",
+     "max_ms": 38.103400031104684,
+     "action_counts": {
+      "EAST": 8,
+      "STAY": 55,
+      "SOUTH": 9,
+      "WEST": 5,
+      "NORTH": 3
+     },
+     "learning": {
+      "defence": [
+       2.1657560851179976,
+       9
+      ],
+      "commit": [
+       8.18367915107657,
+       39
+      ],
+      "finish": [
+       15.435550944536466,
+       151
+      ],
+      "ambiguous": 2,
+      "inconsistent": 0
+     }
+    },
+    "context_both": {
+     "pw": 3.0,
+     "score": 3236,
+     "scores": [
+      3236,
+      3232,
+      3018,
+      3100
+     ],
+     "calls": 320,
+     "action_hash": "b94ee6a867e1f7667cf9660132572a13fb3aebc500834e9389a60b1dbd0c8fa1",
+     "max_ms": 37.35260001849383,
+     "action_counts": {
+      "EAST": 8,
+      "STAY": 57,
+      "SOUTH": 9,
+      "WEST": 3,
+      "NORTH": 2,
+      "SHIELD": 1
+     },
+     "learning": {
+      "defence": [
+       1.8747288725237776,
+       16
+      ],
+      "commit": [
+       5.270323884270946,
+       39
+      ],
+      "finish": [
+       14.682146229994967,
+       156
+      ],
+      "ambiguous": 2,
+      "inconsistent": 0
+     }
+    },
+    "guarded": {
+     "pw": 0.0,
+     "score": 3108,
+     "scores": [
+      3108,
+      3170,
+      3109,
+      3219
+     ],
+     "calls": 320,
+     "action_hash": "7cb5a8332e12787cab65c0c7eb7a5b3fcdcd7630a9c1d83ec730a7e2180fb79f",
+     "max_ms": 34.73040007520467,
+     "action_counts": {
+      "EAST": 9,
+      "STAY": 56,
+      "SOUTH": 8,
+      "WEST": 5,
+      "NORTH": 2
+     },
+     "learning": {
+      "defence": [
+       1.772627445200805,
+       9
+      ],
+      "commit": [
+       6.20383601009064,
+       32
+      ],
+      "finish": [
+       14.189140855600781,
+       159
+      ],
+      "ambiguous": 3,
+      "inconsistent": 0
+     }
+    },
+    "context_defence": {
+     "pw": 3.0,
+     "score": 3236,
+     "scores": [
+      3236,
+      3232,
+      3018,
+      3100
+     ],
+     "calls": 320,
+     "action_hash": "b94ee6a867e1f7667cf9660132572a13fb3aebc500834e9389a60b1dbd0c8fa1",
+     "max_ms": 33.88260002247989,
+     "action_counts": {
+      "EAST": 8,
+      "STAY": 57,
+      "SOUTH": 9,
+      "WEST": 3,
+      "NORTH": 2,
+      "SHIELD": 1
+     },
+     "learning": {
+      "defence": [
+       1.8747288725237776,
+       16
+      ],
+      "commit": [
+       5.270323884270946,
+       39
+      ],
+      "finish": [
+       14.682146229994967,
+       156
+      ],
+      "ambiguous": 2,
+      "inconsistent": 0
+     }
+    },
+    "context_commit": {
+     "pw": 1.0,
+     "score": 3081,
+     "scores": [
+      3081,
+      3317,
+      2976,
+      3164
+     ],
+     "calls": 320,
+     "action_hash": "c5d2fc6e515062f2a664039a5b8df726cd943db9d2ca1709c2dc62982652d3af",
+     "max_ms": 26.976299937814474,
+     "action_counts": {
+      "EAST": 7,
+      "STAY": 61,
+      "SOUTH": 7,
+      "WEST": 3,
+      "NORTH": 1,
+      "SHIELD": 1
+     },
+     "learning": {
+      "defence": [
+       3.0140499641852205,
+       13
+      ],
+      "commit": [
+       7.105195259105212,
+       34
+      ],
+      "finish": [
+       15.271931360828356,
+       159
+      ],
+      "ambiguous": 1,
+      "inconsistent": 0
+     }
+    },
+    "observe_only": {
+     "pw": 1.0,
+     "score": 3081,
+     "scores": [
+      3081,
+      3317,
+      2976,
+      3164
+     ],
+     "calls": 320,
+     "action_hash": "c5d2fc6e515062f2a664039a5b8df726cd943db9d2ca1709c2dc62982652d3af",
+     "max_ms": 23.735100054182112,
+     "action_counts": {
+      "EAST": 7,
+      "STAY": 61,
+      "SOUTH": 7,
+      "WEST": 3,
+      "NORTH": 1,
+      "SHIELD": 1
+     },
+     "learning": {
+      "defence": [
+       3.0140499641852205,
+       13
+      ],
+      "commit": [
+       7.105195259105212,
+       34
+      ],
+      "finish": [
+       15.271931360828356,
+       159
+      ],
+      "ambiguous": 1,
+      "inconsistent": 0
+     }
+    },
+    "baseline": {
+     "pw": 1.0,
+     "score": 3081,
+     "scores": [
+      3081,
+      3317,
+      2976,
+      3164
+     ],
+     "calls": 320,
+     "action_hash": "c5d2fc6e515062f2a664039a5b8df726cd943db9d2ca1709c2dc62982652d3af",
+     "max_ms": 21.865200018510222,
+     "action_counts": {
+      "EAST": 7,
+      "STAY": 61,
+      "SOUTH": 7,
+      "WEST": 3,
+      "NORTH": 1,
+      "SHIELD": 1
+     },
+     "learning": {}
+    }
+   }
+  },
+  {
+   "task": {
+    "id": 5,
+    "seat": 1,
+    "token": 2,
+    "map_kind": "richhome",
+    "base": [
+     3,
+     1,
+     2,
+     2,
+     2,
+     2,
+     1,
+     3,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     1,
+     1,
+     2,
+     2,
+     3,
+     3,
+     2,
+     2,
+     1,
+     2,
+     2,
+     3,
+     3,
+     3,
+     3,
+     2,
+     2,
+     2,
+     2,
+     3,
+     3,
+     3,
+     3,
+     2,
+     2,
+     1,
+     2,
+     2,
+     3,
+     3,
+     2,
+     2,
+     1,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     1,
+     3,
+     1,
+     2,
+     2,
+     2,
+     2,
+     1,
+     3
+    ],
+    "map_seed": 154059698,
+    "specs": [
+     {
+      "seed": 1338521705,
+      "family": "switch",
+      "claim": 1.138411477745922,
+      "upgrade": 1.5752854964032006,
+      "raid": 0.6822991848395467,
+      "commit": 1.5151195965089488,
+      "radius": 7,
+      "shelter": 0.006869634573661603,
+      "travel": 0.8277376480079203,
+      "shield": "value",
+      "shield_p": 0.4937138782953171,
+      "threshold": 21.195908894730294,
+      "raider": "feint",
+      "switch_turn": 58,
+      "temperature": 0.07988423660372487
+     },
+     {
+      "seed": 108665144,
+      "family": "sweep",
+      "claim": 0.7247747306282589,
+      "upgrade": 1.1986781285079091,
+      "raid": 0.5238450206748149,
+      "commit": 1.6480662445144052,
+      "radius": 4,
+      "shelter": 0.09394757247251291,
+      "travel": 0.9135806054575296,
+      "shield": "imminent",
+      "shield_p": 0.21735783918939283,
+      "threshold": 18.08525585009297,
+      "raider": "patient",
+      "switch_turn": 28,
+      "temperature": 0.07377157832079853
+     },
+     {
+      "seed": 2077783226,
+      "family": "cluster",
+      "claim": 0.9546985103302306,
+      "upgrade": 1.2889417486946488,
+      "raid": 0.6440917419627634,
+      "commit": 1.6464629381161255,
+      "radius": 5,
+      "shelter": 0.164632682493809,
+      "travel": 1.2428178817666653,
+      "shield": "imminent",
+      "shield_p": 0.2882640317829679,
+      "threshold": 74.31026814938102,
+      "raider": "flee",
+      "switch_turn": 42,
+      "temperature": 0.035444103492694244
+     }
+    ]
+   },
+   "results": {
+    "baseline": {
+     "pw": 3.0,
+     "score": 3170,
+     "scores": [
+      2750,
+      3170,
+      2408,
+      2849
+     ],
+     "calls": 320,
+     "action_hash": "ed4f2534ecb6bbd100328813127b0f71e8c063ae10be612dd7b25329602bdb49",
+     "max_ms": 19.925700034946203,
+     "action_counts": {
+      "STAY": 55,
+      "WEST": 8,
+      "SOUTH": 6,
+      "EAST": 6,
+      "NORTH": 4,
+      "SHIELD": 1
+     },
+     "learning": {}
+    },
+    "observe_only": {
+     "pw": 3.0,
+     "score": 3170,
+     "scores": [
+      2750,
+      3170,
+      2408,
+      2849
+     ],
+     "calls": 320,
+     "action_hash": "ed4f2534ecb6bbd100328813127b0f71e8c063ae10be612dd7b25329602bdb49",
+     "max_ms": 27.80199993867427,
+     "action_counts": {
+      "STAY": 55,
+      "WEST": 8,
+      "SOUTH": 6,
+      "EAST": 6,
+      "NORTH": 4,
+      "SHIELD": 1
+     },
+     "learning": {
+      "defence": [
+       0.8657186894974928,
+       5
+      ],
+      "commit": [
+       5.6215217925314755,
+       28
+      ],
+      "finish": [
+       12.331279562911153,
+       144
+      ],
+      "ambiguous": 3,
+      "inconsistent": 0
+     }
+    },
+    "context_commit": {
+     "pw": 3.0,
+     "score": 3170,
+     "scores": [
+      2750,
+      3170,
+      2408,
+      2849
+     ],
+     "calls": 320,
+     "action_hash": "ed4f2534ecb6bbd100328813127b0f71e8c063ae10be612dd7b25329602bdb49",
+     "max_ms": 26.669199927709997,
+     "action_counts": {
+      "STAY": 55,
+      "WEST": 8,
+      "SOUTH": 6,
+      "EAST": 6,
+      "NORTH": 4,
+      "SHIELD": 1
+     },
+     "learning": {
+      "defence": [
+       0.8657186894974928,
+       5
+      ],
+      "commit": [
+       5.6215217925314755,
+       28
+      ],
+      "finish": [
+       12.331279562911153,
+       144
+      ],
+      "ambiguous": 3,
+      "inconsistent": 0
+     }
+    },
+    "context_defence": {
+     "pw": 2.0,
+     "score": 2854,
+     "scores": [
+      3016,
+      2854,
+      2493,
+      2801
+     ],
+     "calls": 320,
+     "action_hash": "7206aab5020f7de60b522d2f1ebf94ba8a7f4e08de8e98bc41a77d3101a4bbf9",
+     "max_ms": 40.30300001613796,
+     "action_counts": {
+      "STAY": 44,
+      "WEST": 11,
+      "SOUTH": 10,
+      "EAST": 7,
+      "NORTH": 8
+     },
+     "learning": {
+      "defence": [
+       0.27016942759977586,
+       4
+      ],
+      "commit": [
+       7.428413336359545,
+       36
+      ],
+      "finish": [
+       11.838986970919981,
+       144
+      ],
+      "ambiguous": 0,
+      "inconsistent": 0
+     }
+    },
+    "guarded": {
+     "pw": 1.0,
+     "score": 2697,
+     "scores": [
+      3121,
+      2697,
+      2421,
+      2783
+     ],
+     "calls": 320,
+     "action_hash": "452e2769248500d66dbcb9243c6d70fb21433d7d29f97a4260f313c29e5cc06c",
+     "max_ms": 21.55259996652603,
+     "action_counts": {
+      "STAY": 45,
+      "WEST": 10,
+      "SOUTH": 9,
+      "EAST": 9,
+      "NORTH": 7
+     },
+     "learning": {
+      "defence": [
+       0.3642659596000526,
+       4
+      ],
+      "commit": [
+       8.544398310767123,
+       36
+      ],
+      "finish": [
+       11.32288138873419,
+       138
+      ],
+      "ambiguous": 2,
+      "inconsistent": 0
+     }
+    },
+    "context_both": {
+     "pw": 2.0,
+     "score": 2854,
+     "scores": [
+      3016,
+      2854,
+      2493,
+      2801
+     ],
+     "calls": 320,
+     "action_hash": "7206aab5020f7de60b522d2f1ebf94ba8a7f4e08de8e98bc41a77d3101a4bbf9",
+     "max_ms": 31.3433000119403,
+     "action_counts": {
+      "STAY": 44,
+      "WEST": 11,
+      "SOUTH": 10,
+      "EAST": 7,
+      "NORTH": 8
+     },
+     "learning": {
+      "defence": [
+       0.27016942759977586,
+       4
+      ],
+      "commit": [
+       7.428413336359545,
+       36
+      ],
+      "finish": [
+       11.838986970919981,
+       144
+      ],
+      "ambiguous": 0,
+      "inconsistent": 0
+     }
+    },
+    "future_window": {
+     "pw": 3.0,
+     "score": 3007,
+     "scores": [
+      2887,
+      3007,
+      2560,
+      2813
+     ],
+     "calls": 320,
+     "action_hash": "93f8a3376c9f61fbdc540f73ebf77c4644fc543cc1e29fbe16bf13a646998f5c",
+     "max_ms": 39.513399940915406,
+     "action_counts": {
+      "STAY": 53,
+      "WEST": 8,
+      "SOUTH": 7,
+      "EAST": 8,
+      "NORTH": 4
+     },
+     "learning": {
+      "defence": [
+       0.25904540810404536,
+       3
+      ],
+      "commit": [
+       5.84351650300779,
+       31
+      ],
+      "finish": [
+       14.01531717892208,
+       144
+      ],
+      "ambiguous": 3,
+      "inconsistent": 0
+     }
+    },
+    "dwell": {
+     "pw": 3.0,
+     "score": 3170,
+     "scores": [
+      2750,
+      3170,
+      2408,
+      2849
+     ],
+     "calls": 320,
+     "action_hash": "ed4f2534ecb6bbd100328813127b0f71e8c063ae10be612dd7b25329602bdb49",
+     "max_ms": 27.218899922445416,
+     "action_counts": {
+      "STAY": 55,
+      "WEST": 8,
+      "SOUTH": 6,
+      "EAST": 6,
+      "NORTH": 4,
+      "SHIELD": 1
+     },
+     "learning": {
+      "defence": [
+       0.8657186894974928,
+       5
+      ],
+      "commit": [
+       5.6215217925314755,
+       28
+      ],
+      "finish": [
+       12.331279562911153,
+       144
+      ],
+      "ambiguous": 3,
+      "inconsistent": 0
+     }
+    }
+   }
+  },
+  {
+   "task": {
+    "id": 6,
+    "seat": 2,
+    "token": 2,
+    "map_kind": "standard",
+    "base": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     2,
+     2,
+     1,
+     1,
+     1,
+     1,
+     1,
+     2,
+     2,
+     2,
+     2,
+     1,
+     1,
+     2,
+     2,
+     3,
+     3,
+     3,
+     3,
+     2,
+     2,
+     2,
+     2,
+     3,
+     3,
+     3,
+     3,
+     2,
+     2,
+     1,
+     1,
+     2,
+     2,
+     2,
+     2,
+     1,
+     1,
+     1,
+     1,
+     1,
+     2,
+     2,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "map_seed": 1035274109,
+    "specs": [
+     {
+      "seed": 48256290,
+      "family": "cluster",
+      "claim": 1.1781469797783808,
+      "upgrade": 1.244385491306278,
+      "raid": 1.0770033416147153,
+      "commit": 1.588613111873578,
+      "radius": 7,
+      "shelter": 0.182648280648191,
+      "travel": 1.1383227974449945,
+      "shield": "never",
+      "shield_p": 0.7347512414014434,
+      "threshold": 22.543468705180132,
+      "raider": "flee",
+      "switch_turn": 47,
+      "temperature": 0.035165313901967005
+     },
+     {
+      "seed": 358571975,
+      "family": "sweep",
+      "claim": 1.2770089373552123,
+      "upgrade": 0.9970509431037415,
+      "raid": 0.3458256751767977,
+      "commit": 1.599420096205289,
+      "radius": 7,
+      "shelter": 0.1931637244239495,
+      "travel": 0.8936335424354396,
+      "shield": "imminent",
+      "shield_p": 0.7924173415582159,
+      "threshold": 58.25081896534442,
+      "raider": "patient",
+      "switch_turn": 28,
+      "temperature": 0.04885371392593958
+     },
+     {
+      "seed": 541719861,
+      "family": "bounty",
+      "claim": 1.3479811697949409,
+      "upgrade": 0.8615630359171114,
+      "raid": 1.1672805208982762,
+      "commit": 1.432540436534218,
+      "radius": 7,
+      "shelter": 0.19445308020841753,
+      "travel": 1.1405594288772072,
+      "shield": "delayed",
+      "shield_p": 0.48655942643018224,
+      "threshold": 30.182839183918876,
+      "raider": "feint",
+      "switch_turn": 48,
+      "temperature": 0.05739652235864867
+     }
+    ]
+   },
+   "results": {
+    "dwell": {
+     "pw": 3.0,
+     "score": 2459,
+     "scores": [
+      2101,
+      1934,
+      2459,
+      1836
+     ],
+     "calls": 320,
+     "action_hash": "a26612c7204149680ecf4d47c81c1ea407997273282815c4cd67dbd2fa01d866",
+     "max_ms": 26.902499957941473,
+     "action_counts": {
+      "NORTH": 8,
+      "STAY": 52,
+      "WEST": 10,
+      "SOUTH": 6,
+      "EAST": 3,
+      "SHIELD": 1
+     },
+     "learning": {
+      "defence": [
+       1.9815911168179783,
+       13
+      ],
+      "commit": [
+       9.289446493396317,
+       44
+      ],
+      "finish": [
+       20.239422375227704,
+       138
+      ],
+      "ambiguous": 0,
+      "inconsistent": 0
+     }
+    },
+    "future_window": {
+     "pw": 3.0,
+     "score": 2489,
+     "scores": [
+      1795,
+      2330,
+      2489,
+      1692
+     ],
+     "calls": 320,
+     "action_hash": "e87a1a326aa4927e842dd2760e16ef727e3cb41ce99291db2bf294a280a0f521",
+     "max_ms": 36.63220000453293,
+     "action_counts": {
+      "NORTH": 9,
+      "STAY": 47,
+      "WEST": 12,
+      "SOUTH": 4,
+      "EAST": 8
+     },
+     "learning": {
+      "defence": [
+       3.151558554297083,
+       12
+      ],
+      "commit": [
+       8.939962962547458,
+       45
+      ],
+      "finish": [
+       22.51847646623527,
+       136
+      ],
+      "ambiguous": 0,
+      "inconsistent": 0
+     }
+    },
+    "context_both": {
+     "pw": 2.0,
+     "score": 2399,
+     "scores": [
+      1876,
+      2431,
+      2399,
+      1564
+     ],
+     "calls": 320,
+     "action_hash": "63ffffee66f0e495410b6be5fd1c0e3a32269bd6902645a09baae29df480039a",
+     "max_ms": 20.267799962311983,
+     "action_counts": {
+      "NORTH": 6,
+      "STAY": 50,
+      "WEST": 12,
+      "SOUTH": 3,
+      "EAST": 8,
+      "SHIELD": 1
+     },
+     "learning": {
+      "defence": [
+       1.7312584717920798,
+       15
+      ],
+      "commit": [
+       8.873160520795407,
+       63
+      ],
+      "finish": [
+       18.096685255864845,
+       140
+      ],
+      "ambiguous": 0,
+      "inconsistent": 0
+     }
+    },
+    "guarded": {
+     "pw": 3.0,
+     "score": 2441,
+     "scores": [
+      1937,
+      2279,
+      2441,
+      1685
+     ],
+     "calls": 320,
+     "action_hash": "a4501875edb9b6694001e8ace3416f1dda51bfb281f557859b69dfdd56e6ade8",
+     "max_ms": 38.25310000684112,
+     "action_counts": {
+      "NORTH": 8,
+      "STAY": 49,
+      "WEST": 9,
+      "SOUTH": 7,
+      "EAST": 7
+     },
+     "learning": {
+      "defence": [
+       2.4805910534010285,
+       10
+      ],
+      "commit": [
+       9.476218405433462,
+       42
+      ],
+      "finish": [
+       18.444191824123283,
+       132
+      ],
+      "ambiguous": 1,
+      "inconsistent": 1
+     }
+    },
+    "context_defence": {
+     "pw": 2.0,
+     "score": 2399,
+     "scores": [
+      1876,
+      2431,
+      2399,
+      1564
+     ],
+     "calls": 320,
+     "action_hash": "63ffffee66f0e495410b6be5fd1c0e3a32269bd6902645a09baae29df480039a",
+     "max_ms": 39.54259993042797,
+     "action_counts": {
+      "NORTH": 6,
+      "STAY": 50,
+      "WEST": 12,
+      "SOUTH": 3,
+      "EAST": 8,
+      "SHIELD": 1
+     },
+     "learning": {
+      "defence": [
+       1.7312584717920798,
+       15
+      ],
+      "commit": [
+       8.873160520795407,
+       63
+      ],
+      "finish": [
+       18.096685255864845,
+       140
+      ],
+      "ambiguous": 0,
+      "inconsistent": 0
+     }
+    },
+    "context_commit": {
+     "pw": 3.0,
+     "score": 2459,
+     "scores": [
+      2101,
+      1934,
+      2459,
+      1836
+     ],
+     "calls": 320,
+     "action_hash": "a26612c7204149680ecf4d47c81c1ea407997273282815c4cd67dbd2fa01d866",
+     "max_ms": 26.270399917848408,
+     "action_counts": {
+      "NORTH": 8,
+      "STAY": 52,
+      "WEST": 10,
+      "SOUTH": 6,
+      "EAST": 3,
+      "SHIELD": 1
+     },
+     "learning": {
+      "defence": [
+       1.9815911168179783,
+       13
+      ],
+      "commit": [
+       9.289446493396317,
+       44
+      ],
+      "finish": [
+       20.239422375227704,
+       138
+      ],
+      "ambiguous": 0,
+      "inconsistent": 0
+     }
+    },
+    "observe_only": {
+     "pw": 3.0,
+     "score": 2459,
+     "scores": [
+      2101,
+      1934,
+      2459,
+      1836
+     ],
+     "calls": 320,
+     "action_hash": "a26612c7204149680ecf4d47c81c1ea407997273282815c4cd67dbd2fa01d866",
+     "max_ms": 29.5916999457404,
+     "action_counts": {
+      "NORTH": 8,
+      "STAY": 52,
+      "WEST": 10,
+      "SOUTH": 6,
+      "EAST": 3,
+      "SHIELD": 1
+     },
+     "learning": {
+      "defence": [
+       1.9815911168179783,
+       13
+      ],
+      "commit": [
+       9.289446493396317,
+       44
+      ],
+      "finish": [
+       20.239422375227704,
+       138
+      ],
+      "ambiguous": 0,
+      "inconsistent": 0
+     }
+    },
+    "baseline": {
+     "pw": 3.0,
+     "score": 2459,
+     "scores": [
+      2101,
+      1934,
+      2459,
+      1836
+     ],
+     "calls": 320,
+     "action_hash": "a26612c7204149680ecf4d47c81c1ea407997273282815c4cd67dbd2fa01d866",
+     "max_ms": 24.214099976234138,
+     "action_counts": {
+      "NORTH": 8,
+      "STAY": 52,
+      "WEST": 10,
+      "SOUTH": 6,
+      "EAST": 3,
+      "SHIELD": 1
+     },
+     "learning": {}
+    }
+   }
+  },
+  {
+   "task": {
+    "id": 7,
+    "seat": 3,
+    "token": 2,
+    "map_kind": "standard",
+    "base": [
+     1,
+     1,
+     1,
+     2,
+     2,
+     1,
+     1,
+     1,
+     1,
+     1,
+     2,
+     3,
+     3,
+     2,
+     1,
+     1,
+     1,
+     1,
+     2,
+     3,
+     3,
+     2,
+     1,
+     1,
+     1,
+     2,
+     2,
+     3,
+     3,
+     2,
+     2,
+     1,
+     1,
+     2,
+     2,
+     3,
+     3,
+     2,
+     2,
+     1,
+     1,
+     1,
+     2,
+     3,
+     3,
+     2,
+     1,
+     1,
+     1,
+     1,
+     2,
+     3,
+     3,
+     2,
+     1,
+     1,
+     1,
+     1,
+     1,
+     2,
+     2,
+     1,
+     1,
+     1
+    ],
+    "map_seed": 1593273219,
+    "specs": [
+     {
+      "seed": 1527853491,
+      "family": "rate",
+      "claim": 0.7111411883777481,
+      "upgrade": 1.5162499710706572,
+      "raid": 0.9017608430298537,
+      "commit": 1.6343174164493857,
+      "radius": 4,
+      "shelter": 0.04597663931750022,
+      "travel": 0.8869542532475571,
+      "shield": "value",
+      "shield_p": 0.4103064512067503,
+      "threshold": 28.556768130951433,
+      "raider": "cooldown",
+      "switch_turn": 27,
+      "temperature": 0.025787257702965347
+     },
+     {
+      "seed": 2090472604,
+      "family": "cluster",
+      "claim": 0.8972248458624135,
+      "upgrade": 1.5853924418624927,
+      "raid": 0.5478227400364348,
+      "commit": 1.5790351558088345,
+      "radius": 10,
+      "shelter": 0.12164196842019297,
+      "travel": 1.1658119517152328,
+      "shield": "never",
+      "shield_p": 0.4998357317080102,
+      "threshold": 26.04733646104191,
+      "raider": "patient",
+      "switch_turn": 35,
+      "temperature": 0.002712901266029828
+     },
+     {
+      "seed": 1444919588,
+      "family": "cluster",
+      "claim": 1.4128410309169461,
+      "upgrade": 1.83493095223579,
+      "raid": 0.38109771492803346,
+      "commit": 1.1328807041482039,
+      "radius": 5,
+      "shelter": 0.13805314371285338,
+      "travel": 0.8080051310773487,
+      "shield": "imminent",
+      "shield_p": 0.7610072850623391,
+      "threshold": 63.396844070884505,
+      "raider": "flee",
+      "switch_turn": 54,
+      "temperature": 0.035023593175565
+     }
+    ]
+   },
+   "results": {
+    "baseline": {
+     "pw": 2.0,
+     "score": 2417,
+     "scores": [
+      2544,
+      2064,
+      2295,
+      2417
+     ],
+     "calls": 320,
+     "action_hash": "301247a4ffb222a3cf16ed3fbff554108050c781d25f391cb5ed46d5ce358121",
+     "max_ms": 23.036199971102178,
+     "action_counts": {
+      "EAST": 10,
+      "STAY": 56,
+      "NORTH": 4,
+      "WEST": 5,
+      "SOUTH": 4,
+      "SHIELD": 1
+     },
+     "learning": {}
+    },
+    "observe_only": {
+     "pw": 2.0,
+     "score": 2417,
+     "scores": [
+      2544,
+      2064,
+      2295,
+      2417
+     ],
+     "calls": 320,
+     "action_hash": "301247a4ffb222a3cf16ed3fbff554108050c781d25f391cb5ed46d5ce358121",
+     "max_ms": 14.404500019736588,
+     "action_counts": {
+      "EAST": 10,
+      "STAY": 56,
+      "NORTH": 4,
+      "WEST": 5,
+      "SOUTH": 4,
+      "SHIELD": 1
+     },
+     "learning": {
+      "defence": [
+       1.3603212187073386,
+       15
+      ],
+      "commit": [
+       5.369909652692644,
+       27
+      ],
+      "finish": [
+       12.072040744331202,
+       152
+      ],
+      "ambiguous": 0,
+      "inconsistent": 0
+     }
+    },
+    "context_commit": {
+     "pw": 2.0,
+     "score": 2417,
+     "scores": [
+      2544,
+      2064,
+      2295,
+      2417
+     ],
+     "calls": 320,
+     "action_hash": "301247a4ffb222a3cf16ed3fbff554108050c781d25f391cb5ed46d5ce358121",
+     "max_ms": 16.85310003813356,
+     "action_counts": {
+      "EAST": 10,
+      "STAY": 56,
+      "NORTH": 4,
+      "WEST": 5,
+      "SOUTH": 4,
+      "SHIELD": 1
+     },
+     "learning": {
+      "defence": [
+       1.3603212187073386,
+       15
+      ],
+      "commit": [
+       5.369909652692644,
+       27
+      ],
+      "finish": [
+       12.072040744331202,
+       152
+      ],
+      "ambiguous": 0,
+      "inconsistent": 0
+     }
+    },
+    "context_defence": {
+     "pw": 2.0,
+     "score": 2393,
+     "scores": [
+      2544,
+      2064,
+      2344,
+      2393
+     ],
+     "calls": 320,
+     "action_hash": "3f24fd02f7e2582b5ac32bcf0501ad52d1648d089a746adb9f0797ece48d74c3",
+     "max_ms": 28.61549996305257,
+     "action_counts": {
+      "EAST": 10,
+      "STAY": 39,
+      "NORTH": 14,
+      "WEST": 5,
+      "SOUTH": 11,
+      "SHIELD": 1
+     },
+     "learning": {
+      "defence": [
+       1.210261734451657,
+       10
+      ],
+      "commit": [
+       7.556899418260776,
+       44
+      ],
+      "finish": [
+       11.142244916975878,
+       150
+      ],
+      "ambiguous": 0,
+      "inconsistent": 0
+     }
+    },
+    "guarded": {
+     "pw": 3.0,
+     "score": 2556,
+     "scores": [
+      2544,
+      1984,
+      2344,
+      2556
+     ],
+     "calls": 320,
+     "action_hash": "f6a1a0c99bc2a4769ead8e68d1ca351255fabeee5551a3f1f19d75c535f7afb2",
+     "max_ms": 36.52950003743172,
+     "action_counts": {
+      "EAST": 9,
+      "STAY": 48,
+      "NORTH": 11,
+      "WEST": 3,
+      "SOUTH": 8,
+      "SHIELD": 1
+     },
+     "learning": {
+      "defence": [
+       1.5237039877984442,
+       10
+      ],
+      "commit": [
+       7.820101092018215,
+       36
+      ],
+      "finish": [
+       12.632873984893315,
+       156
+      ],
+      "ambiguous": 0,
+      "inconsistent": 0
+     }
+    },
+    "context_both": {
+     "pw": 2.0,
+     "score": 2393,
+     "scores": [
+      2544,
+      2064,
+      2344,
+      2393
+     ],
+     "calls": 320,
+     "action_hash": "3f24fd02f7e2582b5ac32bcf0501ad52d1648d089a746adb9f0797ece48d74c3",
+     "max_ms": 37.06100000999868,
+     "action_counts": {
+      "EAST": 10,
+      "STAY": 39,
+      "NORTH": 14,
+      "WEST": 5,
+      "SOUTH": 11,
+      "SHIELD": 1
+     },
+     "learning": {
+      "defence": [
+       1.210261734451657,
+       10
+      ],
+      "commit": [
+       7.556899418260776,
+       44
+      ],
+      "finish": [
+       11.142244916975878,
+       150
+      ],
+      "ambiguous": 0,
+      "inconsistent": 0
+     }
+    },
+    "future_window": {
+     "pw": 3.0,
+     "score": 2984,
+     "scores": [
+      2349,
+      1920,
+      2029,
+      2984
+     ],
+     "calls": 320,
+     "action_hash": "bcae5283885e6fdd098b8c0aa646306380707ffe6c9fff747878277c6e8a3ac8",
+     "max_ms": 25.79189999960363,
+     "action_counts": {
+      "EAST": 8,
+      "STAY": 53,
+      "NORTH": 10,
+      "WEST": 3,
+      "SOUTH": 6
+     },
+     "learning": {
+      "defence": [
+       1.6548394547510068,
+       11
+      ],
+      "commit": [
+       6.602401800027619,
+       41
+      ],
+      "finish": [
+       14.74057913547724,
+       151
+      ],
+      "ambiguous": 0,
+      "inconsistent": 0
+     }
+    },
+    "dwell": {
+     "pw": 2.0,
+     "score": 2417,
+     "scores": [
+      2544,
+      2064,
+      2295,
+      2417
+     ],
+     "calls": 320,
+     "action_hash": "301247a4ffb222a3cf16ed3fbff554108050c781d25f391cb5ed46d5ce358121",
+     "max_ms": 23.46729999408126,
+     "action_counts": {
+      "EAST": 10,
+      "STAY": 56,
+      "NORTH": 4,
+      "WEST": 5,
+      "SOUTH": 4,
+      "SHIELD": 1
+     },
+     "learning": {
+      "defence": [
+       1.3603212187073386,
+       15
+      ],
+      "commit": [
+       5.369909652692644,
+       27
+      ],
+      "finish": [
+       12.072040744331202,
+       152
+      ],
+      "ambiguous": 0,
+      "inconsistent": 0
+     }
+    }
+   }
+  },
+  {
+   "task": {
+    "id": 8,
+    "seat": 0,
+    "token": 3,
+    "map_kind": "noise",
+    "base": [
+     2,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     2,
+     1,
+     2,
+     3,
+     3,
+     3,
+     3,
+     2,
+     1,
+     1,
+     1,
+     2,
+     2,
+     2,
+     2,
+     1,
+     1,
+     1,
+     3,
+     2,
+     1,
+     1,
+     2,
+     3,
+     1,
+     1,
+     3,
+     2,
+     1,
+     1,
+     2,
+     3,
+     1,
+     1,
+     1,
+     2,
+     2,
+     2,
+     2,
+     1,
+     1,
+     1,
+     2,
+     3,
+     3,
+     3,
+     3,
+     2,
+     1,
+     2,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     2
+    ],
+    "map_seed": 1785952546,
+    "specs": [
+     {
+      "seed": 2043993971,
+      "family": "switch",
+      "claim": 0.8989325706337504,
+      "upgrade": 1.787462716277204,
+      "raid": 0.6543393481232379,
+      "commit": 1.1951585452934308,
+      "radius": 4,
+      "shelter": 0.19076488773420103,
+      "travel": 1.1633587246668604,
+      "shield": "imminent",
+      "shield_p": 0.4740024830743497,
+      "threshold": 22.307431857043987,
+      "raider": "feint",
+      "switch_turn": 53,
+      "temperature": 0.014054294633183435
+     },
+     {
+      "seed": 846627319,
+      "family": "bounty",
+      "claim": 0.8258816901679916,
+      "upgrade": 0.8049498626094068,
+      "raid": 0.6117871508298601,
+      "commit": 1.2604025908188767,
+      "radius": 10,
+      "shelter": 0.06178437465458623,
+      "travel": 1.1290839216716715,
+      "shield": "mixed",
+      "shield_p": 0.507468559510726,
+      "threshold": 20.920784147177734,
+      "raider": "cooldown",
+      "switch_turn": 56,
+      "temperature": 0.04068713533299408
+     },
+     {
+      "seed": 652310244,
+      "family": "rate",
+      "claim": 0.7936991881192149,
+      "upgrade": 1.8241093298341469,
+      "raid": 1.2407620064054754,
+      "commit": 1.11313377571523,
+      "radius": 10,
+      "shelter": 0.044868144543232895,
+      "travel": 0.8413729715255232,
+      "shield": "imminent",
+      "shield_p": 0.7894129616083592,
+      "threshold": 73.71203861970378,
+      "raider": "patient",
+      "switch_turn": 38,
+      "temperature": 0.0009291175699487564
+     }
+    ]
+   },
+   "results": {
+    "dwell": {
+     "pw": 3.0,
+     "score": 2816,
+     "scores": [
+      2816,
+      2295,
+      2365,
+      2425
+     ],
+     "calls": 320,
+     "action_hash": "f1d4571ecfa0a7353055a6f2da11dbd1904a32863e98e31bd9b220a437a9b3d9",
+     "max_ms": 25.382200023159385,
+     "action_counts": {
+      "STAY": 58,
+      "EAST": 7,
+      "SOUTH": 9,
+      "WEST": 4,
+      "NORTH": 2
+     },
+     "learning": {
+      "defence": [
+       0.8943683284029278,
+       4
+      ],
+      "commit": [
+       3.321909047011001,
+       34
+      ],
+      "finish": [
+       17.1767962843484,
+       137
+      ],
+      "ambiguous": 6,
+      "inconsistent": 0
+     }
+    },
+    "future_window": {
+     "pw": 3.0,
+     "score": 2707,
+     "scores": [
+      2707,
+      2337,
+      2316,
+      2473
+     ],
+     "calls": 320,
+     "action_hash": "5a34520d0e98c7e1a88a7d2454a6f12b2abeb80e53330c3a9a45d9389afb918b",
+     "max_ms": 35.98929999861866,
+     "action_counts": {
+      "STAY": 55,
+      "EAST": 10,
+      "SOUTH": 7,
+      "WEST": 5,
+      "NORTH": 3
+     },
+     "learning": {
+      "defence": [
+       1.2492964485296822,
+       7
+      ],
+      "commit": [
+       5.371474030961259,
+       43
+      ],
+      "finish": [
+       20.630561715150698,
+       135
+      ],
+      "ambiguous": 5,
+      "inconsistent": 0
+     }
+    },
+    "context_both": {
+     "pw": 3.0,
+     "score": 2663,
+     "scores": [
+      2663,
+      2337,
+      2438,
+      2473
+     ],
+     "calls": 320,
+     "action_hash": "0daf624ab47b1c976fbc877861d0cc7b3897e29ae5e31fca7da249687d6e4552",
+     "max_ms": 32.52749994862825,
+     "action_counts": {
+      "STAY": 54,
+      "EAST": 10,
+      "SOUTH": 8,
+      "WEST": 5,
+      "NORTH": 3
+     },
+     "learning": {
+      "defence": [
+       1.9021174475550855,
+       9
+      ],
+      "commit": [
+       6.388804239710637,
+       42
+      ],
+      "finish": [
+       18.351332406986472,
+       132
+      ],
+      "ambiguous": 6,
+      "inconsistent": 0
+     }
+    },
+    "guarded": {
+     "pw": 3.0,
+     "score": 2515,
+     "scores": [
+      2515,
+      2338,
+      2470,
+      2473
+     ],
+     "calls": 320,
+     "action_hash": "59bbe4516ace9dd428f6f0ea045f40dfcd867806ff1e1dcde556f0f672abeb9a",
+     "max_ms": 38.20800001267344,
+     "action_counts": {
+      "STAY": 47,
+      "EAST": 10,
+      "SOUTH": 10,
+      "WEST": 5,
+      "NORTH": 7,
+      "SHIELD": 1
+     },
+     "learning": {
+      "defence": [
+       1.3645068697370322,
+       7
+      ],
+      "commit": [
+       6.362365839929467,
+       42
+      ],
+      "finish": [
+       18.03452552705998,
+       129
+      ],
+      "ambiguous": 5,
+      "inconsistent": 0
+     }
+    },
+    "context_defence": {
+     "pw": 3.0,
+     "score": 2663,
+     "scores": [
+      2663,
+      2337,
+      2438,
+      2473
+     ],
+     "calls": 320,
+     "action_hash": "0daf624ab47b1c976fbc877861d0cc7b3897e29ae5e31fca7da249687d6e4552",
+     "max_ms": 35.56620003655553,
+     "action_counts": {
+      "STAY": 54,
+      "EAST": 10,
+      "SOUTH": 8,
+      "WEST": 5,
+      "NORTH": 3
+     },
+     "learning": {
+      "defence": [
+       1.9021174475550855,
+       9
+      ],
+      "commit": [
+       6.388804239710637,
+       42
+      ],
+      "finish": [
+       18.351332406986472,
+       132
+      ],
+      "ambiguous": 6,
+      "inconsistent": 0
+     }
+    },
+    "context_commit": {
+     "pw": 3.0,
+     "score": 2816,
+     "scores": [
+      2816,
+      2295,
+      2365,
+      2425
+     ],
+     "calls": 320,
+     "action_hash": "f1d4571ecfa0a7353055a6f2da11dbd1904a32863e98e31bd9b220a437a9b3d9",
+     "max_ms": 27.08370005711913,
+     "action_counts": {
+      "STAY": 58,
+      "EAST": 7,
+      "SOUTH": 9,
+      "WEST": 4,
+      "NORTH": 2
+     },
+     "learning": {
+      "defence": [
+       0.8943683284029278,
+       4
+      ],
+      "commit": [
+       3.321909047011001,
+       34
+      ],
+      "finish": [
+       17.1767962843484,
+       137
+      ],
+      "ambiguous": 6,
+      "inconsistent": 0
+     }
+    },
+    "observe_only": {
+     "pw": 3.0,
+     "score": 2816,
+     "scores": [
+      2816,
+      2295,
+      2365,
+      2425
+     ],
+     "calls": 320,
+     "action_hash": "f1d4571ecfa0a7353055a6f2da11dbd1904a32863e98e31bd9b220a437a9b3d9",
+     "max_ms": 27.99640002194792,
+     "action_counts": {
+      "STAY": 58,
+      "EAST": 7,
+      "SOUTH": 9,
+      "WEST": 4,
+      "NORTH": 2
+     },
+     "learning": {
+      "defence": [
+       0.8943683284029278,
+       4
+      ],
+      "commit": [
+       3.321909047011001,
+       34
+      ],
+      "finish": [
+       17.1767962843484,
+       137
+      ],
+      "ambiguous": 6,
+      "inconsistent": 0
+     }
+    },
+    "baseline": {
+     "pw": 3.0,
+     "score": 2816,
+     "scores": [
+      2816,
+      2295,
+      2365,
+      2425
+     ],
+     "calls": 320,
+     "action_hash": "f1d4571ecfa0a7353055a6f2da11dbd1904a32863e98e31bd9b220a437a9b3d9",
+     "max_ms": 10.085399961099029,
+     "action_counts": {
+      "STAY": 58,
+      "EAST": 7,
+      "SOUTH": 9,
+      "WEST": 4,
+      "NORTH": 2
+     },
+     "learning": {}
+    }
+   }
+  },
+  {
+   "task": {
+    "id": 9,
+    "seat": 1,
+    "token": 3,
+    "map_kind": "flat",
+    "base": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "map_seed": 948354726,
+    "specs": [
+     {
+      "seed": 1335580226,
+      "family": "cluster",
+      "claim": 1.2115095193858716,
+      "upgrade": 1.1695295424558643,
+      "raid": 1.097677279911887,
+      "commit": 1.26735103805699,
+      "radius": 7,
+      "shelter": 0.1023856234970568,
+      "travel": 0.7831179713907354,
+      "shield": "value",
+      "shield_p": 0.8983711977205249,
+      "threshold": 29.942655665337032,
+      "raider": "patient",
+      "switch_turn": 51,
+      "temperature": 0.03716132696010352
+     },
+     {
+      "seed": 974042450,
+      "family": "sweep",
+      "claim": 1.2883721438434104,
+      "upgrade": 1.8816477003424317,
+      "raid": 0.6884641025141043,
+      "commit": 1.340307026343869,
+      "radius": 10,
+      "shelter": 0.10845368289374878,
+      "travel": 1.224824178035415,
+      "shield": "never",
+      "shield_p": 0.7843780419104489,
+      "threshold": 55.391174668626,
+      "raider": "cooldown",
+      "switch_turn": 52,
+      "temperature": 0.06334991791329123
+     },
+     {
+      "seed": 1290562243,
+      "family": "sweep",
+      "claim": 1.066201367807025,
+      "upgrade": 1.9106305290063479,
+      "raid": 0.28085613581214947,
+      "commit": 1.5712013442607455,
+      "radius": 5,
+      "shelter": 0.10572051651772729,
+      "travel": 1.035557833562142,
+      "shield": "delayed",
+      "shield_p": 0.7093846210097026,
+      "threshold": 57.2249506719384,
+      "raider": "cooldown",
+      "switch_turn": 26,
+      "temperature": 0.027715540372382802
+     }
+    ]
+   },
+   "results": {
+    "baseline": {
+     "pw": 2.0,
+     "score": 2682,
+     "scores": [
+      2810,
+      2682,
+      2668,
+      2532
+     ],
+     "calls": 320,
+     "action_hash": "a3307f8ace81e46107d29db2593f71e150dd383da124a5173350b2063a9b6d07",
+     "max_ms": 16.48450002539903,
+     "action_counts": {
+      "STAY": 54,
+      "SOUTH": 8,
+      "WEST": 8,
+      "NORTH": 8,
+      "EAST": 2
+     },
+     "learning": {}
+    },
+    "observe_only": {
+     "pw": 2.0,
+     "score": 2682,
+     "scores": [
+      2810,
+      2682,
+      2668,
+      2532
+     ],
+     "calls": 320,
+     "action_hash": "a3307f8ace81e46107d29db2593f71e150dd383da124a5173350b2063a9b6d07",
+     "max_ms": 24.772800039499998,
+     "action_counts": {
+      "STAY": 54,
+      "SOUTH": 8,
+      "WEST": 8,
+      "NORTH": 8,
+      "EAST": 2
+     },
+     "learning": {
+      "defence": [
+       1.7350286384030738,
+       7
+      ],
+      "commit": [
+       6.301251212777409,
+       27
+      ],
+      "finish": [
+       11.821866866160086,
+       159
+      ],
+      "ambiguous": 1,
+      "inconsistent": 0
+     }
+    },
+    "context_commit": {
+     "pw": 2.0,
+     "score": 2682,
+     "scores": [
+      2810,
+      2682,
+      2668,
+      2532
+     ],
+     "calls": 320,
+     "action_hash": "a3307f8ace81e46107d29db2593f71e150dd383da124a5173350b2063a9b6d07",
+     "max_ms": 26.16329991724342,
+     "action_counts": {
+      "STAY": 54,
+      "SOUTH": 8,
+      "WEST": 8,
+      "NORTH": 8,
+      "EAST": 2
+     },
+     "learning": {
+      "defence": [
+       1.7350286384030738,
+       7
+      ],
+      "commit": [
+       6.301251212777409,
+       27
+      ],
+      "finish": [
+       11.821866866160086,
+       159
+      ],
+      "ambiguous": 1,
+      "inconsistent": 0
+     }
+    },
+    "context_defence": {
+     "pw": 0.0,
+     "score": 2514,
+     "scores": [
+      2980,
+      2514,
+      2630,
+      2520
+     ],
+     "calls": 320,
+     "action_hash": "9983dd1ebfc0b9e94a448573cf6d552ec3344cef01e2e20b6f6870e15b4788ed",
+     "max_ms": 30.932500027120113,
+     "action_counts": {
+      "STAY": 48,
+      "SOUTH": 9,
+      "WEST": 9,
+      "NORTH": 8,
+      "EAST": 6
+     },
+     "learning": {
+      "defence": [
+       1.6171681403402112,
+       5
+      ],
+      "commit": [
+       6.730262348828272,
+       34
+      ],
+      "finish": [
+       9.226170785619466,
+       153
+      ],
+      "ambiguous": 1,
+      "inconsistent": 0
+     }
+    },
+    "guarded": {
+     "pw": 1.0,
+     "score": 2622,
+     "scores": [
+      2892,
+      2622,
+      2676,
+      2496
+     ],
+     "calls": 320,
+     "action_hash": "dde7c92d7a9830da6a30aede226e4a0541fb0561e6745772c0b206b3f7d2fd12",
+     "max_ms": 31.19929996319115,
+     "action_counts": {
+      "STAY": 55,
+      "SOUTH": 7,
+      "WEST": 8,
+      "NORTH": 7,
+      "EAST": 3
+     },
+     "learning": {
+      "defence": [
+       1.338631580578693,
+       5
+      ],
+      "commit": [
+       5.8880153771305,
+       28
+      ],
+      "finish": [
+       9.898849012071395,
+       160
+      ],
+      "ambiguous": 1,
+      "inconsistent": 0
+     }
+    },
+    "context_both": {
+     "pw": 0.0,
+     "score": 2514,
+     "scores": [
+      2980,
+      2514,
+      2630,
+      2520
+     ],
+     "calls": 320,
+     "action_hash": "9983dd1ebfc0b9e94a448573cf6d552ec3344cef01e2e20b6f6870e15b4788ed",
+     "max_ms": 32.9898000927642,
+     "action_counts": {
+      "STAY": 48,
+      "SOUTH": 9,
+      "WEST": 9,
+      "NORTH": 8,
+      "EAST": 6
+     },
+     "learning": {
+      "defence": [
+       1.6171681403402112,
+       5
+      ],
+      "commit": [
+       6.730262348828272,
+       34
+      ],
+      "finish": [
+       9.226170785619466,
+       153
+      ],
+      "ambiguous": 1,
+      "inconsistent": 0
+     }
+    },
+    "future_window": {
+     "pw": 2.0,
+     "score": 2636,
+     "scores": [
+      2884,
+      2636,
+      2630,
+      2544
+     ],
+     "calls": 320,
+     "action_hash": "4334d763e428c7363b4ae7a582355326fe12aeef589337e0a7b2e79b29ef1086",
+     "max_ms": 13.016299926675856,
+     "action_counts": {
+      "STAY": 52,
+      "SOUTH": 7,
+      "WEST": 10,
+      "NORTH": 7,
+      "EAST": 3,
+      "SHIELD": 1
+     },
+     "learning": {
+      "defence": [
+       2.728369874197864,
+       9
+      ],
+      "commit": [
+       6.648082723226429,
+       28
+      ],
+      "finish": [
+       10.378524925790629,
+       160
+      ],
+      "ambiguous": 0,
+      "inconsistent": 0
+     }
+    },
+    "dwell": {
+     "pw": 2.0,
+     "score": 2682,
+     "scores": [
+      2810,
+      2682,
+      2668,
+      2532
+     ],
+     "calls": 320,
+     "action_hash": "a3307f8ace81e46107d29db2593f71e150dd383da124a5173350b2063a9b6d07",
+     "max_ms": 20.83860000129789,
+     "action_counts": {
+      "STAY": 54,
+      "SOUTH": 8,
+      "WEST": 8,
+      "NORTH": 8,
+      "EAST": 2
+     },
+     "learning": {
+      "defence": [
+       1.7350286384030738,
+       7
+      ],
+      "commit": [
+       6.301251212777409,
+       27
+      ],
+      "finish": [
+       11.821866866160086,
+       159
+      ],
+      "ambiguous": 1,
+      "inconsistent": 0
+     }
+    }
+   }
+  },
+  {
+   "task": {
+    "id": 10,
+    "seat": 2,
+    "token": 3,
+    "map_kind": "edge",
+    "base": [
+     1,
+     3,
+     3,
+     3,
+     3,
+     3,
+     3,
+     1,
+     3,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     3,
+     3,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     3,
+     3,
+     2,
+     1,
+     1,
+     1,
+     1,
+     2,
+     3,
+     3,
+     2,
+     1,
+     1,
+     1,
+     1,
+     2,
+     3,
+     3,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     3,
+     3,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     3,
+     1,
+     3,
+     3,
+     3,
+     3,
+     3,
+     3,
+     1
+    ],
+    "map_seed": 580788530,
+    "specs": [
+     {
+      "seed": 1974987199,
+      "family": "risk",
+      "claim": 1.0293742233153804,
+      "upgrade": 1.2258519305478166,
+      "raid": 0.9233766617516497,
+      "commit": 1.5832687773717007,
+      "radius": 5,
+      "shelter": 0.09834527327257608,
+      "travel": 0.8229976794640836,
+      "shield": "always",
+      "shield_p": 0.6894981901618349,
+      "threshold": 14.96415982542479,
+      "raider": "feint",
+      "switch_turn": 51,
+      "temperature": 0.04969723903586301
+     },
+     {
+      "seed": 1221132733,
+      "family": "cluster",
+      "claim": 1.2047371285634756,
+      "upgrade": 1.1336782783935595,
+      "raid": 0.32894784026832946,
+      "commit": 1.5659038220901373,
+      "radius": 4,
+      "shelter": 0.2002854796599349,
+      "travel": 0.8531963967551615,
+      "shield": "mixed",
+      "shield_p": 0.3969197205693772,
+      "threshold": 66.25173901702573,
+      "raider": "patient",
+      "switch_turn": 42,
+      "temperature": 0.00869256624677366
+     },
+     {
+      "seed": 930054357,
+      "family": "sweep",
+      "claim": 0.804547341223152,
+      "upgrade": 0.9203747487540547,
+      "raid": 1.2414451400209727,
+      "commit": 1.296546071117477,
+      "radius": 10,
+      "shelter": 0.04528986905890948,
+      "travel": 1.0675867063897064,
+      "shield": "imminent",
+      "shield_p": 0.38170228265645473,
+      "threshold": 12.908165523249036,
+      "raider": "cooldown",
+      "switch_turn": 45,
+      "temperature": 0.025312682609289174
+     }
+    ]
+   },
+   "results": {
+    "dwell": {
+     "pw": 2.0,
+     "score": 3384,
+     "scores": [
+      3093,
+      3502,
+      3384,
+      2476
+     ],
+     "calls": 320,
+     "action_hash": "9dcd32ee9dde8adda1daa003ffafefb66d3550b7606fc3ad8f9894443c4a9bb2",
+     "max_ms": 25.97830002196133,
+     "action_counts": {
+      "WEST": 8,
+      "STAY": 59,
+      "NORTH": 4,
+      "EAST": 7,
+      "SOUTH": 2
+     },
+     "learning": {
+      "defence": [
+       0.8909292930888686,
+       3
+      ],
+      "commit": [
+       4.573085843232929,
+       27
+      ],
+      "finish": [
+       17.161055816420234,
+       155
+      ],
+      "ambiguous": 1,
+      "inconsistent": 0
+     }
+    },
+    "future_window": {
+     "pw": 2.0,
+     "score": 3377,
+     "scores": [
+      3093,
+      3500,
+      3377,
+      2476
+     ],
+     "calls": 320,
+     "action_hash": "28d17ff71686576a4765e6661ff47cd283604c5dee43c938441c603a59ef86ef",
+     "max_ms": 38.96750009153038,
+     "action_counts": {
+      "WEST": 8,
+      "STAY": 59,
+      "NORTH": 4,
+      "EAST": 7,
+      "SOUTH": 2
+     },
+     "learning": {
+      "defence": [
+       0.8909292930888686,
+       3
+      ],
+      "commit": [
+       4.6658892862559345,
+       28
+      ],
+      "finish": [
+       18.07793893330335,
+       155
+      ],
+      "ambiguous": 1,
+      "inconsistent": 0
+     }
+    },
+    "context_both": {
+     "pw": 2.0,
+     "score": 3366,
+     "scores": [
+      3093,
+      3504,
+      3366,
+      2476
+     ],
+     "calls": 320,
+     "action_hash": "25ad113ccbfcf45d5997a5fde2b8617ee6f91975ef95a3e002447071fc9537cf",
+     "max_ms": 35.67310003563762,
+     "action_counts": {
+      "WEST": 8,
+      "STAY": 59,
+      "NORTH": 4,
+      "EAST": 7,
+      "SOUTH": 2
+     },
+     "learning": {
+      "defence": [
+       0.8909292930888686,
+       3
+      ],
+      "commit": [
+       4.573085843232929,
+       27
+      ],
+      "finish": [
+       17.161055816420234,
+       155
+      ],
+      "ambiguous": 1,
+      "inconsistent": 0
+     }
+    },
+    "guarded": {
+     "pw": 2.0,
+     "score": 3418,
+     "scores": [
+      3073,
+      3528,
+      3418,
+      2476
+     ],
+     "calls": 320,
+     "action_hash": "51519a66d8f16422f13be0fbd02b6e6b06a646058ae52e098de0f3d08518a78e",
+     "max_ms": 40.12759996112436,
+     "action_counts": {
+      "WEST": 9,
+      "STAY": 58,
+      "NORTH": 4,
+      "EAST": 7,
+      "SOUTH": 2
+     },
+     "learning": {
+      "defence": [
+       1.0306483860589766,
+       4
+      ],
+      "commit": [
+       5.1448510751882575,
+       31
+      ],
+      "finish": [
+       17.129588656375713,
+       153
+      ],
+      "ambiguous": 0,
+      "inconsistent": 0
+     }
+    },
+    "context_defence": {
+     "pw": 2.0,
+     "score": 3366,
+     "scores": [
+      3093,
+      3504,
+      3366,
+      2476
+     ],
+     "calls": 320,
+     "action_hash": "25ad113ccbfcf45d5997a5fde2b8617ee6f91975ef95a3e002447071fc9537cf",
+     "max_ms": 37.89599996525794,
+     "action_counts": {
+      "WEST": 8,
+      "STAY": 59,
+      "NORTH": 4,
+      "EAST": 7,
+      "SOUTH": 2
+     },
+     "learning": {
+      "defence": [
+       0.8909292930888686,
+       3
+      ],
+      "commit": [
+       4.573085843232929,
+       27
+      ],
+      "finish": [
+       17.161055816420234,
+       155
+      ],
+      "ambiguous": 1,
+      "inconsistent": 0
+     }
+    },
+    "context_commit": {
+     "pw": 2.0,
+     "score": 3366,
+     "scores": [
+      3093,
+      3504,
+      3366,
+      2476
+     ],
+     "calls": 320,
+     "action_hash": "25ad113ccbfcf45d5997a5fde2b8617ee6f91975ef95a3e002447071fc9537cf",
+     "max_ms": 10.804600082337856,
+     "action_counts": {
+      "WEST": 8,
+      "STAY": 59,
+      "NORTH": 4,
+      "EAST": 7,
+      "SOUTH": 2
+     },
+     "learning": {
+      "defence": [
+       0.8909292930888686,
+       3
+      ],
+      "commit": [
+       4.573085843232929,
+       27
+      ],
+      "finish": [
+       17.161055816420234,
+       155
+      ],
+      "ambiguous": 1,
+      "inconsistent": 0
+     }
+    },
+    "observe_only": {
+     "pw": 2.0,
+     "score": 3366,
+     "scores": [
+      3093,
+      3504,
+      3366,
+      2476
+     ],
+     "calls": 320,
+     "action_hash": "25ad113ccbfcf45d5997a5fde2b8617ee6f91975ef95a3e002447071fc9537cf",
+     "max_ms": 19.529299926944077,
+     "action_counts": {
+      "WEST": 8,
+      "STAY": 59,
+      "NORTH": 4,
+      "EAST": 7,
+      "SOUTH": 2
+     },
+     "learning": {
+      "defence": [
+       0.8909292930888686,
+       3
+      ],
+      "commit": [
+       4.573085843232929,
+       27
+      ],
+      "finish": [
+       17.161055816420234,
+       155
+      ],
+      "ambiguous": 1,
+      "inconsistent": 0
+     }
+    },
+    "baseline": {
+     "pw": 2.0,
+     "score": 3366,
+     "scores": [
+      3093,
+      3504,
+      3366,
+      2476
+     ],
+     "calls": 320,
+     "action_hash": "25ad113ccbfcf45d5997a5fde2b8617ee6f91975ef95a3e002447071fc9537cf",
+     "max_ms": 14.25889995880425,
+     "action_counts": {
+      "WEST": 8,
+      "STAY": 59,
+      "NORTH": 4,
+      "EAST": 7,
+      "SOUTH": 2
+     },
+     "learning": {}
+    }
+   }
+  },
+  {
+   "task": {
+    "id": 11,
+    "seat": 3,
+    "token": 3,
+    "map_kind": "richhome",
+    "base": [
+     3,
+     1,
+     2,
+     1,
+     1,
+     2,
+     1,
+     3,
+     1,
+     1,
+     2,
+     2,
+     2,
+     2,
+     1,
+     1,
+     1,
+     2,
+     2,
+     3,
+     3,
+     2,
+     2,
+     1,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     1,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     1,
+     1,
+     2,
+     2,
+     3,
+     3,
+     2,
+     2,
+     1,
+     1,
+     1,
+     2,
+     2,
+     2,
+     2,
+     1,
+     1,
+     3,
+     1,
+     2,
+     1,
+     1,
+     2,
+     1,
+     3
+    ],
+    "map_seed": 719331668,
+    "specs": [
+     {
+      "seed": 1577654861,
+      "family": "bounty",
+      "claim": 1.0026347991451432,
+      "upgrade": 1.7200371893473592,
+      "raid": 0.3238576107359763,
+      "commit": 1.1577666925572674,
+      "radius": 4,
+      "shelter": 0.11819097408602566,
+      "travel": 1.2379985895323864,
+      "shield": "imminent",
+      "shield_p": 0.2772678403540111,
+      "threshold": 34.60358773500853,
+      "raider": "patient",
+      "switch_turn": 31,
+      "temperature": 0.07441388448292839
+     },
+     {
+      "seed": 1709471354,
+      "family": "cluster",
+      "claim": 0.848472124665264,
+      "upgrade": 1.2894263613480204,
+      "raid": 1.083801025659896,
+      "commit": 1.1530408257046232,
+      "radius": 10,
+      "shelter": 0.07799516167676487,
+      "travel": 1.1622660767132122,
+      "shield": "imminent",
+      "shield_p": 0.6234512305720097,
+      "threshold": 33.958416031012774,
+      "raider": "flee",
+      "switch_turn": 52,
+      "temperature": 0.0015101800798039823
+     },
+     {
+      "seed": 1017304468,
+      "family": "rate",
+      "claim": 1.3247015432472573,
+      "upgrade": 0.8230138623994593,
+      "raid": 0.7660425011888967,
+      "commit": 1.1513046497926678,
+      "radius": 10,
+      "shelter": 0.20721014190620693,
+      "travel": 1.0012540435266604,
+      "shield": "imminent",
+      "shield_p": 0.5168235644363777,
+      "threshold": 62.51187013833438,
+      "raider": "patient",
+      "switch_turn": 45,
+      "temperature": 0.07086632016669199
+     }
+    ]
+   },
+   "results": {
+    "baseline": {
+     "pw": 1.0,
+     "score": 2634,
+     "scores": [
+      2840,
+      2767,
+      1959,
+      2634
+     ],
+     "calls": 320,
+     "action_hash": "8992a876976d4205d2869977b9bcca3c550ff7cc7408b4b4629ad705f4de2f68",
+     "max_ms": 17.092099995352328,
+     "action_counts": {
+      "STAY": 53,
+      "EAST": 10,
+      "NORTH": 4,
+      "WEST": 5,
+      "SOUTH": 4,
+      "SHIELD": 4
+     },
+     "learning": {}
+    },
+    "observe_only": {
+     "pw": 1.0,
+     "score": 2634,
+     "scores": [
+      2840,
+      2767,
+      1959,
+      2634
+     ],
+     "calls": 320,
+     "action_hash": "8992a876976d4205d2869977b9bcca3c550ff7cc7408b4b4629ad705f4de2f68",
+     "max_ms": 22.09969994146377,
+     "action_counts": {
+      "STAY": 53,
+      "EAST": 10,
+      "NORTH": 4,
+      "WEST": 5,
+      "SOUTH": 4,
+      "SHIELD": 4
+     },
+     "learning": {
+      "defence": [
+       0.6903765323297498,
+       8
+      ],
+      "commit": [
+       5.749911537138295,
+       46
+      ],
+      "finish": [
+       9.300990522375464,
+       130
+      ],
+      "ambiguous": 3,
+      "inconsistent": 0
+     }
+    },
+    "context_commit": {
+     "pw": 1.0,
+     "score": 2634,
+     "scores": [
+      2840,
+      2767,
+      1959,
+      2634
+     ],
+     "calls": 320,
+     "action_hash": "8992a876976d4205d2869977b9bcca3c550ff7cc7408b4b4629ad705f4de2f68",
+     "max_ms": 28.047900064848363,
+     "action_counts": {
+      "STAY": 53,
+      "EAST": 10,
+      "NORTH": 4,
+      "WEST": 5,
+      "SOUTH": 4,
+      "SHIELD": 4
+     },
+     "learning": {
+      "defence": [
+       0.6903765323297498,
+       8
+      ],
+      "commit": [
+       5.749911537138295,
+       46
+      ],
+      "finish": [
+       9.300990522375464,
+       130
+      ],
+      "ambiguous": 3,
+      "inconsistent": 0
+     }
+    },
+    "context_defence": {
+     "pw": 1.0,
+     "score": 2396,
+     "scores": [
+      3097,
+      2737,
+      2036,
+      2396
+     ],
+     "calls": 320,
+     "action_hash": "1cf7abd70baf753192edba63d5b0dd8146ab95a2d083efc6c2f2cbd5772ca208",
+     "max_ms": 39.00290001183748,
+     "action_counts": {
+      "STAY": 47,
+      "EAST": 13,
+      "NORTH": 7,
+      "WEST": 7,
+      "SOUTH": 6
+     },
+     "learning": {
+      "defence": [
+       0.5802809029976077,
+       10
+      ],
+      "commit": [
+       4.351370985354178,
+       33
+      ],
+      "finish": [
+       14.26446029397821,
+       136
+      ],
+      "ambiguous": 1,
+      "inconsistent": 0
+     }
+    },
+    "guarded": {
+     "pw": 1.0,
+     "score": 2413,
+     "scores": [
+      2894,
+      2770,
+      2119,
+      2413
+     ],
+     "calls": 320,
+     "action_hash": "ee0765625fb7983747025175f55189aa0adc3bbdf677468a2d7742abc313ad04",
+     "max_ms": 41.58030007965863,
+     "action_counts": {
+      "STAY": 48,
+      "EAST": 10,
+      "NORTH": 10,
+      "SOUTH": 7,
+      "WEST": 5
+     },
+     "learning": {
+      "defence": [
+       0.5538119885783466,
+       7
+      ],
+      "commit": [
+       8.20663675906874,
+       37
+      ],
+      "finish": [
+       11.707071997329827,
+       126
+      ],
+      "ambiguous": 2,
+      "inconsistent": 0
+     }
+    },
+    "context_both": {
+     "pw": 1.0,
+     "score": 2396,
+     "scores": [
+      3097,
+      2737,
+      2036,
+      2396
+     ],
+     "calls": 320,
+     "action_hash": "1cf7abd70baf753192edba63d5b0dd8146ab95a2d083efc6c2f2cbd5772ca208",
+     "max_ms": 38.96800009533763,
+     "action_counts": {
+      "STAY": 47,
+      "EAST": 13,
+      "NORTH": 7,
+      "WEST": 7,
+      "SOUTH": 6
+     },
+     "learning": {
+      "defence": [
+       0.5802809029976077,
+       10
+      ],
+      "commit": [
+       4.351370985354178,
+       33
+      ],
+      "finish": [
+       14.26446029397821,
+       136
+      ],
+      "ambiguous": 1,
+      "inconsistent": 0
+     }
+    },
+    "future_window": {
+     "pw": 3.0,
+     "score": 2889,
+     "scores": [
+      2856,
+      2591,
+      1868,
+      2889
+     ],
+     "calls": 320,
+     "action_hash": "e01989367ca35f7730c31b44def84f2c84cf2ad456c59281b22b55edbe2547e5",
+     "max_ms": 33.21459994185716,
+     "action_counts": {
+      "STAY": 54,
+      "EAST": 11,
+      "NORTH": 7,
+      "WEST": 6,
+      "SOUTH": 2
+     },
+     "learning": {
+      "defence": [
+       0.9311898080530381,
+       8
+      ],
+      "commit": [
+       7.12230366666419,
+       41
+      ],
+      "finish": [
+       14.853668941987081,
+       141
+      ],
+      "ambiguous": 2,
+      "inconsistent": 0
+     }
+    },
+    "dwell": {
+     "pw": 1.0,
+     "score": 2634,
+     "scores": [
+      2840,
+      2767,
+      1959,
+      2634
+     ],
+     "calls": 320,
+     "action_hash": "8992a876976d4205d2869977b9bcca3c550ff7cc7408b4b4629ad705f4de2f68",
+     "max_ms": 27.654399978928268,
+     "action_counts": {
+      "STAY": 53,
+      "EAST": 10,
+      "NORTH": 4,
+      "WEST": 5,
+      "SOUTH": 4,
+      "SHIELD": 4
+     },
+     "learning": {
+      "defence": [
+       0.6903765323297498,
+       8
+      ],
+      "commit": [
+       5.749911537138295,
+       46
+      ],
+      "finish": [
+       9.300990522375464,
+       130
+      ],
+      "ambiguous": 3,
+      "inconsistent": 0
+     }
+    }
+   }
+  }
+ ]
+}

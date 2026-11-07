@@ -30,6 +30,8 @@ SUITES = [
      "hidden-state reconstruction against the engine's private state"),
     ("correctness", "test_planner.py", [], False,
      "completion income, legal defence, route progress and observed homes"),
+    ("correctness", "test_freshlab.py", [], False,
+     "public opponent inference, fresh split isolation and final-turn payoffs"),
     ("correctness", "test_determinism.py", ["60"], False,
      "the measurement harness itself: paired games must be reproducible"),
     ("survival", "test_guards.py", [], False,

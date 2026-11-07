@@ -1,0 +1,21 @@
+test_architecture_splits_are_disjoint (__main__.PopulationTests.test_architecture_splits_are_disjoint) ... ok
+test_default_submission_build_matches_verified_artifact (__main__.PopulationTests.test_default_submission_build_matches_verified_artifact) ... ok
+test_new_games_have_new_styles_and_maps (__main__.PopulationTests.test_new_games_have_new_styles_and_maps) ... ok
+test_replay_zero_feature_control_and_contracts (__main__.PopulationTests.test_replay_zero_feature_control_and_contracts) ... ok
+test_supplementary_confirmation_balances_every_map_seat_token (__main__.PopulationTests.test_supplementary_confirmation_balances_every_map_seat_token) ... ok
+test_ambiguous_shield_attribution_is_not_a_label (__main__.StyleTests.test_ambiguous_shield_attribution_is_not_a_label) ... ok
+test_defender_has_one_decision_with_two_raiders (__main__.StyleTests.test_defender_has_one_decision_with_two_raiders) ... ok
+test_exact_labels_against_referee_random_sequences (__main__.StyleTests.test_exact_labels_against_referee_random_sequences) ... ok
+test_frozen_raider_is_not_voluntary_commitment (__main__.StyleTests.test_frozen_raider_is_not_voluntary_commitment) ... ok
+test_home_visitors_are_not_capture_threats (__main__.StyleTests.test_home_visitors_are_not_capture_threats) ... ok
+test_move_proves_raider_bailed (__main__.StyleTests.test_move_proves_raider_bailed) ... ok
+test_no_negative_shield_observation_before_capture_imminent (__main__.StyleTests.test_no_negative_shield_observation_before_capture_imminent) ... ok
+test_no_negative_shield_observation_on_cooldown (__main__.StyleTests.test_no_negative_shield_observation_on_cooldown) ... ok
+test_sparse_evidence_shrinks_toward_prior (__main__.StyleTests.test_sparse_evidence_shrinks_toward_prior) ... ok
+test_imminent_raid_bonus_can_outweigh_defence (__main__.TerminalTests.test_imminent_raid_bonus_can_outweigh_defence) ... ok
+test_simultaneous_payoffs_match_engine (__main__.TerminalTests.test_simultaneous_payoffs_match_engine) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 5.215s
+
+OK

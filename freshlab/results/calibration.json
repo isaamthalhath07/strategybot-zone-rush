@@ -1,0 +1,24 @@
+{
+  "games": 80,
+  "labelled": 3108,
+  "incorrect_labels": 0,
+  "ambiguous_transitions": 83,
+  "unexplained_transitions": 1,
+  "brier": {
+    "shield": {
+      "constant": 0.2922153812356221,
+      "per_player": 0.16924532982368765,
+      "context": 0.15008493179656635
+    },
+    "commit": {
+      "constant": 0.3223457035851399,
+      "per_player": 0.21001089545348162,
+      "context": 0.17590690598493663
+    }
+  },
+  "counts": {
+    "shield": 725,
+    "commit": 2383
+  },
+  "caveat": "Prequential public-transition prediction on fixed baseline trajectories; this measures prediction, not playing strength or actual competitors."
+}

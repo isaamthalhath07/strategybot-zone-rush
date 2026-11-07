@@ -1,6 +1,19 @@
 # StrategyBot — Zone Rush
 
-> Latest audit (7 November 2026): [strategy, rules, fresh paired results, and limitations](STRATEGY_REVIEW.md). [Open the local visual replay harness](visual/index.html). Round 1 tied-score ranking and planner bookkeeping were corrected. The final 600-task confirmation does not establish a tournament-strength gain; the older numbers below describe earlier experiments.
+## Fresh-opponent feature search (current experiment branch)
+
+The accepted candidate uses `v8_fresh_params.json`. On a pre-registered final set of 1,024 paired games against three unseen procedural scheduling families, it improved mean opponents outscored from 2.1523 to 2.2275: **+0.0752, 95% interval [+0.0393, +0.1111]**. New opponent-style predictions improved, but did not establish an additional playing-strength gain, so the larger learner remains experimental.
+
+A separate balanced confirmation kept that candidate fixed and added four more
+unseen scheduling algorithms. Over another 1,024 paired games it improved
+**1.9639 → 2.0210**, difference **+0.0571 [95% interval +0.0221, +0.0922]**.
+Every map covered every seat/token combination. Rich-corner maps remain the
+weakest subgroup; see the full report rather than assuming universal improvement.
+
+See [the complete feature report](freshlab/FEATURES.md), [all comparisons](freshlab/RESULTS.md), and [the reproducible experiment setup](freshlab/README.md). No existing named opponents or previous bot versions were used as training opponents in this round. Earlier results in this README are historical and use different fields. The final test is now consumed and must not be reused for tuning.
+
+
+> Earlier audit (7 November 2026): [strategy, rules, paired results, and limitations](STRATEGY_REVIEW.md). Round 1 tied-score ranking and planner bookkeeping were corrected. Its 600-task confirmation describes the earlier artifact and does not establish a tournament-strength gain. Current release evidence is in [freshlab/FEATURES.md](freshlab/FEATURES.md). [Open the current local visual replay harness](visual/index.html).
 
 
 
