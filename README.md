@@ -278,6 +278,55 @@ python strategies.py 150
 
 > "0 failures".
 
+## Pitting every branch against each other
+
+`harness/simulate.py` plays Zone Rush games between the bots on every branch for as
+long as you let it, then writes a detailed report.
+
+```bash
+python harness/simulate.py
+```
+
+Press **Enter** to stop. Games in progress finish and count, then the report is written
+to `harness/simulations/<session>/report.md`; press Enter again to abandon those games
+instead. Ctrl+C works the same way (once to stop, twice to abandon). SIGTERM, or
+creating the `STOP` file named at start-up, stops it too, which suits a run left in the
+background.
+
+- **Every bot on every branch.** It fetches, then reads each local and remote branch
+  straight from git objects, without touching the checkout. By default it enters every
+  distinct file that would pass as a submission: a top-level `act(state)`, standard
+  library only, no imports of its own sibling files. That means each branch's `bot.py`
+  plus alternatives such as `mybot.py` or the research branch's `outputs/bot_*.py`.
+  Identical files on several branches play once. Each bot is loaded and asked for turn 1
+  before any game; one that cannot answer is left out, and the report says why
+  (`agent_new.py` crashes with `NameError: PARAMS`). `--bots submissions` keeps only
+  each branch's `bot.py`, `--builtins` adds the skeleton and random bots as baselines,
+  and `--add FILE`, `--refs`, `--include` and `--exclude` adjust the field. `--list`
+  shows the field without playing.
+- **Real harness games, under the server's rules.** `harness/referee.py` resolves every
+  turn, and each seat runs in its own process for the whole game, so memory persists
+  between turns and stays private to that seat. The limits are 200 ms per turn and 2 s on
+  turn 1, and a crash, late answer or illegal action plays `STAY` (rulebook 2.8).
+- **A fair schedule.** Games come in blocks of four on one map with one starting token,
+  and the line-up rotates through all four seats. Line-ups even out how often each bot
+  plays and how often each pair meets. The rulebook's example map is used one block in
+  four, and random mirrored maps the rest (`--maps`).
+- **Scored as the rulebook scores.** Each game counts as three one-on-one results per
+  bot, with equal scores a draw (3.2). The leaderboard is the settled Elo-scale rating,
+  with bootstrap intervals and ordinary Elo as played alongside, and the rulebook's
+  tie-breaks (head-to-head, then 1st places). A Round 2 view applies the cell-count
+  tie-break and 3/2/1/0 pool points (5.3-5.4).
+- **Nothing is lost.** Every finished game is appended to `games.jsonl` straight away,
+  and `python harness/simulate.py --report harness/simulations/<session>` rebuilds the
+  report from it. Games with a crash, late or illegal turn are saved as replays, which
+  `python harness/server.py` lists under **Replays** (`--replays all` saves every game).
+
+The report covers the verdict, the Round 1 leaderboard, the head-to-head matrix, places
+and score trajectories, the Round 2 view, seat, token and map breakdowns, what each bot
+actually does (action mix, claims, upgrades, raids, shields, freezes), rule compliance
+and timing per bot, notable games with a command to replay each one, and the method.
+
 
 
 ---
