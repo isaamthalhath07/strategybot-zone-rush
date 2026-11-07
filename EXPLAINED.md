@@ -891,6 +891,7 @@ v7 exactly (checked move for move by `strategy_audit/check_v7_compat.py`);
 | `fc_rho` | 0.9 | how much of the previous step's evidence survives each turn |
 | `fc_kappa` | 3.0 | prior temperature: the best target is e^κ ≈ 20× as likely a priori as a worthless one |
 | `fc_chain` | 2 | further targets forecast after the current one |
+| `fc_defend` | 0 | also use the forecast for defence: reaching a threatened level-1 cell first and upgrading it. Built and measured; cuts cells lost by ~12% but did not pass the pre-registered placement test, so it is off (`strategy_audit/README.md` §14) |
 
 Fixed on principle, not tuned (see §5.5).
 
@@ -1352,9 +1353,12 @@ limits.
   they are not.** v9's goal inference is +0.050 PW (z +3.1) on mixed lineups of
   opponents never tuned against, but −0.024 PW (z −1.8) against the repository's
   strangers, and its points gain did not replicate on fresh games. The forecast is
-  only used to avoid cells a rival will reach first; using it for defence — reaching
-  a level-1 cell before a forecast raider does — is untested. If Round 1 turns out to
-  look like the strangers rather than the outside designs, v8 is the safer build.
+  used to avoid cells a rival will reach first. Its use for defence — reaching a
+  level-1 cell before a forecast raider does (`fc_defend`) — was built and tested
+  against a rule fixed in advance: it cuts cells lost by about 12% on every field,
+  never hurts, but does not measurably win more pairings (+0.006 PW, z +0.8, over
+  1,000 games), so it ships off. If Round 1 turns out to look like the strangers
+  rather than the outside designs, v8 is the safer build.
 - **The income horizon is one turn short** (`rem = R - used - need`; a cell
   taken this turn also scores this turn). The tuned weights absorb it, so fixing
   it alone measures nothing; it belongs in the next retune.

@@ -107,6 +107,14 @@ hurt against the strongest bots. It does cost a little against the repository's
 own strangers. And it wins *pairings*, not raw points, which is what Round 1's Elo
 counts.
 
+**Defence was tried too, and is off.** `fc_defend: 1` uses the forecast to reach a
+threatened level-1 cell before the raider and upgrade it (shields cannot save
+level-1 cells). Against a decision rule fixed before measuring, it cut cells lost
+by about 12% in every one of 12 runs and was never harmful, but gained no
+measurable pairings: +0.006 PW (z +0.8) over 1,000 games on the unknown field,
+where the rule required z ≥ +2. Details in
+[`strategy_audit/README.md`](strategy_audit/README.md) §14.
+
 **If you want the conservative choice,** v8 is on branch
 `claude/strategy-audit-v8`, and `python ship.py v8_params.json` rebuilds it here:
 `forecast: 0` reproduces v8 move for move.

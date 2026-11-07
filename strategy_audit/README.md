@@ -42,6 +42,7 @@ Rulebook sections are cited as **§x.y** (official StrategyBot rulebook, 9 pages
 11. [Limitations](#11-limitations)
 12. [What v8 changed](#12-what-v8-changed)
 13. [v9: forecasting rivals](#13-v9-forecasting-rivals)
+14. [Forecast-based defence: built, measured, not shipped](#14-forecast-based-defence-built-measured-not-shipped)
 
 ---
 
@@ -930,9 +931,8 @@ so would fit them to the very field used to judge them.
 **Conservative alternative:** `forecast: 0` reproduces v8 move for move
 (`python ship.py v8_params.json`), and v8 is on branch `claude/strategy-audit-v8`.
 
-**Untested:** the forecast is only used to avoid cells a rival will reach first. Its
-other natural use, defence — reaching and holding a level-1 cell before a forecast
-raider arrives, since shields cannot save those (B2) — has not been tried.
+**Defence, the forecast's other natural use, is in §14:** built and measured, but
+not shipped.
 
 ### 13.4 Reproducing §13
 
@@ -953,3 +953,89 @@ The other rows take the same form with `outsiders`, `strangers`, `peer 400`,
 land on exactly the committed file names as long as `mybot.py` is unchanged; an
 edited `mybot.py` gets a new label and writes new files instead of overwriting
 these.
+
+---
+
+## 14. Forecast-based defence: built, measured, not shipped
+
+### 14.1 The idea
+
+A shield cannot save a level-1 cell (B2: 2 frozen turns + 1 stay ≤ the 4-turn
+cooldown), but occupancy can.
+
+- A cell the bot stands on cannot be entered.
+- A same-turn contest for a cell goes to its owner (§2.3), so the bot only has to
+  arrive no later than the raider.
+- Staying there upgrades the cell into one a shield *can* hold.
+
+With `fc_defend: 1`, every rival the v9 forecaster sees heading for one of the
+bot's level-1 cells adds a **defence value** to upgrading that cell, provided the
+bot can get there first. The value is the forecast probability times what the
+take would cost: the income kept (net of the chance to retake it) plus the rival's
+bonus and income denied. Those are the same terms the tuned shield decision
+already uses, so it adds no new tuned number. Threatened cells also keep their
+place in the candidate list.
+
+`fc_defend: 0` reproduces v9 move for move (1,920 decisions against the shipped
+`bot.py`). With it on there are no internal exceptions, and the worst turn is
+20.9 ms.
+
+### 14.2 The decision rule, fixed before measuring
+
+Switch it on only if all three hold:
+
+- the pooled 1,000-game unknown field gains pairwise wins at z ≥ +2;
+- no pooled field is significantly worse (z ≤ −2);
+- the peer field is not significantly worse.
+
+The fresh-task confirmation draws (seed 101) were scheduled in the same batch,
+whatever the first draw showed.
+
+### 14.3 Results
+
+Paired against v9 on identical games (`AUDIT_BOT=mybot`, `@v9_params.json`
+against `@v9_params.json+fc_defend:1`; `results/mybot-6ce8a221_edge_*`).
+
+| field | pairwise wins | points | cells lost per game (v9 → defend) |
+|---|---|---|---|
+| **unknown, pooled 1,000** | **+0.006 ± 0.008 (z +0.8)** | +4.1 ± 3.3 (z +1.2) | 2.02 → 1.81; 1.91 → 1.77 |
+| outsiders, pooled 1,000 | −0.003 ± 0.008 (z −0.4) | +3.1 ± 2.9 (z +1.1) | 2.21 → 1.93; 2.33 → 2.06 |
+| strangers, pooled 1,200 | +0.004 ± 0.007 (z +0.5) | +4.2 ± 2.9 (z +1.4) | 1.90 → 1.69; 1.82 → 1.64 |
+| peer (400) | +0.000 ± 0.020 | +1.8 | 2.29 → 1.98 |
+| realistic (500) | **+0.022 ± 0.010 (z +2.3)** | **+14.8 ± 4.4 (z +3.3)** | 2.11 → 1.86 |
+| never-shield (300) | +0.000 | **+13.4 ± 5.7 (z +2.4)** | 2.53 → **1.97** |
+| 3× `x_jackal` (120) | +0.000 | **+11.8 ± 5.7 (z +2.1)** | 3.02 → 2.72 |
+| 3× `x_literal` (120) | +0.008 | −2.7 | 1.55 → 1.34 |
+| 3× `x_leech` (120) | +0.000 | +0.8 | 1.70 → 1.54 |
+
+**Verdict: the rule fails on its first condition** (z +0.8 against the required
++2), so `fc_defend` stays off and the shipped `bot.py` remains v9.
+
+### 14.4 What it shows
+
+- **The mechanism works.** Cells lost fell in all 12 runs, by 7–22% (mean −12%).
+  Against `x_jackal`, forecasting plus defence cut losses from 3.72 per game (v8)
+  to 2.72.
+- **It is never harmful.** No field is negative beyond noise, and points are
+  positive on 11 of 12 runs, three of them significantly.
+- **It does not move placements.** A saved level-1 cell is worth a few points and
+  almost never decides whether the bot finishes above a rival, which is what
+  Round 1's Elo counts. The realistic field's +0.022 is the only significant
+  placement gain, and on its own it is the kind of single-field result the
+  confirmation draws exist to discount.
+
+If the team weighs points or robustness over placements, it is one switch:
+`fc_defend: 1` in `v9_params.json`, then `python ship.py v9_params.json`.
+
+### 14.5 Reproducing §14
+
+```bash
+AUDIT_BOT=mybot python strategy_audit/edge_audit.py 400 unknown @v9_params.json @v9_params.json+fc_defend:1
+```
+
+```bash
+AUDIT_BOT=mybot AUDIT_SEED=101 python strategy_audit/edge_audit.py 600 unknown @v9_params.json @v9_params.json+fc_defend:1
+```
+
+The other rows take the same form. Results carry the label `mybot-6ce8a221`, the
+content hash of `mybot.py` as committed with `fc_defend`.
