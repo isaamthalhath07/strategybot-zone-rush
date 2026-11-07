@@ -15,6 +15,13 @@ A note on scope: there are two branches, `main` and `hardened-field-and-fixes`.
 History is linear — the branch is `main` plus one commit — so nothing exists on
 `main` that is not also on the branch. This document describes the branch.
 
+> **Since this was written:** `bot.py` now ships a fused bot. It pairs the
+> research/evolution branch's economic planner with this bot's tracker and walk
+> planner as a warm standby, plus failsafe layers that none of the branches had.
+> Everything below still describes the tracker and walk planner accurately. Why
+> the primary changed, measured on a field written by all three authors, is in
+> [`CROSS_BRANCH_REVIEW.md`](CROSS_BRANCH_REVIEW.md).
+
 **Contents**
 
 1. [The game](#1-the-game)
