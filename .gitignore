@@ -7,3 +7,7 @@ StrategyBot_RuleBook.pdf
 
 # RL virtualenv (large, local only)
 .venv-rl/
+
+# visual harness: unpacked branch snapshots, uploads and saved games
+harness/.cache/
+harness/replays/
