@@ -169,6 +169,14 @@ PARAMS = {
     "endgame_denial": 1.0,     # multiplier on the denial term inside that window:
                                # taking points off the rival I am chasing closes
                                # the gap from both ends at once
+    # --- added after the cross-branch review --------------------------------
+    "pay_fix": 1,              # count the turn a capture completes as a paying
+                               # turn. Takes resolve before scoring (rulebook
+                               # step order), so work finishing with R turns left
+                               # pays R - used - need + 1 turns, not R - used - need.
+                               # 0 restores the old count, under which a capture on
+                               # the final turn was worth None and the bot walked
+                               # away from it
 }
 
 
@@ -195,6 +203,23 @@ DIST = _all_pairs()
 _ONES = [1.0] * NC
 _ZEROS = [0.0] * NC
 _IDENT = list(range(NC))
+
+
+def _flatten(bd):
+    """The board as 64 cells, row-major, whatever shape it arrives in.
+
+    The starter kit documents an 8x8 list of rows. The old test was "is bd[0] a
+    list or tuple", which a flat 64-list of namedtuple cells also passes -- a
+    namedtuple IS a tuple -- so each cell was read as a row, indexing past its
+    six fields raised, the fallback used the same parser, and the bot played
+    STAY for the whole game. A row is told from a cell by having no `owner`.
+    """
+    if len(bd) == NC:
+        return list(bd)
+    first = bd[0]
+    if not hasattr(first, "owner") and not isinstance(first, dict) and len(first) == N:
+        return [bd[r][c] for r in range(N) for c in range(N)]
+    raise ValueError("unrecognised board shape")
 
 
 def _bfs(start, blocked):
@@ -243,6 +268,9 @@ class Tracker(object):
         self.carry = None
         self._claimed_at = [None] * 4   # (cell, stays since the capture)
         self.new_game = True            # the Agent clears its own state on this
+        self._progressed = False        # any capture or upgrade seen this game?
+        self.shield_rejected = 0        # my SHIELDs the server turned into STAY
+        self.last_shielders = set()     # seat indices that shielded last turn
 
     # -- static board facts, computed once -----------------------------------
     def init_static(self, base, home_of):
@@ -267,8 +295,16 @@ class Tracker(object):
     def observe(self, owner, upg, occ, frz, seat, is_token, base, home_of,
                 my_last=None):
         self.new_game = False
-        fresh = self._is_fresh(owner, occ, home_of)
-        if fresh or self.prev is None or self.turn > 400:
+        fresh = self._is_fresh(owner, occ, home_of, upg)
+        # A starting-looking board is a new game only if it cannot be the same
+        # one. Positions revert all the time in an opening -- everybody stays
+        # home, or a bot steps out and back -- so they prove nothing. Ownership
+        # and upgrades never revert inside a game, so once a capture or an
+        # upgrade has been seen, a fresh board can only be a new game. Resetting
+        # on every fresh board froze the clock and zeroed every score: five
+        # all-home turns read as turn 1, with true scores of 8 reconstructed as 0.
+        new_game = fresh and (self._progressed or self.turn >= MAX_TURNS)
+        if new_game or self.prev is None or self.turn > 400:
             self.reset()
             self.init_static(base, home_of)
             self.turn = 1
@@ -299,8 +335,11 @@ class Tracker(object):
             # turn 1 has not resolved yet, so nothing has been scored
             self.income = [0, 0, 0, 0]
             self.prev = (owner[:], upg[:], occ[:], frz[:])
+            self._progressed = not fresh and self._irreversible(owner, upg, home_of)
             return
         self.turn += 1
+        if not self._progressed and self._irreversible(owner, upg, home_of):
+            self._progressed = True
         pow_, pupg, pocc, pfrz = self.prev
         newpos = self._positions(occ)
         cd_prev = self.cd[:]
@@ -347,42 +386,57 @@ class Tracker(object):
             a = pow_[p]
             if a and owner[p] != a:
                 lost_a_cell[a - 1] = True
-        cand = [s for s in range(4)
-                if cd_prev[s] == 0 and not frozen_prev[s] and not lost_a_cell[s]]
-        if my_last is not None:
-            mi = seat - 1
-            if my_last == "SHIELD":
-                if mi not in cand:
-                    cand.append(mi)
-            elif mi in cand:
-                cand.remove(mi)           # I know I did not shield
+        base_cand = [s for s in range(4)
+                     if cd_prev[s] == 0 and not frozen_prev[s] and not lost_a_cell[s]]
         newly_set = set(newly)
-        best, bestscore = None, -1e9
-        ties = []
-        for mask in range(1 << len(cand)):
-            S = set(cand[k] for k in range(len(cand)) if (mask >> k) & 1)
-            if my_last == "SHIELD" and (seat - 1) not in S:
-                continue
-            pred = set()
-            plaus = -0.20 * len(S)
-            for s in S:
-                vic = [j for j in on_land.get(s, []) if stayed[j] and j not in S]
-                if vic:
-                    pred.update(vic)
-                    plaus += 3.0              # a landlord defending its land
-                else:
-                    pred.add(s)
-                    ps = self.pos[s]
-                    if ps is not None and pow_[ps] and pow_[ps] != s + 1:
-                        plaus -= 2.5          # shielding while squatting enemy land
+        mi = seat - 1
+
+        def solve(cand, force_me):
+            best, bestscore = None, -1e9
+            ties = []
+            for mask in range(1 << len(cand)):
+                S = set(cand[k] for k in range(len(cand)) if (mask >> k) & 1)
+                if force_me and mi not in S:
+                    continue
+                pred = set()
+                plaus = -0.20 * len(S)
+                for s in S:
+                    vic = [j for j in on_land.get(s, []) if stayed[j] and j not in S]
+                    if vic:
+                        pred.update(vic)
+                        plaus += 3.0              # a landlord defending its land
                     else:
-                        plaus -= 0.5          # a mistimed defensive shield
-            if pred != newly_set:
-                continue
-            if plaus > bestscore:
-                bestscore, best, ties = plaus, S, [S]
-            elif plaus == bestscore:
-                ties.append(S)
+                        pred.add(s)
+                        ps = self.pos[s]
+                        if ps is not None and pow_[ps] and pow_[ps] != s + 1:
+                            plaus -= 2.5          # shielding while squatting enemy land
+                        else:
+                            plaus -= 0.5          # a mistimed defensive shield
+                if pred != newly_set:
+                    continue
+                if plaus > bestscore:
+                    bestscore, best, ties = plaus, S, [S]
+                elif plaus == bestscore:
+                    ties.append(S)
+            return best, ties
+
+        cand = [s for s in base_cand if s != mi]
+        if my_last == "SHIELD":
+            # I asked to shield, but a server that substitutes STAY -- for a late
+            # turn, or for SHIELD offered during cooldown -- means it may not have
+            # happened. Insisting that it did left no consistent explanation, which
+            # threw away a rival's real shield along with my own phantom one. So
+            # try the shield first, and if no explanation includes it, solve again
+            # on the hypothesis that the server turned it into a STAY.
+            best, ties = solve(cand + [mi], True)
+            if best is None:
+                best, ties = solve(cand, False)
+                if best is not None:
+                    self.shield_rejected += 1
+        elif my_last is None and mi in base_cand:
+            best, ties = solve(base_cand, False)  # no record of my own action
+        else:
+            best, ties = solve(cand, False)       # I know I did not shield
         if best is None:
             shielders = set()
         elif len(ties) == 1:
@@ -391,6 +445,7 @@ class Tracker(object):
             shielders = set(ties[0])
             for S in ties[1:]:
                 shielders &= S            # stay pessimistic where they disagree
+        self.last_shielders = set(shielders)
         for s in shielders:
             self.shields_seen[s] += 1
         for i in range(4):
@@ -547,8 +602,21 @@ class Tracker(object):
                 pos[o - 1] = p
         return pos
 
-    def _is_fresh(self, owner, occ, home_of):
+    @staticmethod
+    def _irreversible(owner, upg, home_of):
+        """Has anything happened that cannot be undone within a game?"""
         for p in range(NC):
+            if upg[p] or (owner[p] and not home_of[p]):
+                return True
+        return False
+
+    def _is_fresh(self, owner, occ, home_of, upg=None):
+        """A starting board: every bot on its own home, nothing else owned, and
+        nothing upgraded. The upgrade test matters: three all-home stays upgrade
+        the homes, and a board that is "fresh" but upgraded is turn 4, not turn 1."""
+        for p in range(NC):
+            if upg is not None and upg[p]:
+                return False
             if home_of[p]:
                 if occ[p] != home_of[p] or owner[p] != home_of[p]:
                     return False
@@ -572,7 +640,7 @@ class Agent(object):
         self.plan_target = None
         self._deadline = 0.0
         self._beam_scale = 1.0
-        self.rng = seed * 2654435761 % 4294967291 or 12345
+        self.rng = int(seed) * 2654435761 % 4294967291 or 12345
         self._rng0 = self.rng           # so a new game restarts the same stream
         self._nturns = 0
 
@@ -619,6 +687,17 @@ class Agent(object):
         return a
 
     def decide(self, view):
+        """Observe this turn's board, then choose an action."""
+        if not self.ingest(view):
+            return "STAY"
+        return self.plan()
+
+    def ingest(self, view):
+        """Parse the view and update the tracker. False if I am not on the board.
+
+        Split from plan() so a controller can keep the tracker current every turn
+        without paying for a search it is not going to use.
+        """
         P = self.P
         t_start = time.perf_counter()
         ms = P["budget_ms"]
@@ -630,11 +709,7 @@ class Agent(object):
         self._cellmod = _ONES
         self._expose = _ZEROS
         self._t_start = t_start
-        bd = view.board
-        if bd and isinstance(bd[0], (list, tuple)):
-            cells = [bd[r][c] for r in range(N) for c in range(N)]
-        else:
-            cells = list(bd)
+        cells = _flatten(view.board)
         base = [0] * NC
         owner = [0] * NC
         upg = [0] * NC
@@ -649,11 +724,13 @@ class Agent(object):
             occ[p] = cl.occupant
             frz[p] = 1 if cl.is_frozen else 0
             if cl.is_home:
-                home_of[p] = cl.owner or 1
+                # a server that leaves homes unowned must not assign all four
+                # to seat 1: fall back to the seat whose corner this is
+                home_of[p] = cl.owner or (CORNERS.index(p) + 1 if p in CORNERS else 1)
 
-        seat = view.bot_id
+        seat = int(view.bot_id)
         tr = self.tr
-        tr.observe(owner, upg, occ, frz, seat, view.is_priority_token, base,
+        tr.observe(owner, upg, occ, frz, seat, bool(view.is_priority_token), base,
                    home_of, self.last_action)
         if tr.new_game:
             self.plan_target = None
@@ -661,10 +738,17 @@ class Agent(object):
             self._nturns = 1
             self._deep = 1.0
             self.rng = self._rng0
+        self._cur = (owner, upg, base, home_of, occ, frz, seat, list(view.legal_actions))
+        return tr.pos[seat - 1] is not None
+
+    def plan(self):
+        """Choose an action for the board ingest() last saw."""
+        P = self.P
+        tr = self.tr
+        owner, upg, base, home_of, occ, frz, seat, legal = self._cur
         me = tr.pos[seat - 1]
         if me is None:
             return "STAY"
-        legal = view.legal_actions
         if len(legal) == 1:
             return legal[0]
 
@@ -830,7 +914,9 @@ class Agent(object):
         `used` turns have already been spent."""
         P = self.P
         tr = self.tr
-        rem = R - used - need                 # turns the cell will pay out
+        # turns the cell will pay out. Takes resolve before scoring, so the turn
+        # the work completes on pays too (pay_fix); the old count left it out.
+        rem = R - used - need + (1 if P["pay_fix"] else 0)
         if kind == 4:
             # holding denies entry outright, which is strictly stronger than a
             # shield here: no backfire risk and no cooldown
@@ -854,7 +940,8 @@ class Agent(object):
                 return None
             g = v * rem * wc
         elif kind == 3:
-            rem1 = R - used - 1               # level-1 income starts after 1 stay
+            rem1 = R - used - 1 + (1 if P["pay_fix"] else 0)   # level-1 income
+                                                                 # starts after 1 stay
             if rem <= 0 or rem1 <= 0:
                 return None
             g = (v * rem1 * wc + v * rem * wu) * P["combo"]
@@ -863,7 +950,7 @@ class Agent(object):
                 return None
             g = v * rem * wu
         else:
-            if rem < 0:
+            if rem < (1 if P["pay_fix"] else 0):
                 return None
             o = owner[p]
             lvl = 2 if upg[p] else 1
@@ -936,8 +1023,9 @@ class Agent(object):
             if tr.frozen[o - 1] > 0:
                 continue
             need = 3 if lvl == 2 else 1
-            t += (8.0 * v * lvl + v * max(0, R - need)
-                  + v * lvl * max(0, R - need) * self.P["w_denial"] * care[o - 1])
+            pay = max(0, R - need + (1 if self.P["pay_fix"] else 0))
+            t += (8.0 * v * lvl + v * pay
+                  + v * lvl * pay * self.P["w_denial"] * care[o - 1])
         return t
 
     def _plan_walk(self, owner, upg, base, home_of, occ, frz, seat, me, R,
@@ -1111,21 +1199,34 @@ class Agent(object):
         P = self.P
         tr = self.tr
         intruders = []
+        home_of = tr.home_of
         for p in range(NC):
             o = occ[p]
-            if o and o != seat and owner[p] == seat and not frz[p]:
+            # A home can never be captured, so a rival standing on mine threatens
+            # nothing. Counting it as an imminent take made the bot burn a shield
+            # (and, on the last turn, its own scoring stay) on a visitor that
+            # could not take anything.
+            if o and o != seat and owner[p] == seat and not frz[p] and not home_of[p]:
                 intruders.append((p, o - 1))
         if not intruders:
             return False
 
         # In the last couple of turns a backfire costs nothing and the cooldown
-        # never bites, so shielding is free: deny every bonus we can.
+        # never bites, so shielding is nearly free -- but only nearly: the shield
+        # turn is not a stay, so it gives up whatever my own stay would complete.
         if R <= P["free_shield_turns"]:
+            at_risk = 0.0
             for p, j in intruders:
                 need = (3 if upg[p] else 1) - tr.prog[j]
                 if need <= 1:
-                    return True
-            return R <= 1
+                    v = base[p]
+                    lvl = 2 if upg[p] else 1
+                    # I lose the cell's income for every remaining turn, and the
+                    # taker banks a bonus that counts against me in that pairing
+                    at_risk += v * lvl * R + 8.0 * v * lvl / 3.0
+            if at_risk <= 0.0:
+                return False
+            return at_risk > self._own_stay_value(owner, upg, base, seat, R)
 
         # The 2x2 game, written out properly:
         #   SHIELD + they stay  -> I keep the cell and freeze them
@@ -1145,8 +1246,10 @@ class Agent(object):
                 continue                      # not imminent: no need to burn a shield
             # what the take actually costs me, net of the fact that I own the cell
             # and so win the contest to retake it later (and collect a bonus myself)
-            lost = v * lvl * (R - 1) * (1.0 - P["retake_credit"])
-            their_gain = (8.0 * v * lvl + v * (R - 1)) * P["w_denial"] * care[j]
+            # a take this turn costs me this turn's income too (pay_fix)
+            pay = R if P["pay_fix"] else R - 1
+            lost = v * lvl * pay * (1.0 - P["retake_credit"])
+            their_gain = (8.0 * v * lvl + v * pay) * P["w_denial"] * care[j]
             commit = self._commit_prob(j)
             gain += (lost + their_gain) * commit
             if commit > best_commit:
@@ -1174,6 +1277,25 @@ class Agent(object):
         if q >= P["shield_certain"]:
             return True
         return self.rand() < q
+
+    def _own_stay_value(self, owner, upg, base, seat, R):
+        """Points my own STAY completes this turn (what a SHIELD gives up)."""
+        tr = self.tr
+        me = tr.pos[seat - 1]
+        if me is None:
+            return 0.0
+        need = tr._need(owner, upg, me, seat)
+        if need is None or need - tr.prog[seat - 1] > 1:
+            return 0.0
+        v = base[me]
+        pay = R if self.P["pay_fix"] else R - 1
+        o = owner[me]
+        if o == seat:
+            return float(v * pay)                     # the upgrade's extra income
+        if o == 0:
+            return float(v * pay)                     # a claim
+        lvl = 2 if upg[me] else 1
+        return float(8 * v * lvl + v * pay)           # a raid
 
     def _commit_prob(self, j):
         P = self.P
@@ -1234,13 +1356,9 @@ _DELTA = dict(MOVE_DELTA)
 def _fallback(view):
     """Last-resort policy. Reads only what the starter kit documents, allocates
     almost nothing, and has no dependency on the tracker or the planner."""
-    bd = view.board
-    if bd and isinstance(bd[0], (list, tuple)):
-        cells = [bd[r][c] for r in range(N) for c in range(N)]
-    else:
-        cells = list(bd)
-    seat = view.bot_id
-    legal = view.legal_actions
+    cells = _flatten(view.board)
+    seat = int(view.bot_id)
+    legal = list(view.legal_actions)
     me = None
     for p in range(NC):
         if cells[p].occupant == seat:
@@ -1286,7 +1404,7 @@ def _fallback(view):
 def act(state):
     """Module-level entry point matching the starter kit's signature."""
     try:
-        bid = state.bot_id
+        bid = int(state.bot_id)
     except Exception:
         return "STAY"
     a = _AGENTS.get(bid)

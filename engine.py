@@ -318,9 +318,19 @@ class Game(object):
                 n += 1
         return n
 
-    def places(self):
-        """1-based place per seat; equal (score, cells) share a place."""
-        key = [(-self.score[i], -self.cells_owned(i)) for i in range(4)]
+    def places(self, round2=False):
+        """1-based place per seat. Equal scores share a place.
+
+        Round 1 -- the round every measurement here models -- scores each game as
+        three one-on-one results and counts an equal score as a draw, whatever the
+        cell counts. This used to break score ties on cells owned, which is the
+        Round 2 pool rule, so every pairwise number in the repository scored the
+        occasional tie as a win or a loss. round2=True keeps that rule.
+        """
+        if round2:
+            key = [(-self.score[i], -self.cells_owned(i)) for i in range(4)]
+        else:
+            key = [(-self.score[i],) for i in range(4)]
         order = sorted(range(4), key=lambda i: key[i])
         place = [0.0] * 4
         i = 0
