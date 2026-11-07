@@ -1,0 +1,3 @@
+[solo:x_vulture] 80 paired games, reference = base
+base                     PW 2.5625  score  2639.8
+    per game: shields=1.30, last_shields=0.10, last_no_imminent=0.01, home_shields=0.00, l1_shields=0.11, l1_lost_anyway=0.10, backfires=0.05, raids=10.49, raids_early=1.00, cells_lost=1.80, idle=0.38, idle_late=0.00, moves=26.61, turns90=17.09, reversals=3.08

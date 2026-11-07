@@ -1,0 +1,5 @@
+[solo:x_jackal] 120 paired games, reference = @v8_params.json
+@v8_params.json          PW 2.8417  score  2683.3
+    per game: shields=0.17, last_shields=0.17, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.00, l1_lost_anyway=0.00, backfires=0.11, raids=7.35, raids_early=0.74, cells_lost=3.72, idle=0.37, idle_late=0.00, moves=26.09, turns90=16.04, reversals=2.34
+@v8_params.json+forecast:1 PW 2.8750  score  2701.5  dPW +0.0333 +/- 0.0409 (z +0.82)  dScore +18.17 +/- 18.12 (z +1.00)  games changed 12
+    per game: shields=0.14, last_shields=0.14, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.00, l1_lost_anyway=0.00, backfires=0.07, raids=7.13, raids_early=0.99, cells_lost=3.02, idle=0.28, idle_late=0.00, moves=25.90, turns90=15.68, reversals=2.29

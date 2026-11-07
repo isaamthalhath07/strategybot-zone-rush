@@ -363,6 +363,19 @@ because most losses happen while your shield is *already* on cooldown or while y
 are frozen. `diag_loss.py` counts the ceiling on better defence at **about one
 cell per game** ([§9.3](#93-defence-has-a-ceiling)).
 
+**The converse, which v7 missed: a level-1 cell cannot be defended at all.** Run
+the same walk with a raider that needs **one** stay. You shield at `t1`; it is
+frozen through `t2`; it stays at `t3` and takes the cell — while your cooldown
+still blocks `t2` to `t5`. Freeze (2) plus one stay is 3, which is not more than
+the cooldown (4), so the shield buys three turns, not the cell. For an upgraded
+cell it is 2 + 3 = 5 > 4, which is why that one holds.
+
+v7 still valued a level-1 shield as if it saved the cell for the rest of the game
+(57 points at 40 turns left, against a real 9). Measured, **79–89%** of the
+level-1 cells it shielded were taken by the same raider within six turns anyway.
+v8 stops spending shields there (`shield_l1: 0`); see
+[`strategy_audit/README.md`](strategy_audit/README.md), finding B2.
+
 ### 2.7 The cooldown window is the real exploit
 
 When any bot shields, **its entire territory is undefendable for the next four
@@ -724,11 +737,73 @@ So the guards matter as much as the strategy.
 | **Seat-canonical tie-breaking** | the bot playing a different game in each corner (§8.4) |
 | **Full parameter baking** | `ship.py` bakes the complete parameter set, so a key added after the last tuning run cannot go missing |
 
+### 5.5 Forecasting rivals: Bayesian goal inference (v9)
+
+Everything up to v8 sees the whole board but never asks where a rival is
+*going*. Its only model of opponents was the tuning field — weights fitted against
+bots written in this repository — which is overfitting by construction: it knows
+how the bots it trained against behave, not how a stranger will.
+
+`Forecaster` replaces that with **inverse planning**. Each rival is treated as a
+goal-directed agent playing by the same rules, and its goal is inferred from its
+own moves in the current game. Nothing is fitted to any pool of opponents.
+
+- **Prior — plan from the rival's chair.** For every cell, how good a target it is
+  *for that rival, from where it stands*: the points the work earns (value ×
+  turns it will pay, plus any raid bonus) per action-turn it costs (travel +
+  stays). The same arithmetic as §2.2, applied to someone else.
+- **Evidence — a noisy-rational move model.** Each step either brings the rival
+  closer to a candidate goal, holds, or takes it further away, with likelihoods
+  in the ratio e^β : 1 : e^−β (β = 2).
+- **Structure taken from the rules.**
+  - Rivals re-plan every turn, so the belief is the *current* prior times recent
+    evidence, with evidence fading by ρ = 0.9 per step.
+  - A stay is how work is done: a stay that *finishes* work (the tracker's progress
+    is back to 0) starts a fresh goal, and a stay mid-work marks the current cell
+    as the goal.
+- **Forecast.** The posterior gives each rival's likely destination and its
+  arrival turn. Chaining "its best next target after that one" twice carries the
+  forecast further out.
+- **Use.** Any piece of work in the walk planner is multiplied by the probability
+  that its cell is still free when the bot arrives: every rival forecast to stand
+  on it first takes it with that rival's probability, and arriving on the same
+  turn is a contest, counted as even.
+
+The constants — β 2, ρ 0.9, κ 3 (prior temperature), a two-target chain — were set
+on principle before any measurement and never tuned. Tuning them on the fields
+used to judge the method would reintroduce exactly the overfitting it replaces.
+
+**Three modelling errors**, found with `strategy_audit/forecast_probe.py` on the
+training-like field and each documented where it was fixed:
+
+| version | finds the true destination |
+|---|---|
+| likelihood of the exact move — splits credit among equally good moves, but real bots walk in straight lines | 2.5% |
+| goals persisting ten turns — rivals finish a target every few turns | 19% |
+| every stay read as "goal = here", even one that just finished the work | 16% |
+| **as shipped** | **48%** |
+
+**What it achieves.**
+
+- **Accuracy:** on the held-out field it finds a moving rival's next destination
+  48% of the time, against 1% for "it stays put". Its position error 8 turns
+  ahead is 2.17 cells, against 2.54 for "stays put" and 2.86 for "keeps going".
+  The rule prior alone is nearly as accurate (48.1%), so most of the power is in
+  planning from the rival's chair; watching its moves adds calibration (it gives
+  the truth 0.088 probability against 0.081).
+- **Strength:** paired against v8, **+0.050 PW (z +3.1)** over 1,000 games on the
+  field closest to Round 1 — mixed lineups of opponents the bot was never tuned
+  against — level against the strongest bots, and **−0.024 PW (z −1.8)** against
+  the repository's own strangers. Full tables are in the README's v9 section and
+  in `strategy_audit/README.md` §13.
+
 ---
 
 ## 6. Every parameter, and what it controls
 
-The bot has 51 tunable numbers. Grouped by what they *mean*:
+The bot has 51 tunable numbers, plus 11 on/off switches added in v8 and the v9
+forecaster's switch with its four fixed constants (both listed last).
+Grouped by what they *mean*:
 
 **Planning**
 
@@ -785,6 +860,40 @@ The bot has 51 tunable numbers. Grouped by what they *mean*:
 | `proj_care` | compare rivals on current score or on projected final score |
 | `endgame_care`, `endgame_denial` | switch to winning still-live pairings near the end |
 | `lead_caution` | when ahead treat raids as riskier; when behind, safer |
+
+**v8 switches — fixes from the strategy audit**
+
+Not tuned weights but on/off corrections, each closing one finding in
+[`strategy_audit/README.md`](strategy_audit/README.md). Every default in `mybot.PARAMS` reproduces
+v7 exactly (checked move for move by `strategy_audit/check_v7_compat.py`);
+`v8_params.json` switches them all on.
+
+| parameter | finding | v8 | meaning |
+|---|---|---|---|
+| `shield_l1` | B2 | 0 | spend a shield to stop a take on a level-1 cell — it only delays the loss (§2.6) |
+| `shield_home` | B3 | 0 | count a rival on my home as a capture threat — homes can never be taken |
+| `last_shield_value` | B4 | 1 | on the last turn, shield only for a real take worth more than my own last stay |
+| `turn_guard` | C2 | 1 | a board after turn 80 is a game whose start was missed: re-estimate the turn |
+| `calibrate` | C3 | 1 | measure the shield cooldown and the freeze length instead of assuming 4 and 2 |
+| `penalty_undo` | C1 | 1 | a freeze outlasting a shield freeze was a Round 2 time penalty: withdraw the cooldown inferred from it |
+| `solver_retry` | C4 | 1 | if my own shield never happened, re-solve instead of dropping every shield seen |
+| `risk_frozen` | C4 | 1 | a frozen landlord cannot shield either: raid risk uses max(cooldown, freeze) |
+| `backfire_prod` | C4 | 1 | a shield backfires only if every rival on my land leaves |
+| `contest_owner` | C4 | 1 | the step tie-break knows a cell's owner always wins a contest for it |
+| `canon_home` | C4 | 1 | tie-break frame from my actual home cell, not my seat number |
+
+**v9 switch — forecasting rivals (§5.5)**
+
+| parameter | v9 | meaning |
+|---|---|---|
+| `forecast` | 1 | infer each rival's goal from its own moves and discount work on cells a rival will reach first; 0 reproduces v8 move for move |
+| `fc_beta` | 2.0 | rationality of the move model: closer : held : further = e^β : 1 : e^−β |
+| `fc_rho` | 0.9 | how much of the previous step's evidence survives each turn |
+| `fc_kappa` | 3.0 | prior temperature: the best target is e^κ ≈ 20× as likely a priori as a worthless one |
+| `fc_chain` | 2 | further targets forecast after the current one |
+| `fc_defend` | 0 | also use the forecast for defence: reaching a threatened level-1 cell first and upgrading it. Built and measured; cuts cells lost by ~12% but did not pass the pre-registered placement test, so it is off (`strategy_audit/README.md` §14) |
+
+Fixed on principle, not tuned (see §5.5).
 
 ---
 
@@ -890,7 +999,9 @@ Grouped by how badly a failure would hurt. `runtests.py` runs them all.
 
 | file | what it is |
 |---|---|
-| `v1_params.json` … `v7_params.json` (plus `v2b`, a variant branch of v2) | the tuned versions in order. **`v7` is the current shipped weight set** — tuned against the rebuilt field with the confirmation stage, and shipped with `tie_home: 1` for seat symmetry |
+| `v1_params.json` … `v7_params.json` (plus `v2b`, a variant branch of v2) | the tuned versions in order. `v7` was tuned against the rebuilt field with the confirmation stage, and shipped with `tie_home: 1` for seat symmetry |
+| `v8_params.json` | v7's weights, unchanged, plus the eleven audit switches of §6 (ten on, `risk_frozen` measured and left off). Not a retune — every v7 weight is identical |
+| **`v9_params.json`** | **the shipped set**: v8 plus `forecast: 1` and the forecaster's fixed constants (§5.5) |
 | `v4_seed.json`, `v5_seed.json`, `v6_seed.json` | the seeds those runs started from |
 | `nemesis1.json`, `nemesis2.json`, `nemesis3.json` | counter-bots bred to beat a named version of this bot |
 | `pro_params_v1.json` | the frozen independent rival. **Committed**, because `field.py` depends on it; without it the field silently falls back to the untuned version |
@@ -900,6 +1011,24 @@ Grouped by how badly a failure would hurt. `runtests.py` runs them all.
 A run in progress writes to `best_params.json`, which is **gitignored** along
 with `pro_params.json`, so a half-tuned file cannot be mistaken for a decision.
 Harvested results are copied to an explicit `vN_params.json` and committed.
+
+### 7.8b The strategy audit (`strategy_audit/`)
+
+An adversarial review of the shipped bot against the rulebook, and a test against
+opponents and referees written outside this repository. Its findings are what v8
+fixes. Full write-up: [`strategy_audit/README.md`](strategy_audit/README.md).
+
+| file | what it is |
+|---|---|
+| `strategy_audit/README.md` | every finding with its rule, code location, mechanism and paired evidence, and what v8 did about it |
+| `strategy_audit/edge_audit.py` | paired, instrumented harness. `AUDIT_BOT` picks the bot (`bot`, `mybot`, or a file such as an old version pulled from git); variants are fix switches, `KEY:VALUE` overrides or `@file.json` |
+| `strategy_audit/outsiders.py` | eight opponent designs written from the rulebook alone, sharing no code with the field here |
+| `strategy_audit/referee.py` | plays identical games under alternative readings of the cooldown and freeze durations |
+| `strategy_audit/penalty.py` | injects Round 2 time-penalty freezes and measures tracker error |
+| `strategy_audit/lastturn.py`, `strategy_audit/scenarios.py` | turn-80 raids; constructed edge cases run against the bot's internals |
+| `strategy_audit/check_v7_compat.py` | proves every v8 switch at its default plays move-for-move like the v7 `bot.py` in git history |
+| `strategy_audit/forecast_probe.py` | scores the v9 forecaster against what rivals actually did — next destination, position 1–8 turns ahead, arrival time — against no-inference, stay-put and momentum baselines |
+| `strategy_audit/results/` | every table the write-up quotes |
 
 ### 7.9 Scratch files — not load-bearing
 
@@ -1161,6 +1290,24 @@ Plus one in an opponent: `ai_route` paced NORTH/SOUTH 66 times in 80 turns and
 banked 10 stays, the same class of bug that once halved this bot's score.
 `audit.py` now flags it.
 
+**Found later by the strategy audit, and fixed in v8** (full write-up in
+[`strategy_audit/README.md`](strategy_audit/README.md)):
+
+| bug | consequence | v8 |
+|---|---|---|
+| **A missed turn-1 call left the turn counter running past 80** | if module state survived into a new game, the whole game was played as its last turn: 156 points against rivals' ~2,700 | `turn_guard` re-estimates the turn; 2,584 in the same scenario |
+| **Level-1 cells were defended with shields** | 2 frozen turns + 1 stay ≤ a 4-turn cooldown, so 79–89% fell to the same raider anyway (§2.6) | `shield_l1: 0` |
+| **A rival on the bot's home was priced as a capture threat** | homes can never be taken; with a 2-point home the shield fired on every turn | `shield_home: 0` |
+| **Round 2 time penalties read as shields** | the tracker believed a ready rival could not shield: unsafe on 2.5–7.0% of rival-turns | `penalty_undo` cuts it by 20–27% |
+| **Cooldown and freeze lengths assumed, never measured** | the bot's edge depends on them: a server counting either one turn differently costs v7 0.16–0.22 PW | `calibrate` measures both; v8 beats v7 under every reading |
+| **The turn-80 shield ignored the bot's own last stay** | gave up a completed raid to stop one that could not happen | `last_shield_value` |
+
+And one in the first v8 draft, caught before shipping by testing against an
+alternative referee: the penalty fix could not tell a 3-turn *shield* freeze from
+a 3-turn *penalty* before it had seen one, so it withdrew real cooldowns
+(**−0.070 PW**). It now waits until the freeze length has been observed, and the
+shipped v8 is **+0.030 PW** against v7 under that referee.
+
 ---
 
 ## 10. What is still open
@@ -1183,9 +1330,35 @@ limits.
 - **Round 2 is a different game.** It is played on physical robots, where
   mis-calibration costs a 3-turn freeze and a stationary robot cannot miss its
   cell. That argues for a path-length penalty and a bias toward staying put —
-  neither of which is in the bot, because neither helps in Round 1.
-- **The tuned gain is marginal on unfamiliar opponents.** `bot.py` now carries
-  v7, which is weakly better or level on every field and never significantly
-  worse — but the headline +0.251 was measured on a field containing six of my
-  own snapshots, and against strangers it is +0.024 and not significant
-  (§8.3b). The search converged: twenty further generations added +0.007.
+  neither of which is in the bot, because neither helps in Round 1. v8 makes the
+  tracker tolerate those freezes better (`penalty_undo`), but the first two turns
+  of a penalty still look exactly like a shield freeze.
+- **The tuned gain is marginal on unfamiliar opponents.** v7 was weakly better or
+  level on every field and never significantly worse — but the headline +0.251
+  was measured on a field containing six of my own snapshots, and against
+  strangers it is +0.024 and not significant (§8.3b). The search converged:
+  twenty further generations added +0.007. v8 keeps those weights and only adds
+  corrections; it is a robustness release, not a strength jump.
+- **The weights encode one reading of two rule durations.** Under a referee that
+  counts the shield cooldown or the freeze one turn differently from `engine.py`,
+  the bot drops 0.15–0.24 PW from its own standard-rules result. v8 measures both
+  durations at runtime and beats v7 under every reading, but calibration fixes the
+  tracker, not the weights. The real fix is to confirm the counting with the
+  organisers and, if it differs, retune on an engine that matches.
+- **The raid-shield prior is a bet on the field** (`q_prior`, `q_weight`).
+  Learning faster gains 48 points against never-shield opponents and loses 0.111
+  PW against strong ones; v8 keeps v7's setting. If the real field turns out
+  mostly naive, this is the first thing to revisit.
+- **Forecasting helps where the opponents are unfamiliar and costs a little where
+  they are not.** v9's goal inference is +0.050 PW (z +3.1) on mixed lineups of
+  opponents never tuned against, but −0.024 PW (z −1.8) against the repository's
+  strangers, and its points gain did not replicate on fresh games. The forecast is
+  used to avoid cells a rival will reach first. Its use for defence — reaching a
+  level-1 cell before a forecast raider does (`fc_defend`) — was built and tested
+  against a rule fixed in advance: it cuts cells lost by about 12% on every field,
+  never hurts, but does not measurably win more pairings (+0.006 PW, z +0.8, over
+  1,000 games), so it ships off. If Round 1 turns out to look like the strangers
+  rather than the outside designs, v8 is the safer build.
+- **The income horizon is one turn short** (`rem = R - used - need`; a cell
+  taken this turn also scores this turn). The tuned weights absorb it, so fixing
+  it alone measures nothing; it belongs in the next retune.

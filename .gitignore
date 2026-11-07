@@ -15,6 +15,8 @@ StrategyBot_RuleBook.pdf
 best_params.json
 pro_params.json
 
+# a results file still being written (strategy_audit renames it on success)
+*.partial
 # visual harness: unpacked branch snapshots, uploads and saved games
 harness/.cache/
 harness/replays/
