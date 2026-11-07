@@ -32,6 +32,8 @@ SUITES = [
      "completion income, legal defence, route progress and observed homes"),
     ("correctness", "test_freshlab.py", [], False,
      "public opponent inference, fresh split isolation and final-turn payoffs"),
+    ("correctness", "test_territorylab.py", [], False,
+     "opening signals, spatial demand symmetry, public information and controls"),
     ("correctness", "test_determinism.py", ["60"], False,
      "the measurement harness itself: paired games must be reproducible"),
     ("survival", "test_guards.py", [], False,

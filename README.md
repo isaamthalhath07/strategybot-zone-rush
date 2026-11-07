@@ -1,5 +1,15 @@
 # StrategyBot — Zone Rush
 
+## Territorial-intent experiments
+
+The bot now has a research prototype that infers inward, perimeter and local
+work preferences from public opening history. A fixed version gained +0.0552
+opponents outscored/game on 896 paired games against unused spatial scheduling
+rules, but a separate 896-game check against four further economic planners
+was inconclusive (-0.0022). A simple two-rushers → edges rule also failed to
+establish a gain. **The active submission remains v8.** Read [the hypothesis,
+implementation and limitations](territorylab/README.md) and [all results](territorylab/RESULTS.md).
+
 ## Fresh-opponent feature search (current experiment branch)
 
 The accepted candidate uses `v8_fresh_params.json`. On a pre-registered final set of 1,024 paired games against three unseen procedural scheduling families, it improved mean opponents outscored from 2.1523 to 2.2275: **+0.0752, 95% interval [+0.0393, +0.1111]**. New opponent-style predictions improved, but did not establish an additional playing-strength gain, so the larger learner remains experimental.
