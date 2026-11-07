@@ -14,3 +14,9 @@ StrategyBot_RuleBook.pdf
 # default) and the result be copied to an explicit vN_params.json once harvested.
 best_params.json
 pro_params.json
+
+# visual harness: unpacked branch snapshots, uploads and saved games
+harness/.cache/
+harness/replays/
+# harness/simulate.py sessions (results, reports)
+harness/simulations/
