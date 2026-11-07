@@ -12,8 +12,14 @@ The "preventable" column is the ceiling on what better defence could be worth. I
 it is small, no amount of shield tuning will help.
 
     python diag_loss.py [games] [opponent ...]
+    DEF_PARAMS=v7_params.json python diag_loss.py 24 cdraider nemesis2
+
+DEF_PARAMS picks whose losses are being counted; it defaulted to v6 while v6
+was the shipped set, and leaving that hard-wired would have quietly reported the
+wrong bot's weaknesses after v7 shipped.
 """
 import json
+import os
 import sys
 
 import engine
@@ -22,9 +28,11 @@ import mybot
 OPPS = sys.argv[2:] or ["ai_cheapraid", "cdraider", "raider", "ai_hawk",
                         "spine", "ai_homefort"]
 GAMES = int(sys.argv[1]) if len(sys.argv) > 1 else 12
+DEF = os.environ.get("DEF_PARAMS", "v7_params.json")
 P = dict(mybot.PARAMS)
-P.update(json.load(open("v6_params.json")))
+P.update(json.load(open(DEF)))
 P["throttle"] = 0
+P["budget_ms"] = 10000.0
 
 
 def make(name, seed):
@@ -32,7 +40,8 @@ def make(name, seed):
     return fieldmod.opponent(name)(seed)
 
 
-print("v6 in seat 1 against three copies of each opponent, %d games each.\n" % GAMES)
+print("%s in seat 1 against three copies of each opponent, %d games each.\n"
+      % (DEF, GAMES))
 print("%-14s %7s %7s %7s %7s %7s %7s"
       % ("opponent", "score", "lost", "pts", "bonus", "prvnt", "shields"))
 print("-" * 68)

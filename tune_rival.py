@@ -46,12 +46,35 @@ BOUNDS = {
 
 # The field it is tuned against. Deliberately does NOT contain ProBot: a bot
 # tuned only against copies of itself learns a weak mutual equilibrium.
-FIELD = [
+DEFAULT_FIELD = [
     ("v6", 3.0), ("v3", 2.0), ("spine", 2.5), ("camper", 2.0),
     ("ai_hawk", 2.0), ("ai_homefort", 2.0), ("ai_cheapraid", 1.5),
     ("cdraider", 1.2), ("turtle", 1.0), ("greedy", 1.2), ("greedyshield", 1.2),
     ("raider", 0.8), ("baiter", 0.8), ("random", 0.2),
 ]
+
+
+def _field():
+    """RIVAL_FIELD overrides the tuning field; unset means the default above.
+
+    `counter:NAME` aims the whole field at one opponent, which asks the question
+    the mybot-shaped counter cannot: can a *differently architected* bot be bred
+    to beat a specific version of mine? That is the realistic threat model. No
+    competitor has my weights, so a clone of my planner tuned against my own
+    parameters is an upper bound nobody can reach -- but anyone can tune their
+    own design against whatever they guess the strong entries look like, and
+    ProBot is a rate ranker rather than a route planner, so it shares none of
+    my planner's blind spots.
+    """
+    spec = os.environ.get("RIVAL_FIELD", "").strip()
+    if not spec:
+        return list(DEFAULT_FIELD)
+    if spec.startswith("counter:"):
+        return [(spec.split(":", 1)[1], 1.0)]
+    return [(n.strip(), 1.0) for n in spec.split(",") if n.strip()]
+
+
+FIELD = _field()
 
 
 def _opp(name):
@@ -161,6 +184,7 @@ def main():
     lam = int(sys.argv[3]) if len(sys.argv) > 3 else 13
     out = sys.argv[4] if len(sys.argv) > 4 else "pro_params.json"
     procs = int(sys.argv[5]) if len(sys.argv) > 5 else min(24, multiprocessing.cpu_count())
+    print("field: %s" % ", ".join("%s(%.1f)" % (n, w) for n, w in FIELD))
     cur = dict(probot.WEIGHTS)
     if os.path.exists(out):
         cur.update(json.load(open(out)))

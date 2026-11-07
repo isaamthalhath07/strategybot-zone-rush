@@ -113,6 +113,10 @@ PARAMS = {
     "shield_certain": 0.90,
     "retake_credit": 0.45,     # I own the cell, so I win the contest to retake it
     "commit_prior": 0.55,      # prior P(a raider commits rather than bails)
+    "commit_weight": 3.0,      # pseudo-observations behind commit_prior: how many
+                               # real stay-or-leave sightings it takes before the
+                               # bot trusts what a rival actually does over the
+                               # prior. A huge value switches the model off.
     "free_shield_turns": 2,    # last turns where a backfire costs nothing
     # --- objective shaping --------------------------------------------------
     "tau": 170.0,              # score-margin scale for the placement sigmoid
@@ -1181,7 +1185,8 @@ class Agent(object):
         seen = tr.raids[j] + tr.baits[j]
         if seen < 3:
             return P["commit_prior"]
-        return (tr.raids[j] + P["commit_prior"] * 3.0) / (seen + 3.0)
+        w = P["commit_weight"]
+        return (tr.raids[j] + P["commit_prior"] * w) / (seen + w)
 
     # ----------------------------------------------------------------- moves
     def _step(self, me, target, occ, owner, seat):

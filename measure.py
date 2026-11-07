@@ -19,12 +19,23 @@ reported as a difference from it with a paired standard error and a z score.
 import json
 import math
 import multiprocessing as mp
+import os
 import random
 import sys
 
 import engine
 import field as fieldmod
+import maps
 import mybot
+
+
+def _default_procs():
+    """PROCS caps the pool, so a measurement can share the machine with a
+    tuner instead of oversubscribing it. Results do not depend on it: both
+    clock-reading paths are pinned off, which is the whole point of that
+    pinning."""
+    n = int(os.environ.get("PROCS", "0"))
+    return n if n > 0 else min(24, mp.cpu_count())
 
 
 def _make(name, seed):
@@ -56,7 +67,7 @@ def play(params, task):
     params = dict(params)
     params["throttle"] = 0
     params["budget_ms"] = 10000.0
-    base = engine.make_map(seed=map_seed)
+    base = maps.make(map_seed)      # MAPS picks the family; default unchanged
     bots = []
     k = 0
     for i in range(4):
@@ -97,7 +108,7 @@ def _worker(arg):
 
 def run(variants, tasks, procs=None, chunk=10):
     """variants: [(name, params)]. Returns name -> per-task [(pw, score, place)]."""
-    pool = mp.Pool(procs or min(24, mp.cpu_count()))
+    pool = mp.Pool(procs or _default_procs())
     jobs = []
     owner = []
     for vi, (_n, p) in enumerate(variants):
@@ -173,6 +184,8 @@ if __name__ == "__main__":
     games = int(sys.argv[1])
     tier = sys.argv[2]
     variants = [load(s) for s in sys.argv[3:]]
-    tasks = make_tasks(games, tier)
+    # SEED draws a fresh set of games, for confirming a result on games it was
+    # not discovered on. Reusing the discovery set would re-measure the same luck.
+    tasks = make_tasks(games, tier, seed=int(os.environ.get("SEED", "1")))
     res = run(variants, tasks)
     report(variants, res, label="[%s]" % tier)
