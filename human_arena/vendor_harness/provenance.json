@@ -1,0 +1,10 @@
+{
+  "ref": "origin/main",
+  "commit": "b75dec072b025b4e28bc21a07b6ab7be83a16a34",
+  "files": {
+    "worker.py": "9ae8c11c7bbcc0696a6c1fd4d1cc66684bb546d9db2c604a72b161c336d8db5f",
+    "sources.py": "a973cfab2405a4327f5026f232726b4dc91e7828a7cbdc949a477cbacd07a0f4",
+    "referee.py": "f1125e8ceee664781827c670c0c4481da41a7ef41a4e5276d6b3b118274af337",
+    "match.py": "d65edb2f6e3f3c44ccb49f352993445062efc27a92bfe05f4df0157b171389f1"
+  }
+}

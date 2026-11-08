@@ -1,0 +1,12 @@
+{
+  "url": "http://127.0.0.1:8773/",
+  "game_id": "22875901fa2a4e02a935d7b5b4754e17",
+  "initial_turn": 1,
+  "seed": 20261108,
+  "human_seat": 1,
+  "bot_sha256": "fe03b8164ed3b4ebd2a04abcdfbb6fa729bdc34dea825088f7e82bf6e5b5ab5e",
+  "recording": true,
+  "initial_saved_turns": 0,
+  "initial_faults": [],
+  "note": "Fresh user match created after testing; no actions submitted by the agent."
+}

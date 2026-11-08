@@ -1,0 +1,15 @@
+{
+  "source": "forward_fixed.py",
+  "source_sha256": "95da830e6f29d0ac06b095fb4de57ace8eb7962881818fa50a4c19f714ec07d9",
+  "candidate": "forward_presence.py",
+  "sha256": "68094583daf8b7207d74d6c87232ff4b165b491b65092023fa0ffeb06d454677",
+  "rule": "catch_requires_stay=False: after movement, every non-already-frozen rival on shield-owner land is eligible, including rival SHIELD; captures occur afterward.",
+  "authority": "Explicit user rule correction, 2026-11-08; not a claim that the previously ambiguous public wording was explicit.",
+  "changes": [
+    "All embedded hypothetical worlds default to presence shielding.",
+    "Shield attribution uses observed new positions and pre-capture ownership, including moving and SHIELD-choosing victims.",
+    "Territorial residence labels do not count moves within the same territory as escapes.",
+    "Raid risk includes arrival exposure and both cooldown/frozen unavailable turns.",
+    "Defensive catch model recognizes intruders with no unoccupied exit outside our land."
+  ]
+}

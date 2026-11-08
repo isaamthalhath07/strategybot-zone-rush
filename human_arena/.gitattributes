@@ -1,0 +1,3 @@
+# Candidate, release, harness and validation Python files are pinned by byte hash.
+# Preserve those exact bytes, including existing line endings, on every clone.
+*.py -text
