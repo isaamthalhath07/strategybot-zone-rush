@@ -1,0 +1,7 @@
+[solo:nv_a_paranoid] 100 paired games, reference = @v8_params.json
+@v8_params.json          PW 1.7900  score  2354.9
+    per game: shields=0.68, last_shields=0.14, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.04, l1_lost_anyway=0.01, backfires=0.01, raids=1.74, raids_early=0.04, cells_lost=2.12, idle=0.69, idle_late=0.01, moves=26.02, turns90=17.20, reversals=4.13
+@v9_params.json          PW 1.6700  score  2334.0  dPW -0.1200 +/- 0.1166 (z -1.03)  dScore -20.88 +/- 25.14 (z -0.83)  games changed 51
+    per game: shields=0.91, last_shields=0.13, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.07, l1_lost_anyway=0.04, backfires=0.10, raids=1.48, raids_early=0.10, cells_lost=2.19, idle=0.77, idle_late=0.02, moves=26.30, turns90=17.64, reversals=4.58
+    pairwise win rate vs each opponent (columns: variants in order)
+      nv_a_paranoid    0.597  0.557  (n=300)
