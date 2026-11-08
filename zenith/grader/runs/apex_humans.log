@@ -1,0 +1,11 @@
+game 1/8  acc 65.5%  loss 18.77  blunders 7 mistakes 1  (166 s)
+game 2/8  acc 94.1%  loss 2.14  blunders 2 mistakes 0  (254 s)
+game 3/8  acc 96.9%  loss 1.04  blunders 0 mistakes 0  (279 s)
+game 4/8  acc 88.9%  loss 5.00  blunders 2 mistakes 0  (393 s)
+game 5/8  acc 91.2%  loss 2.94  blunders 1 mistakes 3  (396 s)
+game 6/8  acc 88.6%  loss 4.31  blunders 1 mistakes 1  (540 s)
+game 7/8  acc 72.5%  loss 12.18  blunders 6 mistakes 2  (659 s)
+game 8/8  acc 97.6%  loss 0.76  blunders 0 mistakes 0  (823 s)
+
+gen:apex: 320 moves, accuracy 87.2% (84.1% on the 237 critical moves), average loss 0.156 PW/move, total 47.16 PW
+  Great 19  Best 200  Excellent 6  Good 15  Inaccuracy 36  Mistake 7  Blunder 19  Forced 18

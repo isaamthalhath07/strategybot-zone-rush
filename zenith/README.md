@@ -61,12 +61,31 @@ zero illegal actions in every game above. All eleven server-interface variants, 
 reloaded every turn, module reuse across seats and games, and the safety net with the
 agent forced to raise pass (`tests/test_zenith.py`).
 
+**The grader's verdict.** Apex and Zenith were graded on the same 8 tasks against the
+human-like players (`grader/runs/campaign2.sh`: same maps, seats, line-ups and tokens,
+every other turn graded, 4 samples per candidate):
+
+| | Apex | Zenith |
+|---|---|---|
+| accuracy | 87.2% | **94.3%** |
+| accuracy on critical moves | 84.1% | **93.6%** |
+| Blunders / Mistakes | 19 / 7 | **8 / 2** |
+| total value lost | 47.2 PW | **19.9 PW** |
+| shields played that lost | 8, costing 6.9 PW | **4, costing 0.25 PW** |
+| completing raid stays into a shield | 5, costing 1.3 PW | 7, costing 0.0 PW |
+| shields missed | 29, costing 6.0 PW | 14, costing 5.4 PW |
+
+Eight games is a small sample, and the games part ways after the first different move,
+so these are not the same positions. It is the grader confirming from the other side
+what the paired games measured: the shield moments it flagged are where Zenith stopped
+losing value. Missed shields are the leak left for the next generation.
+
 
 ---
 
 ## 1. Why a new generation: Apex loses to a calm human
 
-The user could beat Apex by hand. To make that measurable,
+Apex could be beaten by hand. To make that measurable,
 [`lab/humanlike/`](lab/humanlike) holds six opponents that play the way a person who
 has watched these bots would. All six farm with the evolved planner's economy, the
 strongest in the repository, because anyone who beats Apex farms at least that well.

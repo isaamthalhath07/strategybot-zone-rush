@@ -1,0 +1,155 @@
+
+gen:apex: 320 moves, accuracy 87.2% (84.1% on the 237 critical moves), average loss 0.156 PW/move, total 47.16 PW
+  Great 19  Best 200  Excellent 6  Good 15  Inaccuracy 36  Mistake 7  Blunder 19  Forced 18
+
+loss by phase
+  bucket                      moves   loss/mv   share  mist+bl  blunder
+  11-30 build                    78    0.1918   31.7%        8        8
+  1-10 opening                   40    0.3489   29.6%        4        4
+  31-60 middle                  113    0.1172   28.1%        7        5
+  61-75 late                     53    0.0907   10.2%        7        2
+  76-80 final                    18    0.0106    0.4%        0        0
+
+loss by played -> best action kind
+  bucket                      moves   loss/mv   share  mist+bl  blunder
+  STAY -> MOVE                   83    0.2648   46.6%        9        8
+  MOVE -> MOVE                   67    0.1225   17.4%        6        3
+  SHIELD -> MOVE                  5    1.2667   13.4%        3        3
+  MOVE -> STAY                   15    0.2708    8.6%        2        2
+  MOVE -> SHIELD                 15    0.2215    7.0%        4        1
+  STAY -> SHIELD                 14    0.1889    5.6%        1        1
+  SHIELD -> STAY                  3    0.2032    1.3%        1        1
+  STAY -> STAY                   97    0.0000    0.0%        0        0
+  SHIELD -> SHIELD                3    0.0000    0.0%        0        0
+
+loss by where the bot stood
+  bucket                      moves   loss/mv   share  mist+bl  blunder
+  own                           133    0.1578   44.5%        8        8
+  own_up                         52    0.1608   17.7%        4        4
+  neutral                        58    0.1436   17.7%        4        3
+  rival_up                       43    0.1369   12.5%        8        2
+  home                            7    0.4080    6.1%        1        1
+  rival                           8    0.0906    1.5%        1        1
+  rival_home                      1    0.0077    0.0%        0        0
+
+loss by rivals on my land
+  bucket                      moves   loss/mv   share  mist+bl  blunder
+  intruders=0                   252    0.1315   70.3%       18       12
+  intruders=1                    45    0.2508   23.9%        6        5
+  intruders=2                     5    0.5482    5.8%        2        2
+
+loss by cell and progress
+  bucket                      moves   loss/mv   share  mist+bl  blunder
+  own/prog0                      53    0.2439   27.4%        7        7
+  own_up/prog0                   52    0.1608   17.7%        4        4
+  neutral/prog0                  58    0.1436   17.7%        4        3
+  own/prog1                      41    0.1183   10.3%        1        1
+  own/prog2                      39    0.0825    6.8%        0        0
+  rival_up/prog0                 28    0.0907    5.4%        5        0
+  home/prog0                      4    0.5684    4.8%        1        1
+  rival_up/prog2                  7    0.2844    4.2%        2        1
+  rival_up/prog1                  8    0.1695    2.9%        1        1
+  rival/prog0                     8    0.0906    1.5%        1        1
+  home/prog1                      1    0.5828    1.2%        0        0
+  rival_home/prog0                1    0.0077    0.0%        0        0
+  home/prog2                      2    0.0000    0.0%        0        0
+
+loss by line-up
+  bucket                      moves   loss/mv   share  mist+bl  blunder
+  hx_aggro,hx_aggro,hx_bait      36    0.5215   39.8%        8        7
+  hx_bait,hx_mixed,hx_mixed      37    0.3292   25.8%        8        6
+  hx_bait,hx_bait,hx_steady      37    0.1352   10.6%        2        2
+  hx_aggro,hx_sniper,hx_stea     39    0.1106    9.1%        2        1
+  hx_cdsnipe,hx_steady,hx_st     36    0.0818    6.2%        4        1
+  hx_bait,hx_cdsnipe,hx_snip     37    0.0578    4.5%        2        2
+  hx_bait,hx_cdsnipe,hx_mixe     40    0.0259    2.2%        0        0
+  hx_aggro,hx_mixed,hx_snipe     40    0.0191    1.6%        0        0
+
+  costliest moves
+   t40 seat4 SHIELD?? Blunder    loss 2.643  best EAST   | EAST 2.65, STAY 1.08, NORTH 0.93, SOUTH 0.93, WEST 0.93, SHIELD 0.00  [neutral]
+   t14 seat4 EAST  ?? Blunder    loss 1.870  best NORTH  | NORTH 2.31, WEST 2.31, SHIELD 1.03, SOUTH 0.67, EAST 0.44, STAY 0.25  [own_up]
+   t06 seat4 STAY  ?? Blunder    loss 1.856  best NORTH  | NORTH 2.97, EAST 1.96, STAY 1.11, SHIELD 0.46, SOUTH 0.32  [own]
+   t12 seat4 STAY  ?? Blunder    loss 1.827  best NORTH  | NORTH 2.84, WEST 2.84, EAST 1.02, STAY 1.02, SOUTH 1.00, SHIELD 0.51  [own]
+   t09 seat2 WEST  ?? Blunder    loss 1.586  best STAY   | STAY 2.83, EAST 2.53, SHIELD 1.74, NORTH 1.63, WEST 1.25  [own]
+   t20 seat3 SHIELD?? Blunder    loss 1.520  best WEST   | WEST 2.96, NORTH 2.28, STAY 2.00, SHIELD 1.44  [own_up]
+   t01 seat2 SOUTH ?? Blunder    loss 1.474  best WEST   | WEST 2.63, STAY 1.92, SHIELD 1.54, SOUTH 1.15  [home]
+   t18 seat4 STAY  ?? Blunder    loss 1.472  best SHIELD | SHIELD 1.89, WEST 1.34, NORTH 0.72, EAST 0.53, STAY 0.42  [own]
+   t26 seat4 SHIELD?? Blunder    loss 1.466  best WEST   | WEST 1.95, NORTH 1.70, STAY 1.36, EAST 1.30, SHIELD 0.48  [own]
+   t10 seat4 STAY  ?! Inaccuracy loss 1.443  best SOUTH  | SOUTH 2.19, EAST 1.44, STAY 0.75, SHIELD 0.74, NORTH 0.56, WEST 0.56  [neutral]
+
+gen:zenith: 320 moves, accuracy 94.3% (93.6% on the 273 critical moves), average loss 0.063 PW/move, total 19.94 PW
+  Brilliant 4  Great 50  Best 216  Excellent 7  Good 8  Inaccuracy 20  Mistake 2  Blunder 8  Forced 5
+
+loss by phase
+  bucket                      moves   loss/mv   share  mist+bl  blunder
+  11-30 build                    78    0.0969   37.9%        6        6
+  1-10 opening                   40    0.1515   30.4%        3        2
+  31-60 middle                  119    0.0332   19.8%        1        0
+  61-75 late                     58    0.0379   11.0%        0        0
+  76-80 final                    20    0.0088    0.9%        0        0
+
+loss by played -> best action kind
+  bucket                      moves   loss/mv   share  mist+bl  blunder
+  STAY -> MOVE                   45    0.1921   43.4%        5        4
+  MOVE -> MOVE                   72    0.0666   24.1%        2        2
+  STAY -> SHIELD                  6    0.4634   13.9%        1        1
+  MOVE -> SHIELD                  8    0.3317   13.3%        2        1
+  MOVE -> STAY                   12    0.0681    4.1%        0        0
+  SHIELD -> STAY                  2    0.1204    1.2%        0        0
+  SHIELD -> MOVE                  2    0.0031    0.0%        0        0
+  STAY -> STAY                  161    0.0000    0.0%        0        0
+  SHIELD -> SHIELD                7    0.0000    0.0%        0        0
+
+loss by where the bot stood
+  bucket                      moves   loss/mv   share  mist+bl  blunder
+  own                           154    0.0792   61.2%        6        5
+  own_up                         49    0.0800   19.7%        3        2
+  neutral                        64    0.0486   15.6%        1        1
+  rival                           7    0.0561    2.0%        0        0
+  rival_up                       34    0.0092    1.6%        0        0
+  home                            7    0.0000    0.0%        0        0
+
+loss by rivals on my land
+  bucket                      moves   loss/mv   share  mist+bl  blunder
+  intruders=0                   250    0.0647   81.1%        9        7
+  intruders=1                    57    0.0655   18.7%        1        1
+  intruders=2                     7    0.0041    0.1%        0        0
+  intruders=3                     1    0.0000    0.0%        0        0
+
+loss by cell and progress
+  bucket                      moves   loss/mv   share  mist+bl  blunder
+  own/prog0                      64    0.1037   33.3%        3        3
+  own_up/prog0                   49    0.0800   19.7%        3        2
+  own/prog1                      46    0.0687   15.8%        1        1
+  neutral/prog0                  64    0.0486   15.6%        1        1
+  own/prog2                      44    0.0547   12.1%        2        1
+  rival/prog0                     7    0.0561    2.0%        0        0
+  rival_up/prog0                 20    0.0156    1.6%        0        0
+  home/prog1                      1    0.0000    0.0%        0        0
+  home/prog0                      4    0.0000    0.0%        0        0
+  rival_up/prog2                  8    0.0000    0.0%        0        0
+  rival_up/prog1                  6    0.0000    0.0%        0        0
+  home/prog2                      2    0.0000    0.0%        0        0
+
+loss by line-up
+  bucket                      moves   loss/mv   share  mist+bl  blunder
+  hx_aggro,hx_aggro,hx_bait      39    0.1765   34.5%        3        2
+  hx_bait,hx_mixed,hx_mixed      39    0.1509   29.5%        2        2
+  hx_bait,hx_cdsnipe,hx_snip     38    0.0719   13.7%        3        2
+  hx_aggro,hx_sniper,hx_stea     40    0.0325    6.5%        1        1
+  hx_aggro,hx_mixed,hx_snipe     40    0.0290    5.8%        0        0
+  hx_bait,hx_bait,hx_steady      39    0.0270    5.3%        1        1
+  hx_bait,hx_cdsnipe,hx_mixe     40    0.0211    4.2%        0        0
+  hx_cdsnipe,hx_steady,hx_st     40    0.0021    0.4%        0        0
+
+  costliest moves
+   t10 seat4 STAY  ?? Blunder    loss 1.781  best SOUTH  | SOUTH 2.96, EAST 2.35, STAY 1.17, NORTH 0.76, WEST 0.76, SHIELD 0.43  [neutral]
+   t14 seat4 SOUTH ?! Inaccuracy loss 1.324  best NORTH  | NORTH 2.31, WEST 2.31, SHIELD 1.24, SOUTH 0.99, EAST 0.79, STAY 0.36  [own_up]
+   t06 seat4 STAY  ?! Inaccuracy loss 1.309  best NORTH  | NORTH 2.70, EAST 2.64, STAY 1.33, SHIELD 0.56, SOUTH 0.54  [own]
+   t37 seat2 STAY  ?! Inaccuracy loss 1.271  best SHIELD | SHIELD 2.13, SOUTH 1.51, NORTH 1.51, EAST 1.40, WEST 1.03, STAY 0.86  [own]
+   t03 seat2 SOUTH ?? Blunder    loss 1.242  best WEST   | WEST 2.99, STAY 2.16, SHIELD 2.03, EAST 1.92, SOUTH 1.75  [own]
+   t12 seat4 STAY  ?? Blunder    loss 1.227  best NORTH  | NORTH 2.79, WEST 2.79, SHIELD 1.60, STAY 1.56, SOUTH 0.52, EAST 0.48  [own]
+   t05 seat2 WEST  ?! Inaccuracy loss 0.943  best SHIELD | SHIELD 2.52, STAY 2.41, SOUTH 2.34, EAST 2.13, NORTH 1.91, WEST 1.29  [own]
+   t24 seat3 STAY  ?? Blunder    loss 0.907  best EAST   | EAST 2.99, WEST 2.26, STAY 2.08, NORTH 1.80, SHIELD 0.62  [own]
+   t29 seat2 NORTH ?? Blunder    loss 0.856  best SHIELD | SHIELD 2.24, WEST 1.77, NORTH 1.39, STAY 1.28, SOUTH 1.21  [own_up]
+   t14 seat3 STAY  ?? Blunder    loss 0.829  best SHIELD | SHIELD 2.50, STAY 1.67, NORTH 1.52, WEST 1.40, EAST 1.25, SOUTH 1.05  [own]

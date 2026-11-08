@@ -1,0 +1,11 @@
+game 1/8  acc 87.7%  loss 6.88  blunders 2 mistakes 1  (251 s)
+game 2/8  acc 92.7%  loss 2.73  blunders 2 mistakes 1  (290 s)
+game 3/8  acc 97.3%  loss 0.84  blunders 0 mistakes 0  (305 s)
+game 4/8  acc 99.7%  loss 0.08  blunders 0 mistakes 0  (452 s)
+game 5/8  acc 97.4%  loss 1.05  blunders 1 mistakes 0  (509 s)
+game 6/8  acc 96.5%  loss 1.30  blunders 1 mistakes 0  (562 s)
+game 7/8  acc 86.6%  loss 5.89  blunders 2 mistakes 0  (731 s)
+game 8/8  acc 96.5%  loss 1.16  blunders 0 mistakes 0  (848 s)
+
+gen:zenith: 320 moves, accuracy 94.3% (93.6% on the 273 critical moves), average loss 0.063 PW/move, total 19.94 PW
+  Brilliant 4  Great 50  Best 216  Excellent 7  Good 8  Inaccuracy 20  Mistake 2  Blunder 8  Forced 5
