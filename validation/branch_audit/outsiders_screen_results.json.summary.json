@@ -1,0 +1,403 @@
+{
+  "summary": {
+    "bot_7773ed52b9b8": {
+      "games": 32,
+      "mean_pw": 1.34375,
+      "mean_score": 2740.75,
+      "fields": {
+        "league": 1.0,
+        "novel_dynamic": 1.0,
+        "novel_economy": 2.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.5483999848365784,
+      "mean_ms": 0.07739597544969001
+    },
+    "bot_f0c36af99230": {
+      "games": 32,
+      "mean_pw": 1.09375,
+      "mean_score": 2597.0625,
+      "fields": {
+        "league": 0.0,
+        "novel_dynamic": 1.3636363636363635,
+        "novel_economy": 1.8181818181818181
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.493900035507977,
+      "mean_ms": 0.03608898414313444
+    },
+    "bot_e7ea25fe8574": {
+      "games": 32,
+      "mean_pw": 0.96875,
+      "mean_score": 2370.09375,
+      "fields": {
+        "league": 0.0,
+        "novel_dynamic": 1.2727272727272727,
+        "novel_economy": 1.5454545454545454
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.5234000273048878,
+      "mean_ms": 0.05757187600465841
+    },
+    "bot_a4a1690acb18": {
+      "games": 32,
+      "mean_pw": 0.90625,
+      "mean_score": 2700.71875,
+      "fields": {
+        "league": 0.6,
+        "novel_dynamic": 1.0909090909090908,
+        "novel_economy": 1.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.533799990080297,
+      "mean_ms": 0.05077242262814252
+    },
+    "bot_f5a54e20dbe3": {
+      "games": 32,
+      "mean_pw": 0.53125,
+      "mean_score": 2381.21875,
+      "fields": {
+        "league": 0.1,
+        "novel_dynamic": 1.2727272727272727,
+        "novel_economy": 0.18181818181818182
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 2.252899925224483,
+      "mean_ms": 0.7347789079176437
+    },
+    "bot_f6ce1650ae56": {
+      "games": 32,
+      "mean_pw": 0.0625,
+      "mean_score": 2393.03125,
+      "fields": {
+        "league": 0.0,
+        "novel_dynamic": 0.18181818181818182,
+        "novel_economy": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.4645000444725156,
+      "mean_ms": 0.03971191486016323
+    },
+    "bot_29943674e478": {
+      "games": 32,
+      "mean_pw": 0.03125,
+      "mean_score": 1731.5,
+      "fields": {
+        "league": 0.0,
+        "novel_dynamic": 0.0,
+        "novel_economy": 0.09090909090909091
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.4849000833928585,
+      "mean_ms": 0.04363628690953192
+    },
+    "bot_ad053b858504": {
+      "games": 32,
+      "mean_pw": 0.03125,
+      "mean_score": 2235.0625,
+      "fields": {
+        "league": 0.0,
+        "novel_dynamic": 0.09090909090909091,
+        "novel_economy": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.60889997985214,
+      "mean_ms": 0.07176452982093906
+    }
+  },
+  "paired": [
+    {
+      "first": "bot_7773ed52b9b8",
+      "second": "bot_f0c36af99230",
+      "mean": 0.25,
+      "clusters": 2,
+      "bootstrap_95": [
+        0.125,
+        0.375
+      ]
+    },
+    {
+      "first": "bot_7773ed52b9b8",
+      "second": "bot_e7ea25fe8574",
+      "mean": 0.375,
+      "clusters": 2,
+      "bootstrap_95": [
+        0.0625,
+        0.6875
+      ]
+    },
+    {
+      "first": "bot_7773ed52b9b8",
+      "second": "bot_a4a1690acb18",
+      "mean": 0.4375,
+      "clusters": 2,
+      "bootstrap_95": [
+        -0.125,
+        1.0
+      ]
+    },
+    {
+      "first": "bot_7773ed52b9b8",
+      "second": "bot_f5a54e20dbe3",
+      "mean": 0.8125,
+      "clusters": 2,
+      "bootstrap_95": [
+        0.25,
+        1.375
+      ]
+    },
+    {
+      "first": "bot_7773ed52b9b8",
+      "second": "bot_f6ce1650ae56",
+      "mean": 1.28125,
+      "clusters": 2,
+      "bootstrap_95": [
+        0.8125,
+        1.75
+      ]
+    },
+    {
+      "first": "bot_7773ed52b9b8",
+      "second": "bot_29943674e478",
+      "mean": 1.3125,
+      "clusters": 2,
+      "bootstrap_95": [
+        0.8125,
+        1.8125
+      ]
+    },
+    {
+      "first": "bot_7773ed52b9b8",
+      "second": "bot_ad053b858504",
+      "mean": 1.3125,
+      "clusters": 2,
+      "bootstrap_95": [
+        0.8125,
+        1.8125
+      ]
+    },
+    {
+      "first": "bot_f0c36af99230",
+      "second": "bot_e7ea25fe8574",
+      "mean": 0.125,
+      "clusters": 2,
+      "bootstrap_95": [
+        -0.0625,
+        0.3125
+      ]
+    },
+    {
+      "first": "bot_f0c36af99230",
+      "second": "bot_a4a1690acb18",
+      "mean": 0.1875,
+      "clusters": 2,
+      "bootstrap_95": [
+        -0.25,
+        0.625
+      ]
+    },
+    {
+      "first": "bot_f0c36af99230",
+      "second": "bot_f5a54e20dbe3",
+      "mean": 0.5625,
+      "clusters": 2,
+      "bootstrap_95": [
+        0.125,
+        1.0
+      ]
+    },
+    {
+      "first": "bot_f0c36af99230",
+      "second": "bot_f6ce1650ae56",
+      "mean": 1.03125,
+      "clusters": 2,
+      "bootstrap_95": [
+        0.6875,
+        1.375
+      ]
+    },
+    {
+      "first": "bot_f0c36af99230",
+      "second": "bot_29943674e478",
+      "mean": 1.0625,
+      "clusters": 2,
+      "bootstrap_95": [
+        0.6875,
+        1.4375
+      ]
+    },
+    {
+      "first": "bot_f0c36af99230",
+      "second": "bot_ad053b858504",
+      "mean": 1.0625,
+      "clusters": 2,
+      "bootstrap_95": [
+        0.6875,
+        1.4375
+      ]
+    },
+    {
+      "first": "bot_e7ea25fe8574",
+      "second": "bot_a4a1690acb18",
+      "mean": 0.0625,
+      "clusters": 2,
+      "bootstrap_95": [
+        -0.1875,
+        0.3125
+      ]
+    },
+    {
+      "first": "bot_e7ea25fe8574",
+      "second": "bot_f5a54e20dbe3",
+      "mean": 0.4375,
+      "clusters": 2,
+      "bootstrap_95": [
+        0.1875,
+        0.6875
+      ]
+    },
+    {
+      "first": "bot_e7ea25fe8574",
+      "second": "bot_f6ce1650ae56",
+      "mean": 0.90625,
+      "clusters": 2,
+      "bootstrap_95": [
+        0.75,
+        1.0625
+      ]
+    },
+    {
+      "first": "bot_e7ea25fe8574",
+      "second": "bot_29943674e478",
+      "mean": 0.9375,
+      "clusters": 2,
+      "bootstrap_95": [
+        0.75,
+        1.125
+      ]
+    },
+    {
+      "first": "bot_e7ea25fe8574",
+      "second": "bot_ad053b858504",
+      "mean": 0.9375,
+      "clusters": 2,
+      "bootstrap_95": [
+        0.75,
+        1.125
+      ]
+    },
+    {
+      "first": "bot_a4a1690acb18",
+      "second": "bot_f5a54e20dbe3",
+      "mean": 0.375,
+      "clusters": 2,
+      "bootstrap_95": [
+        0.375,
+        0.375
+      ]
+    },
+    {
+      "first": "bot_a4a1690acb18",
+      "second": "bot_f6ce1650ae56",
+      "mean": 0.84375,
+      "clusters": 2,
+      "bootstrap_95": [
+        0.75,
+        0.9375
+      ]
+    },
+    {
+      "first": "bot_a4a1690acb18",
+      "second": "bot_29943674e478",
+      "mean": 0.875,
+      "clusters": 2,
+      "bootstrap_95": [
+        0.8125,
+        0.9375
+      ]
+    },
+    {
+      "first": "bot_a4a1690acb18",
+      "second": "bot_ad053b858504",
+      "mean": 0.875,
+      "clusters": 2,
+      "bootstrap_95": [
+        0.8125,
+        0.9375
+      ]
+    },
+    {
+      "first": "bot_f5a54e20dbe3",
+      "second": "bot_f6ce1650ae56",
+      "mean": 0.46875,
+      "clusters": 2,
+      "bootstrap_95": [
+        0.375,
+        0.5625
+      ]
+    },
+    {
+      "first": "bot_f5a54e20dbe3",
+      "second": "bot_29943674e478",
+      "mean": 0.5,
+      "clusters": 2,
+      "bootstrap_95": [
+        0.4375,
+        0.5625
+      ]
+    },
+    {
+      "first": "bot_f5a54e20dbe3",
+      "second": "bot_ad053b858504",
+      "mean": 0.5,
+      "clusters": 2,
+      "bootstrap_95": [
+        0.4375,
+        0.5625
+      ]
+    },
+    {
+      "first": "bot_f6ce1650ae56",
+      "second": "bot_29943674e478",
+      "mean": 0.03125,
+      "clusters": 2,
+      "bootstrap_95": [
+        0.0,
+        0.0625
+      ]
+    },
+    {
+      "first": "bot_f6ce1650ae56",
+      "second": "bot_ad053b858504",
+      "mean": 0.03125,
+      "clusters": 2,
+      "bootstrap_95": [
+        0.0,
+        0.0625
+      ]
+    },
+    {
+      "first": "bot_29943674e478",
+      "second": "bot_ad053b858504",
+      "mean": 0.0,
+      "clusters": 2,
+      "bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "elapsed_s": 43.4366091999691,
+  "caveat": "Frozen candidates; no weight fitting. Branch ranking is conditional on registered fields. Diagnostic scores are not strength evidence. Final intervals cluster matched results by distinct board contents, not by individual turns.",
+  "games": 256,
+  "timed_callbacks": 81920,
+  "all_faults": 0
+}

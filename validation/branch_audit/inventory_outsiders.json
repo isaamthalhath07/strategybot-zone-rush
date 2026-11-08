@@ -1,0 +1,229 @@
+{
+  "policies": [
+    {
+      "name": "bot_ad053b858504",
+      "path": "consolidation_candidates/branch_audit/ad053b858504a284fda171fdfe7323ffee7603900dca86ae43c9fbe86a48ca5b.py",
+      "sha256": "ad053b858504a284fda171fdfe7323ffee7603900dca86ae43c9fbe86a48ca5b",
+      "aliases": [
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "strategy_audit/outsiders.py",
+          "class_name": "Fort"
+        }
+      ],
+      "registered_names": [
+        "Outsider_Fort"
+      ],
+      "scope": "Historical class control; its internal rollout model retains original physics. It never receives private live state.",
+      "build_inputs": [
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "engine",
+          "sha256": "39b6fb3a06b684d92fa4d7c406fddca5e1b794ed70b948a16ee2a8f5ca589562"
+        },
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "outsiders",
+          "sha256": "0b983da6d58463ba115bdbc0d606c07909c60f05865e968612529f0aeb7053ab"
+        }
+      ]
+    },
+    {
+      "name": "bot_e7ea25fe8574",
+      "path": "consolidation_candidates/branch_audit/e7ea25fe857482c34541cf739e8ec1eabb5290e191070af5cdf51cd1431a65ce.py",
+      "sha256": "e7ea25fe857482c34541cf739e8ec1eabb5290e191070af5cdf51cd1431a65ce",
+      "aliases": [
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "strategy_audit/outsiders.py",
+          "class_name": "Leech"
+        }
+      ],
+      "registered_names": [
+        "Outsider_Leech"
+      ],
+      "scope": "Historical class control; its internal rollout model retains original physics. It never receives private live state.",
+      "build_inputs": [
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "engine",
+          "sha256": "39b6fb3a06b684d92fa4d7c406fddca5e1b794ed70b948a16ee2a8f5ca589562"
+        },
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "outsiders",
+          "sha256": "0b983da6d58463ba115bdbc0d606c07909c60f05865e968612529f0aeb7053ab"
+        }
+      ]
+    },
+    {
+      "name": "bot_29943674e478",
+      "path": "consolidation_candidates/branch_audit/29943674e478229ad5c4b869b15852d4581e0c305c1e73c7002f6c064540b489.py",
+      "sha256": "29943674e478229ad5c4b869b15852d4581e0c305c1e73c7002f6c064540b489",
+      "aliases": [
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "strategy_audit/outsiders.py",
+          "class_name": "HomeBait"
+        }
+      ],
+      "registered_names": [
+        "Outsider_HomeBait"
+      ],
+      "scope": "Historical class control; its internal rollout model retains original physics. It never receives private live state.",
+      "build_inputs": [
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "engine",
+          "sha256": "39b6fb3a06b684d92fa4d7c406fddca5e1b794ed70b948a16ee2a8f5ca589562"
+        },
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "outsiders",
+          "sha256": "0b983da6d58463ba115bdbc0d606c07909c60f05865e968612529f0aeb7053ab"
+        }
+      ]
+    },
+    {
+      "name": "bot_7773ed52b9b8",
+      "path": "consolidation_candidates/branch_audit/7773ed52b9b89f3f6159c88b866debbdd46d786932ea0ace72b30df03457e9b0.py",
+      "sha256": "7773ed52b9b89f3f6159c88b866debbdd46d786932ea0ace72b30df03457e9b0",
+      "aliases": [
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "strategy_audit/outsiders.py",
+          "class_name": "Jackal"
+        }
+      ],
+      "registered_names": [
+        "Outsider_Jackal"
+      ],
+      "scope": "Historical class control; its internal rollout model retains original physics. It never receives private live state.",
+      "build_inputs": [
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "engine",
+          "sha256": "39b6fb3a06b684d92fa4d7c406fddca5e1b794ed70b948a16ee2a8f5ca589562"
+        },
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "outsiders",
+          "sha256": "0b983da6d58463ba115bdbc0d606c07909c60f05865e968612529f0aeb7053ab"
+        }
+      ]
+    },
+    {
+      "name": "bot_a4a1690acb18",
+      "path": "consolidation_candidates/branch_audit/a4a1690acb18674e3bc3568f4c6f7c988d81b083aeded9cf5802dc5696ac584f.py",
+      "sha256": "a4a1690acb18674e3bc3568f4c6f7c988d81b083aeded9cf5802dc5696ac584f",
+      "aliases": [
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "strategy_audit/outsiders.py",
+          "class_name": "Vulture"
+        }
+      ],
+      "registered_names": [
+        "Outsider_Vulture"
+      ],
+      "scope": "Historical class control; its internal rollout model retains original physics. It never receives private live state.",
+      "build_inputs": [
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "engine",
+          "sha256": "39b6fb3a06b684d92fa4d7c406fddca5e1b794ed70b948a16ee2a8f5ca589562"
+        },
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "outsiders",
+          "sha256": "0b983da6d58463ba115bdbc0d606c07909c60f05865e968612529f0aeb7053ab"
+        }
+      ]
+    },
+    {
+      "name": "bot_f6ce1650ae56",
+      "path": "consolidation_candidates/branch_audit/f6ce1650ae566ff5f5dbe2a9a1e863a30d710b4ed634fcf10c754151ee34e383.py",
+      "sha256": "f6ce1650ae566ff5f5dbe2a9a1e863a30d710b4ed634fcf10c754151ee34e383",
+      "aliases": [
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "strategy_audit/outsiders.py",
+          "class_name": "Flaky"
+        }
+      ],
+      "registered_names": [
+        "Outsider_Flaky"
+      ],
+      "scope": "Historical class control; its internal rollout model retains original physics. It never receives private live state.",
+      "build_inputs": [
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "engine",
+          "sha256": "39b6fb3a06b684d92fa4d7c406fddca5e1b794ed70b948a16ee2a8f5ca589562"
+        },
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "outsiders",
+          "sha256": "0b983da6d58463ba115bdbc0d606c07909c60f05865e968612529f0aeb7053ab"
+        }
+      ]
+    },
+    {
+      "name": "bot_f0c36af99230",
+      "path": "consolidation_candidates/branch_audit/f0c36af99230851a8858fcfb9bce97208a81427de38fd6dee2610f06668bf717.py",
+      "sha256": "f0c36af99230851a8858fcfb9bce97208a81427de38fd6dee2610f06668bf717",
+      "aliases": [
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "strategy_audit/outsiders.py",
+          "class_name": "Literal"
+        }
+      ],
+      "registered_names": [
+        "Outsider_Literal"
+      ],
+      "scope": "Historical class control; its internal rollout model retains original physics. It never receives private live state.",
+      "build_inputs": [
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "engine",
+          "sha256": "39b6fb3a06b684d92fa4d7c406fddca5e1b794ed70b948a16ee2a8f5ca589562"
+        },
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "outsiders",
+          "sha256": "0b983da6d58463ba115bdbc0d606c07909c60f05865e968612529f0aeb7053ab"
+        }
+      ]
+    },
+    {
+      "name": "bot_f5a54e20dbe3",
+      "path": "consolidation_candidates/branch_audit/f5a54e20dbe36133c62d1bb57a157d5ab50d0964f1dd8a526bc4b18ee6631982.py",
+      "sha256": "f5a54e20dbe36133c62d1bb57a157d5ab50d0964f1dd8a526bc4b18ee6631982",
+      "aliases": [
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "strategy_audit/outsiders.py",
+          "class_name": "Sim"
+        }
+      ],
+      "registered_names": [
+        "Outsider_Sim"
+      ],
+      "scope": "Historical class control; its internal rollout model retains original physics. It never receives private live state.",
+      "build_inputs": [
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "engine",
+          "sha256": "39b6fb3a06b684d92fa4d7c406fddca5e1b794ed70b948a16ee2a8f5ca589562"
+        },
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "outsiders",
+          "sha256": "0b983da6d58463ba115bdbc0d606c07909c60f05865e968612529f0aeb7053ab"
+        }
+      ]
+    }
+  ],
+  "scope": "Supplementary class-only controls found in final coverage review; frozen and screened before opening final outcomes."
+}

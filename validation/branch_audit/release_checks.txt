@@ -1,0 +1,8 @@
+........................................................................................................................................
+----------------------------------------------------------------------
+Ran 136 tests in 18.404s
+
+OK
+Passed 6 UI regression groups: native keyboard activation, delayed history privacy, delayed download privacy, local candidate metadata, freeze/thaw controls, versioned shield rule explanations.
+Official STAY candidate: 3,840 public calls, exact own oracle, real cooldowns retained; worst 12.061 ms
+Release public self-play: 1,280 callbacks; worst 13.917 ms

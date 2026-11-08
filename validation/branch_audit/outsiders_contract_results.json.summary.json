@@ -1,0 +1,106 @@
+{
+  "summary": {
+    "bot_a4a1690acb18": {
+      "games": 4,
+      "mean_pw": 1.5,
+      "mean_score": 3150.25,
+      "fields": {
+        "novel_economy": 1.5
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.5386000266298652,
+      "mean_ms": 0.08241780851676594
+    },
+    "bot_e7ea25fe8574": {
+      "games": 4,
+      "mean_pw": 1.5,
+      "mean_score": 3040.5,
+      "fields": {
+        "novel_economy": 1.5
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.5405000410974026,
+      "mean_ms": 0.09209124655171763
+    },
+    "bot_7773ed52b9b8": {
+      "games": 4,
+      "mean_pw": 1.0,
+      "mean_score": 3034.25,
+      "fields": {
+        "novel_economy": 1.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.6954999407753348,
+      "mean_ms": 0.13592468603746966
+    },
+    "bot_f5a54e20dbe3": {
+      "games": 4,
+      "mean_pw": 0.75,
+      "mean_score": 2580.0,
+      "fields": {
+        "novel_economy": 0.75
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 4.850700031965971,
+      "mean_ms": 1.0178049986279802
+    },
+    "bot_f0c36af99230": {
+      "games": 4,
+      "mean_pw": 0.25,
+      "mean_score": 2618.0,
+      "fields": {
+        "novel_economy": 0.25
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.49290002789348364,
+      "mean_ms": 0.05644687844323926
+    },
+    "bot_29943674e478": {
+      "games": 4,
+      "mean_pw": 0.0,
+      "mean_score": 1987.5,
+      "fields": {
+        "novel_economy": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.6143000209704041,
+      "mean_ms": 0.07013406466285232
+    },
+    "bot_ad053b858504": {
+      "games": 4,
+      "mean_pw": 0.0,
+      "mean_score": 2622.75,
+      "fields": {
+        "novel_economy": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 2.228899975307286,
+      "mean_ms": 0.18920906513812952
+    },
+    "bot_f6ce1650ae56": {
+      "games": 4,
+      "mean_pw": 0.0,
+      "mean_score": 2656.0,
+      "fields": {
+        "novel_economy": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.9176000021398067,
+      "mean_ms": 0.06101000435592141
+    }
+  },
+  "paired": [],
+  "elapsed_s": 6.161159600014798,
+  "caveat": "Frozen candidates; no weight fitting. Branch ranking is conditional on registered fields. Diagnostic scores are not strength evidence. Final intervals cluster matched results by distinct board contents, not by individual turns.",
+  "games": 32,
+  "timed_callbacks": 10240,
+  "all_faults": 0
+}

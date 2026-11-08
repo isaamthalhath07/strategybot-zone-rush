@@ -1,0 +1,50 @@
+[
+  {
+    "class_name": "Fort",
+    "calls": 320,
+    "exact_actions": true,
+    "sha256": "ad053b858504a284fda171fdfe7323ffee7603900dca86ae43c9fbe86a48ca5b"
+  },
+  {
+    "class_name": "Leech",
+    "calls": 320,
+    "exact_actions": true,
+    "sha256": "e7ea25fe857482c34541cf739e8ec1eabb5290e191070af5cdf51cd1431a65ce"
+  },
+  {
+    "class_name": "HomeBait",
+    "calls": 320,
+    "exact_actions": true,
+    "sha256": "29943674e478229ad5c4b869b15852d4581e0c305c1e73c7002f6c064540b489"
+  },
+  {
+    "class_name": "Jackal",
+    "calls": 320,
+    "exact_actions": true,
+    "sha256": "7773ed52b9b89f3f6159c88b866debbdd46d786932ea0ace72b30df03457e9b0"
+  },
+  {
+    "class_name": "Vulture",
+    "calls": 320,
+    "exact_actions": true,
+    "sha256": "a4a1690acb18674e3bc3568f4c6f7c988d81b083aeded9cf5802dc5696ac584f"
+  },
+  {
+    "class_name": "Flaky",
+    "calls": 320,
+    "exact_actions": true,
+    "sha256": "f6ce1650ae566ff5f5dbe2a9a1e863a30d710b4ed634fcf10c754151ee34e383"
+  },
+  {
+    "class_name": "Literal",
+    "calls": 320,
+    "exact_actions": true,
+    "sha256": "f0c36af99230851a8858fcfb9bce97208a81427de38fd6dee2610f06668bf717"
+  },
+  {
+    "class_name": "Sim",
+    "calls": 320,
+    "exact_actions": true,
+    "sha256": "f5a54e20dbe36133c62d1bb57a157d5ab50d0964f1dd8a526bc4b18ee6631982"
+  }
+]

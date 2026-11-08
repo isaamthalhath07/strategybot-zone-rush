@@ -1,0 +1,1579 @@
+{
+  "id": "all_branches_outsiders_contract",
+  "stage": "outsiders_contract",
+  "diagnostic": true,
+  "candidates": [
+    "bot_ad053b858504",
+    "bot_e7ea25fe8574",
+    "bot_29943674e478",
+    "bot_7773ed52b9b8",
+    "bot_a4a1690acb18",
+    "bot_f6ce1650ae56",
+    "bot_f0c36af99230",
+    "bot_f5a54e20dbe3"
+  ],
+  "sources": [
+    {
+      "name": "bot_11045a993b06",
+      "sha256": "11045a993b063465daa5571cee9ec876a37e1919cd9fb5d6dfe730f4fc5760e8",
+      "path": "consolidation_candidates/branch_audit/11045a993b063465daa5571cee9ec876a37e1919cd9fb5d6dfe730f4fc5760e8.py",
+      "aliases": [
+        {
+          "class_name": "IndependentFarmer",
+          "module": "audit/independent_bot.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "IndependentFarmer_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "audit/independent_bot.py",
+          "sha256": "93a046a0f4347290b46658d8be2c0e9c38ac5fa22dbb61063cf7d4ce4513005c"
+        }
+      ]
+    },
+    {
+      "name": "bot_238790102d13",
+      "sha256": "238790102d13451f5db99813deb27dc87b8fab3e5632cee568826575f69c1fa6",
+      "path": "consolidation_candidates/branch_audit/238790102d13451f5db99813deb27dc87b8fab3e5632cee568826575f69c1fa6.py",
+      "aliases": [
+        {
+          "class_name": "CamperBot",
+          "module": "zoo.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "CamperBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "zoo.py",
+          "sha256": "a07822d4a5d3245f83d29a55011e95dd0ff44c5781ca2b426df4c60e2e5de581"
+        }
+      ]
+    },
+    {
+      "name": "bot_25e30d29c248",
+      "sha256": "25e30d29c248a616fd55ad2b7f1221a4e093e9c8be93223fb8f56cdd5616f441",
+      "path": "consolidation_candidates/branch_audit/25e30d29c248a616fd55ad2b7f1221a4e093e9c8be93223fb8f56cdd5616f441.py",
+      "aliases": [
+        {
+          "class_name": "CooldownRaiderBot",
+          "module": "holdout.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "CooldownRaiderBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "zoo.py",
+          "sha256": "a07822d4a5d3245f83d29a55011e95dd0ff44c5781ca2b426df4c60e2e5de581"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "holdout.py",
+          "sha256": "8ea4cfbeaa774965a36a11e087a714eff3fb6c3a60997eb8228323f7cd24a8fc"
+        }
+      ]
+    },
+    {
+      "name": "bot_3927b1a0ccb6",
+      "sha256": "3927b1a0ccb6e6288803160ba6511c28cf89119aaca6df720617675cc66f02f4",
+      "path": "consolidation_candidates/branch_audit/3927b1a0ccb6e6288803160ba6511c28cf89119aaca6df720617675cc66f02f4.py",
+      "aliases": [
+        {
+          "class_name": "ProBot",
+          "module": "probot.py",
+          "variant": "frozen_v1",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "ProBot_frozen_v1"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "probot.py",
+          "sha256": "63d906ecc29373e6b0f3578f979153f67d422a62c79ae1f21e283d1f5c03f5a1"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "pro_params_v1.json",
+          "sha256": "f81079605afbd2e28e5bb84f23b8917f5b76416ecc2491768097b746cd673766"
+        }
+      ]
+    },
+    {
+      "name": "bot_3ac6d190b421",
+      "sha256": "3ac6d190b421360939e71c13fb7c5a70b937a246b6fd8631ba35f97e36ce71cd",
+      "path": "consolidation_candidates/branch_audit/3ac6d190b421360939e71c13fb7c5a70b937a246b6fd8631ba35f97e36ce71cd.py",
+      "aliases": [
+        {
+          "class_name": "MarginalBot",
+          "module": "aifield.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "MarginalBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "aifield.py",
+          "sha256": "32bc735b599bf3db8c3e416fef34b99507584d87bc20144d967fd4e16175fcd6"
+        }
+      ]
+    },
+    {
+      "name": "bot_479793996c3b",
+      "sha256": "479793996c3bf8afd8df9614699f7cd8793c9a473b838bc08a659c14bf3f0b99",
+      "path": "consolidation_candidates/branch_audit/479793996c3bf8afd8df9614699f7cd8793c9a473b838bc08a659c14bf3f0b99.py",
+      "aliases": [
+        {
+          "class_name": "StayBot",
+          "module": "zoo.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "StayBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "zoo.py",
+          "sha256": "a07822d4a5d3245f83d29a55011e95dd0ff44c5781ca2b426df4c60e2e5de581"
+        }
+      ]
+    },
+    {
+      "name": "bot_514775d141be",
+      "sha256": "514775d141be466c6507fca74e3b99594920d1151f27f0d6d3d124d800e9fa87",
+      "path": "consolidation_candidates/branch_audit/514775d141be466c6507fca74e3b99594920d1151f27f0d6d3d124d800e9fa87.py",
+      "aliases": [
+        {
+          "class_name": "ProBot",
+          "module": "probot.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "ProBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "probot.py",
+          "sha256": "63d906ecc29373e6b0f3578f979153f67d422a62c79ae1f21e283d1f5c03f5a1"
+        }
+      ]
+    },
+    {
+      "name": "bot_53f876827a9f",
+      "sha256": "53f876827a9f6987b9483003ae8bdd7714e67d7116bff109007b3fafbf3f1109",
+      "path": "consolidation_candidates/branch_audit/53f876827a9f6987b9483003ae8bdd7714e67d7116bff109007b3fafbf3f1109.py",
+      "aliases": [
+        {
+          "class_name": "IndependentRaider",
+          "module": "audit/independent_bot.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "IndependentRaider_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "audit/independent_bot.py",
+          "sha256": "93a046a0f4347290b46658d8be2c0e9c38ac5fa22dbb61063cf7d4ce4513005c"
+        }
+      ]
+    },
+    {
+      "name": "bot_684566ff8ecc",
+      "sha256": "684566ff8ecc2afa8c078a2c5fe8a24b865b88625aaf9ccb5fd44eaede24083a",
+      "path": "consolidation_candidates/branch_audit/684566ff8ecc2afa8c078a2c5fe8a24b865b88625aaf9ccb5fd44eaede24083a.py",
+      "aliases": [
+        {
+          "class_name": "CheapRaiderBot",
+          "module": "aifield.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "CheapRaiderBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "aifield.py",
+          "sha256": "32bc735b599bf3db8c3e416fef34b99507584d87bc20144d967fd4e16175fcd6"
+        }
+      ]
+    },
+    {
+      "name": "bot_815918c3a2db",
+      "sha256": "815918c3a2db14c07f694a32a7e6f9f752b989e2952554cb2ce60e63810c0ae9",
+      "path": "consolidation_candidates/branch_audit/815918c3a2db14c07f694a32a7e6f9f752b989e2952554cb2ce60e63810c0ae9.py",
+      "aliases": [
+        {
+          "class_name": "TurtleBot",
+          "module": "holdout.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "TurtleBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "zoo.py",
+          "sha256": "a07822d4a5d3245f83d29a55011e95dd0ff44c5781ca2b426df4c60e2e5de581"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "holdout.py",
+          "sha256": "8ea4cfbeaa774965a36a11e087a714eff3fb6c3a60997eb8228323f7cd24a8fc"
+        }
+      ]
+    },
+    {
+      "name": "bot_84043e975773",
+      "sha256": "84043e97577386dfd7c2c8905819e6f78685a7e21a76b9f72fb36635c7b88a82",
+      "path": "consolidation_candidates/branch_audit/84043e97577386dfd7c2c8905819e6f78685a7e21a76b9f72fb36635c7b88a82.py",
+      "aliases": [
+        {
+          "class_name": "HomeFortBot",
+          "module": "aifield.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "HomeFortBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "aifield.py",
+          "sha256": "32bc735b599bf3db8c3e416fef34b99507584d87bc20144d967fd4e16175fcd6"
+        }
+      ]
+    },
+    {
+      "name": "bot_8cbef7eccb4e",
+      "sha256": "8cbef7eccb4e1d8ab9dcb21d0d768295cfec530dc3deb05262fbdbd38cf96a2e",
+      "path": "consolidation_candidates/branch_audit/8cbef7eccb4e1d8ab9dcb21d0d768295cfec530dc3deb05262fbdbd38cf96a2e.py",
+      "aliases": [
+        {
+          "class_name": "EloEndgameBot",
+          "module": "aifield.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "EloEndgameBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "aifield.py",
+          "sha256": "32bc735b599bf3db8c3e416fef34b99507584d87bc20144d967fd4e16175fcd6"
+        }
+      ]
+    },
+    {
+      "name": "bot_91d888bad7fc",
+      "sha256": "91d888bad7fcf6a7246ac96ea9cb7badfb09f74261879e9c6b8428efeb2025df",
+      "path": "consolidation_candidates/branch_audit/91d888bad7fcf6a7246ac96ea9cb7badfb09f74261879e9c6b8428efeb2025df.py",
+      "aliases": [
+        {
+          "class_name": "RaiderBot",
+          "module": "zoo.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "RaiderBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "zoo.py",
+          "sha256": "a07822d4a5d3245f83d29a55011e95dd0ff44c5781ca2b426df4c60e2e5de581"
+        }
+      ]
+    },
+    {
+      "name": "bot_b64da0272cbb",
+      "sha256": "b64da0272cbbaa782e6af251ee0fdae69fc0120ed228c51534a30da00d6bc2f6",
+      "path": "consolidation_candidates/branch_audit/b64da0272cbbaa782e6af251ee0fdae69fc0120ed228c51534a30da00d6bc2f6.py",
+      "aliases": [
+        {
+          "class_name": "CooldownHawkBot",
+          "module": "aifield.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "CooldownHawkBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "aifield.py",
+          "sha256": "32bc735b599bf3db8c3e416fef34b99507584d87bc20144d967fd4e16175fcd6"
+        }
+      ]
+    },
+    {
+      "name": "bot_b73d70bcda60",
+      "sha256": "b73d70bcda60235d5b751f154f305cb8fefef7286b54920d7f75b01d13e2c4a3",
+      "path": "consolidation_candidates/branch_audit/b73d70bcda60235d5b751f154f305cb8fefef7286b54920d7f75b01d13e2c4a3.py",
+      "aliases": [
+        {
+          "class_name": "RandomBot",
+          "module": "zoo.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "RandomBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "zoo.py",
+          "sha256": "a07822d4a5d3245f83d29a55011e95dd0ff44c5781ca2b426df4c60e2e5de581"
+        }
+      ]
+    },
+    {
+      "name": "bot_c03a13ea7349",
+      "sha256": "c03a13ea7349b86bcbb4552964d926d1f2cbb760afadd35a54fd59787bf5640c",
+      "path": "consolidation_candidates/branch_audit/c03a13ea7349b86bcbb4552964d926d1f2cbb760afadd35a54fd59787bf5640c.py",
+      "aliases": [
+        {
+          "class_name": "GreedyValueBot",
+          "module": "zoo.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "GreedyValueBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "zoo.py",
+          "sha256": "a07822d4a5d3245f83d29a55011e95dd0ff44c5781ca2b426df4c60e2e5de581"
+        }
+      ]
+    },
+    {
+      "name": "bot_c3621deb6773",
+      "sha256": "c3621deb67731fd2392bc26257c2c95c378a0c123ee9404b795643405181e018",
+      "path": "consolidation_candidates/branch_audit/c3621deb67731fd2392bc26257c2c95c378a0c123ee9404b795643405181e018.py",
+      "aliases": [
+        {
+          "class_name": "PacifistBot",
+          "module": "zoo.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "PacifistBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "zoo.py",
+          "sha256": "a07822d4a5d3245f83d29a55011e95dd0ff44c5781ca2b426df4c60e2e5de581"
+        }
+      ]
+    },
+    {
+      "name": "bot_c3f7d36077ad",
+      "sha256": "c3f7d36077ad8bea61d6ac5e51429d7ac406c91e8337f6b3435739fbd741a52e",
+      "path": "consolidation_candidates/branch_audit/c3f7d36077ad8bea61d6ac5e51429d7ac406c91e8337f6b3435739fbd741a52e.py",
+      "aliases": [
+        {
+          "class_name": "RouteBot",
+          "module": "aifield.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "RouteBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "aifield.py",
+          "sha256": "32bc735b599bf3db8c3e416fef34b99507584d87bc20144d967fd4e16175fcd6"
+        }
+      ]
+    },
+    {
+      "name": "bot_cc26fd640c08",
+      "sha256": "cc26fd640c08828424b29d1d36a4cec7577c30e706b1da02614cda60b78c058f",
+      "path": "consolidation_candidates/branch_audit/cc26fd640c08828424b29d1d36a4cec7577c30e706b1da02614cda60b78c058f.py",
+      "aliases": [
+        {
+          "class_name": "CentreRushBot",
+          "module": "holdout.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "CentreRushBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "zoo.py",
+          "sha256": "a07822d4a5d3245f83d29a55011e95dd0ff44c5781ca2b426df4c60e2e5de581"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "holdout.py",
+          "sha256": "8ea4cfbeaa774965a36a11e087a714eff3fb6c3a60997eb8228323f7cd24a8fc"
+        }
+      ]
+    },
+    {
+      "name": "bot_cc3cb316bbc4",
+      "sha256": "cc3cb316bbc4fd149ba1235aea5f2d6b234e5807fbf5b3636f1adf43f2b4eebc",
+      "path": "consolidation_candidates/branch_audit/cc3cb316bbc4fd149ba1235aea5f2d6b234e5807fbf5b3636f1adf43f2b4eebc.py",
+      "aliases": [
+        {
+          "class_name": "NNAgent",
+          "module": "nnbot.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "NNAgent_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "mybot.py",
+          "sha256": "f7ec724c1473b23104a25c47a2fbc9e5f54e8ee476c5c91930b3dd3b120b670e"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "nnbot.py",
+          "sha256": "daad28bc4276603e0bc395e03994edc92c2cbcfb6a058e56c891e82bd28398ea"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "nn_policy.json",
+          "sha256": "2d7555fdaa161a2e42a62f13053caf171e4145be2a6c3b0d6f8e1baa6be8ea52"
+        }
+      ]
+    },
+    {
+      "name": "bot_e60cf4147155",
+      "sha256": "e60cf414715554ff673f34c7527286f4c9833189a69a714316633acc4bd2eb51",
+      "path": "consolidation_candidates/branch_audit/e60cf414715554ff673f34c7527286f4c9833189a69a714316633acc4bd2eb51.py",
+      "aliases": [
+        {
+          "class_name": "BaiterBot",
+          "module": "zoo.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "BaiterBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "zoo.py",
+          "sha256": "a07822d4a5d3245f83d29a55011e95dd0ff44c5781ca2b426df4c60e2e5de581"
+        }
+      ]
+    },
+    {
+      "name": "bot_e89042e60e73",
+      "sha256": "e89042e60e7393644df8ee166de074f0a81718d8903c3fe76db75f73be7475b4",
+      "path": "consolidation_candidates/branch_audit/e89042e60e7393644df8ee166de074f0a81718d8903c3fe76db75f73be7475b4.py",
+      "aliases": [
+        {
+          "class_name": "SpineFarmerBot",
+          "module": "zoo.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "SpineFarmerBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "zoo.py",
+          "sha256": "a07822d4a5d3245f83d29a55011e95dd0ff44c5781ca2b426df4c60e2e5de581"
+        }
+      ]
+    },
+    {
+      "name": "bot_ede52321b2c5",
+      "sha256": "ede52321b2c567c8a5c7f2c48396ed1f2450d6d859e7fa5c3e3b53f793396b58",
+      "path": "consolidation_candidates/branch_audit/ede52321b2c567c8a5c7f2c48396ed1f2450d6d859e7fa5c3e3b53f793396b58.py",
+      "aliases": [
+        {
+          "class_name": "GreedyShieldBot",
+          "module": "zoo.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "GreedyShieldBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "zoo.py",
+          "sha256": "a07822d4a5d3245f83d29a55011e95dd0ff44c5781ca2b426df4c60e2e5de581"
+        }
+      ]
+    },
+    {
+      "name": "bot_edee7e6993e1",
+      "sha256": "edee7e6993e1198af189402d99770338d73ade8dc42c9a950f76de2ca49e80ce",
+      "path": "consolidation_candidates/branch_audit/edee7e6993e1198af189402d99770338d73ade8dc42c9a950f76de2ca49e80ce.py",
+      "aliases": [
+        {
+          "class_name": "CentreLockBot",
+          "module": "aifield.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "CentreLockBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "aifield.py",
+          "sha256": "32bc735b599bf3db8c3e416fef34b99507584d87bc20144d967fd4e16175fcd6"
+        }
+      ]
+    },
+    {
+      "name": "bot_f7f9acb0057b",
+      "sha256": "f7f9acb0057bc18b42c44b303a810a0df6fe0868a341a433579894c3f3dda723",
+      "path": "consolidation_candidates/branch_audit/f7f9acb0057bc18b42c44b303a810a0df6fe0868a341a433579894c3f3dda723.py",
+      "aliases": [
+        {
+          "class_name": "LeaderHunterBot",
+          "module": "holdout.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "LeaderHunterBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "zoo.py",
+          "sha256": "a07822d4a5d3245f83d29a55011e95dd0ff44c5781ca2b426df4c60e2e5de581"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "holdout.py",
+          "sha256": "8ea4cfbeaa774965a36a11e087a714eff3fb6c3a60997eb8228323f7cd24a8fc"
+        }
+      ]
+    },
+    {
+      "name": "novel_0412b54e3ab1",
+      "path": "consolidation_candidates/branch_audit/0412b54e3ab14211e6dc211472ffddb3b1ea2489ecac77c5115ddb5dc0085d2b.py",
+      "sha256": "0412b54e3ab14211e6dc211472ffddb3b1ea2489ecac77c5115ddb5dc0085d2b",
+      "role": "fresh-opponent",
+      "configuration": {
+        "seed": 1598449490,
+        "family": "time_discount",
+        "claim": 1.2480598547738246,
+        "upgrade": 1.1198284076989953,
+        "raid": 0.7809996170592037,
+        "stick": 1.3278560601858438,
+        "power": 1.0589108558555704,
+        "shield": 0.7302513568154816,
+        "period": 16,
+        "phase": 0
+      },
+      "generation": {
+        "stage": "contracts_extra",
+        "map_group": 1,
+        "field": "novel_economy",
+        "slot": 0
+      }
+    },
+    {
+      "name": "novel_0cd7e175e625",
+      "path": "consolidation_candidates/branch_audit/0cd7e175e6251baec478a74abd9fd5eed3ef5421b6d8467bafcda571f8864bf9.py",
+      "sha256": "0cd7e175e6251baec478a74abd9fd5eed3ef5421b6d8467bafcda571f8864bf9",
+      "role": "fresh-opponent",
+      "configuration": {
+        "seed": 437574029,
+        "family": "time_discount",
+        "claim": 0.8838410542254359,
+        "upgrade": 1.2709496002798004,
+        "raid": 0.35798508070265456,
+        "stick": 1.3482082321777435,
+        "power": 0.9482303251027533,
+        "shield": 0.9119872986859976,
+        "period": 13,
+        "phase": 0
+      },
+      "generation": {
+        "stage": "contracts_extra",
+        "map_group": 0,
+        "field": "novel_economy",
+        "slot": 0
+      }
+    },
+    {
+      "name": "novel_180e7a921c02",
+      "path": "consolidation_candidates/branch_audit/180e7a921c02f5d85540a59442ece7b1dca377af3cf17ae1108f3aa2a564ac7a.py",
+      "sha256": "180e7a921c02f5d85540a59442ece7b1dca377af3cf17ae1108f3aa2a564ac7a",
+      "role": "fresh-opponent",
+      "configuration": {
+        "seed": 795247492,
+        "family": "time_discount",
+        "claim": 0.850408050552443,
+        "upgrade": 1.6383688576267896,
+        "raid": 0.40903646175290737,
+        "stick": 1.217520817370666,
+        "power": 1.1095933132305382,
+        "shield": 0.6753045912017083,
+        "period": 12,
+        "phase": 1
+      },
+      "generation": {
+        "stage": "contracts_extra",
+        "map_group": 2,
+        "field": "novel_economy",
+        "slot": 0
+      }
+    },
+    {
+      "name": "novel_45d91a14843a",
+      "path": "consolidation_candidates/branch_audit/45d91a14843a7a79aa5b69d09f09b7ec5c9d40b4921087b5fa4364044a2806ea.py",
+      "sha256": "45d91a14843a7a79aa5b69d09f09b7ec5c9d40b4921087b5fa4364044a2806ea",
+      "role": "fresh-opponent",
+      "configuration": {
+        "seed": 1336173911,
+        "family": "time_discount",
+        "claim": 0.9479009071723065,
+        "upgrade": 1.5107675286981566,
+        "raid": 0.37819399249307495,
+        "stick": 1.2716615934039608,
+        "power": 1.1364987064874628,
+        "shield": 0.8574782253141824,
+        "period": 9,
+        "phase": 0
+      },
+      "generation": {
+        "stage": "contracts_extra",
+        "map_group": 0,
+        "field": "novel_economy",
+        "slot": 1
+      }
+    },
+    {
+      "name": "novel_492aa8a38c12",
+      "path": "consolidation_candidates/branch_audit/492aa8a38c12c0140a8d16ba9fbcc29a09bb800b7af5eb61f2718ed371788add.py",
+      "sha256": "492aa8a38c12c0140a8d16ba9fbcc29a09bb800b7af5eb61f2718ed371788add",
+      "role": "fresh-opponent",
+      "configuration": {
+        "seed": 1579487285,
+        "family": "district_rate",
+        "claim": 1.078244709873339,
+        "upgrade": 1.0608126248193244,
+        "raid": 0.39579953285448416,
+        "stick": 1.1813392433600602,
+        "power": 0.8997476654363833,
+        "shield": 0.88495152283061,
+        "period": 15,
+        "phase": 1
+      },
+      "generation": {
+        "stage": "contracts_extra",
+        "map_group": 1,
+        "field": "novel_economy",
+        "slot": 1
+      }
+    },
+    {
+      "name": "novel_5d887fd38c8f",
+      "path": "consolidation_candidates/branch_audit/5d887fd38c8f631d6993d153b68f265316626b9f11472bcea0d148e1f85d185f.py",
+      "sha256": "5d887fd38c8f631d6993d153b68f265316626b9f11472bcea0d148e1f85d185f",
+      "role": "fresh-opponent",
+      "configuration": {
+        "seed": 1722284528,
+        "family": "district_rate",
+        "claim": 0.9107813835603191,
+        "upgrade": 1.2808576961839242,
+        "raid": 0.7941918609240322,
+        "stick": 1.1082796587101633,
+        "power": 0.9292133198537982,
+        "shield": 0.8935175467889594,
+        "period": 10,
+        "phase": 0
+      },
+      "generation": {
+        "stage": "contracts_extra",
+        "map_group": 3,
+        "field": "novel_economy",
+        "slot": 1
+      }
+    },
+    {
+      "name": "novel_84bb59a0fb04",
+      "path": "consolidation_candidates/branch_audit/84bb59a0fb046b0fe14256578413e7f5ad7f9f03ab58fc4981ee5b103e8cef4c.py",
+      "sha256": "84bb59a0fb046b0fe14256578413e7f5ad7f9f03ab58fc4981ee5b103e8cef4c",
+      "role": "fresh-opponent",
+      "configuration": {
+        "seed": 1620847498,
+        "family": "time_discount",
+        "claim": 0.9004625339758487,
+        "upgrade": 1.3190444999963213,
+        "raid": 0.37141536211498,
+        "stick": 1.0915422589059165,
+        "power": 0.9378374042977329,
+        "shield": 0.8403210608352978,
+        "period": 11,
+        "phase": 0
+      },
+      "generation": {
+        "stage": "contracts_extra",
+        "map_group": 2,
+        "field": "novel_economy",
+        "slot": 1
+      }
+    },
+    {
+      "name": "novel_97df8781064e",
+      "path": "consolidation_candidates/branch_audit/97df8781064edacff0d31e9182f86a09e9db331d33a8711071e25822544e05ca.py",
+      "sha256": "97df8781064edacff0d31e9182f86a09e9db331d33a8711071e25822544e05ca",
+      "role": "fresh-opponent",
+      "configuration": {
+        "seed": 941060464,
+        "family": "district_rate",
+        "claim": 0.9972134766756356,
+        "upgrade": 1.401747309257433,
+        "raid": 0.5404361755269402,
+        "stick": 1.0882770768651453,
+        "power": 0.855141694479437,
+        "shield": 0.9347280467314418,
+        "period": 17,
+        "phase": 1
+      },
+      "generation": {
+        "stage": "contracts_extra",
+        "map_group": 1,
+        "field": "novel_economy",
+        "slot": 2
+      }
+    },
+    {
+      "name": "novel_aabbd479dd2f",
+      "path": "consolidation_candidates/branch_audit/aabbd479dd2f8da3c48a9dd07b2d187a81c5bc6b71749cb7fd4b97427b219f4d.py",
+      "sha256": "aabbd479dd2f8da3c48a9dd07b2d187a81c5bc6b71749cb7fd4b97427b219f4d",
+      "role": "fresh-opponent",
+      "configuration": {
+        "seed": 844534885,
+        "family": "district_rate",
+        "claim": 1.2113750080837058,
+        "upgrade": 1.4411482307769892,
+        "raid": 0.6125873378727227,
+        "stick": 1.3491928508693165,
+        "power": 0.9760395777396864,
+        "shield": 0.7552096625584295,
+        "period": 8,
+        "phase": 0
+      },
+      "generation": {
+        "stage": "contracts_extra",
+        "map_group": 2,
+        "field": "novel_economy",
+        "slot": 2
+      }
+    },
+    {
+      "name": "novel_d32f99f7a06e",
+      "path": "consolidation_candidates/branch_audit/d32f99f7a06e2bbadec425710cb19afddafb22a6f3d9807da259eb19e1818b9f.py",
+      "sha256": "d32f99f7a06e2bbadec425710cb19afddafb22a6f3d9807da259eb19e1818b9f",
+      "role": "fresh-opponent",
+      "configuration": {
+        "seed": 1529725186,
+        "family": "time_discount",
+        "claim": 1.002193324410658,
+        "upgrade": 1.3543864967577748,
+        "raid": 0.8147515085459889,
+        "stick": 1.3414501727512667,
+        "power": 1.1056353789138915,
+        "shield": 0.7045867045675177,
+        "period": 8,
+        "phase": 1
+      },
+      "generation": {
+        "stage": "contracts_extra",
+        "map_group": 0,
+        "field": "novel_economy",
+        "slot": 2
+      }
+    },
+    {
+      "name": "novel_e305df54207d",
+      "path": "consolidation_candidates/branch_audit/e305df54207de7677fdc0388bfb7ff1cc94d1f263c10e2273cc64f7a033ba321.py",
+      "sha256": "e305df54207de7677fdc0388bfb7ff1cc94d1f263c10e2273cc64f7a033ba321",
+      "role": "fresh-opponent",
+      "configuration": {
+        "seed": 1697937187,
+        "family": "district_rate",
+        "claim": 0.9158303439382255,
+        "upgrade": 1.4882998525792648,
+        "raid": 0.5660283185396517,
+        "stick": 1.083245109583523,
+        "power": 0.9663033096464545,
+        "shield": 0.6913631919118826,
+        "period": 14,
+        "phase": 0
+      },
+      "generation": {
+        "stage": "contracts_extra",
+        "map_group": 3,
+        "field": "novel_economy",
+        "slot": 0
+      }
+    },
+    {
+      "name": "novel_f158838067bd",
+      "path": "consolidation_candidates/branch_audit/f158838067bdd9a42dcc27fbf43c7290edaefd8b374fe73dd65b3583be3565ac.py",
+      "sha256": "f158838067bdd9a42dcc27fbf43c7290edaefd8b374fe73dd65b3583be3565ac",
+      "role": "fresh-opponent",
+      "configuration": {
+        "seed": 1208189026,
+        "family": "time_discount",
+        "claim": 1.1433134739974058,
+        "upgrade": 1.6131547289487536,
+        "raid": 0.3698501689382417,
+        "stick": 1.0976266204451537,
+        "power": 1.0696335986617764,
+        "shield": 0.8051365140051607,
+        "period": 17,
+        "phase": 0
+      },
+      "generation": {
+        "stage": "contracts_extra",
+        "map_group": 3,
+        "field": "novel_economy",
+        "slot": 2
+      }
+    },
+    {
+      "name": "bot_ad053b858504",
+      "path": "consolidation_candidates/branch_audit/ad053b858504a284fda171fdfe7323ffee7603900dca86ae43c9fbe86a48ca5b.py",
+      "sha256": "ad053b858504a284fda171fdfe7323ffee7603900dca86ae43c9fbe86a48ca5b",
+      "aliases": [
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "strategy_audit/outsiders.py",
+          "class_name": "Fort"
+        }
+      ],
+      "registered_names": [
+        "Outsider_Fort"
+      ],
+      "scope": "Historical class control; its internal rollout model retains original physics. It never receives private live state.",
+      "build_inputs": [
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "engine",
+          "sha256": "39b6fb3a06b684d92fa4d7c406fddca5e1b794ed70b948a16ee2a8f5ca589562"
+        },
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "outsiders",
+          "sha256": "0b983da6d58463ba115bdbc0d606c07909c60f05865e968612529f0aeb7053ab"
+        }
+      ]
+    },
+    {
+      "name": "bot_e7ea25fe8574",
+      "path": "consolidation_candidates/branch_audit/e7ea25fe857482c34541cf739e8ec1eabb5290e191070af5cdf51cd1431a65ce.py",
+      "sha256": "e7ea25fe857482c34541cf739e8ec1eabb5290e191070af5cdf51cd1431a65ce",
+      "aliases": [
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "strategy_audit/outsiders.py",
+          "class_name": "Leech"
+        }
+      ],
+      "registered_names": [
+        "Outsider_Leech"
+      ],
+      "scope": "Historical class control; its internal rollout model retains original physics. It never receives private live state.",
+      "build_inputs": [
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "engine",
+          "sha256": "39b6fb3a06b684d92fa4d7c406fddca5e1b794ed70b948a16ee2a8f5ca589562"
+        },
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "outsiders",
+          "sha256": "0b983da6d58463ba115bdbc0d606c07909c60f05865e968612529f0aeb7053ab"
+        }
+      ]
+    },
+    {
+      "name": "bot_29943674e478",
+      "path": "consolidation_candidates/branch_audit/29943674e478229ad5c4b869b15852d4581e0c305c1e73c7002f6c064540b489.py",
+      "sha256": "29943674e478229ad5c4b869b15852d4581e0c305c1e73c7002f6c064540b489",
+      "aliases": [
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "strategy_audit/outsiders.py",
+          "class_name": "HomeBait"
+        }
+      ],
+      "registered_names": [
+        "Outsider_HomeBait"
+      ],
+      "scope": "Historical class control; its internal rollout model retains original physics. It never receives private live state.",
+      "build_inputs": [
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "engine",
+          "sha256": "39b6fb3a06b684d92fa4d7c406fddca5e1b794ed70b948a16ee2a8f5ca589562"
+        },
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "outsiders",
+          "sha256": "0b983da6d58463ba115bdbc0d606c07909c60f05865e968612529f0aeb7053ab"
+        }
+      ]
+    },
+    {
+      "name": "bot_7773ed52b9b8",
+      "path": "consolidation_candidates/branch_audit/7773ed52b9b89f3f6159c88b866debbdd46d786932ea0ace72b30df03457e9b0.py",
+      "sha256": "7773ed52b9b89f3f6159c88b866debbdd46d786932ea0ace72b30df03457e9b0",
+      "aliases": [
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "strategy_audit/outsiders.py",
+          "class_name": "Jackal"
+        }
+      ],
+      "registered_names": [
+        "Outsider_Jackal"
+      ],
+      "scope": "Historical class control; its internal rollout model retains original physics. It never receives private live state.",
+      "build_inputs": [
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "engine",
+          "sha256": "39b6fb3a06b684d92fa4d7c406fddca5e1b794ed70b948a16ee2a8f5ca589562"
+        },
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "outsiders",
+          "sha256": "0b983da6d58463ba115bdbc0d606c07909c60f05865e968612529f0aeb7053ab"
+        }
+      ]
+    },
+    {
+      "name": "bot_a4a1690acb18",
+      "path": "consolidation_candidates/branch_audit/a4a1690acb18674e3bc3568f4c6f7c988d81b083aeded9cf5802dc5696ac584f.py",
+      "sha256": "a4a1690acb18674e3bc3568f4c6f7c988d81b083aeded9cf5802dc5696ac584f",
+      "aliases": [
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "strategy_audit/outsiders.py",
+          "class_name": "Vulture"
+        }
+      ],
+      "registered_names": [
+        "Outsider_Vulture"
+      ],
+      "scope": "Historical class control; its internal rollout model retains original physics. It never receives private live state.",
+      "build_inputs": [
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "engine",
+          "sha256": "39b6fb3a06b684d92fa4d7c406fddca5e1b794ed70b948a16ee2a8f5ca589562"
+        },
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "outsiders",
+          "sha256": "0b983da6d58463ba115bdbc0d606c07909c60f05865e968612529f0aeb7053ab"
+        }
+      ]
+    },
+    {
+      "name": "bot_f6ce1650ae56",
+      "path": "consolidation_candidates/branch_audit/f6ce1650ae566ff5f5dbe2a9a1e863a30d710b4ed634fcf10c754151ee34e383.py",
+      "sha256": "f6ce1650ae566ff5f5dbe2a9a1e863a30d710b4ed634fcf10c754151ee34e383",
+      "aliases": [
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "strategy_audit/outsiders.py",
+          "class_name": "Flaky"
+        }
+      ],
+      "registered_names": [
+        "Outsider_Flaky"
+      ],
+      "scope": "Historical class control; its internal rollout model retains original physics. It never receives private live state.",
+      "build_inputs": [
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "engine",
+          "sha256": "39b6fb3a06b684d92fa4d7c406fddca5e1b794ed70b948a16ee2a8f5ca589562"
+        },
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "outsiders",
+          "sha256": "0b983da6d58463ba115bdbc0d606c07909c60f05865e968612529f0aeb7053ab"
+        }
+      ]
+    },
+    {
+      "name": "bot_f0c36af99230",
+      "path": "consolidation_candidates/branch_audit/f0c36af99230851a8858fcfb9bce97208a81427de38fd6dee2610f06668bf717.py",
+      "sha256": "f0c36af99230851a8858fcfb9bce97208a81427de38fd6dee2610f06668bf717",
+      "aliases": [
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "strategy_audit/outsiders.py",
+          "class_name": "Literal"
+        }
+      ],
+      "registered_names": [
+        "Outsider_Literal"
+      ],
+      "scope": "Historical class control; its internal rollout model retains original physics. It never receives private live state.",
+      "build_inputs": [
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "engine",
+          "sha256": "39b6fb3a06b684d92fa4d7c406fddca5e1b794ed70b948a16ee2a8f5ca589562"
+        },
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "outsiders",
+          "sha256": "0b983da6d58463ba115bdbc0d606c07909c60f05865e968612529f0aeb7053ab"
+        }
+      ]
+    },
+    {
+      "name": "bot_f5a54e20dbe3",
+      "path": "consolidation_candidates/branch_audit/f5a54e20dbe36133c62d1bb57a157d5ab50d0964f1dd8a526bc4b18ee6631982.py",
+      "sha256": "f5a54e20dbe36133c62d1bb57a157d5ab50d0964f1dd8a526bc4b18ee6631982",
+      "aliases": [
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "strategy_audit/outsiders.py",
+          "class_name": "Sim"
+        }
+      ],
+      "registered_names": [
+        "Outsider_Sim"
+      ],
+      "scope": "Historical class control; its internal rollout model retains original physics. It never receives private live state.",
+      "build_inputs": [
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "engine",
+          "sha256": "39b6fb3a06b684d92fa4d7c406fddca5e1b794ed70b948a16ee2a8f5ca589562"
+        },
+        {
+          "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672",
+          "path": "outsiders",
+          "sha256": "0b983da6d58463ba115bdbc0d606c07909c60f05865e968612529f0aeb7053ab"
+        }
+      ]
+    }
+  ],
+  "fixtures": [
+    {
+      "id": 0,
+      "map_group": 0,
+      "map_family": "gradient",
+      "base": [
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        2,
+        2,
+        3,
+        3,
+        2,
+        2,
+        1,
+        1,
+        2,
+        3,
+        3,
+        3,
+        3,
+        2,
+        1,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2,
+        1,
+        2,
+        3,
+        3,
+        3,
+        3,
+        2,
+        1,
+        1,
+        2,
+        2,
+        3,
+        3,
+        2,
+        2,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1
+      ],
+      "seat": 0,
+      "token": 1,
+      "field": "novel_economy",
+      "opponents": [
+        "novel_0cd7e175e625",
+        "novel_45d91a14843a",
+        "novel_d32f99f7a06e"
+      ]
+    },
+    {
+      "id": 1,
+      "map_group": 1,
+      "map_family": "noise",
+      "base": [
+        2,
+        2,
+        3,
+        2,
+        2,
+        3,
+        2,
+        2,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        2,
+        3,
+        2,
+        3,
+        3,
+        2,
+        3,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        2,
+        3,
+        2,
+        3,
+        3,
+        2,
+        3,
+        2,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        2,
+        2,
+        3,
+        2,
+        2,
+        3,
+        2,
+        2
+      ],
+      "seat": 1,
+      "token": 2,
+      "field": "novel_economy",
+      "opponents": [
+        "novel_0412b54e3ab1",
+        "novel_492aa8a38c12",
+        "novel_97df8781064e"
+      ]
+    },
+    {
+      "id": 2,
+      "map_group": 2,
+      "map_family": "edge",
+      "base": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2,
+        3,
+        3,
+        2,
+        3,
+        3,
+        3,
+        2,
+        2,
+        1,
+        1,
+        2,
+        2,
+        3,
+        3,
+        3,
+        2,
+        1,
+        1,
+        2,
+        3,
+        3,
+        3,
+        3,
+        2,
+        1,
+        1,
+        2,
+        3,
+        3,
+        3,
+        2,
+        2,
+        1,
+        1,
+        2,
+        2,
+        3,
+        3,
+        3,
+        2,
+        3,
+        3,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "seat": 2,
+      "token": 3,
+      "field": "novel_economy",
+      "opponents": [
+        "novel_180e7a921c02",
+        "novel_84bb59a0fb04",
+        "novel_aabbd479dd2f"
+      ]
+    },
+    {
+      "id": 3,
+      "map_group": 3,
+      "map_family": "highhome",
+      "base": [
+        3,
+        1,
+        2,
+        3,
+        3,
+        2,
+        1,
+        3,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        3,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        3,
+        2,
+        3,
+        3,
+        2,
+        2,
+        3,
+        3,
+        2,
+        2,
+        3,
+        3,
+        2,
+        2,
+        3,
+        3,
+        2,
+        3,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        3,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        3,
+        1,
+        2,
+        3,
+        3,
+        2,
+        1,
+        3
+      ],
+      "seat": 3,
+      "token": 4,
+      "field": "novel_economy",
+      "opponents": [
+        "novel_e305df54207d",
+        "novel_5d887fd38c8f",
+        "novel_f158838067bd"
+      ]
+    }
+  ],
+  "rules": {
+    "frozen_stay_counts": false,
+    "claim_resets_progress": true,
+    "catch_requires_stay": true,
+    "lost_contest_is_stay": true,
+    "home_upgradable": true,
+    "legal_excludes_occupied": false
+  },
+  "forbidden_board_contents": 47,
+  "candidate_selection": "Frozen source snapshots. Screen retains all passing distinct remote branch roots for development. Final takes the leading four development means plus the incumbent; no strategic coefficients fitted.",
+  "inference": "Only final aggregate paired intervals are confirmatory. Each final map crosses all seats/tokens and all three fields. Promotion needs zero contract/worker faults, a positive paired map-clustered interval against the incumbent, and inspection of novel-only and per-field results. Otherwise retain the incumbent and report uncertainty.",
+  "challenger_scope": "Per-map generated opponents are reset for every game and identical across candidate pairs. Each stage reserves different decision rules. Parameters are drawn without checking how they perform against any focal candidate."
+}

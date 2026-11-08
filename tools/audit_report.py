@@ -29,7 +29,7 @@ def interval(rows,a,b,alpha=.05,field=None):
 
 def main():
     inventory = json.loads((OUT/'inventory.json').read_text())
-    policies = inventory['policies']+json.loads((OUT/'inventory_extension.json').read_text())['policies']
+    policies = inventory['policies']+json.loads((OUT/'inventory_extension.json').read_text())['policies']+json.loads((OUT/'inventory_outsiders.json').read_text())['policies']
     by_name = {p['name']:p for p in policies}
     def label(name):
         p = by_name[name]
@@ -47,7 +47,7 @@ def main():
         refs = [a['ref'].replace('refs/remotes/origin/','') for a in p['aliases'] if a.get('path')=='bot.py' and a.get('ref','').startswith('refs/remotes/origin/')]
         return ', '.join(refs) if refs else ', '.join(names) or name
     stages = {}
-    for stage in ('contracts','contracts_extra','screen','development','final'):
+    for stage in ('contracts','contracts_extra','screen','development','outsiders_contract','outsiders_screen','final'):
         with gzip.open(OUT/(stage+'_results.json.gz'),'rt',encoding='utf8') as f:
             stages[stage] = json.load(f)
     final = stages['final']
@@ -97,7 +97,7 @@ def main():
     lines += ['',
               '## Coverage and protocol','',
               '- %d live remote branches and %d local/remote references were pinned; %d unique Python sources parsed with zero syntax errors.' % (inventory['remote_branch_count'],len(inventory['refs']),inventory['unique_python_sources']),
-              '- %d exact-byte standalone exports plus %d class builds were inventoried. Class builds matched their originals on 8,000 public callbacks. The NN export embeds the existing frozen weights; its training-side Torch self-test is removed.' % (len(inventory['policies']),len(policies)-len(inventory['policies'])),
+              '- %d exact-byte standalone exports plus %d class builds were inventoried. Class builds matched their originals on 10,560 public callbacks. The NN export embeds the existing frozen weights; its training-side Torch self-test is removed.' % (len(inventory['policies']),len(policies)-len(inventory['policies'])),
               '- Independent per-seat processes receive only board, bot ID, priority-token flag and legal actions. Input fingerprints detect mutation. Diagnostic games sample caught exceptions; strength games use the actual 200 ms limit (2 seconds first turn).',
               '- Only current effective-STAY Shield rules are used. Moving successfully escapes Shield; a blocked or lost move counts as STAY; frozen STAY does not advance work.',
               '- Boards are rejected by actual contents if present in earlier validation JSON. Final boards and four final challenger decision families are separate from screening/development.',
@@ -108,7 +108,8 @@ def main():
     for name,d in stages.items():
         lines.append('| %s | %d | %d | %d | %d |' % (name,len(d['summary']),len(d['games']),sum(t['calls'] for r in d['games'] for t in r['timing']),sum(len(r['faults']) for r in d['games'])))
     lines += ['', '**Total: %(games)d games, %(callbacks)d callbacks.**' % totals,'',
-              'Contract games diagnose safety, not playing strength. The incomplete `agent_new.py` fragment crashes because `PARAMS` is missing. `opp_buggy_01.py` intentionally returns diagonal illegal actions and is a negative control. Neither is eligible for promotion. Original sources and failures are preserved instead of silently rewriting their history.','',
+              'Contract games diagnose safety, not playing strength. The incomplete `agent_new.py` fragment crashes because `PARAMS` is missing. `opp_buggy_01.py` intentionally returns diagonal illegal actions and is a negative control. Neither is eligible for promotion. Other deliberate negative controls (slow, oscillator and Flaky) can return legal actions while deliberately playing poorly; legal execution is distinct from strategic correctness. Original sources and failures are preserved instead of silently rewriting their history.','',
+              'Eight class-only outsider controls were discovered in the final coverage review. They were frozen, checked for exact build equivalence, and tested against the original contract and screen fixtures before final outcomes were opened. None met the original eighth-place screen threshold, so the frozen final pool stayed unchanged. See inventory_outsiders.json, outsiders_selection.json and outsiders_equivalence.json.','',
               '## Challenger families','',
               '| Stage | Families and decisions |','|---|---|',
               '| Screen | District rate rewards nearby free income; time discount penalizes long travel; turn budget balances upgrades and claims; local pairs values a second nearby job. |',
@@ -123,14 +124,21 @@ def main():
               'All branch tips and known archived standalone builds are covered, plus listed class defaults from the historical audit branch. This is not an enumeration of every historical commit, every possible parameter combination, or every training checkpoint. Early stages are selection data; their scores are not pooled with final scores. Zero observed faults is not proof of bug-free code. Timing is measured on this machine. No official server simulator is available; the independent-engine release tests check the local interpretation.','']
     (OUT/'REPORT.md').write_text('\n'.join(lines),encoding='utf8',newline='\n')
     coverage = ['# Policy coverage','', '| SHA / label | Contract | Screen PW / 3 | Development PW / 3 | Final PW / 3 |','|---|---|---:|---:|---:|']
-    contract = dict(stages['contracts']['summary'],**stages['contracts_extra']['summary'])
+    contract = dict(stages['contracts']['summary'],**stages['contracts_extra']['summary'],**stages['outsiders_contract']['summary'])
     for name in sorted(by_name):
         status = contract.get(name,{})
         mark = ('%d faults' % status['focal_faults']) if status.get('focal_faults') else 'passed'
-        values = [stages[s]['summary'].get(name,{}).get('mean_pw') for s in ('screen','development','final')]
+        screen = dict(stages['screen']['summary'],**stages['outsiders_screen']['summary'])
+        values = [screen.get(name,{}).get('mean_pw'),stages['development']['summary'].get(name,{}).get('mean_pw'),stages['final']['summary'].get(name,{}).get('mean_pw')]
         coverage.append('| `%s` %s | %s | %s |' % (name[4:],label(name),mark,' | '.join('%.4f' % v if v is not None else '-' for v in values)))
     coverage += ['', 'A dash means not selected for that next panel; it does not mean a draw or a failed execution. Each column is a different matched field and must not be compared as if it were the same tournament. Detailed source aliases, commit hashes and build inputs are in the inventories.','']
     (OUT/'COVERAGE.md').write_text('\n'.join(coverage),encoding='utf8',newline='\n')
+    winner_path = ROOT/'audit_winner.py'
+    winner_source = (ROOT/by_name[selected]['path']).read_bytes()
+    winner_path.write_bytes(winner_source)
+    lines = (OUT/'REPORT.md').read_text(encoding='utf8')
+    lines += '\nThe recommended frozen source is also exported as [`audit_winner.py`](../../audit_winner.py), byte-identical to its tested snapshot. `bot.py` and the existing release manifest retain the initial merged release; this audit is on a separate branch. See [release checks](release_checks.txt) and [independent replay](independent_replay.json).\n'
+    (OUT/'REPORT.md').write_text(lines,encoding='utf8',newline='\n')
     archive = OUT/'source_archive.zip'
     entries = []
     with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED,compresslevel=9) as z:
