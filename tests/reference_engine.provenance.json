@@ -1,0 +1,7 @@
+{
+  "format": "zone-rush-test-oracle/1",
+  "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8",
+  "path": "engine.py",
+  "sha256": "8f7b89995cad0f724fb8ac7c7bc8311a6fa9b3b722f2204097031ba2333726f4",
+  "role": "Independent rules oracle used only by tests; never supplied to playing policies."
+}

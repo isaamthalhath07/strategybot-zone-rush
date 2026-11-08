@@ -1,0 +1,1867 @@
+{
+  "unique_python_blobs": 282,
+  "ast_parse_errors": [],
+  "distinct_import_roots": {
+    "!relative": 7,
+    "acceptance": 2,
+    "agent": 1,
+    "aifield": 6,
+    "analyze": 1,
+    "arena": 9,
+    "argparse": 27,
+    "ast": 18,
+    "atexit": 3,
+    "baselines": 14,
+    "bench2": 3,
+    "bot": 1,
+    "botlib": 21,
+    "collections": 73,
+    "concurrent": 9,
+    "copy": 14,
+    "datetime": 7,
+    "econ": 2,
+    "edge_audit": 9,
+    "engine": 105,
+    "evosim": 2,
+    "field": 22,
+    "fnmatch": 2,
+    "freshlab": 20,
+    "functools": 1,
+    "fusion": 1,
+    "futurelab": 12,
+    "glob": 1,
+    "gpuenv": 3,
+    "hashlib": 47,
+    "heapq": 3,
+    "history": 4,
+    "holdout": 8,
+    "http": 4,
+    "importlib": 31,
+    "independent_bot": 1,
+    "inspect": 2,
+    "io": 2,
+    "itertools": 16,
+    "json": 112,
+    "maps": 9,
+    "match": 13,
+    "math": 52,
+    "measure": 11,
+    "multiprocessing": 41,
+    "mybot": 55,
+    "newfield": 3,
+    "os": 76,
+    "outsiders": 3,
+    "pathlib": 54,
+    "platform": 5,
+    "probot": 4,
+    "queue": 2,
+    "random": 119,
+    "re": 8,
+    "referee": 15,
+    "rivals": 9,
+    "rl": 1,
+    "robustness": 1,
+    "server": 5,
+    "shutil": 4,
+    "signal": 2,
+    "sim": 2,
+    "simreport": 5,
+    "simulate": 3,
+    "sources": 9,
+    "statistics": 2,
+    "subprocess": 18,
+    "symtable": 1,
+    "sys": 97,
+    "tempfile": 13,
+    "territorylab": 8,
+    "test_candidate": 1,
+    "test_presence_candidate": 1,
+    "test_server": 2,
+    "textwrap": 1,
+    "threading": 11,
+    "time": 105,
+    "torch": 4,
+    "traceback": 3,
+    "tracker": 2,
+    "tune": 2,
+    "types": 6,
+    "unittest": 26,
+    "urllib": 2,
+    "uuid": 3,
+    "validate_champion": 2,
+    "visual_harness": 2,
+    "webbrowser": 2,
+    "worker": 1,
+    "xfield": 10,
+    "zarena": 5,
+    "zoo": 40
+  },
+  "tooling_or_data_access_calls": [
+    {
+      "blob": "674a00b875a3c759d6c2a7a75227a76eb2d7bfce",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "aifield.py"
+        },
+        {
+          "ref": "origin/codex-audit-and-robustness",
+          "path": "aifield.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "aifield.py"
+        },
+        {
+          "ref": "origin/hardened-field-and-fixes",
+          "path": "aifield.py"
+        }
+      ],
+      "calls": [
+        "run"
+      ]
+    },
+    {
+      "blob": "fab67a9b505c5d63af7553a9a561bea4d54cdb0d",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "apex/build.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "apex/build.py"
+        },
+        {
+          "ref": "origin/main",
+          "path": "apex/build.py"
+        },
+        {
+          "ref": "pr/10",
+          "path": "apex/build.py"
+        }
+      ],
+      "calls": [
+        "compile",
+        "open"
+      ]
+    },
+    {
+      "blob": "71b728e103a6d8f2030be2da89628bac58ea5141",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "apex/lab/tune_apex.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "apex/lab/tune_apex.py"
+        },
+        {
+          "ref": "origin/main",
+          "path": "apex/lab/tune_apex.py"
+        },
+        {
+          "ref": "pr/10",
+          "path": "apex/lab/tune_apex.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open",
+        "run"
+      ]
+    },
+    {
+      "blob": "9465981be69c78b1a51d27a515c7dbd660ea6f96",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "apex/lab/zarena.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "apex/lab/zarena.py"
+        },
+        {
+          "ref": "origin/main",
+          "path": "apex/lab/zarena.py"
+        },
+        {
+          "ref": "pr/10",
+          "path": "apex/lab/zarena.py"
+        }
+      ],
+      "calls": [
+        "exec",
+        "open"
+      ]
+    },
+    {
+      "blob": "d675382a26765b740de92f55e68f33bcf5a31257",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "apex/tests/test_apex.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "apex/tests/test_apex.py"
+        },
+        {
+          "ref": "origin/main",
+          "path": "apex/tests/test_apex.py"
+        },
+        {
+          "ref": "pr/10",
+          "path": "apex/tests/test_apex.py"
+        }
+      ],
+      "calls": [
+        "compile",
+        "exec",
+        "open"
+      ]
+    },
+    {
+      "blob": "b2a25b2897cba19139eaed9b6e38d556dd84a77c",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "calib.py"
+        },
+        {
+          "ref": "origin/codex-audit-and-robustness",
+          "path": "calib.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "calib.py"
+        },
+        {
+          "ref": "origin/hardened-field-and-fixes",
+          "path": "calib.py"
+        }
+      ],
+      "calls": [
+        "open"
+      ]
+    },
+    {
+      "blob": "96eaaa5727c07069ff4745a91e4a46892be4f1de",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "choose.py"
+        },
+        {
+          "ref": "origin/codex-audit-and-robustness",
+          "path": "choose.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "choose.py"
+        },
+        {
+          "ref": "origin/hardened-field-and-fixes",
+          "path": "choose.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open",
+        "run"
+      ]
+    },
+    {
+      "blob": "47a38e1958101a9111dfd7454a5296c7d8af71dd",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "crossfield/acceptance.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "crossfield/acceptance.py"
+        },
+        {
+          "ref": "origin/main",
+          "path": "crossfield/acceptance.py"
+        },
+        {
+          "ref": "pr/10",
+          "path": "crossfield/acceptance.py"
+        }
+      ],
+      "calls": [
+        "compile",
+        "exec",
+        "open"
+      ]
+    },
+    {
+      "blob": "5a5235a07e0f37aef8c1acb73575278f79052822",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "crossfield/xfield.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "crossfield/xfield.py"
+        },
+        {
+          "ref": "origin/main",
+          "path": "crossfield/xfield.py"
+        },
+        {
+          "ref": "pr/10",
+          "path": "crossfield/xfield.py"
+        }
+      ],
+      "calls": [
+        "compile",
+        "exec",
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "a2adb732f7eff8d155efac6b3870477dc463d576",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "diag3.py"
+        },
+        {
+          "ref": "origin/codex-audit-and-robustness",
+          "path": "diag3.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "diag3.py"
+        },
+        {
+          "ref": "origin/hardened-field-and-fixes",
+          "path": "diag3.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "cd9572a7244f33c5ae376aa9cb4510b97bcc04d1",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "diag_loss.py"
+        },
+        {
+          "ref": "origin/hardened-field-and-fixes",
+          "path": "diag_loss.py"
+        },
+        {
+          "ref": "origin/shaunakbr1",
+          "path": "diag_loss.py"
+        },
+        {
+          "ref": "origin/shaunakbr2",
+          "path": "diag_loss.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "53ed3070195d1c29cc8d6ebe312c441ffa2132e2",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "diag_seat.py"
+        },
+        {
+          "ref": "origin/codex-audit-and-robustness",
+          "path": "diag_seat.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "diag_seat.py"
+        },
+        {
+          "ref": "origin/hardened-field-and-fixes",
+          "path": "diag_seat.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "88f8ab5916af86510d3310f777d1f8f5ba48a02a",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "evaluate.py"
+        },
+        {
+          "ref": "origin/codex-audit-and-robustness",
+          "path": "evaluate.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "evaluate.py"
+        },
+        {
+          "ref": "origin/hardened-field-and-fixes",
+          "path": "evaluate.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "d5af149f49d7d7fc995f4cdd3736e5660ac973ef",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "exploit.py"
+        },
+        {
+          "ref": "origin/codex-audit-and-robustness",
+          "path": "exploit.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "exploit.py"
+        },
+        {
+          "ref": "origin/hardened-field-and-fixes",
+          "path": "exploit.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "a48355d1818713e2e0242090e9aae09cff73cbba",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "field.py"
+        },
+        {
+          "ref": "origin/hardened-field-and-fixes",
+          "path": "field.py"
+        },
+        {
+          "ref": "origin/shaunakbr1",
+          "path": "field.py"
+        },
+        {
+          "ref": "origin/shaunakbr2",
+          "path": "field.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "21a0569620bd07031688e672df71b3686dd0852f",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "harness/match.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "harness/match.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "human_arena/vendor_harness/match.py"
+        },
+        {
+          "ref": "origin/main",
+          "path": "harness/match.py"
+        }
+      ],
+      "calls": [
+        "Popen",
+        "open",
+        "run"
+      ]
+    },
+    {
+      "blob": "dc871ade69c43f85d4adf1c9dde3be2494b752b6",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "harness/server.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "harness/server.py"
+        },
+        {
+          "ref": "origin/main",
+          "path": "harness/server.py"
+        },
+        {
+          "ref": "origin/shaunakbr1",
+          "path": "harness/server.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "9c922c7325f7092f01df9e999fac7af1122bce32",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "harness/simreport.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "harness/simreport.py"
+        },
+        {
+          "ref": "origin/main",
+          "path": "harness/simreport.py"
+        },
+        {
+          "ref": "pr/10",
+          "path": "harness/simreport.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "1efd0bbc5f35c988a46a31543dbcd1969212d511",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "harness/simulate.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "harness/simulate.py"
+        },
+        {
+          "ref": "origin/main",
+          "path": "harness/simulate.py"
+        },
+        {
+          "ref": "pr/10",
+          "path": "harness/simulate.py"
+        }
+      ],
+      "calls": [
+        "open",
+        "run"
+      ]
+    },
+    {
+      "blob": "2820ee1c681bdde53152afff7efdddbb68676381",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "harness/sources.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "harness/sources.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "human_arena/vendor_harness/sources.py"
+        },
+        {
+          "ref": "origin/main",
+          "path": "harness/sources.py"
+        }
+      ],
+      "calls": [
+        "open",
+        "run"
+      ]
+    },
+    {
+      "blob": "b4e7678ae3e22058ed0db8816403f303f8028ab6",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "harness/test_match.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "harness/test_match.py"
+        },
+        {
+          "ref": "origin/main",
+          "path": "harness/test_match.py"
+        },
+        {
+          "ref": "origin/shaunakbr1",
+          "path": "harness/test_match.py"
+        }
+      ],
+      "calls": [
+        "open",
+        "run"
+      ]
+    },
+    {
+      "blob": "bf282476372f63674641151ec4ef6b32a036295f",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "harness/test_referee.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "harness/test_referee.py"
+        },
+        {
+          "ref": "origin/main",
+          "path": "harness/test_referee.py"
+        },
+        {
+          "ref": "origin/shaunakbr1",
+          "path": "harness/test_referee.py"
+        }
+      ],
+      "calls": [
+        "open",
+        "run"
+      ]
+    },
+    {
+      "blob": "9037072906a28d3fc1abd7efaf88f096d8278949",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "harness/test_simulate.py"
+        },
+        {
+          "ref": "pr/10",
+          "path": "harness/test_simulate.py"
+        }
+      ],
+      "calls": [
+        "Popen",
+        "open",
+        "run"
+      ]
+    },
+    {
+      "blob": "5aef5ed6829202a4ee131354a11ab7f93546b478",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "measure.py"
+        },
+        {
+          "ref": "origin/hardened-field-and-fixes",
+          "path": "measure.py"
+        },
+        {
+          "ref": "origin/shaunakbr1",
+          "path": "measure.py"
+        },
+        {
+          "ref": "origin/shaunakbr2",
+          "path": "measure.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "bb7300d0a607fc19c39e8255e9da667378cf0bae",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "nnbot.py"
+        },
+        {
+          "ref": "origin/codex-audit-and-robustness",
+          "path": "nnbot.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "nnbot.py"
+        },
+        {
+          "ref": "origin/hardened-field-and-fixes",
+          "path": "nnbot.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "5b6e954a2acfe7f79b5c3b90382b444b0f9f046d",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "patch_combo.py"
+        },
+        {
+          "ref": "origin/codex-audit-and-robustness",
+          "path": "patch_combo.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "patch_combo.py"
+        },
+        {
+          "ref": "origin/hardened-field-and-fixes",
+          "path": "patch_combo.py"
+        }
+      ],
+      "calls": [
+        "open"
+      ]
+    },
+    {
+      "blob": "b08170d1f0ddef5ecbea8d2c2cff4a0f06439884",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "rivals.py"
+        },
+        {
+          "ref": "origin/codex-audit-and-robustness",
+          "path": "rivals.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "rivals.py"
+        },
+        {
+          "ref": "origin/hardened-field-and-fixes",
+          "path": "rivals.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "0fa315267a2c83899af5a4db7de1884874f85f79",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "rl.py"
+        },
+        {
+          "ref": "origin/codex-audit-and-robustness",
+          "path": "rl.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "rl.py"
+        },
+        {
+          "ref": "origin/hardened-field-and-fixes",
+          "path": "rl.py"
+        }
+      ],
+      "calls": [
+        "open"
+      ]
+    },
+    {
+      "blob": "6dadee1256968b00eec363c7bf6c3498c746524f",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "runtests.py"
+        },
+        {
+          "ref": "pr/10",
+          "path": "runtests.py"
+        }
+      ],
+      "calls": [
+        "run"
+      ]
+    },
+    {
+      "blob": "cd3269a22d911742ec101cf78800e73248dfc83a",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "ship.py"
+        },
+        {
+          "ref": "pr/10",
+          "path": "ship.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open",
+        "run"
+      ]
+    },
+    {
+      "blob": "85dfe5ee8e4def8581c8bff5979bc88189b00931",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "strategies.py"
+        },
+        {
+          "ref": "origin/codex-audit-and-robustness",
+          "path": "strategies.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "strategies.py"
+        },
+        {
+          "ref": "origin/hardened-field-and-fixes",
+          "path": "strategies.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "0bc28777c52c7d2b30c8fc8340bf8e28d25e8dec",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "test_amnesia.py"
+        },
+        {
+          "ref": "origin/codex-audit-and-robustness",
+          "path": "test_amnesia.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "test_amnesia.py"
+        },
+        {
+          "ref": "origin/hardened-field-and-fixes",
+          "path": "test_amnesia.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "143be16748b751b1552996b5070c17dc8fe5aeb8",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "test_determinism.py"
+        },
+        {
+          "ref": "origin/codex-audit-and-robustness",
+          "path": "test_determinism.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "test_determinism.py"
+        },
+        {
+          "ref": "origin/hardened-field-and-fixes",
+          "path": "test_determinism.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open",
+        "run"
+      ]
+    },
+    {
+      "blob": "0046bc4083d5b06e2e4ca4515bb0d9b508c86869",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "test_fields.py"
+        },
+        {
+          "ref": "origin/codex-audit-and-robustness",
+          "path": "test_fields.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "test_fields.py"
+        },
+        {
+          "ref": "origin/hardened-field-and-fixes",
+          "path": "test_fields.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "b350dc1af4f48404642a7ead8b60dcd2c2c3a7fa",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "test_guards.py"
+        },
+        {
+          "ref": "origin/codex-audit-and-robustness",
+          "path": "test_guards.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "test_guards.py"
+        },
+        {
+          "ref": "origin/hardened-field-and-fixes",
+          "path": "test_guards.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "df9cf0bbf339107d3fbc87e6d0e9ef834a16146b",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "test_oppmodel.py"
+        },
+        {
+          "ref": "origin/codex-audit-and-robustness",
+          "path": "test_oppmodel.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "test_oppmodel.py"
+        },
+        {
+          "ref": "origin/hardened-field-and-fixes",
+          "path": "test_oppmodel.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "4a8e5bc9640d23394a986c7102a92a73cf586314",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "test_robust.py"
+        },
+        {
+          "ref": "origin/codex-audit-and-robustness",
+          "path": "test_robust.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "test_robust.py"
+        },
+        {
+          "ref": "origin/hardened-field-and-fixes",
+          "path": "test_robust.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "e30eb78aa506c77951aae9717141a5a4201a5701",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "test_timing.py"
+        },
+        {
+          "ref": "origin/codex-audit-and-robustness",
+          "path": "test_timing.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "test_timing.py"
+        },
+        {
+          "ref": "origin/hardened-field-and-fixes",
+          "path": "test_timing.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "12ac61b74cc7b19247f7eb741b8001c835eb632a",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "test_transfer.py"
+        },
+        {
+          "ref": "origin/hardened-field-and-fixes",
+          "path": "test_transfer.py"
+        },
+        {
+          "ref": "origin/shaunakbr1",
+          "path": "test_transfer.py"
+        },
+        {
+          "ref": "origin/shaunakbr2",
+          "path": "test_transfer.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "136bc3c57dce79ae5b528db34147c849b8b4ffeb",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "tune.py"
+        },
+        {
+          "ref": "origin/hardened-field-and-fixes",
+          "path": "tune.py"
+        },
+        {
+          "ref": "origin/shaunakbr1",
+          "path": "tune.py"
+        },
+        {
+          "ref": "origin/shaunakbr2",
+          "path": "tune.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "5789c32febfe85a0ae2494aa85a601b046e25282",
+      "aliases": [
+        {
+          "ref": "origin/claude/rulefix-stuck-home",
+          "path": "tune_rival.py"
+        },
+        {
+          "ref": "origin/hardened-field-and-fixes",
+          "path": "tune_rival.py"
+        },
+        {
+          "ref": "origin/shaunakbr1",
+          "path": "tune_rival.py"
+        },
+        {
+          "ref": "origin/shaunakbr2",
+          "path": "tune_rival.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "626c981adc5e15201c1a067332a7a4ac5ec8ddcc",
+      "aliases": [
+        {
+          "ref": "origin/codex-audit-and-robustness",
+          "path": "audit_ablation.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "audit_ablation.py"
+        },
+        {
+          "ref": "origin/main",
+          "path": "audit_ablation.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "29a4777cbc998d69626cc628fbfc01e85b21bc30",
+      "aliases": [
+        {
+          "ref": "origin/codex-audit-and-robustness",
+          "path": "audit_strategy_experiments.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "audit_strategy_experiments.py"
+        },
+        {
+          "ref": "origin/main",
+          "path": "audit_strategy_experiments.py"
+        }
+      ],
+      "calls": [
+        "exec",
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "461d161915d10f61f00bd0ee4e55436bcd1c228c",
+      "aliases": [
+        {
+          "ref": "origin/codex-audit-and-robustness",
+          "path": "diag_loss.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "diag_loss.py"
+        },
+        {
+          "ref": "origin/main",
+          "path": "diag_loss.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "e533aa1ab4eb97e3e52b48f4626802c933b58f91",
+      "aliases": [
+        {
+          "ref": "origin/codex-audit-and-robustness",
+          "path": "field.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "field.py"
+        },
+        {
+          "ref": "origin/main",
+          "path": "field.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "74501de1f6d22f4417c86333068842d9676731c9",
+      "aliases": [
+        {
+          "ref": "origin/codex-audit-and-robustness",
+          "path": "h2h.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "h2h.py"
+        },
+        {
+          "ref": "origin/main",
+          "path": "h2h.py"
+        }
+      ],
+      "calls": [
+        "load"
+      ]
+    },
+    {
+      "blob": "efffeb4d3ad09c3ed142bcc104fa13977e064e40",
+      "aliases": [
+        {
+          "ref": "origin/codex-audit-and-robustness",
+          "path": "measure.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "measure.py"
+        },
+        {
+          "ref": "origin/main",
+          "path": "measure.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "c79e148e11a6d86f78490b16d4e0d454bc8657d1",
+      "aliases": [
+        {
+          "ref": "origin/codex-audit-and-robustness",
+          "path": "runtests.py"
+        }
+      ],
+      "calls": [
+        "run"
+      ]
+    },
+    {
+      "blob": "8d0466e7bf23ead5984189ed337548c1a5f1c166",
+      "aliases": [
+        {
+          "ref": "origin/codex-audit-and-robustness",
+          "path": "ship.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "a13035b6c317f6201ca79216735a77960e1bd3b8",
+      "aliases": [
+        {
+          "ref": "origin/codex-audit-and-robustness",
+          "path": "test_maps.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "test_maps.py"
+        },
+        {
+          "ref": "origin/main",
+          "path": "test_maps.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open",
+        "run"
+      ]
+    },
+    {
+      "blob": "a9355c329bf7adfacca47b8fda35cdeb60925edd",
+      "aliases": [
+        {
+          "ref": "origin/codex-audit-and-robustness",
+          "path": "test_transfer.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "test_transfer.py"
+        },
+        {
+          "ref": "origin/main",
+          "path": "test_transfer.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "305e86c5cf82478d38c4d45f4dc8f2ea0a3e5e84",
+      "aliases": [
+        {
+          "ref": "origin/codex-audit-and-robustness",
+          "path": "tune.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "tune.py"
+        },
+        {
+          "ref": "origin/main",
+          "path": "tune.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "a3767bee80ad6ef62b66a3428d8ffd529009f1f0",
+      "aliases": [
+        {
+          "ref": "origin/codex-audit-and-robustness",
+          "path": "tune_rival.py"
+        },
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "tune_rival.py"
+        },
+        {
+          "ref": "origin/main",
+          "path": "tune_rival.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "a9745d98851cb7840fad0df6676a13771b0b7e09",
+      "aliases": [
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "harness/test_simulate.py"
+        },
+        {
+          "ref": "origin/main",
+          "path": "harness/test_simulate.py"
+        }
+      ],
+      "calls": [
+        "Popen",
+        "open",
+        "run"
+      ]
+    },
+    {
+      "blob": "93643e0a58387521629f79dc9fa620d9c640d8cb",
+      "aliases": [
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "human_arena/analysis/d3846d56/analyze.py"
+        },
+        {
+          "ref": "origin/main",
+          "path": "human_arena/analysis/d3846d56/analyze.py"
+        }
+      ],
+      "calls": [
+        "compile",
+        "exec"
+      ]
+    },
+    {
+      "blob": "89634a7f20558e474fc3163c321b82de9ce95a1c",
+      "aliases": [
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "human_arena/analysis/d3846d56/model_probes.py"
+        },
+        {
+          "ref": "origin/main",
+          "path": "human_arena/analysis/d3846d56/model_probes.py"
+        }
+      ],
+      "calls": [
+        "compile",
+        "exec"
+      ]
+    },
+    {
+      "blob": "59c2a0ca1600cd04858bd8b3b393bbd3b7d77e14",
+      "aliases": [
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "human_arena/branch_screen.py"
+        },
+        {
+          "ref": "origin/main",
+          "path": "human_arena/branch_screen.py"
+        }
+      ],
+      "calls": [
+        "compile",
+        "exec"
+      ]
+    },
+    {
+      "blob": "044dfebd682b89e047db6bed33b2cc738648568f",
+      "aliases": [
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "human_arena/candidates/build_forward_fixed.py"
+        },
+        {
+          "ref": "origin/main",
+          "path": "human_arena/candidates/build_forward_fixed.py"
+        }
+      ],
+      "calls": [
+        "compile"
+      ]
+    },
+    {
+      "blob": "ada26a26c09d0838e8b24b90a7327f31999b87df",
+      "aliases": [
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "human_arena/candidates/build_forward_presence.py"
+        },
+        {
+          "ref": "origin/main",
+          "path": "human_arena/candidates/build_forward_presence.py"
+        }
+      ],
+      "calls": [
+        "compile"
+      ]
+    },
+    {
+      "blob": "f2a6dd19966254b3606945538929a633395e7927",
+      "aliases": [
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "human_arena/server.py"
+        },
+        {
+          "ref": "origin/main",
+          "path": "human_arena/server.py"
+        }
+      ],
+      "calls": [
+        "run"
+      ]
+    },
+    {
+      "blob": "3dfc628e460c302b92ea7c1f2caacd58e15543b3",
+      "aliases": [
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "human_arena/test_presence_core.py"
+        },
+        {
+          "ref": "origin/main",
+          "path": "human_arena/test_presence_core.py"
+        }
+      ],
+      "calls": [
+        "load"
+      ]
+    },
+    {
+      "blob": "df0706d2f3266b57b88c0cfc69c7194bfc64ddd2",
+      "aliases": [
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "runtests.py"
+        },
+        {
+          "ref": "origin/main",
+          "path": "runtests.py"
+        }
+      ],
+      "calls": [
+        "run"
+      ]
+    },
+    {
+      "blob": "15c06a7e5b2245ee461849f25d00d0a5982141c7",
+      "aliases": [
+        {
+          "ref": "origin/codex/fresh-opponents-and-adaptation",
+          "path": "ship.py"
+        },
+        {
+          "ref": "origin/main",
+          "path": "ship.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open",
+        "run"
+      ]
+    },
+    {
+      "blob": "110e4cf4acc3db5cf895a130452e5f6a460bd9fa",
+      "aliases": [
+        {
+          "ref": "origin/hardened-field-and-fixes",
+          "path": "runtests.py"
+        },
+        {
+          "ref": "origin/shaunakbr1",
+          "path": "runtests.py"
+        },
+        {
+          "ref": "origin/shaunakbr2",
+          "path": "runtests.py"
+        },
+        {
+          "ref": "origin/visual-harness",
+          "path": "runtests.py"
+        }
+      ],
+      "calls": [
+        "run"
+      ]
+    },
+    {
+      "blob": "59e79750efd40eef00e059b3ee5d457f6ef899f1",
+      "aliases": [
+        {
+          "ref": "origin/hardened-field-and-fixes",
+          "path": "ship.py"
+        },
+        {
+          "ref": "origin/shaunakbr1",
+          "path": "ship.py"
+        },
+        {
+          "ref": "origin/shaunakbr2",
+          "path": "ship.py"
+        },
+        {
+          "ref": "origin/visual-harness",
+          "path": "ship.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "72bb41c7e6f31410f57e021ceeec9b1867aefe1d",
+      "aliases": [
+        {
+          "ref": "origin/shaunakbr1",
+          "path": "harness/simreport.py"
+        },
+        {
+          "ref": "origin/shaunakbr2",
+          "path": "harness/simreport.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "dc3c7933b04bff052b1000b2cb1fc0afb72132da",
+      "aliases": [
+        {
+          "ref": "origin/shaunakbr1",
+          "path": "harness/simulate.py"
+        },
+        {
+          "ref": "origin/shaunakbr2",
+          "path": "harness/simulate.py"
+        }
+      ],
+      "calls": [
+        "open",
+        "run"
+      ]
+    },
+    {
+      "blob": "ff64b67faa8be864d68069edea7c432ab503ea27",
+      "aliases": [
+        {
+          "ref": "origin/shaunakbr1",
+          "path": "harness/test_simulate.py"
+        },
+        {
+          "ref": "origin/shaunakbr2",
+          "path": "harness/test_simulate.py"
+        }
+      ],
+      "calls": [
+        "Popen",
+        "open",
+        "run"
+      ]
+    },
+    {
+      "blob": "98a5a7722b18eceb0416e34d6497b53641fef615",
+      "aliases": [
+        {
+          "ref": "origin/shaunakbr1",
+          "path": "strategy_audit/check_v7_compat.py"
+        },
+        {
+          "ref": "origin/shaunakbr2",
+          "path": "strategy_audit/check_v7_compat.py"
+        },
+        {
+          "ref": "origin/visual-harness",
+          "path": "strategy_audit/check_v7_compat.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "da1ce2b3cdfc449141ba9c4cc048942da290a6e7",
+      "aliases": [
+        {
+          "ref": "origin/shaunakbr1",
+          "path": "strategy_audit/edge_audit.py"
+        },
+        {
+          "ref": "origin/shaunakbr2",
+          "path": "strategy_audit/edge_audit.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "87c2e37da3e961b892103a8dfe56e90ee2cee911",
+      "aliases": [
+        {
+          "ref": "origin/shaunakbr1",
+          "path": "strategy_audit/referee.py"
+        },
+        {
+          "ref": "origin/shaunakbr2",
+          "path": "strategy_audit/referee.py"
+        },
+        {
+          "ref": "origin/visual-harness",
+          "path": "strategy_audit/referee.py"
+        },
+        {
+          "ref": "pr/10",
+          "path": "strategy_audit/referee.py"
+        }
+      ],
+      "calls": [
+        "open"
+      ]
+    },
+    {
+      "blob": "0a03cc0a1c469a1d263391d05481f644c562f9ed",
+      "aliases": [
+        {
+          "ref": "origin/shaunakbr1",
+          "path": "test_guards.py"
+        },
+        {
+          "ref": "origin/shaunakbr2",
+          "path": "test_guards.py"
+        },
+        {
+          "ref": "origin/visual-harness",
+          "path": "test_guards.py"
+        },
+        {
+          "ref": "pr/10",
+          "path": "test_guards.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "86403f241b1c30a6a8a51d6131ecbb3f02dc677f",
+      "aliases": [
+        {
+          "ref": "origin/v7-independent-field",
+          "path": "bench2.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "2746d400e309751986fa59d301fcf96a6ad4911a",
+      "aliases": [
+        {
+          "ref": "origin/v7-independent-field",
+          "path": "exploit.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "4a0e99034456111cbdf86a09d234a64a153588c8",
+      "aliases": [
+        {
+          "ref": "origin/v7-independent-field",
+          "path": "rivals.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "2e2a9d1f38304261d7f48dab61f43fa57e1e2dd9",
+      "aliases": [
+        {
+          "ref": "origin/v7-independent-field",
+          "path": "ship.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "7963f191fb80e59aaecbd486d577fefbc7346a81",
+      "aliases": [
+        {
+          "ref": "origin/v7-independent-field",
+          "path": "test_robust.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "fb6ed469030d552c591b76fab243d96babf0e1c0",
+      "aliases": [
+        {
+          "ref": "origin/v7-independent-field",
+          "path": "tune.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "98cb82e9fa9c57b3c2b81281970b285530f6cd27",
+      "aliases": [
+        {
+          "ref": "origin/v7-independent-field",
+          "path": "tune2.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "286dd616b086b9b198b8d1c3b7d357671fc73487",
+      "aliases": [
+        {
+          "ref": "origin/visual-harness",
+          "path": "harness/match.py"
+        }
+      ],
+      "calls": [
+        "Popen",
+        "open",
+        "run"
+      ]
+    },
+    {
+      "blob": "073bd55e0618a1debf51fc3eb8bcdee01c952f04",
+      "aliases": [
+        {
+          "ref": "origin/visual-harness",
+          "path": "strategy_audit/edge_audit.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "abc75bd1d9275a4fc1d5f073d948bd6ee6f509a5",
+      "aliases": [
+        {
+          "ref": "origin/visual-harness",
+          "path": "strategy_audit/verify_novel.py"
+        }
+      ],
+      "calls": [
+        "open"
+      ]
+    },
+    {
+      "blob": "b2a1f07f3e716a9bee89b7a8c87962bf2cc7be76",
+      "aliases": [
+        {
+          "ref": "pr/10",
+          "path": "strategy_audit/check_v7_compat.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "7fad6143e33284f6a5ebe2744015bb17796d4d06",
+      "aliases": [
+        {
+          "ref": "pr/10",
+          "path": "strategy_audit/edge_audit.py"
+        }
+      ],
+      "calls": [
+        "load",
+        "open"
+      ]
+    },
+    {
+      "blob": "f97d410c41f14ef8ead58a14ef4f51fd809265da",
+      "aliases": [
+        {
+          "ref": "pr/10",
+          "path": "strategy_audit/verify_novel.py"
+        }
+      ],
+      "calls": [
+        "open"
+      ]
+    }
+  ],
+  "note": "Calls flagged for manual categorization, not automatic vulnerabilities. Offline training/evaluation may read files and execute trusted committed code; final playing policy must not depend on that tooling."
+}

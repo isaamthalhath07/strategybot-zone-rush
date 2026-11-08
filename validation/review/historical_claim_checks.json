@@ -1,0 +1,122 @@
+[
+  {
+    "path": "freshlab/results/final.json",
+    "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8",
+    "sha256": "3d5a305bf902ac26bed0f9abd949b341d4f45d4f77890b1f3f448598291848bf",
+    "row_score_pairwise_consistent": true,
+    "summaries_recomputed": {
+      "baseline": {
+        "n": 1024,
+        "pw": 2.15234375,
+        "score": 2933.1376953125
+      },
+      "raid_calibration": {
+        "n": 1024,
+        "pw": 2.2275390625,
+        "score": 2956.5
+      }
+    },
+    "unique_board_contents": 688,
+    "seat_tokens": 16
+  },
+  {
+    "path": "freshlab/results/balanced_confirmation.json",
+    "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8",
+    "sha256": "4834b824ef7e85998f167e06d7140672dee44632f91717eb7747364664568580",
+    "row_score_pairwise_consistent": true,
+    "summaries_recomputed": {
+      "baseline": {
+        "n": 1024,
+        "pw": 1.9638671875,
+        "score": 2877.5908203125
+      },
+      "raid_calibration": {
+        "n": 1024,
+        "pw": 2.02099609375,
+        "score": 2896.30078125
+      }
+    },
+    "unique_board_contents": 664,
+    "seat_tokens": 16
+  },
+  {
+    "path": "territorylab/results/final.json",
+    "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8",
+    "sha256": "c2337022c98b296731d7b8f537c3a061a9eed6ddc2b496930bd1383d9709e236",
+    "row_score_pairwise_consistent": true,
+    "summaries_recomputed": {
+      "baseline": {
+        "n": 896,
+        "pw": 2.553013392857143,
+        "score": 3040.863839285714
+      },
+      "territory": {
+        "n": 896,
+        "pw": 2.6082589285714284,
+        "score": 3048.831473214286
+      }
+    },
+    "unique_board_contents": 595,
+    "seat_tokens": 16
+  },
+  {
+    "path": "territorylab/results/economic_confirmation.json",
+    "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8",
+    "sha256": "e57900e3d858b460d3cbbfdec349daf7f6851559e571c137985badcb4748d45b",
+    "row_score_pairwise_consistent": true,
+    "summaries_recomputed": {
+      "baseline": {
+        "n": 896,
+        "pw": 2.3872767857142856,
+        "score": 3033.042410714286
+      },
+      "territory": {
+        "n": 896,
+        "pw": 2.385044642857143,
+        "score": 3030.5691964285716
+      }
+    },
+    "unique_board_contents": 605,
+    "seat_tokens": 16
+  },
+  {
+    "path": "futurelab/results/final.json",
+    "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8",
+    "sha256": "95581656ae89fd813e29e5421a10b5bde8c97ed3810b5c3431620521dee6dc01",
+    "row_score_pairwise_consistent": true,
+    "summaries_recomputed": {
+      "baseline": {
+        "n": 864,
+        "pw": 2.361111111111111,
+        "score": 2976.7106481481483
+      },
+      "one_job": {
+        "n": 864,
+        "pw": 2.5,
+        "score": 3003.608796296296
+      }
+    },
+    "unique_board_contents": 559,
+    "seat_tokens": 16
+  },
+  {
+    "path": "futurelab/results/native_confirmation.json",
+    "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8",
+    "sha256": "6f4210bac8b88f705761bcf589ea0cb0b4b3fb5d368ee217dab62cdfb10ee2f1",
+    "row_score_pairwise_consistent": true,
+    "summaries_recomputed": {
+      "baseline": {
+        "n": 448,
+        "pw": 2.450892857142857,
+        "score": 3052.948660714286
+      },
+      "one_job": {
+        "n": 448,
+        "pw": 2.705357142857143,
+        "score": 3128.3303571428573
+      }
+    },
+    "unique_board_contents": 333,
+    "seat_tokens": 16
+  }
+]

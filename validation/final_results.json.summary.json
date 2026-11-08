@@ -1,0 +1,245 @@
+{
+  "summary": {
+    "presence_guarded": {
+      "games": 384,
+      "mean_pw": 1.875,
+      "mean_score": 2903.3203125,
+      "fields": {
+        "adaptive-specialists": 2.140625,
+        "economic-pressure": 1.5078125,
+        "shield-and-forecast": 1.9765625
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 1.2134999269619584,
+      "mean_ms": 0.29346443736812944
+    },
+    "fe03b8164ed3": {
+      "games": 384,
+      "mean_pw": 1.8515625,
+      "mean_score": 2899.0807291666665,
+      "fields": {
+        "adaptive-specialists": 2.0546875,
+        "economic-pressure": 1.546875,
+        "shield-and-forecast": 1.953125
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 1.5869999770075083,
+      "mean_ms": 0.2695187955472041
+    },
+    "5457b5fdf4ca": {
+      "games": 384,
+      "mean_pw": 1.7473958333333333,
+      "mean_score": 2881.0703125,
+      "fields": {
+        "adaptive-specialists": 1.89453125,
+        "economic-pressure": 1.5390625,
+        "shield-and-forecast": 1.80859375
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 1.4504999853670597,
+      "mean_ms": 0.2342399902734845
+    },
+    "presence_legacy_pricing": {
+      "games": 384,
+      "mean_pw": 1.7278645833333333,
+      "mean_score": 2882.2760416666665,
+      "fields": {
+        "adaptive-specialists": 1.93359375,
+        "economic-pressure": 1.4453125,
+        "shield-and-forecast": 1.8046875
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 2.098000026308,
+      "mean_ms": 0.3228361003569565
+    },
+    "1a718fd8b514": {
+      "games": 384,
+      "mean_pw": 1.5390625,
+      "mean_score": 2862.4166666666665,
+      "fields": {
+        "adaptive-specialists": 1.734375,
+        "economic-pressure": 1.140625,
+        "shield-and-forecast": 1.7421875
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 2.019799896515906,
+      "mean_ms": 0.2055837857824372
+    },
+    "720e5a3daf7b": {
+      "games": 384,
+      "mean_pw": 1.5247395833333333,
+      "mean_score": 2854.8515625,
+      "fields": {
+        "adaptive-specialists": 1.57421875,
+        "economic-pressure": 1.4375,
+        "shield-and-forecast": 1.5625
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 1.7239999724552035,
+      "mean_ms": 0.34360867862991046
+    }
+  },
+  "paired": [
+    {
+      "first": "presence_guarded",
+      "second": "fe03b8164ed3",
+      "mean": 0.0234375,
+      "clusters": 8,
+      "bootstrap_95": [
+        -0.049479166666666664,
+        0.09635416666666667
+      ]
+    },
+    {
+      "first": "presence_guarded",
+      "second": "5457b5fdf4ca",
+      "mean": 0.12760416666666666,
+      "clusters": 8,
+      "bootstrap_95": [
+        -0.0859375,
+        0.3997395833333333
+      ]
+    },
+    {
+      "first": "presence_guarded",
+      "second": "presence_legacy_pricing",
+      "mean": 0.14713541666666666,
+      "clusters": 8,
+      "bootstrap_95": [
+        -0.03515625,
+        0.375
+      ]
+    },
+    {
+      "first": "presence_guarded",
+      "second": "1a718fd8b514",
+      "mean": 0.3359375,
+      "clusters": 8,
+      "bootstrap_95": [
+        0.01822916666666667,
+        0.7369791666666666
+      ]
+    },
+    {
+      "first": "presence_guarded",
+      "second": "720e5a3daf7b",
+      "mean": 0.3502604166666667,
+      "clusters": 8,
+      "bootstrap_95": [
+        0.0546875,
+        0.6640625
+      ]
+    },
+    {
+      "first": "fe03b8164ed3",
+      "second": "5457b5fdf4ca",
+      "mean": 0.10416666666666666,
+      "clusters": 8,
+      "bootstrap_95": [
+        -0.09635416666666667,
+        0.33984375
+      ]
+    },
+    {
+      "first": "fe03b8164ed3",
+      "second": "presence_legacy_pricing",
+      "mean": 0.12369791666666666,
+      "clusters": 8,
+      "bootstrap_95": [
+        -0.04557291666666666,
+        0.32291666666666663
+      ]
+    },
+    {
+      "first": "fe03b8164ed3",
+      "second": "1a718fd8b514",
+      "mean": 0.3125,
+      "clusters": 8,
+      "bootstrap_95": [
+        0.010416666666666668,
+        0.6744791666666666
+      ]
+    },
+    {
+      "first": "fe03b8164ed3",
+      "second": "720e5a3daf7b",
+      "mean": 0.3268229166666667,
+      "clusters": 8,
+      "bootstrap_95": [
+        0.03515625,
+        0.6614583333333334
+      ]
+    },
+    {
+      "first": "5457b5fdf4ca",
+      "second": "presence_legacy_pricing",
+      "mean": 0.019531249999999997,
+      "clusters": 8,
+      "bootstrap_95": [
+        -0.05078125,
+        0.08333333333333333
+      ]
+    },
+    {
+      "first": "5457b5fdf4ca",
+      "second": "1a718fd8b514",
+      "mean": 0.20833333333333334,
+      "clusters": 8,
+      "bootstrap_95": [
+        -0.10677083333333334,
+        0.57421875
+      ]
+    },
+    {
+      "first": "5457b5fdf4ca",
+      "second": "720e5a3daf7b",
+      "mean": 0.22265625,
+      "clusters": 8,
+      "bootstrap_95": [
+        -0.07552083333333333,
+        0.5377604166666666
+      ]
+    },
+    {
+      "first": "presence_legacy_pricing",
+      "second": "1a718fd8b514",
+      "mean": 0.18880208333333334,
+      "clusters": 8,
+      "bootstrap_95": [
+        -0.11588541666666666,
+        0.546875
+      ]
+    },
+    {
+      "first": "presence_legacy_pricing",
+      "second": "720e5a3daf7b",
+      "mean": 0.203125,
+      "clusters": 8,
+      "bootstrap_95": [
+        -0.07291666666666666,
+        0.49479166666666663
+      ]
+    },
+    {
+      "first": "1a718fd8b514",
+      "second": "720e5a3daf7b",
+      "mean": 0.014322916666666673,
+      "clusters": 8,
+      "bootstrap_95": [
+        -0.21614583333333331,
+        0.23177083333333334
+      ]
+    }
+  ],
+  "elapsed_s": 201.92193650000263,
+  "caveat": "Finite registered field. Screening is selection data. Confirmations are fresh maps, not proof against every possible rival. No private state or future actions reach a policy.",
+  "games": 2304,
+  "timed_callbacks": 737280,
+  "all_faults": 0
+}

@@ -1,0 +1,11 @@
+{
+  "source_sha256": "d8255047f77a82fc4bc7f81802dcbd4d1f5e7e1b698de94f4cf9c3828f8e8461",
+  "games": 8,
+  "callbacks": 2560,
+  "seed_start": 900177,
+  "max_ms": 8.34289996419102,
+  "immutable_legal": true,
+  "exact_own_progress_scores_clock": true,
+  "actual_cooldowns_in_public_beliefs": true,
+  "policy_fallbacks": 0
+}
