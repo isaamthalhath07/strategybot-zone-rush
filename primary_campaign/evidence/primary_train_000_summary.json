@@ -1,0 +1,85 @@
+{
+  "accepted_primary_games": 20000,
+  "exact_regenerated_callbacks": 6400000,
+  "public_memory_oracles": 3200000,
+  "bmcts_audits": 0,
+  "promoted": false,
+  "candidates": [
+    {
+      "name": "incumbent",
+      "sha256": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+      "games": 2500,
+      "standardized_pw": 2.265645032051282,
+      "mean_pw": 2.2656,
+      "mean_score": 3072.5804
+    },
+    {
+      "name": "offspring_07",
+      "sha256": "43cd3f7d255ba3690f1ceaab1c17da0a7a0a063efca12d9a03dad9f42494c36a",
+      "games": 2500,
+      "standardized_pw": 2.1993289262820515,
+      "mean_pw": 2.1988,
+      "mean_score": 3058.734
+    },
+    {
+      "name": "offspring_06",
+      "sha256": "93ccec95d14217794d89d703bb191b806dd99166c89eaaabd904fdb9739950cd",
+      "games": 2500,
+      "standardized_pw": 2.197911658653846,
+      "mean_pw": 2.1974,
+      "mean_score": 3062.0156
+    },
+    {
+      "name": "offspring_02",
+      "sha256": "6d84e6433980107cb7c34bea65491fdfb80aaef74e4b5030ca70e84100306eed",
+      "games": 2500,
+      "standardized_pw": 2.184129607371795,
+      "mean_pw": 2.1846,
+      "mean_score": 3053.648
+    },
+    {
+      "name": "research_archive",
+      "sha256": "5a859ef134f1995b7ad9d842d6945a6d1ae644964b7e6bd824aee9564da587f2",
+      "games": 2500,
+      "standardized_pw": 2.182421875,
+      "mean_pw": 2.182,
+      "mean_score": 3060.032
+    },
+    {
+      "name": "offspring_05",
+      "sha256": "14c169a327b6a416c12c77a09dad85e2a5a867f63883e9a7f3fcfe94a971d352",
+      "games": 2500,
+      "standardized_pw": 2.179266826923077,
+      "mean_pw": 2.1798,
+      "mean_score": 3053.5184
+    },
+    {
+      "name": "offspring_03",
+      "sha256": "d0b8bd450aab225f59cf8b82ae0b445f9f00ac25e3c09de2b4397470da9fa74e",
+      "games": 2500,
+      "standardized_pw": 2.176612580128205,
+      "mean_pw": 2.177,
+      "mean_score": 3054.146
+    },
+    {
+      "name": "offspring_04",
+      "sha256": "282504e4bd02a6b5839be457efd1baa35c99a05f8f3ed6f93f1a85887e3cfbf7",
+      "games": 2500,
+      "standardized_pw": 2.137129407051282,
+      "mean_pw": 2.137,
+      "mean_score": 3036.8208
+    }
+  ],
+  "performance": {
+    "caveat": "Projection covers game transcripts only; registrations, audits and backups need additional storage. CPU timings include this observed load; no GPU speedup claimed.",
+    "games_jsonl_bytes": 72716091,
+    "new_games": 20000,
+    "new_games_per_s": 25.65070512863095,
+    "projected_2m_games_jsonl_bytes": 7271609100,
+    "wall_s": 779.7056610999862,
+    "workers": 8
+  },
+  "registration_sha256": "771ded7c1b0424fc10cce5e230133ab757022c0977545158111fa0e9730f751a",
+  "audit_source": "Reviewed full20k gate; rawrecords retained underignoredcampaign directory",
+  "role": "Trainingfitness only; noindependentstrengthpromotion"
+}

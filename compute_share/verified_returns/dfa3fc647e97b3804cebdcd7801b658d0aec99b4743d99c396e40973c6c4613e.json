@@ -1,0 +1,22 @@
+{
+  "bundle_id": "dfa3fc647e97b3804cebdcd7801b658d0aec99b4743d99c396e40973c6c4613e",
+  "diagnostics_verified": 4,
+  "games_bmcts_audited": 0,
+  "independent_cpu_reproduction": true,
+  "primary_campaign_games": 0,
+  "promotion_allowed": false,
+  "result_sha256": "fc1967ea701ad818c039c39c12806bf2a233bb7aca6dff7fe54bfd6a69f42572",
+  "source_pins_passed": true,
+  "gpu": "NVIDIA GeForce RTX 5050 Laptop GPU",
+  "assigned_slot": 5,
+  "synthetic_trajectories": 2944,
+  "synthetic_turns": 8832,
+  "client_worker_seconds": 16.66804480000019,
+  "job_ids": [
+    "f8ba743965b0ce6904df7dd758a34732e124e31284c3e9a7f68773c79e8aad65",
+    "12c5d0ac881158e304093b153e24339e77c6d1413d7291d2911a522bb6652085",
+    "cd1c520c47bd97424566d2b539a8066d0a065151b22cac27ddc26243bbd3fa75",
+    "e404043f5e3274ea080a05ccf3ccac29a283c45dc01777aabdaeb4b1dd62ad8e"
+  ],
+  "received_source": "User result attachment; no personal paths retained"
+}

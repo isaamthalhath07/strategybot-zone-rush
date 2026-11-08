@@ -1,0 +1,22 @@
+{
+  "bundle_id": "a1b9c9e8c44445e2966a136808abf5c1d84c613bfa15c9e2a9730680ac2ffbb1",
+  "diagnostics_verified": 4,
+  "games_bmcts_audited": 0,
+  "independent_cpu_reproduction": true,
+  "primary_campaign_games": 0,
+  "promotion_allowed": false,
+  "result_sha256": "e3f3595412e3b0b628f9b49031d8a48b100e2e291c6b7fccfb2fff2fba4a8bd1",
+  "source_pins_passed": true,
+  "gpu": "NVIDIA GeForce RTX 2060",
+  "assigned_slot": 3,
+  "synthetic_trajectories": 2944,
+  "synthetic_turns": 8832,
+  "client_worker_seconds": 1.777137600001879,
+  "job_ids": [
+    "66c57c6cd0fcdb0aa68c25ed2b290f6debd4a92744f37ba6b00bce57d1959fef",
+    "c80c004373910551de239138360cec4794c46ca3c6dba11a984729391af3f0f7",
+    "b021d48e5932ba205733ecd9514f8f4ad4b982f6c5c5d3d4bd7454b17c838f65",
+    "93077ee91a0e74b7823bd552c5924ee70b3dee374e7980ad7bc493870c7f053e"
+  ],
+  "received_source": "User result attachment; no personal paths retained"
+}

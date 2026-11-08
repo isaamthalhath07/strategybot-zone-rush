@@ -1,0 +1,22 @@
+{
+  "bundle_id": "95b76be2dfc691530261c8f78f5f1224a6b2142833ba77436d0f819288ea94d7",
+  "diagnostics_verified": 4,
+  "games_bmcts_audited": 0,
+  "independent_cpu_reproduction": true,
+  "primary_campaign_games": 0,
+  "promotion_allowed": false,
+  "result_sha256": "98b5a171d40e141cc2859fc844250c5001ad5743f3e4458d4bf2be134d906903",
+  "source_pins_passed": true,
+  "gpu": "NVIDIA GeForce GTX 1660 Ti",
+  "assigned_slot": 4,
+  "synthetic_trajectories": 3072,
+  "synthetic_turns": 9216,
+  "client_worker_seconds": 1.4922261000028811,
+  "job_ids": [
+    "a23228d374c7c464c5438713c1766031a5e5bc4d494dc9e3be9f67f97aa04466",
+    "120b04fe4c464b37d01c0d2bd1eda923fec29bc7015a8a6844e3c5f04b902439",
+    "6d0933623b5628dd36e831468efc5994ddcf7cc9e400915fd464969d29f06c99",
+    "4e9d30f9c8ee00dc4e160c80f55191bbcc54c3da69d5a683ebf7b4779fdb7b38"
+  ],
+  "received_source": "User result attachment; no personal paths retained"
+}
