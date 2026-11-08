@@ -1,0 +1,64 @@
+{
+  "archive": {
+    "path": "intent_search/evidence/intent_search_v1_sources.zip",
+    "sha256": "78bc3cd2339a64ef3a90ae3ce268e698e763173c7bfbc061735fd83d7314f3fa"
+  },
+  "caveat": "Finite information-tree estimates under fixed board-reactive persistent behavioral types. Forecast pilot evidence does not certify strategic strength or persistent-goal inference.",
+  "completed_game_audit_credit": 0,
+  "frozen_dependencies": {
+    "evolution/maps.py": "e0c9328d89aff7ab23caa9a9fa6b672fc4074f66f57dd69678d1a121d5d679ef",
+    "gpu_tree_coach/protocol.py": "c07a60eb53f535ad02e21aa1c83ecc2bc5b455659a767c04518b604d73b98883",
+    "gpu_tree_coach/tree.py": "4da642282ebfabf1431c219bd106772a5900c4f9e04adf9f0ea8c3ee79349b46",
+    "opponent_prediction/intent_filter.py": "43a1276f29f0669f1e1bbce0379ad02805d471c174172019f0db1e517302c3b9",
+    "search_coach/belief.py": "f4188a87e5f253685df98ba596af97601bd00b68a42ff397f4d244126aa8669c",
+    "simulator/vendor_harness/referee.py": "f1125e8ceee664781827c670c0c4481da41a7ef41a4e5276d6b3b118274af337",
+    "tests/reference_engine.py": "8f7b89995cad0f724fb8ac7c7bc8311a6fa9b3b722f2204097031ba2333726f4"
+  },
+  "full_bmcts_audit_credit": 0,
+  "independent_review": "Brief read-only review found no obvious public-boundary defect; formal review pending.",
+  "playing_strength_tested": false,
+  "primary_match_credit": 0,
+  "promoted": false,
+  "runtime_source_pins": {
+    "evolution/maps.py": "e0c9328d89aff7ab23caa9a9fa6b672fc4074f66f57dd69678d1a121d5d679ef",
+    "gpu_tree_coach/protocol.py": "c07a60eb53f535ad02e21aa1c83ecc2bc5b455659a767c04518b604d73b98883",
+    "gpu_tree_coach/tree.py": "4da642282ebfabf1431c219bd106772a5900c4f9e04adf9f0ea8c3ee79349b46",
+    "intent_search/__init__.py": "b599f9ce9ef6f3aa310bfcede342d50daccf31fa1ca56ea413acaeadacb60574",
+    "intent_search/__main__.py": "61eec710aca3e1e64c8cdd06727afc83b20555e6baa74530d759f76fa6e4ed67",
+    "intent_search/mcts.py": "cc6c5c9a59254a46bf105aa6ed022f04c78cf00bbc738ef54ec65ae359a24ba7",
+    "opponent_prediction/intent_filter.py": "43a1276f29f0669f1e1bbce0379ad02805d471c174172019f0db1e517302c3b9",
+    "search_coach/belief.py": "f4188a87e5f253685df98ba596af97601bd00b68a42ff397f4d244126aa8669c",
+    "simulator/vendor_harness/referee.py": "f1125e8ceee664781827c670c0c4481da41a7ef41a4e5276d6b3b118274af337",
+    "tests/reference_engine.py": "8f7b89995cad0f724fb8ac7c7bc8311a6fa9b3b722f2204097031ba2333726f4"
+  },
+  "sampling": "Binary64 log-space Gumbel-max with finite52-bit uniforms; bounded tails, not exact real-arithmetic posterior sampling.",
+  "schema": 1,
+  "source_sha256": {
+    "intent_search/README.md": "61cef9f2cede1ef8ab57d6bcc71fb48dfd45435a46a565975cdbdb4d49fee6e7",
+    "intent_search/__init__.py": "b599f9ce9ef6f3aa310bfcede342d50daccf31fa1ca56ea413acaeadacb60574",
+    "intent_search/__main__.py": "61eec710aca3e1e64c8cdd06727afc83b20555e6baa74530d759f76fa6e4ed67",
+    "intent_search/mcts.py": "cc6c5c9a59254a46bf105aa6ed022f04c78cf00bbc738ef54ec65ae359a24ba7",
+    "intent_search/test_cli.py": "e42a01aa9c01e0445dbd91828115cd1785e69f8ca1fdc38fd2c1814b8c059587",
+    "intent_search/test_mcts.py": "79e7a220e58f5f023783c6cf41c51357008cd1c925696dd4f1ee561ff69ca5ca"
+  },
+  "status": "frozen_bounded_prototype_awaiting_independent_review",
+  "tests": {
+    "actual_campaign_or_study_outcomes_read": 0,
+    "actual_controller_callbacks": 0,
+    "command": "python -m unittest intent_search.test_mcts intent_search.test_cli -v",
+    "observed_duration_s": 2.639,
+    "observed_exit_code": 0,
+    "observed_tests": 10,
+    "synthetic_public_prefixes_only": true
+  },
+  "unchanged_protected_sha256": {
+    "bot.py": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+    "compute_share/releases/2026-11-09-runtime-checks/PUBLIC_HANDOFF.json": "f3fb7189cf2bf2e858df6560495bd3497287efeaff07705956e9afbb37c2a3e1",
+    "gpu_tree_coach/evidence/frozen_manifest.json": "acff4669092215d8c5cea3376b3d469cc7998137e29b7e3dda86f476703b0e93",
+    "opponent_prediction/intent_filter.py": "43a1276f29f0669f1e1bbce0379ad02805d471c174172019f0db1e517302c3b9",
+    "opponent_prediction/pilot.py": "39fea9427e373a16341adbe2feeba064ffec17330dfc6aaed57ab73c5a7729ea",
+    "primary_campaign/core.py": "6d0de2dae757a4db821bddbb6bad1978bd6f6ac4d612ac60946b2ff01412d6fa",
+    "primary_campaign/run.py": "bcaeeba986b4cdfd663be0a34bd507a93ee45db3f24ee4c80c8b60a4b1b7e98b",
+    "study_analysis/evidence/frozen_manifest.json": "ab80e0126cd5bc67ec3f7c71cf84f0845fe7287a216a5f0d204f6e7e12c38a81"
+  }
+}
