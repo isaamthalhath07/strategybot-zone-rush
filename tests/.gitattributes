@@ -1,0 +1,2 @@
+# Preserve the independently implemented, hash-pinned test oracle.
+reference_engine.py -text

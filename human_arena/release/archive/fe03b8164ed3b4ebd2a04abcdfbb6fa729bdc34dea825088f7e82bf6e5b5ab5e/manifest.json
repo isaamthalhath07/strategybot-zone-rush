@@ -1,7 +1,0 @@
-{
-  "format": "zone-rush-repaired-release/1",
-  "sha256": "fe03b8164ed3b4ebd2a04abcdfbb6fa729bdc34dea825088f7e82bf6e5b5ab5e",
-  "source": "human_arena/candidates/transfer_fixed.py",
-  "parent_branch_source_sha256": "5457b5fdf4ca0e52d8502c6b237f975a88b1e8a97dd7bb4900f2b2acfbda1497",
-  "verification": "human_arena/REPAIR_VALIDATION.md"
-}

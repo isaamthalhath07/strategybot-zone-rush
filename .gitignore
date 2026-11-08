@@ -1,24 +1,17 @@
 __pycache__/
 *.pyc
 *.log
-
-# the organisers' rulebook - kept locally, not redistributed, and that
-# includes pages of it rendered as images
+.cache/
+consolidation_candidates/
+consolidation_review/
+# Runtime state stays local.
+simulator/history/
+simulator/bot_snapshots/
+simulator/.test-tmp/
+simulator/vendor_harness/.cache/
+# Organizer materials are not redistributed.
 StrategyBot_RuleBook.pdf
-audit/rulebook_pages/
 
-# RL virtualenv (large, local only)
-.venv-rl/
-
-# Live tuner output. A run rewrites its output file every generation, so
-# committing one mid-run would publish a half-tuned parameter set as if it were a
-# decision. A run in progress should therefore write to best_params.json (the
-# default) and the result be copied to an explicit vN_params.json once harvested.
-best_params.json
-pro_params.json
-
-# visual harness: unpacked branch snapshots, uploads and saved games
-harness/.cache/
-harness/replays/
-# harness/simulate.py sessions (results, reports)
-harness/simulations/
+# Leftover caches from retired checkouts are never release sources.
+/human_arena/
+/harness/

@@ -1,9 +1,0 @@
-__pycache__/
-.test-tmp/
-bot_snapshots/
-vendor_harness/__pycache__/
-vendor_harness/.cache/
-history/
-
-# Organizer rulebook pages remain local, just like the original PDF.
-analysis/rule_clarification/rulebook-page-*.png

@@ -1,0 +1,164 @@
+{
+  "rules": {
+    "catch_requires_stay": false
+  },
+  "purpose": "one smoke game per novel export, not strength validation",
+  "rows": [
+    {
+      "name": "novel_a_mcts",
+      "sha256": "b87478d4748569e0e8ef8c50a0f381d0c2764bd904c450af2047f20774f7213c",
+      "turns": 80,
+      "scores": [
+        1902,
+        2222,
+        2233,
+        2107
+      ],
+      "focal_worst_ms": 8.42430000193417,
+      "faults": []
+    },
+    {
+      "name": "novel_a_paranoid",
+      "sha256": "b9d9e5ac8ec2fbaf6d38fab9373212531f6f01071c4ebd60641253538f2cd6cf",
+      "turns": 80,
+      "scores": [
+        2376,
+        2319,
+        2269,
+        2363
+      ],
+      "focal_worst_ms": 3.791600000113249,
+      "faults": []
+    },
+    {
+      "name": "novel_a_rhea",
+      "sha256": "e60b6d8bbe3c460883dbfe21eece8ace4b2d5983afd1b03dcc927d6e9d72fd08",
+      "turns": 80,
+      "scores": [
+        2119,
+        2627,
+        2865,
+        2904
+      ],
+      "focal_worst_ms": 7.68349994905293,
+      "faults": []
+    },
+    {
+      "name": "novel_b_feint",
+      "sha256": "f95dc9fc22660331b1368a876d907f111fd3cb21aef6e3e34315b41e6af94e94",
+      "turns": 80,
+      "scores": [
+        2958,
+        2633,
+        2513,
+        2748
+      ],
+      "focal_worst_ms": 2.3772999411448836,
+      "faults": []
+    },
+    {
+      "name": "novel_b_blocker",
+      "sha256": "1bb70109a75e2880bfdf3ac9b6fd8e368b0f3d02b9a3e65de53cef0defa505e5",
+      "turns": 80,
+      "scores": [
+        2844,
+        2821,
+        2816,
+        2814
+      ],
+      "focal_worst_ms": 1.652300008572638,
+      "faults": []
+    },
+    {
+      "name": "novel_b_racer",
+      "sha256": "a35c2c4811645091adef6cbd263f1573bf2b184d5dd5741a070234a422ce54c8",
+      "turns": 80,
+      "scores": [
+        2272,
+        2378,
+        2443,
+        2530
+      ],
+      "focal_worst_ms": 0.8540999842807651,
+      "faults": []
+    },
+    {
+      "name": "novel_c_voronoi",
+      "sha256": "5c9fc5cf6b0e3e58a3065b1afcf6bf42cfd0127487c2b31b878dad07205f467c",
+      "turns": 80,
+      "scores": [
+        2177,
+        2306,
+        2619,
+        2488
+      ],
+      "focal_worst_ms": 2.656899974681437,
+      "faults": []
+    },
+    {
+      "name": "novel_c_bloomer",
+      "sha256": "78e6919475dee8f6a27ddbf7c433b49844bcdfdc865be334e3836cbb68fec8c6",
+      "turns": 80,
+      "scores": [
+        2065,
+        1883,
+        2158,
+        2239
+      ],
+      "focal_worst_ms": 1.1349000269547105,
+      "faults": []
+    },
+    {
+      "name": "novel_c_portfolio",
+      "sha256": "c09b3363418e124ba7cfbcf1494244562bc6a311f17f6ca762f16a0b37ae9398",
+      "turns": 80,
+      "scores": [
+        1919,
+        2216,
+        2232,
+        2363
+      ],
+      "focal_worst_ms": 1.0139000369235873,
+      "faults": []
+    },
+    {
+      "name": "novel_d_titfortat",
+      "sha256": "f9ebc7878ac1c120ac98987b2c521fb050fea535f8e4c62dae433d09a453bbb3",
+      "turns": 80,
+      "scores": [
+        2688,
+        2747,
+        3159,
+        2913
+      ],
+      "focal_worst_ms": 0.28709997422993183,
+      "faults": []
+    },
+    {
+      "name": "novel_d_antileader",
+      "sha256": "825a695c56bf7f7b8211148f678ef178e9e241d0b0b4ccf09db5b314738a3d21",
+      "turns": 80,
+      "scores": [
+        2209,
+        2497,
+        2373,
+        2349
+      ],
+      "focal_worst_ms": 0.27680001221597195,
+      "faults": []
+    },
+    {
+      "name": "novel_d_shieldmaster",
+      "sha256": "d75575389253984ef6b47eb6b1189d2a60fa6b20da976b71107da91f5a02cb9c",
+      "turns": 80,
+      "scores": [
+        2121,
+        1936,
+        2176,
+        1908
+      ],
+      "focal_worst_ms": 0.36830001045018435,
+      "faults": []
+    }
+  ]
+}

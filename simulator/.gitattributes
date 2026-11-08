@@ -1,0 +1,2 @@
+# Exact source bytes are checked before the simulator loads its harness.
+*.py -text

@@ -1,5 +1,6 @@
-# Keep line endings deterministic for everyone who clones this.
-# A previous maintenance script rewrote files in text mode on Windows, which
-# converted the whole repository to CRLF and made every line look changed.
+# Exact source/evidence fingerprints survive every checkout.
 * text=auto eol=lf
-*.pdf binary
+*.py -text
+*.json -text
+*.gz binary
+*.zip binary
