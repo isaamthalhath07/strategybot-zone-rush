@@ -1,0 +1,1 @@
+{'seeds_completed': 500, 'public_observations': 162000, 'shield_actions': 20952, 'failures': 0, 'primary_credit': 0}

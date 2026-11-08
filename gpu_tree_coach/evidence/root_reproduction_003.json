@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "role": "root_reproduction_of_frozen_prototype_tests",
+  "observed_utc": "2026-11-08T22:17:40Z",
+  "command": "C:\\Users\\LEGION\\stratergybot\\.venv-rl\\Scripts\\python.exe -m unittest gpu_tree_coach.test_tree gpu_tree_coach.test_cli -v",
+  "observed_exit_code": 0,
+  "observed_tests": 14,
+  "observed_duration_s": 28.576,
+  "real_cuda_tests_executed": true,
+  "frozen_source_archive_sha256": "07b1c573d1e4389a884cf511fc5b635b9bf06561a5c9687bd1b3f298d01081e1",
+  "new_primary_games": 0,
+  "new_completed_game_bmcts_audits": 0,
+  "strength_claim": false,
+  "note": "Repeated implementation checks; these are the same 14 tests, not 14 additional unique tests or a new benchmark. No frozen runtime source was changed."
+}

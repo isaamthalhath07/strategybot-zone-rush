@@ -1,0 +1,72 @@
+{
+  "format": "zone-rush-readonly-campaign-monitor/1",
+  "campaign_id": "66269bc2443cdff375116b3e168f1e8db6f27cc4a758a8c00e84f949d4bcac10",
+  "campaign_directory": "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\.cache\\primary\\campaign_v1_20261109",
+  "snapshot_status": "consistent",
+  "stages": [
+    {
+      "generation": 0,
+      "registered_games": 20000,
+      "complete_actual_rows": 20000,
+      "observed_uncommitted_tail_bytes": 0,
+      "accepted_primary_games": 20000,
+      "registration_sha256": "771ded7c1b0424fc10cce5e230133ab757022c0977545158111fa0e9730f751a",
+      "status": "existing_independent_admission_structurally_verified",
+      "audit_sha256": "86f67515a00b9481d7fe69eaa602af6fef347128ebb68ffe66296ee3417bdcce"
+    },
+    {
+      "generation": 1,
+      "registered_games": 20000,
+      "complete_actual_rows": 20000,
+      "observed_uncommitted_tail_bytes": 0,
+      "accepted_primary_games": 20000,
+      "registration_sha256": "94c141c021830d0d9973d426249a77a5dd1e9090ca40b14f4e51ce67cae72321",
+      "status": "existing_independent_admission_structurally_verified",
+      "audit_sha256": "b0a79d63d5661c292a149aaede5eaee2a1b5e1ff55c42f1b674f7e5c203cef7c"
+    },
+    {
+      "generation": 2,
+      "registered_games": 20000,
+      "complete_actual_rows": 20000,
+      "observed_uncommitted_tail_bytes": 0,
+      "accepted_primary_games": 20000,
+      "registration_sha256": "d8fcab431d94fbd6e81a5a6f4a4e22bcb3ebc88379d34ba665054ce92100db35",
+      "status": "existing_independent_admission_structurally_verified",
+      "audit_sha256": "be6c60dea1c388984b8f1edeb3fcea3998287889db005817ff1f1b15ac5baf45"
+    },
+    {
+      "generation": 3,
+      "registered_games": 20000,
+      "complete_actual_rows": 20000,
+      "observed_uncommitted_tail_bytes": 0,
+      "accepted_primary_games": 20000,
+      "registration_sha256": "eb0f6ba3a97cf8b6d79a5deb0ce635efc892628c9107f83504730f97b54a5827",
+      "status": "existing_independent_admission_structurally_verified",
+      "audit_sha256": "b91d28a594154804fc5f08048568120531b2f08a3e005ece4cb5a20d59499a46"
+    },
+    {
+      "generation": 4,
+      "registered_games": 20000,
+      "complete_actual_rows": 20000,
+      "observed_uncommitted_tail_bytes": 0,
+      "accepted_primary_games": 20000,
+      "registration_sha256": "58e2aa209791d9059b1a89b3aa53b6ce8aa70212a25443c7ec2d774a925fe1da",
+      "status": "existing_independent_admission_structurally_verified",
+      "audit_sha256": "b88db973f90c1b3acd6fade0b4757a8a5a6dd0a2a258dab969212133b62b94f2"
+    }
+  ],
+  "actual_complete_rows_observed": 100000,
+  "existing_accepted_primary_games": 100000,
+  "registered_maps": 500,
+  "registered_tasks": 100000,
+  "unique_rival_instances": 300000,
+  "unique_rival_seeds": 300000,
+  "scheduled_training_generations": 80,
+  "training_complete": false,
+  "duration_s": 110.8244973999681,
+  "files_modified_in_campaign": false,
+  "new_actor_regenerations": 0,
+  "new_primary_games_credited": 0,
+  "bmcts_audits": 0,
+  "limitation": "Structural consistency and existing receipt coverage only; not a fresh deep actor/physics audit or HMAC evaluator authority."
+}

@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "kind": "heldout_targeted_validation",
+  "utc": "2026-11-08T21:02:29.241786+00:00",
+  "tests": 20,
+  "passed": true,
+  "skipped": 0,
+  "duration_seconds": 49.949,
+  "command": "python -m unittest campaign_holdout.test_holdout campaign_holdout.test_gate_security campaign_holdout.test_schedule -v",
+  "source_sha256": {
+    "authority.py": "3458e0acc374fb5c91f2b91ee06e247801d2da26c11def93d8d7e7cf9fb30d3d",
+    "core.py": "1fb52093adf715d4051cdc29346faa430546965e9b314155a5743ab839f230d7",
+    "run.py": "f8a4b54c980b82ccc18561a3c81c964d2b26731c98dead5fe904f948a92b8b4d",
+    "test_gate_security.py": "b009d052f0e6c6735527011cc826c404d042723519dc37777a14b9e7ff4f968b",
+    "test_holdout.py": "68eb8fbc3b7ad18815fd9ec4d2ea3dd804fccbfaaaf90127d686e62d79e098cc",
+    "test_schedule.py": "c2222d5f7c5689069a505dcf7ecea961a6050b47838c5622db62444c81fe45fb",
+    "__init__.py": "04cf8a1cf7cf2171ccb39b85c5abc0e86261496af58cf4cd0cd3e84cb2e6221b"
+  },
+  "protected_runtime_sha256": {
+    "primary_campaign/core.py": "6d0de2dae757a4db821bddbb6bad1978bd6f6ac4d612ac60946b2ff01412d6fa",
+    "primary_campaign/run.py": "bcaeeba986b4cdfd663be0a34bd507a93ee45db3f24ee4c80c8b60a4b1b7e98b",
+    "evolution/runner.py": "bae5c92c51efa83eaef90db0ede9940be72201d2bb78e9d0527e3f6139d7503b",
+    "evolution/oversight.py": "02fbb41a16df510a33214207f6f3d0561b4865d75cb1a293ea614680df9000b6",
+    "bot.py": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5"
+  },
+  "protected_runtime_unchanged": true,
+  "real_windows_owner_only_acl_test": true,
+  "real_windows_junction_rejection_test": true,
+  "os_lock_crash_recovery_test": true,
+  "positive_admission_and_selection_tests_explicitly_mock_expensive_prior_acceptance": true,
+  "actual_public_game_contract_games_in_this_pass": 1,
+  "fresh_actor_contract_callbacks_in_this_pass": 320,
+  "development_assignment_math_games": 200000,
+  "final_assignment_math_games": 200000,
+  "assignment_count_test_mocks_rival_creation": true,
+  "live_development_games_executed": 0,
+  "live_final_games_executed": 0,
+  "primary_games_accepted": 0,
+  "bmcts_audits": 0,
+  "production_changed": false,
+  "large800_game_integration_performed": false,
+  "independent_full_code_review_complete": false,
+  "remaining": [
+    "Independent code review before any large mechanics or live heldout execution.",
+    "Admission cannot run until ALL scheduled actual training audits pass.",
+    "Local authority is trusted-owner authentication, not third-party attestation."
+  ]
+}

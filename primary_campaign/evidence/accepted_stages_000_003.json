@@ -1,0 +1,67 @@
+{
+  "bmcts_audits": 0,
+  "callbacks_regenerated": 25600000,
+  "note": "Exact sealed receipts; complete registrations/action logs/individual actor audits remain local and are hash-bound. Replays are not new matches.",
+  "primary_games_accepted": 80000,
+  "primary_target": 2000000,
+  "primary_target_completed": false,
+  "promoted": false,
+  "stages": [
+    {
+      "actor_audits_sha256": "7ebc45e76f49a5e73f464db9bb6010944bce7790469e7b207d25e0d7a54d7a5a",
+      "callbacks_regenerated": 6400000,
+      "exact_copy_files": {
+        "audit.json": "86f67515a00b9481d7fe69eaa602af6fef347128ebb68ffe66296ee3417bdcce",
+        "audit.sha256": "1d20c8df05bba328798e5600d16ce61cc5d12435366503cde629af3f62f9bc5b",
+        "summary.json": "40451944075da04101d305173efba0551bb18b3661f85dfb6812545fb00bd41a",
+        "summary.sha256": "c85738758bdd8556d44e252d2b59eae8dea4bb9b25f6ca69c649b998ca908810"
+      },
+      "games_sha256": "2b4bc3c9ca13a16a378c658add82c6d85e9fa216ef96810973b2f6d02d1a1930",
+      "generation": 0,
+      "primary_games_accepted": 20000,
+      "registration_sha256": "771ded7c1b0424fc10cce5e230133ab757022c0977545158111fa0e9730f751a"
+    },
+    {
+      "actor_audits_sha256": "437052d783e8b6b3a3458e4b1d2641facfe9078b6c970f934e700ecf1ef03d0b",
+      "callbacks_regenerated": 6400000,
+      "exact_copy_files": {
+        "audit.json": "b0a79d63d5661c292a149aaede5eaee2a1b5e1ff55c42f1b674f7e5c203cef7c",
+        "audit.sha256": "f6cb860ecb16fe5b76b8a407f57fdc69453b2411a8a744be0fa9e06ddf3418dd",
+        "summary.json": "dbf1ac1bdd203bbaaac63a03a310eb0967d59b6a840a49bcd618b457f7ff3446",
+        "summary.sha256": "e7960f5b4fcc16afccdb66d51cd24aab83476147cfe0c995ee76d55d575832c3"
+      },
+      "games_sha256": "caf96d0c2d4843845b1f46430aab0aee9576e1e7aa0bab35f633dc37af627828",
+      "generation": 1,
+      "primary_games_accepted": 20000,
+      "registration_sha256": "94c141c021830d0d9973d426249a77a5dd1e9090ca40b14f4e51ce67cae72321"
+    },
+    {
+      "actor_audits_sha256": "c1a619cd36bf4a7b54de66d2cc1e6cfdaea4bb8592c532ca6989b2653f219efc",
+      "callbacks_regenerated": 6400000,
+      "exact_copy_files": {
+        "audit.json": "be6c60dea1c388984b8f1edeb3fcea3998287889db005817ff1f1b15ac5baf45",
+        "audit.sha256": "4ea6dd5e763ecf5e8d8272c4e8227b8ea1b05dbe7247f14f22c19525a0e68f43",
+        "summary.json": "447f27465ed2d05af80d8e8247b151113c59edeaede7aa36f33d6ea4dfc08122",
+        "summary.sha256": "8d8364e9165f19be7ff3894ec92d39ab4ffb91a1e392dd690caed626d58e5ab1"
+      },
+      "games_sha256": "14807e44b94214823f9f245b36e04c31f42d39d08f1621b9d27cdecad786c500",
+      "generation": 2,
+      "primary_games_accepted": 20000,
+      "registration_sha256": "d8fcab431d94fbd6e81a5a6f4a4e22bcb3ebc88379d34ba665054ce92100db35"
+    },
+    {
+      "actor_audits_sha256": "66334b1aa0542f999e9bfa57ec9f16a0705a118749586296205855b037100caf",
+      "callbacks_regenerated": 6400000,
+      "exact_copy_files": {
+        "audit.json": "b91d28a594154804fc5f08048568120531b2f08a3e005ece4cb5a20d59499a46",
+        "audit.sha256": "d1c962b6fa291e789c26775e239a7ada607f52669066cc6d3d4eb4a72951ba6f",
+        "summary.json": "ad9f2fa3d722b65f3d1dd5381826c90386af84dc6f54c57cc82cd32a0e8c8a25",
+        "summary.sha256": "d7bb72887d80c4b625fccee1542903dd5de172510f16c0b0f449209bc1b799fe"
+      },
+      "games_sha256": "bcfca9be800184f772e05e43ca7d71b4ed33a978706924de7d833a89583c65e3",
+      "generation": 3,
+      "primary_games_accepted": 20000,
+      "registration_sha256": "eb0f6ba3a97cf8b6d79a5deb0ce635efc892628c9107f83504730f97b54a5827"
+    }
+  ]
+}

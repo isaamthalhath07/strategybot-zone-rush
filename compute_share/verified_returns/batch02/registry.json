@@ -1,0 +1,21 @@
+{
+  "accepted_helpers": 4,
+  "full_bmcts_audits": 0,
+  "primary_campaign_games": 0,
+  "proof_files": [
+    "8e588ffde32f413c4796c25556094a91d1e7dfe77b913822ebb4df012399fe9a.json",
+    "9c8283ce906beb80749652a8cbde840e47b8e5f039a93fd0efe480b779dda0c0.json",
+    "5ba28c290c063c579e187a3f9c64accb2d3d6e6ba8fdf26518af080661e49438.json",
+    "d7479b050905d132e1400f56d9e4a48ac14c125d2958e36a87738f34276b889c.json"
+  ],
+  "scope": "Completed six-turn position searches. Zero complete80-turn matches.",
+  "slots_verified": [
+    1,
+    2,
+    3,
+    5
+  ],
+  "synthetic_trajectories": 184320,
+  "synthetic_turns": 1105920,
+  "unique_diagnostics_verified": 32
+}

@@ -1,10 +1,16 @@
 # Windows GPU preparation
 
+For the new **full-match runtime checks**, reuse an existing 64-bit CPython
+3.12 release and built-in Windows PowerShell. Those Python bots use the standard
+library and run on CPU. No new PyTorch, NumPy, driver or CUDA installation is
+needed. See `releases/2026-11-09-runtime-checks/README.md` for that separate job.
+
 The environment preparation package and **public-history GPU diagnostic worker**
-are ready for an initial laptop trial. The diagnostic worker has completed a
-local CUDA job from an extracted ZIP and independent verification of its return.
+have completed the initial five-laptop trial. All five named NVIDIA devices
+returned independently reproduced diagnostic jobs; current receipts are in
+`STATUS.md`. The diagnostic worker also completed a local extracted-ZIP trial.
 The full two-million-game campaign and full BMCTS are separate, unfinished work.
-Every helper laptop still needs its own successful hardware and job checks.
+New devices or changed runtimes still need their own successful checks.
 
 ## What each helper needs
 
@@ -25,7 +31,7 @@ Every helper laptop still needs its own successful hardware and job checks.
 The RTX 4050, RTX 5070 Ti, RTX 2060, GTX 1660 Ti and RTX 5050 should each be checked
 individually. Their installed drivers, available memory and laptop power limits
 can differ. This exact PyTorch build has executed a real CUDA kernel on the
-owner's RTX 5070 Ti. Other laptops remain unverified until their reports pass.
+owner's RTX 5070 Ti and all five helpers have returned verified diagnostic work.
 The Intel integrated alternative can contribute CPU work; it cannot run CUDA.
 
 Only `torch` is required beyond Python's standard library for the current GPU

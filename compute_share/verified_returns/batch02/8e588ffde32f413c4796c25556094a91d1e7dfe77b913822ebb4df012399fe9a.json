@@ -1,0 +1,33 @@
+{
+  "assigned_slot": 1,
+  "bundle_id": "8e588ffde32f413c4796c25556094a91d1e7dfe77b913822ebb4df012399fe9a",
+  "client_timing_seconds": {
+    "independent_cpu_replay": 21.00025539996568,
+    "prefix_reconstruction": 0.47439139999914914,
+    "public_policy_and_physics_with_trace_transfers": 1.2793896999792196,
+    "tensor_setup_and_transfer": 0.7702758999948855,
+    "total_end_to_end": 25.25663390001864
+  },
+  "diagnostics_verified": 8,
+  "games_bmcts_audited": 0,
+  "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "independent_cpu_reproduction": true,
+  "job_ids": [
+    "579818500a3fc761826e1e218040cc5f5f0f4926204db62013e1ae448984f1e6",
+    "711e32aea19d6f4cc08ac956f8dacce7e7fe7d2fd576084381c1faf847a0915d",
+    "ca346f50b2aba22cb78b159ff42ae0bf4dfa9d37f8c1e8db3bcc4812b8008075",
+    "d1c04edad75e9cfc107d5fcbda19d3fd1c08073dc756a43a5f3937b3afed3a27",
+    "72b05c61cd8fa301787da190fcfc76fd502b3ba3c97d26944c44f03e7208fe9b",
+    "cd729e5e0a53478fb8281ad5077682cdb1fe02e6ec98824d1b4ce8e2fc0fc901",
+    "f1aae288d4c79a1160c89b53c01c23d9bfbc6547d41b76f451ba1db29564aa20",
+    "b581ab1373bf88e375c45f382300d05ddb2668d7e4d5c9a7ddeb5a693b91a712"
+  ],
+  "primary_campaign_games": 0,
+  "promotion_allowed": false,
+  "received_source": "User return; no personal paths retained",
+  "result_sha256": "e1ac0763eb449b953a75bdc0c6f6c9ed0907d21250cb346ee05a1331688efc0e",
+  "scope": "Batch2 public-position search; not complete matches or full BMCTS",
+  "source_pins_passed": true,
+  "synthetic_trajectories": 43008,
+  "synthetic_turns": 258048
+}

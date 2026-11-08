@@ -1,0 +1,14 @@
+{
+  "snapshot_sha256": "cb69a2d5b57755b568b1c716c1def9b9e53a2936c8d68a30ce8c5d4f75c0fec0",
+  "monitor_source_sha256": "1910565f4e943326920d9e1a0c114ea82207691f8c8d1e27e91932a61a090bce",
+  "source_guards": {
+    "primary_campaign/core.py": "6d0de2dae757a4db821bddbb6bad1978bd6f6ac4d612ac60946b2ff01412d6fa",
+    "primary_campaign/run.py": "bcaeeba986b4cdfd663be0a34bd507a93ee45db3f24ee4c80c8b60a4b1b7e98b",
+    "evolution/runner.py": "bae5c92c51efa83eaef90db0ede9940be72201d2bb78e9d0527e3f6139d7503b",
+    "bot.py": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5"
+  },
+  "snapshot_is_finite": true,
+  "new_primary_games_credited": 0,
+  "new_actor_regenerations": 0,
+  "campaign_files_modified": false
+}

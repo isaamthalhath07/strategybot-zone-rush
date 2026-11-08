@@ -1,5 +1,23 @@
 # Primary campaign evidence
 
+The latest snapshot `accepted_stages_000_004.json` contains **100,000 accepted
+actual matches and 32,000,000 regenerated actor callbacks**. Exact sealed receipts
+for all five stages are stored beside the earlier snapshots. A separate read-only
+global coverage scan checked 500 scheduled maps, 100,000 unique tasks and 300,000
+unique rival identities and seeds against those existing admissions. It did not
+add games or repeat the actor audit. The bounded coordinator terminated with
+exit code zero. This is partial progress toward 2,000,000; full per-game BMCTS
+and production promotion remain unfulfilled.
+
+`accepted_stages_000_003.json` preserves the earlier 80,000-game snapshot. The
+same unpromoted defensive variant led stages 2, 3 and 4; its stage-4 advantage
+over the incumbent was only 0.00027 standardized pairwise points. An additional
+four-policy comparison now includes original Blocker and Feint because consumed
+cross-branch evidence favors those alternatives. That comparison is an explicit
+extra study, with separate credit and fresh maps. Further primary allocation
+requires a versioned architecture decision rather than silently changing this
+campaign's protocol.
+
 `accepted_stages_000_001.json` records the first **40,000 independently accepted
 actual games**, out of the planned 2,000,000. The `train_000/` and `train_001/`
 folders contain byte-for-byte copies of the sealed summaries, audits and their
@@ -19,7 +37,7 @@ summary. For the exact source summary and its checksum, use
 next-generation review describe their stated snapshots, not the latest run
 completion status.
 
-The incumbent led both completed stages by the registered standardized pairwise
+The incumbent led the first two stages by the registered standardized pairwise
 metric. These comparisons use fresh, unpaired rival instances. They are training
 results; they do not establish superiority on the reserved development/final maps
 or across all possible opponents. The production bot remains unchanged.
@@ -27,4 +45,5 @@ or across all possible opponents. The production bot remains unchanged.
 The 800-game mechanics archive tests the executor and its failure handling. It
 has zero primary credit. GPU diagnostic receipts and runtime performance tests
 are separate evidence and also grant zero primary or full BMCTS credit. Full
-BMCTS and the heldout executors remain unfinished.
+BMCTS remains unfulfilled. The separate heldout executor has targeted validation,
+but has not executed the reserved development/final matches.

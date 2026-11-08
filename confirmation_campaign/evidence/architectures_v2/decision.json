@@ -1,0 +1,214 @@
+{
+  "selected": "bot_e8b3682d8b39",
+  "selected_sha256": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+  "point_leader": "bot_f95dc9fc2266",
+  "incumbent": "bot_e8b3682d8b39",
+  "comparisons": {
+    "bot_f95dc9fc2266": {
+      "aggregate": {
+        "mean": 0.15277777777777776,
+        "clusters": 24,
+        "alpha": 0.0125,
+        "interval": [
+          -0.08159722222222222,
+          0.3697916666666667
+        ]
+      },
+      "novel_only": {
+        "mean": 0.2994791666666667,
+        "clusters": 24,
+        "alpha": 0.05,
+        "interval": [
+          0.14192708333333334,
+          0.4641927083333333
+        ]
+      },
+      "fields": {
+        "league": {
+          "mean": -0.140625,
+          "clusters": 24,
+          "alpha": 0.05,
+          "interval": [
+            -0.4947916666666667,
+            0.19791666666666666
+          ]
+        },
+        "novel_economy": {
+          "mean": 0.19270833333333334,
+          "clusters": 24,
+          "alpha": 0.05,
+          "interval": [
+            -0.041666666666666664,
+            0.4375
+          ]
+        },
+        "novel_dynamic": {
+          "mean": 0.40625,
+          "clusters": 24,
+          "alpha": 0.05,
+          "interval": [
+            0.22005208333333334,
+            0.5807291666666666
+          ]
+        }
+      }
+    },
+    "bot_1bb70109a75e": {
+      "aggregate": {
+        "mean": 0.14366319444444445,
+        "clusters": 24,
+        "alpha": 0.0125,
+        "interval": [
+          -0.18055555555555555,
+          0.44184027777777773
+        ]
+      },
+      "novel_only": {
+        "mean": 0.18815104166666666,
+        "clusters": 24,
+        "alpha": 0.05,
+        "interval": [
+          -0.041015625,
+          0.4147135416666667
+        ]
+      },
+      "fields": {
+        "league": {
+          "mean": 0.0546875,
+          "clusters": 24,
+          "alpha": 0.05,
+          "interval": [
+            -0.3307291666666667,
+            0.4427083333333333
+          ]
+        },
+        "novel_economy": {
+          "mean": 0.07291666666666667,
+          "clusters": 24,
+          "alpha": 0.05,
+          "interval": [
+            -0.2265625,
+            0.3802083333333333
+          ]
+        },
+        "novel_dynamic": {
+          "mean": 0.3033854166666667,
+          "clusters": 24,
+          "alpha": 0.05,
+          "interval": [
+            0.08072916666666667,
+            0.5221354166666666
+          ]
+        }
+      }
+    },
+    "bot_1dca0c916af4": {
+      "aggregate": {
+        "mean": 0.08506944444444443,
+        "clusters": 24,
+        "alpha": 0.0125,
+        "interval": [
+          -0.1371527777777778,
+          0.2942708333333333
+        ]
+      },
+      "novel_only": {
+        "mean": 0.23697916666666666,
+        "clusters": 24,
+        "alpha": 0.05,
+        "interval": [
+          0.06380208333333333,
+          0.3971354166666667
+        ]
+      },
+      "fields": {
+        "league": {
+          "mean": -0.21875,
+          "clusters": 24,
+          "alpha": 0.05,
+          "interval": [
+            -0.515625,
+            0.08072916666666667
+          ]
+        },
+        "novel_economy": {
+          "mean": 0.3359375,
+          "clusters": 24,
+          "alpha": 0.05,
+          "interval": [
+            0.14322916666666666,
+            0.5338541666666666
+          ]
+        },
+        "novel_dynamic": {
+          "mean": 0.13802083333333334,
+          "clusters": 24,
+          "alpha": 0.05,
+          "interval": [
+            -0.12239583333333333,
+            0.359375
+          ]
+        }
+      }
+    },
+    "bot_a8f7a74e7ed3": {
+      "aggregate": {
+        "mean": 0.0681423611111111,
+        "clusters": 24,
+        "alpha": 0.0125,
+        "interval": [
+          -0.13715277777777776,
+          0.3003472222222222
+        ]
+      },
+      "novel_only": {
+        "mean": 0.271484375,
+        "clusters": 24,
+        "alpha": 0.05,
+        "interval": [
+          0.10026041666666667,
+          0.4466145833333333
+        ]
+      },
+      "fields": {
+        "league": {
+          "mean": -0.3385416666666667,
+          "clusters": 24,
+          "alpha": 0.05,
+          "interval": [
+            -0.6484375,
+            -0.028645833333333332
+          ]
+        },
+        "novel_economy": {
+          "mean": 0.2903645833333333,
+          "clusters": 24,
+          "alpha": 0.05,
+          "interval": [
+            0.03125,
+            0.5572916666666666
+          ]
+        },
+        "novel_dynamic": {
+          "mean": 0.2526041666666667,
+          "clusters": 24,
+          "alpha": 0.05,
+          "interval": [
+            0.044270833333333336,
+            0.46875
+          ]
+        }
+      }
+    }
+  },
+  "totals": {
+    "games": 23544,
+    "callbacks": 7532848,
+    "faults": 13,
+    "complete_games": 23540,
+    "aborted_diagnostic_games": 4
+  },
+  "criterion": "Positive Bonferroni-adjusted paired board-clustered bootstrap interval against incumbent; positive ordinary 95% novel-only interval; nonnegative mean difference in each novel field; no focal faults. Otherwise retain incumbent.",
+  "scope": "First confirmation cohort only. Campaign totals include every listed panel.",
+  "latest_confirmation_decision": "late_decision.json"
+}

@@ -32,6 +32,27 @@ Updated setup installs NumPy 2.5.4 in the existing private environment.
 
 ## Next assigned work
 
+Batch 2 returns from slots 1, 2, 3 and 5 have now passed full owner-side CPU
+reproduction: **32 positions, 184,320 synthetic paths and 1,105,920 future
+turns**. Slot 4's return is pending. Receipts are in
+`verified_returns/batch02/registry.json`. These are six-turn searches, so their
+complete-match and primary-game counts remain zero. They are separate from the
+first hardware/protocol pilot totals above.
+
+The short runtimes do not establish useful primary workload sharing. Most pilot
+time was CPU validation, and the owner repeated that work. Real complete-match
+distribution and independent peer auditing now have a reviewed extra-study
+implementation; remote primary admission is still unfinished. The current
+Python policy is a CPU policy. CUDA teacher work needs a validated
+usefulness experiment and a sustained queue before substantial allocation.
+
+Five new source-specific full-match compatibility packages are ready in
+`releases/2026-11-09-runtime-checks/`. Each helper needs its own private credential
+file, delivered separately. Eight canonical study reference matches were created
+once and fully audited on the owner; helper qualification replays grant no new
+study or primary credit. The larger four-policy study remains unplayed apart
+from those eight originals, and no full workload has yet been assigned remotely.
+
 The second batches contain eight different public positions per helper, with a
 six-turn horizon, 32 plans per root action and 32 sampled rollouts per plan.
 Their 40 diagnostic IDs are disjoint from the accepted first returns and the

@@ -7,3 +7,5 @@
 *.txt -text
 *.gz binary
 *.zip binary
+# These reviewed documents are included byte-for-byte in a frozen source manifest.
+gpu_tree_coach/*.md -text

@@ -1,0 +1,67 @@
+{
+  "all_archived_sources": {
+    "evolution/__init__.py": "4acc044002188125c940ab3b5a69e2968bb27a2bfb8d79cf8c43cc3b8d1c2d2c",
+    "evolution/maps.py": "e0c9328d89aff7ab23caa9a9fa6b672fc4074f66f57dd69678d1a121d5d679ef",
+    "gpu_tree_coach/DESIGN.md": "f55532173b71196ef8cbfe95cb3c625c1f420f9400cf6623a49dbea4a8b5af32",
+    "gpu_tree_coach/README.md": "4c6b222711c38a96d152a67dac0f3b30cbac389b57cb73acfcd7a4abfa19645f",
+    "gpu_tree_coach/RESULTS.md": "78b763422f6d50072e7b8a99a4c3ae082efff2719c4132350ac5e5605b92bbc2",
+    "gpu_tree_coach/__init__.py": "69aadf139c57ec4dbcf7d90dffb12e7e305ca2aa97fd419658cc6842529a168b",
+    "gpu_tree_coach/__main__.py": "56039c03b0afdb641e3daffacad78fb149876b5ebcc76b4852f96a9b9f19acd9",
+    "gpu_tree_coach/benchmark.py": "686267738d6236c331d8f4a1496376671d9dc74bfe161d0ec750ffc7f979fafe",
+    "gpu_tree_coach/graph.py": "820b174c6ab722a62a74ab6c7fe04a5da8e8cfda6fdd8a4e8605e2fa2e98858e",
+    "gpu_tree_coach/protocol.py": "c07a60eb53f535ad02e21aa1c83ecc2bc5b455659a767c04518b604d73b98883",
+    "gpu_tree_coach/scalar.py": "9982d0175552a9a165fee52d0016ca063284df69de6c7d8c9742bf6fb74a34e2",
+    "gpu_tree_coach/tensor.py": "75f970fccbbbe2a51411eef93aae797093f60a090b35f91bfde4f2c47ec1b656",
+    "gpu_tree_coach/test_cli.py": "be99a7023d67de4a5a8d84127426c3cf31c0223cf713623d7421a16579afa2ce",
+    "gpu_tree_coach/test_tree.py": "b5326ea483a7828221d31ad68d0496ebca4f0061b65fdf78d830085f2f189286",
+    "gpu_tree_coach/tree.py": "4da642282ebfabf1431c219bd106772a5900c4f9e04adf9f0ea8c3ee79349b46",
+    "search_coach/__init__.py": "63563ec08cbca672ef264b2fa5678313820a8bf22b69e361279507d7f181df45",
+    "search_coach/belief.py": "f4188a87e5f253685df98ba596af97601bd00b68a42ff397f4d244126aa8669c",
+    "search_coach/gpu_batch.py": "1a15460f1ba38b31a701322683423d642f1e9d358a92a398238cac1683bbbc8b",
+    "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests/reference_engine.py": "8f7b89995cad0f724fb8ac7c7bc8311a6fa9b3b722f2204097031ba2333726f4",
+    "training_gpu/__init__.py": "87dc9ae50c90732a585cda760c993217cd440e8bd2078fd9c867fb3bc5386d73",
+    "training_gpu/batch_game.py": "4c314c10e733d9eea496a9973110639b95cb496b8ff9e7b9d49bc8459d8efb9f"
+  },
+  "archive": {
+    "path": "gpu_tree_coach/evidence/graph_002_sources.zip",
+    "sha256": "07b1c573d1e4389a884cf511fc5b635b9bf06561a5c9687bd1b3f298d01081e1"
+  },
+  "benchmark_evidence": {
+    "eager_001_sources.zip": "eec240eda1ba6067506f65a32857a7520966502bcb59cbe54006b39aa3664fa8",
+    "warm_benchmark_001.json": "62ea471c0b91efdc405a6c3e6c5420c7a32d49712fe4e95f7395fd9b83fa3097",
+    "warm_graph_002.json": "969d83c3dd93a936dc099b6bc2c305ccaaa00ab7cdbfafb2c522bf7baea6c5c5"
+  },
+  "caveat": "Source archive plus observed local tests/benchmarks. No independent runtime qualification, strength certification or assurance expansion.",
+  "completed_game_audit_credit": 0,
+  "distributed_gpu_dispatch": false,
+  "eager_and_graph_complete_tree_digests_equal": true,
+  "full_bmcts_audit_credit": 0,
+  "playing_strength_tested": false,
+  "primary_match_credit": 0,
+  "runtime_sources": {
+    "gpu_tree_coach/graph.py": "820b174c6ab722a62a74ab6c7fe04a5da8e8cfda6fdd8a4e8605e2fa2e98858e",
+    "gpu_tree_coach/protocol.py": "c07a60eb53f535ad02e21aa1c83ecc2bc5b455659a767c04518b604d73b98883",
+    "gpu_tree_coach/scalar.py": "9982d0175552a9a165fee52d0016ca063284df69de6c7d8c9742bf6fb74a34e2",
+    "gpu_tree_coach/tensor.py": "75f970fccbbbe2a51411eef93aae797093f60a090b35f91bfde4f2c47ec1b656",
+    "gpu_tree_coach/tree.py": "4da642282ebfabf1431c219bd106772a5900c4f9e04adf9f0ea8c3ee79349b46",
+    "search_coach/belief.py": "f4188a87e5f253685df98ba596af97601bd00b68a42ff397f4d244126aa8669c",
+    "search_coach/gpu_batch.py": "1a15460f1ba38b31a701322683423d642f1e9d358a92a398238cac1683bbbc8b",
+    "tests/reference_engine.py": "8f7b89995cad0f724fb8ac7c7bc8311a6fa9b3b722f2204097031ba2333726f4",
+    "training_gpu/batch_game.py": "4c314c10e733d9eea496a9973110639b95cb496b8ff9e7b9d49bc8459d8efb9f"
+  },
+  "schema": 1,
+  "status": "frozen_bounded_prototype_no_promotion",
+  "tests": {
+    "command": "C:\\Users\\LEGION\\stratergybot\\.venv-rl\\Scripts\\python.exe -m unittest gpu_tree_coach.test_tree gpu_tree_coach.test_cli -v",
+    "includes_real_cuda": true,
+    "observed_duration_s": 30.595,
+    "observed_exit_code": 0,
+    "observed_tests": 14
+  },
+  "unchanged_protected_source_sha256": {
+    "bot.py": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+    "primary_campaign/core.py": "6d0de2dae757a4db821bddbb6bad1978bd6f6ac4d612ac60946b2ff01412d6fa",
+    "primary_campaign/run.py": "bcaeeba986b4cdfd663be0a34bd507a93ee45db3f24ee4c80c8b60a4b1b7e98b"
+  }
+}
