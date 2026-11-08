@@ -1,0 +1,20 @@
+[novel] 600 paired games, reference = @v8_params.json, task seed 101
+@v8_params.json          PW 1.4133  score  2374.8
+    per game: shields=1.05, last_shields=0.11, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.06, l1_lost_anyway=0.04, backfires=0.23, raids=2.22, raids_early=0.08, cells_lost=2.49, idle=0.71, idle_late=0.00, moves=25.41, turns90=16.20, reversals=4.06
+@v9_params.json          PW 1.5292  score  2407.3  dPW +0.1158 +/- 0.0428 (z +2.71)  dScore +32.50 +/- 8.30 (z +3.92)  games changed 253
+    per game: shields=1.18, last_shields=0.14, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.05, l1_lost_anyway=0.04, backfires=0.27, raids=2.17, raids_early=0.09, cells_lost=2.44, idle=0.65, idle_late=0.00, moves=25.55, turns90=16.00, reversals=3.77
+@v7_params.json          PW 1.4183  score  2374.1  dPW +0.0050 +/- 0.0037 (z +1.34)  dScore -0.66 +/- 0.52 (z -1.28)  games changed 5
+    per game: shields=1.12, last_shields=0.15, last_no_imminent=0.01, home_shields=0.00, l1_shields=0.12, l1_lost_anyway=0.08, backfires=0.25, raids=2.20, raids_early=0.08, cells_lost=2.44, idle=0.71, idle_late=0.00, moves=25.33, turns90=16.16, reversals=4.03
+    pairwise win rate vs each opponent (columns: variants in order)
+      nv_b_racer       0.229  0.236  0.229  (n=157)
+      nv_c_voronoi     0.293  0.415  0.301  (n=123)
+      nv_c_bloomer     0.331  0.381  0.338  (n=151)
+      nv_b_blocker     0.331  0.409  0.331  (n=154)
+      nv_b_feint       0.338  0.372  0.338  (n=145)
+      nv_c_portfolio   0.367  0.388  0.367  (n=147)
+      nv_d_shieldmaster 0.396  0.409  0.396  (n=159)
+      nv_a_paranoid    0.545  0.551  0.545  (n=156)
+      nv_d_antileader  0.565  0.573  0.565  (n=131)
+      nv_d_titfortat   0.593  0.679  0.593  (n=162)
+      nv_a_mcts        0.714  0.758  0.720  (n=161)
+      nv_a_rhea        0.903  0.909  0.903  (n=154)
