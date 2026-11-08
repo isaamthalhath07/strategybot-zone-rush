@@ -1,0 +1,7 @@
+[solo:nv_b_blocker] 100 paired games, reference = @v8_params.json
+@v8_params.json          PW 1.0600  score  2342.6
+    per game: shields=0.65, last_shields=0.05, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.02, l1_lost_anyway=0.02, backfires=0.17, raids=1.69, raids_early=0.04, cells_lost=1.82, idle=0.97, idle_late=0.01, moves=23.86, turns90=15.24, reversals=3.51
+@v9_params.json          PW 0.9900  score  2343.7  dPW -0.0700 +/- 0.1130 (z -0.62)  dScore +1.07 +/- 22.21 (z +0.05)  games changed 42
+    per game: shields=0.68, last_shields=0.02, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.01, l1_lost_anyway=0.01, backfires=0.19, raids=1.62, raids_early=0.03, cells_lost=1.77, idle=0.87, idle_late=0.01, moves=25.21, turns90=16.20, reversals=4.72
+    pairwise win rate vs each opponent (columns: variants in order)
+      nv_b_blocker     0.353  0.330  (n=300)
