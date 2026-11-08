@@ -1,0 +1,19 @@
+{
+  "base_path": "evolution/runner.py",
+  "base_sha256": "bae5c92c51efa83eaef90db0ede9940be72201d2bb78e9d0527e3f6139d7503b",
+  "experimental_path": "runtime_bench/structural_runner_v1.py",
+  "experimental_sha256": "88f232eeb1a53729b58be7b909ba2492f2f6c95a22f7943782ccc9c38673973d",
+  "copied_functions": [
+    "signature",
+    "namespace",
+    "init_worker",
+    "opponent",
+    "play_game",
+    "verify_row"
+  ],
+  "sole_function_change": "play_game: view = copy.deepcopy(view) -> view = clone_public(view)",
+  "clone_sha256": "40fd248a69bc4eaa992e425eba96ac94f408f602af3a5dd11b22ed40ce5a5a96",
+  "original_edited": false,
+  "monkeypatch": false,
+  "primary_games_accepted": 0
+}
