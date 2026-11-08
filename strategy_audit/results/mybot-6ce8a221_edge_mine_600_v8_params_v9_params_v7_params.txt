@@ -1,0 +1,18 @@
+[mine] 600 paired games, reference = @v8_params.json
+@v8_params.json          PW 2.4133  score  2664.1
+    per game: shields=2.92, last_shields=0.14, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.16, l1_lost_anyway=0.13, backfires=0.16, raids=5.95, raids_early=0.51, cells_lost=2.36, idle=0.54, idle_late=0.00, moves=24.63, turns90=15.06, reversals=2.41
+@v9_params.json          PW 2.4667  score  2680.0  dPW +0.0533 +/- 0.0251 (z +2.13)  dScore +15.93 +/- 9.74 (z +1.63)  games changed 135
+    per game: shields=2.87, last_shields=0.13, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.15, l1_lost_anyway=0.13, backfires=0.18, raids=6.10, raids_early=0.50, cells_lost=2.46, idle=0.53, idle_late=0.00, moves=24.64, turns90=14.80, reversals=2.24
+@v7_params.json          PW 2.4183  score  2661.5  dPW +0.0050 +/- 0.0029 (z +1.73)  dScore -2.56 +/- 1.20 (z -2.14)  games changed 3
+    per game: shields=3.13, last_shields=0.21, last_no_imminent=0.05, home_shields=0.00, l1_shields=0.32, l1_lost_anyway=0.25, backfires=0.23, raids=5.93, raids_early=0.51, cells_lost=2.31, idle=0.54, idle_late=0.00, moves=24.56, turns90=15.03, reversals=2.40
+    pairwise win rate vs each opponent (columns: variants in order)
+      v7               0.483  0.528  0.483  (n=176)
+      v8               0.545  0.588  0.552  (n=165)
+      x_jackal         0.684  0.672  0.684  (n=174)
+      x_vulture        0.780  0.832  0.780  (n=173)
+      x_literal        0.808  0.831  0.808  (n=172)
+      x_sim            0.900  0.917  0.911  (n=180)
+      x_leech          0.915  0.894  0.915  (n=199)
+      x_flaky          0.920  0.945  0.920  (n=201)
+      x_fort           0.964  0.970  0.964  (n=169)
+      x_homebait       0.984  0.990  0.984  (n=191)

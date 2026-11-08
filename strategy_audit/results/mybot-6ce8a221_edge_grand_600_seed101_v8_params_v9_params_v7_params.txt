@@ -1,0 +1,43 @@
+[grand] 600 paired games, reference = @v8_params.json, task seed 101
+@v8_params.json          PW 2.2850  score  2531.8
+    per game: shields=3.13, last_shields=0.17, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.12, l1_lost_anyway=0.10, backfires=0.23, raids=5.10, raids_early=0.82, cells_lost=2.24, idle=0.59, idle_late=0.00, moves=24.81, turns90=15.39, reversals=2.69
+@v9_params.json          PW 2.2983  score  2527.5  dPW +0.0133 +/- 0.0273 (z +0.49)  dScore -4.24 +/- 9.88 (z -0.43)  games changed 179
+    per game: shields=3.35, last_shields=0.15, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.14, l1_lost_anyway=0.11, backfires=0.23, raids=4.92, raids_early=0.82, cells_lost=2.16, idle=0.61, idle_late=0.00, moves=24.88, turns90=15.24, reversals=2.62
+@v7_params.json          PW 2.2833  score  2528.6  dPW -0.0017 +/- 0.0055 (z -0.30)  dScore -3.19 +/- 1.55 (z -2.05)  games changed 11
+    per game: shields=3.32, last_shields=0.22, last_no_imminent=0.05, home_shields=0.00, l1_shields=0.35, l1_lost_anyway=0.27, backfires=0.30, raids=5.05, raids_early=0.83, cells_lost=2.19, idle=0.60, idle_late=0.00, moves=24.72, turns90=15.33, reversals=2.70
+    pairwise win rate vs each opponent (columns: variants in order)
+      nv_d_shieldmaster 0.273  0.455  0.295  (n=44)
+      nv_c_bloomer     0.326  0.419  0.302  (n=43)
+      nv_b_feint       0.359  0.359  0.359  (n=39)
+      nv_c_portfolio   0.380  0.420  0.380  (n=50)
+      nv_b_blocker     0.414  0.500  0.414  (n=58)
+      nv_b_racer       0.426  0.370  0.426  (n=54)
+      nv_c_voronoi     0.442  0.481  0.442  (n=52)
+      v8               0.469  0.429  0.449  (n=49)
+      nv_d_antileader  0.538  0.462  0.519  (n=52)
+      pro_tuned        0.556  0.524  0.556  (n=63)
+      nv_a_paranoid    0.623  0.623  0.623  (n=53)
+      nv_a_mcts        0.711  0.667  0.711  (n=45)
+      nv_d_titfortat   0.737  0.684  0.737  (n=57)
+      spine            0.759  0.724  0.759  (n=58)
+      x_vulture        0.791  0.767  0.791  (n=43)
+      nv_a_rhea        0.814  0.831  0.831  (n=59)
+      x_sim            0.857  0.980  0.898  (n=49)
+      x_flaky          0.881  0.857  0.881  (n=42)
+      ai_hawk          0.881  0.864  0.881  (n=59)
+      ai_homefort      0.887  0.919  0.887  (n=62)
+      x_jackal         0.895  0.877  0.895  (n=57)
+      x_literal        0.895  0.860  0.895  (n=57)
+      pro              0.900  0.960  0.900  (n=50)
+      ai_cheapraid     0.909  0.982  0.909  (n=55)
+      ai_route         0.920  0.920  0.920  (n=50)
+      cdraider         0.962  0.981  0.962  (n=53)
+      camper           0.964  0.929  0.964  (n=56)
+      ai_elo           0.978  0.978  0.957  (n=46)
+      ai_marginal      0.983  0.948  0.983  (n=58)
+      turtle           1.000  1.000  1.000  (n=44)
+      hunter           1.000  1.000  1.000  (n=49)
+      centre           1.000  1.000  1.000  (n=58)
+      x_fort           1.000  1.000  1.000  (n=40)
+      x_leech          1.000  1.000  0.978  (n=46)
+      x_homebait       1.000  0.960  1.000  (n=50)

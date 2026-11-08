@@ -1,0 +1,31 @@
+[realistic] 500 paired games, reference = @v7_params.json   [DRAFT v8: before the freeze-length fix; risk_frozen 1]
+@v7_params.json          PW 2.5290  score  2549.5
+    per game: shields=4.41, last_shields=0.19, last_no_imminent=0.03, home_shields=0.00, l1_shields=0.37, l1_lost_anyway=0.29, backfires=0.35, raids=5.35, raids_early=1.10, cells_lost=2.18, idle=0.57, idle_late=0.00, moves=24.47, turns90=15.34, reversals=2.68
+@v8_params.json          PW 2.5390  score  2553.3  dPW +0.0100 +/- 0.0082 (z +1.21)  dScore +3.84 +/- 1.91 (z +2.01)  games changed 11
+    per game: shields=4.18, last_shields=0.14, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.15, l1_lost_anyway=0.11, backfires=0.30, raids=5.38, raids_early=1.10, cells_lost=2.20, idle=0.56, idle_late=0.00, moves=24.35, turns90=15.12, reversals=2.54
+@v8_params.json+q_weight:1.5 PW 2.5380  score  2547.0  dPW +0.0090 +/- 0.0145 (z +0.62)  dScore -2.42 +/- 4.25 (z -0.57)  games changed 44
+    per game: shields=4.19, last_shields=0.17, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.15, l1_lost_anyway=0.10, backfires=0.30, raids=5.43, raids_early=1.14, cells_lost=2.21, idle=0.56, idle_late=0.00, moves=23.65, turns90=14.57, reversals=2.37
+    @v7_params.json pairwise win rate vs each opponent:
+      v3             0.480  (n=75)
+      v6             0.487  (n=78)
+      nemesis3       0.525  (n=59)
+      nemesis2       0.535  (n=71)
+      pro_tuned      0.613  (n=80)
+      spine          0.853  (n=68)
+      ai_homefort    0.863  (n=62)
+      ai_hawk        0.867  (n=60)
+      ai_centre      0.873  (n=71)
+      ai_cheapraid   0.921  (n=63)
+      ai_route       0.935  (n=62)
+      ai_elo         0.949  (n=59)
+      turtle         0.952  (n=62)
+      camper         0.957  (n=70)
+      ai_marginal    0.958  (n=72)
+      pro            0.963  (n=54)
+      cdraider       0.965  (n=57)
+      greedy         0.970  (n=66)
+      greedyshield   0.971  (n=69)
+      hunter         1.000  (n=69)
+      centre         1.000  (n=48)
+      baiter         1.000  (n=63)
+      raider         1.000  (n=62)

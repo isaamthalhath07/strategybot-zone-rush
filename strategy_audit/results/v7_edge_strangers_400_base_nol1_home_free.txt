@@ -1,0 +1,20 @@
+[strangers] 400 paired games, reference = base
+base                     PW 2.7550  score  2582.9
+    per game: shields=4.88, last_shields=0.21, last_no_imminent=0.03, home_shields=0.00, l1_shields=0.38, l1_lost_anyway=0.32, backfires=0.30, raids=5.68, raids_early=1.33, cells_lost=1.81, idle=0.68, idle_late=0.00, moves=24.05, turns90=15.17, reversals=2.62
+nol1+home+free           PW 2.7575  score  2590.5  dPW +0.0025 +/- 0.0066 (z +0.38)  dScore +7.61 +/- 2.30 (z +3.31)  games changed 4
+    per game: shields=4.70, last_shields=0.16, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.19, l1_lost_anyway=0.15, backfires=0.26, raids=5.74, raids_early=1.33, cells_lost=1.82, idle=0.69, idle_late=0.00, moves=24.18, turns90=15.24, reversals=2.65
+    base pairwise win rate vs each opponent:
+      pro_tuned      0.628  (n=86)
+      ai_hawk        0.847  (n=85)
+      spine          0.849  (n=86)
+      ai_homefort    0.873  (n=79)
+      ai_route       0.941  (n=85)
+      camper         0.945  (n=91)
+      ai_elo         0.953  (n=85)
+      cdraider       0.959  (n=73)
+      ai_marginal    0.962  (n=106)
+      ai_cheapraid   0.966  (n=87)
+      pro            0.967  (n=91)
+      hunter         0.975  (n=81)
+      turtle         0.987  (n=77)
+      centre         1.000  (n=88)

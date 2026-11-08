@@ -1,0 +1,7 @@
+[solo:nv_b_feint] 100 paired games, reference = @v8_params.json
+@v8_params.json          PW 1.0000  score  2328.2
+    per game: shields=0.53, last_shields=0.05, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.05, l1_lost_anyway=0.03, backfires=0.08, raids=1.70, raids_early=0.07, cells_lost=1.81, idle=0.78, idle_late=0.00, moves=24.81, turns90=15.44, reversals=4.24
+@v9_params.json          PW 1.0300  score  2363.9  dPW +0.0300 +/- 0.1010 (z +0.30)  dScore +35.73 +/- 23.29 (z +1.53)  games changed 37
+    per game: shields=0.57, last_shields=0.07, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.05, l1_lost_anyway=0.02, backfires=0.11, raids=2.06, raids_early=0.08, cells_lost=1.75, idle=0.73, idle_late=0.00, moves=25.99, turns90=16.72, reversals=4.61
+    pairwise win rate vs each opponent (columns: variants in order)
+      nv_b_feint       0.333  0.343  (n=300)

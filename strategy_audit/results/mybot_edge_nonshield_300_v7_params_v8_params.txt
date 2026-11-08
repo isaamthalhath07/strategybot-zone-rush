@@ -1,0 +1,5 @@
+[nonshield] 300 paired games, reference = @v7_params.json
+@v7_params.json          PW 2.8767  score  2822.8
+    per game: shields=6.64, last_shields=0.27, last_no_imminent=0.01, home_shields=0.00, l1_shields=0.78, l1_lost_anyway=0.68, backfires=0.00, raids=8.59, raids_early=1.19, cells_lost=2.46, idle=0.50, idle_late=0.00, moves=22.03, turns90=13.70, reversals=1.23
+@v8_params.json          PW 2.8833  score  2827.3  dPW +0.0067 +/- 0.0047 (z +1.42)  dScore +4.45 +/- 3.62 (z +1.23)  games changed 2
+    per game: shields=6.32, last_shields=0.20, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.54, l1_lost_anyway=0.47, backfires=0.00, raids=8.74, raids_early=1.19, cells_lost=2.55, idle=0.48, idle_late=0.00, moves=22.08, turns90=13.75, reversals=1.21

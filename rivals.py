@@ -34,7 +34,11 @@ def names():
 
 
 def factory(name):
-    params = load()[name]
+    params = dict(load()[name])
+    # Opponents must be deterministic too, or every measurement inherits the
+    # machine's load as noise. See the note in tune.play_task.
+    params["throttle"] = 0
+    params["budget_ms"] = 10000.0
 
     def make(seed):
         return mybot.Agent(seed=seed, params=params)

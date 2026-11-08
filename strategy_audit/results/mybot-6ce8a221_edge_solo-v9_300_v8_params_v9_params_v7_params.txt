@@ -1,0 +1,9 @@
+[solo:v9] 300 paired games, reference = @v8_params.json
+@v8_params.json          PW 1.4267  score  2467.0
+    per game: shields=0.52, last_shields=0.09, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.02, l1_lost_anyway=0.02, backfires=0.02, raids=1.22, raids_early=0.01, cells_lost=1.21, idle=1.26, idle_late=0.01, moves=30.06, turns90=20.83, reversals=9.60
+@v9_params.json          PW 1.5000  score  2489.5  dPW +0.0733 +/- 0.0498 (z +1.47)  dScore +22.53 +/- 8.73 (z +2.58)  games changed 152
+    per game: shields=0.00, last_shields=0.00, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.00, l1_lost_anyway=0.00, backfires=0.00, raids=0.00, raids_early=0.00, cells_lost=0.00, idle=1.92, idle_late=0.03, moves=33.45, turns90=24.66, reversals=14.55
+@v7_params.json          PW 1.4033  score  2466.0  dPW -0.0233 +/- 0.0099 (z -2.35)  dScore -1.02 +/- 0.75 (z -1.36)  games changed 6
+    per game: shields=0.53, last_shields=0.09, last_no_imminent=0.01, home_shields=0.00, l1_shields=0.02, l1_lost_anyway=0.02, backfires=0.05, raids=1.17, raids_early=0.01, cells_lost=1.25, idle=1.25, idle_late=0.01, moves=30.09, turns90=20.83, reversals=9.59
+    pairwise win rate vs each opponent (columns: variants in order)
+      v9               0.476  0.500  0.468  (n=900)

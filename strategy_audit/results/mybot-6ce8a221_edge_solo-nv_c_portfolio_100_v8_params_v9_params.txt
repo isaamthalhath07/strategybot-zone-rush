@@ -1,0 +1,7 @@
+[solo:nv_c_portfolio] 100 paired games, reference = @v8_params.json
+@v8_params.json          PW 1.0600  score  2314.2
+    per game: shields=0.60, last_shields=0.15, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.01, l1_lost_anyway=0.00, backfires=0.34, raids=1.06, raids_early=0.04, cells_lost=2.44, idle=0.57, idle_late=0.00, moves=25.33, turns90=16.12, reversals=3.74
+@v9_params.json          PW 1.1500  score  2324.5  dPW +0.0900 +/- 0.1074 (z +0.84)  dScore +10.28 +/- 19.58 (z +0.53)  games changed 44
+    per game: shields=0.70, last_shields=0.20, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.04, l1_lost_anyway=0.03, backfires=0.41, raids=1.14, raids_early=0.06, cells_lost=2.16, idle=0.58, idle_late=0.00, moves=25.30, turns90=15.71, reversals=4.31
+    pairwise win rate vs each opponent (columns: variants in order)
+      nv_c_portfolio   0.353  0.383  (n=300)

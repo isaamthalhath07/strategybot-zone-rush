@@ -1,0 +1,28 @@
+[unknown] 400 paired games, reference = @v8_params.json
+@v8_params.json          PW 2.6700  score  2613.7
+    per game: shields=4.36, last_shields=0.17, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.18, l1_lost_anyway=0.16, backfires=0.27, raids=6.10, raids_early=1.06, cells_lost=1.99, idle=0.55, idle_late=0.00, moves=24.35, turns90=15.05, reversals=2.46
+@v8_params.json+forecast:1 PW 2.7150  score  2636.3  dPW +0.0450 +/- 0.0257 (z +1.75)  dScore +22.61 +/- 11.37 (z +1.99)  games changed 64
+    per game: shields=4.64, last_shields=0.18, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.18, l1_lost_anyway=0.15, backfires=0.25, raids=6.17, raids_early=1.15, cells_lost=2.02, idle=0.53, idle_late=0.00, moves=24.26, turns90=14.89, reversals=2.31
+    @v8_params.json pairwise win rate vs each opponent:
+      pro_tuned      0.484  (n=64)
+      x_sim          0.814  (n=59)
+      ai_hawk        0.825  (n=63)
+      x_literal      0.826  (n=46)
+      x_jackal       0.855  (n=55)
+      x_vulture      0.862  (n=58)
+      cdraider       0.881  (n=42)
+      ai_route       0.895  (n=57)
+      ai_elo         0.895  (n=38)
+      ai_cheapraid   0.900  (n=50)
+      ai_homefort    0.922  (n=51)
+      x_fort         0.928  (n=69)
+      camper         0.930  (n=57)
+      pro            0.932  (n=59)
+      x_leech        0.938  (n=64)
+      spine          0.938  (n=48)
+      x_homebait     0.942  (n=52)
+      ai_marginal    0.947  (n=57)
+      x_flaky        0.968  (n=62)
+      hunter         0.978  (n=45)
+      centre         1.000  (n=45)
+      turtle         1.000  (n=59)

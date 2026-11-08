@@ -1,0 +1,5 @@
+[solo:x_leech] 240 paired games, reference = base
+base                     PW 2.9917  score  3117.2
+    per game: shields=1.02, last_shields=0.26, last_no_imminent=0.10, home_shields=0.00, l1_shields=0.78, l1_lost_anyway=0.64, backfires=0.10, raids=9.61, raids_early=1.64, cells_lost=1.48, idle=0.36, idle_late=0.00, moves=23.40, turns90=14.86, reversals=1.20
+nol1                     PW 2.9917  score  3126.8  dPW +0.0000 +/- 0.0000 (z +0.00)  dScore +9.59 +/- 3.82 (z +2.51)  games changed 0
+    per game: shields=0.39, last_shields=0.39, last_no_imminent=0.15, home_shields=0.00, l1_shields=0.00, l1_lost_anyway=0.00, backfires=0.12, raids=9.66, raids_early=1.64, cells_lost=1.59, idle=0.30, idle_late=0.00, moves=23.69, turns90=15.16, reversals=1.21

@@ -8,6 +8,12 @@ StrategyBot_RuleBook.pdf
 # RL virtualenv (large, local only)
 .venv-rl/
 
-# visual harness: unpacked branch snapshots, uploads and saved games
-harness/.cache/
-harness/replays/
+# Live tuner output. A run rewrites its output file every generation, so
+# committing one mid-run would publish a half-tuned parameter set as if it were a
+# decision. A run in progress should therefore write to best_params.json (the
+# default) and the result be copied to an explicit vN_params.json once harvested.
+best_params.json
+pro_params.json
+
+# a results file still being written (strategy_audit renames it on success)
+*.partial

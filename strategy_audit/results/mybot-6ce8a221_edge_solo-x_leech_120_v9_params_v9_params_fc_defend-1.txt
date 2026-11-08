@@ -1,0 +1,5 @@
+[solo:x_leech] 120 paired games, reference = @v9_params.json
+@v9_params.json          PW 2.9833  score  3166.9
+    per game: shields=0.15, last_shields=0.14, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.00, l1_lost_anyway=0.00, backfires=0.01, raids=10.12, raids_early=1.94, cells_lost=1.70, idle=0.40, idle_late=0.00, moves=24.13, turns90=15.12, reversals=1.30
+@v9_params.json+fc_defend:1 PW 2.9833  score  3167.7  dPW +0.0000 +/- 0.0000 (z +0.00)  dScore +0.83 +/- 7.30 (z +0.11)  games changed 0
+    per game: shields=0.14, last_shields=0.13, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.00, l1_lost_anyway=0.00, backfires=0.01, raids=10.07, raids_early=1.96, cells_lost=1.54, idle=0.42, idle_late=0.00, moves=24.07, turns90=14.94, reversals=1.31

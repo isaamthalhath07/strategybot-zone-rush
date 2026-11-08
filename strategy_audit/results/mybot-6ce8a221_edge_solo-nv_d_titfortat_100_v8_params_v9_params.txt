@@ -1,0 +1,7 @@
+[solo:nv_d_titfortat] 100 paired games, reference = @v8_params.json
+@v8_params.json          PW 1.3200  score  2491.2
+    per game: shields=0.79, last_shields=0.18, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.00, l1_lost_anyway=0.00, backfires=0.05, raids=2.82, raids_early=0.05, cells_lost=2.90, idle=0.75, idle_late=0.00, moves=26.56, turns90=16.91, reversals=4.78
+@v9_params.json          PW 1.5400  score  2541.3  dPW +0.2200 +/- 0.1001 (z +2.20)  dScore +50.17 +/- 18.33 (z +2.74)  games changed 39
+    per game: shields=0.67, last_shields=0.23, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.04, l1_lost_anyway=0.02, backfires=0.05, raids=2.85, raids_early=0.01, cells_lost=2.96, idle=0.57, idle_late=0.00, moves=26.85, turns90=16.53, reversals=4.34
+    pairwise win rate vs each opponent (columns: variants in order)
+      nv_d_titfortat   0.440  0.513  (n=300)

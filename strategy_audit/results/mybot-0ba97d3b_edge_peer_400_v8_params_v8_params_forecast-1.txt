@@ -1,0 +1,17 @@
+[peer] 400 paired games, reference = @v8_params.json
+@v8_params.json          PW 1.9512  score  2486.1
+    per game: shields=1.82, last_shields=0.16, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.06, l1_lost_anyway=0.04, backfires=0.14, raids=3.77, raids_early=0.36, cells_lost=2.10, idle=0.64, idle_late=0.00, moves=25.84, turns90=16.30, reversals=3.57
+@v8_params.json+forecast:1 PW 1.9650  score  2488.6  dPW +0.0138 +/- 0.0459 (z +0.30)  dScore +2.55 +/- 9.78 (z +0.26)  games changed 152
+    per game: shields=1.96, last_shields=0.17, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.09, l1_lost_anyway=0.07, backfires=0.14, raids=3.70, raids_early=0.37, cells_lost=2.29, idle=0.69, idle_late=0.00, moves=26.07, turns90=16.20, reversals=3.46
+    @v8_params.json pairwise win rate vs each opponent:
+      v3             0.450  (n=131)
+      nemesis1       0.462  (n=117)
+      nemesis3       0.476  (n=105)
+      pro_tuned      0.505  (n=95)
+      v4             0.514  (n=107)
+      nemesis2       0.524  (n=123)
+      v6             0.664  (n=110)
+      spine          0.871  (n=101)
+      ai_hawk        0.895  (n=114)
+      ai_homefort    0.935  (n=107)
+      pro            0.967  (n=90)

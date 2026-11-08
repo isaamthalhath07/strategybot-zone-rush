@@ -1,0 +1,7 @@
+[solo:nv_d_shieldmaster] 100 paired games, reference = @v8_params.json
+@v8_params.json          PW 0.9000  score  2391.2
+    per game: shields=0.06, last_shields=0.06, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.00, l1_lost_anyway=0.00, backfires=0.00, raids=1.80, raids_early=0.00, cells_lost=2.90, idle=0.48, idle_late=0.00, moves=25.10, turns90=15.74, reversals=4.11
+@v9_params.json          PW 1.0300  score  2417.0  dPW +0.1300 +/- 0.1276 (z +1.02)  dScore +25.85 +/- 25.13 (z +1.03)  games changed 40
+    per game: shields=0.06, last_shields=0.06, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.00, l1_lost_anyway=0.00, backfires=0.00, raids=2.01, raids_early=0.01, cells_lost=3.05, idle=0.61, idle_late=0.00, moves=25.86, turns90=16.21, reversals=4.53
+    pairwise win rate vs each opponent (columns: variants in order)
+      nv_d_shieldmaster 0.300  0.343  (n=300)
