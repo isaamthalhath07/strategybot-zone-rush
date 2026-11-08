@@ -107,6 +107,22 @@ hurt against the strongest bots. It does cost a little against the repository's
 own strangers. And it wins *pairings*, not raw points, which is what Round 1's Elo
 counts.
 
+**Tested against completely novel opponents.** Four independent agents, never
+shown any bot in this repository, wrote twelve opponents from four design
+families (`strategy_audit/novel/`).
+
+- **They exposed the overfitting:** v8 scores only **1.43 of 3** against them,
+  below average, where it had scored 2.6–2.8 on fields built in this repository.
+- **v9 is the largest gain measured anywhere in the project:** **+0.100 PW
+  (z +3.45) and +31.7 points (z +5.6)** over 1,200 games on that field, confirmed
+  on fresh games.
+- **Head to head,** v9 beats v8 against 8 of the 12 novel bots, and against copies
+  of v8 and of v9 directly.
+- **One design beats both versions:** `nv_b_racer`, which forecasts rivals itself
+  and races only where it wins.
+
+Details in [`strategy_audit/README.md`](strategy_audit/README.md) §15.
+
 **Defence was tried too, and is off.** `fc_defend: 1` uses the forecast to reach a
 threatened level-1 cell before the raider and upgrade it (shields cannot save
 level-1 cells). Against a decision rule fixed before measuring, it cut cells lost

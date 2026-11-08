@@ -1027,6 +1027,7 @@ fixes. Full write-up: [`strategy_audit/README.md`](strategy_audit/README.md).
 | `strategy_audit/penalty.py` | injects Round 2 time-penalty freezes and measures tracker error |
 | `strategy_audit/lastturn.py`, `strategy_audit/scenarios.py` | turn-80 raids; constructed edge cases run against the bot's internals |
 | `strategy_audit/check_v7_compat.py` | proves every v8 switch at its default plays move-for-move like the v7 `bot.py` in git history |
+| `strategy_audit/novel/`, `strategy_audit/verify_novel.py` | twelve opponents written by independent agents that never saw any bot here, and the independent check that they crash nowhere, run fast and are genuinely strong |
 | `strategy_audit/forecast_probe.py` | scores the v9 forecaster against what rivals actually did — next destination, position 1–8 turns ahead, arrival time — against no-inference, stay-put and momentum baselines |
 | `strategy_audit/results/` | every table the write-up quotes |
 
@@ -1349,6 +1350,11 @@ limits.
   Learning faster gains 48 points against never-shield opponents and loses 0.111
   PW against strong ones; v8 keeps v7's setting. If the real field turns out
   mostly naive, this is the first thing to revisit.
+- **Against designs from outside this lineage the bot is roughly average, not
+  dominant.** Twelve opponents written by independent agents hold v8 to 1.43 of 3;
+  v9's forecasting lifts that by +0.100 PW (z +3.45), the largest gain measured
+  here, but `nv_b_racer` and `nv_b_blocker` still beat both versions head to head.
+  They are the natural next sparring partners (`strategy_audit/README.md` §15).
 - **Forecasting helps where the opponents are unfamiliar and costs a little where
   they are not.** v9's goal inference is +0.050 PW (z +3.1) on mixed lineups of
   opponents never tuned against, but −0.024 PW (z −1.8) against the repository's

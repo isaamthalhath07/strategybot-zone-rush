@@ -43,6 +43,7 @@ Rulebook sections are cited as **§x.y** (official StrategyBot rulebook, 9 pages
 12. [What v8 changed](#12-what-v8-changed)
 13. [v9: forecasting rivals](#13-v9-forecasting-rivals)
 14. [Forecast-based defence: built, measured, not shipped](#14-forecast-based-defence-built-measured-not-shipped)
+15. [v9 against v8, my own models, and completely novel opponents](#15-v9-against-v8-my-own-models-and-completely-novel-opponents)
 
 ---
 
@@ -1039,3 +1040,144 @@ AUDIT_BOT=mybot AUDIT_SEED=101 python strategy_audit/edge_audit.py 600 unknown @
 
 The other rows take the same form. Results carry the label `mybot-6ce8a221`, the
 content hash of `mybot.py` as committed with `fc_defend`.
+
+---
+
+## 15. v9 against v8, my own models, and completely novel opponents
+
+Three questions: does v9 beat v8 directly; does it beat the models written for
+this audit; and does it hold up against designs that share **nothing** with this
+bot's lineage?
+
+In every table v8, v9 and v7 take the focus seat on identical games
+(`AUDIT_BOT=mybot`, `@v8_params.json` as reference, `@v9_params.json`,
+`@v7_params.json`). As opponents, v7, v8 and v9 are read straight out of git
+history (`VERSION_REVS` in `edge_audit.py`).
+
+### 15.1 Twelve opponents from independent agents
+
+Four agents were each given only the rules and the referee, explicitly
+forbidden to read any bot in this repository, and asked for three strong bots
+from one design family ([`novel/`](novel/)):
+
+| family | bots |
+|---|---|
+| search and simulation | `nv_a_mcts`, `nv_a_paranoid`, `nv_a_rhea` |
+| adversarial to forecasters | `nv_b_feint`, `nv_b_blocker`, `nv_b_racer` |
+| economic philosophies | `nv_c_voronoi`, `nv_c_bloomer`, `nv_c_portfolio` |
+| in-game learning and social | `nv_d_titfortat`, `nv_d_antileader`, `nv_d_shieldmaster` |
+
+[`verify_novel.py`](verify_novel.py) checked them independently of the agents'
+own reports: zero exceptions with `act()` called directly, at most 7.8 ms per move
+on average, and **1,985–2,821 points against spine / pro / camper**, against
+1,500–2,050 for the outside designs on the same yardstick
+(`results/novel_verification.txt`). The time-budgeted search bots run on a
+calibrated virtual clock, so all twelve replay deterministically.
+
+### 15.2 Against v8 and my own models
+
+| field | v8 (PW / 3) | v9 − v8 | notes |
+|---|---|---|---|
+| my own models: 8 outside designs + v7 + v8 (600) | 2.413 | **+0.053 (z +2.1)**, +15.9 pts | v9 beats v8-as-opponent 58.8% vs 54.5%, v7 52.8% vs 48.3% |
+| 3× v8 (300) | **1.500** (symmetry) | +0.027, **+18.2 pts (z +2.2)** | direct head-to-head |
+| 3× v9 (300) | 1.427 | v9 itself scores 1.500 | so head-to-head v9 is ahead by 0.073, **+22.5 pts (z +2.6)** |
+| 3× v7 (200) | 1.500 | +0.023, +9.2 pts | v7 and v8 play identically against copies of v7 |
+
+v9 is level with or ahead of v8 in every one of these.
+
+### 15.3 Against the novel opponents
+
+| field | v8 (PW / 3) | v9 − v8, first draw | confirmation (seed 101) | **pooled, 1,200 games** |
+|---|---|---|---|---|
+| **novel**: the twelve, mixed | **1.427** | +0.085 (z +2.15), +30.9 pts | +0.116 (z +2.71), +32.5 pts | **+0.100 ± 0.029 PW (z +3.45); +31.7 ± 5.7 pts (z +5.6)** |
+| grand: novel + outside designs + v8 + strangers | 2.278 | +0.003, +1.8 pts | +0.013, −4.2 pts | +0.008 ± 0.019 (z +0.4) |
+
+**The most important finding of the whole exercise: the novel field is much
+harder.** v8 scores **1.427 of 3 — below average** — against designs it was never
+built against. It wins only 22% of its pairings against `nv_b_racer`, 31% against
+`nv_b_blocker`, and 33–41% against the feint, portfolio, bloomer, shield master and
+voronoi bots. The 2.6–2.8 it scored on earlier fields was largely a property of
+those fields. This is the overfitting the question was about, made visible.
+
+**v9's forecasting is the largest and most reliable gain measured in this
+project: +0.100 PW (z +3.45) on the novel field, confirmed on fresh games.** In the
+confirmation draw v9 is level with or ahead of v8 against every one of the twelve.
+On the grand field the novel bots are diluted by easier opponents that v8 already
+beats, and the two versions are level.
+
+**Head-to-head, three copies of each novel bot (100 games each, v8 → v9 PW / 3):**
+
+| bot | v8 | v9 | | bot | v8 | v9 |
+|---|---|---|---|---|---|---|
+| `nv_c_voronoi` | 0.955 | **1.180** (z +2.2) | | `nv_d_antileader` | 1.73 | 1.78 |
+| `nv_d_titfortat` | 1.32 | **1.54** (z +2.2) | | `nv_b_feint` | 1.00 | 1.03 |
+| `nv_d_shieldmaster` | 0.90 | 1.03 | | `nv_a_rhea` | 2.86 | 2.85 |
+| `nv_c_portfolio` | 1.06 | 1.15 | | `nv_a_mcts` | 2.31 | 2.28 |
+| `nv_c_bloomer` | 1.13 | 1.21 | | `nv_b_blocker` | 1.06 | 0.99 |
+| `nv_b_racer` | 0.65 | 0.72 | | `nv_a_paranoid` | 1.79 | 1.67 |
+
+v9 is ahead in 8 of 12 (mean +0.055, z +1.8). Both of its significant gains come
+against bots that race for or contest territory, which is what forecasting is
+for. None of its four deficits is significant. Three copies of `nv_b_racer`, a
+bot that forecasts rivals itself and races only where it wins, beat both versions
+heavily (0.65 and 0.72 of 3); it is the strongest design anyone produced.
+
+### 15.4 Can v9 still see where novel opponents are going?
+
+`forecast_probe.py` on the novel field (`results/v9_forecast_novel_200.txt`,
+13,756 forecasts):
+
+| | forecast | rule prior | stays put | keeps going |
+|---|---|---|---|---|
+| next destination found | **30.7%** | 30.8% | 2.2% | — |
+| probability given to the truth | **0.085** | 0.073 | — | — |
+| position error 8 turns ahead | **2.24** | 2.25 | 2.40 | 3.00 |
+| position error 1 turn ahead | 1.04 | 1.05 | **1.00** | 1.02 |
+
+- **Harder to predict:** novel opponents are less predictable than the
+  repository's (31% against 48%).
+- **Evidence matters more:** watching their moves adds more here (+16% probability
+  on the truth, against +9% on familiar fields).
+- **The deception bot does not defeat it:** `nv_b_feint` is forecast 33.8% of the
+  time, mid-pack among the twelve. A less accurate forecast simply discounts
+  cells less, so v9 degrades towards v8 instead of being misled.
+- **Short range:** over 1–3 turns "stays put" is the better guess, because these
+  bots spend many turns working in place.
+
+### 15.5 What it means
+
+- Against opponents nobody here designed, the tuned bot is roughly average, not
+  dominant. That is the honest baseline for Round 1, where every opponent is
+  someone else's design.
+- v9 is the right build on this evidence: it is never significantly worse than v8
+  anywhere, and against the novel field it is +0.100 PW with z +3.45 over 1,200
+  games.
+- The novel field contains designs worth learning from, above all `nv_b_racer`
+  (forecast rivals, race only where you win) and `nv_b_blocker`. They are the
+  natural next sparring partners, and the natural next tuning field, provided the
+  confirmation-draw discipline is kept.
+
+### 15.6 Reproducing §15
+
+```bash
+python strategy_audit/verify_novel.py 8
+```
+
+```bash
+AUDIT_BOT=mybot python strategy_audit/edge_audit.py 600 novel @v8_params.json @v9_params.json @v7_params.json
+```
+
+```bash
+AUDIT_BOT=mybot AUDIT_SEED=101 python strategy_audit/edge_audit.py 600 novel @v8_params.json @v9_params.json @v7_params.json
+```
+
+```bash
+AUDIT_BOT=mybot python strategy_audit/edge_audit.py 100 solo:nv_b_racer @v8_params.json @v9_params.json
+```
+
+```bash
+python strategy_audit/forecast_probe.py 200 novel
+```
+
+The other rows take the same form, with tiers `mine`, `grand`, `solo:v8`,
+`solo:v9`, `solo:v7` and `solo:<novel bot>`.
