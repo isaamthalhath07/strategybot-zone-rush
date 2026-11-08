@@ -1375,6 +1375,24 @@ settle and is correct in 10/10 games under either reading
 
 (`test_guards.py`, section A).
 
+Two more readings the server could still differ on are guarded in `bot.py`
+(8 Nov 2026), so that a misreading costs a little rather than a game:
+
+- **Homes that cannot be upgraded.** Question 5 is also an inference: rule 7
+  upgrades "your own level-1 cell" and does not exclude the home. If the server
+  disagreed, the planner would sit on its home trying to upgrade it for about 52
+  of 80 turns, scoring 1.16 pairwise wins out of 3 instead of 2.68. Now a job that
+  should have finished and has not marks its cell as not worth pursuing again
+  that game (`econ.py`, `Econ.observe`). Under the written rules every finished
+  job changes the cell, so this never fires: the bot plays move for move as
+  before (240 games, 0 of 19,200 decisions differ). If homes cannot be upgraded
+  it scores 2.71 and finishes ahead of the unguarded bot 85% of the time.
+- **Which seat starts in which corner.** The starter kit says only that bots
+  start in the four corners, one per seat. The starting board was recognised by
+  a fixed seat-to-corner order; now any bot on any corner counts
+  (`fusion.py`, `_f_normalize`). There was no measurable cost before, but under
+  another order turn 1 was treated as a mid-game wake-up.
+
 
 
 ## The field problem, and what was done about it
