@@ -90,6 +90,53 @@ class PlannerRulesTests(unittest.TestCase):
             self.owner, self.upg, self.occ, self.frz, self.base,
             1, 1, 1.0, self.care))
 
+    def last_turn_defense(self, productive_raid):
+        game = engine.Game()
+        game.turn = 80
+        game.pos[:2] = [10, 9]
+        game.owner[9] = 1
+        game.owner[10] = 2 if productive_raid else 1
+        game.upg[9] = game.upg[10] = 1
+        game.base[9], game.base[10] = 1, 3
+        game.prog[:2] = [2 if productive_raid else 0, 2]
+        game.income = [sum(game.base[p] * (1 + game.upg[p])
+                           for p in range(64) if game.owner[p] == seat)
+                       for seat in range(1, 5)]
+        self.agent.tr.init_static(game.base, game.home)
+        self.agent.tr.pos = game.pos[:]
+        self.agent.tr.prog = game.prog[:]
+        self.owner, self.upg, self.base = game.owner[:], game.upg[:], game.base[:]
+        self.occ = [0] * 64
+        for seat, position in enumerate(game.pos, 1):
+            self.occ[position] = seat
+        return game
+
+    def test_last_turn_raid_outweighs_cheap_shield_defense(self):
+        game = self.last_turn_defense(productive_raid=True)
+        self.assertFalse(self.agent._should_shield(
+            self.owner, self.upg, self.occ, self.frz, self.base,
+            1, 1, 1.0, self.care))
+        stay, shield = game.clone(), game.clone()
+        stay.step(["STAY"] * 4)
+        shield.step(["SHIELD", "STAY", "STAY", "STAY"])
+        # Both rivals can finish upgraded captures, but our value-three raid is
+        # worth more than keeping the value-one holding with Shield.
+        self.assertGreater(stay.score[0], shield.score[0])
+        self.assertGreater(stay.score[0] - stay.score[1],
+                           shield.score[0] - shield.score[1])
+
+    def test_last_turn_shield_when_no_productive_stay_is_lost(self):
+        game = self.last_turn_defense(productive_raid=False)
+        self.assertTrue(self.agent._should_shield(
+            self.owner, self.upg, self.occ, self.frz, self.base,
+            1, 1, 1.0, self.care))
+        stay, shield = game.clone(), game.clone()
+        stay.step(["STAY"] * 4)
+        shield.step(["SHIELD", "STAY", "STAY", "STAY"])
+        self.assertGreater(shield.score[0], stay.score[0])
+        self.assertGreater(shield.score[0] - shield.score[1],
+                           stay.score[0] - stay.score[1])
+
     def test_planner_restores_progress_cost_after_leaving(self):
         game = engine.Game()
         game.pos[0] = 9

@@ -6,6 +6,7 @@ import json
 import multiprocessing as mp
 import time
 from pathlib import Path
+from functools import partial
 
 import engine
 from freshlab.evaluate import signature
@@ -15,8 +16,8 @@ from futurelab import bounded,evaluate,opponents,protocol
 ARTIFACT = Path("futurelab/submission/bot.py")
 
 
-def load():
-    spec = importlib.util.spec_from_file_location("future_submission",ARTIFACT)
+def load(artifact=ARTIFACT):
+    spec = importlib.util.spec_from_file_location("future_submission",artifact)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
@@ -33,8 +34,8 @@ def expose_errors(player,errors):
     player.decide = checked
 
 
-def equivalent(task):
-    module = load()
+def equivalent(task, artifact=ARTIFACT):
+    module = load(artifact)
     feature = module.FUTURE_FEATURES
     params = {"throttle":0,"budget_ms":10000,"first_turn_ms":0}
     expected = bounded.BoundedAgent(seed=task["map_seed"],params=params,feature=feature)
@@ -98,22 +99,29 @@ def public_contract(module):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--quick",action="store_true")
+    ap.add_argument("--artifact",type=Path,default=ARTIFACT,
+                    help="artifact to verify; rebuilt research exports need --quick")
+    ap.add_argument("--report",type=Path,default=Path("futurelab/research_release_verification.json"))
     args = ap.parse_args()
-    manifest = json.loads(ARTIFACT.with_suffix(".manifest.json").read_text())
+    artifact = args.artifact.resolve()
+    manifest = json.loads(artifact.with_suffix(".manifest.json").read_text())
     for filename,expected in manifest["sources"].items():
         if hashlib.sha256(Path(filename).read_bytes()).hexdigest() != expected:
-            raise AssertionError("source changed: "+filename)
-    sha = hashlib.sha256(ARTIFACT.read_bytes()).hexdigest()
+            raise AssertionError("source changed: "+filename+"; historical verification requires commit 9df9497, or rebuild separately and use --artifact PATH --quick")
+    sha = hashlib.sha256(artifact.read_bytes()).hexdigest()
     if manifest["sha256"] != sha:
         raise AssertionError("artifact changed")
-    module = load()
+    module = load(artifact)
     if module.FUTURE_FEATURES != protocol.REGISTRY[manifest["candidate"]]:
         raise AssertionError("wrong exported features")
     with mp.Pool(4) as pool:
-        exact = sum(pool.imap(equivalent,evaluate.tasks("development",8,1047121),chunksize=1))
+        exact = sum(pool.imap(partial(equivalent,artifact=artifact),evaluate.tasks("development",8,1047121),chunksize=1))
     print("Exact exported actions:",exact,flush=True)
     if args.quick:
         return
+    frozen = json.loads(Path("futurelab/submission/bot.manifest.json").read_text())
+    if sha != frozen["sha256"] or manifest != frozen:
+        raise AssertionError("rebuilt code has no new strength confirmation; use --quick for behavior checks and register fresh trials before promotion")
     primary = json.loads(Path("futurelab/results/final.json").read_text())
     native = json.loads(Path("futurelab/results/native_confirmation.json").read_text())
     if primary["summary"]["one_job"]["ci95"][0] <= 0 or native["summary"]["one_job"]["ci95"][0] <= 0:
@@ -123,7 +131,9 @@ def main():
                    worst_public_ms=worst,primary_sha256=hashlib.sha256(Path("futurelab/results/final.json").read_bytes()).hexdigest(),
                    native_sha256=hashlib.sha256(Path("futurelab/results/native_confirmation.json").read_bytes()).hexdigest(),
                    note="Source flattening matches research policy with clocks disabled. Actual entry point passes four shared-module games including flat/tuple boards and state reuse. No universality or Elo guarantee.")
-    Path("futurelab/release_verification.json").write_text(json.dumps(payload,indent=2),encoding="utf-8",newline="\n")
+    if args.report.exists():
+        raise AssertionError("preserve existing verification evidence; choose a new --report")
+    args.report.write_text(json.dumps(payload,indent=2),encoding="utf-8",newline="\n")
     print(json.dumps(payload,indent=2))
 
 

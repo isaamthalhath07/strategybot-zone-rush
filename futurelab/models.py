@@ -5,7 +5,7 @@ All model state is inferred or hypothetical; no actual referee state is read.
 """
 import math
 
-import bot
+from baselines import v8 as bot
 
 
 # claim, upgrade, raid, interior preference, distance exponent, shield chance

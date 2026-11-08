@@ -18,7 +18,7 @@ from pathlib import Path
 import platform
 import time
 
-import engine
+from baselines import engine_v8 as engine
 import field
 
 
@@ -176,7 +176,8 @@ def main():
               (game["title"], game["scores"], len(game["failures"]), max(game["max_ms"]),
                game["trace_sha256"][:12]), flush=True)
     data = dict(format_version=1, engine="Local reimplementation; not the official StrategyBot Arena",
-                bot_file=path.name, bot_sha256=sha(path), engine_sha256=sha(ROOT / "engine.py"),
+                bot_file=path.relative_to(ROOT).as_posix() if path.is_relative_to(ROOT) else str(path),
+                bot_sha256=sha(path), engine_file="baselines/engine_v8.py", engine_sha256=sha(ROOT / "baselines/engine_v8.py"),
                 python=platform.python_version(), games=games)
     data["independent_opponent_sha256"] = sha(ROOT / "audit" / "independent_bot.py")
     args.out.mkdir(parents=True, exist_ok=True)

@@ -2,7 +2,7 @@
 import copy
 import unittest
 
-import bot
+from baselines import v8 as bot
 import engine
 from botlib import parse
 from futurelab import agent,evaluate,models,opponents,rollout

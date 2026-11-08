@@ -1,7 +1,7 @@
 """Spatial adaptation over the accepted bot; no changes to its defence model."""
 import math
 
-import bot
+from baselines import v8 as bot
 from botlib import parse
 from territorylab.model import RegionModel, depth
 

@@ -30,6 +30,8 @@ SUITES = [
      "hidden-state reconstruction against the engine's private state"),
     ("correctness", "test_planner.py", [], False,
      "completion income, legal defence, route progress and observed homes"),
+    ("correctness", "test_merge_safeguards.py", [], False,
+     "failed-home escape, arbitrary starting corners and reused-module resets"),
     ("correctness", "test_freshlab.py", [], False,
      "public opponent inference, fresh split isolation and final-turn payoffs"),
     ("correctness", "test_territorylab.py", [], False,
@@ -75,7 +77,11 @@ for grp, script, args, slow, what in SUITES:
     tail = [ln for ln in out.strip().splitlines() if ln.strip()]
     verdict = "PASS" if p.returncode == 0 else "FAIL"
     # these two report findings rather than exiting non-zero
-    if script == "audit.py" and "no pathologies" not in out:
+    # audit.py also profiles the opponents, two of which (ai_route pacing,
+    # ai_marginal often frozen) are flagged on every run by design; only a flag
+    # on the bot itself is worth a human look
+    if script == "audit.py" and any(ln.startswith("flagged:") and "mybot" in ln
+                                    for ln in out.splitlines()):
         verdict = "CHECK"
     if script == "diag_seat.py" and "SEAT BIAS" in out:
         verdict = "FAIL"

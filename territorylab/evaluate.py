@@ -8,7 +8,7 @@ import time
 from collections import Counter
 from pathlib import Path
 
-import bot
+from baselines import v8 as bot
 import engine
 import maps
 from freshlab.evaluate import signature, summary
@@ -16,7 +16,7 @@ from territorylab import opponents, policy
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCES = ("bot.py", "engine.py", "maps.py", "botlib.py", "freshlab/population.py",
+SOURCES = ("baselines/v8.py", "engine.py", "maps.py", "botlib.py", "freshlab/population.py",
            "freshlab/evaluate.py", "territorylab/model.py", "territorylab/policy.py",
            "territorylab/opponents.py", "territorylab/evaluate.py")
 

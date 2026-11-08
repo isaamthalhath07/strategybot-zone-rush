@@ -12,10 +12,11 @@ from freshlab import baseline, candidate, evaluate, population
 
 def main():
     root = Path(__file__).resolve().parents[1]
+    artifact = root / "baselines/v8.py"
     result = json.loads((root / "freshlab/results/final.json").read_text())
     registration = json.loads((root / "freshlab/final_registration.json").read_text())
     if result["sources"] != evaluate.hashes() or result["sources"] != registration["sources"]:
-        raise AssertionError("tested sources changed after final evaluation")
+        raise AssertionError("historical final sources changed; reproduce the original release at commit 9df9497 (the v8 export is preserved in baselines/v8.py)")
     if result["summary"]["raid_calibration"]["ci95"][0] <= 0:
         raise AssertionError("the pre-registered promotion rule did not pass")
     balanced_path = root / "freshlab/results/balanced_confirmation.json"
@@ -25,7 +26,7 @@ def main():
     for filename, expected in balanced["extra_sources"].items():
         if hashlib.sha256((root / filename).read_bytes()).hexdigest() != expected:
             raise AssertionError("extra opponent or confirmation sources changed")
-    spec = importlib.util.spec_from_file_location("fresh_release", root / "bot.py")
+    spec = importlib.util.spec_from_file_location("fresh_release", artifact)
     shipped = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(shipped)
     params = dict(baseline.PARAMS)
@@ -64,7 +65,7 @@ def main():
                     raise AssertionError("export contract failed")
                 actions.append(action)
             game.step(actions)
-    source = (root / "bot.py").read_text(encoding="utf-8")
+    source = artifact.read_text(encoding="utf-8")
     tree = ast.parse(source)
     imports = set()
     for node in ast.walk(tree):
@@ -74,7 +75,7 @@ def main():
             imports.add(node.module.split(".")[0])
     if not imports <= {"time", "collections"}:
         raise AssertionError("unexpected submission dependency")
-    payload = dict(bot_sha256=hashlib.sha256((root / "bot.py").read_bytes()).hexdigest(),
+    payload = dict(bot_sha256=hashlib.sha256(artifact.read_bytes()).hexdigest(),
                    params_sha256=hashlib.sha256((root / "v8_fresh_params.json").read_bytes()).hexdigest(),
                    final_result_sha256=hashlib.sha256((root / "freshlab/results/final.json").read_bytes()).hexdigest(),
                    balanced_result_sha256=hashlib.sha256(balanced_path.read_bytes()).hexdigest(),

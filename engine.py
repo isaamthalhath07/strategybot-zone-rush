@@ -318,7 +318,7 @@ class Game(object):
                 n += 1
         return n
 
-    def places(self, round_number=1, round1_ranks=None):
+    def places(self, round_number=1, round1_ranks=None, *, round2=None):
         """1-based mean place per seat under the selected competition round.
 
         Round 1 compares final scores only (rulebook 3.2): equal scores are
@@ -326,7 +326,18 @@ class Game(object):
         (5.3). Pool games then share the remaining ties. For a Round 2
         semi-final or final, supply each seat's Round 1 rank, lower being
         better, to apply the last knockout tiebreak.
+        `round2=True/False` and a positional Boolean remain compatible with
+        the earlier API; numeric round selections still use 1 or 2.
         """
+        if isinstance(round_number, bool):
+            round_number = 2 if round_number else 1
+        if round2 is not None:
+            if not isinstance(round2, bool):
+                raise ValueError("round2 must be a Boolean")
+            alias_round = 2 if round2 else 1
+            if round_number != 1 and round_number != alias_round:
+                raise ValueError("round_number and round2 disagree")
+            round_number = alias_round
         if round_number not in (1, 2):
             raise ValueError("round_number must be 1 or 2")
         if round1_ranks is not None:

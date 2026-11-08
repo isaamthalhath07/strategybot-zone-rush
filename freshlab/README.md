@@ -1,6 +1,14 @@
 # Fresh opponents and within-game adaptation
 
-The active submission now uses `v8_fresh_params.json`, the recalibration that
+This directory preserves the historical v8 experiment. Its accepted single-file
+export now lives at `baselines/v8.py`; the active root `bot.py` follows main's
+fusion policy. `validate_release.py` targets the frozen v8 export and still checks
+all historical source hashes. Integration edits change those hashes, so reproduce
+the original final/release checks at commit `9df9497`. Historical result and
+verification files remain unchanged; a new root export does not inherit their
+measured strength claims.
+
+The accepted export in this experiment used `v8_fresh_params.json`, the recalibration that
 passed both unseen-algorithm confirmations. `baseline.py` is an exact copy of
 `mybot.py` when this experiment began; it fixes both implementation and weights
 during comparisons. Historical named opponents and previous submission versions

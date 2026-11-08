@@ -15,6 +15,9 @@ import sys
 import time
 
 ALLOWED_IMPORTS = {"time", "collections", "math", "random", "sys"}
+# bot.py is built from fusion.py by default; `python ship.py route <params>`
+# still builds the walk planner alone. The old default, best_params.json, had
+# been renamed to v7_seed.json, so `python ship.py` with no argument crashed.
 HEADER = '''"""
 StrategyBot / Zone Rush competition bot.
 
@@ -302,15 +305,93 @@ def verify(out="bot.py", params_file="v8_fresh_params.json"):
     return problems
 
 
+# ---------------------------------------------------------------------------
+# The fusion submission: fusion.py + econ.py + mybot.py inlined into one file.
+# ---------------------------------------------------------------------------
+DEV_BEGIN = "# --- dev imports: ship.py inlines econ.py and mybot.py and deletes this block ---"
+DEV_END = "# --- end dev imports ---"
+
+
+def _body(path):
+    """A module's source without its docstring and without its import lines."""
+    s = open(path, encoding="utf-8").read()
+    tree = ast.parse(s)
+    lines = s.splitlines()
+    drop = set()
+    if (tree.body and isinstance(tree.body[0], ast.Expr)
+            and isinstance(tree.body[0].value, ast.Constant)
+            and isinstance(tree.body[0].value.value, str)):
+        drop.update(range(tree.body[0].lineno - 1, tree.body[0].end_lineno))
+    imports = []
+    for node in tree.body:
+        if isinstance(node, (ast.Import, ast.ImportFrom)):
+            drop.update(range(node.lineno - 1, node.end_lineno))
+            imports.append(ast.get_source_segment(s, node))
+    doc = ast.get_docstring(tree, clean=False) if tree.body else None
+    return "\n".join(l for i, l in enumerate(lines) if i not in drop), imports, doc
+
+
+def _strip_act(src):
+    """Remove mybot's own module-level act(): the fusion's is the entry point."""
+    i = src.index("\ndef act(state):")
+    j = src.find("\n\n\n", i + 1)
+    return src[:i] + ("\n" if j < 0 else src[j:])
+
+
+def build_fusion(out="bot.py"):
+    fsrc = open("fusion.py", encoding="utf-8").read()
+    a = fsrc.index(DEV_BEGIN)
+    b = fsrc.index(DEV_END) + len(DEV_END)
+    open("_fusion_shipped.tmp", "w", encoding="utf-8").write(fsrc[:a] + fsrc[b:])
+    try:
+        fbody, fimp, fdoc = _body("_fusion_shipped.tmp")
+    finally:
+        os.remove("_fusion_shipped.tmp")
+    ebody, eimp, _ = _body("econ.py")
+    rbody, rimp, _ = _body("mybot.py")
+    rbody = _strip_act(rbody)
+    imports = []
+    for line in eimp + rimp + fimp:
+        if line not in imports:
+            imports.append(line)
+    parts = ['"""' + fdoc + '"""', "\n".join(sorted(imports)),
+             "\n# " + "=" * 74 + "\n# econ.py -- research/evolution's economic planner (primary)\n# "
+             + "=" * 74 + "\n" + ebody.strip("\n"),
+             "\n# " + "=" * 74 + "\n# mybot.py -- hardened-field-and-fixes' tracker and walk planner"
+             " (warm standby)\n# " + "=" * 74 + "\n" + rbody.strip("\n"),
+             "\n# " + "=" * 74 + "\n# fusion.py -- normalisation, failsafes and the controller\n# "
+             + "=" * 74 + "\n" + fbody.strip("\n")]
+    src = "\n\n".join(parts) + "\n"
+    open(out, "w", encoding="utf-8", newline="\n").write(src)
+    return out
+
+
+def usage():
+    raise SystemExit("python ship.py                      build + verify the fusion bot.py\n"
+                     "python ship.py route <params.json>  legacy: walk planner alone, to "
+                     "bot_route.py")
+
+
 if __name__ == "__main__":
-    pf = sys.argv[1] if len(sys.argv) > 1 else "v8_fresh_params.json"
-    out = build(params_file=pf)
-    print("built %s from %s" % (out, pf))
-    probs = verify(out, pf)
+    if len(sys.argv) > 1 and sys.argv[1] == "route":
+        if len(sys.argv) < 3:
+            usage()
+        pf = sys.argv[2]
+        out = build(params_file=pf, out="bot_route.py")
+        print("built %s from %s" % (out, pf))
+        probs = verify(out, pf)
+    elif len(sys.argv) == 1:
+        out = build_fusion("bot.py")
+        print("built %s from fusion.py + econ.py + mybot.py" % out)
+        sys.path.insert(0, os.path.join(os.getcwd(), "crossfield"))
+        import acceptance
+        probs = acceptance.run(out)
+    else:
+        usage()
     print()
     if probs:
         print("NOT READY TO SUBMIT:")
         for p in probs:
             print("  - %s" % p)
         sys.exit(1)
-    print("bot.py PASSES ALL SUBMISSION CHECKS")
+    print("%s PASSES ALL SUBMISSION CHECKS" % out)

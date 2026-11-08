@@ -1,11 +1,18 @@
 # Territorial intent: responding to the space rivals leave open
 
+This is a historical experiment against the accepted v8 policy, now preserved
+exactly at `baselines/v8.py`. The active root export follows main's fusion policy.
+The lab imports the frozen comparator explicitly. Historical results and source
+registrations remain unchanged; source integration edits correctly invalidate old
+final locks. Use commit `9df9497` to run the original report and locked-final
+reproduction commands below. New trials require new source registrations.
+
 This research tests the user's hypothesis: opponents skipping nearby claims
 may be travelling to the centre; if several do so, an edge-oriented route may
 profit from less competition. The new model predicts regional demand from
 public history rather than only learning shield and raid decisions.
 
-**Result: keep v8 as the active submission.** The history model gained on one
+**Historical result: v8 was retained after this experiment.** The history model gained on one
 locked spatial-opponent final test but did not replicate that gain against
 four further economic planners. No spatial feature is shipped from this round.
 
@@ -138,8 +145,7 @@ Across the five recorded comparisons there were **7,840 games and 2,508,800
 checked action calls**, with no detected illegal action, input mutation or
 swallowed focal planner exception. The 112 partial trajectory observations
 are additional, descriptive data. All nine new unit tests passed. No release
-timing or export claim is made for the experimental model; `bot.py` remains
-the previously verified v8 artifact.
+timing or export claim is made for the experimental model; the previously verified v8 artifact remains at `baselines/v8.py`.
 
 Opponents share public observation plumbing and some economic work estimates.
 These are different scheduling rules, not thirteen independently authored

@@ -7,7 +7,7 @@ import random
 import time
 from pathlib import Path
 
-import bot
+from baselines import v8 as bot
 import maps
 from botlib import NEIGH,first_step,man
 from freshlab.population import ProceduralOpponent,specification

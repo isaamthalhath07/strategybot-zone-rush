@@ -14,7 +14,7 @@ from futurelab.protocol import REGISTRY
 
 
 MODULES = (
-    ("bot","bot.py","_base_"),
+    ("baselines.v8","baselines/v8.py","_base_"),
     ("engine","engine.py","_world_"),
     ("botlib","botlib.py","_public_"),
     ("futurelab.models","futurelab/models.py","_model_"),
@@ -132,7 +132,7 @@ def act(state):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--candidate",required=True,choices=REGISTRY)
-    ap.add_argument("--out",type=Path,default=Path("futurelab/submission/bot.py"))
+    ap.add_argument("--out",type=Path,default=Path("futurelab/submission/rebuilt_bot.py"))
     args = ap.parse_args()
     result = build(args.candidate,args.out)
     args.out.with_suffix(".manifest.json").write_text(json.dumps(result,indent=2),encoding="utf-8",newline="\n")

@@ -6,7 +6,7 @@ Only the first work commitment is prescribed in these simulated continuations.
 import math
 import time
 
-import bot
+from baselines import v8 as bot
 from futurelab import agent,models,rollout
 
 

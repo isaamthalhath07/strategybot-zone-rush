@@ -11,9 +11,19 @@ answers the organisers gave directly. Everything factual about strategy is
 measured in this repository, and where a number is quoted it says how it was
 measured. Where something is my judgement rather than a measurement, it says so.
 
-A note on scope: there are two branches, `main` and `hardened-field-and-fixes`.
-History is linear — the branch is `main` plus one commit — so nothing exists on
-`main` that is not also on the branch. This document describes the branch.
+A note on scope: this document originally described the hardened walk planner.
+The repository now also contains the fused competition export, frozen research
+baselines and the human simulator. Their policies and rule versions are identified
+in [the current export overview](README.md#current-exports-and-rule-versions).
+
+> **Since this was written:** `bot.py` now ships a fused bot. It pairs the
+> research/evolution branch's economic planner with this bot's tracker and walk
+> planner as a warm standby, plus failsafe layers that none of the branches had.
+> Everything below still describes the tracker and walk planner accurately. Why
+> the primary changed, measured on a field written by all three authors, is in
+> [`CROSS_BRANCH_REVIEW.md`](CROSS_BRANCH_REVIEW.md). The human simulator uses
+> a separate rule-corrected export, documented in
+> [`human_arena/PRESENCE_VALIDATION.md`](human_arena/PRESENCE_VALIDATION.md).
 
 **Contents**
 

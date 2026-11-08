@@ -6,7 +6,7 @@ play checks budgets inside each simulated player turn and each model update.
 import math
 import time
 
-import bot
+from baselines import v8 as bot
 from botlib import parse
 from futurelab import agent,alternatives,models,rollout
 

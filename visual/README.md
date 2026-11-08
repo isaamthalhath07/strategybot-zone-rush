@@ -1,6 +1,16 @@
 # Local visual harness
 
-This viewer plays recorded games from `engine.py`. It is **not the official
+The checked-in games were recorded with historical v8, preserved exactly at
+`baselines/v8.py`, and `baselines/engine_v8.py`. They are not evidence for the
+active root fusion export. Their original source hashes and recorded outcomes
+remain unchanged; replay tests use those frozen sources. Generate new recordings
+into a separate folder to inspect the current export:
+
+```powershell
+python visual_harness.py --bot bot.py --out visual/current
+```
+
+This viewer plays recorded games from the frozen `baselines/engine_v8.py`. It is **not the official
 StrategyBot Arena**, and it cannot establish equivalence to the official server.
 The public starter repository contained only its README and `bot.py` when checked
 on 7 November 2026; its README names the Arena without providing a URL.
@@ -35,7 +45,8 @@ accepted and resolved actions, per-call times, failures, map seeds and rule flag
 SHA-256 hashes bind the bot source, engine source and action/state traces. The
 viewer embeds this exact data, requiring no remote services. The tests replay the
 accepted actions through the engine and require every board, score and resolved
-action to match. Regenerating traces after editing either source is required.
+action to match. Changed sources need new recordings with their own hashes;
+they do not invalidate preserved historical evidence.
 
 Shipping time guards remain enabled, so regeneration can vary with machine load.
 A saved trace replays exactly; a seed alone does not promise identical regeneration.

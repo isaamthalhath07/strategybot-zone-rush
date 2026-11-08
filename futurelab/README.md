@@ -1,5 +1,21 @@
 # Planning with conditional futures
 
+This directory preserves the historical forward-planning experiment against v8.
+Its frozen comparator now lives at `baselines/v8.py`; the active root `bot.py`
+follows main's fusion policy. Historical results, registrations, and the measured
+`submission/bot.py` remain unchanged. Source integration edits invalidate the old
+locks: use commit `9df9497` to reproduce the original measurements and release
+verification. New runs record `baselines/v8.py` explicitly and require new locks.
+
+For a separate current-code behavior check, without replacing the measured export:
+
+```powershell
+python -m futurelab.build --candidate one_job --out futurelab/submission/rebuilt_bot.py
+python -m futurelab.verify --artifact futurelab/submission/rebuilt_bot.py --quick
+```
+
+This check establishes export equivalence, not a fresh playing-strength result.
+
 The previous planner searched a walk of several work cells but largely priced
 each job using today's ownership. A target could be neutral in its search and
 already claimed or upgraded by the time the real bot arrived. This experiment
@@ -118,7 +134,7 @@ remain, the policy returns the original work choice.
 physics and forward policy with distinct global prefixes. The generated file
 uses only the standard library and has `act(state)`. It contains no project
 imports, external data files, dynamic execution, training framework or network
-access. The older root `bot.py` remains byte-identical as the v8 benchmark.
+access. The v8 benchmark remains byte-identical at `baselines/v8.py`.
 
 `verify.py` compares the export against the measured policy with clocks disabled,
 then exercises the actual public entry point with runtime guards enabled. The

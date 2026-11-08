@@ -3,7 +3,7 @@ import argparse
 import json
 from pathlib import Path
 
-import bot
+from baselines import v8 as bot
 import engine
 from botlib import NEIGH
 from territorylab import evaluate, opponents

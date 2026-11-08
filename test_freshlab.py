@@ -152,14 +152,28 @@ class PopulationTests(unittest.TestCase):
         self.assertEqual(used, set(unseen.FAMILIES))
         self.assertFalse(used & set().union(*map(set, population.SPLITS.values())))
 
-    def test_default_submission_build_matches_verified_artifact(self):
-        import tempfile
-        import ship
-        with tempfile.TemporaryDirectory(dir=Path(__file__).resolve().parent) as td:
-            target = Path(td) / "bot.py"
-            ship.build(out=str(target))
-            self.assertEqual(target.read_bytes(), Path("bot.py").read_bytes())
-            self.assertNotIn(b"\r\n", target.read_bytes())
+    def test_frozen_v8_export_matches_its_recorded_policy(self):
+        import hashlib
+        from baselines import v8
+        artifact = Path(__file__).resolve().parent / "baselines/v8.py"
+        expected_hash = json.loads(Path("freshlab/release_verification.json").read_text())["bot_sha256"]
+        self.assertEqual(hashlib.sha256(artifact.read_bytes()).hexdigest(), expected_hash)
+        self.assertNotIn(b"\r\n", artifact.read_bytes())
+        params = dict(baseline.PARAMS)
+        params.update(json.loads(Path("v7_params.json").read_text()))
+        params.update(throttle=0, budget_ms=10000, first_turn_ms=0)
+        for task in evaluate.tasks("final", 2, 739119):
+            reference = candidate.AdaptiveAgent(task["map_seed"], params,
+                                                 candidate.VARIANTS["raid_calibration"])
+            release = v8.Agent(seed=task["map_seed"], params={"throttle":0,"budget_ms":10000,"first_turn_ms":0})
+            game = engine.Game(base=task["base"], start_token=task["token"])
+            while not game.over():
+                view = game.views()[task["seat"]]
+                expected = reference(view)
+                self.assertEqual(release(view), expected)
+                actions = ["STAY"] * 4
+                actions[task["seat"]] = expected
+                game.step(actions)
 
 
 class TerminalTests(unittest.TestCase):
