@@ -37,7 +37,7 @@ try:
  assert state['over'] and state['turn']==81
  transcript=app.history_export(game_id)
  assert len(transcript['turns'])==80
- assert not transcript['metadata']['rules']['catch_requires_stay']
+ assert transcript['metadata']['rules']['catch_requires_stay']
  assert not app.game.faults
  print(json.dumps(dict(turns=len(transcript['turns']),faults=len(app.game.faults),over=state['over'])))
 finally:

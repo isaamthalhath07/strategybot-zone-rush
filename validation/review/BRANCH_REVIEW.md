@@ -1,3 +1,5 @@
+> Historical consolidation review before the explicit STAY-only clarification. Current rule conclusions and follow-up tests are in [the STAY-only audit](../official/REVIEW.md). Historical source findings remain preserved.
+
 # Branch and codebase review for consolidation
 
 Audit date: 2026-11-08. This review records evidence and limitations; the new

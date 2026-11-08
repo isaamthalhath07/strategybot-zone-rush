@@ -89,11 +89,17 @@ async function main() {
   vm.runInContext("S.game=gameFrom({...fixture,observation:{board:fixture.board.map(row=>row.map(cell=>[cell.occupant,cell.owner,cell.is_upgraded,cell.is_home,cell.is_frozen,cell.base_points])),bot_id:1,is_priority_token:false,legal_actions:['STAY']}});S.view='ai';renderControls()", context);
   assert(!document.querySelector("#controls-note").textContent.includes("remaining"), "AI view must not display a hidden freeze counter");
   vm.runInContext("S.view='standard'; S.newGameCatchRequiresStay=false; S.game={rules:{catch_requires_stay:true}};renderRuleExplanation()", context);
-  assert(document.querySelector("#shield-rule-text").textContent.includes("legacy match"), "An old match must retain its old rule explanation");
+  assert(document.querySelector("#shield-rule-text").textContent.includes("who STAY"), "The official match explains effective STAY eligibility");
   vm.runInContext("S.game.rules.catch_requires_stay=false;renderRuleExplanation()", context);
-  assert(document.querySelector("#shield-rule-text").textContent.includes("including arrivals and moves between your cells"));
-  vm.runInContext("S.view='ai';S.game={observation:{}};renderRuleExplanation()", context);
-  assert(document.querySelector("#shield-rule-text").textContent.includes("After movement"), "Strict view uses the server's public rule definition without extra game fields");
+  assert(document.querySelector("#shield-rule-text").textContent.includes("historical match"));
+  vm.runInContext("S.view='ai';S.newGameCatchRequiresStay=true;S.game={observation:{}};renderRuleExplanation()", context);
+  assert(document.querySelector("#shield-rule-text").textContent.includes("blocked move counts as STAY"), "Strict view uses the server's public official rule definition without extra game fields");
+  assert(document.querySelector("#shield-rule-text").textContent.includes("turns 11 and 12"));
+  assert(document.querySelector("#shield-rule-text").textContent.includes("turn 15"));
+  vm.runInContext("S.view='ai';S.newGameCatchRequiresStay=true;S.ruleGameId='restored';S.matchCatchRequiresStay=false;S.game={game_id:'restored',observation:{}};renderRuleExplanation()", context);
+  assert(document.querySelector("#shield-rule-text").textContent.includes("historical match"), "AI view keeps the public rule version of a restored historical match");
+  vm.runInContext("S.game={game_id:'new-game',observation:{}};renderRuleExplanation()", context);
+  assert(document.querySelector("#shield-rule-text").textContent.includes("who STAY"), "Historical rule cache cannot leak into a new match");
   console.log("Passed 6 UI regression groups: native keyboard activation, delayed history privacy, delayed download privacy, local candidate metadata, freeze/thaw controls, versioned shield rule explanations.");
 }
 

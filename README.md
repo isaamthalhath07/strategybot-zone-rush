@@ -1,91 +1,104 @@
-# Zone Rush: consolidated release
+# Zone Rush: STAY-only Shield release
 
-`bot.py` is the standalone submission: one file, standard library only, with
-`act(state)` as its entry point. It contains the selected economic planner,
-public-history tracking, corrected Shield inference, territory escape decisions,
-input normalization and failed-job guards. No repository modules, data files,
-private referee state or future actions are required by the bot.
+`bot.py` is the standalone submission: one standard-library file exposing
+`act(state)`. It uses only the four documented public inputs and remembered
+public history. It includes the selected economic planner, inferred scores and
+work/cooldowns, valid same-owner-cell Shield feints, input guards and recovery
+when public evidence proves a requested Shield was replaced with STAY.
 
-## Play
+## Confirmed rule
+
+Moves resolve first. Shield catches eligible rivals whose **effective action
+is STAY** on the shielder's land. A successful move escapes, even between two
+cells owned by the shielder. A blocked or lost-contest move counts as STAY.
+Using Shield is not a STAY. Already-frozen rivals remain ineligible.
+
+Caught or backfired on turn 10 means frozen on turns **11 and 12**. Shield used
+on turn 10 is unavailable on **11ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“14**, and can next be used on **15**. Catching
+nobody eligible backfires. Other capture, income and work rules are unchanged.
+
+This explicit clarification supersedes the earlier territory-presence
+interpretation. Your original turn-34 transcript is correct: Red moved D4 to
+C4, escaped Blue's Shield, and Blue backfired. All 34 recorded transitions replay
+exactly. Old recordings keep their actual rules, sources and hashes.
+
+## Play and test
 
 ```powershell
 python simulator/server.py
 ```
 
-Open http://127.0.0.1:8778/. Use arrows/WASD, Space to stay and Q to Shield,
-or the on-screen controls. Recording is automatic. The AI view shows the same
-public inputs as the bot. [Simulator details](simulator/README.md).
-
-New matches use the clarified Shield rule: movement resolves first; eligible
-rivals anywhere on the shielder's land are caught, including arrivals and moves
-between that owner's cells. Already-frozen rivals are excluded. A freeze forces
-the next two game turns. Historical recordings retain their actual rule flags.
-
-## Selection and limits
-
-Ten branches and the open v9 research PR were reviewed. The comparison screened
-69 distinct standalone policies, tested three corrected/guarded variants, then
-compared 15 candidates with balanced corners and priority tokens. A separate
-frozen confirmation compared six finalists on eight distinct unused boards and
-three contrasting opponent lineups. **5,052 games and 1,616,640 timed callbacks**
-are recorded. The development and final rounds had zero worker faults.
-
-| Frozen final comparison, 384 games each | Mean opponents outscored / 3 |
-|---|---:|
-| **Selected guarded, rule-corrected Transfer** | **1.8750** |
-| Previous Transfer release | 1.8516 |
-| Original Transfer | 1.7474 |
-| Corrected Transfer with legacy pricing | 1.7279 |
-| Repaired evolved research policy | 1.5391 |
-| Previous main-branch fusion | 1.5247 |
-
-Tied scores contribute half a result. These are matched local comparisons, not
-a competition win rate. The selected bot's +0.3503 over the former main export
-has eight-map clustered 95% bootstrap interval [+0.0547, +0.6641]. Its +0.0234
-over the closest older release has interval [-0.0495, +0.0964], so that smaller
-strength difference is inconclusive. It was selected for its leading measured
-result, verified rule correctness and robust public interface. Finite tests do
-not prove optimal play against every possible opponent.
-
-[Validation and decisions](validation/REPORT.md),
-[branch/codebase review](validation/review/BRANCH_REVIEW.md),
-[exact release fingerprints](release_manifest.json).
-
-## Test
-
-Python 3.10 or newer is sufficient for the bot, simulator and Python checks.
+Open http://127.0.0.1:8779/. Arrows/WASD move, Space stays, Q shields;
+on-screen controls do the same. Recording is automatic. The AI view shows the
+same four public observation fields as the bot. Existing older tabs retain
+their old matches and rules. [Simulator details](simulator/README.md).
 
 ```powershell
 python tools/check_release.py
 ```
 
-This runs rules/oracle, inference, public-input, real-worker, recording, privacy,
-concurrency, downloaded-folder and recorded-evidence tests. If Node is installed,
-it also runs the six offline interface logic groups. Visual testing is optional;
-the release is validated through automated tests and actual isolated matches.
+Python 3.10 or newer is sufficient. The release passes **133 Python tests** and,
+when Node is installed, six offline interface logic groups. These include both
+historical and current physics, 48 complete independent-engine differential
+games, exact public-history oracles, real-worker recording/replay and privacy,
+request races, fallback recovery and a downloaded folder without Git.
+Visual-harness testing is optional under the user's instruction.
 
-For an optional repeat of the frozen comparison:
+## Current selection evidence
+
+The new **STAY-only** comparison contains **5,832 games and 1,866,240 timed
+callbacks**, with zero worker faults. It screened 70 admissible archived policies,
+then compared 12 balanced candidates, six frozen finalists and two recovered,
+fixed-genome alternatives on twelve further fresh boards. Each final follow-up
+policy played 576 common fixtures: all 16 corner/priority combinations in three fields.
+
+| Latest fresh follow-up | Mean opponents outscored / 3 | Worst callback |
+|---|---:|---:|
+| **Selected guarded Transfer** | **1.7300** | **2.02 ms** |
+| Guarded research alternative | 1.4991 | 1.48 ms |
+
+The paired difference is +0.2309, with 12-map clustered 95% bootstrap interval
+[-0.0243,+0.4939]. The interval includes zero: this is the best measured option
+in that follow-up, not proof of universal superiority. The research settings led
+the earlier eight-map round, while Transfer led balanced development and the
+separate follow-up. Both strategic genomes were historical, frozen settings;
+no coefficients were fitted after observing final outcomes.
+
+The recovery-only revisions matched their original versions on **61,440 exact
+public-action pairs** from all 768 recorded finalist games, and received their
+own fresh process-isolated follow-up. No private acceptance acknowledgement is
+invented: an externally substituted action that is observationally identical to
+an accepted one cannot be uniquely diagnosed from the four-field interface.
+
+[Current validation](validation/official/REPORT.md),
+[exact rule clarification](validation/official/rule_contract.json),
+[release fingerprints](release_manifest.json).
+
+## Focused repository
+
+- `bot.py`: final already-flattened submission; no build step or extra weights.
+- `tester_bots/`: eight standalone alternatives and specialist controls.
+- `simulator/`: one human simulator with immutable bot snapshots and saved history.
+- `tests/`: current regressions, a separate historical model and independent oracle.
+- `tools/`: release checks, registered comparison and exact replay helpers.
+- `validation/official/`: new STAY-only evidence, source additions and audit.
+- Other `validation/` files: explicitly historical presence-rule evidence, unchanged
+  raw results and source archives; these scores are not pooled into this ranking.
+
+To reproduce a comparison without Git:
 
 ```powershell
 python tools/unpack_sources.py
-python tools/benchmark.py --spec validation/final_spec.json --out .cache/repeat.json.gz --workers 8
+python tools/benchmark.py --spec validation/official/followup_spec.json --out .cache/repeat.json.gz --workers 8
 ```
 
-Source restoration verifies every archived hash and never replaces changed files.
-Use a new output name for every run. Previous results are never overwritten.
+Sources are restored only after archive/hash verification. Changed files and
+consumed result paths are never overwritten. Retired experiment trees remain
+in Git history. Existing live games and the separate uncommitted checkout were
+not changed by this release.
 
-## Compact layout
-
-- `bot.py`: the final, already flattened submission; no build step.
-- `tester_bots/`: six strong alternative or specialist policies, each standalone.
-- `simulator/`: human controls, public AI view, immutable bot snapshots and history.
-- `tests/`: runtime regressions and an independently implemented rules oracle.
-- `tools/`: release checks and reproducible comparison helpers.
-- `validation/`: registered fixtures, compressed full action/results evidence,
-  exact source archive and the audit findings.
-
-Retired trainers, duplicate simulators, parameter trees, result dumps and
-experimental import graphs remain in Git history at `d385e00` and the recorded
-branch commits. Their useful findings were reviewed; their incompatible
-historical strength claims were not pooled into this release. The original
-working checkout and any live match were left untouched.
+The concurrently added `ultimate.py` is preserved as an experimental alternative.
+On the same 576 STAY-only follow-up fixtures it scored 1.3446 opponents outscored,
+versus 1.7300 for the selected release, with zero worker faults. It is retained
+as a tester and has not replaced the validated root bot. Its original architecture
+tests include historical False-mode fixtures; those are not current-rule proof.

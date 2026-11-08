@@ -1,3 +1,5 @@
+> Historical presence-rule packaging review. The current STAY-only simulator contract and follow-up validation are documented in [the current report](../official/REPORT.md).
+
 # Focused simulator review
 
 The new `simulator/` retains the tested human-game engine, history recorder,

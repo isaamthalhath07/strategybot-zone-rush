@@ -1,0 +1,24 @@
+{
+  "summary": {
+    "ultimate_a8f7a74e7ed3": {
+      "games": 576,
+      "mean_pw": 1.3446180555555556,
+      "mean_score": 2822.3263888888887,
+      "fields": {
+        "legacy-economic": 1.2109375,
+        "novel-pressure": 1.375,
+        "shield-baits": 1.4479166666666667
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 1.927000004798174,
+      "mean_ms": 0.2491345185515254
+    }
+  },
+  "paired": [],
+  "elapsed_s": 41.37365560000762,
+  "caveat": "Finite registered field. Screening is selection data. Confirmations are fresh maps, not proof against every possible rival. No private state or future actions reach a policy.",
+  "games": 576,
+  "timed_callbacks": 184320,
+  "all_faults": 0
+}

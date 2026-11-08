@@ -8,7 +8,16 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def main():
-    manifest = json.loads((ROOT/"validation/source_archive_manifest.json").read_text(encoding="utf8"))
+    restored = 0
+    manifests = [ROOT/"validation/source_archive_manifest.json", ROOT/"validation/official/source_archive_manifest.json"]
+    for path in manifests:
+        if path.exists():
+            restored += restore(path)
+    print("Restored %d comparison source files. The final bot and tester files are unchanged." % restored)
+
+
+def restore(path):
+    manifest = json.loads(path.read_text(encoding="utf8"))
     archive = ROOT/manifest["archive"]
     if hashlib.sha256(archive.read_bytes()).hexdigest() != manifest["sha256"]:
         raise ValueError("source archive changed")
@@ -31,7 +40,7 @@ def main():
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_bytes(body)
             restored += 1
-    print("Restored %d comparison source files. The final bot and tester files are unchanged." % restored)
+    return restored
 
 
 if __name__ == "__main__":

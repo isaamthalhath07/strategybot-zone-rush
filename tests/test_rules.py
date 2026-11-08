@@ -1,4 +1,4 @@
-"""New-match post-movement shields, with explicit historical-rule replay."""
+"""Official STAY-only shields, with explicit historical presence-rule replay."""
 import copy
 import hashlib
 import json
@@ -12,13 +12,13 @@ from tests import reference_engine as engine
 from tests.test_simulator_server import FakeProcess
 
 
-class ShieldResolutionTests(unittest.TestCase):
+class HistoricalPresenceShieldTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.match, cls.referee, _sources, cls.provenance = server.bootstrap()
 
     def game(self, **overrides):
-        return self.referee.Referee(self.referee.example_map(), rules=dict(server.NEW_GAME_RULES, **overrides))
+        return self.referee.Referee(self.referee.example_map(), rules=dict({"catch_requires_stay": False}, **overrides))
 
     @staticmethod
     def moving_fixture(game):
@@ -84,14 +84,14 @@ class ShieldResolutionTests(unittest.TestCase):
     def test_new_human_game_explicit_model_and_legacy_override_are_separate(self):
         updated = server.HumanGame(dict(id="fixture"), "unused", 1, 1, 1, self.match, self.referee, FakeProcess)
         legacy = server.HumanGame(dict(id="fixture"), "unused", 1, 1, 1, self.match, self.referee, FakeProcess,
-                                  rules={"catch_requires_stay": True})
+                                  rules={"catch_requires_stay": False})
         try:
-            self.assertFalse(updated.g.rules["catch_requires_stay"])
-            self.assertTrue(legacy.g.rules["catch_requires_stay"])
+            self.assertTrue(updated.g.rules["catch_requires_stay"])
+            self.assertFalse(legacy.g.rules["catch_requires_stay"])
             self.assertTrue(self.referee.DEFAULT_RULES["catch_requires_stay"], "vendored defaults must not be silently rewritten")
             self.moving_fixture(legacy.g)
             legacy.g.step(["SHIELD", "WEST", "NORTH", "STAY"])
-            self.assertEqual(legacy.g.frozen[:2], [2, 0], "historical rule model still reproduces its recorded outcome")
+            self.assertEqual(legacy.g.frozen[:2], [0, 2], "historical presence model still reproduces its recorded outcome")
             self.assertEqual(set(updated.public("ai")), {"game_id", "turn", "over", "observation"})
         finally:
             updated.close()
@@ -106,12 +106,30 @@ class ShieldResolutionTests(unittest.TestCase):
                                        FakeProcess, history_dir=folder)
             try:
                 recorded = history.read_history(folder, updated.id)["metadata"]
-                self.assertFalse(recorded["rules"]["catch_requires_stay"])
+                self.assertTrue(recorded["rules"]["catch_requires_stay"])
                 digest = hashlib.sha256(json.dumps(recorded["rules"], sort_keys=True, separators=(",", ":")).encode()).hexdigest()
                 self.assertEqual(recorded["rules_sha256"], digest)
                 self.assertEqual(recorded["referee_sha256"], self.provenance["files"]["referee.py"])
             finally:
                 updated.close()
+
+    def test_historical_presence_recording_keeps_rules_and_file_bytes(self):
+        root = server.HERE / ".test-tmp"
+        root.mkdir(exist_ok=True)
+        with tempfile.TemporaryDirectory(prefix="historical-presence-", dir=root) as folder:
+            game = server.HumanGame(dict(id="fixture"), "unused", 3, 1, 1,
+                self.match, self.referee, FakeProcess, history_dir=folder,
+                rules={"catch_requires_stay": False})
+            game.action("STAY", 1, game.id)
+            game.close()
+            path = history.path_for(folder, game.id)
+            before = path.read_bytes()
+            recorded = history.read_history(folder, game.id)
+            self.assertFalse(recorded["metadata"]["rules"]["catch_requires_stay"])
+            self.assertEqual(path.read_bytes(), before, "reading historical data must not rewrite it")
+            actual_hash = hashlib.sha256(json.dumps(recorded["metadata"]["rules"], sort_keys=True,
+                separators=(",", ":")).encode()).hexdigest()
+            self.assertEqual(recorded["metadata"]["rules_sha256"], actual_hash)
 
     def test_mutual_shields_remain_active_when_each_owner_is_caught(self):
         game = self.game()
@@ -124,8 +142,118 @@ class ShieldResolutionTests(unittest.TestCase):
         self.assertEqual(shields[2]["caught"], [1])
 
 
+class OfficialStayShieldTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.match, cls.referee, _sources, cls.provenance = server.bootstrap()
+
+    def game(self):
+        return self.referee.Referee(self.referee.example_map(), rules=server.NEW_GAME_RULES)
+
+    def test_successful_move_between_shielder_cells_completes_and_escapes(self):
+        game = self.game()
+        HistoricalPresenceShieldTests.moving_fixture(game)
+        result = game.step(["SHIELD", "WEST", "NORTH", "STAY"])
+        shield = next(e for e in result["events"] if e["type"] == "shield")
+        self.assertEqual(game.pos[1], 26, "B completes the move before Shield resolution")
+        self.assertEqual(shield["caught"], [])
+        self.assertTrue(shield["backfire"])
+        self.assertEqual(game.frozen[:2], [2, 0])
+        self.assertEqual(game.owner[26], 1)
+
+    def test_arrival_on_shielder_land_does_not_count_as_stay(self):
+        game = self.game()
+        game.pos[1], game.owner[26] = 34, 1
+        result = game.step(["SHIELD", "NORTH", "STAY", "STAY"])
+        self.assertEqual(game.pos[1], 26)
+        self.assertEqual(game.frozen[:2], [2, 0])
+        self.assertEqual(next(e for e in result["events"] if e["type"] == "shield")["caught"], [])
+
+    def test_blocked_move_counts_as_stay_and_is_caught(self):
+        game = self.game()
+        game.pos[1:3] = [27, 26]
+        game.owner[27], game.upg[27], game.prog[1] = 1, True, 2
+        result = game.step(["SHIELD", "WEST", "NORTH", "STAY"])
+        self.assertEqual(game.pos[1:3], [27, 18])
+        self.assertEqual(result["eff"][1], "STAY")
+        shield = next(e for e in result["events"] if e["type"] == "shield")
+        self.assertEqual(shield["caught"], [2])
+        self.assertEqual(game.frozen[:2], [0, 2])
+        self.assertEqual(game.prog[1], 0)
+        self.assertEqual(game.owner[27], 1, "Shield interrupts work before capture")
+
+    def test_using_shield_is_not_stay_and_causes_two_separate_backfires(self):
+        game = self.game()
+        game.pos[:2], game.owner[10], game.owner[20] = [10, 20], 2, 1
+        result = game.step(["SHIELD", "SHIELD", "STAY", "STAY"])
+        shields = {e["seat"]: e for e in result["events"] if e["type"] == "shield"}
+        self.assertEqual(shields[1]["caught"], [])
+        self.assertEqual(shields[2]["caught"], [])
+        self.assertTrue(shields[1]["backfire"] and shields[2]["backfire"])
+        self.assertEqual(game.frozen[:2], [2, 2])
+        self.assertFalse([e for e in result["events"] if e["type"] == "freeze" and e["why"] != "backfire"])
+
+    def test_caught_turn_ten_freezes_eleven_twelve_and_shield_returns_fifteen(self):
+        game = self.game()
+        game.turn, game.pos[1], game.owner[27], game.upg[27], game.prog[1] = 10, 27, 1, True, 2
+        game.step(["SHIELD", "STAY", "STAY", "STAY"])
+        self.assertEqual((game.turn, game.frozen[1], game.cd[0], game.prog[1]), (11, 2, 4, 0))
+        for turn, remaining in ((11, 2), (12, 1)):
+            self.assertEqual((game.turn, game.frozen[1]), (turn, remaining))
+            self.assertEqual(game.legal(1), ["STAY"])
+            self.assertNotIn("SHIELD", game.legal(0))
+            game.step(["STAY"]*4)
+            self.assertEqual(game.prog[1], 0, "frozen STAY earns no work")
+        self.assertEqual((game.turn, game.frozen[1]), (13, 0))
+        self.assertIn("WEST", game.legal(1))
+        for turn in (13, 14):
+            self.assertEqual(game.turn, turn)
+            self.assertNotIn("SHIELD", game.legal(0))
+            game.step(["STAY"]*4)
+        self.assertEqual((game.turn, game.cd[0]), (15, 0))
+        self.assertIn("SHIELD", game.legal(0))
+
+    def test_empty_shield_turn_ten_backfires_for_next_two_turns(self):
+        game = self.game()
+        game.turn, game.upg[0] = 10, True
+        result = game.step(["SHIELD", "STAY", "STAY", "STAY"])
+        self.assertTrue(next(e for e in result["events"] if e["type"] == "shield")["backfire"])
+        for turn, frozen in ((11, 2), (12, 1)):
+            self.assertEqual((game.turn, game.frozen[0]), (turn, frozen))
+            self.assertEqual(game.legal(0), ["STAY"])
+            game.step(["STAY"]*4)
+            self.assertEqual(game.prog[0], 0)
+        self.assertEqual((game.turn, game.frozen[0]), (13, 0))
+        self.assertIn("EAST", game.legal(0))
+        self.assertNotIn("SHIELD", game.legal(0), "thawing does not reset Shield cooldown")
+
+    def test_public_health_versions_current_rules_without_expanding_ai_observation(self):
+        game = server.HumanGame(dict(id="fixture"), "unused", 3, 1, 1,
+            self.match, self.referee, FakeProcess, rules={"catch_requires_stay": False})
+        app = server.App.__new__(server.App)
+        import threading
+        app.lock, app.game, app.vendor = threading.RLock(), game, self.provenance
+        try:
+            health = app.health()
+            self.assertTrue(health["new_game_rules"]["catch_requires_stay"])
+            self.assertFalse(health["active_game_rules"]["catch_requires_stay"])
+            self.assertEqual(health["game"], game.id)
+            self.assertEqual(set(app.state("ai")), {"game_id", "turn", "over", "observation"})
+            self.assertEqual(set(app.state("ai")["observation"]),
+                {"board", "bot_id", "is_priority_token", "legal_actions"})
+        finally:
+            app.close()
+
+    def test_already_frozen_stayer_is_ineligible_and_backfires(self):
+        game = self.game()
+        game.pos[1], game.owner[27], game.frozen[1] = 27, 1, 1
+        result = game.step(["SHIELD", "STAY", "STAY", "STAY"])
+        self.assertEqual(next(e for e in result["events"] if e["type"] == "shield")["caught"], [])
+        self.assertEqual(game.frozen[:2], [2, 0])
+
+
 _, referee, _, _ = server.bootstrap()
-RULES = dict(catch_requires_stay=False)
+RULES = dict(catch_requires_stay=True)
 
 
 def shared_state(game):
@@ -141,29 +269,31 @@ class IndependentPhysicsTests(unittest.TestCase):
         self.assertEqual(hashlib.sha256((root / "reference_engine.py").read_bytes()).hexdigest(), metadata["sha256"])
         self.assertNotEqual(metadata["sha256"], hashlib.sha256((server.VENDOR / "referee.py").read_bytes()).hexdigest())
 
-    def test_two_engines_agree_for_twenty_four_complete_random_sequences(self):
+    def test_two_engines_agree_for_both_modes_and_twenty_four_random_sequences_each(self):
         rng = random.Random(881973)
-        for trial in range(24):
-            base, token = engine.make_map(seed=710331 + trial), trial % 4 + 1
-            games = [referee.Referee(base, rules=RULES, start_token=token),
-                     engine.Game(base=base, rules=RULES, start_token=token)]
-            for turn in range(1, 81):
-                with self.subTest(trial=trial, turn=turn):
-                    self.assertEqual(shared_state(games[0]), shared_state(games[1]))
-                    for seat, view in enumerate(games[1].views(), 1):
-                        public = games[0].observation(seat)
-                        self.assertEqual(set(public), {"board", "bot_id", "is_priority_token", "legal_actions"})
-                        self.assertEqual(set(public["legal_actions"]), set(view.legal_actions))
-                        actual = [[[cell.occupant, cell.owner, cell.is_upgraded, cell.is_home,
-                                    cell.is_frozen, cell.base_points] for cell in row] for row in view.board]
-                        self.assertEqual(public["board"], actual)
-                        self.assertEqual(public["is_priority_token"], view.is_priority_token)
-                        self.assertEqual(public["bot_id"], view.bot_id)
-                    actions = [rng.choice(games[0].legal(i)) if rng.random() > .04 else "INVALID" for i in range(4)]
-                    output = [game.step(actions) for game in games]
-                    self.assertEqual(output[0]["eff"], output[1])
-                    self.assertEqual(shared_state(games[0]), shared_state(games[1]))
-            self.assertTrue(all(game.over() for game in games))
+        for stay_only in (True, False):
+            rules = dict(RULES, catch_requires_stay=stay_only)
+            for trial in range(24):
+                base, token = engine.make_map(seed=710331 + trial), trial % 4 + 1
+                games = [referee.Referee(base, rules=rules, start_token=token),
+                         engine.Game(base=base, rules=rules, start_token=token)]
+                for turn in range(1, 81):
+                    with self.subTest(stay_only=stay_only, trial=trial, turn=turn):
+                        self.assertEqual(shared_state(games[0]), shared_state(games[1]))
+                        for seat, view in enumerate(games[1].views(), 1):
+                            public = games[0].observation(seat)
+                            self.assertEqual(set(public), {"board", "bot_id", "is_priority_token", "legal_actions"})
+                            self.assertEqual(set(public["legal_actions"]), set(view.legal_actions))
+                            actual = [[[cell.occupant, cell.owner, cell.is_upgraded, cell.is_home,
+                                        cell.is_frozen, cell.base_points] for cell in row] for row in view.board]
+                            self.assertEqual(public["board"], actual)
+                            self.assertEqual(public["is_priority_token"], view.is_priority_token)
+                            self.assertEqual(public["bot_id"], view.bot_id)
+                        actions = [rng.choice(games[0].legal(i)) if rng.random() > .04 else "INVALID" for i in range(4)]
+                        output = [game.step(actions) for game in games]
+                        self.assertEqual(output[0]["eff"], output[1])
+                        self.assertEqual(shared_state(games[0]), shared_state(games[1]))
+                self.assertTrue(all(game.over() for game in games))
 
     def test_claim_resets_then_three_more_stays_upgrade_with_completion_income(self):
         base = [1] * 64

@@ -30,7 +30,7 @@ class ReleaseTests(unittest.TestCase):
     def test_release_and_testers_match_the_saved_fingerprints(self):
         manifest = json.loads((ROOT / "release_manifest.json").read_text(encoding="utf8"))
         self.assertEqual(hashlib.sha256((ROOT/"bot.py").read_bytes()).hexdigest(), manifest["bot_sha256"])
-        self.assertFalse(manifest["rules"]["catch_requires_stay"])
+        self.assertTrue(manifest["rules"]["catch_requires_stay"])
         self.assertGreaterEqual(len(manifest["tester_bots"]), 3)
         for tester in manifest["tester_bots"]:
             self.assertEqual(hashlib.sha256((ROOT/tester["path"]).read_bytes()).hexdigest(), tester["sha256"])
@@ -42,7 +42,7 @@ class ReleaseTests(unittest.TestCase):
         worst, callbacks = 0.0, 0
         for case in range(4):
             game = engine.Game(base=engine.make_map(seed=290011+case), start_token=case+1,
-                               rules={"catch_requires_stay": False})
+                               rules={"catch_requires_stay": True})
             players = [load() for _ in range(4)]
             while not game.over():
                 actions = []
@@ -75,7 +75,7 @@ class ReleaseTests(unittest.TestCase):
 
     def test_all_home_opening_retains_clock_and_completion_income(self):
         player = load()
-        game = engine.Game(base=[3]*64, rules={"catch_requires_stay": False})
+        game = engine.Game(base=[3]*64, rules={"catch_requires_stay": True})
         for turn in range(1, 9):
             public = game.views()[0]
             public.legal_actions = ["STAY"]
@@ -103,7 +103,7 @@ class ReleaseTests(unittest.TestCase):
                 self.assertFalse(app.game.faults)
                 transcript = app.history_export(game_id)
                 self.assertEqual(len(transcript["turns"]), 80)
-                self.assertFalse(transcript["metadata"]["rules"]["catch_requires_stay"])
+                self.assertTrue(transcript["metadata"]["rules"]["catch_requires_stay"])
                 self.assertEqual(transcript["metadata"]["bot"]["sha256"],
                                  hashlib.sha256((ROOT/"bot.py").read_bytes()).hexdigest())
                 g = app.referee.Referee(transcript["metadata"]["base"],

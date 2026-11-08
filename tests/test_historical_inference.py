@@ -1,4 +1,4 @@
-"""Infer hidden history solely from recorded public transitions."""
+"""Preserve inference checks for the historical presence-only model/source."""
 import copy
 import importlib.util
 from pathlib import Path
@@ -6,12 +6,12 @@ import random
 from types import SimpleNamespace
 import unittest
 from simulator import server
+from tests._source_archive import load_archived
 
 ROOT=Path(__file__).resolve().parents[1]
 referee=server.bootstrap()[1]
 def load():
-    spec=importlib.util.spec_from_file_location('submission_inference',ROOT/'bot.py')
-    module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);return module
+    return load_archived('consolidation_candidates/presence_guarded.py')
 
 def view(observation):
     fields=('occupant','owner','is_upgraded','is_home','is_frozen','base_points')
@@ -24,7 +24,7 @@ def observe(module,current,seat,requested='STAY'):
     memory=module._history[seat];memory['last']=requested
     return action,memory
 
-class PresenceCandidateTests(unittest.TestCase):
+class HistoricalPresenceInferenceTests(unittest.TestCase):
 
     def test_t34_move_between_defender_cells_is_caught_and_attributed(self):
         module, current = load(), game()
