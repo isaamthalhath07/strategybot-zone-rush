@@ -1,0 +1,48 @@
+{
+  "full_ui_games": [
+    {
+      "game_id": "456f31f73c814324a1e268e32c5e2e1d",
+      "source": "transfer_presence.py",
+      "turns": 80,
+      "faults": []
+    },
+    {
+      "game_id": "81f0d0004f604321995e72d2ec85ec6b",
+      "source": "transfer_presence_core.py",
+      "turns": 80,
+      "faults": []
+    }
+  ],
+  "scripted_turn34": {
+    "game_id": "3921fd4ce6ff496dbaf5b0638e2e38c7",
+    "human_action": "SHIELD",
+    "red_action": "WEST",
+    "red_from": "D4",
+    "red_to": "C4",
+    "human_frozen": 0,
+    "red_frozen": 2,
+    "caught": [
+      2
+    ],
+    "backfire": false,
+    "faults": []
+  },
+  "strict_view": {
+    "same_match": true,
+    "state_keys": [
+      "game_id",
+      "turn",
+      "over",
+      "observation"
+    ],
+    "observation_keys": [
+      "board",
+      "bot_id",
+      "is_priority_token",
+      "legal_actions"
+    ],
+    "scores_history_results_hidden": true
+  },
+  "console_errors": [],
+  "horizontal_overflow": false
+}

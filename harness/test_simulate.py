@@ -427,8 +427,10 @@ class Discovery(unittest.TestCase):
         def write(path, text):
             full = os.path.join(cls.dir, path)
             os.makedirs(os.path.dirname(full), exist_ok=True)
-            with open(full, "w") as f:
-                f.write(text)
+            # Discovery deduplicates exact bytes, so keep fixture sources LF
+            # even when Windows text I/O or Git checkout settings prefer CRLF.
+            with open(full, "wb") as f:
+                f.write(text.encode("utf-8"))
         git("init", "-q", "-b", "main")
         git("config", "user.email", "t@example.com")
         git("config", "user.name", "t")
@@ -484,11 +486,11 @@ class Discovery(unittest.TestCase):
         tmp = tempfile.mkdtemp()
         try:
             same = os.path.join(tmp, "same.py")
-            with open(same, "w") as f:
-                f.write("import random\ndef act(state):\n    return 'STAY'\n")
+            with open(same, "wb") as f:
+                f.write(b"import random\ndef act(state):\n    return 'STAY'\n")
             new = os.path.join(tmp, "new.py")
-            with open(new, "w") as f:
-                f.write("def act(state):\n    return 'SHIELD' if 'SHIELD' in state.legal_actions else 'STAY'\n")
+            with open(new, "wb") as f:
+                f.write(b"def act(state):\n    return 'SHIELD' if 'SHIELD' in state.legal_actions else 'STAY'\n")
             entrants, _ = simulate.discover(self.repo, "submissions", add=[same, new])
             self.assertEqual(len(entrants), 3)
             main = [e for e in entrants if e["name"] == "main:bot.py"][0]
@@ -505,8 +507,8 @@ class Discovery(unittest.TestCase):
         tmp = tempfile.mkdtemp()
         try:
             def write(name, text):
-                with open(os.path.join(tmp, name), "w") as f:
-                    f.write(text)
+                with open(os.path.join(tmp, name), "wb") as f:
+                    f.write(text.encode("utf-8"))
             write("same.py", "import random\ndef act(state):\n    return 'STAY'\n")      # = main:bot.py
             write("east.py", "def act(state):\n    return 'EAST' if 'EAST' in state.legal_actions else 'STAY'\n")
             write("west.py", "def act(state):\n    return 'WEST' if 'WEST' in state.legal_actions else 'STAY'\n")

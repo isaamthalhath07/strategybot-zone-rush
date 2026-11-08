@@ -318,19 +318,36 @@ class Game(object):
                 n += 1
         return n
 
-    def places(self, round2=False):
-        """1-based place per seat. Equal scores share a place.
+    def places(self, round_number=1, round1_ranks=None, *, round2=None):
+        """1-based mean place per seat under the selected competition round.
 
-        Round 1 -- the round every measurement here models -- scores each game as
-        three one-on-one results and counts an equal score as a draw, whatever the
-        cell counts. This used to break score ties on cells owned, which is the
-        Round 2 pool rule, so every pairwise number in the repository scored the
-        occasional tie as a win or a loss. round2=True keeps that rule.
+        Round 1 compares final scores only (rulebook 3.2): equal scores are
+        draws regardless of cells. Round 2 first breaks score ties by cells
+        (5.3). Pool games then share the remaining ties. For a Round 2
+        semi-final or final, supply each seat's Round 1 rank, lower being
+        better, to apply the last knockout tiebreak.
+        `round2=True/False` and a positional Boolean remain compatible with
+        the earlier API; numeric round selections still use 1 or 2.
         """
-        if round2:
-            key = [(-self.score[i], -self.cells_owned(i)) for i in range(4)]
-        else:
-            key = [(-self.score[i],) for i in range(4)]
+        if isinstance(round_number, bool):
+            round_number = 2 if round_number else 1
+        if round2 is not None:
+            if not isinstance(round2, bool):
+                raise ValueError("round2 must be a Boolean")
+            alias_round = 2 if round2 else 1
+            if round_number != 1 and round_number != alias_round:
+                raise ValueError("round_number and round2 disagree")
+            round_number = alias_round
+        if round_number not in (1, 2):
+            raise ValueError("round_number must be 1 or 2")
+        if round1_ranks is not None:
+            if round_number != 2 or len(round1_ranks) != 4:
+                raise ValueError("round1_ranks requires Round 2 and four seat ranks")
+        key = [(-self.score[i],) for i in range(4)]
+        if round_number == 2:
+            key = [key[i] + (-self.cells_owned(i),) for i in range(4)]
+            if round1_ranks is not None:
+                key = [key[i] + (round1_ranks[i],) for i in range(4)]
         order = sorted(range(4), key=lambda i: key[i])
         place = [0.0] * 4
         i = 0

@@ -62,6 +62,17 @@ TIERS = {
     "strangers": ["pro_tuned", "pro", "spine", "camper", "ai_hawk", "ai_homefort",
                   "ai_marginal", "ai_cheapraid", "turtle", "cdraider", "centre",
                   "hunter", "ai_route", "ai_elo"],
+    # Pure-style fields, grouped by what each design does rather than how well
+    # it does it. Real games mix styles, so measuring against one style at a time
+    # gives the CEILING on what adapting to opponent style could be worth: if
+    # the best fixed response is the same against every style, then knowing the
+    # style perfectly buys nothing, however good the classifier.
+    "style_raiders": ["raider", "cdraider", "ai_cheapraid", "hunter", "ai_hawk",
+                      "baiter"],
+    "style_passive": ["pacifist", "turtle", "camper", "ai_homefort",
+                      "greedyshield"],
+    "style_farmers": ["greedy", "spine", "ai_marginal", "ai_route", "ai_centre",
+                      "centre", "ai_elo"],
     "designs": [c for c in ("ai_marginal", "ai_cheapraid", "ai_homefort",
                             "ai_centre", "ai_route", "ai_hawk", "ai_elo")],
     "legacy": ["spine", "camper", "greedy_value", "greedy_shield", "raider",
@@ -70,6 +81,11 @@ TIERS = {
 
 
 def tier(name):
+    """A named tier, or `only:NAME` for a field of that one opponent, which is
+    how to tell which member of a style tier is actually driving a result."""
+    if name.startswith("only:"):
+        opponent(name.split(":", 1)[1])          # fail now, not mid-measurement
+        return [name.split(":", 1)[1]]
     return list(TIERS[name])
 
 
@@ -95,6 +111,12 @@ def opponent(name):
         return h[name]
     if name == "pro":
         return probot.factory(None, "pro")
+    if name.startswith("probot:"):
+        # A ProBot weight file by path, e.g. "probot:n6_pro_v7.json", so a freshly
+        # bred rival can be measured without first being registered anywhere.
+        import json
+        path = name.split(":", 1)[1]
+        return probot.factory(json.load(open(path)), name)
     if name == "pro_tuned":
         import json
         import os

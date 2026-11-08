@@ -1,0 +1,3644 @@
+{
+  "input_file": "C:\\Users\\LEGION\\Downloads\\zone-rush-d3846d56f462413789041954bdc8bc38.json",
+  "input_sha256": "a75f32e6e04034e08c99cab894301988dea2e995366486fe08e3cf50c6f89ac8",
+  "policy_sha256": "1dca0c916af4ff4ac4c2e90fabe3f3c29c550c5db61663f8a3c2b0efc72f81ca",
+  "referee_sha256": "f1125e8ceee664781827c670c0c4481da41a7ef41a4e5276d6b3b118274af337",
+  "validation": {
+    "turns": 80,
+    "public_observations": 320,
+    "transitions_exact": true,
+    "final_scores": [
+      2378,
+      1924,
+      2179,
+      1615
+    ],
+    "places": [
+      1,
+      3,
+      2,
+      4
+    ]
+  },
+  "players": [
+    {
+      "seat": 1,
+      "score": 2378,
+      "income": 2378,
+      "raid_bonus": 0,
+      "final_income": 50,
+      "final_cells": 14,
+      "final_upgraded": 14,
+      "counts": {
+        "requested_SOUTH": 7,
+        "successful_moves": 22,
+        "event_move": 22,
+        "requested_EAST": 4,
+        "requested_STAY": 57,
+        "event_claim": 14,
+        "event_progress": 42,
+        "event_upgrade": 14,
+        "requested_WEST": 4,
+        "requested_NORTH": 7,
+        "requested_SHIELD": 1,
+        "event_shield": 1
+      },
+      "forced_frozen_turns": [],
+      "shields": [
+        {
+          "turn": 57,
+          "caught": [
+            2,
+            4
+          ],
+          "backfire": false,
+          "cell": "B3"
+        }
+      ],
+      "raids": [],
+      "high_value_claims": [
+        {
+          "turn": 7,
+          "cell": "D4",
+          "kind": "claim"
+        },
+        {
+          "turn": 12,
+          "cell": "D5",
+          "kind": "claim"
+        }
+      ],
+      "immediate_move_reversals": [],
+      "return_without_completed_work": [],
+      "abandoned_progress": [],
+      "nonproductive_unfrozen_stays": [
+        {
+          "turn": 46,
+          "cell": "C4",
+          "requested": "STAY",
+          "own_finished": true,
+          "enemy_home": false,
+          "frozen_after": false
+        }
+      ]
+    },
+    {
+      "seat": 2,
+      "score": 1924,
+      "income": 1908,
+      "raid_bonus": 16,
+      "final_income": 33,
+      "final_cells": 11,
+      "final_upgraded": 8,
+      "counts": {
+        "requested_SOUTH": 5,
+        "successful_moves": 20,
+        "event_move": 20,
+        "requested_STAY": 54,
+        "event_claim": 13,
+        "requested_WEST": 10,
+        "event_progress": 33,
+        "event_upgrade": 10,
+        "requested_NORTH": 5,
+        "requested_EAST": 2,
+        "requested_SHIELD": 4,
+        "event_shield": 4,
+        "event_reset": 1,
+        "event_lost": 2,
+        "event_freeze": 3,
+        "event_raid": 1
+      },
+      "forced_frozen_turns": [
+        55,
+        56,
+        58,
+        59,
+        76,
+        77
+      ],
+      "shields": [
+        {
+          "turn": 39,
+          "caught": [
+            4
+          ],
+          "backfire": false,
+          "cell": "D2"
+        },
+        {
+          "turn": 44,
+          "caught": [
+            4
+          ],
+          "backfire": false,
+          "cell": "D3"
+        },
+        {
+          "turn": 54,
+          "caught": [],
+          "backfire": true,
+          "cell": "C2"
+        },
+        {
+          "turn": 75,
+          "caught": [],
+          "backfire": true,
+          "cell": "C1"
+        }
+      ],
+      "raids": [
+        {
+          "turn": 60,
+          "cell": "C2",
+          "from": 1,
+          "level": 1,
+          "base": 2,
+          "bonus": 16
+        }
+      ],
+      "high_value_claims": [
+        {
+          "turn": 10,
+          "cell": "E4",
+          "kind": "claim"
+        }
+      ],
+      "immediate_move_reversals": [],
+      "return_without_completed_work": [
+        {
+          "from_turn": 48,
+          "to_turn": 50,
+          "path": [
+            "D3",
+            "D2",
+            "D3"
+          ]
+        },
+        {
+          "from_turn": 50,
+          "to_turn": 52,
+          "path": [
+            "D2",
+            "D3",
+            "D2"
+          ]
+        }
+      ],
+      "abandoned_progress": [],
+      "nonproductive_unfrozen_stays": [
+        {
+          "turn": 49,
+          "cell": "D2",
+          "requested": "WEST",
+          "own_finished": true,
+          "enemy_home": false,
+          "frozen_after": false
+        },
+        {
+          "turn": 51,
+          "cell": "D3",
+          "requested": "WEST",
+          "own_finished": true,
+          "enemy_home": false,
+          "frozen_after": false
+        },
+        {
+          "turn": 57,
+          "cell": "C2",
+          "requested": "STAY",
+          "own_finished": false,
+          "enemy_home": false,
+          "frozen_after": true
+        }
+      ]
+    },
+    {
+      "seat": 3,
+      "score": 2179,
+      "income": 2099,
+      "raid_bonus": 80,
+      "final_income": 44,
+      "final_cells": 15,
+      "final_upgraded": 12,
+      "counts": {
+        "requested_NORTH": 9,
+        "successful_moves": 22,
+        "event_move": 22,
+        "requested_STAY": 57,
+        "event_claim": 11,
+        "requested_WEST": 7,
+        "event_progress": 45,
+        "event_upgrade": 12,
+        "requested_SOUTH": 3,
+        "requested_EAST": 3,
+        "event_raid": 3,
+        "requested_SHIELD": 1,
+        "event_reset": 1,
+        "event_shield": 1
+      },
+      "forced_frozen_turns": [],
+      "shields": [
+        {
+          "turn": 50,
+          "caught": [
+            4
+          ],
+          "backfire": false,
+          "cell": "F2"
+        }
+      ],
+      "raids": [
+        {
+          "turn": 36,
+          "cell": "G4",
+          "from": 2,
+          "level": 1,
+          "base": 2,
+          "bonus": 16
+        },
+        {
+          "turn": 48,
+          "cell": "F2",
+          "from": 2,
+          "level": 2,
+          "base": 2,
+          "bonus": 32
+        },
+        {
+          "turn": 78,
+          "cell": "D2",
+          "from": 2,
+          "level": 2,
+          "base": 2,
+          "bonus": 32
+        }
+      ],
+      "high_value_claims": [
+        {
+          "turn": 10,
+          "cell": "E5",
+          "kind": "claim"
+        }
+      ],
+      "immediate_move_reversals": [],
+      "return_without_completed_work": [],
+      "abandoned_progress": [],
+      "nonproductive_unfrozen_stays": []
+    },
+    {
+      "seat": 4,
+      "score": 1615,
+      "income": 1599,
+      "raid_bonus": 16,
+      "final_income": 32,
+      "final_cells": 13,
+      "final_upgraded": 9,
+      "counts": {
+        "requested_EAST": 7,
+        "successful_moves": 22,
+        "event_move": 22,
+        "requested_STAY": 58,
+        "event_claim": 11,
+        "requested_NORTH": 5,
+        "event_progress": 34,
+        "event_upgrade": 9,
+        "requested_WEST": 6,
+        "event_raid": 1,
+        "event_reset": 4,
+        "event_freeze": 4,
+        "requested_SOUTH": 4
+      },
+      "forced_frozen_turns": [
+        40,
+        41,
+        45,
+        46,
+        51,
+        52,
+        58,
+        59
+      ],
+      "shields": [],
+      "raids": [
+        {
+          "turn": 33,
+          "cell": "F4",
+          "from": 2,
+          "level": 1,
+          "base": 2,
+          "bonus": 16
+        }
+      ],
+      "high_value_claims": [],
+      "immediate_move_reversals": [],
+      "return_without_completed_work": [
+        {
+          "from_turn": 47,
+          "to_turn": 53,
+          "path": [
+            "E4",
+            "E5",
+            "E4"
+          ]
+        }
+      ],
+      "abandoned_progress": [],
+      "nonproductive_unfrozen_stays": [
+        {
+          "turn": 39,
+          "cell": "E4",
+          "requested": "STAY",
+          "own_finished": false,
+          "enemy_home": false,
+          "frozen_after": true
+        },
+        {
+          "turn": 44,
+          "cell": "E4",
+          "requested": "STAY",
+          "own_finished": false,
+          "enemy_home": false,
+          "frozen_after": true
+        },
+        {
+          "turn": 50,
+          "cell": "E5",
+          "requested": "STAY",
+          "own_finished": false,
+          "enemy_home": false,
+          "frozen_after": true
+        },
+        {
+          "turn": 57,
+          "cell": "D4",
+          "requested": "STAY",
+          "own_finished": false,
+          "enemy_home": false,
+          "frozen_after": true
+        }
+      ]
+    }
+  ],
+  "no_completed_work_intervals": [
+    {
+      "seat": 2,
+      "from_turn": 48,
+      "to_turn": 59,
+      "length": 12,
+      "next_work_turn": 60
+    },
+    {
+      "seat": 4,
+      "from_turn": 37,
+      "to_turn": 62,
+      "length": 26,
+      "next_work_turn": 63
+    }
+  ],
+  "policy_memory": {
+    "all_240_actions_match": true,
+    "cooldown_mismatches": [
+      {
+        "turn": 55,
+        "observer": 2,
+        "seats": [
+          1,
+          2
+        ],
+        "actual": [
+          0,
+          4,
+          0,
+          0
+        ],
+        "estimated": [
+          4,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "turn": 56,
+        "observer": 2,
+        "seats": [
+          1,
+          2
+        ],
+        "actual": [
+          0,
+          3,
+          0,
+          0
+        ],
+        "estimated": [
+          3,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "turn": 57,
+        "observer": 2,
+        "seats": [
+          1,
+          2
+        ],
+        "actual": [
+          0,
+          2,
+          0,
+          0
+        ],
+        "estimated": [
+          2,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "turn": 58,
+        "observer": 2,
+        "seats": [
+          2
+        ],
+        "actual": [
+          4,
+          1,
+          0,
+          0
+        ],
+        "estimated": [
+          4,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "turn": 55,
+        "observer": 3,
+        "seats": [
+          1,
+          2
+        ],
+        "actual": [
+          0,
+          4,
+          0,
+          0
+        ],
+        "estimated": [
+          4,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "turn": 56,
+        "observer": 3,
+        "seats": [
+          1,
+          2
+        ],
+        "actual": [
+          0,
+          3,
+          0,
+          0
+        ],
+        "estimated": [
+          3,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "turn": 57,
+        "observer": 3,
+        "seats": [
+          1,
+          2
+        ],
+        "actual": [
+          0,
+          2,
+          0,
+          0
+        ],
+        "estimated": [
+          2,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "turn": 58,
+        "observer": 3,
+        "seats": [
+          2
+        ],
+        "actual": [
+          4,
+          1,
+          0,
+          0
+        ],
+        "estimated": [
+          4,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "turn": 55,
+        "observer": 4,
+        "seats": [
+          1,
+          2
+        ],
+        "actual": [
+          0,
+          4,
+          0,
+          0
+        ],
+        "estimated": [
+          4,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "turn": 56,
+        "observer": 4,
+        "seats": [
+          1,
+          2
+        ],
+        "actual": [
+          0,
+          3,
+          0,
+          0
+        ],
+        "estimated": [
+          3,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "turn": 57,
+        "observer": 4,
+        "seats": [
+          1,
+          2
+        ],
+        "actual": [
+          0,
+          2,
+          0,
+          0
+        ],
+        "estimated": [
+          2,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "turn": 58,
+        "observer": 4,
+        "seats": [
+          2
+        ],
+        "actual": [
+          4,
+          1,
+          0,
+          0
+        ],
+        "estimated": [
+          4,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "critical_snapshots": [
+      {
+        "turn": 53,
+        "observer": 2,
+        "own_progress": 0,
+        "true_own_progress": 0,
+        "cooldown": [
+          0,
+          0,
+          2,
+          0
+        ],
+        "true_cooldown": [
+          0,
+          0,
+          2,
+          0
+        ],
+        "last_bait": -10,
+        "defense_hits": [
+          1.2,
+          1.2,
+          2.7648260431600002,
+          1.83482604316,
+          1.2
+        ],
+        "defense_trials": [
+          3.0,
+          3.0,
+          6.434374117900001,
+          6.434374117900001,
+          3.0
+        ]
+      },
+      {
+        "turn": 54,
+        "observer": 2,
+        "own_progress": 0,
+        "true_own_progress": 0,
+        "cooldown": [
+          0,
+          0,
+          1,
+          0
+        ],
+        "true_cooldown": [
+          0,
+          0,
+          1,
+          0
+        ],
+        "last_bait": 54,
+        "defense_hits": [
+          1.2,
+          1.2,
+          2.7648260431600002,
+          1.83482604316,
+          1.2
+        ],
+        "defense_trials": [
+          3.0,
+          3.0,
+          6.434374117900001,
+          6.434374117900001,
+          3.0
+        ]
+      },
+      {
+        "turn": 55,
+        "observer": 2,
+        "own_progress": 0,
+        "true_own_progress": 0,
+        "cooldown": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "true_cooldown": [
+          0,
+          4,
+          0,
+          0
+        ],
+        "last_bait": 54,
+        "defense_hits": [
+          1.2,
+          2.116,
+          2.5712882201388005,
+          1.83482604316,
+          1.2
+        ],
+        "defense_trials": [
+          3.0,
+          3.79,
+          6.983967929647001,
+          6.434374117900001,
+          3.0
+        ]
+      },
+      {
+        "turn": 56,
+        "observer": 2,
+        "own_progress": 0,
+        "true_own_progress": 0,
+        "cooldown": [
+          3,
+          0,
+          0,
+          0
+        ],
+        "true_cooldown": [
+          0,
+          3,
+          0,
+          0
+        ],
+        "last_bait": 54,
+        "defense_hits": [
+          1.2,
+          2.116,
+          2.5712882201388005,
+          1.83482604316,
+          1.2
+        ],
+        "defense_trials": [
+          3.0,
+          3.79,
+          6.983967929647001,
+          6.434374117900001,
+          3.0
+        ]
+      },
+      {
+        "turn": 57,
+        "observer": 2,
+        "own_progress": 0,
+        "true_own_progress": 0,
+        "cooldown": [
+          2,
+          0,
+          0,
+          0
+        ],
+        "true_cooldown": [
+          0,
+          2,
+          0,
+          0
+        ],
+        "last_bait": 54,
+        "defense_hits": [
+          1.2,
+          2.116,
+          2.5712882201388005,
+          1.83482604316,
+          1.2
+        ],
+        "defense_trials": [
+          3.0,
+          3.79,
+          6.983967929647001,
+          6.434374117900001,
+          3.0
+        ]
+      },
+      {
+        "turn": 58,
+        "observer": 2,
+        "own_progress": 0,
+        "true_own_progress": 0,
+        "cooldown": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "true_cooldown": [
+          4,
+          1,
+          0,
+          0
+        ],
+        "last_bait": 54,
+        "defense_hits": [
+          1.2,
+          2.116,
+          2.5712882201388005,
+          1.83482604316,
+          1.2
+        ],
+        "defense_trials": [
+          3.0,
+          3.79,
+          6.983967929647001,
+          6.434374117900001,
+          3.0
+        ]
+      },
+      {
+        "turn": 59,
+        "observer": 2,
+        "own_progress": 0,
+        "true_own_progress": 0,
+        "cooldown": [
+          3,
+          0,
+          0,
+          0
+        ],
+        "true_cooldown": [
+          3,
+          0,
+          0,
+          0
+        ],
+        "last_bait": 54,
+        "defense_hits": [
+          1.2,
+          2.116,
+          2.5712882201388005,
+          1.83482604316,
+          1.2
+        ],
+        "defense_trials": [
+          3.0,
+          3.79,
+          6.983967929647001,
+          6.434374117900001,
+          3.0
+        ]
+      },
+      {
+        "turn": 53,
+        "observer": 3,
+        "own_progress": 2,
+        "true_own_progress": 2,
+        "cooldown": [
+          0,
+          0,
+          2,
+          0
+        ],
+        "true_cooldown": [
+          0,
+          0,
+          2,
+          0
+        ],
+        "last_bait": 33,
+        "defense_hits": [
+          1.2,
+          1.2,
+          2.7648260431600002,
+          1.83482604316,
+          1.2
+        ],
+        "defense_trials": [
+          3.0,
+          3.0,
+          6.434374117900001,
+          6.434374117900001,
+          3.0
+        ]
+      },
+      {
+        "turn": 54,
+        "observer": 3,
+        "own_progress": 0,
+        "true_own_progress": 0,
+        "cooldown": [
+          0,
+          0,
+          1,
+          0
+        ],
+        "true_cooldown": [
+          0,
+          0,
+          1,
+          0
+        ],
+        "last_bait": 33,
+        "defense_hits": [
+          1.2,
+          1.2,
+          2.7648260431600002,
+          1.83482604316,
+          1.2
+        ],
+        "defense_trials": [
+          3.0,
+          3.0,
+          6.434374117900001,
+          6.434374117900001,
+          3.0
+        ]
+      },
+      {
+        "turn": 55,
+        "observer": 3,
+        "own_progress": 0,
+        "true_own_progress": 0,
+        "cooldown": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "true_cooldown": [
+          0,
+          4,
+          0,
+          0
+        ],
+        "last_bait": 33,
+        "defense_hits": [
+          1.2,
+          2.116,
+          2.5712882201388005,
+          1.83482604316,
+          1.2
+        ],
+        "defense_trials": [
+          3.0,
+          3.79,
+          6.983967929647001,
+          6.434374117900001,
+          3.0
+        ]
+      },
+      {
+        "turn": 56,
+        "observer": 3,
+        "own_progress": 0,
+        "true_own_progress": 0,
+        "cooldown": [
+          3,
+          0,
+          0,
+          0
+        ],
+        "true_cooldown": [
+          0,
+          3,
+          0,
+          0
+        ],
+        "last_bait": 33,
+        "defense_hits": [
+          1.2,
+          2.116,
+          2.5712882201388005,
+          1.83482604316,
+          1.2
+        ],
+        "defense_trials": [
+          3.0,
+          3.79,
+          6.983967929647001,
+          6.434374117900001,
+          3.0
+        ]
+      },
+      {
+        "turn": 57,
+        "observer": 3,
+        "own_progress": 1,
+        "true_own_progress": 1,
+        "cooldown": [
+          2,
+          0,
+          0,
+          0
+        ],
+        "true_cooldown": [
+          0,
+          2,
+          0,
+          0
+        ],
+        "last_bait": 33,
+        "defense_hits": [
+          1.2,
+          2.116,
+          2.5712882201388005,
+          1.83482604316,
+          1.2
+        ],
+        "defense_trials": [
+          3.0,
+          3.79,
+          6.983967929647001,
+          6.434374117900001,
+          3.0
+        ]
+      },
+      {
+        "turn": 58,
+        "observer": 3,
+        "own_progress": 2,
+        "true_own_progress": 2,
+        "cooldown": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "true_cooldown": [
+          4,
+          1,
+          0,
+          0
+        ],
+        "last_bait": 33,
+        "defense_hits": [
+          1.2,
+          2.116,
+          2.5712882201388005,
+          1.83482604316,
+          1.2
+        ],
+        "defense_trials": [
+          3.0,
+          3.79,
+          6.983967929647001,
+          6.434374117900001,
+          3.0
+        ]
+      },
+      {
+        "turn": 59,
+        "observer": 3,
+        "own_progress": 0,
+        "true_own_progress": 0,
+        "cooldown": [
+          3,
+          0,
+          0,
+          0
+        ],
+        "true_cooldown": [
+          3,
+          0,
+          0,
+          0
+        ],
+        "last_bait": 33,
+        "defense_hits": [
+          1.2,
+          2.116,
+          2.5712882201388005,
+          1.83482604316,
+          1.2
+        ],
+        "defense_trials": [
+          3.0,
+          3.79,
+          6.983967929647001,
+          6.434374117900001,
+          3.0
+        ]
+      },
+      {
+        "turn": 53,
+        "observer": 4,
+        "own_progress": 0,
+        "true_own_progress": 0,
+        "cooldown": [
+          0,
+          0,
+          2,
+          0
+        ],
+        "true_cooldown": [
+          0,
+          0,
+          2,
+          0
+        ],
+        "last_bait": -10,
+        "defense_hits": [
+          1.2,
+          1.2,
+          2.7648260431600002,
+          1.83482604316,
+          1.2
+        ],
+        "defense_trials": [
+          3.0,
+          3.0,
+          6.434374117900001,
+          6.434374117900001,
+          3.0
+        ]
+      },
+      {
+        "turn": 54,
+        "observer": 4,
+        "own_progress": 0,
+        "true_own_progress": 0,
+        "cooldown": [
+          0,
+          0,
+          1,
+          0
+        ],
+        "true_cooldown": [
+          0,
+          0,
+          1,
+          0
+        ],
+        "last_bait": -10,
+        "defense_hits": [
+          1.2,
+          1.2,
+          2.7648260431600002,
+          1.83482604316,
+          1.2
+        ],
+        "defense_trials": [
+          3.0,
+          3.0,
+          6.434374117900001,
+          6.434374117900001,
+          3.0
+        ]
+      },
+      {
+        "turn": 55,
+        "observer": 4,
+        "own_progress": 0,
+        "true_own_progress": 0,
+        "cooldown": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "true_cooldown": [
+          0,
+          4,
+          0,
+          0
+        ],
+        "last_bait": -10,
+        "defense_hits": [
+          1.2,
+          2.116,
+          2.5712882201388005,
+          1.83482604316,
+          1.2
+        ],
+        "defense_trials": [
+          3.0,
+          3.79,
+          6.983967929647001,
+          6.434374117900001,
+          3.0
+        ]
+      },
+      {
+        "turn": 56,
+        "observer": 4,
+        "own_progress": 1,
+        "true_own_progress": 1,
+        "cooldown": [
+          3,
+          0,
+          0,
+          0
+        ],
+        "true_cooldown": [
+          0,
+          3,
+          0,
+          0
+        ],
+        "last_bait": -10,
+        "defense_hits": [
+          1.2,
+          2.116,
+          2.5712882201388005,
+          1.83482604316,
+          1.2
+        ],
+        "defense_trials": [
+          3.0,
+          3.79,
+          6.983967929647001,
+          6.434374117900001,
+          3.0
+        ]
+      },
+      {
+        "turn": 57,
+        "observer": 4,
+        "own_progress": 2,
+        "true_own_progress": 2,
+        "cooldown": [
+          2,
+          0,
+          0,
+          0
+        ],
+        "true_cooldown": [
+          0,
+          2,
+          0,
+          0
+        ],
+        "last_bait": -10,
+        "defense_hits": [
+          1.2,
+          2.116,
+          2.5712882201388005,
+          1.83482604316,
+          1.2
+        ],
+        "defense_trials": [
+          3.0,
+          3.79,
+          6.983967929647001,
+          6.434374117900001,
+          3.0
+        ]
+      },
+      {
+        "turn": 58,
+        "observer": 4,
+        "own_progress": 0,
+        "true_own_progress": 0,
+        "cooldown": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "true_cooldown": [
+          4,
+          1,
+          0,
+          0
+        ],
+        "last_bait": -10,
+        "defense_hits": [
+          1.2,
+          2.116,
+          2.5712882201388005,
+          1.83482604316,
+          1.2
+        ],
+        "defense_trials": [
+          3.0,
+          3.79,
+          6.983967929647001,
+          6.434374117900001,
+          3.0
+        ]
+      },
+      {
+        "turn": 59,
+        "observer": 4,
+        "own_progress": 0,
+        "true_own_progress": 0,
+        "cooldown": [
+          3,
+          0,
+          0,
+          0
+        ],
+        "true_cooldown": [
+          3,
+          0,
+          0,
+          0
+        ],
+        "last_bait": -10,
+        "defense_hits": [
+          1.2,
+          2.116,
+          2.5712882201388005,
+          1.83482604316,
+          1.2
+        ],
+        "defense_trials": [
+          3.0,
+          3.79,
+          6.983967929647001,
+          6.434374117900001,
+          3.0
+        ]
+      }
+    ]
+  },
+  "counterfactuals": {
+    "seat2_capture_instead_of_premature_shield54": {
+      "start_turn": 54,
+      "end_turn": 80,
+      "changes": {
+        "54": {
+          "2": "STAY"
+        }
+      },
+      "baseline_scores": [
+        2378,
+        1924,
+        2179,
+        1615
+      ],
+      "alternative_scores": [
+        2366,
+        1948,
+        2179,
+        1615
+      ],
+      "score_differences": [
+        -12,
+        24,
+        0,
+        0
+      ],
+      "newly_forced_stays": [],
+      "events": [
+        {
+          "turn": 54,
+          "used": [
+            "STAY",
+            "STAY",
+            "EAST",
+            "WEST"
+          ],
+          "events": [
+            {
+              "type": "move",
+              "seat": 3,
+              "from": 13,
+              "to": 14,
+              "dir": "EAST"
+            },
+            {
+              "type": "move",
+              "seat": 4,
+              "from": 28,
+              "to": 27,
+              "dir": "WEST"
+            },
+            {
+              "type": "progress",
+              "seat": 1,
+              "cell": 18,
+              "value": 3,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "upgrade",
+              "seat": 1,
+              "cell": 18,
+              "base": 2
+            },
+            {
+              "type": "raid",
+              "seat": 2,
+              "cell": 10,
+              "from": 1,
+              "level": 1,
+              "base": 2,
+              "bonus": 16
+            }
+          ]
+        },
+        {
+          "turn": 55,
+          "used": [
+            "WEST",
+            "STAY",
+            "STAY",
+            "STAY"
+          ],
+          "events": [
+            {
+              "type": "move",
+              "seat": 1,
+              "from": 18,
+              "to": 17,
+              "dir": "WEST"
+            },
+            {
+              "type": "progress",
+              "seat": 2,
+              "cell": 10,
+              "value": 1,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "claim",
+              "seat": 3,
+              "cell": 14,
+              "base": 1
+            },
+            {
+              "type": "progress",
+              "seat": 4,
+              "cell": 27,
+              "value": 1,
+              "need": 3,
+              "kind": "raid"
+            }
+          ]
+        },
+        {
+          "turn": 56,
+          "used": [
+            "STAY",
+            "STAY",
+            "STAY",
+            "STAY"
+          ],
+          "events": [
+            {
+              "type": "claim",
+              "seat": 1,
+              "cell": 17,
+              "base": 1
+            },
+            {
+              "type": "progress",
+              "seat": 2,
+              "cell": 10,
+              "value": 2,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "progress",
+              "seat": 3,
+              "cell": 14,
+              "value": 1,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "progress",
+              "seat": 4,
+              "cell": 27,
+              "value": 2,
+              "need": 3,
+              "kind": "raid"
+            }
+          ]
+        },
+        {
+          "turn": 57,
+          "used": [
+            "SHIELD",
+            "STAY",
+            "STAY",
+            "STAY"
+          ],
+          "events": [
+            {
+              "type": "shield",
+              "seat": 1,
+              "caught": [
+                4
+              ],
+              "backfire": false
+            },
+            {
+              "type": "reset",
+              "seat": 4,
+              "lost": 2,
+              "why": "caught by seat 1's shield"
+            },
+            {
+              "type": "freeze",
+              "seat": 4,
+              "by": 1,
+              "cell": 27,
+              "why": "caught"
+            },
+            {
+              "type": "progress",
+              "seat": 2,
+              "cell": 10,
+              "value": 3,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "upgrade",
+              "seat": 2,
+              "cell": 10,
+              "base": 2
+            },
+            {
+              "type": "progress",
+              "seat": 3,
+              "cell": 14,
+              "value": 2,
+              "need": 3,
+              "kind": "upgrade"
+            }
+          ]
+        },
+        {
+          "turn": 58,
+          "used": [
+            "NORTH",
+            "STAY",
+            "STAY",
+            "STAY"
+          ],
+          "events": [
+            {
+              "type": "move",
+              "seat": 1,
+              "from": 17,
+              "to": 9,
+              "dir": "NORTH"
+            },
+            {
+              "type": "progress",
+              "seat": 3,
+              "cell": 14,
+              "value": 3,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "upgrade",
+              "seat": 3,
+              "cell": 14,
+              "base": 1
+            }
+          ]
+        },
+        {
+          "turn": 59,
+          "used": [
+            "STAY",
+            "STAY",
+            "NORTH",
+            "STAY"
+          ],
+          "events": [
+            {
+              "type": "move",
+              "seat": 3,
+              "from": 14,
+              "to": 6,
+              "dir": "NORTH"
+            },
+            {
+              "type": "claim",
+              "seat": 1,
+              "cell": 9,
+              "base": 1
+            }
+          ]
+        },
+        {
+          "turn": 60,
+          "used": [
+            "STAY",
+            "STAY",
+            "STAY",
+            "WEST"
+          ],
+          "events": [
+            {
+              "type": "move",
+              "seat": 4,
+              "from": 27,
+              "to": 26,
+              "dir": "WEST"
+            },
+            {
+              "type": "progress",
+              "seat": 1,
+              "cell": 9,
+              "value": 1,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "claim",
+              "seat": 3,
+              "cell": 6,
+              "base": 1
+            }
+          ]
+        },
+        {
+          "turn": 61,
+          "used": [
+            "STAY",
+            "STAY",
+            "STAY",
+            "WEST"
+          ],
+          "events": [
+            {
+              "type": "move",
+              "seat": 4,
+              "from": 26,
+              "to": 25,
+              "dir": "WEST"
+            },
+            {
+              "type": "progress",
+              "seat": 1,
+              "cell": 9,
+              "value": 2,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "progress",
+              "seat": 3,
+              "cell": 6,
+              "value": 1,
+              "need": 3,
+              "kind": "upgrade"
+            }
+          ]
+        },
+        {
+          "turn": 62,
+          "used": [
+            "STAY",
+            "STAY",
+            "STAY",
+            "WEST"
+          ],
+          "events": [
+            {
+              "type": "move",
+              "seat": 4,
+              "from": 25,
+              "to": 24,
+              "dir": "WEST"
+            },
+            {
+              "type": "progress",
+              "seat": 1,
+              "cell": 9,
+              "value": 3,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "upgrade",
+              "seat": 1,
+              "cell": 9,
+              "base": 1
+            },
+            {
+              "type": "progress",
+              "seat": 3,
+              "cell": 6,
+              "value": 2,
+              "need": 3,
+              "kind": "upgrade"
+            }
+          ]
+        },
+        {
+          "turn": 63,
+          "used": [
+            "SOUTH",
+            "STAY",
+            "STAY",
+            "STAY"
+          ],
+          "events": [
+            {
+              "type": "move",
+              "seat": 1,
+              "from": 9,
+              "to": 17,
+              "dir": "SOUTH"
+            },
+            {
+              "type": "progress",
+              "seat": 3,
+              "cell": 6,
+              "value": 3,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "upgrade",
+              "seat": 3,
+              "cell": 6,
+              "base": 1
+            },
+            {
+              "type": "claim",
+              "seat": 4,
+              "cell": 24,
+              "base": 1
+            }
+          ]
+        },
+        {
+          "turn": 64,
+          "used": [
+            "STAY",
+            "NORTH",
+            "WEST",
+            "STAY"
+          ],
+          "events": [
+            {
+              "type": "move",
+              "seat": 2,
+              "from": 10,
+              "to": 2,
+              "dir": "NORTH"
+            },
+            {
+              "type": "move",
+              "seat": 3,
+              "from": 6,
+              "to": 5,
+              "dir": "WEST"
+            },
+            {
+              "type": "progress",
+              "seat": 1,
+              "cell": 17,
+              "value": 1,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "progress",
+              "seat": 4,
+              "cell": 24,
+              "value": 1,
+              "need": 3,
+              "kind": "upgrade"
+            }
+          ]
+        },
+        {
+          "turn": 65,
+          "used": [
+            "STAY",
+            "STAY",
+            "STAY",
+            "STAY"
+          ],
+          "events": [
+            {
+              "type": "progress",
+              "seat": 1,
+              "cell": 17,
+              "value": 2,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "claim",
+              "seat": 2,
+              "cell": 2,
+              "base": 1
+            },
+            {
+              "type": "claim",
+              "seat": 3,
+              "cell": 5,
+              "base": 1
+            },
+            {
+              "type": "progress",
+              "seat": 4,
+              "cell": 24,
+              "value": 2,
+              "need": 3,
+              "kind": "upgrade"
+            }
+          ]
+        },
+        {
+          "turn": 66,
+          "used": [
+            "STAY",
+            "STAY",
+            "STAY",
+            "STAY"
+          ],
+          "events": [
+            {
+              "type": "progress",
+              "seat": 1,
+              "cell": 17,
+              "value": 3,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "upgrade",
+              "seat": 1,
+              "cell": 17,
+              "base": 1
+            },
+            {
+              "type": "progress",
+              "seat": 2,
+              "cell": 2,
+              "value": 1,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "progress",
+              "seat": 3,
+              "cell": 5,
+              "value": 1,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "progress",
+              "seat": 4,
+              "cell": 24,
+              "value": 3,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "upgrade",
+              "seat": 4,
+              "cell": 24,
+              "base": 1
+            }
+          ]
+        },
+        {
+          "turn": 67,
+          "used": [
+            "WEST",
+            "STAY",
+            "STAY",
+            "SOUTH"
+          ],
+          "events": [
+            {
+              "type": "move",
+              "seat": 1,
+              "from": 17,
+              "to": 16,
+              "dir": "WEST"
+            },
+            {
+              "type": "move",
+              "seat": 4,
+              "from": 24,
+              "to": 32,
+              "dir": "SOUTH"
+            },
+            {
+              "type": "progress",
+              "seat": 2,
+              "cell": 2,
+              "value": 2,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "progress",
+              "seat": 3,
+              "cell": 5,
+              "value": 2,
+              "need": 3,
+              "kind": "upgrade"
+            }
+          ]
+        },
+        {
+          "turn": 68,
+          "used": [
+            "STAY",
+            "STAY",
+            "STAY",
+            "STAY"
+          ],
+          "events": [
+            {
+              "type": "claim",
+              "seat": 1,
+              "cell": 16,
+              "base": 1
+            },
+            {
+              "type": "progress",
+              "seat": 2,
+              "cell": 2,
+              "value": 3,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "upgrade",
+              "seat": 2,
+              "cell": 2,
+              "base": 1
+            },
+            {
+              "type": "progress",
+              "seat": 3,
+              "cell": 5,
+              "value": 3,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "upgrade",
+              "seat": 3,
+              "cell": 5,
+              "base": 1
+            },
+            {
+              "type": "claim",
+              "seat": 4,
+              "cell": 32,
+              "base": 1
+            }
+          ]
+        },
+        {
+          "turn": 69,
+          "used": [
+            "STAY",
+            "EAST",
+            "WEST",
+            "STAY"
+          ],
+          "events": [
+            {
+              "type": "move",
+              "seat": 2,
+              "from": 2,
+              "to": 3,
+              "dir": "EAST"
+            },
+            {
+              "type": "move",
+              "seat": 3,
+              "from": 5,
+              "to": 4,
+              "dir": "WEST"
+            },
+            {
+              "type": "progress",
+              "seat": 1,
+              "cell": 16,
+              "value": 1,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "progress",
+              "seat": 4,
+              "cell": 32,
+              "value": 1,
+              "need": 3,
+              "kind": "upgrade"
+            }
+          ]
+        },
+        {
+          "turn": 70,
+          "used": [
+            "STAY",
+            "STAY",
+            "STAY",
+            "STAY"
+          ],
+          "events": [
+            {
+              "type": "progress",
+              "seat": 1,
+              "cell": 16,
+              "value": 2,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "claim",
+              "seat": 2,
+              "cell": 3,
+              "base": 1
+            },
+            {
+              "type": "claim",
+              "seat": 3,
+              "cell": 4,
+              "base": 1
+            },
+            {
+              "type": "progress",
+              "seat": 4,
+              "cell": 32,
+              "value": 2,
+              "need": 3,
+              "kind": "upgrade"
+            }
+          ]
+        },
+        {
+          "turn": 71,
+          "used": [
+            "STAY",
+            "STAY",
+            "STAY",
+            "STAY"
+          ],
+          "events": [
+            {
+              "type": "progress",
+              "seat": 1,
+              "cell": 16,
+              "value": 3,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "upgrade",
+              "seat": 1,
+              "cell": 16,
+              "base": 1
+            },
+            {
+              "type": "progress",
+              "seat": 2,
+              "cell": 3,
+              "value": 1,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "progress",
+              "seat": 3,
+              "cell": 4,
+              "value": 1,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "progress",
+              "seat": 4,
+              "cell": 32,
+              "value": 3,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "upgrade",
+              "seat": 4,
+              "cell": 32,
+              "base": 1
+            }
+          ]
+        },
+        {
+          "turn": 72,
+          "used": [
+            "NORTH",
+            "STAY",
+            "STAY",
+            "SOUTH"
+          ],
+          "events": [
+            {
+              "type": "move",
+              "seat": 1,
+              "from": 16,
+              "to": 8,
+              "dir": "NORTH"
+            },
+            {
+              "type": "move",
+              "seat": 4,
+              "from": 32,
+              "to": 40,
+              "dir": "SOUTH"
+            },
+            {
+              "type": "progress",
+              "seat": 2,
+              "cell": 3,
+              "value": 2,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "progress",
+              "seat": 3,
+              "cell": 4,
+              "value": 2,
+              "need": 3,
+              "kind": "upgrade"
+            }
+          ]
+        },
+        {
+          "turn": 73,
+          "used": [
+            "STAY",
+            "STAY",
+            "STAY",
+            "STAY"
+          ],
+          "events": [
+            {
+              "type": "claim",
+              "seat": 1,
+              "cell": 8,
+              "base": 1
+            },
+            {
+              "type": "progress",
+              "seat": 2,
+              "cell": 3,
+              "value": 3,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "upgrade",
+              "seat": 2,
+              "cell": 3,
+              "base": 1
+            },
+            {
+              "type": "progress",
+              "seat": 3,
+              "cell": 4,
+              "value": 3,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "upgrade",
+              "seat": 3,
+              "cell": 4,
+              "base": 1
+            },
+            {
+              "type": "claim",
+              "seat": 4,
+              "cell": 40,
+              "base": 1
+            }
+          ]
+        },
+        {
+          "turn": 74,
+          "used": [
+            "STAY",
+            "WEST",
+            "SOUTH",
+            "STAY"
+          ],
+          "events": [
+            {
+              "type": "move",
+              "seat": 2,
+              "from": 3,
+              "to": 2,
+              "dir": "WEST"
+            },
+            {
+              "type": "move",
+              "seat": 3,
+              "from": 4,
+              "to": 12,
+              "dir": "SOUTH"
+            },
+            {
+              "type": "progress",
+              "seat": 1,
+              "cell": 8,
+              "value": 1,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "progress",
+              "seat": 4,
+              "cell": 40,
+              "value": 1,
+              "need": 3,
+              "kind": "upgrade"
+            }
+          ]
+        },
+        {
+          "turn": 75,
+          "used": [
+            "STAY",
+            "SHIELD",
+            "WEST",
+            "STAY"
+          ],
+          "events": [
+            {
+              "type": "move",
+              "seat": 3,
+              "from": 12,
+              "to": 11,
+              "dir": "WEST"
+            },
+            {
+              "type": "shield",
+              "seat": 2,
+              "caught": [],
+              "backfire": true
+            },
+            {
+              "type": "freeze",
+              "seat": 2,
+              "by": 2,
+              "cell": 2,
+              "why": "backfire"
+            },
+            {
+              "type": "progress",
+              "seat": 1,
+              "cell": 8,
+              "value": 2,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "progress",
+              "seat": 4,
+              "cell": 40,
+              "value": 2,
+              "need": 3,
+              "kind": "upgrade"
+            }
+          ]
+        },
+        {
+          "turn": 76,
+          "used": [
+            "STAY",
+            "STAY",
+            "STAY",
+            "STAY"
+          ],
+          "events": [
+            {
+              "type": "progress",
+              "seat": 1,
+              "cell": 8,
+              "value": 3,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "upgrade",
+              "seat": 1,
+              "cell": 8,
+              "base": 1
+            },
+            {
+              "type": "progress",
+              "seat": 3,
+              "cell": 11,
+              "value": 1,
+              "need": 3,
+              "kind": "raid"
+            },
+            {
+              "type": "progress",
+              "seat": 4,
+              "cell": 40,
+              "value": 3,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "upgrade",
+              "seat": 4,
+              "cell": 40,
+              "base": 1
+            }
+          ]
+        },
+        {
+          "turn": 77,
+          "used": [
+            "NORTH",
+            "STAY",
+            "STAY",
+            "SOUTH"
+          ],
+          "events": [
+            {
+              "type": "move",
+              "seat": 1,
+              "from": 8,
+              "to": 0,
+              "dir": "NORTH"
+            },
+            {
+              "type": "move",
+              "seat": 4,
+              "from": 40,
+              "to": 48,
+              "dir": "SOUTH"
+            },
+            {
+              "type": "progress",
+              "seat": 3,
+              "cell": 11,
+              "value": 2,
+              "need": 3,
+              "kind": "raid"
+            }
+          ]
+        },
+        {
+          "turn": 78,
+          "used": [
+            "STAY",
+            "WEST",
+            "STAY",
+            "STAY"
+          ],
+          "events": [
+            {
+              "type": "move",
+              "seat": 2,
+              "from": 2,
+              "to": 1,
+              "dir": "WEST"
+            },
+            {
+              "type": "progress",
+              "seat": 1,
+              "cell": 0,
+              "value": 1,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "progress",
+              "seat": 3,
+              "cell": 11,
+              "value": 3,
+              "need": 3,
+              "kind": "raid"
+            },
+            {
+              "type": "raid",
+              "seat": 3,
+              "cell": 11,
+              "from": 2,
+              "level": 2,
+              "base": 2,
+              "bonus": 32
+            },
+            {
+              "type": "claim",
+              "seat": 4,
+              "cell": 48,
+              "base": 1
+            }
+          ]
+        },
+        {
+          "turn": 79,
+          "used": [
+            "STAY",
+            "STAY",
+            "STAY",
+            "EAST"
+          ],
+          "events": [
+            {
+              "type": "move",
+              "seat": 4,
+              "from": 48,
+              "to": 49,
+              "dir": "EAST"
+            },
+            {
+              "type": "progress",
+              "seat": 1,
+              "cell": 0,
+              "value": 2,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "claim",
+              "seat": 2,
+              "cell": 1,
+              "base": 1
+            },
+            {
+              "type": "progress",
+              "seat": 3,
+              "cell": 11,
+              "value": 1,
+              "need": 3,
+              "kind": "upgrade"
+            }
+          ]
+        },
+        {
+          "turn": 80,
+          "used": [
+            "STAY",
+            "STAY",
+            "STAY",
+            "STAY"
+          ],
+          "events": [
+            {
+              "type": "progress",
+              "seat": 1,
+              "cell": 0,
+              "value": 3,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "upgrade",
+              "seat": 1,
+              "cell": 0,
+              "base": 1
+            },
+            {
+              "type": "progress",
+              "seat": 2,
+              "cell": 1,
+              "value": 1,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "progress",
+              "seat": 3,
+              "cell": 11,
+              "value": 2,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "claim",
+              "seat": 4,
+              "cell": 49,
+              "base": 1
+            }
+          ]
+        }
+      ],
+      "caveat": "Conditional hindsight: every other realized request is held fixed. Opponents do not adapt; this is not a deployable-policy or win-rate estimate."
+    },
+    "seat2_wait75_shield_completion78": {
+      "start_turn": 75,
+      "end_turn": 80,
+      "changes": {
+        "75": {
+          "2": "STAY"
+        },
+        "78": {
+          "2": "SHIELD"
+        }
+      },
+      "baseline_scores": [
+        2378,
+        1924,
+        2179,
+        1615
+      ],
+      "alternative_scores": [
+        2378,
+        1934,
+        2141,
+        1615
+      ],
+      "score_differences": [
+        0,
+        10,
+        -38,
+        0
+      ],
+      "newly_forced_stays": [],
+      "events": [
+        {
+          "turn": 75,
+          "used": [
+            "STAY",
+            "STAY",
+            "WEST",
+            "STAY"
+          ],
+          "events": [
+            {
+              "type": "move",
+              "seat": 3,
+              "from": 12,
+              "to": 11,
+              "dir": "WEST"
+            },
+            {
+              "type": "progress",
+              "seat": 1,
+              "cell": 8,
+              "value": 2,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "progress",
+              "seat": 4,
+              "cell": 40,
+              "value": 2,
+              "need": 3,
+              "kind": "upgrade"
+            }
+          ]
+        },
+        {
+          "turn": 76,
+          "used": [
+            "STAY",
+            "STAY",
+            "STAY",
+            "STAY"
+          ],
+          "events": [
+            {
+              "type": "progress",
+              "seat": 1,
+              "cell": 8,
+              "value": 3,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "upgrade",
+              "seat": 1,
+              "cell": 8,
+              "base": 1
+            },
+            {
+              "type": "progress",
+              "seat": 3,
+              "cell": 11,
+              "value": 1,
+              "need": 3,
+              "kind": "raid"
+            },
+            {
+              "type": "progress",
+              "seat": 4,
+              "cell": 40,
+              "value": 3,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "upgrade",
+              "seat": 4,
+              "cell": 40,
+              "base": 1
+            }
+          ]
+        },
+        {
+          "turn": 77,
+          "used": [
+            "NORTH",
+            "STAY",
+            "STAY",
+            "SOUTH"
+          ],
+          "events": [
+            {
+              "type": "move",
+              "seat": 1,
+              "from": 8,
+              "to": 0,
+              "dir": "NORTH"
+            },
+            {
+              "type": "move",
+              "seat": 4,
+              "from": 40,
+              "to": 48,
+              "dir": "SOUTH"
+            },
+            {
+              "type": "progress",
+              "seat": 3,
+              "cell": 11,
+              "value": 2,
+              "need": 3,
+              "kind": "raid"
+            }
+          ]
+        },
+        {
+          "turn": 78,
+          "used": [
+            "STAY",
+            "SHIELD",
+            "STAY",
+            "STAY"
+          ],
+          "events": [
+            {
+              "type": "shield",
+              "seat": 2,
+              "caught": [
+                3
+              ],
+              "backfire": false
+            },
+            {
+              "type": "reset",
+              "seat": 3,
+              "lost": 2,
+              "why": "caught by seat 2's shield"
+            },
+            {
+              "type": "freeze",
+              "seat": 3,
+              "by": 2,
+              "cell": 11,
+              "why": "caught"
+            },
+            {
+              "type": "progress",
+              "seat": 1,
+              "cell": 0,
+              "value": 1,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "claim",
+              "seat": 4,
+              "cell": 48,
+              "base": 1
+            }
+          ]
+        },
+        {
+          "turn": 79,
+          "used": [
+            "STAY",
+            "STAY",
+            "STAY",
+            "EAST"
+          ],
+          "events": [
+            {
+              "type": "move",
+              "seat": 4,
+              "from": 48,
+              "to": 49,
+              "dir": "EAST"
+            },
+            {
+              "type": "progress",
+              "seat": 1,
+              "cell": 0,
+              "value": 2,
+              "need": 3,
+              "kind": "upgrade"
+            }
+          ]
+        },
+        {
+          "turn": 80,
+          "used": [
+            "STAY",
+            "STAY",
+            "STAY",
+            "STAY"
+          ],
+          "events": [
+            {
+              "type": "progress",
+              "seat": 1,
+              "cell": 0,
+              "value": 3,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "upgrade",
+              "seat": 1,
+              "cell": 0,
+              "base": 1
+            },
+            {
+              "type": "claim",
+              "seat": 4,
+              "cell": 49,
+              "base": 1
+            }
+          ]
+        }
+      ],
+      "caveat": "Conditional hindsight: every other realized request is held fixed. Opponents do not adapt; this is not a deployable-policy or win-rate estimate."
+    },
+    "seat4_feint44_then_capture_E3_47": {
+      "start_turn": 44,
+      "end_turn": 47,
+      "changes": {
+        "44": {
+          "4": "NORTH"
+        },
+        "47": {
+          "4": "STAY"
+        }
+      },
+      "baseline_scores": [
+        899,
+        868,
+        861,
+        750
+      ],
+      "alternative_scores": [
+        899,
+        862,
+        861,
+        784
+      ],
+      "score_differences": [
+        0,
+        -6,
+        0,
+        34
+      ],
+      "newly_forced_stays": [],
+      "events": [
+        {
+          "turn": 44,
+          "used": [
+            "STAY",
+            "SHIELD",
+            "NORTH",
+            "NORTH"
+          ],
+          "events": [
+            {
+              "type": "move",
+              "seat": 3,
+              "from": 22,
+              "to": 14,
+              "dir": "NORTH"
+            },
+            {
+              "type": "move",
+              "seat": 4,
+              "from": 28,
+              "to": 20,
+              "dir": "NORTH"
+            },
+            {
+              "type": "reset",
+              "seat": 4,
+              "lost": 2,
+              "why": "moved"
+            },
+            {
+              "type": "reset",
+              "seat": 2,
+              "lost": 2,
+              "why": "shielded"
+            },
+            {
+              "type": "shield",
+              "seat": 2,
+              "caught": [],
+              "backfire": true
+            },
+            {
+              "type": "freeze",
+              "seat": 2,
+              "by": 2,
+              "cell": 19,
+              "why": "backfire"
+            },
+            {
+              "type": "progress",
+              "seat": 1,
+              "cell": 26,
+              "value": 2,
+              "need": 3,
+              "kind": "upgrade"
+            }
+          ]
+        },
+        {
+          "turn": 45,
+          "used": [
+            "STAY",
+            "STAY",
+            "WEST",
+            "STAY"
+          ],
+          "events": [
+            {
+              "type": "move",
+              "seat": 3,
+              "from": 14,
+              "to": 13,
+              "dir": "WEST"
+            },
+            {
+              "type": "progress",
+              "seat": 1,
+              "cell": 26,
+              "value": 3,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "upgrade",
+              "seat": 1,
+              "cell": 26,
+              "base": 2
+            },
+            {
+              "type": "progress",
+              "seat": 4,
+              "cell": 20,
+              "value": 1,
+              "need": 3,
+              "kind": "raid"
+            }
+          ]
+        },
+        {
+          "turn": 46,
+          "used": [
+            "STAY",
+            "STAY",
+            "STAY",
+            "STAY"
+          ],
+          "events": [
+            {
+              "type": "progress",
+              "seat": 3,
+              "cell": 13,
+              "value": 1,
+              "need": 3,
+              "kind": "raid"
+            },
+            {
+              "type": "progress",
+              "seat": 4,
+              "cell": 20,
+              "value": 2,
+              "need": 3,
+              "kind": "raid"
+            }
+          ]
+        },
+        {
+          "turn": 47,
+          "used": [
+            "NORTH",
+            "STAY",
+            "STAY",
+            "STAY"
+          ],
+          "events": [
+            {
+              "type": "move",
+              "seat": 1,
+              "from": 26,
+              "to": 18,
+              "dir": "NORTH"
+            },
+            {
+              "type": "progress",
+              "seat": 2,
+              "cell": 19,
+              "value": 1,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "progress",
+              "seat": 3,
+              "cell": 13,
+              "value": 2,
+              "need": 3,
+              "kind": "raid"
+            },
+            {
+              "type": "progress",
+              "seat": 4,
+              "cell": 20,
+              "value": 3,
+              "need": 3,
+              "kind": "raid"
+            },
+            {
+              "type": "raid",
+              "seat": 4,
+              "cell": 20,
+              "from": 2,
+              "level": 2,
+              "base": 2,
+              "bonus": 32
+            }
+          ]
+        }
+      ],
+      "caveat": "Conditional hindsight: every other realized request is held fixed. Opponents do not adapt; this is not a deployable-policy or win-rate estimate."
+    },
+    "seat4_naive_center_rush_opening": {
+      "start_turn": 1,
+      "end_turn": 10,
+      "changes": {
+        "1": {
+          "4": "NORTH"
+        },
+        "2": {
+          "4": "NORTH"
+        },
+        "3": {
+          "4": "NORTH"
+        },
+        "4": {
+          "4": "EAST"
+        },
+        "5": {
+          "4": "EAST"
+        },
+        "6": {
+          "4": "EAST"
+        },
+        "7": {
+          "4": "STAY"
+        },
+        "8": {
+          "4": "STAY"
+        },
+        "9": {
+          "4": "STAY"
+        },
+        "10": {
+          "4": "STAY"
+        }
+      },
+      "baseline_scores": [
+        25,
+        38,
+        38,
+        39
+      ],
+      "alternative_scores": [
+        25,
+        38,
+        38,
+        25
+      ],
+      "score_differences": [
+        0,
+        0,
+        0,
+        -14
+      ],
+      "newly_forced_stays": [],
+      "events": [
+        {
+          "turn": 1,
+          "used": [
+            "SOUTH",
+            "SOUTH",
+            "NORTH",
+            "NORTH"
+          ],
+          "events": [
+            {
+              "type": "move",
+              "seat": 1,
+              "from": 0,
+              "to": 8,
+              "dir": "SOUTH"
+            },
+            {
+              "type": "move",
+              "seat": 2,
+              "from": 7,
+              "to": 15,
+              "dir": "SOUTH"
+            },
+            {
+              "type": "move",
+              "seat": 3,
+              "from": 63,
+              "to": 55,
+              "dir": "NORTH"
+            },
+            {
+              "type": "move",
+              "seat": 4,
+              "from": 56,
+              "to": 48,
+              "dir": "NORTH"
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "used": [
+            "EAST",
+            "STAY",
+            "STAY",
+            "NORTH"
+          ],
+          "events": [
+            {
+              "type": "move",
+              "seat": 1,
+              "from": 8,
+              "to": 9,
+              "dir": "EAST"
+            },
+            {
+              "type": "move",
+              "seat": 4,
+              "from": 48,
+              "to": 40,
+              "dir": "NORTH"
+            },
+            {
+              "type": "claim",
+              "seat": 2,
+              "cell": 15,
+              "base": 1
+            },
+            {
+              "type": "claim",
+              "seat": 3,
+              "cell": 55,
+              "base": 1
+            }
+          ]
+        },
+        {
+          "turn": 3,
+          "used": [
+            "SOUTH",
+            "SOUTH",
+            "NORTH",
+            "NORTH"
+          ],
+          "events": [
+            {
+              "type": "move",
+              "seat": 1,
+              "from": 9,
+              "to": 17,
+              "dir": "SOUTH"
+            },
+            {
+              "type": "move",
+              "seat": 2,
+              "from": 15,
+              "to": 23,
+              "dir": "SOUTH"
+            },
+            {
+              "type": "move",
+              "seat": 3,
+              "from": 55,
+              "to": 47,
+              "dir": "NORTH"
+            },
+            {
+              "type": "move",
+              "seat": 4,
+              "from": 40,
+              "to": 32,
+              "dir": "NORTH"
+            }
+          ]
+        },
+        {
+          "turn": 4,
+          "used": [
+            "EAST",
+            "SOUTH",
+            "NORTH",
+            "EAST"
+          ],
+          "events": [
+            {
+              "type": "move",
+              "seat": 1,
+              "from": 17,
+              "to": 18,
+              "dir": "EAST"
+            },
+            {
+              "type": "move",
+              "seat": 2,
+              "from": 23,
+              "to": 31,
+              "dir": "SOUTH"
+            },
+            {
+              "type": "move",
+              "seat": 3,
+              "from": 47,
+              "to": 39,
+              "dir": "NORTH"
+            },
+            {
+              "type": "move",
+              "seat": 4,
+              "from": 32,
+              "to": 33,
+              "dir": "EAST"
+            }
+          ]
+        },
+        {
+          "turn": 5,
+          "used": [
+            "SOUTH",
+            "WEST",
+            "WEST",
+            "EAST"
+          ],
+          "events": [
+            {
+              "type": "move",
+              "seat": 1,
+              "from": 18,
+              "to": 26,
+              "dir": "SOUTH"
+            },
+            {
+              "type": "move",
+              "seat": 2,
+              "from": 31,
+              "to": 30,
+              "dir": "WEST"
+            },
+            {
+              "type": "move",
+              "seat": 3,
+              "from": 39,
+              "to": 38,
+              "dir": "WEST"
+            },
+            {
+              "type": "move",
+              "seat": 4,
+              "from": 33,
+              "to": 34,
+              "dir": "EAST"
+            }
+          ]
+        },
+        {
+          "turn": 6,
+          "used": [
+            "EAST",
+            "STAY",
+            "STAY",
+            "EAST"
+          ],
+          "events": [
+            {
+              "type": "move",
+              "seat": 1,
+              "from": 26,
+              "to": 27,
+              "dir": "EAST"
+            },
+            {
+              "type": "move",
+              "seat": 4,
+              "from": 34,
+              "to": 35,
+              "dir": "EAST"
+            },
+            {
+              "type": "claim",
+              "seat": 2,
+              "cell": 30,
+              "base": 2
+            },
+            {
+              "type": "claim",
+              "seat": 3,
+              "cell": 38,
+              "base": 2
+            }
+          ]
+        },
+        {
+          "turn": 7,
+          "used": [
+            "STAY",
+            "WEST",
+            "WEST",
+            "STAY"
+          ],
+          "events": [
+            {
+              "type": "move",
+              "seat": 2,
+              "from": 30,
+              "to": 29,
+              "dir": "WEST"
+            },
+            {
+              "type": "move",
+              "seat": 3,
+              "from": 38,
+              "to": 37,
+              "dir": "WEST"
+            },
+            {
+              "type": "claim",
+              "seat": 1,
+              "cell": 27,
+              "base": 3
+            },
+            {
+              "type": "claim",
+              "seat": 4,
+              "cell": 35,
+              "base": 3
+            }
+          ]
+        },
+        {
+          "turn": 8,
+          "used": [
+            "STAY",
+            "STAY",
+            "STAY",
+            "STAY"
+          ],
+          "events": [
+            {
+              "type": "progress",
+              "seat": 1,
+              "cell": 27,
+              "value": 1,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "claim",
+              "seat": 2,
+              "cell": 29,
+              "base": 2
+            },
+            {
+              "type": "claim",
+              "seat": 3,
+              "cell": 37,
+              "base": 2
+            },
+            {
+              "type": "progress",
+              "seat": 4,
+              "cell": 35,
+              "value": 1,
+              "need": 3,
+              "kind": "upgrade"
+            }
+          ]
+        },
+        {
+          "turn": 9,
+          "used": [
+            "STAY",
+            "WEST",
+            "WEST",
+            "STAY"
+          ],
+          "events": [
+            {
+              "type": "move",
+              "seat": 2,
+              "from": 29,
+              "to": 28,
+              "dir": "WEST"
+            },
+            {
+              "type": "move",
+              "seat": 3,
+              "from": 37,
+              "to": 36,
+              "dir": "WEST"
+            },
+            {
+              "type": "progress",
+              "seat": 1,
+              "cell": 27,
+              "value": 2,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "progress",
+              "seat": 4,
+              "cell": 35,
+              "value": 2,
+              "need": 3,
+              "kind": "upgrade"
+            }
+          ]
+        },
+        {
+          "turn": 10,
+          "used": [
+            "STAY",
+            "STAY",
+            "STAY",
+            "STAY"
+          ],
+          "events": [
+            {
+              "type": "progress",
+              "seat": 1,
+              "cell": 27,
+              "value": 3,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "upgrade",
+              "seat": 1,
+              "cell": 27,
+              "base": 3
+            },
+            {
+              "type": "claim",
+              "seat": 2,
+              "cell": 28,
+              "base": 3
+            },
+            {
+              "type": "claim",
+              "seat": 3,
+              "cell": 36,
+              "base": 3
+            },
+            {
+              "type": "progress",
+              "seat": 4,
+              "cell": 35,
+              "value": 3,
+              "need": 3,
+              "kind": "upgrade"
+            },
+            {
+              "type": "upgrade",
+              "seat": 4,
+              "cell": 35,
+              "base": 3
+            }
+          ]
+        }
+      ],
+      "caveat": "Conditional hindsight: every other realized request is held fixed. Opponents do not adapt; this is not a deployable-policy or win-rate estimate."
+    }
+  },
+  "milestones": [
+    {
+      "turn": 10,
+      "scores": [
+        25,
+        38,
+        38,
+        39
+      ],
+      "income": [
+        7,
+        9,
+        9,
+        8
+      ],
+      "cells": [
+        2,
+        5,
+        5,
+        4
+      ],
+      "upgrades": [
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "turn": 20,
+      "scores": [
+        150,
+        172,
+        172,
+        155
+      ],
+      "income": [
+        17,
+        18,
+        18,
+        16
+      ],
+      "cells": [
+        4,
+        7,
+        7,
+        6
+      ],
+      "upgrades": [
+        3,
+        2,
+        2,
+        3
+      ]
+    },
+    {
+      "turn": 30,
+      "scores": [
+        360,
+        388,
+        376,
+        340
+      ],
+      "income": [
+        25,
+        26,
+        22,
+        20
+      ],
+      "cells": [
+        6,
+        9,
+        7,
+        7
+      ],
+      "upgrades": [
+        5,
+        4,
+        4,
+        5
+      ]
+    },
+    {
+      "turn": 40,
+      "scores": [
+        650,
+        656,
+        653,
+        582
+      ],
+      "income": [
+        33,
+        28,
+        29,
+        24
+      ],
+      "cells": [
+        8,
+        8,
+        9,
+        8
+      ],
+      "upgrades": [
+        7,
+        6,
+        6,
+        6
+      ]
+    },
+    {
+      "turn": 50,
+      "scores": [
+        1018,
+        952,
+        989,
+        822
+      ],
+      "income": [
+        41,
+        28,
+        32,
+        24
+      ],
+      "cells": [
+        11,
+        8,
+        10,
+        8
+      ],
+      "upgrades": [
+        8,
+        6,
+        7,
+        6
+      ]
+    },
+    {
+      "turn": 60,
+      "scores": [
+        1447,
+        1250,
+        1335,
+        1062
+      ],
+      "income": [
+        43,
+        30,
+        37,
+        24
+      ],
+      "cells": [
+        12,
+        9,
+        12,
+        8
+      ],
+      "upgrades": [
+        9,
+        6,
+        9,
+        6
+      ]
+    },
+    {
+      "turn": 70,
+      "scores": [
+        1894,
+        1576,
+        1723,
+        1318
+      ],
+      "income": [
+        46,
+        35,
+        41,
+        27
+      ],
+      "cells": [
+        13,
+        11,
+        14,
+        10
+      ],
+      "upgrades": [
+        11,
+        8,
+        11,
+        7
+      ]
+    },
+    {
+      "turn": 80,
+      "scores": [
+        2378,
+        1924,
+        2179,
+        1615
+      ],
+      "income": [
+        50,
+        33,
+        44,
+        32
+      ],
+      "cells": [
+        14,
+        11,
+        15,
+        13
+      ],
+      "upgrades": [
+        14,
+        8,
+        12,
+        9
+      ]
+    }
+  ]
+}

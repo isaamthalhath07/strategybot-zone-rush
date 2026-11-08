@@ -1,0 +1,27 @@
+{
+  "format": "zone-rush-candidate-catalog/1",
+  "candidates": [
+    {
+      "path": "research_fixed.py",
+      "label": "Repaired evolved planner",
+      "sha256": "1a718fd8b5146f9b6a5796b00a1a7a7993ae17edc66cc17d997b086cfaf83bc6"
+    },
+    {
+      "path": "research_correctness.py",
+      "label": "Evolved planner with corrected bookkeeping",
+      "sha256": "ae1594276aff78fd3f6829e254289243e86a5e7b8a6d7bf6692026360f0682ce"
+    },
+    {
+      "path": "forward_fixed.py",
+      "label": "Forward planner with corrected bookkeeping",
+      "sha256": "95da830e6f29d0ac06b095fb4de57ace8eb7962881818fa50a4c19f714ec07d9"
+    },
+    {
+      "path": "transfer_fixed.py",
+      "label": "Repaired transfer planner \u00b7 tested leader",
+      "sha256": "fe03b8164ed3b4ebd2a04abcdfbb6fa729bdc34dea825088f7e82bf6e5b5ab5e"
+    }
+  ],
+  "recommended_sha256": "fe03b8164ed3b4ebd2a04abcdfbb6fa729bdc34dea825088f7e82bf6e5b5ab5e",
+  "recommendation": "Strongest tested repaired setting: 2.125 opponents outscored out of 3 across 128 fresh games, versus 1.934 for its original. The other repaired finalist scored 2.117; their difference is inconclusive. All seats and priority tokens were balanced. No universal win is guaranteed."
+}

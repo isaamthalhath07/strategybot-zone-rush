@@ -7,8 +7,8 @@ Three parts:
               from board diffs alone.
   Economy  -- scores every reachable target as points-of-final-score per action-turn,
               which is the correct action-value function for a 80-turn income race.
-  Tactics  -- the shield/raid subgame solved as a 2x2 matrix game, an opponent model
-              that best-responds when the read is strong, and an endgame raid chain.
+  Tactics  -- an estimated shield/raid payoff model, learned opponent tendencies,
+              and an endgame raid chain. These are heuristics, not an equilibrium proof.
 """
 import time
 from collections import deque
@@ -113,6 +113,10 @@ PARAMS = {
     "shield_certain": 0.90,
     "retake_credit": 0.45,     # I own the cell, so I win the contest to retake it
     "commit_prior": 0.55,      # prior P(a raider commits rather than bails)
+    "commit_weight": 3.0,      # pseudo-observations behind commit_prior: how many
+                               # real stay-or-leave sightings it takes before the
+                               # bot trusts what a rival actually does over the
+                               # prior. A huge value switches the model off.
     "free_shield_turns": 2,    # last turns where a backfire costs nothing
     # --- objective shaping --------------------------------------------------
     "tau": 170.0,              # score-margin scale for the placement sigmoid
@@ -849,6 +853,11 @@ class Agent(object):
         return care
 
     # ------------------------------------------------------------- planning
+    def _home_frame(self, seat):
+        """Express tie breaks relative to the observed home, not a seat convention."""
+        home = self.tr.homes[seat - 1]
+        return CANON[CORNERS.index(home) + 1] if home in CORNERS else CANON[seat]
+
     def _candidates(self, owner, upg, base, home_of, occ, seat, me, R, care):
         """Pick the cells worth considering as work items this turn."""
         P = self.P
@@ -860,7 +869,7 @@ class Agent(object):
         if th == 0:
             tie = _IDENT                      # raw cell index, as before
         else:
-            can = CANON[seat]
+            can = self._home_frame(seat)
             tie = [-can[p] for p in range(NC)] if th > 0 else can
         for p in range(NC):
             d = dist[p]
@@ -888,7 +897,7 @@ class Agent(object):
             if d + need > R:
                 continue
             # a rough priority used only to trim the candidate list
-            pri = v * (R - d - need) / float(d + need)
+            pri = v * (R - d - need + 1) / float(d + need)
             if kind == 2:
                 pri += 8.0 * v * (2 if upg[p] else 1) / float(d + need)
             if occ[p] and p != me:
@@ -960,6 +969,9 @@ class Agent(object):
             if P["endgame_care"] and R <= P["endgame_care"]:
                 wden *= P["endgame_denial"]
             den = v * lvl * rem * wden * care[o - 1]
+            # Optimistic local-leg forecast for later beam visits. This does
+            # not prove a currently observed cooldown will last until arrival;
+            # full elapsed-time risk needs separate calibration (see audit).
             q = self._shield_risk(o - 1, travel, need)
             lc = P["lead_caution"]
             if lc > 0.0:
@@ -1013,6 +1025,8 @@ class Agent(object):
     def _threat(self, p, owner, upg, base, occ, seat, R, care):
         """What an adjacent rival would gain by taking cell p from me."""
         tr = self.tr
+        if tr.home_of[p]:
+            return 0.0                       # homes cannot be captured
         v = (base or tr.base)[p]
         lvl = 2 if upg[p] else 1
         t = 0.0
@@ -1123,10 +1137,16 @@ class Agent(object):
                     if (mask >> k) & 1:
                         continue
                     travel = 0 if p == pos else DIST[pos][p]
-                    nu = used + travel + need
+                    work_need = need
+                    if p == me and used > 0 and tr.prog[seat - 1]:
+                        # Banked STAYs apply only if we work here immediately.
+                        # Leaving and returning resets that progress.
+                        work_need = (4 if kind == 3 else 3 if kind == 1
+                                     or (kind == 2 and upg[p]) else 1)
+                    nu = used + travel + work_need
                     if nu > horizon or nu > R:
                         continue
-                    g = self._work_gain(p, kind, v, need, used + travel, owner, upg,
+                    g = self._work_gain(p, kind, v, work_need, used + travel, owner, upg,
                                         occ, seat, R, kappa, care, travel)
                     if g is None:
                         continue
@@ -1153,6 +1173,9 @@ class Agent(object):
         # stickiness: keep last turn's objective unless clearly beaten, so the bot
         # does not re-litigate its plan every turn and walk in circles
         stick = P["stickiness"]
+        # Even a negative surrogate can justify moving: the limited candidate
+        # set omits opportunities revealed by travel. A zero idle floor stalled
+        # the bot and lost strength in paired tests; keep the best available walk.
         target, tv = None, -1e18
         for f, v in bestby.items():
             s = v * (stick if f == self.plan_target else 1.0)
@@ -1272,7 +1295,7 @@ class Agent(object):
         # an order of magnitude larger; this is a real lever.
         if net <= 0.0 or gain < P["shield_bias"] * (backfire + cost):
             return False
-        # mix at the equilibrium so a predictable defender cannot be baited
+        # Heuristic mixing based on the estimated gain; not a Nash solution.
         q = net / (net + backfire + cost)
         if q >= P["shield_certain"]:
             return True
@@ -1303,7 +1326,8 @@ class Agent(object):
         seen = tr.raids[j] + tr.baits[j]
         if seen < 3:
             return P["commit_prior"]
-        return (tr.raids[j] + P["commit_prior"] * 3.0) / (seen + 3.0)
+        w = P["commit_weight"]
+        return (tr.raids[j] + P["commit_prior"] * w) / (seen + w)
 
     # ----------------------------------------------------------------- moves
     def _step(self, me, target, occ, owner, seat):
@@ -1322,7 +1346,7 @@ class Agent(object):
         # corners. Order them in this seat's own frame instead, for the same
         # reason the candidate list is ordered that way.
         if len(cands) > 1 and self.P["tie_home"]:
-            can = CANON[seat]
+            can = self._home_frame(seat)
             cands.sort(key=lambda w: can[w],
                        reverse=self.P["tie_home"] < 0)
         if not cands:

@@ -2,8 +2,10 @@ __pycache__/
 *.pyc
 *.log
 
-# the organisers' rulebook - kept locally, not redistributed
+# the organisers' rulebook - kept locally, not redistributed, and that
+# includes pages of it rendered as images
 StrategyBot_RuleBook.pdf
+audit/rulebook_pages/
 
 # RL virtualenv (large, local only)
 .venv-rl/

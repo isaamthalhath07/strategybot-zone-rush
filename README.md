@@ -1,5 +1,44 @@
 # StrategyBot — Zone Rush
 
+## Current exports and rule versions
+
+`bot.py` keeps main's fused competition bot and its stuck-job and starting-corner
+safeguards. `python ship.py` rebuilds that export. The v8 policy used by the
+fresh-opponent experiments is preserved as `baselines/v8.py`; its historical
+results do not describe the merged competition export.
+
+The [human simulator](human_arena/README.md) has its own selected
+[standalone bot](human_arena/release/bot.py) and [validation report](human_arena/PRESENCE_VALIDATION.md).
+New human matches use the user-clarified Shield rule: after movement, all
+eligible rivals on the shielder's territory can be caught. The competition
+export and older research measurements retain their recorded rule assumptions;
+they are separate artifacts. Saved matches keep their original rules and hashes.
+
+## Territorial-intent experiments (v8 research)
+
+The bot now has a research prototype that infers inward, perimeter and local
+work preferences from public opening history. A fixed version gained +0.0552
+opponents outscored/game on 896 paired games against unused spatial scheduling
+rules, but a separate 896-game check against four further economic planners
+was inconclusive (-0.0022). A simple two-rushers → edges rule also failed to
+establish a gain. **These experiments used the frozen v8 baseline.** Read [the hypothesis,
+implementation and limitations](territorylab/README.md) and [all results](territorylab/RESULTS.md).
+
+## Fresh-opponent feature search (v8 research)
+
+The accepted v8 research candidate uses `v8_fresh_params.json`. On a pre-registered final set of 1,024 paired games against three unseen procedural scheduling families, it improved mean opponents outscored from 2.1523 to 2.2275: **+0.0752, 95% interval [+0.0393, +0.1111]**. New opponent-style predictions improved, but did not establish an additional playing-strength gain, so the larger learner remains experimental.
+
+A separate balanced confirmation kept that candidate fixed and added four more
+unseen scheduling algorithms. Over another 1,024 paired games it improved
+**1.9639 → 2.0210**, difference **+0.0571 [95% interval +0.0221, +0.0922]**.
+Every map covered every seat/token combination. Rich-corner maps remain the
+weakest subgroup; see the full report rather than assuming universal improvement.
+
+See [the complete feature report](freshlab/FEATURES.md), [all comparisons](freshlab/RESULTS.md), and [the reproducible experiment setup](freshlab/README.md). No existing named opponents or previous bot versions were used as training opponents in this round. Earlier results in this README are historical and use different fields. The final test is now consumed and must not be reused for tuning.
+
+
+> Earlier audit (7 November 2026): [strategy, rules, paired results, and limitations](STRATEGY_REVIEW.md). Round 1 tied-score ranking and planner bookkeeping were corrected. Its 600-task confirmation describes the earlier artifact and does not establish a tournament-strength gain. Evidence for that v8 artifact is in [freshlab/FEATURES.md](freshlab/FEATURES.md). [Open the current local visual replay harness](visual/index.html).
+
 
 
 A bot for **Zone Rush**, the four-player territory game used in StrategyBot
@@ -150,7 +189,8 @@ Builds `bot.py` from `fusion.py`, `econ.py` and `mybot.py`, then runs
 python ship.py route v7_params.json
 ```
 
-Builds the walk planner alone, as v7 shipped, to `bot_route.py`.
+Builds the current walk planner with v7 weights to `bot_route.py`; this is
+not the frozen historical v7 export.
 
 
 

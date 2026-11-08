@@ -1,0 +1,30 @@
+{
+  "format": "zone-rush-candidate-catalog/1",
+  "rules": {
+    "catch_requires_stay": false
+  },
+  "candidates": [
+    {
+      "path": "research_presence.py",
+      "label": "Evolved planner \u00b7 corrected shields",
+      "sha256": "bec1daf8bb0ce63a70807bed219d5bb67d93c1a8bcaf3dda21174ff06cc56504"
+    },
+    {
+      "path": "transfer_presence.py",
+      "label": "Transfer planner \u00b7 corrected shields",
+      "sha256": "03470e6151e545a7f4d20d75383a7f1dc4e7d0e5d89bf7387d243c6f7c4bfcf7"
+    },
+    {
+      "path": "forward_presence.py",
+      "label": "Forward planner \u00b7 corrected shields",
+      "sha256": "68094583daf8b7207d74d6c87232ff4b165b491b65092023fa0ffeb06d454677"
+    },
+    {
+      "path": "transfer_presence_core.py",
+      "label": "Transfer planner - updated Shield rule",
+      "sha256": "aef27c1c5d6c1dadccdbe51fabc2e53ec32c10d592a9ed917bd9b49ee4fca42c"
+    }
+  ],
+  "recommended_sha256": "aef27c1c5d6c1dadccdbe51fabc2e53ec32c10d592a9ed917bd9b49ee4fca42c",
+  "recommendation": "Recommended for the corrected Shield rule, with tracking and escape choices updated. Highest measured result among the adapted versions in the final 128 games; all corners and priority tokens were balanced. No universal win is guaranteed."
+}

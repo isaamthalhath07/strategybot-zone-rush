@@ -1,0 +1,108 @@
+[
+  {
+    "label": "Current forward planner v9",
+    "path": "root_v9.py",
+    "sha256": "d2bef4e077e9b601a4bdf42dd3351a708b9d70b725b897ff6870cea048178890",
+    "name": "root_v9",
+    "kind": "working-tree",
+    "source": "bot.py"
+  },
+  {
+    "label": "Frozen economic planner v8",
+    "path": "baseline_v8.py",
+    "sha256": "cb30b5ae32f7e9013173adf7774c034482df3ce2592bfc2a7c3479a2dfa045e6",
+    "name": "baseline_v8",
+    "kind": "working-tree",
+    "source": "baselines/v8.py"
+  },
+  {
+    "label": "codex-audit-and-robustness bot.py",
+    "path": "branch_cefe2fa7bce1.py",
+    "sha256": "cefe2fa7bce14d7a90bd1b292333b7d5f3ed3325210da7e0b11b151494a261f4",
+    "name": "branch_cefe2fa7bce1",
+    "kind": "git",
+    "ref": "origin/codex-audit-and-robustness",
+    "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+    "source": "bot.py"
+  },
+  {
+    "label": "codex/fresh-opponents-and-adaptation bot.py",
+    "path": "branch_cb30b5ae32f7.py",
+    "sha256": "cb30b5ae32f7e9013173adf7774c034482df3ce2592bfc2a7c3479a2dfa045e6",
+    "name": "branch_cb30b5ae32f7",
+    "kind": "git",
+    "ref": "origin/codex/fresh-opponents-and-adaptation",
+    "commit": "cc39b775b9597164f1dbf88fc32837aa8ba2eefd",
+    "source": "bot.py"
+  },
+  {
+    "label": "hardened-field-and-fixes bot.py",
+    "path": "branch_aa49608fe334.py",
+    "sha256": "aa49608fe334a09a756cd4821dac282e5756bad5be3819ef6442b13ab931e081",
+    "name": "branch_aa49608fe334",
+    "kind": "git",
+    "ref": "origin/hardened-field-and-fixes",
+    "commit": "961e729a30736f41f272f3ecc8a2f9e033ca1d57",
+    "source": "bot.py"
+  },
+  {
+    "label": "research/evolution-2026-11-07 bot.py",
+    "path": "branch_1dca0c916af4.py",
+    "sha256": "1dca0c916af4ff4ac4c2e90fabe3f3c29c550c5db61663f8a3c2b0efc72f81ca",
+    "name": "branch_1dca0c916af4",
+    "kind": "git",
+    "ref": "origin/research/evolution-2026-11-07",
+    "commit": "0796039f42f0113d7c4f51b2f8e1409835f2c519",
+    "source": "bot.py"
+  },
+  {
+    "label": "research/evolution-2026-11-07 outputs/bot_before_evolution.py",
+    "path": "branch_bbff919db34a.py",
+    "sha256": "bbff919db34a23d8da68936a53900005962deb34b7d53e2b616f9461a3f8fc2a",
+    "name": "branch_bbff919db34a",
+    "kind": "git",
+    "ref": "origin/research/evolution-2026-11-07",
+    "commit": "0796039f42f0113d7c4f51b2f8e1409835f2c519",
+    "source": "outputs/bot_before_evolution.py"
+  },
+  {
+    "label": "research/evolution-2026-11-07 outputs/bot_transfer_candidate.py",
+    "path": "branch_5457b5fdf4ca.py",
+    "sha256": "5457b5fdf4ca0e52d8502c6b237f975a88b1e8a97dd7bb4900f2b2acfbda1497",
+    "name": "branch_5457b5fdf4ca",
+    "kind": "git",
+    "ref": "origin/research/evolution-2026-11-07",
+    "commit": "0796039f42f0113d7c4f51b2f8e1409835f2c519",
+    "source": "outputs/bot_transfer_candidate.py"
+  },
+  {
+    "label": "research/evolution-2026-11-07 outputs/bot_user_corrected.py",
+    "path": "branch_f6b4385da8e0.py",
+    "sha256": "f6b4385da8e071709e8546820711bf2c20c507571a100dd2f0b8a89f260f1048",
+    "name": "branch_f6b4385da8e0",
+    "kind": "git",
+    "ref": "origin/research/evolution-2026-11-07",
+    "commit": "0796039f42f0113d7c4f51b2f8e1409835f2c519",
+    "source": "outputs/bot_user_corrected.py"
+  },
+  {
+    "label": "v7-independent-field bot.py",
+    "path": "branch_31965e1412c6.py",
+    "sha256": "31965e1412c6e973e7e877c0653f6d9ca072dfcd94a10460f8a7d76bdfa25015",
+    "name": "branch_31965e1412c6",
+    "kind": "git",
+    "ref": "origin/v7-independent-field",
+    "commit": "c7cbaa97e226738934401ad33a8cda12c7c680bc",
+    "source": "bot.py"
+  },
+  {
+    "label": "visual-harness bot.py",
+    "path": "branch_beec3a70b4e6.py",
+    "sha256": "beec3a70b4e6fb9e1555afe01cb8c6b789aefe27fd4afcf894340f1513c06825",
+    "name": "branch_beec3a70b4e6",
+    "kind": "git",
+    "ref": "origin/visual-harness",
+    "commit": "6d7b7fd5d8d2e6f82500165c519e145faae02e84",
+    "source": "bot.py"
+  }
+]

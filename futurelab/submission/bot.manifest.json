@@ -1,0 +1,25 @@
+{
+  "candidate": "one_job",
+  "features": {
+    "learned": true,
+    "horizon": 24,
+    "risk": 0.25
+  },
+  "sources": {
+    "bot.py": "cb30b5ae32f7e9013173adf7774c034482df3ce2592bfc2a7c3479a2dfa045e6",
+    "engine.py": "9ddf7b3a6a674d6d25d4f7aa2a44a7e412f0833c758579ca35317c53ef584cdd",
+    "botlib.py": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf",
+    "futurelab/models.py": "05371562abb4012c3ce4699246b7dc5345b2d94ee1f7f8d308f629a0892d03ab",
+    "futurelab/rollout.py": "0379a8df7cd7dc4e9f6a7d6aeada11e1b2c9bac09c1f225affdca06f308fd635",
+    "futurelab/agent.py": "4cef126626845337b3cbc97929423f6d437257a65d5275c821560dabf8b001a0",
+    "futurelab/alternatives.py": "2263a85d22ed9f7ce3126df680743d7764a722bf2190e92c7f6df345f4fdbc77",
+    "futurelab/bounded.py": "32c3c739f0112a10bf377d58fd2ad7fa505e3aaba237ea28623a0a7d51b1ead6"
+  },
+  "sha256": "d2bef4e077e9b601a4bdf42dd3351a708b9d70b725b897ff6870cea048178890",
+  "imports": [
+    "collections",
+    "math",
+    "random",
+    "time"
+  ]
+}

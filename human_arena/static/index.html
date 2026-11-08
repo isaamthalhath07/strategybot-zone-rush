@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101722">
+  <title>Zone Rush · Your move</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='15' height='15' rx='3' fill='%236c9dff'/%3E%3Crect x='17' width='15' height='15' rx='3' fill='%23ff8b8f'/%3E%3Crect y='17' width='15' height='15' rx='3' fill='%2378d5b6'/%3E%3Crect x='17' y='17' width='15' height='15' rx='3' fill='%23f1cc7b'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="masthead">
+      <div class="brand"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><div><h1>Zone Rush<span>PLAY THE FIELD</span></h1><p>Claim a corner. Build an advantage.</p></div></div>
+      <div class="header-actions"><span id="recording-status" class="recording-status" role="status">Checking recording…</span><div id="view-switch" class="view-switch" role="group" aria-label="Game view"><button id="standard-view" type="button" data-view="standard" aria-pressed="true">Standard</button><button id="ai-view" type="button" data-view="ai" aria-pressed="false">AI view</button></div><button id="download-match" class="quiet-button" type="button" disabled>Download match</button><button id="help-button" class="quiet-button" type="button" aria-expanded="false" aria-controls="rules">How to play <span aria-hidden="true">↗</span></button></div>
+    </header>
+
+    <section id="rules" class="rules-panel" hidden>
+      <div><h2>Every move matters.</h2><p>Outscore three opponents over 80 turns. All four players choose before the turn resolves.</p></div>
+      <ol>
+        <li><strong>Move</strong> one square north, east, south or west. A square occupied at the start of a turn blocks entry.</li>
+        <li><strong>Stay to claim.</strong> A neutral square becomes yours after one stay. Its number is income paid every turn.</li>
+        <li><strong>Stay to upgrade.</strong> Three consecutive stays on your own square double its income. Moving resets your progress.</li>
+        <li><strong>Raid rival land.</strong> One stay captures a basic square; an upgraded square takes three. A raid earns a bonus of 8 × base value × old level. Homes cannot be captured.</li>
+        <li><strong>Shield your land.</strong> <span id="shield-rule-text">After movement, freeze eligible rivals on any of your land for two turns, including arrivals and moves between your cells. Rivals who leave your land escape. Catch nobody eligible and you freeze instead. Your shield then rests for four turns.</span></li>
+      </ol>
+      <p class="rule-footnote">A square’s owner wins a contested entry. Otherwise the rotating priority token decides. Your home can be upgraded.</p>
+    </section>
+
+    <section id="ai-view-note" class="ai-view-note" aria-label="About AI view" hidden><div><span class="eyebrow">THE SAME FIELD, THE SAME INPUT</span><h2>See what the bot is given.</h2></div><p>The bot sees <strong>all 64 squares</strong>, its ID, whether it has priority, and its legal actions. Scores, turn number, work progress and cooldowns are not supplied. A bot can remember observations and infer more; this shows its current input, not its private memory.</p></section>
+
+    <section class="match-setup" aria-label="Match setup">
+      <div class="setup-intro"><span class="eyebrow">THE MATCHUP</span><h2>You versus the bots.</h2><p>Three opponents use the bot you choose.</p></div>
+      <div class="setup-fields">
+        <label class="field opponent-field">Opponent<select id="bot-select" aria-label="Opponent bot"><option>Loading opponents…</option></select></label>
+        <label class="field">Your color<select id="seat-select"><option value="1">Blue · Seat 1</option><option value="2">Coral · Seat 2</option><option value="3">Mint · Seat 3</option><option value="4">Gold · Seat 4</option></select></label>
+        <label class="field seed-field">Map seed<input id="seed-input" type="number" value="20261107" step="1" inputmode="numeric"></label>
+        <button id="new-game" class="start-button" type="button">Start game <span aria-hidden="true">↗</span></button>
+      </div>
+      <p id="recommendation-note" class="recommendation-note">Choose a committed or validated local version. Strength depends on the tested opponents.</p>
+    </section>
+
+    <div id="notice" class="notice" role="alert" hidden></div>
+    <details id="history-panel" class="saved-history"><summary>Saved matches</summary><p>Games save automatically on this computer. Downloads include observer information, so this panel is hidden in AI view.</p><button id="refresh-history" type="button" class="quiet-button">Refresh list</button><div id="history-list"></div></details>
+
+    <section id="scorecards" class="scorecards" aria-label="Player scores"></section>
+
+    <main class="arena-layout">
+      <section class="board-panel" aria-label="Game board">
+        <div class="board-toolbar"><div><span id="match-status" class="status-dot">READY WHEN YOU ARE</span><h2 id="turn-label">Your board awaits.</h2></div><span id="priority-label" class="priority-pill" hidden></span></div>
+        <div class="turn-track" role="progressbar" aria-label="Turns completed" aria-valuemin="0" aria-valuemax="80" aria-valuenow="0"><div id="turn-progress"></div></div>
+        <div class="board-frame"><div id="board" class="board" role="grid" aria-label="Zone Rush board, eight rows and eight columns"></div><div class="board-coordinates" aria-hidden="true"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span></div></div>
+        <div class="board-caption"><span><i class="legend-neutral"></i> Neutral</span><span><i class="legend-upgrade"></i> Upgraded</span><span id="board-number-legend">Numbers = income / turn</span></div>
+      </section>
+
+      <aside class="play-panel" aria-label="Your controls">
+        <section class="move-card">
+          <span class="eyebrow">HUMAN IN THE LOOP</span><div class="move-heading"><h2 id="human-title">Your move.</h2><span id="human-chip" class="human-chip">YOU</span></div>
+          <p id="human-instruction" class="human-instruction">Choose an opponent, then start a game.</p>
+          <div id="result-card" class="result-card" hidden></div>
+          <div id="work-status" class="work-status"><span class="work-icon" aria-hidden="true">◇</span><div><strong id="work-title">A little territory goes a long way.</strong><span id="work-description">Income compounds over every remaining turn.</span></div></div>
+
+          <div class="dpad" role="group" aria-label="Choose your action">
+            <button class="action-button north" data-action="NORTH" type="button" disabled><span class="direction" aria-hidden="true">↑</span><span>North</span><kbd>W / ↑</kbd></button>
+            <button class="action-button west" data-action="WEST" type="button" disabled><span class="direction" aria-hidden="true">←</span><span>West</span><kbd>A / ←</kbd></button>
+            <button class="action-button stay" data-action="STAY" type="button" disabled><span class="stay-symbol" aria-hidden="true">◆</span><strong>Stay</strong><small>Claim / upgrade</small><kbd>SPACE</kbd></button>
+            <button class="action-button east" data-action="EAST" type="button" disabled><span class="direction" aria-hidden="true">→</span><span>East</span><kbd>D / →</kbd></button>
+            <button class="action-button south" data-action="SOUTH" type="button" disabled><span class="direction" aria-hidden="true">↓</span><span>South</span><kbd>S / ↓</kbd></button>
+          </div>
+          <button class="action-button shield" data-action="SHIELD" type="button" disabled><span class="shield-symbol" aria-hidden="true">⬡</span><div><strong>Shield</strong><small id="shield-status">Defend all your land</small></div><kbd>Q</kbd></button>
+          <p class="controls-note" id="controls-note">Arrow keys or WASD to move. Space to stay. Q to shield.</p>
+          <div id="busy-indicator" class="busy-indicator" hidden><span class="spinner" aria-hidden="true"></span>Resolving everyone’s turn…</div>
+        </section>
+
+        <section class="last-turn-card"><div class="section-heading"><h3>Last turn</h3><span id="last-turn-number">—</span></div><div id="last-actions" class="last-actions"><p class="empty-note">Resolved moves appear here after you play.</p></div></section>
+
+        <details id="observation-details" class="observation-details" hidden><summary>Input supplied to bot</summary><p>Exactly the four fields in the current observation. Match bookkeeping and inferred history are excluded.</p><pre id="observation-json" tabindex="0" aria-label="Raw current bot observation"></pre></details>
+
+        <details class="opponent-details"><summary>Opponent details</summary><p id="opponent-description">The selected version's source and validation are shown here.</p><dl><dt>Source</dt><dd id="opponent-ref">—</dd><dt>Version</dt><dd id="opponent-commit">—</dd><dt>File</dt><dd id="opponent-file">—</dd><dt>Fingerprint</dt><dd id="opponent-hash">—</dd></dl></details>
+        <details id="fault-details" class="fault-details" hidden><summary>Opponent turn issues</summary><div id="fault-list"></div></details>
+      </aside>
+    </main>
+    <footer>80 turns. Four players. One field.<span>All actions resolve together.</span></footer>
+  </div>
+  <div id="announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+  <script src="/app.js"></script>
+</body>
+</html>

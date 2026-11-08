@@ -1,0 +1,24 @@
+{
+  "candidate": "one_job",
+  "games": 864,
+  "seed": 893741,
+  "native": false,
+  "sources": {
+    "bot.py": "cb30b5ae32f7e9013173adf7774c034482df3ce2592bfc2a7c3479a2dfa045e6",
+    "engine.py": "9ddf7b3a6a674d6d25d4f7aa2a44a7e412f0833c758579ca35317c53ef584cdd",
+    "maps.py": "b3f39ee4fa69a6e9b1360cb53517077fc9e378a1e019dfae69ae85c532887f29",
+    "botlib.py": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf",
+    "freshlab/population.py": "b92e8dfdf5329ba73f3e006d384bb54354c2920d32e6d48ed3e8a047bc18cad8",
+    "freshlab/evaluate.py": "864f2c7e17e474fe318e88df54bc2d976ec51598c4e58156505fa7ee5fce4830",
+    "futurelab/models.py": "05371562abb4012c3ce4699246b7dc5345b2d94ee1f7f8d308f629a0892d03ab",
+    "futurelab/rollout.py": "0379a8df7cd7dc4e9f6a7d6aeada11e1b2c9bac09c1f225affdca06f308fd635",
+    "futurelab/agent.py": "4cef126626845337b3cbc97929423f6d437257a65d5275c821560dabf8b001a0",
+    "futurelab/opponents.py": "ed019bdd63ec7a57563b8154b0c4ea23e7c1d8800602bcf4aa57ab90ae156642",
+    "futurelab/evaluate.py": "241040ddd774df3cfbfdd84596a2809d9dae0a4764da6494b0ea47c42131dd98",
+    "futurelab/alternatives.py": "2263a85d22ed9f7ce3126df680743d7764a722bf2190e92c7f6df345f4fdbc77",
+    "futurelab/evaluate2.py": "8ec82325be0b124e1145d10992ba9f31788c5cf6c66c7df2aba9a210584112ff",
+    "futurelab/protocol.py": "9e9956103e57d044f6f443f16c9026f75bf429faee51a1791f8676e12325e7a8"
+  },
+  "selection_reason": "Both one_job and committed gained on unused development families; their small difference is uncertain. Prefer the simpler one_job, which also had the stronger discovery mean, without claiming equivalence. Matched prior_one_job gained too; added value from learning is not established by development alone.",
+  "promotion_rule": "Require positive lower endpoint of the locked final paired 95 percent interval, zero contracts failures, review all map/seat groups, then separately validate the actual bounded runtime on further unused opponent designs and verify the exported entry point. No variant selection on final outcomes."
+}

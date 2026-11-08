@@ -170,6 +170,50 @@ for _ in range(80):
     g3.step(["STAY"] * 4)
 check("score.home_not_upgradable_flag", g3.score[0] == 80 * hv, g3.score[0])
 
+# -------------------------------------- 3.2 / 5.3 ranking is round-specific
+# The page-9 example has equal 380 scores but 14 vs 11 cells. That breaks
+# the Round 2 tie; Round 1 explicitly scores the same pair as a draw.
+from arena import pairwise_wins
+g = Game()
+g.score = [412, 380, 380, 201]
+g.owner = [1] * 10 + [2] * 14 + [3] * 11 + [4] * 9 + [0] * 20
+check("ranking.round1_ignores_cell_tiebreak", g.places() == [1, 2.5, 2.5, 4],
+      g.places())
+check("ranking.round1_equal_score_is_pairwise_draw",
+      pairwise_wins(g.places()) == [(3, 0, 0), (1, 1, 1), (1, 1, 1), (0, 0, 3)])
+check("ranking.round2_cells_break_score_tie", g.places(round_number=2) == [1, 2, 3, 4])
+check("ranking.round2_legacy_keyword", g.places(round2=True) == [1, 2, 3, 4])
+check("ranking.round2_legacy_positional_bool", g.places(True) == [1, 2, 3, 4])
+check("ranking.round1_legacy_keyword", g.places(round2=False) == [1, 2.5, 2.5, 4])
+check("ranking.round1_legacy_positional_bool", g.places(False) == [1, 2.5, 2.5, 4])
+
+g.owner = [1] * 10 + [2] * 11 + [3] * 11 + [4] * 9 + [0] * 23
+pool_places = g.places(round_number=2)
+check("ranking.round2_pool_exact_ties_share", pool_places == [1, 2.5, 2.5, 4])
+check("ranking.round2_shared_pool_points",
+      [4 - p for p in pool_places] == [3, 1.5, 1.5, 0])
+check("ranking.round2_knockout_uses_round1_rank_last",
+      g.places(round_number=2, round1_ranks=[4, 3, 1, 2]) == [1, 3, 2, 4])
+check("ranking.round2_legacy_alias_keeps_knockout_tiebreak",
+      g.places(round2=True, round1_ranks=[4, 3, 1, 2]) == [1, 3, 2, 4])
+
+g.score = [100] * 4
+check("ranking.round1_four_way_tie", g.places() == [2.5] * 4)
+g.owner = [1] * 4 + [2] * 4 + [3] * 4 + [4] * 4 + [0] * 48
+check("ranking.round2_pool_four_way_tie", g.places(round_number=2) == [2.5] * 4)
+check("ranking.round2_knockout_four_way_tie",
+      g.places(round_number=2, round1_ranks=[3, 1, 4, 2]) == [3, 1, 4, 2])
+for bad_args in ({"round_number": 0}, {"round_number": 3},
+                 {"round2": 1}, {"round_number": 2, "round2": False},
+                 {"round1_ranks": [1, 2, 3, 4]},
+                 {"round_number": 2, "round1_ranks": [1, 2, 3]}):
+    try:
+        g.places(**bad_args)
+    except ValueError:
+        ok += 1
+    else:
+        fail.append("ranking.invalid_format_accepted %r" % bad_args)
+
 # ------------------------------------------- token rotation 1->2->3->4->1
 g = Game(start_token=1)
 seen = []
@@ -271,3 +315,5 @@ if fail:
         print("  -", f)
 else:
     print("ALL CHECKS PASS")
+if fail:
+    raise SystemExit(1)

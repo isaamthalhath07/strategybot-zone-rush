@@ -1,0 +1,15 @@
+{
+  "original_path": "C:\\Users\\LEGION\\stratergybot\\human_arena\\candidates\\forward_original.py",
+  "original_sha256": "d2bef4e077e9b601a4bdf42dd3351a708b9d70b725b897ff6870cea048178890",
+  "candidate_path": "C:\\Users\\LEGION\\stratergybot\\human_arena\\candidates\\forward_fixed.py",
+  "sha256": "95da830e6f29d0ac06b095fb4de57ace8eb7962881818fa50a4c19f714ec07d9",
+  "scope": "Public-history bookkeeping only; unchanged route weights, forward opponent models, simulation physics, and runtime guards.",
+  "changes": [
+    "Distinguish continued pristine-board turns from a new game; retain progress, scores, and time while bots remain home.",
+    "Initialize current income without prematurely banking it.",
+    "Exclude shield hypotheses contradicted by movement, visible work, lost land, or own known non-shield request.",
+    "Retain feasible cooldown sets; never turn attribution ambiguity into a certain safe enemy cooldown.",
+    "Use own current legal actions to distinguish accepted shields from late-response STAY when observable.",
+    "Censor ambiguous shield model labels and partial-progress/carry observations; reset completed work from visible upgrades."
+  ]
+}

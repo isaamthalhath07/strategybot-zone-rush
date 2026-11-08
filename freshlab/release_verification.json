@@ -1,0 +1,14 @@
+{
+  "bot_sha256": "cb30b5ae32f7e9013173adf7774c034482df3ce2592bfc2a7c3479a2dfa045e6",
+  "params_sha256": "acdbfc3921b3bc44015ae695f0baffd21994c83a76c25fa86d365a0aee3e2576",
+  "final_result_sha256": "3d5a305bf902ac26bed0f9abd949b341d4f45d4f77890b1f3f448598291848bf",
+  "balanced_result_sha256": "4834b824ef7e85998f167e06d7140672dee44632f91717eb7747364664568580",
+  "sources_unchanged": true,
+  "exact_policy_actions": 1280,
+  "deterministic_policy_worst_ms": 20.55430004838854,
+  "imports": [
+    "collections",
+    "time"
+  ],
+  "note": "Pinned-clock equivalence checks. Actual timing guards are tested separately by ship.py and the public input contract."
+}

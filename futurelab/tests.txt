@@ -1,0 +1,20 @@
+test_actual_root_action_is_forced (__main__.FutureTests.test_actual_root_action_is_forced) ... ok
+test_bounded_routes_match_unlimited_proposals (__main__.FutureTests.test_bounded_routes_match_unlimited_proposals) ... ok
+test_bounded_simulation_matches_when_time_is_unlimited (__main__.FutureTests.test_bounded_simulation_matches_when_time_is_unlimited) ... ok
+test_common_noise_does_not_depend_on_route (__main__.FutureTests.test_common_noise_does_not_depend_on_route) ... ok
+test_corrected_job_commit_completes_neutral_capture (__main__.FutureTests.test_corrected_job_commit_completes_neutral_capture) ... ok
+test_disabled_control_is_exact (__main__.FutureTests.test_disabled_control_is_exact) ... ok
+test_expired_prediction_abstains_instead_of_reusing_labels (__main__.FutureTests.test_expired_prediction_abstains_instead_of_reusing_labels) ... ok
+test_frozen_and_ambiguous_stays_do_not_update_intent (__main__.FutureTests.test_frozen_and_ambiguous_stays_do_not_update_intent) ... ok
+test_future_raid_uses_three_stays_and_resets_upgrade (__main__.FutureTests.test_future_raid_uses_three_stays_and_resets_upgrade) ... ok
+test_future_shield_cancels_capture (__main__.FutureTests.test_future_shield_cancels_capture) ... ok
+test_reconstruction_uses_current_public_history (__main__.FutureTests.test_reconstruction_uses_current_public_history) ... ok
+test_rival_claim_and_upgrade_happen_before_late_arrival (__main__.FutureTests.test_rival_claim_and_upgrade_happen_before_late_arrival) ... ok
+test_simulation_does_not_mutate_observation_or_input_world (__main__.FutureTests.test_simulation_does_not_mutate_observation_or_input_world) ... ok
+test_slow_clock_budget_returns_legal_action (__main__.FutureTests.test_slow_clock_budget_returns_legal_action) ... ok
+test_split_isolation_and_balanced_crossings (__main__.FutureTests.test_split_isolation_and_balanced_crossings) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.831s
+
+OK

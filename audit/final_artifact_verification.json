@@ -1,0 +1,13 @@
+{
+  "bot_sha256": "cefe2fa7bce14d7a90bd1b292333b7d5f3ed3325210da7e0b11b151494a261f4",
+  "candidate_sha256": "f7ec724c1473b23104a25c47a2fbc9e5f54e8ee476c5c91930b3dd3b120b670e",
+  "live_source_matches_candidate": true,
+  "executable_ast_and_params_match": true,
+  "comparison_source_guards_pass": true,
+  "paired_tasks": 600,
+  "observed_comparison_calls": 384000,
+  "comparison_faults": 0,
+  "visual_games": 5,
+  "visual_actions": 1600,
+  "visual_faults": 0
+}

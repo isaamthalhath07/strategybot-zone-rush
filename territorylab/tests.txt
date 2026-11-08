@@ -1,0 +1,14 @@
+test_demand_is_equivariant_under_horizontal_reflection (__main__.TerritoryTests.test_demand_is_equivariant_under_horizontal_reflection) ... ok
+test_first_move_does_not_identify_centre (__main__.TerritoryTests.test_first_move_does_not_identify_centre) ... ok
+test_fresh_families_and_balanced_schedule (__main__.TerritoryTests.test_fresh_families_and_balanced_schedule) ... ok
+test_frozen_stay_and_unlabelled_idle_abstain (__main__.TerritoryTests.test_frozen_stay_and_unlabelled_idle_abstain) ... ok
+test_inward_turn_is_more_informative_than_edge_travel (__main__.TerritoryTests.test_inward_turn_is_more_informative_than_edge_travel) ... ok
+test_no_feature_control_is_exact (__main__.TerritoryTests.test_no_feature_control_is_exact) ... ok
+test_prior_control_removes_history_but_keeps_geometry (__main__.TerritoryTests.test_prior_control_removes_history_but_keeps_geometry) ... ok
+test_skipped_claim_does_not_prove_centre (__main__.TerritoryTests.test_skipped_claim_does_not_prove_centre) ... ok
+test_two_inward_opponents_raise_centre_demand (__main__.TerritoryTests.test_two_inward_opponents_raise_centre_demand) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.843s
+
+OK

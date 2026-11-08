@@ -259,6 +259,8 @@ def main():
     outfile = sys.argv[5] if len(sys.argv) > 5 else "best_params.json"
     seedfile = sys.argv[6] if len(sys.argv) > 6 else outfile
     nverify = int(sys.argv[7]) if len(sys.argv) > 7 else max(160, ntasks)
+    nproc = (int(sys.argv[8]) if len(sys.argv) > 8
+             else min(24, multiprocessing.cpu_count()))
     field = get_field(fieldspec)
     print("field: %s" % ", ".join("%s(%.1f)" % (n_, w) for n_, w in field))
     start = dict(mybot.PARAMS)
@@ -266,7 +268,7 @@ def main():
         start.update(json.load(open(seedfile)))
         print("seeding from %s" % seedfile)
     rnd = random.Random(20261106)
-    pool = multiprocessing.Pool(processes=min(24, multiprocessing.cpu_count()))
+    pool = multiprocessing.Pool(processes=nproc)
     sigma = 1.0
     tasks = make_tasks(ntasks, 1, field)
     cur = start
@@ -320,7 +322,7 @@ def main():
     print("  delta           : %+.4f PW   %+.0f score" % (new_pw - base_pw, new_sc - base_sc))
     pool.close()
     json.dump(cur, open(outfile, "w"), indent=1, sort_keys=True)
-    print("\nwrote best_params.json")
+    print("\nwrote %s" % outfile)
 
 
 if __name__ == "__main__":

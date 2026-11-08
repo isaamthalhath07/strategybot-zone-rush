@@ -24,9 +24,9 @@ StrategyBot / Zone Rush competition bot.
 Plan: reconstruct everything the state object hides (turn number, all four
 scores, take and upgrade progress, shield cooldowns, freeze counters, the
 priority-token holder) from board diffs; plan a whole walk of work rather than
-chasing one target at a time; and treat the shield/raid stand-off as the 2x2
-matrix game it actually is, with an opponent model that exploits a predictable
-defender and mixes when it has no read.
+chasing one target at a time; and estimate shield/raid payoffs using learned
+opponent tendencies. The planner and defensive mixing are heuristics, not a
+proof of optimality or an equilibrium strategy.
 
 Entry point: act(state) -> one of NORTH, EAST, SOUTH, WEST, STAY, SHIELD.
 Standard library only.
@@ -34,15 +34,18 @@ Standard library only.
 '''
 
 
-def build(src="mybot.py", params_file="best_params.json", out="bot.py"):
+def build(src="mybot.py", params_file="v8_fresh_params.json", out="bot.py"):
     import mybot
-    s = open(src, encoding="utf-8").read()
+    with open(src, encoding="utf-8") as source:
+        s = source.read()
     # Start from the dev defaults so a key added after the last tuning run cannot
     # go missing -- a missing key raises inside decide(), gets swallowed by the
     # try/except, and the bot silently plays STAY for the whole game.
     params = dict(mybot.PARAMS)
-    params.update(json.load(open(params_file)))
-    missing = set(mybot.PARAMS) - set(json.load(open(params_file)))
+    with open(params_file, encoding="utf-8") as weights:
+        tuned = json.load(weights)
+    params.update(tuned)
+    missing = set(mybot.PARAMS) - set(tuned)
     if missing:
         print("  note: %d param(s) not in %s, using dev defaults: %s"
               % (len(missing), params_file, sorted(missing)))
@@ -64,11 +67,14 @@ def build(src="mybot.py", params_file="best_params.json", out="bot.py"):
         doc_end = tree.body[0].end_lineno
         s = "\n".join(s.splitlines()[doc_end:]).lstrip("\n")
     s = HEADER + "\n" + s
-    open(out, "w", encoding="utf-8").write(s)
+    # Byte-identical output on Windows and Linux: provenance and replay hashes
+    # must not change merely because Git checks out LF on another machine.
+    with open(out, "w", encoding="utf-8", newline="\n") as submission:
+        submission.write(s)
     return out
 
 
-def verify(out="bot.py", params_file="best_params.json"):
+def verify(out="bot.py", params_file="v8_fresh_params.json"):
     import engine
     import mybot
     import zoo

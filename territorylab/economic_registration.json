@@ -1,0 +1,21 @@
+{
+  "candidate": "territory",
+  "games": 896,
+  "seed": 729251,
+  "sources": {
+    "bot.py": "cb30b5ae32f7e9013173adf7774c034482df3ce2592bfc2a7c3479a2dfa045e6",
+    "engine.py": "9ddf7b3a6a674d6d25d4f7aa2a44a7e412f0833c758579ca35317c53ef584cdd",
+    "maps.py": "b3f39ee4fa69a6e9b1360cb53517077fc9e378a1e019dfae69ae85c532887f29",
+    "botlib.py": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf",
+    "freshlab/population.py": "b92e8dfdf5329ba73f3e006d384bb54354c2920d32e6d48ed3e8a047bc18cad8",
+    "freshlab/evaluate.py": "864f2c7e17e474fe318e88df54bc2d976ec51598c4e58156505fa7ee5fce4830",
+    "territorylab/model.py": "f0381f6268805ba3f183484ce1eefb1723d37620c4b7bc786d5f125c750fcd1e",
+    "territorylab/policy.py": "e038fd004d9ecc8fe939a7f9ae6347ddef388a0a213bcf37a8ebd0b490bf55a1",
+    "territorylab/opponents.py": "f74a5c5a0d70f850b04d1c73bfbf8dde77d7c715c1bb4608bdd60f6eef3b53fd",
+    "territorylab/evaluate.py": "62d3ee326f9c6e5e6e70297d62c92e393f59b241015e41024cedd2025bd613f7"
+  },
+  "extra_sources": {
+    "territorylab/confirm.py": "e86f945630e369a1b803afc89777734be397cfa70a064d5a3071f0c6b3d24542"
+  },
+  "criterion": "Same candidate as locked spatial final, no retraining. Require a positive lower endpoint of the aggregate paired interval before calling the improvement independently replicated. Zero contract failures required."
+}
