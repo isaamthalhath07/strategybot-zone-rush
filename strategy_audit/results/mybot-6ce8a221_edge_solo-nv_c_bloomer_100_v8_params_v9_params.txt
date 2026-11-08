@@ -1,0 +1,7 @@
+[solo:nv_c_bloomer] 100 paired games, reference = @v8_params.json
+@v8_params.json          PW 1.1300  score  2404.0
+    per game: shields=1.47, last_shields=0.10, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.01, l1_lost_anyway=0.01, backfires=0.93, raids=2.98, raids_early=0.06, cells_lost=1.78, idle=0.66, idle_late=0.00, moves=26.07, turns90=16.34, reversals=3.83
+@v9_params.json          PW 1.2100  score  2399.7  dPW +0.0800 +/- 0.1107 (z +0.72)  dScore -4.33 +/- 18.06 (z -0.24)  games changed 43
+    per game: shields=1.71, last_shields=0.12, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.01, l1_lost_anyway=0.00, backfires=1.12, raids=2.69, raids_early=0.09, cells_lost=1.86, idle=0.48, idle_late=0.00, moves=26.64, turns90=16.78, reversals=4.29
+    pairwise win rate vs each opponent (columns: variants in order)
+      nv_c_bloomer     0.377  0.403  (n=300)
