@@ -276,6 +276,20 @@ class Econ(object):
                          and prior_owner[spot] == owner[spot]
                          and old["level"][spot] == level[spot])
             old["progress"] = min(2, old["progress"] + 1) if continued else 0
+            # A job that should have finished by now but has not means the server
+            # reads a rule differently from us (homes that cannot be upgraded,
+            # say). Never pursue that cell again this game: without this the
+            # planner would stay on it for the rest of the game. Under the
+            # rulebook's reading every completed job changes the cell, so this
+            # never fires.
+            old["run"] = old.get("run", 0) + 1 if continued else 0
+            if continued:
+                held = owner[spot]
+                workable = ((held == me and not level[spot]) or held == 0 or
+                            (held != me and not cells[spot].is_home))
+                need = 3 if (held == me or level[spot]) else 1
+                if workable and old["run"] >= need:
+                    old.setdefault("dead", set()).add(spot)
             for i, seat in enumerate(owner):
                 if seat:
                     value = cells[i].base_points
@@ -348,9 +362,12 @@ class Econ(object):
         # One macro-action ends at a capture or completed upgrade.
         tie = _E_CANON[me] if sym else None
         tasks = []
+        dead = memory.get("dead") or ()
         for i, c in enumerate(cells):
             who, up, travel_time = owner[i], level[i], travel[i]
             if travel_time >= left or (up and who == me) or (c.is_home and who != me):
+                continue
+            if i in dead:
                 continue
             work = 3 if (who == me or up) else 1
             if i == at:
@@ -2085,7 +2102,10 @@ def _f_normalize(state):
     o.names = [a for a in _F_ALL if a in lookup]
     o.lookup = lookup
     o.pos = pos
-    o.fresh = all(pos[s] == _F_CORNER[s - 1] for s in range(1, 5)) and all(
+    # A starting board: every bot on a corner, only the corners owned, nothing
+    # upgraded. Any bot on any corner: neither the rulebook nor the starter kit
+    # fixes which seat starts in which corner.
+    o.fresh = all(pos[s] in _F_CORNER for s in range(1, 5)) and all(
         (c.owner == 0) != (i in _F_CORNER) for i, c in enumerate(cells)) and not any(
         c.is_upgraded for c in cells)
     return o

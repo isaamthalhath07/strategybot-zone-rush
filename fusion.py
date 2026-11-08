@@ -266,7 +266,10 @@ def _f_normalize(state):
     o.names = [a for a in _F_ALL if a in lookup]
     o.lookup = lookup
     o.pos = pos
-    o.fresh = all(pos[s] == _F_CORNER[s - 1] for s in range(1, 5)) and all(
+    # A starting board: every bot on a corner, only the corners owned, nothing
+    # upgraded. Any bot on any corner: neither the rulebook nor the starter kit
+    # fixes which seat starts in which corner.
+    o.fresh = all(pos[s] in _F_CORNER for s in range(1, 5)) and all(
         (c.owner == 0) != (i in _F_CORNER) for i, c in enumerate(cells)) and not any(
         c.is_upgraded for c in cells)
     return o
