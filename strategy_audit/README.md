@@ -13,6 +13,13 @@ repository.
 >
 > This directory was called `audit/` until it was renamed: that name clashed with
 > the project's existing `audit.py` script, which `runtests.py` runs.
+>
+> **Since the merge with `main`:** `bot.py` ships the fused bot from the
+> cross-branch review, not v8 or v9. Both still rebuild move for move with
+> `python ship.py route v8_params.json` / `route v9_params.json`, to
+> `bot_route.py` (checked by [`check_v7_compat.py`](check_v7_compat.py)). The
+> review's own fixes overlap three of this audit's; how they were combined is in
+> the root README, *Merged with the cross-branch review*.
 
 During the audit itself nothing in `bot.py` or `mybot.py` was changed: every
 candidate fix existed only as a switch in [`edge_audit.py`](edge_audit.py), so it
@@ -698,7 +705,7 @@ committed scripts and reproduced exactly; see [§11](#11-limitations).
 switches below. It is built with:
 
 ```bash
-python ship.py v8_params.json
+python ship.py route v8_params.json
 ```
 
 It passes every `ship.py` check: standard library only, `act(state)` untouched,
@@ -930,7 +937,7 @@ replicate. The forecaster's constants were not adjusted to remove that loss: doi
 so would fit them to the very field used to judge them.
 
 **Conservative alternative:** `forecast: 0` reproduces v8 move for move
-(`python ship.py v8_params.json`), and v8 is on branch `claude/strategy-audit-v8`.
+(`python ship.py route v8_params.json`), and v8 is on branch `claude/strategy-audit-v8`.
 
 **Defence, the forecast's other natural use, is in §14:** built and measured, but
 not shipped.
@@ -1026,7 +1033,7 @@ against `@v9_params.json+fc_defend:1`; `results/mybot-6ce8a221_edge_*`).
   confirmation draws exist to discount.
 
 If the team weighs points or robustness over placements, it is one switch:
-`fc_defend: 1` in `v9_params.json`, then `python ship.py v9_params.json`.
+`fc_defend: 1` in `v9_params.json`, then `python ship.py route v9_params.json`.
 
 ### 14.5 Reproducing §14
 

@@ -60,8 +60,19 @@ def _load_bot(which):
         spec = importlib.util.spec_from_file_location("audited_bot", path)
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
-        return mod
-    return importlib.import_module(which)
+    else:
+        mod = importlib.import_module(which)
+    # This harness drives the walk planner's Agent class directly. The fused
+    # bot.py (fusion.py + econ.py + mybot.py) still contains that class, but
+    # only as its warm standby: auditing it would measure the standby and not
+    # the bot that ships, so refuse rather than mislabel the results.
+    if hasattr(mod, "Econ") and hasattr(mod, "_FBrain"):
+        raise SystemExit(
+            "%s is the fused bot: this harness can only drive a walk-planner build.\n"
+            "Set AUDIT_BOT=mybot, or a file built with `python ship.py route "
+            "v9_params.json`; measure the fused bot with crossfield/xfield.py."
+            % getattr(mod, "__file__", which))
+    return mod
 
 
 bot = _load_bot(os.environ.get("AUDIT_BOT", "bot"))

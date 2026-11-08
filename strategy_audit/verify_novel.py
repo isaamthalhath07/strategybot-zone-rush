@@ -23,6 +23,8 @@ REPO = os.path.dirname(HERE)
 sys.path.insert(0, REPO)
 sys.path.insert(0, HERE)
 os.chdir(REPO)
+# only the opponents are needed from the harness, not the bot it audits
+os.environ.setdefault("AUDIT_BOT", "mybot")
 
 import engine  # noqa: E402
 import edge_audit  # noqa: E402

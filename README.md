@@ -32,12 +32,60 @@ track that was tried and rejected.
 > methodological lessons that decide whether any of the numbers below mean
 > anything. This readme assumes you already know the game; that one does not.
 
+## Latest round: four branches, one field, one fused bot
+
+**`bot.py` now ships the fused bot**, not v7. The full critique, every
+measurement and every fix are in [`CROSS_BRANCH_REVIEW.md`](CROSS_BRANCH_REVIEW.md).
+In short:
+
+- **All four branches were put on one field** (`crossfield/xfield.py`). It
+  groups opponents by *author*, attributes pairwise credit per opponent inside
+  mixed lineups, uses six map families from both generators and both
+  `legal_actions` conventions, and scores ties the Round 1 way. The three
+  independent rule implementations in the repository agree exactly over
+  32,000 turns.
+- **The research branch's evolved economic planner is the strongest decision
+  policy here**: +0.215 PW over this branch's v7 on 1,200 fresh paired games
+  (z = +8.0), and never worse against any author's opponents. The independent
+  branch's v7 does worse than this branch's v7 on a neutral field, even against
+  its own author's opponents.
+- **Nothing tried on top of the evolved planner's decisions survived
+  confirmation.** That covers symmetric tie-breaks, exact tracker cooldowns, the
+  finalist genome, seven single-gene probes, and predicting exact copies of public
+  bots (built, then rejected: near-relatives go unrefuted for 60–79 turns, so
+  identification is unsafe).
+- **What the evolved planner lacked was everything around it.** It has no
+  exception handling at all. On five of eleven plausible server-interface
+  variants it scores what the do-nothing skeleton scores. So does this branch's
+  v7, and the independent v7 fails on six.
+- **The fused `bot.py`** (`fusion.py` + `econ.py` + `mybot.py`, built by `ship.py`)
+  plays move-for-move like the evolved planner on the documented interface. It
+  keeps this branch's tracker and walk planner as a warm standby, and adds input
+  normalisation, planner isolation, board-based new-game detection, a cold-start
+  rescue, a shield-cooldown gate and online movement-convention calibration. It
+  passes all eleven interface variants, holds 96% of its score if module memory
+  is lost every turn, and holds 100% on a server with NORTH/SOUTH swapped, where
+  every other branch's bot keeps 17–33%.
+- **Ten fixes in `mybot.py`, `engine.py`, `ship.py` and `runtests.py`.**
+  Among them: an off-by-one that valued a last-turn capture at nothing, a clock
+  that reset in all-home openings, a flat-board parse that played STAY all game,
+  shields burned on rivals standing on an uncapturable home, a crashing
+  `python ship.py`, and Round 2 tie rules in every Round 1 number.
+
+The sections below describe v7 and the work that produced it; the walk planner
+they describe is the fused bot's standby.
+
 ## v9: forecasting rivals by Bayesian goal inference
 
-`bot.py` now carries **v9**: v8 plus one switch, `forecast: 1`.
+**v9** is v8 plus one switch, `forecast: 1`. It is no longer the shipped bot. On
+the twelve novel opponents described below, the research branch's evolved
+planner, which the fused `bot.py` plays like, beat v9 by **+0.19 PW** over 700
+paired games (z ≈ +3.5), and by +0.25 PW (z +3.6) on the peer field. On the
+strangers field the two were level (−0.007). v9 stays as the forecasting work
+and as a fallback; this builds it to `bot_route.py`:
 
 ```bash
-python ship.py v9_params.json
+python ship.py route v9_params.json
 ```
 
 ### The problem
@@ -132,7 +180,7 @@ where the rule required z ≥ +2. Details in
 [`strategy_audit/README.md`](strategy_audit/README.md) §14.
 
 **If you want the conservative choice,** v8 is on branch
-`claude/strategy-audit-v8`, and `python ship.py v8_params.json` rebuilds it here:
+`claude/strategy-audit-v8`, and `python ship.py route v8_params.json` rebuilds it here:
 `forecast: 0` reproduces v8 move for move.
 
 ## v8: fixes from the strategy audit
@@ -143,15 +191,16 @@ its method, and every number below are in
 [`strategy_audit/README.md`](strategy_audit/README.md).
 
 ```bash
-python ship.py v8_params.json
+python ship.py route v8_params.json
 ```
 
 ### What changed
 
-Every fix sits behind a switch in `mybot.PARAMS` whose default reproduces v7, and
-`v8_params.json` switches them on. `strategy_audit/check_v7_compat.py` proves the defaults
-are behaviour-neutral: **4,800 decisions over 60 games, identical** to the v7
-`bot.py` read from git history. `python ship.py v7_params.json` still builds v7.
+Every fix sits behind a switch in `mybot.PARAMS`, and `v8_params.json` switches
+them on. When v8 shipped, every default reproduced v7; since the merge with the
+cross-branch review the defaults follow that review instead (see *Merged with
+the cross-branch review* below). `strategy_audit/check_v7_compat.py` checks that
+the v7 values still play **identically** to the v7 `bot.py` read from git history.
 
 | switch | finding | what was wrong in v7 |
 |---|---|---|
@@ -199,7 +248,27 @@ largest gains are under rule readings that differ from the engine's.
   the tracker, not the tuned weights. Ask the organisers, or retune on an engine
   that matches the server.
 
-## What this round changed
+### Merged with the cross-branch review
+
+The cross-branch review on `main` (`CROSS_BRANCH_REVIEW.md`) audited the same
+`mybot.py` independently. It found some of the same faults and fixed them its own
+way, without switches. Both sets of fixes are now in `mybot.py`. Where they
+overlap, one switch has a value for each, and the **default** is the review's,
+because `fusion.py` runs this planner with the defaults as its warm standby:
+
+| switch | v7 | v8 / v9 | default (review) |
+|---|---|---|---|
+| `shield_home`: a rival on my home | 1: a threat | 0: no threat, but still a body a shield catches | 2: ignored entirely |
+| `last_shield_value`: the turn-80 shield | 0: any intruder | 1: B4's test | 2: the review's valuation |
+| `solver_retry`: my SHIELD did not happen | 0 | 1 | 1 (the same fix) |
+| `fresh_guard`: all-home openings keep the clock | 0 | 0 | 1 |
+| `pay_fix`: a capture pays on the turn it completes | 0 | 0 | 1 (B6, which v8 left for a retune) |
+
+`v8_params.json` and `v9_params.json` set every one of these, so they still
+rebuild v8 and v9 move for move. Whether v9 gains from the review's two extra
+fixes (`fresh_guard`, `pay_fix`) has not been measured.
+
+## What the v7 round changed
 
 This branch is the second pass over the bot, prompted by the organisers
 answering three rule questions and by one blunt observation: every number in the
@@ -251,20 +320,31 @@ measured on a field containing six of my own snapshots. See §8.3b.
 
 
 ```bash
-python ship.py v9_params.json
+python ship.py
 ```
 
-Rebuilds `bot.py` from the shipped weights and verifies it. (With no argument it
-reads `best_params.json`, a tuner's working file that is gitignored and absent
-from a fresh clone.) It refuses to pass
+Builds `bot.py` from `fusion.py`, `econ.py` and `mybot.py`, then runs
+`crossfield/acceptance.py`. It refuses to pass unless:
 
-unless: imports are stdlib-only, `act(state)` is unchanged, the built file plays
+- the file is pure ASCII, parses as Python 3.7, imports only the stdlib and
+  never prints;
+- it plays identically to `fusion.py` and, on the documented interface, to the
+  research branch's bot;
+- four seats can share one module, and a reused module plays game 2 like a
+  fresh one;
+- the failsafe chain works when each planner is forced to raise;
+- all eleven interface variants and a memory-less module hold their score;
+- a server that offers SHIELD on cooldown gets no wasted shield, and a server
+  with a flipped movement convention is recovered from;
+- the all-home and step-out-and-back openings keep an exact clock;
+- 24 live-clock games stay far under 200 ms.
 
-move-for-move identically to the development bot, `decide()` raises no internal
+```bash
+python ship.py route v7_params.json
+```
 
-exceptions, four seats can share one module without sharing state, and 40 stress
-
-games produce no crash, no illegal action and no turn close to the 200 ms limit.
+Builds the walk planner alone, as v7 shipped, to `bot_route.py`.
+`route v9_params.json` and `route v8_params.json` build v9 and v8 the same way.
 
 
 
@@ -293,6 +373,76 @@ python strategies.py 150
 > file made the bot play `STAY` for all 80 turns while the stress test reported
 
 > "0 failures".
+
+## Pitting every branch against each other
+
+`harness/simulate.py` plays Zone Rush games between the bots on every branch for as
+long as you let it, then writes a detailed report.
+
+```bash
+python harness/simulate.py
+```
+
+Press **Enter** to stop. Games in progress finish and count, then the report is written
+to `harness/simulations/<session>/report.md`; press Enter again to abandon those games
+instead. Ctrl+C works the same way (once to stop, twice to abandon). SIGTERM, or
+creating the `STOP` file named at start-up, stops it too, which suits a run left in the
+background.
+
+- **Every bot on every branch.** It fetches, then reads each local and remote branch
+  straight from git objects, without touching the checkout. By default it enters every
+  distinct file that would pass as a submission: a top-level `act(state)`, standard
+  library only, no imports of its own sibling files. That means each branch's `bot.py`
+  plus alternatives such as `mybot.py` or the research branch's `outputs/bot_*.py`.
+  Identical files on several branches play once. Each bot is loaded and asked for turn 1
+  before any game; one that cannot answer is left out, and the report says why
+  (`agent_new.py` crashes with `NameError: PARAMS`). `--bots submissions` keeps only
+  each branch's `bot.py`, `--builtins` adds the skeleton and random bots as baselines,
+  and `--add FILE`, `--refs`, `--include` and `--exclude` adjust the field. `--list`
+  shows the field without playing.
+- **Real harness games, under the server's rules.** `harness/referee.py` resolves every
+  turn, and each seat runs in its own process for the whole game, so memory persists
+  between turns and stays private to that seat. The limits are 200 ms per turn and 2 s on
+  turn 1, and a crash, late answer or illegal action plays `STAY` (rulebook 2.8).
+- **A fair schedule.** Games come in blocks of four on one map with one starting token,
+  and the line-up rotates through all four seats. Line-ups even out how often each bot
+  plays and how often each pair meets. The rulebook's example map is used one block in
+  four, and random mirrored maps the rest (`--maps`).
+- **Scored as the rulebook scores.** Each game counts as three one-on-one results per
+  bot, with equal scores a draw (3.2). The leaderboard is the settled Elo-scale rating,
+  with bootstrap intervals and ordinary Elo as played alongside, and the rulebook's
+  tie-breaks (head-to-head, then 1st places). A Round 2 view applies the cell-count
+  tie-break and 3/2/1/0 pool points (5.3-5.4).
+- **Nothing is lost.** Every finished game is appended to `games.jsonl` straight away,
+  and `python harness/simulate.py --report harness/simulations/<session>` rebuilds the
+  report from it. Games with a crash, late or illegal turn are saved as replays, which
+  `python harness/server.py` lists under **Replays** (`--replays all` saves every game).
+
+The report covers the verdict, the Round 1 leaderboard, the head-to-head matrix, places
+and score trajectories, the Round 2 view, seat, token and map breakdowns, what each bot
+actually does (action mix, claims, upgrades, raids, shields, freezes), rule compliance
+and timing per bot, notable games with a command to replay each one, and the method.
+
+To test one bot against a folder of opponents:
+
+```bash
+python harness/simulate.py --add-dir opponents --focus main:bot.py --minutes 30
+```
+
+- `--add-dir DIR` enters every `.py` file in `DIR`, each checked exactly as `--add`
+  checks a file (self-contained, then the turn-1 check); files with no `act(state)` at
+  all, such as helpers, are listed as not entered.
+- `--focus NAME_OR_CODE` (a code from `--list`, a name, `branch:path`, or a file name)
+  seats that bot in every game. The other three seats come from the remaining bots so
+  each opponent meets it equally often (within one block of four games), and the block
+  rotation takes it through every seat and token position. The report opens with its
+  record against each opponent, worst first. If `opponents/MANIFEST.md` (or a
+  `MANIFEST.md` in the `--add-dir` folder) gives the opponents styles, that record is
+  also grouped by style, worst style first. The manifest can be a table with a file
+  column and a style column, `## Style` headings with the files listed under them, or
+  lines such as `- raider.py (style: aggressive)`. Entries match bots by file name.
+- `--minutes N` stops by itself after N minutes (games in progress finish), writes the
+  report and prints the session folder.
 
 
 
@@ -556,9 +706,17 @@ free to expand, the bot scores 3,404.
 
 |---|---|
 
-| **`bot.py`** | **the submission** — generated by `ship.py`, do not hand-edit |
+| **`bot.py`** | **the submission** — generated by `ship.py` from the three files below, do not hand-edit |
 
-| `mybot.py` | the bot's source: `Tracker`, the planner, the tactics |
+| `fusion.py` | the fused bot's controller: input normalisation, failsafes, cold-start rescue, calibration |
+
+| `econ.py` | the research branch's evolved economic planner, as a class (the primary) |
+
+| `mybot.py` | `Tracker` and the walk planner (v7; the fused bot's warm standby) |
+
+| `CROSS_BRANCH_REVIEW.md` | the critique of all four branches and every measurement behind the fused bot |
+
+| `crossfield/` | the cross-author field (`xfield.py`), interface matrix (`robustness.py`), acceptance suite, identity tests, and every other branch's bots and opponents |
 
 | `engine.py` | rules engine; the five ambiguous rules are flags in `RULES` |
 
@@ -1414,6 +1572,24 @@ cell and counting the stays until the upgrade appears. It takes about 7 turns to
 settle and is correct in 10/10 games under either reading
 
 (`test_guards.py`, section A).
+
+Two more readings the server could still differ on are guarded in `bot.py`
+(8 Nov 2026), so that a misreading costs a little rather than a game:
+
+- **Homes that cannot be upgraded.** Question 5 is also an inference: rule 7
+  upgrades "your own level-1 cell" and does not exclude the home. If the server
+  disagreed, the planner would sit on its home trying to upgrade it for about 52
+  of 80 turns, scoring 1.16 pairwise wins out of 3 instead of 2.68. Now a job that
+  should have finished and has not marks its cell as not worth pursuing again
+  that game (`econ.py`, `Econ.observe`). Under the written rules every finished
+  job changes the cell, so this never fires: the bot plays move for move as
+  before (240 games, 0 of 19,200 decisions differ). If homes cannot be upgraded
+  it scores 2.71 and finishes ahead of the unguarded bot 85% of the time.
+- **Which seat starts in which corner.** The starter kit says only that bots
+  start in the four corners, one per seat. The starting board was recognised by
+  a fixed seat-to-corner order; now any bot on any corner counts
+  (`fusion.py`, `_f_normalize`). There was no measurable cost before, but under
+  another order turn 1 was treated as a mid-game wake-up.
 
 
 

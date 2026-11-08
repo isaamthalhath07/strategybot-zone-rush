@@ -45,10 +45,14 @@ class BotProcess(object):
 
     def spawn(self):
         flags = getattr(subprocess, "CREATE_NO_WINDOW", 0) if os.name == "nt" else 0
+        # Own session on POSIX: a Ctrl+C typed at the harness must not also reach the bot
+        # workers, or every game in progress would record a "died" fault the bots never
+        # caused. A worker still exits on its own when the harness goes away, because its
+        # stdin closes.
         self.proc = subprocess.Popen([sys.executable, "-I", "-B", "-u", WORKER],
                                      stdin=subprocess.PIPE, stdout=subprocess.PIPE,
                                      stderr=subprocess.DEVNULL, cwd=os.path.dirname(self.path),
-                                     creationflags=flags)
+                                     creationflags=flags, start_new_session=os.name != "nt")
         self.lines = queue.Queue()
         threading.Thread(target=self.pump, args=(self.proc, self.lines), daemon=True).start()
         self.send({"cmd": "load", "path": self.path})

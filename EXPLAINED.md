@@ -15,6 +15,13 @@ A note on scope: there are two branches, `main` and `hardened-field-and-fixes`.
 History is linear — the branch is `main` plus one commit — so nothing exists on
 `main` that is not also on the branch. This document describes the branch.
 
+> **Since this was written:** `bot.py` now ships a fused bot. It pairs the
+> research/evolution branch's economic planner with this bot's tracker and walk
+> planner as a warm standby, plus failsafe layers that none of the branches had.
+> Everything below still describes the tracker and walk planner accurately. Why
+> the primary changed, measured on a field written by all three authors, is in
+> [`CROSS_BRANCH_REVIEW.md`](CROSS_BRANCH_REVIEW.md).
+
 **Contents**
 
 1. [The game](#1-the-game)
@@ -1000,8 +1007,8 @@ Grouped by how badly a failure would hurt. `runtests.py` runs them all.
 | file | what it is |
 |---|---|
 | `v1_params.json` … `v7_params.json` (plus `v2b`, a variant branch of v2) | the tuned versions in order. `v7` was tuned against the rebuilt field with the confirmation stage, and shipped with `tie_home: 1` for seat symmetry |
-| `v8_params.json` | v7's weights, unchanged, plus the eleven audit switches of §6 (ten on, `risk_frozen` measured and left off). Not a retune — every v7 weight is identical |
-| **`v9_params.json`** | **the shipped set**: v8 plus `forecast: 1` and the forecaster's fixed constants (§5.5) |
+| `v8_params.json` | v7's weights, unchanged, plus the eleven audit switches of §6 (ten on, `risk_frozen` measured and left off). Not a retune — every v7 weight is identical. Also sets `pay_fix: 0` and `fresh_guard: 0` |
+| **`v9_params.json`** | v8 plus `forecast: 1` and the forecaster's fixed constants (§5.5). Shipped as v9; `bot.py` is now the fused bot, and `python ship.py route v9_params.json` rebuilds v9 to `bot_route.py`. Also sets `pay_fix: 0` and `fresh_guard: 0`, the two cross-branch-review switches v9 never had |
 | `v4_seed.json`, `v5_seed.json`, `v6_seed.json` | the seeds those runs started from |
 | `nemesis1.json`, `nemesis2.json`, `nemesis3.json` | counter-bots bred to beat a named version of this bot |
 | `pro_params_v1.json` | the frozen independent rival. **Committed**, because `field.py` depends on it; without it the field silently falls back to the untuned version |
