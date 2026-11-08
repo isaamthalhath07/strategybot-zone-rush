@@ -32,6 +32,34 @@ track that was tried and rejected.
 > methodological lessons that decide whether any of the numbers below mean
 > anything. This readme assumes you already know the game; that one does not.
 
+## Newest generation: Zenith, built with a move grader
+
+[`zenith/`](zenith) holds the generation after Apex and the tool that built it. The full
+story is in [`zenith/README.md`](zenith/README.md).
+
+- **A move grader** (`zenith/grader/`) rates every decision by how it changed the bot's
+  chance of finishing above its rivals, played out to turn 80 with the real bots. It
+  forks the whole table per candidate move, uses noisy common-random-number samples
+  and cross-fitting so a lucky future does not count as a good move, and labels each
+  move Brilliant / Great / Best / Excellent / Good / Inaccuracy / Mistake / Blunder,
+  with accuracy and critical-move accuracy per game.
+- **Human-like players** (`zenith/lab/humanlike/`) model how a person beats Apex. A calm
+  farmer who shields only at completions beats three Apex copies, and Apex loses its
+  pairings with a cooldown sniper (40.7%) and that steady farmer (44.2%).
+- **What the grader found**: in 5,120 graded moves of Apex's base planner, the
+  repeatable leaks are the shield moments. Completing a raid into the owner's shield
+  costs 0.46 PW a move; shields wasted on feints and shields missed at real
+  completions are the rest of it.
+- **Zenith** is Apex plus fixes for exactly those, plus a stealthier opening that stops
+  Apex from identifying it as an evolved copy. Paired against Apex on fresh games it
+  beats **three Apex copies 57.0% of the time (+0.25 PW, z = +2.6)**, scores +0.13 among
+  the previous generations, where it out-pairs every one of them, and **+0.21 against
+  the human-like players (z = +3.1)**, where it now wins the pairings Apex lost.
+- **Play it yourself**: `python zenith/play.py` (terminal, WASD), then a graded
+  review of every move you made.
+
+`bot.py` is unchanged; `python zenith/build.py bot.py` submits Zenith instead.
+
 ## Latest round: four branches, one field, one fused bot
 
 **`bot.py` now ships the fused bot**, not v7. The full critique, every

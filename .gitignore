@@ -20,3 +20,8 @@ harness/.cache/
 harness/replays/
 # harness/simulate.py sessions (results, reports)
 harness/simulations/
+
+# zenith/play.py: your own games and their reviews
+zenith/games/
+# zenith/grader/runs: uncompressed grading output (the .jsonl.gz files are kept)
+zenith/grader/runs/*.jsonl
