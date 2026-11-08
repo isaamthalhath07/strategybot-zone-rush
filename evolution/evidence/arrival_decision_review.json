@@ -1,0 +1,47 @@
+{
+  "format": "zone-rush-independent-arrival-decision/1",
+  "validity": "All recorded games passed the checks enumerated by the linked audits.",
+  "promotion": "BLOCKED",
+  "reason": "Fresh confirmation does not meet the preregistered positive lower95 review gate; its interval includes zero.",
+  "confirmation": {
+    "first": "arrival_depth3",
+    "second": "current_depth3",
+    "clusters": 32,
+    "mean": 0.029296875,
+    "bootstrap_95": [
+      -0.0032552083333333335,
+      0.0625
+    ],
+    "bootstrap_order": "Canonical sorted map hashes",
+    "original_reported_bootstrap_95": [
+      -0.00390625,
+      0.06315104166666667
+    ]
+  },
+  "audit_files": [
+    {
+      "path": "evolution\\evidence\\arrival_selection_audit.json",
+      "sha256": "6f5ee231ce5844eb96903ce8104fb670b52addee48661b0f9f7ddf126954597b"
+    },
+    {
+      "path": "evolution\\evidence\\arrival_confirmation_audit.json",
+      "sha256": "05c4fa284cc66e4113638e2a3d35f3dfc51de71275ef0dae2ea9cbf2ba0bec32"
+    }
+  ],
+  "total_original_games": 6144,
+  "total_game_turns_compared_in_both_referees": 491520,
+  "original_strict_worker_callbacks": 1966080,
+  "exact_regenerated_callbacks": 1638400,
+  "focal_public_memory_oracle_checks": 491520,
+  "primary_campaign_games": 0,
+  "bmcts_audits": 0,
+  "no_game_invalidity_or_information_leak_found_in_checked_scope": true,
+  "not_a_guarantee_of_zero_bugs": true,
+  "remaining_coverage_limits": [
+    "Finite existing opponent families; fixed rival ordering does not cover all six rival-seat permutations.",
+    "Wall-clock-dependent rivals cannot regenerate their private historical random/search conditions.",
+    "Candidate-major scheduling can correlate policy cohort with temporal machine load for timing-sensitive rivals.",
+    "Historical bootstrap uses unsorted-set cluster insertion order; independent canonical CI is reported.",
+    "No adaptive sample-until-significant or selection/confirmation pooling is justified by these audits."
+  ]
+}

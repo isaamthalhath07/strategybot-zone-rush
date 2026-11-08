@@ -90,16 +90,31 @@ def paired(games, names):
             aa = {row["fixture"]: row for row in games if row["candidate"] == a}
             bb = {row["fixture"]: row for row in games if row["candidate"] == b}
             clusters = {}
-            for key in aa.keys() & bb.keys():
+            for key in sorted(aa.keys() & bb.keys()):
                 row = aa[key]
                 clusters.setdefault(row["map_group"], []).append(row["focal_pw"] - bb[key]["focal_pw"])
-            means = [sum(rows)/len(rows) for rows in clusters.values()]
+            means = [sum(clusters[key])/len(clusters[key]) for key in sorted(clusters)]
             if not means:
                 continue
             rng = random.Random(202611081801)
             boot = sorted(sum(rng.choice(means) for _ in means)/len(means) for _ in range(10000))
             output.append(dict(first=a, second=b, mean=sum(means)/len(means), clusters=len(means),
                                bootstrap_95=[boot[249], boot[9749]]))
+    return output
+
+
+def ordered_jobs(names, fixtures, seed):
+    """Mix candidate order within shuffled fixture blocks to limit host drift."""
+    if type(seed) is not int or not 0 <= seed < 2**64:
+        raise ValueError("job_order_seed must be an unsigned64-bit integer")
+    rng = random.Random(seed)
+    blocks = list(fixtures)
+    rng.shuffle(blocks)
+    output = []
+    for fixture in blocks:
+        within = list(names)
+        rng.shuffle(within)
+        output.extend((name, fixture) for name in within)
     return output
 
 
@@ -120,12 +135,16 @@ def run(spec_path, out, workers):
     if not isinstance(rules["catch_requires_stay"], bool):
         raise ValueError("catch_requires_stay must be an explicitly registered Boolean")
     timing = dict(DEFAULT_TIMING, hard_s=1.0, load_s=5.0)
+    order_seed = spec.get("job_order_seed", 202611083001)
+    jobs = ordered_jobs(spec["candidates"], spec["fixtures"], order_seed)
+    order_bytes = json.dumps([(name, f["id"]) for name, f in jobs], separators=(",", ":")).encode("utf8")
     registration = dict(spec=spec, spec_sha256=sha(spec_path), benchmark_sha256=sha(__file__),
                         referee_sha256=sha(VENDOR/"referee.py"), worker_sha256=sha(VENDOR/"worker.py"),
-                        timing=timing, rules=rules)
+                        timing=timing, rules=rules, job_order_seed=order_seed,
+                        job_order="shuffled fixture blocks; shuffled candidate order within each block",
+                        job_order_sha256=hashlib.sha256(order_bytes).hexdigest())
     out.parent.mkdir(parents=True, exist_ok=True)
     out.with_suffix(".registration.json").write_text(json.dumps(registration, indent=2), encoding="utf8", newline="\n")
-    jobs = [(name, f) for name in spec["candidates"] for f in spec["fixtures"]]
     started, games = time.perf_counter(), []
     with ThreadPoolExecutor(max_workers=workers) as pool:
         pending = [pool.submit(job, name, f, sources, rules, timing) for name, f in jobs]

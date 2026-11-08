@@ -1,0 +1,209 @@
+{
+  "schema": 1,
+  "kind": "offline_physics_parity_and_throughput",
+  "not_primary_campaign_games": true,
+  "hardware": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.10",
+    "torch": "2.11.0+cu128",
+    "torch_cuda": "12.8",
+    "device": "cuda",
+    "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+    "capability": [
+      12,
+      0
+    ],
+    "compiled_arches": [
+      "sm_75",
+      "sm_80",
+      "sm_86",
+      "sm_90",
+      "sm_100",
+      "sm_120"
+    ]
+  },
+  "source_sha256": {
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\training_gpu\\probe.py": "bb7794421e4eb72361405362e0498e3a6ade6cfeff408dc7f6b70e462f293b25",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\training_gpu\\batch_game.py": "4c314c10e733d9eea496a9973110639b95cb496b8ff9e7b9d49bc8459d8efb9f",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\tests\\reference_engine.py": "8f7b89995cad0f724fb8ac7c7bc8311a6fa9b3b722f2204097031ba2333726f4"
+  },
+  "targeted_cases": [
+    "owned_to_owned_escape",
+    "blocked_move_is_caught",
+    "contest_loser_is_caught",
+    "mutual_shields_backfire",
+    "shield_catch_and_timing",
+    "unknown_action_becomes_stay",
+    "four_way_tie",
+    "three_way_tie"
+  ],
+  "parity": [
+    {
+      "rules": "official_stay",
+      "state_kind": "reachable_start",
+      "games": 24,
+      "turns": 80,
+      "state_comparisons": 1944,
+      "new_catches": 9,
+      "backfires": 820,
+      "ownership_changes": 710
+    },
+    {
+      "rules": "official_stay",
+      "state_kind": "diverse_state",
+      "games": 24,
+      "turns": 80,
+      "state_comparisons": 1944,
+      "new_catches": 73,
+      "backfires": 699,
+      "ownership_changes": 384
+    },
+    {
+      "rules": "frozen_stay_counts",
+      "state_kind": "reachable_start",
+      "games": 24,
+      "turns": 80,
+      "state_comparisons": 1944,
+      "new_catches": 14,
+      "backfires": 808,
+      "ownership_changes": 915
+    },
+    {
+      "rules": "frozen_stay_counts",
+      "state_kind": "diverse_state",
+      "games": 24,
+      "turns": 80,
+      "state_comparisons": 1944,
+      "new_catches": 55,
+      "backfires": 713,
+      "ownership_changes": 567
+    },
+    {
+      "rules": "no_claim_reset",
+      "state_kind": "reachable_start",
+      "games": 24,
+      "turns": 80,
+      "state_comparisons": 1944,
+      "new_catches": 9,
+      "backfires": 820,
+      "ownership_changes": 700
+    },
+    {
+      "rules": "no_claim_reset",
+      "state_kind": "diverse_state",
+      "games": 24,
+      "turns": 80,
+      "state_comparisons": 1944,
+      "new_catches": 78,
+      "backfires": 693,
+      "ownership_changes": 388
+    },
+    {
+      "rules": "historic_presence",
+      "state_kind": "reachable_start",
+      "games": 24,
+      "turns": 80,
+      "state_comparisons": 1944,
+      "new_catches": 47,
+      "backfires": 772,
+      "ownership_changes": 708
+    },
+    {
+      "rules": "historic_presence",
+      "state_kind": "diverse_state",
+      "games": 24,
+      "turns": 80,
+      "state_comparisons": 1944,
+      "new_catches": 315,
+      "backfires": 457,
+      "ownership_changes": 411
+    },
+    {
+      "rules": "no_home_upgrade",
+      "state_kind": "reachable_start",
+      "games": 24,
+      "turns": 80,
+      "state_comparisons": 1944,
+      "new_catches": 9,
+      "backfires": 820,
+      "ownership_changes": 710
+    },
+    {
+      "rules": "no_home_upgrade",
+      "state_kind": "diverse_state",
+      "games": 24,
+      "turns": 80,
+      "state_comparisons": 1944,
+      "new_catches": 73,
+      "backfires": 699,
+      "ownership_changes": 384
+    },
+    {
+      "rules": "lost_contest_not_stay",
+      "state_kind": "reachable_start",
+      "games": 24,
+      "turns": 80,
+      "state_comparisons": 1944,
+      "new_catches": 11,
+      "backfires": 806,
+      "ownership_changes": 682
+    },
+    {
+      "rules": "lost_contest_not_stay",
+      "state_kind": "diverse_state",
+      "games": 24,
+      "turns": 80,
+      "state_comparisons": 1944,
+      "new_catches": 71,
+      "backfires": 688,
+      "ownership_changes": 400
+    }
+  ],
+  "throughput": [
+    {
+      "batch_games": 64,
+      "turns_per_game": 80,
+      "elapsed_seconds_all_repeats": [
+        0.15895009995438159,
+        0.155820699990727
+      ],
+      "best_seconds": 0.155820699990727,
+      "synthetic_full_games_per_second": 410.7284847507981,
+      "game_turns_per_second": 32858.27878006385,
+      "peak_torch_allocated_bytes": 526336,
+      "includes_real_bot_decisions": false,
+      "includes_bmcts": false,
+      "actions": "prebuilt uniform random codes, normalized by physics"
+    },
+    {
+      "batch_games": 1024,
+      "turns_per_game": 80,
+      "elapsed_seconds_all_repeats": [
+        0.15519169997423887,
+        0.15446900005917996
+      ],
+      "best_seconds": 0.15446900005917996,
+      "synthetic_full_games_per_second": 6629.161835757896,
+      "game_turns_per_second": 530332.9468606317,
+      "peak_torch_allocated_bytes": 8207360,
+      "includes_real_bot_decisions": false,
+      "includes_bmcts": false,
+      "actions": "prebuilt uniform random codes, normalized by physics"
+    },
+    {
+      "batch_games": 8192,
+      "turns_per_game": 80,
+      "elapsed_seconds_all_repeats": [
+        0.16228529997169971,
+        0.15920530003495514
+      ],
+      "best_seconds": 0.15920530003495514,
+      "synthetic_full_games_per_second": 51455.57338983918,
+      "game_turns_per_second": 4116445.871187134,
+      "peak_torch_allocated_bytes": 65608704,
+      "includes_real_bot_decisions": false,
+      "includes_bmcts": false,
+      "actions": "prebuilt uniform random codes, normalized by physics"
+    }
+  ]
+}

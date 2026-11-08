@@ -1,0 +1,17 @@
+test_closed_loop_public_games_keep_tracking_legal_and_unchanged (evolution.mathematical_candidates.test_arrival.ArrivalTests.test_closed_loop_public_games_keep_tracking_legal_and_unchanged) ... Arrival-clock contracts:32 games,2,560 focal callbacks; worst 11.998ms
+ok
+test_depth2_ablations_change_only_the_intended_gene (evolution.mathematical_candidates.test_arrival.ArrivalTests.test_depth2_ablations_change_only_the_intended_gene) ... ok
+test_exact_builder_and_unchanged_nonpolicy_logic (evolution.mathematical_candidates.test_arrival.ArrivalTests.test_exact_builder_and_unchanged_nonpolicy_logic) ... ok
+test_neutral_late_job_has_only_its_actual_income_turns (evolution.mathematical_candidates.test_arrival.ArrivalTests.test_neutral_late_job_has_only_its_actual_income_turns) ... ok
+test_raid_cash_survives_delay_and_risk_divisor (evolution.mathematical_candidates.test_arrival.ArrivalTests.test_raid_cash_survives_delay_and_risk_divisor) ... ok
+test_retention_cap_and_upgrade_weights_are_preserved (evolution.mathematical_candidates.test_arrival.ArrivalTests.test_retention_cap_and_upgrade_weights_are_preserved) ... ok
+test_average_score_margin_can_reverse_the_official_objective (evolution.mathematical_candidates.test_mathematics.MathematicalProofTests.test_average_score_margin_can_reverse_the_official_objective) ... ok
+test_identical_marginals_allow_different_backfire_probabilities (evolution.mathematical_candidates.test_mathematics.MathematicalProofTests.test_identical_marginals_allow_different_backfire_probabilities) ... ok
+test_local_surrogate_mix_makes_both_sides_indifferent (evolution.mathematical_candidates.test_mathematics.MathematicalProofTests.test_local_surrogate_mix_makes_both_sides_indifferent) ... ok
+test_terminal_contest_rank_effect_matches_the_second_referee (evolution.mathematical_candidates.test_mathematics.MathematicalProofTests.test_terminal_contest_rank_effect_matches_the_second_referee) ... ok
+test_waiting_to_shield_can_lose_the_future_defense_option (evolution.mathematical_candidates.test_mathematics.MathematicalProofTests.test_waiting_to_shield_can_lose_the_future_defense_option) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 2.217s
+
+OK

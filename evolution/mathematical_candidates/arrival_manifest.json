@@ -1,0 +1,53 @@
+{
+  "format": "zone-rush-mathematical-candidate/1",
+  "parent_sha256": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+  "source_builder_sha256": "9f088b7760ff853a648ec5e143253e7e3f65b60506af5e8f0ddbd921c73ea33f",
+  "production_changed": false,
+  "strength_evaluation": "pending independent fresh games",
+  "changes": [
+    "Reprice second/third macro recurring income at cumulative completion time",
+    "Preserve raid cash, existing risk/denial multipliers and all tactical guards"
+  ],
+  "unchanged_genes": {
+    "backfire_cost": 1.13552,
+    "breadth": 7,
+    "cash_weight": 1.25275,
+    "contest_cost": 0.42039,
+    "denial_base": 0.79149,
+    "denial_close": 0.20084,
+    "depth": 3,
+    "feint_weight": 1.25119,
+    "fortify_premium": 1.11474,
+    "income_lifetime": 40.67114,
+    "inertia": 0.0496,
+    "raid_late": 1.65061,
+    "raid_open": 0.95839,
+    "risk_late": 8.0,
+    "risk_open": 1.97775,
+    "route_delay": 0.02,
+    "route_weight": 0.61979,
+    "safety_slope": 0.0,
+    "shield_prior": 0.33333,
+    "shield_weight": 1.30296,
+    "stay_prior": 0.69484,
+    "upgrade_late": 4.5,
+    "upgrade_open": 1.46008
+  },
+  "artifacts": [
+    {
+      "path": "evolution/mathematical_candidates/arrival_lifetime.py",
+      "sha256": "801e12ab60631ec1c16bf358a9d3d2db96f9a1e572b51f0f18e902f317881134",
+      "bytes": 33556
+    },
+    {
+      "path": "evolution/mathematical_candidates/arrival_lifetime_depth2.py",
+      "sha256": "3a64f9d476a1021349a3aef2088e97995eacabbe9327e008e62305c5c5aa3ab2",
+      "bytes": 33534
+    },
+    {
+      "path": "evolution/mathematical_candidates/baseline_depth2.py",
+      "sha256": "747b732ef32a0a50e0ea76dd16b3f89f018ffced3ae99f3e211c09c7fce1d4ab",
+      "bytes": 32363
+    }
+  ]
+}

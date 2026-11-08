@@ -1,0 +1,3597 @@
+{
+  "schema": 1,
+  "kind": "public_prefix_coach_replay_audit",
+  "transcript_sha256": "d504dfd56679c5ce0e69bac3383ab63677070949d5009935b890c8dd178c4020",
+  "sources_sha256": {
+    "search_coach\\replay.py": "3848b7057c4394862ce63fa576e322f9c11422867a6ea1fb19fa6837b75852c2",
+    "search_coach\\belief.py": "f4188a87e5f253685df98ba596af97601bd00b68a42ff397f4d244126aa8669c",
+    "search_coach\\beam.py": "33d8d138d1b2a290b4599a65122eb0dfc16d977277a19e4fb97cea7717c08925",
+    "bot.py": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+    "tests\\reference_engine.py": "8f7b89995cad0f724fb8ac7c7bc8311a6fa9b3b722f2204097031ba2333726f4"
+  },
+  "games": [
+    {
+      "fixture": 0,
+      "focal_seat": 1,
+      "map_group": 0,
+      "field": "legacy-economic",
+      "transitions": 80,
+      "oracle_support_checks": 81,
+      "maximum_support": 1,
+      "final_support": {
+        "transitions": 80,
+        "support_states": 1,
+        "cap": 512,
+        "dropped_states": 0,
+        "exact_support": true,
+        "possible_tokens": [
+          1
+        ],
+        "cooldown_domains": [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "progress_domains": [
+          [
+            1
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "history_sha256": "8118353758fb1593f0c30c9c2645726cd782b5919e0b97c4180056f10eb37839",
+        "belief_weights": "uniform support; not calibrated action likelihoods"
+      },
+      "snapshots": [
+        {
+          "turn": 12,
+          "search_seconds": 0.5183867999585345,
+          "diagnostic": {
+            "kind": "public_history_open_loop_beam_monte_carlo_diagnostic",
+            "recommended_action": "EAST",
+            "incumbent_action": "SOUTH",
+            "root_estimates": [
+              {
+                "action": "EAST",
+                "sequence": [
+                  "EAST",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": 35.944444444444436,
+                "sample_sd": 11.343949276384535,
+                "samples": 6
+              },
+              {
+                "action": "SOUTH",
+                "sequence": [
+                  "SOUTH",
+                  "STAY",
+                  "EAST"
+                ],
+                "mean": 33.6111111111111,
+                "sample_sd": 8.452262462840395,
+                "samples": 6
+              },
+              {
+                "action": "NORTH",
+                "sequence": [
+                  "NORTH",
+                  "EAST",
+                  "STAY"
+                ],
+                "mean": 32.944444444444436,
+                "sample_sd": 11.343949276384535,
+                "samples": 6
+              },
+              {
+                "action": "STAY",
+                "sequence": [
+                  "STAY",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": 32.944444444444436,
+                "sample_sd": 11.343949276384535,
+                "samples": 6
+              },
+              {
+                "action": "WEST",
+                "sequence": [
+                  "WEST",
+                  "STAY",
+                  "EAST"
+                ],
+                "mean": 21.944444444444432,
+                "sample_sd": 11.343949276384535,
+                "samples": 6
+              },
+              {
+                "action": "SHIELD",
+                "sequence": [
+                  "SHIELD",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": -6.055555555555568,
+                "sample_sd": 11.343949276384535,
+                "samples": 6
+              }
+            ],
+            "horizon": 3,
+            "beam_width_per_root": 2,
+            "rollouts_per_sequence": 6,
+            "sequences_evaluated": 114,
+            "income_tail_turns": 12.0,
+            "seed": 17941,
+            "opponent_model_families": [
+              "economic",
+              "pressure",
+              "wander",
+              "hold"
+            ],
+            "belief": {
+              "transitions": 11,
+              "support_states": 1,
+              "cap": 512,
+              "dropped_states": 0,
+              "exact_support": true,
+              "possible_tokens": [
+                4
+              ],
+              "cooldown_domains": [
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ]
+              ],
+              "progress_domains": [
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ]
+              ],
+              "history_sha256": "6921569d504b66e97113f53a2e93e4f3a8d908443e98f6b78dcbea59c44f1358",
+              "belief_weights": "uniform support; not calibrated action likelihoods"
+            },
+            "certifies_optimality": false,
+            "full_bmcts": false,
+            "used_actual_rival_controller_or_future_tape": false,
+            "used_per_particle_focal_optimization": false,
+            "deployed_policy_changed": false
+          }
+        },
+        {
+          "turn": 34,
+          "search_seconds": 0.5409307000227273,
+          "diagnostic": {
+            "kind": "public_history_open_loop_beam_monte_carlo_diagnostic",
+            "recommended_action": "WEST",
+            "incumbent_action": "STAY",
+            "root_estimates": [
+              {
+                "action": "WEST",
+                "sequence": [
+                  "WEST",
+                  "STAY",
+                  "EAST"
+                ],
+                "mean": -1.0,
+                "sample_sd": 9.679302086870162,
+                "samples": 6
+              },
+              {
+                "action": "NORTH",
+                "sequence": [
+                  "NORTH",
+                  "NORTH",
+                  "NORTH"
+                ],
+                "mean": -16.0,
+                "sample_sd": 9.679302086870162,
+                "samples": 6
+              },
+              {
+                "action": "EAST",
+                "sequence": [
+                  "EAST",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": -29.0,
+                "sample_sd": 9.679302086870162,
+                "samples": 6
+              },
+              {
+                "action": "SOUTH",
+                "sequence": [
+                  "SOUTH",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": -29.0,
+                "sample_sd": 9.679302086870162,
+                "samples": 6
+              },
+              {
+                "action": "STAY",
+                "sequence": [
+                  "STAY",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": -29.0,
+                "sample_sd": 9.679302086870162,
+                "samples": 6
+              },
+              {
+                "action": "SHIELD",
+                "sequence": [
+                  "SHIELD",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": -29.0,
+                "sample_sd": 9.679302086870162,
+                "samples": 6
+              }
+            ],
+            "horizon": 3,
+            "beam_width_per_root": 2,
+            "rollouts_per_sequence": 6,
+            "sequences_evaluated": 114,
+            "income_tail_turns": 12.0,
+            "seed": 17941,
+            "opponent_model_families": [
+              "economic",
+              "pressure",
+              "wander",
+              "hold"
+            ],
+            "belief": {
+              "transitions": 33,
+              "support_states": 1,
+              "cap": 512,
+              "dropped_states": 0,
+              "exact_support": true,
+              "possible_tokens": [
+                2
+              ],
+              "cooldown_domains": [
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ]
+              ],
+              "progress_domains": [
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  2
+                ],
+                [
+                  0
+                ]
+              ],
+              "history_sha256": "1aaf4cdf923b668ffe19d2338637aea182e8964e656a1d1ff74995fdd827f460",
+              "belief_weights": "uniform support; not calibrated action likelihoods"
+            },
+            "certifies_optimality": false,
+            "full_bmcts": false,
+            "used_actual_rival_controller_or_future_tape": false,
+            "used_per_particle_focal_optimization": false,
+            "deployed_policy_changed": false
+          }
+        },
+        {
+          "turn": 60,
+          "search_seconds": 0.5756727999541909,
+          "diagnostic": {
+            "kind": "public_history_open_loop_beam_monte_carlo_diagnostic",
+            "recommended_action": "NORTH",
+            "incumbent_action": "SOUTH",
+            "root_estimates": [
+              {
+                "action": "NORTH",
+                "sequence": [
+                  "NORTH",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": -27.16666666666663,
+                "sample_sd": 5.1929439306299745,
+                "samples": 6
+              },
+              {
+                "action": "EAST",
+                "sequence": [
+                  "EAST",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": -27.16666666666663,
+                "sample_sd": 5.1929439306299745,
+                "samples": 6
+              },
+              {
+                "action": "SOUTH",
+                "sequence": [
+                  "SOUTH",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": -27.16666666666663,
+                "sample_sd": 5.1929439306299745,
+                "samples": 6
+              },
+              {
+                "action": "WEST",
+                "sequence": [
+                  "WEST",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": -27.16666666666663,
+                "sample_sd": 5.1929439306299745,
+                "samples": 6
+              },
+              {
+                "action": "STAY",
+                "sequence": [
+                  "STAY",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": -27.16666666666663,
+                "sample_sd": 5.1929439306299745,
+                "samples": 6
+              },
+              {
+                "action": "SHIELD",
+                "sequence": [
+                  "SHIELD",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": -27.16666666666663,
+                "sample_sd": 5.1929439306299745,
+                "samples": 6
+              }
+            ],
+            "horizon": 3,
+            "beam_width_per_root": 2,
+            "rollouts_per_sequence": 6,
+            "sequences_evaluated": 114,
+            "income_tail_turns": 12.0,
+            "seed": 17941,
+            "opponent_model_families": [
+              "economic",
+              "pressure",
+              "wander",
+              "hold"
+            ],
+            "belief": {
+              "transitions": 59,
+              "support_states": 1,
+              "cap": 512,
+              "dropped_states": 0,
+              "exact_support": true,
+              "possible_tokens": [
+                4
+              ],
+              "cooldown_domains": [
+                [
+                  0
+                ],
+                [
+                  2
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ]
+              ],
+              "progress_domains": [
+                [
+                  0
+                ],
+                [
+                  2
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ]
+              ],
+              "history_sha256": "41bd8504308bbe41bb132d4a05815c0f55c92701099437073ea88a3c29155733",
+              "belief_weights": "uniform support; not calibrated action likelihoods"
+            },
+            "certifies_optimality": false,
+            "full_bmcts": false,
+            "used_actual_rival_controller_or_future_tape": false,
+            "used_per_particle_focal_optimization": false,
+            "deployed_policy_changed": false
+          }
+        }
+      ],
+      "elapsed_seconds": 1.7341555999591947
+    },
+    {
+      "fixture": 453,
+      "focal_seat": 2,
+      "map_group": 9,
+      "field": "novel-pressure",
+      "transitions": 80,
+      "oracle_support_checks": 81,
+      "maximum_support": 2,
+      "final_support": {
+        "transitions": 80,
+        "support_states": 1,
+        "cap": 512,
+        "dropped_states": 0,
+        "exact_support": true,
+        "possible_tokens": [
+          2
+        ],
+        "cooldown_domains": [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            0
+          ]
+        ],
+        "progress_domains": [
+          [
+            2
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            1
+          ]
+        ],
+        "history_sha256": "f7e3f71e53ac1b42ebf82d06e7ce05bd32e230b3a21cba97143d34be99ca5ee4",
+        "belief_weights": "uniform support; not calibrated action likelihoods"
+      },
+      "snapshots": [
+        {
+          "turn": 12,
+          "search_seconds": 0.5314954000059515,
+          "diagnostic": {
+            "kind": "public_history_open_loop_beam_monte_carlo_diagnostic",
+            "recommended_action": "WEST",
+            "incumbent_action": "STAY",
+            "root_estimates": [
+              {
+                "action": "WEST",
+                "sequence": [
+                  "WEST",
+                  "NORTH",
+                  "NORTH"
+                ],
+                "mean": 7.277777777777775,
+                "sample_sd": 9.293765333495038,
+                "samples": 6
+              },
+              {
+                "action": "STAY",
+                "sequence": [
+                  "STAY",
+                  "NORTH",
+                  "NORTH"
+                ],
+                "mean": 7.277777777777775,
+                "sample_sd": 9.293765333495038,
+                "samples": 6
+              },
+              {
+                "action": "SOUTH",
+                "sequence": [
+                  "SOUTH",
+                  "STAY",
+                  "EAST"
+                ],
+                "mean": -9.166666666666673,
+                "sample_sd": 7.556454194925024,
+                "samples": 6
+              },
+              {
+                "action": "NORTH",
+                "sequence": [
+                  "NORTH",
+                  "NORTH",
+                  "EAST"
+                ],
+                "mean": -21.722222222222225,
+                "sample_sd": 9.293765333495038,
+                "samples": 6
+              },
+              {
+                "action": "EAST",
+                "sequence": [
+                  "EAST",
+                  "EAST",
+                  "STAY"
+                ],
+                "mean": -22.722222222222225,
+                "sample_sd": 9.293765333495038,
+                "samples": 6
+              },
+              {
+                "action": "SHIELD",
+                "sequence": [
+                  "SHIELD",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": -35.72222222222222,
+                "sample_sd": 9.293765333495038,
+                "samples": 6
+              }
+            ],
+            "horizon": 3,
+            "beam_width_per_root": 2,
+            "rollouts_per_sequence": 6,
+            "sequences_evaluated": 114,
+            "income_tail_turns": 12.0,
+            "seed": 17941,
+            "opponent_model_families": [
+              "economic",
+              "pressure",
+              "wander",
+              "hold"
+            ],
+            "belief": {
+              "transitions": 11,
+              "support_states": 1,
+              "cap": 512,
+              "dropped_states": 0,
+              "exact_support": true,
+              "possible_tokens": [
+                1
+              ],
+              "cooldown_domains": [
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ]
+              ],
+              "progress_domains": [
+                [
+                  0
+                ],
+                [
+                  2
+                ],
+                [
+                  1
+                ],
+                [
+                  2
+                ]
+              ],
+              "history_sha256": "8de4fd0542cc1406c6fdb061e8c1a08392b2d331565619cbb38bdb866448c6c5",
+              "belief_weights": "uniform support; not calibrated action likelihoods"
+            },
+            "certifies_optimality": false,
+            "full_bmcts": false,
+            "used_actual_rival_controller_or_future_tape": false,
+            "used_per_particle_focal_optimization": false,
+            "deployed_policy_changed": false
+          }
+        },
+        {
+          "turn": 34,
+          "search_seconds": 0.5391092000063509,
+          "diagnostic": {
+            "kind": "public_history_open_loop_beam_monte_carlo_diagnostic",
+            "recommended_action": "SOUTH",
+            "incumbent_action": "STAY",
+            "root_estimates": [
+              {
+                "action": "SOUTH",
+                "sequence": [
+                  "SOUTH",
+                  "SOUTH",
+                  "EAST"
+                ],
+                "mean": 38.33333333333336,
+                "sample_sd": 6.073622386096193,
+                "samples": 6
+              },
+              {
+                "action": "NORTH",
+                "sequence": [
+                  "NORTH",
+                  "STAY",
+                  "EAST"
+                ],
+                "mean": 26.388888888888896,
+                "sample_sd": 6.852142135993078,
+                "samples": 6
+              },
+              {
+                "action": "WEST",
+                "sequence": [
+                  "WEST",
+                  "STAY",
+                  "EAST"
+                ],
+                "mean": 26.388888888888896,
+                "sample_sd": 6.852142135993078,
+                "samples": 6
+              },
+              {
+                "action": "STAY",
+                "sequence": [
+                  "STAY",
+                  "STAY",
+                  "EAST"
+                ],
+                "mean": 26.388888888888896,
+                "sample_sd": 6.852142135993078,
+                "samples": 6
+              },
+              {
+                "action": "EAST",
+                "sequence": [
+                  "EAST",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": 12.388888888888893,
+                "sample_sd": 6.852142135993078,
+                "samples": 6
+              },
+              {
+                "action": "SHIELD",
+                "sequence": [
+                  "SHIELD",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": 12.388888888888893,
+                "sample_sd": 6.852142135993078,
+                "samples": 6
+              }
+            ],
+            "horizon": 3,
+            "beam_width_per_root": 2,
+            "rollouts_per_sequence": 6,
+            "sequences_evaluated": 114,
+            "income_tail_turns": 12.0,
+            "seed": 17941,
+            "opponent_model_families": [
+              "economic",
+              "pressure",
+              "wander",
+              "hold"
+            ],
+            "belief": {
+              "transitions": 33,
+              "support_states": 1,
+              "cap": 512,
+              "dropped_states": 0,
+              "exact_support": true,
+              "possible_tokens": [
+                3
+              ],
+              "cooldown_domains": [
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ]
+              ],
+              "progress_domains": [
+                [
+                  2
+                ],
+                [
+                  1
+                ],
+                [
+                  0
+                ],
+                [
+                  1
+                ]
+              ],
+              "history_sha256": "7fd42aa75daf2cc9cdd8bc150d4698bd1e546fde1042a07b51b05f55c3ff2b5a",
+              "belief_weights": "uniform support; not calibrated action likelihoods"
+            },
+            "certifies_optimality": false,
+            "full_bmcts": false,
+            "used_actual_rival_controller_or_future_tape": false,
+            "used_per_particle_focal_optimization": false,
+            "deployed_policy_changed": false
+          }
+        },
+        {
+          "turn": 60,
+          "search_seconds": 1.0399114999454468,
+          "diagnostic": {
+            "kind": "public_history_open_loop_beam_monte_carlo_diagnostic",
+            "recommended_action": "STAY",
+            "incumbent_action": "STAY",
+            "root_estimates": [
+              {
+                "action": "STAY",
+                "sequence": [
+                  "STAY",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": 32.66666666666679,
+                "sample_sd": 3.011090610836387,
+                "samples": 6
+              },
+              {
+                "action": "NORTH",
+                "sequence": [
+                  "NORTH",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": 17.66666666666679,
+                "sample_sd": 3.011090610836387,
+                "samples": 6
+              },
+              {
+                "action": "EAST",
+                "sequence": [
+                  "EAST",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": 17.66666666666679,
+                "sample_sd": 3.011090610836387,
+                "samples": 6
+              },
+              {
+                "action": "SOUTH",
+                "sequence": [
+                  "SOUTH",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": 17.66666666666679,
+                "sample_sd": 3.011090610836387,
+                "samples": 6
+              },
+              {
+                "action": "WEST",
+                "sequence": [
+                  "WEST",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": 17.66666666666679,
+                "sample_sd": 3.011090610836387,
+                "samples": 6
+              },
+              {
+                "action": "SHIELD",
+                "sequence": [
+                  "SHIELD",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": 17.66666666666679,
+                "sample_sd": 3.011090610836387,
+                "samples": 6
+              }
+            ],
+            "horizon": 3,
+            "beam_width_per_root": 2,
+            "rollouts_per_sequence": 6,
+            "sequences_evaluated": 114,
+            "income_tail_turns": 12.0,
+            "seed": 17941,
+            "opponent_model_families": [
+              "economic",
+              "pressure",
+              "wander",
+              "hold"
+            ],
+            "belief": {
+              "transitions": 59,
+              "support_states": 1,
+              "cap": 512,
+              "dropped_states": 0,
+              "exact_support": true,
+              "possible_tokens": [
+                1
+              ],
+              "cooldown_domains": [
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ]
+              ],
+              "progress_domains": [
+                [
+                  1
+                ],
+                [
+                  2
+                ],
+                [
+                  1
+                ],
+                [
+                  0
+                ]
+              ],
+              "history_sha256": "e13411cc3bd9df58823664032fac69eb3fa18a087c6d65ae607bb4cae74b81d1",
+              "belief_weights": "uniform support; not calibrated action likelihoods"
+            },
+            "certifies_optimality": false,
+            "full_bmcts": false,
+            "used_actual_rival_controller_or_future_tape": false,
+            "used_per_particle_focal_optimization": false,
+            "deployed_policy_changed": false
+          }
+        }
+      ],
+      "elapsed_seconds": 2.2727270999457687
+    },
+    {
+      "fixture": 330,
+      "focal_seat": 3,
+      "map_group": 6,
+      "field": "shield-baits",
+      "transitions": 80,
+      "oracle_support_checks": 81,
+      "maximum_support": 2,
+      "final_support": {
+        "transitions": 80,
+        "support_states": 1,
+        "cap": 512,
+        "dropped_states": 0,
+        "exact_support": true,
+        "possible_tokens": [
+          3
+        ],
+        "cooldown_domains": [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            4
+          ],
+          [
+            0
+          ]
+        ],
+        "progress_domains": [
+          [
+            2
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "history_sha256": "89d734dbaaec12db48e4dc7d6a313ab7b79fa1a64bb9ea02f2a64c14ba86a93e",
+        "belief_weights": "uniform support; not calibrated action likelihoods"
+      },
+      "snapshots": [
+        {
+          "turn": 12,
+          "search_seconds": 1.2221911000087857,
+          "diagnostic": {
+            "kind": "public_history_open_loop_beam_monte_carlo_diagnostic",
+            "recommended_action": "WEST",
+            "incumbent_action": "WEST",
+            "root_estimates": [
+              {
+                "action": "WEST",
+                "sequence": [
+                  "WEST",
+                  "WEST",
+                  "STAY"
+                ],
+                "mean": 40.333333333333336,
+                "sample_sd": 33.9960782051891,
+                "samples": 6
+              },
+              {
+                "action": "NORTH",
+                "sequence": [
+                  "NORTH",
+                  "EAST",
+                  "STAY"
+                ],
+                "mean": 19.33333333333334,
+                "sample_sd": 29.688007305607048,
+                "samples": 6
+              },
+              {
+                "action": "SOUTH",
+                "sequence": [
+                  "SOUTH",
+                  "STAY",
+                  "EAST"
+                ],
+                "mean": 15.000000000000005,
+                "sample_sd": 19.50726360444574,
+                "samples": 6
+              },
+              {
+                "action": "STAY",
+                "sequence": [
+                  "STAY",
+                  "NORTH",
+                  "STAY"
+                ],
+                "mean": 14.444444444444452,
+                "sample_sd": 19.323752415289515,
+                "samples": 6
+              },
+              {
+                "action": "EAST",
+                "sequence": [
+                  "EAST",
+                  "NORTH",
+                  "EAST"
+                ],
+                "mean": -5.5,
+                "sample_sd": 37.22887171119867,
+                "samples": 6
+              },
+              {
+                "action": "SHIELD",
+                "sequence": [
+                  "SHIELD",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": -12.999999999999995,
+                "sample_sd": 19.50726360444574,
+                "samples": 6
+              }
+            ],
+            "horizon": 3,
+            "beam_width_per_root": 2,
+            "rollouts_per_sequence": 6,
+            "sequences_evaluated": 114,
+            "income_tail_turns": 12.0,
+            "seed": 17941,
+            "opponent_model_families": [
+              "economic",
+              "pressure",
+              "wander",
+              "hold"
+            ],
+            "belief": {
+              "transitions": 11,
+              "support_states": 1,
+              "cap": 512,
+              "dropped_states": 0,
+              "exact_support": true,
+              "possible_tokens": [
+                2
+              ],
+              "cooldown_domains": [
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ]
+              ],
+              "progress_domains": [
+                [
+                  0
+                ],
+                [
+                  2
+                ],
+                [
+                  0
+                ],
+                [
+                  2
+                ]
+              ],
+              "history_sha256": "47e740153e970270b553eb37a7e69bfd94b7a7e82300bdc880136c83af0caf0f",
+              "belief_weights": "uniform support; not calibrated action likelihoods"
+            },
+            "certifies_optimality": false,
+            "full_bmcts": false,
+            "used_actual_rival_controller_or_future_tape": false,
+            "used_per_particle_focal_optimization": false,
+            "deployed_policy_changed": false
+          }
+        },
+        {
+          "turn": 34,
+          "search_seconds": 1.236106300028041,
+          "diagnostic": {
+            "kind": "public_history_open_loop_beam_monte_carlo_diagnostic",
+            "recommended_action": "NORTH",
+            "incumbent_action": "STAY",
+            "root_estimates": [
+              {
+                "action": "NORTH",
+                "sequence": [
+                  "NORTH",
+                  "NORTH",
+                  "EAST"
+                ],
+                "mean": 69.99999999999999,
+                "sample_sd": 4.6188021535170325,
+                "samples": 6
+              },
+              {
+                "action": "WEST",
+                "sequence": [
+                  "WEST",
+                  "STAY",
+                  "EAST"
+                ],
+                "mean": 69.99999999999999,
+                "sample_sd": 4.6188021535170325,
+                "samples": 6
+              },
+              {
+                "action": "EAST",
+                "sequence": [
+                  "EAST",
+                  "EAST",
+                  "STAY"
+                ],
+                "mean": 68.99999999999999,
+                "sample_sd": 4.6188021535170325,
+                "samples": 6
+              },
+              {
+                "action": "SOUTH",
+                "sequence": [
+                  "SOUTH",
+                  "NORTH",
+                  "NORTH"
+                ],
+                "mean": 68.99999999999999,
+                "sample_sd": 4.6188021535170325,
+                "samples": 6
+              },
+              {
+                "action": "STAY",
+                "sequence": [
+                  "STAY",
+                  "NORTH",
+                  "NORTH"
+                ],
+                "mean": 68.99999999999999,
+                "sample_sd": 4.6188021535170325,
+                "samples": 6
+              },
+              {
+                "action": "SHIELD",
+                "sequence": [
+                  "SHIELD",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": 55.99999999999998,
+                "sample_sd": 4.6188021535170325,
+                "samples": 6
+              }
+            ],
+            "horizon": 3,
+            "beam_width_per_root": 2,
+            "rollouts_per_sequence": 6,
+            "sequences_evaluated": 114,
+            "income_tail_turns": 12.0,
+            "seed": 17941,
+            "opponent_model_families": [
+              "economic",
+              "pressure",
+              "wander",
+              "hold"
+            ],
+            "belief": {
+              "transitions": 33,
+              "support_states": 2,
+              "cap": 512,
+              "dropped_states": 0,
+              "exact_support": true,
+              "possible_tokens": [
+                4
+              ],
+              "cooldown_domains": [
+                [
+                  0,
+                  4
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0,
+                  4
+                ]
+              ],
+              "progress_domains": [
+                [
+                  0
+                ],
+                [
+                  1
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ]
+              ],
+              "history_sha256": "f8988acd663b211d0134991d826d60907df0afcd8a600a52e3dc7943a6e6f013",
+              "belief_weights": "uniform support; not calibrated action likelihoods"
+            },
+            "certifies_optimality": false,
+            "full_bmcts": false,
+            "used_actual_rival_controller_or_future_tape": false,
+            "used_per_particle_focal_optimization": false,
+            "deployed_policy_changed": false
+          }
+        },
+        {
+          "turn": 60,
+          "search_seconds": 1.3362768999068066,
+          "diagnostic": {
+            "kind": "public_history_open_loop_beam_monte_carlo_diagnostic",
+            "recommended_action": "STAY",
+            "incumbent_action": "STAY",
+            "root_estimates": [
+              {
+                "action": "STAY",
+                "sequence": [
+                  "STAY",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": -69.27777777777781,
+                "sample_sd": 2.498147461768638,
+                "samples": 6
+              },
+              {
+                "action": "NORTH",
+                "sequence": [
+                  "NORTH",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": -192.27777777777783,
+                "sample_sd": 2.498147461768638,
+                "samples": 6
+              },
+              {
+                "action": "EAST",
+                "sequence": [
+                  "EAST",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": -192.27777777777783,
+                "sample_sd": 2.498147461768638,
+                "samples": 6
+              },
+              {
+                "action": "SOUTH",
+                "sequence": [
+                  "SOUTH",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": -192.27777777777783,
+                "sample_sd": 2.498147461768638,
+                "samples": 6
+              },
+              {
+                "action": "WEST",
+                "sequence": [
+                  "WEST",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": -192.27777777777783,
+                "sample_sd": 2.498147461768638,
+                "samples": 6
+              },
+              {
+                "action": "SHIELD",
+                "sequence": [
+                  "SHIELD",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": -192.27777777777783,
+                "sample_sd": 2.498147461768638,
+                "samples": 6
+              }
+            ],
+            "horizon": 3,
+            "beam_width_per_root": 2,
+            "rollouts_per_sequence": 6,
+            "sequences_evaluated": 114,
+            "income_tail_turns": 12.0,
+            "seed": 17941,
+            "opponent_model_families": [
+              "economic",
+              "pressure",
+              "wander",
+              "hold"
+            ],
+            "belief": {
+              "transitions": 59,
+              "support_states": 1,
+              "cap": 512,
+              "dropped_states": 0,
+              "exact_support": true,
+              "possible_tokens": [
+                2
+              ],
+              "cooldown_domains": [
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  4
+                ]
+              ],
+              "progress_domains": [
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  2
+                ],
+                [
+                  0
+                ]
+              ],
+              "history_sha256": "d2ba39b7735391a7fd2bd2642c5dead0f57b39e7bb61418e475ada37d6efbc1e",
+              "belief_weights": "uniform support; not calibrated action likelihoods"
+            },
+            "certifies_optimality": false,
+            "full_bmcts": false,
+            "used_actual_rival_controller_or_future_tape": false,
+            "used_per_particle_focal_optimization": false,
+            "deployed_policy_changed": false
+          }
+        }
+      ],
+      "elapsed_seconds": 4.01661619998049
+    },
+    {
+      "fixture": 159,
+      "focal_seat": 4,
+      "map_group": 3,
+      "field": "legacy-economic",
+      "transitions": 80,
+      "oracle_support_checks": 81,
+      "maximum_support": 1,
+      "final_support": {
+        "transitions": 80,
+        "support_states": 1,
+        "cap": 512,
+        "dropped_states": 0,
+        "exact_support": true,
+        "possible_tokens": [
+          4
+        ],
+        "cooldown_domains": [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "progress_domains": [
+          [
+            2
+          ],
+          [
+            2
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "history_sha256": "7a2a6480418bd24fc86f88f445dfb553a07e804c8be5fac6f64e29415eca23e9",
+        "belief_weights": "uniform support; not calibrated action likelihoods"
+      },
+      "snapshots": [
+        {
+          "turn": 12,
+          "search_seconds": 0.9384938000002876,
+          "diagnostic": {
+            "kind": "public_history_open_loop_beam_monte_carlo_diagnostic",
+            "recommended_action": "WEST",
+            "incumbent_action": "NORTH",
+            "root_estimates": [
+              {
+                "action": "WEST",
+                "sequence": [
+                  "WEST",
+                  "NORTH",
+                  "STAY"
+                ],
+                "mean": 17.5,
+                "sample_sd": 3.4107672646097233,
+                "samples": 6
+              },
+              {
+                "action": "NORTH",
+                "sequence": [
+                  "NORTH",
+                  "EAST",
+                  "SOUTH"
+                ],
+                "mean": 6.05555555555556,
+                "sample_sd": 2.5683255822220503,
+                "samples": 6
+              },
+              {
+                "action": "EAST",
+                "sequence": [
+                  "EAST",
+                  "NORTH",
+                  "EAST"
+                ],
+                "mean": 4.500000000000001,
+                "sample_sd": 3.4107672646097233,
+                "samples": 6
+              },
+              {
+                "action": "STAY",
+                "sequence": [
+                  "STAY",
+                  "NORTH",
+                  "EAST"
+                ],
+                "mean": 4.500000000000001,
+                "sample_sd": 3.4107672646097233,
+                "samples": 6
+              },
+              {
+                "action": "SHIELD",
+                "sequence": [
+                  "SHIELD",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": -8.499999999999998,
+                "sample_sd": 3.4107672646097233,
+                "samples": 6
+              }
+            ],
+            "horizon": 3,
+            "beam_width_per_root": 2,
+            "rollouts_per_sequence": 6,
+            "sequences_evaluated": 95,
+            "income_tail_turns": 12.0,
+            "seed": 17941,
+            "opponent_model_families": [
+              "economic",
+              "pressure",
+              "wander",
+              "hold"
+            ],
+            "belief": {
+              "transitions": 11,
+              "support_states": 1,
+              "cap": 512,
+              "dropped_states": 0,
+              "exact_support": true,
+              "possible_tokens": [
+                3
+              ],
+              "cooldown_domains": [
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ]
+              ],
+              "progress_domains": [
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ]
+              ],
+              "history_sha256": "22f174bdd4929cc95f4585e8f8226346b67b26452feeca75b8d609225b2178db",
+              "belief_weights": "uniform support; not calibrated action likelihoods"
+            },
+            "certifies_optimality": false,
+            "full_bmcts": false,
+            "used_actual_rival_controller_or_future_tape": false,
+            "used_per_particle_focal_optimization": false,
+            "deployed_policy_changed": false
+          }
+        },
+        {
+          "turn": 34,
+          "search_seconds": 0.997442299965769,
+          "diagnostic": {
+            "kind": "public_history_open_loop_beam_monte_carlo_diagnostic",
+            "recommended_action": "NORTH",
+            "incumbent_action": "STAY",
+            "root_estimates": [
+              {
+                "action": "NORTH",
+                "sequence": [
+                  "NORTH",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": 10.777777777777814,
+                "sample_sd": 2.9639813064837632,
+                "samples": 6
+              },
+              {
+                "action": "STAY",
+                "sequence": [
+                  "STAY",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": 10.777777777777814,
+                "sample_sd": 2.9639813064837632,
+                "samples": 6
+              },
+              {
+                "action": "SOUTH",
+                "sequence": [
+                  "SOUTH",
+                  "STAY",
+                  "EAST"
+                ],
+                "mean": -5.222222222222186,
+                "sample_sd": 2.9639813064837632,
+                "samples": 6
+              },
+              {
+                "action": "EAST",
+                "sequence": [
+                  "EAST",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": -19.222222222222186,
+                "sample_sd": 2.9639813064837632,
+                "samples": 6
+              },
+              {
+                "action": "SHIELD",
+                "sequence": [
+                  "SHIELD",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": -19.222222222222186,
+                "sample_sd": 2.9639813064837632,
+                "samples": 6
+              }
+            ],
+            "horizon": 3,
+            "beam_width_per_root": 2,
+            "rollouts_per_sequence": 6,
+            "sequences_evaluated": 95,
+            "income_tail_turns": 12.0,
+            "seed": 17941,
+            "opponent_model_families": [
+              "economic",
+              "pressure",
+              "wander",
+              "hold"
+            ],
+            "belief": {
+              "transitions": 33,
+              "support_states": 1,
+              "cap": 512,
+              "dropped_states": 0,
+              "exact_support": true,
+              "possible_tokens": [
+                1
+              ],
+              "cooldown_domains": [
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ]
+              ],
+              "progress_domains": [
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ]
+              ],
+              "history_sha256": "6568ac97742e37d0b84395367e1a06665fa4dafdac0c05ed1d8025025cf57775",
+              "belief_weights": "uniform support; not calibrated action likelihoods"
+            },
+            "certifies_optimality": false,
+            "full_bmcts": false,
+            "used_actual_rival_controller_or_future_tape": false,
+            "used_per_particle_focal_optimization": false,
+            "deployed_policy_changed": false
+          }
+        },
+        {
+          "turn": 60,
+          "search_seconds": 1.2115042000077665,
+          "diagnostic": {
+            "kind": "public_history_open_loop_beam_monte_carlo_diagnostic",
+            "recommended_action": "NORTH",
+            "incumbent_action": "WEST",
+            "root_estimates": [
+              {
+                "action": "NORTH",
+                "sequence": [
+                  "NORTH",
+                  "NORTH",
+                  "STAY"
+                ],
+                "mean": 16.555555555555586,
+                "sample_sd": 4.042368209446127,
+                "samples": 6
+              },
+              {
+                "action": "EAST",
+                "sequence": [
+                  "EAST",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": 3.5555555555555856,
+                "sample_sd": 4.042368209446127,
+                "samples": 6
+              },
+              {
+                "action": "WEST",
+                "sequence": [
+                  "WEST",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": 3.5555555555555856,
+                "sample_sd": 4.042368209446127,
+                "samples": 6
+              },
+              {
+                "action": "STAY",
+                "sequence": [
+                  "STAY",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": 3.5555555555555856,
+                "sample_sd": 4.042368209446127,
+                "samples": 6
+              },
+              {
+                "action": "SHIELD",
+                "sequence": [
+                  "SHIELD",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": 3.5555555555555856,
+                "sample_sd": 4.042368209446127,
+                "samples": 6
+              }
+            ],
+            "horizon": 3,
+            "beam_width_per_root": 2,
+            "rollouts_per_sequence": 6,
+            "sequences_evaluated": 95,
+            "income_tail_turns": 12.0,
+            "seed": 17941,
+            "opponent_model_families": [
+              "economic",
+              "pressure",
+              "wander",
+              "hold"
+            ],
+            "belief": {
+              "transitions": 59,
+              "support_states": 1,
+              "cap": 512,
+              "dropped_states": 0,
+              "exact_support": true,
+              "possible_tokens": [
+                3
+              ],
+              "cooldown_domains": [
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ]
+              ],
+              "progress_domains": [
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ]
+              ],
+              "history_sha256": "798dd71d952352d551bf769a9b49d5e56e086e6095160cea2f8f1a83ac187807",
+              "belief_weights": "uniform support; not calibrated action likelihoods"
+            },
+            "certifies_optimality": false,
+            "full_bmcts": false,
+            "used_actual_rival_controller_or_future_tape": false,
+            "used_per_particle_focal_optimization": false,
+            "deployed_policy_changed": false
+          }
+        }
+      ],
+      "elapsed_seconds": 3.442164900014177
+    },
+    {
+      "fixture": 163,
+      "focal_seat": 1,
+      "map_group": 3,
+      "field": "novel-pressure",
+      "transitions": 80,
+      "oracle_support_checks": 81,
+      "maximum_support": 3,
+      "final_support": {
+        "transitions": 80,
+        "support_states": 1,
+        "cap": 512,
+        "dropped_states": 0,
+        "exact_support": true,
+        "possible_tokens": [
+          4
+        ],
+        "cooldown_domains": [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "progress_domains": [
+          [
+            2
+          ],
+          [
+            1
+          ],
+          [
+            1
+          ],
+          [
+            1
+          ]
+        ],
+        "history_sha256": "2274c41f3a2edbe2932f8ec5ad13d800ed71a6149e953e194f6f7fb4db566507",
+        "belief_weights": "uniform support; not calibrated action likelihoods"
+      },
+      "snapshots": [
+        {
+          "turn": 12,
+          "search_seconds": 1.202233900083229,
+          "diagnostic": {
+            "kind": "public_history_open_loop_beam_monte_carlo_diagnostic",
+            "recommended_action": "SOUTH",
+            "incumbent_action": "SOUTH",
+            "root_estimates": [
+              {
+                "action": "SOUTH",
+                "sequence": [
+                  "SOUTH",
+                  "STAY",
+                  "EAST"
+                ],
+                "mean": 6.444444444444444,
+                "sample_sd": 5.361039147473248,
+                "samples": 6
+              },
+              {
+                "action": "EAST",
+                "sequence": [
+                  "EAST",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": -7.500000000000001,
+                "sample_sd": 5.3406200222654086,
+                "samples": 6
+              },
+              {
+                "action": "WEST",
+                "sequence": [
+                  "WEST",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": -7.500000000000001,
+                "sample_sd": 5.3406200222654086,
+                "samples": 6
+              },
+              {
+                "action": "STAY",
+                "sequence": [
+                  "STAY",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": -7.500000000000001,
+                "sample_sd": 5.3406200222654086,
+                "samples": 6
+              },
+              {
+                "action": "SHIELD",
+                "sequence": [
+                  "SHIELD",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": -7.500000000000001,
+                "sample_sd": 5.3406200222654086,
+                "samples": 6
+              }
+            ],
+            "horizon": 3,
+            "beam_width_per_root": 2,
+            "rollouts_per_sequence": 6,
+            "sequences_evaluated": 95,
+            "income_tail_turns": 12.0,
+            "seed": 17941,
+            "opponent_model_families": [
+              "economic",
+              "pressure",
+              "wander",
+              "hold"
+            ],
+            "belief": {
+              "transitions": 11,
+              "support_states": 1,
+              "cap": 512,
+              "dropped_states": 0,
+              "exact_support": true,
+              "possible_tokens": [
+                3
+              ],
+              "cooldown_domains": [
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ]
+              ],
+              "progress_domains": [
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ]
+              ],
+              "history_sha256": "ef493a22ea5d4beba97162101c09e5046335d1e527885b6aa6540ff0503751da",
+              "belief_weights": "uniform support; not calibrated action likelihoods"
+            },
+            "certifies_optimality": false,
+            "full_bmcts": false,
+            "used_actual_rival_controller_or_future_tape": false,
+            "used_per_particle_focal_optimization": false,
+            "deployed_policy_changed": false
+          }
+        },
+        {
+          "turn": 34,
+          "search_seconds": 1.3399341000476852,
+          "diagnostic": {
+            "kind": "public_history_open_loop_beam_monte_carlo_diagnostic",
+            "recommended_action": "STAY",
+            "incumbent_action": "STAY",
+            "root_estimates": [
+              {
+                "action": "STAY",
+                "sequence": [
+                  "STAY",
+                  "NORTH",
+                  "STAY"
+                ],
+                "mean": 43.333333333333314,
+                "sample_sd": 2.129162589689519,
+                "samples": 6
+              },
+              {
+                "action": "NORTH",
+                "sequence": [
+                  "NORTH",
+                  "STAY",
+                  "EAST"
+                ],
+                "mean": 15.333333333333309,
+                "sample_sd": 2.129162589689519,
+                "samples": 6
+              },
+              {
+                "action": "WEST",
+                "sequence": [
+                  "WEST",
+                  "STAY",
+                  "EAST"
+                ],
+                "mean": 15.333333333333309,
+                "sample_sd": 2.129162589689519,
+                "samples": 6
+              },
+              {
+                "action": "SOUTH",
+                "sequence": [
+                  "SOUTH",
+                  "STAY",
+                  "EAST"
+                ],
+                "mean": 1.3333333333333097,
+                "sample_sd": 2.129162589689519,
+                "samples": 6
+              },
+              {
+                "action": "EAST",
+                "sequence": [
+                  "EAST",
+                  "EAST",
+                  "STAY"
+                ],
+                "mean": 0.33333333333330967,
+                "sample_sd": 2.129162589689519,
+                "samples": 6
+              },
+              {
+                "action": "SHIELD",
+                "sequence": [
+                  "SHIELD",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": -12.666666666666691,
+                "sample_sd": 2.129162589689519,
+                "samples": 6
+              }
+            ],
+            "horizon": 3,
+            "beam_width_per_root": 2,
+            "rollouts_per_sequence": 6,
+            "sequences_evaluated": 114,
+            "income_tail_turns": 12.0,
+            "seed": 17941,
+            "opponent_model_families": [
+              "economic",
+              "pressure",
+              "wander",
+              "hold"
+            ],
+            "belief": {
+              "transitions": 33,
+              "support_states": 1,
+              "cap": 512,
+              "dropped_states": 0,
+              "exact_support": true,
+              "possible_tokens": [
+                1
+              ],
+              "cooldown_domains": [
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ]
+              ],
+              "progress_domains": [
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ]
+              ],
+              "history_sha256": "8ad5bf350ccb9c59dc809ff3bbccc82cc5c69bf471063306e11f6915682356ce",
+              "belief_weights": "uniform support; not calibrated action likelihoods"
+            },
+            "certifies_optimality": false,
+            "full_bmcts": false,
+            "used_actual_rival_controller_or_future_tape": false,
+            "used_per_particle_focal_optimization": false,
+            "deployed_policy_changed": false
+          }
+        },
+        {
+          "turn": 60,
+          "search_seconds": 0.6675360000226647,
+          "diagnostic": {
+            "kind": "public_history_open_loop_beam_monte_carlo_diagnostic",
+            "recommended_action": "SHIELD",
+            "incumbent_action": "SHIELD",
+            "root_estimates": [
+              {
+                "action": "SHIELD",
+                "sequence": [
+                  "SHIELD",
+                  "SHIELD",
+                  "EAST"
+                ],
+                "mean": 58.16666666666665,
+                "sample_sd": 9.553940431977631,
+                "samples": 6
+              },
+              {
+                "action": "STAY",
+                "sequence": [
+                  "STAY",
+                  "EAST",
+                  "SHIELD"
+                ],
+                "mean": -16.833333333333353,
+                "sample_sd": 60.1604336568295,
+                "samples": 6
+              },
+              {
+                "action": "NORTH",
+                "sequence": [
+                  "NORTH",
+                  "STAY",
+                  "SHIELD"
+                ],
+                "mean": -17.833333333333353,
+                "sample_sd": 60.1604336568295,
+                "samples": 6
+              },
+              {
+                "action": "EAST",
+                "sequence": [
+                  "EAST",
+                  "EAST",
+                  "SHIELD"
+                ],
+                "mean": -31.833333333333353,
+                "sample_sd": 60.1604336568295,
+                "samples": 6
+              },
+              {
+                "action": "SOUTH",
+                "sequence": [
+                  "SOUTH",
+                  "EAST",
+                  "SHIELD"
+                ],
+                "mean": -31.833333333333353,
+                "sample_sd": 60.1604336568295,
+                "samples": 6
+              },
+              {
+                "action": "WEST",
+                "sequence": [
+                  "WEST",
+                  "EAST",
+                  "SHIELD"
+                ],
+                "mean": -31.833333333333353,
+                "sample_sd": 60.1604336568295,
+                "samples": 6
+              }
+            ],
+            "horizon": 3,
+            "beam_width_per_root": 2,
+            "rollouts_per_sequence": 6,
+            "sequences_evaluated": 114,
+            "income_tail_turns": 12.0,
+            "seed": 17941,
+            "opponent_model_families": [
+              "economic",
+              "pressure",
+              "wander",
+              "hold"
+            ],
+            "belief": {
+              "transitions": 59,
+              "support_states": 1,
+              "cap": 512,
+              "dropped_states": 0,
+              "exact_support": true,
+              "possible_tokens": [
+                3
+              ],
+              "cooldown_domains": [
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ]
+              ],
+              "progress_domains": [
+                [
+                  0
+                ],
+                [
+                  2
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ]
+              ],
+              "history_sha256": "51035351b4f6bdf23b5df0c7ed4e20341ed14a497bd6fbb147e1493488012ff6",
+              "belief_weights": "uniform support; not calibrated action likelihoods"
+            },
+            "certifies_optimality": false,
+            "full_bmcts": false,
+            "used_actual_rival_controller_or_future_tape": false,
+            "used_per_particle_focal_optimization": false,
+            "deployed_policy_changed": false
+          }
+        }
+      ],
+      "elapsed_seconds": 3.41473100008443
+    },
+    {
+      "fixture": 84,
+      "focal_seat": 2,
+      "map_group": 1,
+      "field": "shield-baits",
+      "transitions": 80,
+      "oracle_support_checks": 81,
+      "maximum_support": 3,
+      "final_support": {
+        "transitions": 80,
+        "support_states": 1,
+        "cap": 512,
+        "dropped_states": 0,
+        "exact_support": true,
+        "possible_tokens": [
+          1
+        ],
+        "cooldown_domains": [
+          [
+            0
+          ],
+          [
+            4
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "progress_domains": [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "history_sha256": "96156e774d86d42d4a8a355f53f5c5d8edc9aa78dc3902763485faa3f5bff190",
+        "belief_weights": "uniform support; not calibrated action likelihoods"
+      },
+      "snapshots": [
+        {
+          "turn": 12,
+          "search_seconds": 0.5395961999893188,
+          "diagnostic": {
+            "kind": "public_history_open_loop_beam_monte_carlo_diagnostic",
+            "recommended_action": "STAY",
+            "incumbent_action": "STAY",
+            "root_estimates": [
+              {
+                "action": "STAY",
+                "sequence": [
+                  "STAY",
+                  "EAST",
+                  "STAY"
+                ],
+                "mean": 16.444444444444443,
+                "sample_sd": 13.240789950698504,
+                "samples": 6
+              },
+              {
+                "action": "SOUTH",
+                "sequence": [
+                  "SOUTH",
+                  "STAY",
+                  "EAST"
+                ],
+                "mean": 0.44444444444444403,
+                "sample_sd": 13.240789950698504,
+                "samples": 6
+              },
+              {
+                "action": "WEST",
+                "sequence": [
+                  "WEST",
+                  "STAY",
+                  "EAST"
+                ],
+                "mean": 0.44444444444444403,
+                "sample_sd": 13.240789950698504,
+                "samples": 6
+              },
+              {
+                "action": "EAST",
+                "sequence": [
+                  "EAST",
+                  "EAST",
+                  "STAY"
+                ],
+                "mean": -15.555555555555557,
+                "sample_sd": 13.240789950698504,
+                "samples": 6
+              },
+              {
+                "action": "NORTH",
+                "sequence": [
+                  "NORTH",
+                  "EAST",
+                  "NORTH"
+                ],
+                "mean": -28.555555555555557,
+                "sample_sd": 13.240789950698504,
+                "samples": 6
+              },
+              {
+                "action": "SHIELD",
+                "sequence": [
+                  "SHIELD",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": -41.55555555555556,
+                "sample_sd": 13.240789950698504,
+                "samples": 6
+              }
+            ],
+            "horizon": 3,
+            "beam_width_per_root": 2,
+            "rollouts_per_sequence": 6,
+            "sequences_evaluated": 114,
+            "income_tail_turns": 12.0,
+            "seed": 17941,
+            "opponent_model_families": [
+              "economic",
+              "pressure",
+              "wander",
+              "hold"
+            ],
+            "belief": {
+              "transitions": 11,
+              "support_states": 1,
+              "cap": 512,
+              "dropped_states": 0,
+              "exact_support": true,
+              "possible_tokens": [
+                4
+              ],
+              "cooldown_domains": [
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ]
+              ],
+              "progress_domains": [
+                [
+                  1
+                ],
+                [
+                  2
+                ],
+                [
+                  2
+                ],
+                [
+                  2
+                ]
+              ],
+              "history_sha256": "d184d2cbb795fdd9b9a3cf0ba010c8d35c0080159971afe1246da616c77c2f46",
+              "belief_weights": "uniform support; not calibrated action likelihoods"
+            },
+            "certifies_optimality": false,
+            "full_bmcts": false,
+            "used_actual_rival_controller_or_future_tape": false,
+            "used_per_particle_focal_optimization": false,
+            "deployed_policy_changed": false
+          }
+        },
+        {
+          "turn": 34,
+          "search_seconds": 0.5795017000054941,
+          "diagnostic": {
+            "kind": "public_history_open_loop_beam_monte_carlo_diagnostic",
+            "recommended_action": "WEST",
+            "incumbent_action": "NORTH",
+            "root_estimates": [
+              {
+                "action": "WEST",
+                "sequence": [
+                  "WEST",
+                  "STAY",
+                  "EAST"
+                ],
+                "mean": 61.83333333333332,
+                "sample_sd": 12.703018014104615,
+                "samples": 6
+              },
+              {
+                "action": "NORTH",
+                "sequence": [
+                  "NORTH",
+                  "EAST",
+                  "STAY"
+                ],
+                "mean": 59.83333333333332,
+                "sample_sd": 12.703018014104615,
+                "samples": 6
+              },
+              {
+                "action": "EAST",
+                "sequence": [
+                  "EAST",
+                  "EAST",
+                  "STAY"
+                ],
+                "mean": 38.16666666666666,
+                "sample_sd": 22.229859798628198,
+                "samples": 6
+              },
+              {
+                "action": "STAY",
+                "sequence": [
+                  "STAY",
+                  "EAST",
+                  "STAY"
+                ],
+                "mean": 38.16666666666666,
+                "sample_sd": 22.229859798628198,
+                "samples": 6
+              },
+              {
+                "action": "SOUTH",
+                "sequence": [
+                  "SOUTH",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": 33.83333333333332,
+                "sample_sd": 12.703018014104615,
+                "samples": 6
+              },
+              {
+                "action": "SHIELD",
+                "sequence": [
+                  "SHIELD",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": 33.83333333333332,
+                "sample_sd": 12.703018014104615,
+                "samples": 6
+              }
+            ],
+            "horizon": 3,
+            "beam_width_per_root": 2,
+            "rollouts_per_sequence": 6,
+            "sequences_evaluated": 114,
+            "income_tail_turns": 12.0,
+            "seed": 17941,
+            "opponent_model_families": [
+              "economic",
+              "pressure",
+              "wander",
+              "hold"
+            ],
+            "belief": {
+              "transitions": 33,
+              "support_states": 1,
+              "cap": 512,
+              "dropped_states": 0,
+              "exact_support": true,
+              "possible_tokens": [
+                2
+              ],
+              "cooldown_domains": [
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ]
+              ],
+              "progress_domains": [
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  2
+                ]
+              ],
+              "history_sha256": "76cd5cc1abe69ab39ed49422beae5d5be0218553cb72532ef4f79a7583d3ce31",
+              "belief_weights": "uniform support; not calibrated action likelihoods"
+            },
+            "certifies_optimality": false,
+            "full_bmcts": false,
+            "used_actual_rival_controller_or_future_tape": false,
+            "used_per_particle_focal_optimization": false,
+            "deployed_policy_changed": false
+          }
+        },
+        {
+          "turn": 60,
+          "search_seconds": 0.6103849000064656,
+          "diagnostic": {
+            "kind": "public_history_open_loop_beam_monte_carlo_diagnostic",
+            "recommended_action": "EAST",
+            "incumbent_action": "EAST",
+            "root_estimates": [
+              {
+                "action": "EAST",
+                "sequence": [
+                  "EAST",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": 49.55555555555566,
+                "sample_sd": 3.397166575359636,
+                "samples": 6
+              },
+              {
+                "action": "WEST",
+                "sequence": [
+                  "WEST",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": 47.55555555555566,
+                "sample_sd": 3.397166575359636,
+                "samples": 6
+              },
+              {
+                "action": "STAY",
+                "sequence": [
+                  "STAY",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": 47.55555555555566,
+                "sample_sd": 3.397166575359636,
+                "samples": 6
+              },
+              {
+                "action": "SOUTH",
+                "sequence": [
+                  "SOUTH",
+                  "SOUTH",
+                  "EAST"
+                ],
+                "mean": 35.555555555555664,
+                "sample_sd": 3.397166575359636,
+                "samples": 6
+              },
+              {
+                "action": "NORTH",
+                "sequence": [
+                  "NORTH",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": 34.555555555555664,
+                "sample_sd": 3.397166575359636,
+                "samples": 6
+              },
+              {
+                "action": "SHIELD",
+                "sequence": [
+                  "SHIELD",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": 21.55555555555566,
+                "sample_sd": 3.397166575359636,
+                "samples": 6
+              }
+            ],
+            "horizon": 3,
+            "beam_width_per_root": 2,
+            "rollouts_per_sequence": 6,
+            "sequences_evaluated": 114,
+            "income_tail_turns": 12.0,
+            "seed": 17941,
+            "opponent_model_families": [
+              "economic",
+              "pressure",
+              "wander",
+              "hold"
+            ],
+            "belief": {
+              "transitions": 59,
+              "support_states": 1,
+              "cap": 512,
+              "dropped_states": 0,
+              "exact_support": true,
+              "possible_tokens": [
+                4
+              ],
+              "cooldown_domains": [
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ]
+              ],
+              "progress_domains": [
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  1
+                ],
+                [
+                  1
+                ]
+              ],
+              "history_sha256": "96fac5ac43f9cbaff1309fd9dd9de8625eb0b67e58edf33029bfd608934cb6e1",
+              "belief_weights": "uniform support; not calibrated action likelihoods"
+            },
+            "certifies_optimality": false,
+            "full_bmcts": false,
+            "used_actual_rival_controller_or_future_tape": false,
+            "used_per_particle_focal_optimization": false,
+            "deployed_policy_changed": false
+          }
+        }
+      ],
+      "elapsed_seconds": 1.841000200016424
+    },
+    {
+      "fixture": 489,
+      "focal_seat": 3,
+      "map_group": 10,
+      "field": "legacy-economic",
+      "transitions": 80,
+      "oracle_support_checks": 81,
+      "maximum_support": 3,
+      "final_support": {
+        "transitions": 80,
+        "support_states": 1,
+        "cap": 512,
+        "dropped_states": 0,
+        "exact_support": true,
+        "possible_tokens": [
+          2
+        ],
+        "cooldown_domains": [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "progress_domains": [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "history_sha256": "addab7a9323f8465f1746e14272a074fcc532d98aebe8d8d9f9ca1c094484691",
+        "belief_weights": "uniform support; not calibrated action likelihoods"
+      },
+      "snapshots": [
+        {
+          "turn": 12,
+          "search_seconds": 0.4372333000646904,
+          "diagnostic": {
+            "kind": "public_history_open_loop_beam_monte_carlo_diagnostic",
+            "recommended_action": "STAY",
+            "incumbent_action": "STAY",
+            "root_estimates": [
+              {
+                "action": "STAY",
+                "sequence": [
+                  "STAY",
+                  "SOUTH",
+                  "EAST"
+                ],
+                "mean": 9.222222222222227,
+                "sample_sd": 9.572336685973273,
+                "samples": 6
+              },
+              {
+                "action": "NORTH",
+                "sequence": [
+                  "NORTH",
+                  "STAY",
+                  "EAST"
+                ],
+                "mean": -4.777777777777774,
+                "sample_sd": 9.572336685973273,
+                "samples": 6
+              },
+              {
+                "action": "EAST",
+                "sequence": [
+                  "EAST",
+                  "NORTH",
+                  "STAY"
+                ],
+                "mean": -6.777777777777774,
+                "sample_sd": 9.572336685973273,
+                "samples": 6
+              },
+              {
+                "action": "WEST",
+                "sequence": [
+                  "WEST",
+                  "SOUTH",
+                  "EAST"
+                ],
+                "mean": -18.777777777777775,
+                "sample_sd": 9.572336685973273,
+                "samples": 6
+              },
+              {
+                "action": "SHIELD",
+                "sequence": [
+                  "SHIELD",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": -32.77777777777777,
+                "sample_sd": 9.572336685973273,
+                "samples": 6
+              }
+            ],
+            "horizon": 3,
+            "beam_width_per_root": 2,
+            "rollouts_per_sequence": 6,
+            "sequences_evaluated": 95,
+            "income_tail_turns": 12.0,
+            "seed": 17941,
+            "opponent_model_families": [
+              "economic",
+              "pressure",
+              "wander",
+              "hold"
+            ],
+            "belief": {
+              "transitions": 11,
+              "support_states": 1,
+              "cap": 512,
+              "dropped_states": 0,
+              "exact_support": true,
+              "possible_tokens": [
+                1
+              ],
+              "cooldown_domains": [
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ]
+              ],
+              "progress_domains": [
+                [
+                  1
+                ],
+                [
+                  0
+                ],
+                [
+                  1
+                ],
+                [
+                  1
+                ]
+              ],
+              "history_sha256": "8097951e8d727b3fabc872596a04e8113cd65c95eb1b07818f102d3e37bb0f9a",
+              "belief_weights": "uniform support; not calibrated action likelihoods"
+            },
+            "certifies_optimality": false,
+            "full_bmcts": false,
+            "used_actual_rival_controller_or_future_tape": false,
+            "used_per_particle_focal_optimization": false,
+            "deployed_policy_changed": false
+          }
+        },
+        {
+          "turn": 34,
+          "search_seconds": 0.5766660999506712,
+          "diagnostic": {
+            "kind": "public_history_open_loop_beam_monte_carlo_diagnostic",
+            "recommended_action": "STAY",
+            "incumbent_action": "STAY",
+            "root_estimates": [
+              {
+                "action": "STAY",
+                "sequence": [
+                  "STAY",
+                  "NORTH",
+                  "STAY"
+                ],
+                "mean": 26.444444444444414,
+                "sample_sd": 20.437075966832317,
+                "samples": 6
+              },
+              {
+                "action": "NORTH",
+                "sequence": [
+                  "NORTH",
+                  "STAY",
+                  "EAST"
+                ],
+                "mean": -10.7777777777778,
+                "sample_sd": 8.696529746377566,
+                "samples": 6
+              },
+              {
+                "action": "EAST",
+                "sequence": [
+                  "EAST",
+                  "STAY",
+                  "EAST"
+                ],
+                "mean": -24.7777777777778,
+                "sample_sd": 8.696529746377566,
+                "samples": 6
+              },
+              {
+                "action": "SOUTH",
+                "sequence": [
+                  "SOUTH",
+                  "STAY",
+                  "EAST"
+                ],
+                "mean": -24.7777777777778,
+                "sample_sd": 8.696529746377566,
+                "samples": 6
+              },
+              {
+                "action": "WEST",
+                "sequence": [
+                  "WEST",
+                  "NORTH",
+                  "NORTH"
+                ],
+                "mean": -24.7777777777778,
+                "sample_sd": 8.696529746377566,
+                "samples": 6
+              },
+              {
+                "action": "SHIELD",
+                "sequence": [
+                  "SHIELD",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": -40.22222222222225,
+                "sample_sd": 11.11688738744734,
+                "samples": 6
+              }
+            ],
+            "horizon": 3,
+            "beam_width_per_root": 2,
+            "rollouts_per_sequence": 6,
+            "sequences_evaluated": 114,
+            "income_tail_turns": 12.0,
+            "seed": 17941,
+            "opponent_model_families": [
+              "economic",
+              "pressure",
+              "wander",
+              "hold"
+            ],
+            "belief": {
+              "transitions": 33,
+              "support_states": 1,
+              "cap": 512,
+              "dropped_states": 0,
+              "exact_support": true,
+              "possible_tokens": [
+                3
+              ],
+              "cooldown_domains": [
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ]
+              ],
+              "progress_domains": [
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  2
+                ],
+                [
+                  0
+                ]
+              ],
+              "history_sha256": "659808a522c63abb0d5a1216a76f86b1bc2ba9b7103a87fa5afadae584bd77c4",
+              "belief_weights": "uniform support; not calibrated action likelihoods"
+            },
+            "certifies_optimality": false,
+            "full_bmcts": false,
+            "used_actual_rival_controller_or_future_tape": false,
+            "used_per_particle_focal_optimization": false,
+            "deployed_policy_changed": false
+          }
+        },
+        {
+          "turn": 60,
+          "search_seconds": 0.6796425000065938,
+          "diagnostic": {
+            "kind": "public_history_open_loop_beam_monte_carlo_diagnostic",
+            "recommended_action": "STAY",
+            "incumbent_action": "WEST",
+            "root_estimates": [
+              {
+                "action": "STAY",
+                "sequence": [
+                  "STAY",
+                  "NORTH",
+                  "STAY"
+                ],
+                "mean": 97.55555555555553,
+                "sample_sd": 54.33012942155546,
+                "samples": 6
+              },
+              {
+                "action": "NORTH",
+                "sequence": [
+                  "NORTH",
+                  "STAY",
+                  "EAST"
+                ],
+                "mean": 48.944444444444365,
+                "sample_sd": 1.9022403945134174,
+                "samples": 6
+              },
+              {
+                "action": "WEST",
+                "sequence": [
+                  "WEST",
+                  "STAY",
+                  "EAST"
+                ],
+                "mean": 48.83333333333326,
+                "sample_sd": 2.465314944946716,
+                "samples": 6
+              },
+              {
+                "action": "EAST",
+                "sequence": [
+                  "EAST",
+                  "EAST",
+                  "STAY"
+                ],
+                "mean": 47.55555555555552,
+                "sample_sd": 2.2574977954133946,
+                "samples": 6
+              },
+              {
+                "action": "SOUTH",
+                "sequence": [
+                  "SOUTH",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": 34.55555555555552,
+                "sample_sd": 2.2574977954133946,
+                "samples": 6
+              },
+              {
+                "action": "SHIELD",
+                "sequence": [
+                  "SHIELD",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": 34.55555555555552,
+                "sample_sd": 2.2574977954133946,
+                "samples": 6
+              }
+            ],
+            "horizon": 3,
+            "beam_width_per_root": 2,
+            "rollouts_per_sequence": 6,
+            "sequences_evaluated": 114,
+            "income_tail_turns": 12.0,
+            "seed": 17941,
+            "opponent_model_families": [
+              "economic",
+              "pressure",
+              "wander",
+              "hold"
+            ],
+            "belief": {
+              "transitions": 59,
+              "support_states": 1,
+              "cap": 512,
+              "dropped_states": 0,
+              "exact_support": true,
+              "possible_tokens": [
+                1
+              ],
+              "cooldown_domains": [
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ]
+              ],
+              "progress_domains": [
+                [
+                  0
+                ],
+                [
+                  1
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ]
+              ],
+              "history_sha256": "750282cce06828050ca7c87e87dc630837f3b636aa61590757ff29691a517bc5",
+              "belief_weights": "uniform support; not calibrated action likelihoods"
+            },
+            "certifies_optimality": false,
+            "full_bmcts": false,
+            "used_actual_rival_controller_or_future_tape": false,
+            "used_per_particle_focal_optimization": false,
+            "deployed_policy_changed": false
+          }
+        }
+      ],
+      "elapsed_seconds": 1.8024453999241814
+    },
+    {
+      "fixture": 366,
+      "focal_seat": 4,
+      "map_group": 7,
+      "field": "novel-pressure",
+      "transitions": 80,
+      "oracle_support_checks": 81,
+      "maximum_support": 3,
+      "final_support": {
+        "transitions": 80,
+        "support_states": 1,
+        "cap": 512,
+        "dropped_states": 0,
+        "exact_support": true,
+        "possible_tokens": [
+          3
+        ],
+        "cooldown_domains": [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            2
+          ],
+          [
+            0
+          ]
+        ],
+        "progress_domains": [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "history_sha256": "e066bd8809d494b61cc580fc6cb6c316ee08923d2159b71b268720f2b35a9213",
+        "belief_weights": "uniform support; not calibrated action likelihoods"
+      },
+      "snapshots": [
+        {
+          "turn": 12,
+          "search_seconds": 0.5423808000050485,
+          "diagnostic": {
+            "kind": "public_history_open_loop_beam_monte_carlo_diagnostic",
+            "recommended_action": "STAY",
+            "incumbent_action": "STAY",
+            "root_estimates": [
+              {
+                "action": "STAY",
+                "sequence": [
+                  "STAY",
+                  "NORTH",
+                  "STAY"
+                ],
+                "mean": 54.27777777777777,
+                "sample_sd": 15.175150252474774,
+                "samples": 6
+              },
+              {
+                "action": "NORTH",
+                "sequence": [
+                  "NORTH",
+                  "EAST",
+                  "STAY"
+                ],
+                "mean": 12.055555555555557,
+                "sample_sd": 14.283505120190862,
+                "samples": 6
+              },
+              {
+                "action": "EAST",
+                "sequence": [
+                  "EAST",
+                  "NORTH",
+                  "STAY"
+                ],
+                "mean": 11.777777777777777,
+                "sample_sd": 43.4984886923502,
+                "samples": 6
+              },
+              {
+                "action": "WEST",
+                "sequence": [
+                  "WEST",
+                  "NORTH",
+                  "STAY"
+                ],
+                "mean": 10.055555555555555,
+                "sample_sd": 14.98950249958901,
+                "samples": 6
+              },
+              {
+                "action": "SOUTH",
+                "sequence": [
+                  "SOUTH",
+                  "NORTH",
+                  "STAY"
+                ],
+                "mean": 5.888888888888889,
+                "sample_sd": 18.42301298396675,
+                "samples": 6
+              },
+              {
+                "action": "SHIELD",
+                "sequence": [
+                  "SHIELD",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": -29.722222222222225,
+                "sample_sd": 15.175150252474776,
+                "samples": 6
+              }
+            ],
+            "horizon": 3,
+            "beam_width_per_root": 2,
+            "rollouts_per_sequence": 6,
+            "sequences_evaluated": 114,
+            "income_tail_turns": 12.0,
+            "seed": 17941,
+            "opponent_model_families": [
+              "economic",
+              "pressure",
+              "wander",
+              "hold"
+            ],
+            "belief": {
+              "transitions": 11,
+              "support_states": 1,
+              "cap": 512,
+              "dropped_states": 0,
+              "exact_support": true,
+              "possible_tokens": [
+                2
+              ],
+              "cooldown_domains": [
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ]
+              ],
+              "progress_domains": [
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ]
+              ],
+              "history_sha256": "6ae5df6ff16fc5f15738491fb430237c3eca0014e84360f52f62a5d9d65c2c05",
+              "belief_weights": "uniform support; not calibrated action likelihoods"
+            },
+            "certifies_optimality": false,
+            "full_bmcts": false,
+            "used_actual_rival_controller_or_future_tape": false,
+            "used_per_particle_focal_optimization": false,
+            "deployed_policy_changed": false
+          }
+        },
+        {
+          "turn": 34,
+          "search_seconds": 0.4678660000208765,
+          "diagnostic": {
+            "kind": "public_history_open_loop_beam_monte_carlo_diagnostic",
+            "recommended_action": "EAST",
+            "incumbent_action": "STAY",
+            "root_estimates": [
+              {
+                "action": "EAST",
+                "sequence": [
+                  "EAST",
+                  "NORTH",
+                  "EAST"
+                ],
+                "mean": 20.722222222222175,
+                "sample_sd": 3.6479319356873305,
+                "samples": 6
+              },
+              {
+                "action": "STAY",
+                "sequence": [
+                  "STAY",
+                  "EAST",
+                  "NORTH"
+                ],
+                "mean": 18.722222222222175,
+                "sample_sd": 3.6479319356873305,
+                "samples": 6
+              },
+              {
+                "action": "SOUTH",
+                "sequence": [
+                  "SOUTH",
+                  "STAY",
+                  "EAST"
+                ],
+                "mean": 6.722222222222174,
+                "sample_sd": 3.6479319356873305,
+                "samples": 6
+              },
+              {
+                "action": "WEST",
+                "sequence": [
+                  "WEST",
+                  "NORTH",
+                  "EAST"
+                ],
+                "mean": 6.722222222222174,
+                "sample_sd": 3.6479319356873305,
+                "samples": 6
+              },
+              {
+                "action": "SHIELD",
+                "sequence": [
+                  "SHIELD",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": -7.277777777777826,
+                "sample_sd": 3.6479319356873305,
+                "samples": 6
+              }
+            ],
+            "horizon": 3,
+            "beam_width_per_root": 2,
+            "rollouts_per_sequence": 6,
+            "sequences_evaluated": 95,
+            "income_tail_turns": 12.0,
+            "seed": 17941,
+            "opponent_model_families": [
+              "economic",
+              "pressure",
+              "wander",
+              "hold"
+            ],
+            "belief": {
+              "transitions": 33,
+              "support_states": 1,
+              "cap": 512,
+              "dropped_states": 0,
+              "exact_support": true,
+              "possible_tokens": [
+                4
+              ],
+              "cooldown_domains": [
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ]
+              ],
+              "progress_domains": [
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  1
+                ],
+                [
+                  0
+                ]
+              ],
+              "history_sha256": "885c9ee255f9d1882c194f574477f4b928688587b5c3828f635e14ec935d868c",
+              "belief_weights": "uniform support; not calibrated action likelihoods"
+            },
+            "certifies_optimality": false,
+            "full_bmcts": false,
+            "used_actual_rival_controller_or_future_tape": false,
+            "used_per_particle_focal_optimization": false,
+            "deployed_policy_changed": false
+          }
+        },
+        {
+          "turn": 60,
+          "search_seconds": 0.59570269996766,
+          "diagnostic": {
+            "kind": "public_history_open_loop_beam_monte_carlo_diagnostic",
+            "recommended_action": "STAY",
+            "incumbent_action": "STAY",
+            "root_estimates": [
+              {
+                "action": "STAY",
+                "sequence": [
+                  "STAY",
+                  "STAY",
+                  "EAST"
+                ],
+                "mean": 71.22222222222216,
+                "sample_sd": 5.584369721390702,
+                "samples": 6
+              },
+              {
+                "action": "EAST",
+                "sequence": [
+                  "EAST",
+                  "STAY",
+                  "EAST"
+                ],
+                "mean": 43.22222222222215,
+                "sample_sd": 5.584369721390702,
+                "samples": 6
+              },
+              {
+                "action": "NORTH",
+                "sequence": [
+                  "NORTH",
+                  "EAST",
+                  "STAY"
+                ],
+                "mean": 42.22222222222215,
+                "sample_sd": 5.584369721390702,
+                "samples": 6
+              },
+              {
+                "action": "SOUTH",
+                "sequence": [
+                  "SOUTH",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": 29.222222222222147,
+                "sample_sd": 5.584369721390702,
+                "samples": 6
+              },
+              {
+                "action": "WEST",
+                "sequence": [
+                  "WEST",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": 29.222222222222147,
+                "sample_sd": 5.584369721390702,
+                "samples": 6
+              },
+              {
+                "action": "SHIELD",
+                "sequence": [
+                  "SHIELD",
+                  "EAST",
+                  "EAST"
+                ],
+                "mean": 29.222222222222147,
+                "sample_sd": 5.584369721390702,
+                "samples": 6
+              }
+            ],
+            "horizon": 3,
+            "beam_width_per_root": 2,
+            "rollouts_per_sequence": 6,
+            "sequences_evaluated": 114,
+            "income_tail_turns": 12.0,
+            "seed": 17941,
+            "opponent_model_families": [
+              "economic",
+              "pressure",
+              "wander",
+              "hold"
+            ],
+            "belief": {
+              "transitions": 59,
+              "support_states": 1,
+              "cap": 512,
+              "dropped_states": 0,
+              "exact_support": true,
+              "possible_tokens": [
+                2
+              ],
+              "cooldown_domains": [
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ]
+              ],
+              "progress_domains": [
+                [
+                  1
+                ],
+                [
+                  1
+                ],
+                [
+                  0
+                ],
+                [
+                  1
+                ]
+              ],
+              "history_sha256": "f71323e0bb065869f32a63e51cf16a6771da80f25ef8fb6643f918f73e6ecfc7",
+              "belief_weights": "uniform support; not calibrated action likelihoods"
+            },
+            "certifies_optimality": false,
+            "full_bmcts": false,
+            "used_actual_rival_controller_or_future_tape": false,
+            "used_per_particle_focal_optimization": false,
+            "deployed_policy_changed": false
+          }
+        }
+      ],
+      "elapsed_seconds": 1.7098704000236467
+    }
+  ],
+  "primary_campaign_games": 0,
+  "new_champion_claimed": false,
+  "coach_inputs": [
+    "initial focal four-field observation",
+    "own past accepted actions",
+    "subsequent focal four-field observations",
+    "explicit diagnostic seed"
+  ],
+  "limitations": [
+    "uniform support is not a calibrated posterior",
+    "bounded open-loop beam, not full BMCTS",
+    "handwritten rival rollout families are approximations",
+    "short-horizon cutoff value is heuristic",
+    "offline diagnostic has no 200ms deployment guarantee"
+  ]
+}

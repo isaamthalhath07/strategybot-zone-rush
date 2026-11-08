@@ -1,0 +1,144 @@
+{
+  "format": "zone-rush-independent-oversight-addendum/1",
+  "previous_audit_sha256": "0e86a4e9cd0772bcbf644f1a80c37a3cf6e0239283e2f2233a750b705698fb4e",
+  "archived_original_auditor_sha256": "251d3424d8763bf2ae4dd9520e0e5db9387a424d8d4fdb6ccb61e362ac93e981",
+  "auditor_sha256": "02fbb41a16df510a33214207f6f3d0561b4865d75cb1a293ea614680df9000b6",
+  "correction": "The original no-mutant-worker-test blocker is superseded: 32 matched-input process games passed. These are mechanics checks, not independent strength evidence.",
+  "validity": "passed_for_recorded_games",
+  "games": 2048,
+  "turns": 163840,
+  "regenerated_callbacks": 655360,
+  "promotion": "BLOCKED",
+  "promotion_blockers": [
+    "Independent confirmation does not establish an improvement over the incumbent.",
+    "A separately reviewed release decision is required."
+  ],
+  "independently_recomputed_paired": [
+    {
+      "directory": "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\.cache\\evolution\\discovery_001",
+      "role": "discovery",
+      "paired": [
+        {
+          "first": "def6a8585f26dc51df5d6be8dd59d39c35f53417e76bfa0fd9c54c5837608b7a",
+          "second": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+          "maps": 8,
+          "games": 128,
+          "mean": -0.02734375,
+          "bootstrap_95": [
+            -0.16796875,
+            0.1015625
+          ]
+        },
+        {
+          "first": "1edc9d0c269328fb420ba582fed0bfa3cd46012c3dc354ea69275fa028088d4b",
+          "second": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+          "maps": 8,
+          "games": 128,
+          "mean": 0.0,
+          "bootstrap_95": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "first": "4737b8184da3d392b44a6ab882cf916bc731c7497df5f6879ef9e53fcbe782bb",
+          "second": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+          "maps": 8,
+          "games": 128,
+          "mean": 0.03125,
+          "bootstrap_95": [
+            -0.0234375,
+            0.0859375
+          ]
+        },
+        {
+          "first": "0ae328cd6849545f4509fd3368247a0af9309e6f88418dc639772d900c73c795",
+          "second": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+          "maps": 8,
+          "games": 128,
+          "mean": -0.2109375,
+          "bootstrap_95": [
+            -0.3671875,
+            -0.078125
+          ]
+        },
+        {
+          "first": "8768c232dfa23b2b67c687f86c95bf341062929f386dfa0b94de23ff2a8de08d",
+          "second": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+          "maps": 8,
+          "games": 128,
+          "mean": 0.03125,
+          "bootstrap_95": [
+            -0.0078125,
+            0.0703125
+          ]
+        },
+        {
+          "first": "5c79f7aad73d452381874a5391fa3416dd64bc815578e37e83bcd94c42247dbd",
+          "second": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+          "maps": 8,
+          "games": 128,
+          "mean": 0.0,
+          "bootstrap_95": [
+            -0.0234375,
+            0.0234375
+          ]
+        },
+        {
+          "first": "35f76a6d091d6c14bd848e9e37d274258556f702020ee802518f860a7ac4fc62",
+          "second": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+          "maps": 8,
+          "games": 128,
+          "mean": -0.125,
+          "bootstrap_95": [
+            -0.25390625,
+            -0.0078125
+          ]
+        }
+      ]
+    },
+    {
+      "directory": "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\.cache\\evolution\\confirmation_001",
+      "role": "confirmation",
+      "paired": [
+        {
+          "first": "8768c232dfa23b2b67c687f86c95bf341062929f386dfa0b94de23ff2a8de08d",
+          "second": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+          "maps": 32,
+          "games": 512,
+          "mean": -0.0048828125,
+          "bootstrap_95": [
+            -0.0634765625,
+            0.052734375
+          ]
+        }
+      ]
+    }
+  ],
+  "matched_input_isolation": {
+    "directory": "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\.cache\\evolution\\isolated_confirmation_003",
+    "games": 32,
+    "callbacks": 10240,
+    "max_ms": 1.887100050225854,
+    "source_guards_verified": true,
+    "all_actions_and_scores_exact": true,
+    "timing": {
+      "enforce": true,
+      "turn_ms": 200,
+      "first_ms": 2000,
+      "hard_s": 1.0,
+      "load_s": 5.0
+    },
+    "primary_campaign_games": 0,
+    "bmcts_audits": 0,
+    "new_strength_evidence": false,
+    "results_sha256": "f3b1d0db63086948575109382f06737fe49606decc500ff1a2e9d9169cf65c34"
+  },
+  "primary_campaign_games": 0,
+  "games_bmcts_audited": 0,
+  "limitations": [
+    "Finite league and custom map distribution; no proof of universal strength.",
+    "Matched-input process reproduction is not fresh strength evidence.",
+    "Prior full two-referee and actor rerun is source/transcript-bound, not rerun by this addendum."
+  ]
+}

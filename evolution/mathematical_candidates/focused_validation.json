@@ -1,0 +1,26 @@
+{
+  "format": "zone-rush-mathematical-contract-validation/1",
+  "python": "3.12.10",
+  "tests": 11,
+  "success": true,
+  "failures": 0,
+  "errors": 0,
+  "elapsed_s": 2.221490400028415,
+  "source_sha256": {
+    "bot.py": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+    "evolution/mathematical_probes.py": "fdd461e2fa48a617b2cabbb335be173fa160f145599d3ea3256c75c781bd0c93",
+    "evolution/mathematical_candidates/build_arrival.py": "9f088b7760ff853a648ec5e143253e7e3f65b60506af5e8f0ddbd921c73ea33f",
+    "evolution/mathematical_candidates/arrival_lifetime.py": "801e12ab60631ec1c16bf358a9d3d2db96f9a1e572b51f0f18e902f317881134",
+    "evolution/mathematical_candidates/arrival_lifetime_depth2.py": "3a64f9d476a1021349a3aef2088e97995eacabbe9327e008e62305c5c5aa3ab2",
+    "evolution/mathematical_candidates/baseline_depth2.py": "747b732ef32a0a50e0ea76dd16b3f89f018ffced3ae99f3e211c09c7fce1d4ab",
+    "evolution/mathematical_candidates/test_arrival.py": "f7ca305166a9e9262d8bd6c95b5ba32a4dcc55f17a66fe6f98d343713a54adb4",
+    "evolution/mathematical_candidates/test_mathematics.py": "f6bae8c644a2dfcbe6938109f8a6fd0184a51e4fb183047dffec7e2ba50c8863",
+    "evolution/mathematical_candidates/record_validation.py": "098cb4030f300da6b3acc0a587d9eb8a02f72a500f40297c4f9f018e0cda1255"
+  },
+  "closed_loop_contract_games": 32,
+  "focal_callbacks": 2560,
+  "worst_focal_ms": 11.998,
+  "claimed_strength_games": 0,
+  "production_changed": false,
+  "caveat": "Contract and counterexample tests only; strength is evaluated separately by the root agent."
+}

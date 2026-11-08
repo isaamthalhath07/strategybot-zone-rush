@@ -1,0 +1,10 @@
+{
+  "bundle_id": "8a1e275a66fe2d008e36d220a04ff3810a7fac0ba64bb4a847a9cc549f4ef278",
+  "diagnostics_verified": 4,
+  "games_bmcts_audited": 0,
+  "independent_cpu_reproduction": true,
+  "primary_campaign_games": 0,
+  "promotion_allowed": false,
+  "result_sha256": "abc7fdbea0e45f172c9f6ff975042ade0884e23a9a9f399349f21a231255ca8c",
+  "source_pins_passed": true
+}

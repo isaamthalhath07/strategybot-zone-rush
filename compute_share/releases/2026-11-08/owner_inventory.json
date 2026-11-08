@@ -1,0 +1,211 @@
+{
+  "bundles": [
+    {
+      "archive": "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\.cache\\shared_gpu\\pilot_v3\\laptop_01.zip",
+      "diagnostics": 4,
+      "job_ids": [
+        "71d24a0e681e1cf5bd4fb3b356c3dcb6dd3f6ba13ace34e6f14a7e1ab0438acd",
+        "987a638e68101c0322f0cf625f25ba8fa39ec2b1a58719e764cf51739417bf1c",
+        "29c5cc1ccbc6c0083e907120f0db6ca9cc79327c05c1514f0e5b4abda0eba7d7",
+        "f4011b3b1c23e634837692a08a932a5a5d1594248abfc416bc7e63ea9828cb99"
+      ],
+      "laptop": 1,
+      "sha256": "9f7ec4ff0547c15e1cbb42f57335883eeb47c2a79396e6f524bfc1f5a871cb84"
+    },
+    {
+      "archive": "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\.cache\\shared_gpu\\pilot_v3\\laptop_02.zip",
+      "diagnostics": 4,
+      "job_ids": [
+        "fa59e8f1c95885896edf61ba27fbbc36e2d0793abcd988f183aee99f5cf7be22",
+        "89219df4173fd7676b7f6c7bdef05af0020d04bf1a2fe7dc73fb5e5949e50af6",
+        "487b2a8c636019a7fade4d06c5dd6d95c8eb485177b8c449a093f9536981e677",
+        "ef16d257ae0b980e952e1adcb4511b48c243de4b6f6232082c3dc406c1d1a3c1"
+      ],
+      "laptop": 2,
+      "sha256": "84bd8992f7bfaefd16768639ef4ea16ee96546e52ac6354b82802fbf7408d053"
+    },
+    {
+      "archive": "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\.cache\\shared_gpu\\pilot_v3\\laptop_03.zip",
+      "diagnostics": 4,
+      "job_ids": [
+        "66c57c6cd0fcdb0aa68c25ed2b290f6debd4a92744f37ba6b00bce57d1959fef",
+        "c80c004373910551de239138360cec4794c46ca3c6dba11a984729391af3f0f7",
+        "b021d48e5932ba205733ecd9514f8f4ad4b982f6c5c5d3d4bd7454b17c838f65",
+        "93077ee91a0e74b7823bd552c5924ee70b3dee374e7980ad7bc493870c7f053e"
+      ],
+      "laptop": 3,
+      "sha256": "bc67ec8a19fc70b4483ea52e45ef701904a1d7b5d660f6bac7c8766d6b57007c"
+    },
+    {
+      "archive": "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\.cache\\shared_gpu\\pilot_v3\\laptop_04.zip",
+      "diagnostics": 4,
+      "job_ids": [
+        "a23228d374c7c464c5438713c1766031a5e5bc4d494dc9e3be9f67f97aa04466",
+        "120b04fe4c464b37d01c0d2bd1eda923fec29bc7015a8a6844e3c5f04b902439",
+        "6d0933623b5628dd36e831468efc5994ddcf7cc9e400915fd464969d29f06c99",
+        "4e9d30f9c8ee00dc4e160c80f55191bbcc54c3da69d5a683ebf7b4779fdb7b38"
+      ],
+      "laptop": 4,
+      "sha256": "67aa51af8e9d2685ff346f812ffe28fe652e5bdb79a524986f0b649501f6ee1c"
+    },
+    {
+      "archive": "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\.cache\\shared_gpu\\pilot_v3\\laptop_05.zip",
+      "diagnostics": 4,
+      "job_ids": [
+        "f8ba743965b0ce6904df7dd758a34732e124e31284c3e9a7f68773c79e8aad65",
+        "12c5d0ac881158e304093b153e24339e77c6d1413d7291d2911a522bb6652085",
+        "cd1c520c47bd97424566d2b539a8066d0a065151b22cac27ddc26243bbd3fa75",
+        "e404043f5e3274ea080a05ccf3ccac29a283c45dc01777aabdaeb4b1dd62ad8e"
+      ],
+      "laptop": 5,
+      "sha256": "bbbfdbaafea28df406b993850724e27d95e9b9dab4e33ee9c5c89b55d2c3ec4c"
+    }
+  ],
+  "disjoint_diagnostic_ids": true,
+  "games_bmcts_audited": 0,
+  "note": "Observer-only origin metadata is excluded from worker ZIPs. Diagnostic rollouts, not game executions.",
+  "original_transcript_sha256": "d504dfd56679c5ce0e69bac3383ab63677070949d5009935b890c8dd178c4020",
+  "origins": [
+    {
+      "fixture": 7,
+      "focal_seat": 1,
+      "job_id": "71d24a0e681e1cf5bd4fb3b356c3dcb6dd3f6ba13ace34e6f14a7e1ab0438acd",
+      "laptop": 1,
+      "prefix_turns": 11
+    },
+    {
+      "fixture": 36,
+      "focal_seat": 1,
+      "job_id": "987a638e68101c0322f0cf625f25ba8fa39ec2b1a58719e764cf51739417bf1c",
+      "laptop": 1,
+      "prefix_turns": 33
+    },
+    {
+      "fixture": 65,
+      "focal_seat": 0,
+      "job_id": "29c5cc1ccbc6c0083e907120f0db6ca9cc79327c05c1514f0e5b4abda0eba7d7",
+      "laptop": 1,
+      "prefix_turns": 59
+    },
+    {
+      "fixture": 94,
+      "focal_seat": 3,
+      "job_id": "f4011b3b1c23e634837692a08a932a5a5d1594248abfc416bc7e63ea9828cb99",
+      "laptop": 1,
+      "prefix_turns": 11
+    },
+    {
+      "fixture": 123,
+      "focal_seat": 2,
+      "job_id": "fa59e8f1c95885896edf61ba27fbbc36e2d0793abcd988f183aee99f5cf7be22",
+      "laptop": 2,
+      "prefix_turns": 33
+    },
+    {
+      "fixture": 152,
+      "focal_seat": 2,
+      "job_id": "89219df4173fd7676b7f6c7bdef05af0020d04bf1a2fe7dc73fb5e5949e50af6",
+      "laptop": 2,
+      "prefix_turns": 59
+    },
+    {
+      "fixture": 181,
+      "focal_seat": 1,
+      "job_id": "487b2a8c636019a7fade4d06c5dd6d95c8eb485177b8c449a093f9536981e677",
+      "laptop": 2,
+      "prefix_turns": 11
+    },
+    {
+      "fixture": 210,
+      "focal_seat": 0,
+      "job_id": "ef16d257ae0b980e952e1adcb4511b48c243de4b6f6232082c3dc406c1d1a3c1",
+      "laptop": 2,
+      "prefix_turns": 33
+    },
+    {
+      "fixture": 239,
+      "focal_seat": 3,
+      "job_id": "66c57c6cd0fcdb0aa68c25ed2b290f6debd4a92744f37ba6b00bce57d1959fef",
+      "laptop": 3,
+      "prefix_turns": 59
+    },
+    {
+      "fixture": 268,
+      "focal_seat": 3,
+      "job_id": "c80c004373910551de239138360cec4794c46ca3c6dba11a984729391af3f0f7",
+      "laptop": 3,
+      "prefix_turns": 11
+    },
+    {
+      "fixture": 297,
+      "focal_seat": 2,
+      "job_id": "b021d48e5932ba205733ecd9514f8f4ad4b982f6c5c5d3d4bd7454b17c838f65",
+      "laptop": 3,
+      "prefix_turns": 33
+    },
+    {
+      "fixture": 326,
+      "focal_seat": 1,
+      "job_id": "93077ee91a0e74b7823bd552c5924ee70b3dee374e7980ad7bc493870c7f053e",
+      "laptop": 3,
+      "prefix_turns": 59
+    },
+    {
+      "fixture": 355,
+      "focal_seat": 0,
+      "job_id": "a23228d374c7c464c5438713c1766031a5e5bc4d494dc9e3be9f67f97aa04466",
+      "laptop": 4,
+      "prefix_turns": 11
+    },
+    {
+      "fixture": 384,
+      "focal_seat": 0,
+      "job_id": "120b04fe4c464b37d01c0d2bd1eda923fec29bc7015a8a6844e3c5f04b902439",
+      "laptop": 4,
+      "prefix_turns": 33
+    },
+    {
+      "fixture": 413,
+      "focal_seat": 3,
+      "job_id": "6d0933623b5628dd36e831468efc5994ddcf7cc9e400915fd464969d29f06c99",
+      "laptop": 4,
+      "prefix_turns": 59
+    },
+    {
+      "fixture": 442,
+      "focal_seat": 2,
+      "job_id": "4e9d30f9c8ee00dc4e160c80f55191bbcc54c3da69d5a683ebf7b4779fdb7b38",
+      "laptop": 4,
+      "prefix_turns": 11
+    },
+    {
+      "fixture": 471,
+      "focal_seat": 1,
+      "job_id": "f8ba743965b0ce6904df7dd758a34732e124e31284c3e9a7f68773c79e8aad65",
+      "laptop": 5,
+      "prefix_turns": 33
+    },
+    {
+      "fixture": 500,
+      "focal_seat": 1,
+      "job_id": "12c5d0ac881158e304093b153e24339e77c6d1413d7291d2911a522bb6652085",
+      "laptop": 5,
+      "prefix_turns": 59
+    },
+    {
+      "fixture": 529,
+      "focal_seat": 0,
+      "job_id": "cd1c520c47bd97424566d2b539a8066d0a065151b22cac27ddc26243bbd3fa75",
+      "laptop": 5,
+      "prefix_turns": 11
+    },
+    {
+      "fixture": 558,
+      "focal_seat": 3,
+      "job_id": "e404043f5e3274ea080a05ccf3ccac29a283c45dc01777aabdaeb4b1dd62ad8e",
+      "laptop": 5,
+      "prefix_turns": 33
+    }
+  ],
+  "primary_campaign_games": 0
+}

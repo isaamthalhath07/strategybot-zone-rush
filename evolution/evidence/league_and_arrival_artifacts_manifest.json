@@ -1,0 +1,270 @@
+{
+  "archive": "evolution/evidence/league_and_arrival_artifacts.zip",
+  "sha256": "e092fa32388f2e3e6289e05a57b32a271ba10a3a4a231487d0d1553a18ed702e",
+  "files": [
+    {
+      "path": ".cache/evolution/arrival_001/registration.json",
+      "sha256": "c10d193fc8f35be6d83cbb75331bc17a86e7571c6b308b63b2890d141bce6386"
+    },
+    {
+      "path": ".cache/evolution/arrival_001/results.json.gz",
+      "sha256": "f1ec11e30ace307bd29fc83bd134ac0573d393f722b1f514d1c15f2e32fa1d14"
+    },
+    {
+      "path": ".cache/evolution/arrival_001/results.json.registration.json",
+      "sha256": "a4d43b3035c627366eef5e00a5e1a74e47e8f98969a07b399f769feb880d0b0a"
+    },
+    {
+      "path": ".cache/evolution/arrival_001/results.json.summary.json",
+      "sha256": "8d107959a82c6fe66df99fbb91649ebef96e13825d96839127a215781fe82751"
+    },
+    {
+      "path": ".cache/evolution/arrival_confirm_001/registration.json",
+      "sha256": "37ffb4e7c1738f731591bf25ffe058b984f6551d98ae834397946890fb8cf25b"
+    },
+    {
+      "path": ".cache/evolution/arrival_confirm_001/results.json.gz",
+      "sha256": "069eb97c2eafbdc2fdac43b53dddc7e160d1a3a58a463c381a54fa241a099865"
+    },
+    {
+      "path": ".cache/evolution/arrival_confirm_001/results.json.registration.json",
+      "sha256": "0930d6b4a32a4a034a4ac18416241d5b5e46e37b96d3850a33cd88fee738079f"
+    },
+    {
+      "path": ".cache/evolution/arrival_confirm_001/results.json.summary.json",
+      "sha256": "63979516450e5395bf8a01ab2a8fd90112b36eb1aa44c9a9872237ba8b6a307a"
+    },
+    {
+      "path": ".cache/evolution/league_001/league_spec.json",
+      "sha256": "89b254176021e3512c920efac8d17a547c013236140dfc5eecfe72ab113bf579"
+    },
+    {
+      "path": ".cache/evolution/league_001/league_spec.sha256",
+      "sha256": "7caf8533375eeba5a57e1e7fdb6c7c7cf3cd47383688dbc584096fe6095cc96d"
+    },
+    {
+      "path": ".cache/evolution/league_001/league_state.json",
+      "sha256": "89d704ba22b38f9fc2f6a96d830c987fdfecf47027553c771dbcfdf86c03b5e9"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_000/challenge.json",
+      "sha256": "ddf836c6d25e5a01d6cb8dd29ea3b0399b04f7eeb83ea7996345b502434218e9"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_000/confirmation/games.jsonl",
+      "sha256": "9f4a248b488306df3b9582cafe0bdbaca969214593992eac7363031540ade132"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_000/confirmation/independent_audit.json",
+      "sha256": "4f7f40aaa675a694ea12b88a660b545b0aa1b110ca7086d87578cb3e343984de"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_000/confirmation/league_registration.json",
+      "sha256": "ed6e568e6bcd1c28bbea914a50ce7bc1f92f78e4a25309b5c2c247c43606baea"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_000/confirmation/registration.json",
+      "sha256": "ed6e568e6bcd1c28bbea914a50ce7bc1f92f78e4a25309b5c2c247c43606baea"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_000/confirmation/registration.sha256",
+      "sha256": "959ebee7a9c7a11a3a254d38b7d6502568ce6c181c4cf2c24874053f9c1b1633"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_000/confirmation/summary.json",
+      "sha256": "6ac87a3726c65bf97dfc27043e35bb06ec92e9f99d5a905e95932e28bea9c2af"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_000/discovery/games.jsonl",
+      "sha256": "332beb07f00f1e9023848109ba52ea52ad9242ffc556caac6b8265aabffc6676"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_000/discovery/independent_audit.json",
+      "sha256": "79545036dcd98841eebde35f6a433f3936153e7219ee54363086f89d28f0e807"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_000/discovery/league_registration.json",
+      "sha256": "8daee152fcfce685cbd310a0ca545b3c3fa1a0978cf643564d61494a69b6cc2b"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_000/discovery/registration.json",
+      "sha256": "8daee152fcfce685cbd310a0ca545b3c3fa1a0978cf643564d61494a69b6cc2b"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_000/discovery/registration.sha256",
+      "sha256": "36a6128678b0ca9b54a3d86533e9e02124fa8ba47b6935cdd2161798dfc415ac"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_000/discovery/summary.json",
+      "sha256": "21032f9203df4c1ffee8c7874c8cde94b51800a68b8b722a5406678a98db00ef"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_000/research_elites.json",
+      "sha256": "da2e534b687e507df3d10fd9d696e5098fbf788a2e18ec62c42b0324a369af07"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_000/selection.json",
+      "sha256": "e29d30eacfdabeadfd3a0925d51dbf7c2ff28660ad18677d0f4bb6ccd98cdc36"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_001/challenge.json",
+      "sha256": "cdac29ed5c92f73e70f244200bb8d512c42bfb55542406ec4a08f1ada9669c8c"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_001/discovery/games.jsonl",
+      "sha256": "42b2435a7e20253de4f597d8f42c6cd21760e7a97781eb87732561991a2a5758"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_001/discovery/independent_audit.json",
+      "sha256": "e0ac1ed2cccafc573a53a28422026ae113b273fbf38ea1a7566623da0b03e511"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_001/discovery/league_registration.json",
+      "sha256": "e97a034885986f80effcd78a808fbe188215e4b865e7daea5be83cb4cff1cebc"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_001/discovery/registration.json",
+      "sha256": "e97a034885986f80effcd78a808fbe188215e4b865e7daea5be83cb4cff1cebc"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_001/discovery/registration.sha256",
+      "sha256": "62557871563bb10e6c0aeeea3b4d1ab854d5199c65e32ce3b44c09c4791bb887"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_001/discovery/summary.json",
+      "sha256": "b52a3932c19b422c95d78e806327bbb4e314eca597a1b0e2d4a0506e157267e4"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_001/research_elites.json",
+      "sha256": "3c2ddd106b6a0eec891016f64a45f00a3f1a53c933191c467244ef64ce9f2dd5"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_001/selection.json",
+      "sha256": "df6c96464bd5da0f6c09f908766bdf7056de2c27d1fde8158e6a26555f14d581"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_002/challenge.json",
+      "sha256": "e1a33790ac274df26bc3d951aee6a1064abd0153affac68812a0eadcd105ee09"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_002/confirmation/games.jsonl",
+      "sha256": "4328e883284f7c36b01e86541d59ef50d7287c2c133888a7465625135c80c05b"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_002/confirmation/independent_audit.json",
+      "sha256": "d82d2ba3be8a6cbb3ed2f2defcf46c9e209383c7be7e029b86441414d65a0a07"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_002/confirmation/league_registration.json",
+      "sha256": "46575832a9af5b309043d4435ac55531d8caf026c98486f13b18494d6b691b76"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_002/confirmation/registration.json",
+      "sha256": "46575832a9af5b309043d4435ac55531d8caf026c98486f13b18494d6b691b76"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_002/confirmation/registration.sha256",
+      "sha256": "810b74f7fa9b15690346ccd5cbd7755f094564b3701cc0349e6005b84336ff40"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_002/confirmation/summary.json",
+      "sha256": "bb8ae258dd684b12ba9ff65eb6722a395c18d81f8d9edfd1b28602e18264e3d8"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_002/discovery/games.jsonl",
+      "sha256": "36352ec7083ad0e949cd80c101e60842d6910186f976fb73af6fea087f77cf40"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_002/discovery/independent_audit.json",
+      "sha256": "5be682295bb7f3aa3456a366c9337227e20539e8c5e0cf5801514dc4504a75c2"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_002/discovery/league_registration.json",
+      "sha256": "873091e0e26964184ef1a7eb65fedf0cf1debcf58127eb1366b3963029fefcf4"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_002/discovery/registration.json",
+      "sha256": "873091e0e26964184ef1a7eb65fedf0cf1debcf58127eb1366b3963029fefcf4"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_002/discovery/registration.sha256",
+      "sha256": "24f45b03366302cd89cf8165b9c69ca13346bd1be115a30882ab835033735b11"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_002/discovery/summary.json",
+      "sha256": "926057686c2cea0c0ef7f694861d75d3990f518e184525da29d601dc702dca9a"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_002/research_elites.json",
+      "sha256": "fcd6ac942549278f5961825f3e5f5208bbbdb4fc1b83e1d3a66310f4c83c7d29"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_002/selection.json",
+      "sha256": "44e60a38800e0c239fe7fc4bdc7c8b6bcd6eca6c41387060f3dd5b103ffde1bc"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_003/challenge.json",
+      "sha256": "f13ac57c04c2ac21253bc2de6240b11ea0c98f2517098753911d35557cd56af2"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_003/confirmation/games.jsonl",
+      "sha256": "940dcd5c1911e7837539a8df9a5d958c1d417c6725a7ef399682dda3974b74bd"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_003/confirmation/independent_audit.json",
+      "sha256": "054b08344722f3b05a07c61d3ccc9876405f5f50ef5337b54173267c726eb476"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_003/confirmation/league_registration.json",
+      "sha256": "7cdd8167277541487e9eb73eaaf38ff6f6db8f1d99341c4692aff1dcfa301316"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_003/confirmation/registration.json",
+      "sha256": "7cdd8167277541487e9eb73eaaf38ff6f6db8f1d99341c4692aff1dcfa301316"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_003/confirmation/registration.sha256",
+      "sha256": "1bfe3a06f8996524705397c605573e905fe9f7af7984618391feff27237792a3"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_003/confirmation/summary.json",
+      "sha256": "616ca63617b02c85b05f16211ec7a6df3b00c0ec599ba157cbc52b6822f02376"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_003/discovery/games.jsonl",
+      "sha256": "b0c1f7dec5a9ca32f7be52edfcd83c3741edad87a96edc43649630a48c14f76f"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_003/discovery/independent_audit.json",
+      "sha256": "c565502cb86b24d4b83c6c05cb675855faf99beec66fc98fc9c7b49886d7181b"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_003/discovery/league_registration.json",
+      "sha256": "f497334c030c43174a756c68be7598d2b832a2529774db443823a9e3fba6ef12"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_003/discovery/registration.json",
+      "sha256": "f497334c030c43174a756c68be7598d2b832a2529774db443823a9e3fba6ef12"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_003/discovery/registration.sha256",
+      "sha256": "064a8f24ba163fd7ca7ad74301de1402eddca075a9da08dc7e1e578db0d67a0b"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_003/discovery/summary.json",
+      "sha256": "acc2920d874a194ef42456188cb0ab6e6d2f4df3c9fb2b1806ab8ad0ede83d01"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_003/research_elites.json",
+      "sha256": "5b48dcecce48df2ce21abeaad4924eeedd9f14bbbcad85526114a2be865b6f16"
+    },
+    {
+      "path": ".cache/evolution/league_001/round_003/selection.json",
+      "sha256": "48f557f1e0b0c9edd0f617ea056112c2bcd7c33468273fc5f3584bb720ea652a"
+    }
+  ],
+  "league_games": 7168,
+  "arrival_games": 6144,
+  "primary_campaign_games": 0,
+  "bmcts_audits": 0
+}

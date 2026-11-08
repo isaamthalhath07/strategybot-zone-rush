@@ -2,5 +2,8 @@
 * text=auto eol=lf
 *.py -text
 *.json -text
+*.sha256 -text
+*.cmd -text
+*.txt -text
 *.gz binary
 *.zip binary
