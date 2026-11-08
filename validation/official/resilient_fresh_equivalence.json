@@ -1,0 +1,26 @@
+[
+  {
+    "parent": "stay_guarded",
+    "parent_sha256": "dd26262ba90b7beeab57455bebabffb06f3d3dc32e7525fc59064428ca9252f4",
+    "candidate": "stay_guarded_resilient",
+    "candidate_sha256": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+    "games": 8,
+    "public_action_pairs": 2560,
+    "exact_action_equivalence": true,
+    "normal_action_substitutions": 0,
+    "worst_ms": 1.413899939507246,
+    "seed_start": 976141
+  },
+  {
+    "parent": "stay_guarded_research",
+    "parent_sha256": "a5967c136beab84513de8e054ca61f956cd723b9abb04758f61f2e86e144597d",
+    "candidate": "stay_guarded_research_resilient",
+    "candidate_sha256": "6f2ac1487cd0a66793db3f2fab01f621d9c945a4f71a78cc92d176ef1de321f4",
+    "games": 8,
+    "public_action_pairs": 2560,
+    "exact_action_equivalence": true,
+    "normal_action_substitutions": 0,
+    "worst_ms": 1.0485000675544143,
+    "seed_start": 976141
+  }
+]

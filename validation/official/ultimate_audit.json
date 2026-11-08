@@ -1,0 +1,38 @@
+{
+  "source_commit": "b926add",
+  "sha256": "a8f7a74e7ed34548f092dc0acfa5402a47a6c4c2f0115359fc2e56ecfe1b9b73",
+  "progress_probe": {
+    "actual": 0,
+    "inferred": 1,
+    "turn": 5,
+    "home_upgraded": 1
+  },
+  "wrong_caster_probe": {
+    "actual": [
+      4,
+      0,
+      0
+    ],
+    "inferred": [
+      0,
+      0,
+      4
+    ],
+    "B_frozen": 2,
+    "C_frozen": 0,
+    "C_position": 28
+  },
+  "direct_public_contract": {
+    "callbacks": 320,
+    "exceptions": 0,
+    "input_mutations": 0,
+    "illegal_actions": 0,
+    "max_ms": 0.3263999242335558,
+    "scores": [
+      2389,
+      2230,
+      1856,
+      2109
+    ]
+  }
+}

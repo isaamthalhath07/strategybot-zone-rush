@@ -1,3 +1,5 @@
+> Historical presence-rule validation (`catch_requires_stay=False`). These results are preserved for their recorded local model and are not current STAY-only strength evidence. The new release uses [the explicit clarification](official/rule_contract.json) and [separate validation](official/REPORT.md).
+
 # Consolidation validation
 
 ## Selected artifact

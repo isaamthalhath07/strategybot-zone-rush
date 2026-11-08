@@ -1,0 +1,135 @@
+{
+  "source": "tester_bots/transfer_previous.py",
+  "source_sha256": "fe03b8164ed3b4ebd2a04abcdfbb6fa729bdc34dea825088f7e82bf6e5b5ab5e",
+  "rules": {
+    "catch_requires_stay": true
+  },
+  "games": [
+    {
+      "case": 0,
+      "mode": "actual-selfplay",
+      "scores": [
+        1315,
+        1315,
+        1343,
+        1343
+      ]
+    },
+    {
+      "case": 1,
+      "mode": "actual-selfplay",
+      "scores": [
+        3945,
+        3945,
+        4029,
+        4029
+      ]
+    },
+    {
+      "case": 2,
+      "mode": "actual-selfplay",
+      "scores": [
+        2748,
+        2638,
+        2567,
+        2459
+      ]
+    },
+    {
+      "case": 3,
+      "mode": "actual-selfplay",
+      "scores": [
+        2302,
+        2157,
+        2148,
+        2297
+      ]
+    },
+    {
+      "case": 4,
+      "mode": "actual-selfplay",
+      "scores": [
+        2804,
+        2809,
+        2675,
+        2788
+      ]
+    },
+    {
+      "case": 5,
+      "mode": "actual-selfplay",
+      "scores": [
+        2305,
+        2195,
+        2265,
+        2238
+      ]
+    },
+    {
+      "case": 6,
+      "mode": "random-observer",
+      "scores": [
+        256,
+        650,
+        695,
+        449
+      ]
+    },
+    {
+      "case": 7,
+      "mode": "random-observer",
+      "scores": [
+        266,
+        1054,
+        581,
+        523
+      ]
+    },
+    {
+      "case": 8,
+      "mode": "random-observer",
+      "scores": [
+        296,
+        556,
+        458,
+        521
+      ]
+    },
+    {
+      "case": 9,
+      "mode": "random-observer",
+      "scores": [
+        448,
+        433,
+        816,
+        584
+      ]
+    },
+    {
+      "case": 10,
+      "mode": "random-observer",
+      "scores": [
+        552,
+        533,
+        457,
+        393
+      ]
+    },
+    {
+      "case": 11,
+      "mode": "random-observer",
+      "scores": [
+        483,
+        344,
+        637,
+        459
+      ]
+    }
+  ],
+  "callbacks": 3840,
+  "max_ms": 2.19409994315356,
+  "legal_and_immutable": true,
+  "exact_own_clock_score_progress": true,
+  "actual_cooldowns_in_retained_beliefs": true,
+  "note": "Private oracle is used only by the external assertion; callback receives only the four public fields. Random-history observer records only its own selected action after callback."
+}

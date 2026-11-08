@@ -1,0 +1,24 @@
+[
+  {
+    "parent": "stay_guarded",
+    "parent_sha256": "dd26262ba90b7beeab57455bebabffb06f3d3dc32e7525fc59064428ca9252f4",
+    "candidate": "stay_guarded_resilient",
+    "candidate_sha256": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+    "games": 384,
+    "action_pairs": 30720,
+    "exact_actions": true,
+    "substitutions": 0,
+    "reference_results_sha256": "967fd5473d08d03ab8d1a5eb580c83cbbd8eb1383e3cae5dc5fe5e2ec07eb170"
+  },
+  {
+    "parent": "stay_guarded_research",
+    "parent_sha256": "a5967c136beab84513de8e054ca61f956cd723b9abb04758f61f2e86e144597d",
+    "candidate": "stay_guarded_research_resilient",
+    "candidate_sha256": "6f2ac1487cd0a66793db3f2fab01f621d9c945a4f71a78cc92d176ef1de321f4",
+    "games": 384,
+    "action_pairs": 30720,
+    "exact_actions": true,
+    "substitutions": 0,
+    "reference_results_sha256": "967fd5473d08d03ab8d1a5eb580c83cbbd8eb1383e3cae5dc5fe5e2ec07eb170"
+  }
+]

@@ -6,7 +6,7 @@ const COLOR_NAMES = ["Blue", "Coral", "Mint", "Gold"];
 const ACTION_NAMES = {NORTH: "North ↑", EAST: "East →", SOUTH: "South ↓", WEST: "West ←", STAY: "Stayed", SHIELD: "Shielded", BLOCKED: "Stayed · blocked"};
 const S = {bots: [], recommended: null, recommendation: "", game: null, busy: true, starting: false,
   history: null,
-  newGameCatchRequiresStay: true,
+  newGameCatchRequiresStay: true, ruleGameId: null, matchCatchRequiresStay: null,
   view: new URLSearchParams(window.location.search).get("view") === "ai" ? "ai" : "standard"};
 const HOME_SVG = '<svg class="cell-home" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m2 7 6-5 6 5v7H9.5v-4h-3v4H2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>';
 
@@ -28,6 +28,10 @@ function priority() { return !!(S.game && (isAIView() ? observation().is_priorit
 function gameFrom(payload) {
   if (!payload || payload.game === null) return null;
   const game = payload.game || payload.state || payload;
+  if (game.rules && typeof game.rules.catch_requires_stay === "boolean") {
+    S.ruleGameId = game.game_id;
+    S.matchCatchRequiresStay = game.rules.catch_requires_stay;
+  }
   if (!isAIView()) return game;
   // Older arena servers return the standard state. Project only the public
   // callback fields and immediately discard the richer transport object.
@@ -154,10 +158,12 @@ function renderMetadata() {
 
 function renderRuleExplanation() {
   const current = S.game && !isAIView() && S.game.rules;
-  const legacy = current ? current.catch_requires_stay : S.newGameCatchRequiresStay;
-  $("#shield-rule-text").textContent = legacy
-    ? "This legacy match catches eligible rivals who stay on your land. Catch nobody eligible and you freeze instead. Freezing lasts two turns; your shield rests for four turns."
-    : "After movement, freeze eligible rivals on any of your land for two turns, including arrivals and moves between your cells. Rivals who leave your land escape. Already-frozen rivals are ineligible. Catch nobody eligible and you freeze instead. Your shield then rests for four turns.";
+  const cached = S.game && S.ruleGameId === S.game.game_id && typeof S.matchCatchRequiresStay === "boolean"
+    ? S.matchCatchRequiresStay : S.newGameCatchRequiresStay;
+  const stayOnly = current ? current.catch_requires_stay : cached;
+  $("#shield-rule-text").textContent = stayOnly
+    ? "Moves resolve first. Shield catches eligible rivals who STAY on your land; a blocked move counts as STAY. Rivals who move successfully escape, even between your cells. Catch nobody eligible and you freeze instead. Caught or backfired on turn 10: frozen on turns 11 and 12. Shield on turn 10: next available on turn 15."
+    : "This historical match uses the earlier territory-presence interpretation: after movement, eligible rivals anywhere on your land can be caught, including arrivals and moves between your cells. Already-frozen rivals are ineligible. Catch nobody eligible and you freeze instead. The next two turns are frozen and your shield rests for four turns.";
 }
 
 function previewBoard() {
@@ -529,6 +535,9 @@ document.addEventListener("keydown", (event) => {
     S.recommended = bots.recommended_bot_id;
     S.recommendation = bots.recommendation || "";
     S.newGameCatchRequiresStay = health.new_game_rules ? health.new_game_rules.catch_requires_stay !== false : true;
+    S.ruleGameId = health.game;
+    S.matchCatchRequiresStay = health.active_game_rules && typeof health.active_game_rules.catch_requires_stay === "boolean"
+      ? health.active_game_rules.catch_requires_stay : null;
     S.game = gameFrom(state);
     if (S.game) $("#seat-select").value = humanSeat();
     renderBots(); render();

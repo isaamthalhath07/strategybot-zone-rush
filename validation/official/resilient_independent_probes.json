@@ -1,0 +1,49 @@
+{
+  "source": "consolidation_candidates/stay_guarded_resilient.py",
+  "sha256": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+  "cases": [
+    {
+      "case": "no-freeze",
+      "actual_cd": 0,
+      "retained": [
+        0
+      ],
+      "progress": 1,
+      "substitutions": 1
+    },
+    {
+      "case": "visible-own-upgrade",
+      "actual_cd": 0,
+      "retained": [
+        0
+      ],
+      "progress": 0,
+      "substitutions": 1
+    },
+    {
+      "case": "lost-holding-proves-rejected-cast-and-landlord-catch",
+      "actual_cd": [
+        0,
+        4
+      ],
+      "retained": [
+        [
+          0
+        ],
+        [
+          4
+        ]
+      ],
+      "substitutions": 1
+    },
+    {
+      "case": "accepted-own-backfire-remains-certain",
+      "actual_cd": 4,
+      "retained": [
+        4
+      ],
+      "substitutions": 0
+    }
+  ],
+  "note": "Direct offline inference fixtures; source is given only its public view. Explicit known prior cooldown in midgame fixture represents remembered own history, not a runtime input."
+}

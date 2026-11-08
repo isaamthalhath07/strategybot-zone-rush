@@ -1,21 +1,22 @@
 # Retained tester bots
 
-Every file is a standalone public-input opponent, pinned in the release manifest.
-These provide different challenges; they are not interchangeable champions.
+Each file is standalone and pinned by the release manifest. The actual simulator
+enforces STAY-only catches; a tester's historical internal assumptions do not
+change the physics. No deliberately broken control is retained.
 
-| File | Why retain it |
+| File | Role |
 |---|---|
-| `transfer_previous.py` | Closest final comparator: 1.8516 mean opponents outscored across384 games. |
-| `transfer_original.py` | Strong original economic control: 1.7474 in final confirmation. |
-| `fusion.py` | Previous main export and robust economic/fallback architecture: 1.5247 in final confirmation. |
-| `apex.py` | Exact-copy counter-policy specialist: 1.7500 in balanced development. Useful for testing predictable policies; identity and old-rule model assumptions limit generalization. |
-| `racer.py` | PR10's direct income/capture race: 1.5781 in balanced development. |
-| `blocker.py` | PR10's obstruction/denial strategy: 1.6667 in initialscreen,1.4141 in balanced development. |
+| `transfer_previous.py` | Strong repaired STAY-only baseline; matched the first guarded Transfer across the 128 balanced and 384 earlier frozen current-rule games. |
+| `research_alternative.py` | Corrected guarded research genome: 1.4991 mean rivals outscored over 576 latest fresh current-rule games. Same implementation as the release apart from frozen strategic weights. |
+| `ultimate.py` | Concurrent experimental engine: 1.3446 on the same 576 current-rule follow-up fixtures. Preserved unchanged; its rule inference remains approximate. |
+| `fusion.py` | Historical fused economic policy, interface/cold-start safeguards and different fallback architecture; current-rule frozen control. |
+| `apex.py` | Exact-copy counter-policy specialist. Useful predictability challenge; recognizing a near-copy is uncertain and its model assumptions limit generalization. |
+| `racer.py` | PR10's income/capture-racing challenge. |
+| `blocker.py` | PR10's obstruction/denial challenge. |
+| `transfer_original.py` | Original economic control, retained to detect regressions against legacy task pricing and valid same-owner-cell feints. |
 
-These measurements use different fields where indicated; do not rank across
-rounds by pooling their numbers. All retained files had zero worker faults in
-their recorded comparisons. Some preserve historical internal rule assumptions,
-which makes them useful controls; the actual simulator always enforces the
-clarified post-movement Shield rule. No deliberately broken bot is retained.
-Original source commits and hashes are in `release_manifest.json` and the
-validation source registry. No tester reads the other players' pending actions.
+Current STAY-only results are under `validation/official/`. Earlier presence-rule
+scores remain historical; do not pool or directly rank across different rounds.
+All retained files had zero worker faults in their recorded comparisons.
+Source commits, full hashes and selected comparisons are in the release manifest
+and source registry. Testers receive no pending opponent action or private state.

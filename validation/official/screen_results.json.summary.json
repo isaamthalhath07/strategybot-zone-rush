@@ -1,0 +1,1141 @@
+{
+  "summary": {
+    "1a718fd8b514": {
+      "games": 12,
+      "mean_pw": 1.9166666666666667,
+      "mean_score": 2854.75,
+      "fields": {
+        "beam-defence": 2.0,
+        "legacy-economic": 2.0,
+        "novel-pressure": 1.75
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.5898000672459602,
+      "mean_ms": 0.1845540619494083
+    },
+    "1dca0c916af4": {
+      "games": 12,
+      "mean_pw": 1.9166666666666667,
+      "mean_score": 2851.0,
+      "fields": {
+        "beam-defence": 2.25,
+        "legacy-economic": 2.25,
+        "novel-pressure": 1.25
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.5516000092029572,
+      "mean_ms": 0.1547784418410932
+    },
+    "720e5a3daf7b": {
+      "games": 12,
+      "mean_pw": 1.9166666666666667,
+      "mean_score": 2851.0,
+      "fields": {
+        "beam-defence": 2.25,
+        "legacy-economic": 2.25,
+        "novel-pressure": 1.25
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 1.0463999351486564,
+      "mean_ms": 0.31191395634474856
+    },
+    "ae1594276aff": {
+      "games": 12,
+      "mean_pw": 1.9166666666666667,
+      "mean_score": 2840.75,
+      "fields": {
+        "beam-defence": 2.25,
+        "legacy-economic": 2.25,
+        "novel-pressure": 1.25
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.6188000552356243,
+      "mean_ms": 0.1725742721949549
+    },
+    "b2de2f334e88": {
+      "games": 12,
+      "mean_pw": 1.9166666666666667,
+      "mean_score": 2851.0,
+      "fields": {
+        "beam-defence": 2.25,
+        "legacy-economic": 2.25,
+        "novel-pressure": 1.25
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 1.554699963890016,
+      "mean_ms": 0.3021653111015136
+    },
+    "aef27c1c5d6c": {
+      "games": 12,
+      "mean_pw": 1.8333333333333333,
+      "mean_score": 2867.0,
+      "fields": {
+        "beam-defence": 1.25,
+        "legacy-economic": 2.0,
+        "novel-pressure": 2.25
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.725399935618043,
+      "mean_ms": 0.260958854535905
+    },
+    "fe03b8164ed3": {
+      "games": 12,
+      "mean_pw": 1.8333333333333333,
+      "mean_score": 2866.75,
+      "fields": {
+        "beam-defence": 1.25,
+        "legacy-economic": 2.0,
+        "novel-pressure": 2.25
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.9858999401330948,
+      "mean_ms": 0.25025250142789446
+    },
+    "presence_guarded": {
+      "games": 12,
+      "mean_pw": 1.8333333333333333,
+      "mean_score": 2867.0,
+      "fields": {
+        "beam-defence": 1.25,
+        "legacy-economic": 2.0,
+        "novel-pressure": 2.25
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 1.0910999262705445,
+      "mean_ms": 0.3087918742191202
+    },
+    "641c909b7ef1": {
+      "games": 12,
+      "mean_pw": 1.75,
+      "mean_score": 2832.3333333333335,
+      "fields": {
+        "beam-defence": 2.25,
+        "legacy-economic": 2.0,
+        "novel-pressure": 1.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 102.97230002470315,
+      "mean_ms": 6.533057187092102
+    },
+    "novel_b_blocker": {
+      "games": 12,
+      "mean_pw": 1.75,
+      "mean_score": 2876.4166666666665,
+      "fields": {
+        "beam-defence": 1.25,
+        "legacy-economic": 2.0,
+        "novel-pressure": 2.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 1.4518999960273504,
+      "mean_ms": 0.5007973949735364
+    },
+    "presence_legacy_pricing": {
+      "games": 12,
+      "mean_pw": 1.6666666666666667,
+      "mean_score": 2837.0833333333335,
+      "fields": {
+        "beam-defence": 1.25,
+        "legacy-economic": 2.25,
+        "novel-pressure": 1.5
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.798800028860569,
+      "mean_ms": 0.3107854195453304
+    },
+    "bec1daf8bb0c": {
+      "games": 12,
+      "mean_pw": 1.5833333333333333,
+      "mean_score": 2819.0,
+      "fields": {
+        "beam-defence": 2.0,
+        "legacy-economic": 1.75,
+        "novel-pressure": 1.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 1.2748000444844365,
+      "mean_ms": 0.2177257319999626
+    },
+    "novel_b_feint": {
+      "games": 12,
+      "mean_pw": 1.5833333333333333,
+      "mean_score": 2850.1666666666665,
+      "fields": {
+        "beam-defence": 0.5,
+        "legacy-economic": 2.5,
+        "novel-pressure": 1.75
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 1.31720001809299,
+      "mean_ms": 0.5018374990565159
+    },
+    "5457b5fdf4ca": {
+      "games": 12,
+      "mean_pw": 1.5,
+      "mean_score": 2823.0833333333335,
+      "fields": {
+        "beam-defence": 1.0,
+        "legacy-economic": 2.25,
+        "novel-pressure": 1.25
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.6388000911101699,
+      "mean_ms": 0.2192660410704169
+    },
+    "novel_c_bloomer": {
+      "games": 12,
+      "mean_pw": 1.5,
+      "mean_score": 2768.8333333333335,
+      "fields": {
+        "beam-defence": 1.0,
+        "legacy-economic": 2.0,
+        "novel-pressure": 1.5
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 1.362200011499226,
+      "mean_ms": 0.4517275017860811
+    },
+    "6517c92b65e4": {
+      "games": 12,
+      "mean_pw": 1.4583333333333333,
+      "mean_score": 2844.5833333333335,
+      "fields": {
+        "beam-defence": 1.25,
+        "legacy-economic": 1.375,
+        "novel-pressure": 1.75
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.6955999415367842,
+      "mean_ms": 0.2514677071303595
+    },
+    "novel_b_racer": {
+      "games": 12,
+      "mean_pw": 1.4166666666666667,
+      "mean_score": 2831.8333333333335,
+      "fields": {
+        "beam-defence": 0.25,
+        "legacy-economic": 1.75,
+        "novel-pressure": 2.25
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 2.1216999739408493,
+      "mean_ms": 0.5068363523605512
+    },
+    "novel_c_portfolio": {
+      "games": 12,
+      "mean_pw": 1.3333333333333333,
+      "mean_score": 2807.6666666666665,
+      "fields": {
+        "beam-defence": 1.5,
+        "legacy-economic": 1.25,
+        "novel-pressure": 1.25
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 1.5739999944344163,
+      "mean_ms": 0.37808135530212894
+    },
+    "cb30b5ae32f7": {
+      "games": 12,
+      "mean_pw": 1.25,
+      "mean_score": 2769.0833333333335,
+      "fields": {
+        "beam-defence": 1.5,
+        "legacy-economic": 0.75,
+        "novel-pressure": 1.5
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 13.20539996959269,
+      "mean_ms": 3.6343321889338163
+    },
+    "f7b40080a522": {
+      "games": 12,
+      "mean_pw": 1.25,
+      "mean_score": 2821.8333333333335,
+      "fields": {
+        "beam-defence": 1.5,
+        "legacy-economic": 1.0,
+        "novel-pressure": 1.25
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 16.121000051498413,
+      "mean_ms": 3.8404352082579862
+    },
+    "pr10_novel_v9": {
+      "games": 12,
+      "mean_pw": 1.25,
+      "mean_score": 2821.8333333333335,
+      "fields": {
+        "beam-defence": 1.5,
+        "legacy-economic": 1.0,
+        "novel-pressure": 1.25
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 11.746000032871962,
+      "mean_ms": 3.943961873422571
+    },
+    "03470e6151e5": {
+      "games": 12,
+      "mean_pw": 1.1666666666666667,
+      "mean_score": 2796.3333333333335,
+      "fields": {
+        "beam-defence": 1.75,
+        "legacy-economic": 1.25,
+        "novel-pressure": 0.5
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.7304999744519591,
+      "mean_ms": 0.25516083393692196
+    },
+    "34bdf1bab1bb": {
+      "games": 12,
+      "mean_pw": 1.1666666666666667,
+      "mean_score": 2694.8333333333335,
+      "fields": {
+        "beam-defence": 1.75,
+        "legacy-economic": 0.25,
+        "novel-pressure": 1.5
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.9657000191509724,
+      "mean_ms": 0.18336052065327144
+    },
+    "bbff919db34a": {
+      "games": 12,
+      "mean_pw": 1.1666666666666667,
+      "mean_score": 2694.8333333333335,
+      "fields": {
+        "beam-defence": 1.75,
+        "legacy-economic": 0.25,
+        "novel-pressure": 1.5
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.6482999306172132,
+      "mean_ms": 0.20944208420890695
+    },
+    "novel_d_shieldmaster": {
+      "games": 12,
+      "mean_pw": 1.1666666666666667,
+      "mean_score": 2746.8333333333335,
+      "fields": {
+        "beam-defence": 1.0,
+        "legacy-economic": 0.75,
+        "novel-pressure": 1.75
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.596199999563396,
+      "mean_ms": 0.17864791855875714
+    },
+    "68094583daf8": {
+      "games": 12,
+      "mean_pw": 1.0833333333333333,
+      "mean_score": 2639.5,
+      "fields": {
+        "beam-defence": 1.0,
+        "legacy-economic": 1.0,
+        "novel-pressure": 1.25
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 109.62730005849153,
+      "mean_ms": 27.64098687415147
+    },
+    "95da830e6f29": {
+      "games": 12,
+      "mean_pw": 1.0833333333333333,
+      "mean_score": 2730.4166666666665,
+      "fields": {
+        "beam-defence": 1.25,
+        "legacy-economic": 1.0,
+        "novel-pressure": 1.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 122.1263000043109,
+      "mean_ms": 28.772982083804283
+    },
+    "aa49608fe334": {
+      "games": 12,
+      "mean_pw": 1.0833333333333333,
+      "mean_score": 2747.4166666666665,
+      "fields": {
+        "beam-defence": 1.25,
+        "legacy-economic": 0.75,
+        "novel-pressure": 1.25
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 17.817100044339895,
+      "mean_ms": 3.428517918655416
+    },
+    "cefe2fa7bce1": {
+      "games": 12,
+      "mean_pw": 1.0833333333333333,
+      "mean_score": 2754.0,
+      "fields": {
+        "beam-defence": 1.25,
+        "legacy-economic": 0.75,
+        "novel-pressure": 1.25
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 14.65460006147623,
+      "mean_ms": 3.6129134356694217
+    },
+    "pr10_presence_forecast": {
+      "games": 12,
+      "mean_pw": 1.0833333333333333,
+      "mean_score": 2786.0,
+      "fields": {
+        "beam-defence": 1.25,
+        "legacy-economic": 0.75,
+        "novel-pressure": 1.25
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 11.555799981579185,
+      "mean_ms": 3.9036434355997094
+    },
+    "2388ad499944": {
+      "games": 12,
+      "mean_pw": 1.0,
+      "mean_score": 2672.8333333333335,
+      "fields": {
+        "beam-defence": 1.75,
+        "legacy-economic": 0.25,
+        "novel-pressure": 1.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 2.005400019697845,
+      "mean_ms": 0.7061253118687697
+    },
+    "d2bef4e077e9": {
+      "games": 12,
+      "mean_pw": 1.0,
+      "mean_score": 2701.9166666666665,
+      "fields": {
+        "beam-defence": 1.25,
+        "legacy-economic": 0.75,
+        "novel-pressure": 1.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 117.67429998144507,
+      "mean_ms": 29.143749064557294
+    },
+    "novel_a_paranoid": {
+      "games": 12,
+      "mean_pw": 1.0,
+      "mean_score": 2674.4166666666665,
+      "fields": {
+        "beam-defence": 0.75,
+        "legacy-economic": 1.25,
+        "novel-pressure": 1.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 5.467600072734058,
+      "mean_ms": 1.3130834371016438
+    },
+    "novel_d_titfortat": {
+      "games": 12,
+      "mean_pw": 1.0,
+      "mean_score": 2681.0833333333335,
+      "fields": {
+        "beam-defence": 1.5,
+        "legacy-economic": 0.75,
+        "novel-pressure": 0.75
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.5756999598816037,
+      "mean_ms": 0.16477843710163143
+    },
+    "31965e1412c6": {
+      "games": 12,
+      "mean_pw": 0.8333333333333334,
+      "mean_score": 2674.25,
+      "fields": {
+        "beam-defence": 1.5,
+        "legacy-economic": 0.0,
+        "novel-pressure": 1.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 14.308899990282953,
+      "mean_ms": 2.955943958780457
+    },
+    "dfc547464ff2": {
+      "games": 12,
+      "mean_pw": 0.8333333333333334,
+      "mean_score": 2742.8333333333335,
+      "fields": {
+        "beam-defence": 1.5,
+        "legacy-economic": 0.25,
+        "novel-pressure": 0.75
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 13.868100009858608,
+      "mean_ms": 3.2959757270873524
+    },
+    "f6b4385da8e0": {
+      "games": 12,
+      "mean_pw": 0.8333333333333334,
+      "mean_score": 2742.8333333333335,
+      "fields": {
+        "beam-defence": 1.5,
+        "legacy-economic": 0.25,
+        "novel-pressure": 0.75
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 7.3191000847145915,
+      "mean_ms": 2.96487427270525
+    },
+    "novel_c_voronoi": {
+      "games": 12,
+      "mean_pw": 0.8333333333333334,
+      "mean_score": 2762.8333333333335,
+      "fields": {
+        "beam-defence": 1.25,
+        "legacy-economic": 1.0,
+        "novel-pressure": 0.25
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 1.5505999326705933,
+      "mean_ms": 0.44898864543938544
+    },
+    "novel_d_antileader": {
+      "games": 12,
+      "mean_pw": 0.8333333333333334,
+      "mean_score": 2689.0,
+      "fields": {
+        "beam-defence": 1.0,
+        "legacy-economic": 0.5,
+        "novel-pressure": 1.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.5675998982042074,
+      "mean_ms": 0.19190343688630188
+    },
+    "beec3a70b4e6": {
+      "games": 12,
+      "mean_pw": 0.75,
+      "mean_score": 2752.6666666666665,
+      "fields": {
+        "beam-defence": 1.5,
+        "legacy-economic": 0.25,
+        "novel-pressure": 0.5
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 6.5657999366521835,
+      "mean_ms": 2.880438230082897
+    },
+    "e23de391a94d": {
+      "games": 12,
+      "mean_pw": 0.75,
+      "mean_score": 2624.1666666666665,
+      "fields": {
+        "beam-defence": 0.25,
+        "legacy-economic": 1.25,
+        "novel-pressure": 0.75
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.4692000802606344,
+      "mean_ms": 0.08455760532039373
+    },
+    "0db330d2bb63": {
+      "games": 12,
+      "mean_pw": 0.5833333333333334,
+      "mean_score": 2396.8333333333335,
+      "fields": {
+        "beam-defence": 0.5,
+        "legacy-economic": 1.25,
+        "novel-pressure": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.063000014051795,
+      "mean_ms": 0.021325519992387854
+    },
+    "f995547a68e7": {
+      "games": 12,
+      "mean_pw": 0.5833333333333334,
+      "mean_score": 2629.1666666666665,
+      "fields": {
+        "beam-defence": 1.5,
+        "legacy-economic": 0.0,
+        "novel-pressure": 0.25
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 2.0097000524401665,
+      "mean_ms": 0.5781611456768587
+    },
+    "novel_a_mcts": {
+      "games": 12,
+      "mean_pw": 0.5833333333333334,
+      "mean_score": 2618.9166666666665,
+      "fields": {
+        "beam-defence": 0.5,
+        "legacy-economic": 0.75,
+        "novel-pressure": 0.5
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 7.831099908798933,
+      "mean_ms": 7.309988542207672
+    },
+    "be885384874c": {
+      "games": 12,
+      "mean_pw": 0.3333333333333333,
+      "mean_score": 2613.75,
+      "fields": {
+        "beam-defence": 0.0,
+        "legacy-economic": 0.75,
+        "novel-pressure": 0.25
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 160.1525000296533,
+      "mean_ms": 20.465099687256345
+    },
+    "e7f4fd616c15": {
+      "games": 12,
+      "mean_pw": 0.3333333333333333,
+      "mean_score": 2313.6666666666665,
+      "fields": {
+        "beam-defence": 0.5,
+        "legacy-economic": 0.25,
+        "novel-pressure": 0.25
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 1.446699956431985,
+      "mean_ms": 0.4026191720186034
+    },
+    "novel_a_rhea": {
+      "games": 12,
+      "mean_pw": 0.25,
+      "mean_score": 2310.5,
+      "fields": {
+        "beam-defence": 0.0,
+        "legacy-economic": 0.5,
+        "novel-pressure": 0.25
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 7.914200075902045,
+      "mean_ms": 4.350408648436617
+    },
+    "27c2b068fb86": {
+      "games": 12,
+      "mean_pw": 0.16666666666666666,
+      "mean_score": 2130.5833333333335,
+      "fields": {
+        "beam-defence": 0.25,
+        "legacy-economic": 0.0,
+        "novel-pressure": 0.25
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.5681000184267759,
+      "mean_ms": 0.18951541424030438
+    },
+    "1056046dff6b": {
+      "games": 12,
+      "mean_pw": 0.0,
+      "mean_score": 1079.25,
+      "fields": {
+        "beam-defence": 0.0,
+        "legacy-economic": 0.0,
+        "novel-pressure": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.3997000167146325,
+      "mean_ms": 0.08492812630720437
+    },
+    "19f1b426c49c": {
+      "games": 12,
+      "mean_pw": 0.0,
+      "mean_score": 1616.75,
+      "fields": {
+        "beam-defence": 0.0,
+        "legacy-economic": 0.0,
+        "novel-pressure": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.3784000873565674,
+      "mean_ms": 0.06398281293513719
+    },
+    "1cdcba187107": {
+      "games": 12,
+      "mean_pw": 0.0,
+      "mean_score": 2192.5,
+      "fields": {
+        "beam-defence": 0.0,
+        "legacy-economic": 0.0,
+        "novel-pressure": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.41179999243468046,
+      "mean_ms": 0.09282573118980508
+    },
+    "2164474c40f9": {
+      "games": 12,
+      "mean_pw": 0.0,
+      "mean_score": 1128.5833333333333,
+      "fields": {
+        "beam-defence": 0.0,
+        "legacy-economic": 0.0,
+        "novel-pressure": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.04020007327198982,
+      "mean_ms": 0.0069045831575446455
+    },
+    "261f10170209": {
+      "games": 12,
+      "mean_pw": 0.0,
+      "mean_score": 720.6666666666666,
+      "fields": {
+        "beam-defence": 0.0,
+        "legacy-economic": 0.0,
+        "novel-pressure": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.2512000501155853,
+      "mean_ms": 0.01108385464855625
+    },
+    "27fbb33378ea": {
+      "games": 12,
+      "mean_pw": 0.0,
+      "mean_score": 1067.9166666666667,
+      "fields": {
+        "beam-defence": 0.0,
+        "legacy-economic": 0.0,
+        "novel-pressure": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.045199994929134846,
+      "mean_ms": 0.004905104651697911
+    },
+    "2956bbd05ffc": {
+      "games": 12,
+      "mean_pw": 0.0,
+      "mean_score": 1411.5,
+      "fields": {
+        "beam-defence": 0.0,
+        "legacy-economic": 0.0,
+        "novel-pressure": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.4002999048680067,
+      "mean_ms": 0.021979999413209345
+    },
+    "2a9fa5c1127f": {
+      "games": 12,
+      "mean_pw": 0.0,
+      "mean_score": 1623.8333333333333,
+      "fields": {
+        "beam-defence": 0.0,
+        "legacy-economic": 0.0,
+        "novel-pressure": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.16659998800605536,
+      "mean_ms": 0.03569510348218804
+    },
+    "3a50a56aa9ae": {
+      "games": 12,
+      "mean_pw": 0.0,
+      "mean_score": 401.6666666666667,
+      "fields": {
+        "beam-defence": 0.0,
+        "legacy-economic": 0.0,
+        "novel-pressure": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.024300068616867065,
+      "mean_ms": 0.008017188277638828
+    },
+    "42e759b51db9": {
+      "games": 12,
+      "mean_pw": 0.0,
+      "mean_score": 2342.5,
+      "fields": {
+        "beam-defence": 0.0,
+        "legacy-economic": 0.0,
+        "novel-pressure": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.05689996760338545,
+      "mean_ms": 0.013710208077100106
+    },
+    "4b5659bf878a": {
+      "games": 12,
+      "mean_pw": 0.0,
+      "mean_score": 228.0,
+      "fields": {
+        "beam-defence": 0.0,
+        "legacy-economic": 0.0,
+        "novel-pressure": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.2513999352231622,
+      "mean_ms": 0.009802498000984391
+    },
+    "6af698080016": {
+      "games": 12,
+      "mean_pw": 0.0,
+      "mean_score": 1064.4166666666667,
+      "fields": {
+        "beam-defence": 0.0,
+        "legacy-economic": 0.0,
+        "novel-pressure": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.032400013878941536,
+      "mean_ms": 0.006239062834841509
+    },
+    "885b73a29a3a": {
+      "games": 12,
+      "mean_pw": 0.0,
+      "mean_score": 2309.75,
+      "fields": {
+        "beam-defence": 0.0,
+        "legacy-economic": 0.0,
+        "novel-pressure": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.20839995704591274,
+      "mean_ms": 0.06417510400448616
+    },
+    "8eac9789c4c5": {
+      "games": 12,
+      "mean_pw": 0.0,
+      "mean_score": 798.8333333333334,
+      "fields": {
+        "beam-defence": 0.0,
+        "legacy-economic": 0.0,
+        "novel-pressure": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.20520004909485579,
+      "mean_ms": 0.019028751679191675
+    },
+    "8fb32ee24081": {
+      "games": 12,
+      "mean_pw": 0.0,
+      "mean_score": 1095.0833333333333,
+      "fields": {
+        "beam-defence": 0.0,
+        "legacy-economic": 0.0,
+        "novel-pressure": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.06719992961734533,
+      "mean_ms": 0.015962813995429315
+    },
+    "9203f00255d5": {
+      "games": 12,
+      "mean_pw": 0.0,
+      "mean_score": 1432.0,
+      "fields": {
+        "beam-defence": 0.0,
+        "legacy-economic": 0.0,
+        "novel-pressure": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.6062999600544572,
+      "mean_ms": 0.12867385533657702
+    },
+    "98c622e3bf72": {
+      "games": 12,
+      "mean_pw": 0.0,
+      "mean_score": 527.1666666666666,
+      "fields": {
+        "beam-defence": 0.0,
+        "legacy-economic": 0.0,
+        "novel-pressure": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.5122999427840114,
+      "mean_ms": 0.07240843600205456
+    },
+    "a6c0c5abcded": {
+      "games": 12,
+      "mean_pw": 0.0,
+      "mean_score": 989.3333333333334,
+      "fields": {
+        "beam-defence": 0.0,
+        "legacy-economic": 0.0,
+        "novel-pressure": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.3388999029994011,
+      "mean_ms": 0.009408334153704345
+    },
+    "ab39cda757ee": {
+      "games": 12,
+      "mean_pw": 0.0,
+      "mean_score": 2125.8333333333335,
+      "fields": {
+        "beam-defence": 0.0,
+        "legacy-economic": 0.0,
+        "novel-pressure": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.05100003909319639,
+      "mean_ms": 0.01506708443533474
+    },
+    "b05ff3b815e6": {
+      "games": 12,
+      "mean_pw": 0.0,
+      "mean_score": 1850.1666666666667,
+      "fields": {
+        "beam-defence": 0.0,
+        "legacy-economic": 0.0,
+        "novel-pressure": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.053900061175227165,
+      "mean_ms": 0.016566460180911236
+    },
+    "b2a28fd04cbe": {
+      "games": 12,
+      "mean_pw": 0.0,
+      "mean_score": 1821.1666666666667,
+      "fields": {
+        "beam-defence": 0.0,
+        "legacy-economic": 0.0,
+        "novel-pressure": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.18630002159625292,
+      "mean_ms": 0.05725020673708059
+    },
+    "c7620a987067": {
+      "games": 12,
+      "mean_pw": 0.0,
+      "mean_score": 1062.25,
+      "fields": {
+        "beam-defence": 0.0,
+        "legacy-economic": 0.0,
+        "novel-pressure": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.04439998883754015,
+      "mean_ms": 0.006624582359412064
+    }
+  },
+  "paired": [
+    {
+      "first": "1a718fd8b514",
+      "second": "1dca0c916af4",
+      "mean": 0.0,
+      "clusters": 3,
+      "bootstrap_95": [
+        -0.25,
+        0.25
+      ]
+    },
+    {
+      "first": "1a718fd8b514",
+      "second": "720e5a3daf7b",
+      "mean": 0.0,
+      "clusters": 3,
+      "bootstrap_95": [
+        -0.25,
+        0.25
+      ]
+    },
+    {
+      "first": "1a718fd8b514",
+      "second": "ae1594276aff",
+      "mean": 0.0,
+      "clusters": 3,
+      "bootstrap_95": [
+        -0.25,
+        0.25
+      ]
+    },
+    {
+      "first": "1a718fd8b514",
+      "second": "b2de2f334e88",
+      "mean": 0.0,
+      "clusters": 3,
+      "bootstrap_95": [
+        -0.25,
+        0.25
+      ]
+    },
+    {
+      "first": "1a718fd8b514",
+      "second": "aef27c1c5d6c",
+      "mean": 0.08333333333333333,
+      "clusters": 3,
+      "bootstrap_95": [
+        -1.25,
+        1.75
+      ]
+    },
+    {
+      "first": "1dca0c916af4",
+      "second": "720e5a3daf7b",
+      "mean": 0.0,
+      "clusters": 3,
+      "bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "first": "1dca0c916af4",
+      "second": "ae1594276aff",
+      "mean": 0.0,
+      "clusters": 3,
+      "bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "first": "1dca0c916af4",
+      "second": "b2de2f334e88",
+      "mean": 0.0,
+      "clusters": 3,
+      "bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "first": "1dca0c916af4",
+      "second": "aef27c1c5d6c",
+      "mean": 0.08333333333333333,
+      "clusters": 3,
+      "bootstrap_95": [
+        -1.0,
+        1.75
+      ]
+    },
+    {
+      "first": "720e5a3daf7b",
+      "second": "ae1594276aff",
+      "mean": 0.0,
+      "clusters": 3,
+      "bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "first": "720e5a3daf7b",
+      "second": "b2de2f334e88",
+      "mean": 0.0,
+      "clusters": 3,
+      "bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "first": "720e5a3daf7b",
+      "second": "aef27c1c5d6c",
+      "mean": 0.08333333333333333,
+      "clusters": 3,
+      "bootstrap_95": [
+        -1.0,
+        1.75
+      ]
+    },
+    {
+      "first": "ae1594276aff",
+      "second": "b2de2f334e88",
+      "mean": 0.0,
+      "clusters": 3,
+      "bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "first": "ae1594276aff",
+      "second": "aef27c1c5d6c",
+      "mean": 0.08333333333333333,
+      "clusters": 3,
+      "bootstrap_95": [
+        -1.0,
+        1.75
+      ]
+    },
+    {
+      "first": "b2de2f334e88",
+      "second": "aef27c1c5d6c",
+      "mean": 0.08333333333333333,
+      "clusters": 3,
+      "bootstrap_95": [
+        -1.0,
+        1.75
+      ]
+    }
+  ],
+  "elapsed_s": 161.8298436999321,
+  "caveat": "Finite registered field. Screening is selection data. Confirmations are fresh maps, not proof against every possible rival. No private state or future actions reach a policy.",
+  "games": 840,
+  "timed_callbacks": 268800,
+  "all_faults": 0
+}

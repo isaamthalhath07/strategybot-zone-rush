@@ -1,0 +1,262 @@
+{
+  "rules": {
+    "catch_requires_stay": true
+  },
+  "authority": "Explicit clarification supplied by the user in the current conversation",
+  "cases": [
+    {
+      "case": "move-within-A-land",
+      "turn10_actions": [
+        "SHIELD",
+        "WEST",
+        "STAY",
+        "STAY"
+      ],
+      "turn10_effective": [
+        "SHIELD",
+        "WEST",
+        "STAY",
+        "STAY"
+      ],
+      "turn10_shields": [
+        {
+          "type": "shield",
+          "seat": 1,
+          "caught": [],
+          "backfire": true
+        }
+      ],
+      "turn10_next": 11,
+      "timeline": [
+        {
+          "turn": 11,
+          "A_frozen": 2,
+          "B_frozen": 0,
+          "A_cooldown": 4,
+          "A_can_shield": false
+        },
+        {
+          "turn": 12,
+          "A_frozen": 1,
+          "B_frozen": 0,
+          "A_cooldown": 3,
+          "A_can_shield": false
+        },
+        {
+          "turn": 13,
+          "A_frozen": 0,
+          "B_frozen": 0,
+          "A_cooldown": 2,
+          "A_can_shield": false
+        },
+        {
+          "turn": 14,
+          "A_frozen": 0,
+          "B_frozen": 0,
+          "A_cooldown": 1,
+          "A_can_shield": false
+        },
+        {
+          "turn": 15,
+          "A_frozen": 0,
+          "B_frozen": 0,
+          "A_cooldown": 0,
+          "A_can_shield": true
+        }
+      ]
+    },
+    {
+      "case": "stay-on-A-land",
+      "turn10_actions": [
+        "SHIELD",
+        "STAY",
+        "STAY",
+        "STAY"
+      ],
+      "turn10_effective": [
+        "SHIELD",
+        "STAY",
+        "STAY",
+        "STAY"
+      ],
+      "turn10_shields": [
+        {
+          "type": "shield",
+          "seat": 1,
+          "caught": [
+            2
+          ],
+          "backfire": false
+        }
+      ],
+      "turn10_next": 11,
+      "timeline": [
+        {
+          "turn": 11,
+          "A_frozen": 0,
+          "B_frozen": 2,
+          "A_cooldown": 4,
+          "A_can_shield": false
+        },
+        {
+          "turn": 12,
+          "A_frozen": 0,
+          "B_frozen": 1,
+          "A_cooldown": 3,
+          "A_can_shield": false
+        },
+        {
+          "turn": 13,
+          "A_frozen": 0,
+          "B_frozen": 0,
+          "A_cooldown": 2,
+          "A_can_shield": false
+        },
+        {
+          "turn": 14,
+          "A_frozen": 0,
+          "B_frozen": 0,
+          "A_cooldown": 1,
+          "A_can_shield": false
+        },
+        {
+          "turn": 15,
+          "A_frozen": 0,
+          "B_frozen": 0,
+          "A_cooldown": 0,
+          "A_can_shield": true
+        }
+      ]
+    },
+    {
+      "case": "blocked-move-counts-as-stay",
+      "turn10_actions": [
+        "SHIELD",
+        "WEST",
+        "NORTH",
+        "STAY"
+      ],
+      "turn10_effective": [
+        "SHIELD",
+        "STAY",
+        "NORTH",
+        "STAY"
+      ],
+      "turn10_shields": [
+        {
+          "type": "shield",
+          "seat": 1,
+          "caught": [
+            2
+          ],
+          "backfire": false
+        }
+      ],
+      "turn10_next": 11,
+      "timeline": [
+        {
+          "turn": 11,
+          "A_frozen": 0,
+          "B_frozen": 2,
+          "A_cooldown": 4,
+          "A_can_shield": false
+        },
+        {
+          "turn": 12,
+          "A_frozen": 0,
+          "B_frozen": 1,
+          "A_cooldown": 3,
+          "A_can_shield": false
+        },
+        {
+          "turn": 13,
+          "A_frozen": 0,
+          "B_frozen": 0,
+          "A_cooldown": 2,
+          "A_can_shield": false
+        },
+        {
+          "turn": 14,
+          "A_frozen": 0,
+          "B_frozen": 0,
+          "A_cooldown": 1,
+          "A_can_shield": false
+        },
+        {
+          "turn": 15,
+          "A_frozen": 0,
+          "B_frozen": 0,
+          "A_cooldown": 0,
+          "A_can_shield": true
+        }
+      ]
+    },
+    {
+      "case": "shield-is-not-stay",
+      "turn10_actions": [
+        "SHIELD",
+        "SHIELD",
+        "STAY",
+        "STAY"
+      ],
+      "turn10_effective": [
+        "SHIELD",
+        "SHIELD",
+        "STAY",
+        "STAY"
+      ],
+      "turn10_shields": [
+        {
+          "type": "shield",
+          "seat": 1,
+          "caught": [],
+          "backfire": true
+        },
+        {
+          "type": "shield",
+          "seat": 2,
+          "caught": [],
+          "backfire": true
+        }
+      ],
+      "turn10_next": 11,
+      "timeline": [
+        {
+          "turn": 11,
+          "A_frozen": 2,
+          "B_frozen": 2,
+          "A_cooldown": 4,
+          "A_can_shield": false
+        },
+        {
+          "turn": 12,
+          "A_frozen": 1,
+          "B_frozen": 1,
+          "A_cooldown": 3,
+          "A_can_shield": false
+        },
+        {
+          "turn": 13,
+          "A_frozen": 0,
+          "B_frozen": 0,
+          "A_cooldown": 2,
+          "A_can_shield": false
+        },
+        {
+          "turn": 14,
+          "A_frozen": 0,
+          "B_frozen": 0,
+          "A_cooldown": 1,
+          "A_can_shield": false
+        },
+        {
+          "turn": 15,
+          "A_frozen": 0,
+          "B_frozen": 0,
+          "A_cooldown": 0,
+          "A_can_shield": true
+        }
+      ]
+    }
+  ]
+}

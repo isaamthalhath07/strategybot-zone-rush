@@ -62,6 +62,59 @@ class LocalCatalogTests(unittest.TestCase):
         self.assertEqual({e["label"] for e in catalog.entries.values()},
                          {"Consolidated bot", "Retained tester"})
 
+    def test_matching_explicit_shield_rule_can_recommend_release(self):
+        self.manifest(rules={"catch_requires_stay": True})
+        catalog = self.catalog()
+        self.assertFalse(catalog.warnings)
+        self.assertEqual(catalog.entries[catalog.recommended_id]["path"], "bot.py")
+
+    def test_mismatched_rule_excludes_release_but_keeps_named_testers(self):
+        self.manifest(rules={"catch_requires_stay": False})
+        catalog = self.catalog()
+        self.assertIsNone(catalog.recommended_id)
+        self.assertEqual({entry["path"] for entry in catalog.entries.values()}, {"tester_bots/strong.py"})
+        self.assertTrue(all(not entry["recommended"] for entry in catalog.entries.values()))
+        self.assertIn("matching release", catalog.public()["recommendation"])
+        self.assertTrue(catalog.warnings)
+        tester = next(iter(catalog.entries))
+        self.assertEqual(Path(catalog.resolve(tester)[1]).read_bytes(), TESTER)
+        with self.assertRaises(server.APIError):
+            catalog.resolve(hashlib.sha256(BOT).hexdigest()[:20])
+
+    def test_explicit_nonboolean_shield_rule_cannot_endorse_release(self):
+        for value in (None, "true", 1, 0, [], {}):
+            with self.subTest(value=value):
+                self.manifest(rules={"catch_requires_stay": value})
+                catalog = self.catalog()
+                self.assertIsNone(catalog.recommended_id)
+                self.assertNotIn("bot.py", {entry["path"] for entry in catalog.entries.values()})
+                self.assertTrue(catalog.warnings)
+
+    def test_mismatched_new_catalog_does_not_change_active_historical_game(self):
+        from tests.test_simulator_server import FakeProcess
+        from simulator import history
+        match, referee, _, _ = server.bootstrap()
+        app = server.App(root=self.root, process_factory=FakeProcess, history_dir=self.root/"history")
+        metadata = dict(id="historical", sha256=hashlib.sha256(BOT).hexdigest())
+        old = server.HumanGame(metadata, str(self.root/"bot.py"), 91, 1, 1,
+                              match, referee, FakeProcess, history_dir=app.history_dir,
+                              rules={"catch_requires_stay": False})
+        app.game = old
+        try:
+            self.manifest(rules={"catch_requires_stay": False})
+            public_catalog = app.bots()
+            self.assertIsNone(public_catalog["recommended_bot_id"])
+            with self.assertRaises(server.APIError):
+                app.new({})
+            self.assertIs(app.game, old)
+            self.assertFalse(old.g.rules["catch_requires_stay"])
+            app.action(dict(game_id=old.id, turn=1, action="STAY"))
+            recorded = history.read_history(app.history_dir, old.id)
+            self.assertFalse(recorded["metadata"]["rules"]["catch_requires_stay"])
+            self.assertEqual(len(recorded["turns"]), 1)
+        finally:
+            app.close()
+
     def test_manifest_tester_without_fingerprint_is_not_exposed(self):
         self.manifest(tester_bots=[dict(path="tester_bots/strong.py", label="Unpinned tester")])
         catalog = self.catalog()

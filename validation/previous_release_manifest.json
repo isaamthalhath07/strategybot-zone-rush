@@ -1,0 +1,251 @@
+{
+  "format": "zone-rush-consolidated-release/1",
+  "bot_sha256": "fc00af81fdf7e457b1256a838f363cd536cce9cb2eaa4e68d096622cd74b84cf",
+  "policy": "presence_guarded",
+  "rules": {
+    "frozen_stay_counts": false,
+    "claim_resets_progress": true,
+    "catch_requires_stay": false,
+    "lost_contest_is_stay": true,
+    "home_upgradable": true,
+    "legal_excludes_occupied": false
+  },
+  "tester_bots": [
+    {
+      "path": "tester_bots/transfer_previous.py",
+      "sha256": "fe03b8164ed3b4ebd2a04abcdfbb6fa729bdc34dea825088f7e82bf6e5b5ab5e",
+      "label": "Previous Transfer release",
+      "source": {
+        "name": "fe03b8164ed3",
+        "role": "primary",
+        "path": "consolidation_candidates/frozen/fe03b8164ed3.py",
+        "sha256": "fe03b8164ed3b4ebd2a04abcdfbb6fa729bdc34dea825088f7e82bf6e5b5ab5e",
+        "bytes": 25984,
+        "imports": [
+          "collections"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "human_arena/candidates/transfer_fixed.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "human_arena/release/archive/fe03b8164ed3b4ebd2a04abcdfbb6fa729bdc34dea825088f7e82bf6e5b5ab5e/bot.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "human_arena/candidates/transfer_fixed.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/main",
+            "path": "human_arena/release/archive/fe03b8164ed3b4ebd2a04abcdfbb6fa729bdc34dea825088f7e82bf6e5b5ab5e/bot.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          }
+        ]
+      }
+    },
+    {
+      "path": "tester_bots/transfer_original.py",
+      "sha256": "5457b5fdf4ca0e52d8502c6b237f975a88b1e8a97dd7bb4900f2b2acfbda1497",
+      "label": "Original Transfer planner",
+      "source": {
+        "name": "5457b5fdf4ca",
+        "role": "primary",
+        "path": "consolidation_candidates/frozen/5457b5fdf4ca.py",
+        "sha256": "5457b5fdf4ca0e52d8502c6b237f975a88b1e8a97dd7bb4900f2b2acfbda1497",
+        "bytes": 20226,
+        "imports": [
+          "collections"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "human_arena/candidates/branch_5457b5fdf4ca.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "human_arena/candidates/branch_5457b5fdf4ca.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/research/evolution-2026-11-07",
+            "path": "outputs/bot_transfer_candidate.py",
+            "commit": "0796039f42f0113d7c4f51b2f8e1409835f2c519"
+          }
+        ]
+      }
+    },
+    {
+      "path": "tester_bots/fusion.py",
+      "sha256": "720e5a3daf7b848e8a25038c20bda47e8fb0433495aaa7bdbff9b285b8ba5a2d",
+      "label": "Fused economic planner",
+      "source": {
+        "name": "720e5a3daf7b",
+        "role": "primary",
+        "path": "consolidation_candidates/frozen/720e5a3daf7b.py",
+        "sha256": "720e5a3daf7b848e8a25038c20bda47e8fb0433495aaa7bdbff9b285b8ba5a2d",
+        "bytes": 117100,
+        "imports": [
+          "collections",
+          "time"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "bot.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "bot.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          }
+        ]
+      }
+    },
+    {
+      "path": "tester_bots/apex.py",
+      "sha256": "641c909b7ef188f3ba4dfa7fe0ccb935fe3dde2e23f99c07f83fbc1d7b9f7d4d",
+      "label": "Apex counter-player",
+      "source": {
+        "name": "641c909b7ef1",
+        "role": "primary",
+        "path": "consolidation_candidates/frozen/641c909b7ef1.py",
+        "sha256": "641c909b7ef188f3ba4dfa7fe0ccb935fe3dde2e23f99c07f83fbc1d7b9f7d4d",
+        "bytes": 74853,
+        "imports": [
+          "collections",
+          "math",
+          "time"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/claude/rulefix-stuck-home",
+            "path": "apex/apex_bot.py",
+            "commit": "ed708f30105c465122e3fd983d836be4dc093682"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "apex/apex_bot.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "apex/apex_bot.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "pr/10",
+            "path": "apex/apex_bot.py",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62"
+          }
+        ]
+      }
+    },
+    {
+      "path": "tester_bots/racer.py",
+      "sha256": "a35c2c4811645091adef6cbd263f1573bf2b184d5dd5741a070234a422ce54c8",
+      "label": "Race planner",
+      "source": {
+        "name": "novel_b_racer",
+        "role": "primary",
+        "family": "novel-b",
+        "path": "consolidation_candidates/frozen/a35c2c481164.py",
+        "sha256": "a35c2c4811645091adef6cbd263f1573bf2b184d5dd5741a070234a422ce54c8",
+        "bytes": 38073,
+        "kind": "standalone-class-wrapper",
+        "class_name": "RacerBot",
+        "sources": {
+          "strategy_audit/novel/novel_b.py": "3218162337a3db3279a45cfb2150a9c314fcc2c0e7c9eacb4253489e5918aad8"
+        },
+        "build": "Exact committed module plus per-seat act(state) wrapper; calls class.act directly to expose errors. Seed=seat*7919.",
+        "imports": [
+          "random"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "pr/10",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62",
+            "path": "strategy_audit/novel/novel_b.py::RacerBot"
+          }
+        ]
+      }
+    },
+    {
+      "path": "tester_bots/blocker.py",
+      "sha256": "1bb70109a75e2880bfdf3ac9b6fd8e368b0f3d02b9a3e65de53cef0defa505e5",
+      "label": "Blocking planner",
+      "source": {
+        "name": "novel_b_blocker",
+        "role": "primary",
+        "family": "novel-b",
+        "path": "consolidation_candidates/frozen/1bb70109a75e.py",
+        "sha256": "1bb70109a75e2880bfdf3ac9b6fd8e368b0f3d02b9a3e65de53cef0defa505e5",
+        "bytes": 38075,
+        "kind": "standalone-class-wrapper",
+        "class_name": "BlockerBot",
+        "sources": {
+          "strategy_audit/novel/novel_b.py": "3218162337a3db3279a45cfb2150a9c314fcc2c0e7c9eacb4253489e5918aad8"
+        },
+        "build": "Exact committed module plus per-seat act(state) wrapper; calls class.act directly to expose errors. Seed=seat*7919.",
+        "imports": [
+          "random"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "pr/10",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62",
+            "path": "strategy_audit/novel/novel_b.py::BlockerBot"
+          }
+        ]
+      }
+    }
+  ],
+  "recommendation": "Selected after 69-bot screening, balanced development and a frozen fresh-map comparison. Corrected Shield tracking and escape rules; finite tests do not guarantee a win.",
+  "source": {
+    "parent": "human_arena/candidates/transfer_presence_core.py",
+    "parent_sha256": "aef27c1c5d6c1dadccdbe51fabc2e53ec32c10d592a9ed917bd9b49ee4fca42c",
+    "original_commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+  },
+  "validation": {
+    "screen_games": 828,
+    "development_games": 1920,
+    "confirmation_games": 2304,
+    "timed_callbacks": 1616640,
+    "confirmation_games_per_policy": 384,
+    "confirmation_mean_pw": 1.875,
+    "confirmation_max_ms": 1.2134999269619584,
+    "final_faults": 0,
+    "summary": "validation/final_results.json.summary.json",
+    "code_review": "validation/review/BRANCH_REVIEW.md"
+  }
+}

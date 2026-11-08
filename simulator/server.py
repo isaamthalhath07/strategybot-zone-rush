@@ -1,6 +1,6 @@
 """Play a human seat against three isolated copies of a local standalone bot.
 
-    python simulator/server.py --port 8778 --no-browser
+    python simulator/server.py --port 8779 --no-browser
 
 Works from a downloaded source folder: no Git, account or third-party package
 is required. Every match pins the chosen file by its exact SHA-256.
@@ -33,7 +33,7 @@ CELL_FIELDS = ("occupant", "owner", "is_upgraded", "is_home", "is_frozen", "base
 TIMING = dict(enforce=True, turn_ms=200, first_ms=2000, hard_s=1.0, load_s=5.0)
 # Explicit model for new matches. Historical recordings keep their own rule
 # dictionary; the vendored referee and its provenance remain unchanged.
-NEW_GAME_RULES = {"catch_requires_stay": False}
+NEW_GAME_RULES = {"catch_requires_stay": True}
 RELEASE_MANIFEST = "release_manifest.json"
 _BOOTSTRAP = None
 _BOOTSTRAP_LOCK = threading.RLock()
@@ -134,13 +134,26 @@ class Catalog:
             except (OSError, ValueError, TypeError):
                 self.warnings.append("The saved release details are invalid. Restore them before starting a new match.")
                 return
-        descriptions = [{"path": "bot.py", "label": "Consolidated bot", "recommended": True}]
+        release_rule_mismatch = False
         if manifest is not None:
-            descriptions[0]["sha256"] = manifest["bot_sha256"]
+            recorded_rules = manifest.get("rules")
+            if isinstance(recorded_rules, dict) and "catch_requires_stay" in recorded_rules:
+                recorded_stay = recorded_rules["catch_requires_stay"]
+                release_rule_mismatch = (not isinstance(recorded_stay, bool)
+                                         or recorded_stay != NEW_GAME_RULES["catch_requires_stay"])
+        descriptions = []
+        if release_rule_mismatch:
+            self.recommendation = "The consolidated bot is unavailable for these Shield rules. Choose a tester or restore the matching release."
+            self.warnings.append("The consolidated bot was validated for different Shield rules. Restore a release matching this simulator to use it.")
+        else:
+            descriptions.append({"path": "bot.py", "label": "Consolidated bot", "recommended": True})
+        if manifest is not None:
+            if not release_rule_mismatch:
+                descriptions[0]["sha256"] = manifest["bot_sha256"]
+                note = manifest.get("recommendation")
+                if isinstance(note, str) and note.strip():
+                    self.recommendation = note[:1000]
             descriptions.extend(dict(item, recommended=False) for item in manifest.get("tester_bots", []) if isinstance(item, dict))
-            note = manifest.get("recommendation")
-            if isinstance(note, str) and note.strip():
-                self.recommendation = note[:1000]
         else:
             descriptions.extend({"path": p.relative_to(self.root).as_posix(),
                                  "label": p.stem.replace("_", " ").title(), "recommended": False}
@@ -408,6 +421,22 @@ class App:
         recorder.finish("recovered-completed-snapshot", {"score": state["scores"], "turn": state["turn"]})
         self.game.history = recorder
 
+    def health(self):
+        # Rule definitions are public and versioned independently of the
+        # strictly limited observation; restored recordings keep their model.
+        with self.lock:
+            active_rules = None
+            if self.game:
+                if isinstance(self.game, HumanGame):
+                    active_rules = dict(self.game.g.rules)
+                else:
+                    recorded = getattr(self.game, "_state", {}).get("rules")
+                    if isinstance(recorded, dict):
+                        active_rules = dict(recorded)
+            return dict(ok=True, game=self.game.id if self.game else None,
+                        harness=self.vendor, new_game_rules=dict(NEW_GAME_RULES),
+                        active_game_rules=active_rules)
+
     def state(self, view="standard"):
         view_mode(view)
         with self.lock:
@@ -479,8 +508,7 @@ def handler_for(app):
             if path == "/api/state":
                 return self.reply(app.state(parse_qs(parsed.query).get("view", ["standard"])[0]))
             if path == "/api/health":
-                return self.reply(dict(ok=True, game=app.game.id if app.game else None,
-                                       harness=app.vendor, new_game_rules=dict(NEW_GAME_RULES)))
+                return self.reply(app.health())
             if path == "/api/history/status":
                 return self.reply(app.history_status())
             if path == "/api/history":
@@ -535,7 +563,7 @@ def handler_for(app):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--port", type=int, default=8778)
+    parser.add_argument("--port", type=int, default=8779)
     parser.add_argument("--no-browser", action="store_true")
     parser.add_argument("--history-dir", type=Path, help="Separate history directory for an isolated test arena")
     parser.add_argument("--restore-completed", type=Path,

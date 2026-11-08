@@ -1,0 +1,28 @@
+{
+  "format": "zone-rush-rule-clarification/1",
+  "source": "Explicit clarification supplied by the user in chat on 2026-11-08; supersedes the earlier territory-presence interpretation.",
+  "catch_requires_stay": true,
+  "movement": "Moves resolve before Shield catches. Successful movers are immune, even between cells owned by the shielder.",
+  "blocked": "A blocked or lost-contest move becomes an effective STAY and is catchable.",
+  "victims": "Only rivals taking effective STAY on the shielder land; already-frozen players remain excluded.",
+  "freeze": {
+    "caught_turn": 10,
+    "forced_stay_turns": [
+      11,
+      12
+    ],
+    "movement_returns": 13
+  },
+  "cooldown": {
+    "shield_turn": 10,
+    "unavailable_turns": [
+      11,
+      12,
+      13,
+      14
+    ],
+    "earliest_next": 15
+  },
+  "backfire": "No eligible catch freezes the shielder for the next two turns; normal Shield cooldown still applies.",
+  "other_rules": "No changes to scoring, capture/upgrade work, full-land protection or input privacy."
+}

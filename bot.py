@@ -1,4 +1,4 @@
-"""Guarded presence-SHIELD candidate; requires independent strength validation.
+"""Resilient guarded STAY-only Shield candidate; requires independent strength validation.
 
 Standard-library-only single-file entry point. Reads the documented starter
 interface and never changes the supplied state. Module memory tracks turns,
@@ -106,14 +106,12 @@ _history = {}
 
 
 def _infer_shields(me, cells, positions, owner, level, frozen, can_shield, memory):
-    """Explain new freezes with public outcomes; never invent a safe raid window.
+    """Explain effective-STAY freezes from public outcomes and remembered actions.
 
-    Under the presence rule, a shield catches eligible rivals on the owner's
-    land AFTER moves, including rivals themselves choosing SHIELD.
-    A shielder neither moves, works, nor loses a holding. A newly frozen bot
-    on enemy land may have been caught OR backfired on its own shield. Keep all
-    explanations satisfying those constraints instead of choosing its landlord.
-    Cooldown sets retain uncertainty; their minimum is a guaranteed safe window.
+    An on-time legal own action is assumed accepted unless physical observations
+    contradict it. There is no acceptance acknowledgement in the four-field API:
+    an indistinguishable unacknowledged substitution cannot be uniquely diagnosed.
+    Publicly impossible own casts are retried as possible STAY substitutions.
     """
     prior_positions, prior_owner = memory['positions'], memory['owner']
     prior_frozen = memory['frozen']
@@ -128,46 +126,78 @@ def _infer_shields(me, cells, positions, owner, level, frozen, can_shield, memor
                   if positions[s] >= 0 and positions[s] == prior_positions[s]
                   and not prior_frozen[s] and s not in worked and s not in lost
                   and 0 in prior_cd[s]]
-    if not memory['can_shield'] or memory['last'] != 'SHIELD':
+    if not memory.get('shield_offered', memory['can_shield']) or memory['last'] != 'SHIELD':
         candidates = [s for s in candidates if s != me]
-    own_certain = (memory['can_shield'] and memory['last'] == 'SHIELD'
-                   and not frozen[me] and not can_shield)
+    own_expected = (memory.get('shield_offered', memory['can_shield']) and memory['last'] == 'SHIELD'
+                    and not prior_frozen[me] and prior_cd[me] == {0})
+    aged_own = {max(0, value-1) for value in prior_cd[me]}
+    observed_mode = memory.get('shield_legal_filters')
+    if not frozen[me]:
+        if not can_shield:
+            observed_mode = True
+        elif aged_own and min(aged_own) > 0:
+            observed_mode = False
+    # A cast can establish an unfiltered legal list only after the cast model
+    # itself survives the public outcome constraints. Do not commit it first.
+    cast_mode = False if own_expected and not frozen[me] and can_shield else observed_mode
     newly = {s for s in range(1, 5) if frozen[s] and not prior_frozen[s]}
-    explanations, cooldowns = [], []
-    for mask in range(1 << len(candidates)):
-        shielders = {s for k, s in enumerate(candidates) if mask & (1 << k)}
-        if own_certain and me not in shielders:
-            continue
-        predicted = set()
-        for defender in shielders:
-            caught = {s for s in range(1, 5)
-                      if s != defender and not prior_frozen[s]
-                      and positions[s] >= 0
-                      and prior_owner[positions[s]] == defender}
-            predicted.update(caught or {defender})
-        if predicted != newly:
-            continue
-        options = [set()] + [({4} if s in shielders else
-                            {max(0, value-1) for value in prior_cd[s]})
-                           for s in range(1, 5)]
-        if not frozen[me]:
-            options[me] &= {0} if can_shield else {1, 2, 3, 4}
-        if not options[me]:
-            continue
-        explanations.append(shielders)
-        cooldowns.append(options)
+
+    def explain(force_own, mode):
+        explanations, cooldowns = [], []
+        for mask in range(1 << len(candidates)):
+            shielders = {s for k, s in enumerate(candidates) if mask & (1 << k)}
+            if force_own and me not in shielders:
+                continue
+            predicted = set()
+            for defender in shielders:
+                caught = {s for s in range(1, 5)
+                          if s != defender and s not in shielders and not prior_frozen[s]
+                          and positions[s] >= 0 and positions[s] == prior_positions[s]
+                          and prior_owner[positions[s]] == defender}
+                predicted.update(caught or {defender})
+            if predicted != newly:
+                continue
+            options = [set()] + [({4} if s in shielders else
+                                {max(0, value-1) for value in prior_cd[s]})
+                               for s in range(1, 5)]
+            if not frozen[me]:
+                if not can_shield:
+                    options[me] &= {1, 2, 3, 4}
+                elif mode is True:
+                    options[me] &= {0}
+            if options[me]:
+                explanations.append(shielders)
+                cooldowns.append(options)
+        return explanations, cooldowns
+
+    explanations, cooldowns = explain(own_expected, cast_mode)
+    mode = cast_mode
+    if not explanations and own_expected:
+        # A rejected/late Shield is a STAY. Retry rather than forcing a
+        # physically impossible cast and fabricating an own cooldown of four.
+        explanations, cooldowns = explain(False, observed_mode)
+        mode = observed_mode
     if explanations:
         certain = set.intersection(*explanations)
         possible = set.union(*explanations)
         options = [set()] + [set.union(*(row[s] for row in cooldowns)) for s in range(1, 5)]
     else:
-        # Missing history or a substituted server action can make the previous
-        # model inconsistent. Age confirmed knowledge without fabricating a
-        # rival shield. Own legal availability remains an observable constraint.
+        memory['inference_failures'] = memory.get('inference_failures', 0) + 1
         certain, possible = set(), set()
-        options = [set()] + [{max(0, value-1) for value in prior_cd[s]} for s in range(1, 5)]
+        options = [set()] + [({max(0, value-1) for value in prior_cd[s]}
+                              | ({4} if s in candidates else set())) for s in range(1, 5)]
         if not frozen[me]:
-            options[me] = {0} if can_shield else options[me] & {1, 2, 3, 4} or {1, 2, 3, 4}
+            if not can_shield:
+                options[me] = options[me] & {1, 2, 3, 4} or {1, 2, 3, 4}
+            elif observed_mode is True:
+                options[me] = {0}
+        mode = observed_mode
+    substituted = bool(explanations and memory['last'] == 'SHIELD' and me not in possible)
+    memory['own_action_substituted'] = substituted
+    memory['last_effective'] = 'STAY' if substituted else memory['last']
+    if substituted:
+        memory['action_substitutions'] = memory.get('action_substitutions', 0) + 1
+    memory['shield_legal_filters'] = mode
     memory['cooldown_possible'] = options
     memory['cooldown'] = [0] + [min(options[s]) for s in range(1, 5)]
     memory['shield_certain'] = certain
@@ -194,26 +224,17 @@ def _raid_completion_chance(defender, cost, frozen, memory, exposure):
     return max(0.0, 1.0-exposure[defender])
 
 
-def _presence_chance(seat, defender, cells, positions, memory):
-    """One-step public forecast, including arrivals and moves within territory.
+def _stay_chance(seat, defender, cells, positions, memory):
+    """Forecast effective STAY commitment; arriving/moving rivals are immune.
 
-    Where every possible endpoint belongs to the defender, catching is certain.
-    Otherwise use learned territory retention for an existing intruder; for an
-    arrival, use the fraction of distinct reachable endpoints on that land.
-    No pending action or private rival progress enters this estimate.
+    This estimate uses public stay-or-leave history, not territory residence.
+    A blocked movement is observed as stationary and counts as effective STAY.
     """
     at = positions[seat]
-    occupied = {p for s, p in enumerate(positions) if s and s != seat and p >= 0}
-    endpoints = [at] + [p for _, p in _ADJ[at] if p not in occupied]
-    covered = sum(cells[p].owner == defender for p in endpoints)
-    if not covered:
+    if at < 0 or cells[at].owner != defender:
         return 0.0
-    if covered == len(endpoints):
-        return 1.0
-    if cells[at].owner == defender:
-        tier = int(cells[at].is_upgraded)
-        return min(.97, max(.04, memory['stay_hits'][seat][tier] / memory['stay_trials'][seat][tier]))
-    return covered / len(endpoints)
+    tier = int(cells[at].is_upgraded)
+    return memory['stay_hits'][seat][tier] / memory['stay_trials'][seat][tier]
 
 
 def _observe(me, cells, positions, owner, level, frozen, can_shield, config):
@@ -238,9 +259,10 @@ def _observe(me, cells, positions, owner, level, frozen, can_shield, config):
                "defense_hits": [1.20]*5, "last_bait": -10,
                "cooldown": [0]*5, "stops": [3*config["shield_prior"]]*5, "attempts": [3.0]*5,
                "cooldown_possible": [set()] + [{0} if pristine else set(range(5)) for _ in range(4)],
-               "raid_catches": {}, "shield_certain": set(), "shield_possible": set(), "failed_jobs": {}}
+               "raid_catches": {}, "shield_certain": set(), "shield_possible": set(), "failed_jobs": {},
+               'shield_legal_filters': None, 'shield_offered': False, 'inference_failures': 0}
         if not pristine and not frozen[me]:
-            old['cooldown_possible'][me] = {0} if can_shield else {1, 2, 3, 4}
+            old['cooldown_possible'][me] = set(range(5)) if can_shield else {1, 2, 3, 4}
             old['cooldown'][me] = min(old['cooldown_possible'][me])
     else:
         old["turn"] = min(old["turn"]+1, 80)
@@ -251,11 +273,11 @@ def _observe(me, cells, positions, owner, level, frozen, can_shield, config):
         own_shield = me in certain
         for seat in range(1, 5):
             spot = positions[seat]
-            if spot < 0:
+            if spot < 0 or spot != prior_pos[seat]:
                 continue
             defender = prior_owner[spot]
             if defender and defender != seat and not old["frozen"][seat]:
-                if seat in newly and defender in certain:
+                if seat in newly and defender in certain and seat not in possible:
                     old["stops"][defender] += 1
                     old["attempts"][defender] += 1
                     if seat == me:
@@ -273,11 +295,11 @@ def _observe(me, cells, positions, owner, level, frozen, can_shield, config):
                 continue
             if not old["frozen"][land] and not prior_cooldown[land]:
                 opportunities.add(land)
-            if land == me and old["can_shield"]:
+            if land == me and old["can_shield"] and seat not in possible:
                 tier = old["level"][previous]
-                # Moving elsewhere on the same owner's land is still caught.
-                # Learn remaining on the territory, not remaining on one cell.
-                stayed = positions[seat] >= 0 and prior_owner[positions[seat]] == me
+                # Effective STAY, including a blocked move, is catchable.
+                # A successful move between this owner's cells escapes.
+                stayed = previous == positions[seat]
                 weight = 1.5 if own_shield else 1.0
                 old["stay_hits"][seat][tier] = 0.94*old["stay_hits"][seat][tier] + weight*stayed
                 old["stay_trials"][seat][tier] = 0.94*old["stay_trials"][seat][tier] + weight
@@ -293,7 +315,7 @@ def _observe(me, cells, positions, owner, level, frozen, can_shield, config):
                           owner[p] == prior_owner[p] and level[p] == old["level"][p])
             need = _work_needed(seat, prior_owner[p], old['level'][p], cells[p].is_home) if p >= 0 else 0
             previous = old['progress'] if seat == me else old['enemy_progress'][seat]
-            if (seat == me and continuing and old['last'] == 'STAY'
+            if (seat == me and continuing and old.get('last_effective', old['last']) == 'STAY'
                     and need and previous >= need-1):
                 # A public job should have completed, but its cell did not
                 # change. Stop retrying the same unsupported rule indefinitely.
@@ -365,7 +387,7 @@ def choose_terminal(state, cells, me, at, progress):
 
 
 def _policy(state):
-    legal = state.legal_actions
+    legal = list(state.legal_actions)
     me = state.bot_id
     board = state.board
     cells = [cell for row in board for cell in row] if len(board) == 8 else board
@@ -382,7 +404,13 @@ def _policy(state):
     can_shield = "SHIELD" in legal
     config = {**DEFAULT_CONFIG, **CONFIG}
     memory = _observe(me, cells, pos, owner, level, frozen, can_shield, config)
-    memory["can_shield"] = can_shield
+    memory['shield_offered'] = can_shield
+    # In unfiltered/unknown legal-list conventions, never spend a Shield
+    # unless own public history proves it has recharged. This also guards a
+    # cold start where the hidden initial cooldown is not identifiable.
+    if 'SHIELD' in legal and memory['cooldown_possible'][me] != {0}:
+        legal.remove('SHIELD')
+    memory["can_shield"] = 'SHIELD' in legal
     if len(legal) == 1:
         memory["last"] = legal[0]
         return legal[0]
@@ -517,16 +545,13 @@ def _policy(state):
     memory["prior_target"] = chosen_cell
 
     if at in renewal_traps:
-        # Even when no other job is currently reachable, leaving can expose
-        # new jobs. STAY on enemy land is another raid attempt, not safe idle.
-        defender = owner[at]
-        outside = [(cells[target].owner in (0, me), -pressure[target], action)
+        # Any successful unblocked move escapes a STAY-only Shield, even
+        # another cell of this defender. Current occupancy still blocks entry.
+        exits = [(cells[target].owner in (0, me), -pressure[target], action)
                  for action, target in _ADJ[at]
-                 if action in legal and target not in occupied and owner[target] != defender]
-        if outside:
-            endpoint = at if best_action not in _NAMES else next(p for a, p in _ADJ[at] if a == best_action)
-            if owner[endpoint] == defender:
-                best_action = max(outside)[2]
+                 if action in legal and target not in occupied]
+        if exits and best_action not in _NAMES:
+            best_action = max(exits)[2]
             memory['prior_target'] = None
 
     # Escape a predicted shield only when there is a productive neighbouring
@@ -539,9 +564,10 @@ def _policy(state):
         response = memory["defense_hits"][defender] / memory["defense_trials"][defender]
         exits = []
         for _, i, effort, reward, _, _ in tasks:
-            if travel[i] == 1 and owner[i] != defender:
-                # A shield miss requires leaving this defender's entire land.
-                bonus = 0.95
+            if travel[i] == 1:
+                # An unblocked move can bait a miss while keeping a productive
+                # job on the same defender's land in reach during cooldown.
+                bonus = 1.25 if owner[i] == defender else 0.95
                 exits.append((reward*bonus/(effort+1), first[i]))
         if exits and response*feint_weight > .43:
             alternative, action = max(exits)
@@ -561,7 +587,7 @@ def _policy(state):
                 # An arriving or one-stay intruder cannot take this upgraded
                 # cell now. Preserve the shield for the completion attempt.
                 continue
-            chance = memory["stay_hits"][s][tier]/memory["stay_trials"][s][tier]
+            chance = _stay_chance(s, me, cells, pos, memory)
             if tier:
                 # Two uneventful stays reveal commitment and a live takeover.
                 # Keeping the shield ready on earlier stays preserves the option

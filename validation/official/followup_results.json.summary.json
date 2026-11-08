@@ -1,0 +1,49 @@
+{
+  "summary": {
+    "stay_guarded_resilient": {
+      "games": 576,
+      "mean_pw": 1.7300347222222223,
+      "mean_score": 2871.2604166666665,
+      "fields": {
+        "legacy-economic": 1.71875,
+        "novel-pressure": 1.6197916666666667,
+        "shield-baits": 1.8515625
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 2.0154000958427787,
+      "mean_ms": 0.2599481920823463
+    },
+    "stay_guarded_research_resilient": {
+      "games": 576,
+      "mean_pw": 1.4991319444444444,
+      "mean_score": 2827.6614583333335,
+      "fields": {
+        "legacy-economic": 1.3515625,
+        "novel-pressure": 1.6197916666666667,
+        "shield-baits": 1.5260416666666667
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 1.4825999969616532,
+      "mean_ms": 0.23040554689133488
+    }
+  },
+  "paired": [
+    {
+      "first": "stay_guarded_resilient",
+      "second": "stay_guarded_research_resilient",
+      "mean": 0.2309027777777778,
+      "clusters": 12,
+      "bootstrap_95": [
+        -0.024305555555555563,
+        0.49392361111111116
+      ]
+    }
+  ],
+  "elapsed_s": 93.0646296000341,
+  "caveat": "Finite registered field. Screening is selection data. Confirmations are fresh maps, not proof against every possible rival. No private state or future actions reach a policy.",
+  "games": 1152,
+  "timed_callbacks": 368640,
+  "all_faults": 0
+}

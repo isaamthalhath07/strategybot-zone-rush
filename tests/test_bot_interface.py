@@ -35,7 +35,7 @@ def signature(public):
 class GuardedCandidateTests(unittest.TestCase):
 
     def test_flat_dictionary_string_inputs_match_public_objects(self):
-        public=engine.Game(base=[3]*64,rules={'catch_requires_stay':False}).views()[0]
+        public=engine.Game(base=[3]*64,rules={'catch_requires_stay':True}).views()[0]
         expected=guarded().act(public)
         raw={'bot_id':'1','is_priority_token':'true','legal_actions':[a.lower() for a in public.legal_actions],
              'board':[dict(occupant=str(c.occupant),owner=str(c.owner),base_points=str(c.base_points),
@@ -48,7 +48,7 @@ class GuardedCandidateTests(unittest.TestCase):
 
     def test_original_enum_action_object_is_returned(self):
         actions=Enum('Action','NORTH EAST SOUTH WEST STAY SHIELD')
-        public=engine.Game(base=[3]*64,rules={'catch_requires_stay':False}).views()[0]
+        public=engine.Game(base=[3]*64,rules={'catch_requires_stay':True}).views()[0]
         expected=guarded().act(public)
         public.legal_actions=[getattr(actions,name) for name in public.legal_actions]
         actual=guarded().act(public)
@@ -56,7 +56,7 @@ class GuardedCandidateTests(unittest.TestCase):
 
     def test_failed_home_completion_stops_retrying_unsupported_upgrade(self):
         current=engine.Game(base=[3 if p in (0,7,56,63) else 1 for p in range(64)],
-                            rules={'catch_requires_stay':False,'home_upgradable':False})
+                            rules={'catch_requires_stay':True,'home_upgradable':False})
         candidate=guarded(); actions=[]
         for _ in range(8):
             public=current.views()[0]

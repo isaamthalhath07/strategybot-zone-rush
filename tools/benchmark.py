@@ -117,7 +117,8 @@ def run(spec_path, out, workers):
         if sha(path) != expected:
             raise AssertionError("Source hash mismatch: " + str(path))
     rules = dict(DEFAULT_RULES, **spec["rules"])
-    assert rules["catch_requires_stay"] is False
+    if not isinstance(rules["catch_requires_stay"], bool):
+        raise ValueError("catch_requires_stay must be an explicitly registered Boolean")
     timing = dict(DEFAULT_TIMING, hard_s=1.0, load_s=5.0)
     registration = dict(spec=spec, spec_sha256=sha(spec_path), benchmark_sha256=sha(__file__),
                         referee_sha256=sha(VENDOR/"referee.py"), worker_sha256=sha(VENDOR/"worker.py"),
@@ -137,7 +138,7 @@ def run(spec_path, out, workers):
             raise AssertionError("Source changed during evaluation: " + str(path))
     games.sort(key=lambda row: (row["candidate"], row["fixture"]))
     summary = summarize(games)
-    result = dict(registration=registration, summary=summary, paired=paired(games, list(summary)),
+    result = dict(registration=registration, summary=summary, paired=paired(games, list(summary) if len(summary)<=15 else list(summary)[:6]),
                   games=games, elapsed_s=time.perf_counter()-started,
                   caveat="Finite registered field. Screening is selection data. Confirmations are fresh maps, not proof against every possible rival. No private state or future actions reach a policy.")
     with gzip.open(out, "wt", encoding="utf8", newline="\n") as handle:
@@ -147,7 +148,7 @@ def run(spec_path, out, workers):
     concise["timed_callbacks"] = sum(t["calls"] for row in games for t in row["timing"])
     concise["all_faults"] = sum(len(row["faults"]) for row in games)
     out.with_suffix(".summary.json").write_text(json.dumps(concise, indent=2), encoding="utf8", newline="\n")
-    print(json.dumps(concise, indent=2), flush=True)
+    print(json.dumps({key:value for key,value in concise.items() if key != "paired"}, indent=2), flush=True)
     return result
 
 

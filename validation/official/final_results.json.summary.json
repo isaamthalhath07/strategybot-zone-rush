@@ -1,0 +1,245 @@
+{
+  "summary": {
+    "stay_guarded_research": {
+      "games": 384,
+      "mean_pw": 1.6328125,
+      "mean_score": 2808.5859375,
+      "fields": {
+        "legacy-economic": 1.6015625,
+        "novel-pressure": 1.9765625,
+        "shield-baits": 1.3203125
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 2.0933999912813306,
+      "mean_ms": 0.22992311844139598
+    },
+    "fe03b8164ed3": {
+      "games": 384,
+      "mean_pw": 1.5950520833333333,
+      "mean_score": 2799.6692708333335,
+      "fields": {
+        "legacy-economic": 1.76953125,
+        "novel-pressure": 1.5546875,
+        "shield-baits": 1.4609375
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 1.4432999305427074,
+      "mean_ms": 0.22159101861234376
+    },
+    "stay_guarded": {
+      "games": 384,
+      "mean_pw": 1.5950520833333333,
+      "mean_score": 2799.6692708333335,
+      "fields": {
+        "legacy-economic": 1.76953125,
+        "novel-pressure": 1.5546875,
+        "shield-baits": 1.4609375
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 1.670900033786893,
+      "mean_ms": 0.2555486392717891
+    },
+    "presence_guarded": {
+      "games": 384,
+      "mean_pw": 1.5924479166666667,
+      "mean_score": 2797.453125,
+      "fields": {
+        "legacy-economic": 1.83203125,
+        "novel-pressure": 1.5546875,
+        "shield-baits": 1.390625
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 2.0952000049874187,
+      "mean_ms": 0.27900255199710955
+    },
+    "720e5a3daf7b": {
+      "games": 384,
+      "mean_pw": 1.44921875,
+      "mean_score": 2772.1640625,
+      "fields": {
+        "legacy-economic": 1.4609375,
+        "novel-pressure": 1.54296875,
+        "shield-baits": 1.34375
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 4.051700001582503,
+      "mean_ms": 0.27755697624722114
+    },
+    "novel_b_feint": {
+      "games": 384,
+      "mean_pw": 1.3697916666666667,
+      "mean_score": 2753.0494791666665,
+      "fields": {
+        "legacy-economic": 1.3046875,
+        "novel-pressure": 1.421875,
+        "shield-baits": 1.3828125
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 2.478600014001131,
+      "mean_ms": 0.4556856541815553
+    }
+  },
+  "paired": [
+    {
+      "first": "stay_guarded_research",
+      "second": "fe03b8164ed3",
+      "mean": 0.03776041666666666,
+      "clusters": 8,
+      "bootstrap_95": [
+        -0.23567708333333334,
+        0.33072916666666663
+      ]
+    },
+    {
+      "first": "stay_guarded_research",
+      "second": "stay_guarded",
+      "mean": 0.03776041666666666,
+      "clusters": 8,
+      "bootstrap_95": [
+        -0.23567708333333334,
+        0.33072916666666663
+      ]
+    },
+    {
+      "first": "stay_guarded_research",
+      "second": "presence_guarded",
+      "mean": 0.04036458333333333,
+      "clusters": 8,
+      "bootstrap_95": [
+        -0.22526041666666669,
+        0.3203125
+      ]
+    },
+    {
+      "first": "stay_guarded_research",
+      "second": "720e5a3daf7b",
+      "mean": 0.18359375,
+      "clusters": 8,
+      "bootstrap_95": [
+        0.05989583333333333,
+        0.328125
+      ]
+    },
+    {
+      "first": "stay_guarded_research",
+      "second": "novel_b_feint",
+      "mean": 0.2630208333333333,
+      "clusters": 8,
+      "bootstrap_95": [
+        -0.08593750000000001,
+        0.5807291666666666
+      ]
+    },
+    {
+      "first": "fe03b8164ed3",
+      "second": "stay_guarded",
+      "mean": 0.0,
+      "clusters": 8,
+      "bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "first": "fe03b8164ed3",
+      "second": "presence_guarded",
+      "mean": 0.0026041666666666696,
+      "clusters": 8,
+      "bootstrap_95": [
+        -0.0546875,
+        0.07291666666666667
+      ]
+    },
+    {
+      "first": "fe03b8164ed3",
+      "second": "720e5a3daf7b",
+      "mean": 0.14583333333333334,
+      "clusters": 8,
+      "bootstrap_95": [
+        -0.17578125,
+        0.48828125
+      ]
+    },
+    {
+      "first": "fe03b8164ed3",
+      "second": "novel_b_feint",
+      "mean": 0.22526041666666666,
+      "clusters": 8,
+      "bootstrap_95": [
+        -0.054687500000000014,
+        0.49609375
+      ]
+    },
+    {
+      "first": "stay_guarded",
+      "second": "presence_guarded",
+      "mean": 0.0026041666666666696,
+      "clusters": 8,
+      "bootstrap_95": [
+        -0.0546875,
+        0.07291666666666667
+      ]
+    },
+    {
+      "first": "stay_guarded",
+      "second": "720e5a3daf7b",
+      "mean": 0.14583333333333334,
+      "clusters": 8,
+      "bootstrap_95": [
+        -0.17578125,
+        0.48828125
+      ]
+    },
+    {
+      "first": "stay_guarded",
+      "second": "novel_b_feint",
+      "mean": 0.22526041666666666,
+      "clusters": 8,
+      "bootstrap_95": [
+        -0.054687500000000014,
+        0.49609375
+      ]
+    },
+    {
+      "first": "presence_guarded",
+      "second": "720e5a3daf7b",
+      "mean": 0.14322916666666666,
+      "clusters": 8,
+      "bootstrap_95": [
+        -0.15494791666666669,
+        0.4466145833333333
+      ]
+    },
+    {
+      "first": "presence_guarded",
+      "second": "novel_b_feint",
+      "mean": 0.22265625,
+      "clusters": 8,
+      "bootstrap_95": [
+        -0.03776041666666666,
+        0.49609375
+      ]
+    },
+    {
+      "first": "720e5a3daf7b",
+      "second": "novel_b_feint",
+      "mean": 0.07942708333333333,
+      "clusters": 8,
+      "bootstrap_95": [
+        -0.3229166666666667,
+        0.47265625
+      ]
+    }
+  ],
+  "elapsed_s": 198.53922579996288,
+  "caveat": "Finite registered field. Screening is selection data. Confirmations are fresh maps, not proof against every possible rival. No private state or future actions reach a policy.",
+  "games": 2304,
+  "timed_callbacks": 737280,
+  "all_faults": 0
+}

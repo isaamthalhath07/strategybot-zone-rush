@@ -1,0 +1,739 @@
+{
+  "source_file_sha256": "2019ee7f8ed4899a0a045c12eb9458363eaf8237411bba64f948d33f68740474",
+  "game_id": "44e7eb1d4c604285ab1af22ba0b3b7dc",
+  "turns_verified": 34,
+  "all_before_events_after_match": true,
+  "rules": {
+    "frozen_stay_counts": false,
+    "claim_resets_progress": true,
+    "catch_requires_stay": true,
+    "lost_contest_is_stay": true,
+    "home_upgradable": true,
+    "legal_excludes_occupied": false
+  },
+  "base": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    2,
+    2,
+    2,
+    2,
+    1,
+    1,
+    1,
+    1,
+    2,
+    2,
+    2,
+    2,
+    1,
+    1,
+    1,
+    2,
+    2,
+    3,
+    3,
+    2,
+    2,
+    1,
+    1,
+    2,
+    2,
+    3,
+    3,
+    2,
+    2,
+    1,
+    1,
+    1,
+    2,
+    2,
+    2,
+    2,
+    1,
+    1,
+    1,
+    1,
+    2,
+    2,
+    2,
+    2,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "start_token": 1,
+  "actions": [
+    [
+      "EAST",
+      "SOUTH",
+      "NORTH",
+      "EAST"
+    ],
+    [
+      "EAST",
+      "SOUTH",
+      "NORTH",
+      "EAST"
+    ],
+    [
+      "SOUTH",
+      "SOUTH",
+      "NORTH",
+      "EAST"
+    ],
+    [
+      "SOUTH",
+      "WEST",
+      "WEST",
+      "NORTH"
+    ],
+    [
+      "SOUTH",
+      "STAY",
+      "STAY",
+      "STAY"
+    ],
+    [
+      "STAY",
+      "WEST",
+      "WEST",
+      "NORTH"
+    ],
+    [
+      "EAST",
+      "STAY",
+      "STAY",
+      "STAY"
+    ],
+    [
+      "STAY",
+      "WEST",
+      "WEST",
+      "NORTH"
+    ],
+    [
+      "STAY",
+      "STAY",
+      "STAY",
+      "STAY"
+    ],
+    [
+      "STAY",
+      "STAY",
+      "STAY",
+      "STAY"
+    ],
+    [
+      "STAY",
+      "STAY",
+      "STAY",
+      "STAY"
+    ],
+    [
+      "NORTH",
+      "STAY",
+      "STAY",
+      "STAY"
+    ],
+    [
+      "STAY",
+      "NORTH",
+      "SOUTH",
+      "WEST"
+    ],
+    [
+      "STAY",
+      "STAY",
+      "STAY",
+      "STAY"
+    ],
+    [
+      "STAY",
+      "STAY",
+      "STAY",
+      "STAY"
+    ],
+    [
+      "STAY",
+      "STAY",
+      "STAY",
+      "STAY"
+    ],
+    [
+      "NORTH",
+      "STAY",
+      "STAY",
+      "STAY"
+    ],
+    [
+      "STAY",
+      "EAST",
+      "EAST",
+      "SOUTH"
+    ],
+    [
+      "EAST",
+      "STAY",
+      "STAY",
+      "STAY"
+    ],
+    [
+      "EAST",
+      "STAY",
+      "STAY",
+      "STAY"
+    ],
+    [
+      "STAY",
+      "STAY",
+      "STAY",
+      "STAY"
+    ],
+    [
+      "STAY",
+      "STAY",
+      "STAY",
+      "STAY"
+    ],
+    [
+      "STAY",
+      "SOUTH",
+      "SOUTH",
+      "SOUTH"
+    ],
+    [
+      "STAY",
+      "STAY",
+      "STAY",
+      "STAY"
+    ],
+    [
+      "WEST",
+      "STAY",
+      "STAY",
+      "STAY"
+    ],
+    [
+      "STAY",
+      "STAY",
+      "STAY",
+      "STAY"
+    ],
+    [
+      "STAY",
+      "EAST",
+      "STAY",
+      "STAY"
+    ],
+    [
+      "STAY",
+      "STAY",
+      "WEST",
+      "EAST"
+    ],
+    [
+      "STAY",
+      "STAY",
+      "STAY",
+      "STAY"
+    ],
+    [
+      "WEST",
+      "STAY",
+      "STAY",
+      "STAY"
+    ],
+    [
+      "STAY",
+      "WEST",
+      "STAY",
+      "STAY"
+    ],
+    [
+      "STAY",
+      "WEST",
+      "STAY",
+      "NORTH"
+    ],
+    [
+      "STAY",
+      "WEST",
+      "EAST",
+      "STAY"
+    ],
+    [
+      "SHIELD",
+      "WEST",
+      "NORTH",
+      "STAY"
+    ]
+  ],
+  "turn34_before": {
+    "turn": 34,
+    "token": 2,
+    "pos": [
+      11,
+      27,
+      53,
+      43
+    ],
+    "owner": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      2,
+      2,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      2,
+      2,
+      2,
+      0,
+      0,
+      0,
+      4,
+      4,
+      3,
+      3,
+      3,
+      0,
+      0,
+      0,
+      4,
+      4,
+      3,
+      3,
+      0,
+      0,
+      0,
+      0,
+      4,
+      4,
+      3,
+      3,
+      0,
+      0,
+      4,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      3
+    ],
+    "upg": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "frozen": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "cd": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "prog": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "need": [
+      0,
+      3,
+      0,
+      3
+    ],
+    "score": [
+      420,
+      438,
+      462,
+      454
+    ],
+    "income": [
+      25,
+      23,
+      27,
+      25
+    ],
+    "cells": [
+      7,
+      6,
+      8,
+      7
+    ],
+    "upgraded": [
+      5,
+      5,
+      5,
+      5
+    ]
+  },
+  "turn34_resolution": {
+    "eff": [
+      "SHIELD",
+      "WEST",
+      "NORTH",
+      "STAY"
+    ],
+    "notes": [
+      [
+        "SHIELD caught nobody and backfired: frozen for 2 turns"
+      ],
+      [],
+      [],
+      []
+    ],
+    "events": [
+      {
+        "type": "move",
+        "seat": 2,
+        "from": 27,
+        "to": 26,
+        "dir": "WEST"
+      },
+      {
+        "type": "move",
+        "seat": 3,
+        "from": 53,
+        "to": 45,
+        "dir": "NORTH"
+      },
+      {
+        "type": "shield",
+        "seat": 1,
+        "caught": [],
+        "backfire": true
+      },
+      {
+        "type": "freeze",
+        "seat": 1,
+        "by": 1,
+        "cell": 11,
+        "why": "backfire"
+      },
+      {
+        "type": "progress",
+        "seat": 4,
+        "cell": 43,
+        "value": 2,
+        "need": 3,
+        "kind": "upgrade"
+      }
+    ],
+    "income": [
+      25,
+      23,
+      27,
+      25
+    ],
+    "bonus": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "gain": [
+      25,
+      23,
+      27,
+      25
+    ]
+  },
+  "turn34_after": {
+    "turn": 35,
+    "token": 3,
+    "pos": [
+      11,
+      26,
+      45,
+      43
+    ],
+    "owner": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      2,
+      2,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      2,
+      2,
+      2,
+      0,
+      0,
+      0,
+      4,
+      4,
+      3,
+      3,
+      3,
+      0,
+      0,
+      0,
+      4,
+      4,
+      3,
+      3,
+      0,
+      0,
+      0,
+      0,
+      4,
+      4,
+      3,
+      3,
+      0,
+      0,
+      4,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      3
+    ],
+    "upg": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "frozen": [
+      2,
+      0,
+      0,
+      0
+    ],
+    "cd": [
+      4,
+      0,
+      0,
+      0
+    ],
+    "prog": [
+      0,
+      0,
+      0,
+      2
+    ],
+    "need": [
+      0,
+      1,
+      0,
+      3
+    ],
+    "score": [
+      445,
+      461,
+      489,
+      479
+    ],
+    "income": [
+      25,
+      23,
+      27,
+      25
+    ],
+    "cells": [
+      7,
+      6,
+      8,
+      7
+    ],
+    "upgraded": [
+      5,
+      5,
+      5,
+      5
+    ]
+  },
+  "explanation": "Red moved D4 to C4 and was ineligible; Blue Shield caught nobody and backfired. All 34 original turns match the clarified STAY-only rule."
+}

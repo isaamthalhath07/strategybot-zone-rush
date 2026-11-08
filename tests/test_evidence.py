@@ -24,7 +24,8 @@ class EvidenceTests(unittest.TestCase):
                 spec = json.loads((ROOT/("validation/%s_spec.json" % stage)).read_text())
                 for source in spec["sources"]:
                     self.assertEqual(hashlib.sha256(z.read(source["path"])).hexdigest(), source["sha256"])
-            self.assertEqual(z.read("consolidation_candidates/presence_guarded.py"), (ROOT/"bot.py").read_bytes())
+            previous=json.loads((ROOT/"validation/previous_release_manifest.json").read_text())
+            self.assertEqual(hashlib.sha256(z.read("consolidation_candidates/presence_guarded.py")).hexdigest(),previous["bot_sha256"])
 
     def test_registered_results_recompute_and_sampled_games_replay(self):
         referee = server.bootstrap()[1]
@@ -37,7 +38,7 @@ class EvidenceTests(unittest.TestCase):
             spec = result["registration"]["spec"]
             self.assertEqual(spec, json.loads((ROOT/("validation/%s_spec.json" % stage)).read_text()))
             self.assertFalse(result["registration"]["rules"]["catch_requires_stay"])
-            self.assertEqual(hashlib.sha256((ROOT/"tools/benchmark.py").read_bytes()).hexdigest(),
+            self.assertEqual(hashlib.sha256((ROOT/"validation/benchmark_versions"/(result["registration"]["benchmark_sha256"]+".py")).read_bytes()).hexdigest(),
                              result["registration"]["benchmark_sha256"])
             self.assertEqual(len(result["games"]), count)
             self.assertEqual(len(result["summary"]), policies)

@@ -1,0 +1,3723 @@
+{
+  "spec": {
+    "id": "stay_only_screen",
+    "purpose": "New comparison under explicit STAY-onlyclarification. HistoricalpresenceFalse scoresarenotpooled. Exploratoryselectiononly.",
+    "rules": {
+      "frozen_stay_counts": false,
+      "claim_resets_progress": true,
+      "catch_requires_stay": true,
+      "lost_contest_is_stay": true,
+      "home_upgradable": true,
+      "legal_excludes_occupied": false
+    },
+    "sources": [
+      {
+        "name": "bb2cf166a49f",
+        "role": "tester",
+        "path": "consolidation_candidates/frozen/bb2cf166a49f.py",
+        "sha256": "bb2cf166a49fde066e1f432895a33e30317ed7853da4566ce107798d3015f39b",
+        "bytes": 14005,
+        "imports": [],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/claude/rulefix-stuck-home",
+            "path": "agent_new.py",
+            "commit": "ed708f30105c465122e3fd983d836be4dc093682"
+          },
+          {
+            "ref": "origin/codex-audit-and-robustness",
+            "path": "agent_new.py",
+            "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "agent_new.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/hardened-field-and-fixes",
+            "path": "agent_new.py",
+            "commit": "961e729a30736f41f272f3ecc8a2f9e033ca1d57"
+          },
+          {
+            "ref": "origin/main",
+            "path": "agent_new.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/shaunakbr1",
+            "path": "agent_new.py",
+            "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672"
+          },
+          {
+            "ref": "origin/shaunakbr2",
+            "path": "agent_new.py",
+            "commit": "4baf23937475031ee2e83b08673b2facf505a42c"
+          },
+          {
+            "ref": "origin/v7-independent-field",
+            "path": "agent_new.py",
+            "commit": "c7cbaa97e226738934401ad33a8cda12c7c680bc"
+          },
+          {
+            "ref": "origin/visual-harness",
+            "path": "agent_new.py",
+            "commit": "7fa9b73affed2b3f6669512a4ce4bd11f28328d3"
+          },
+          {
+            "ref": "pr/10",
+            "path": "agent_new.py",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62"
+          }
+        ]
+      },
+      {
+        "name": "641c909b7ef1",
+        "role": "primary",
+        "path": "consolidation_candidates/frozen/641c909b7ef1.py",
+        "sha256": "641c909b7ef188f3ba4dfa7fe0ccb935fe3dde2e23f99c07f83fbc1d7b9f7d4d",
+        "bytes": 74853,
+        "imports": [
+          "collections",
+          "math",
+          "time"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/claude/rulefix-stuck-home",
+            "path": "apex/apex_bot.py",
+            "commit": "ed708f30105c465122e3fd983d836be4dc093682"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "apex/apex_bot.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "apex/apex_bot.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "pr/10",
+            "path": "apex/apex_bot.py",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62"
+          }
+        ]
+      },
+      {
+        "name": "1dca0c916af4",
+        "role": "primary",
+        "path": "consolidation_candidates/frozen/1dca0c916af4.py",
+        "sha256": "1dca0c916af4ff4ac4c2e90fabe3f3c29c550c5db61663f8a3c2b0efc72f81ca",
+        "bytes": 20230,
+        "imports": [
+          "collections"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "human_arena/candidates/branch_1dca0c916af4.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "human_arena/candidates/branch_1dca0c916af4.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/research/evolution-2026-11-07",
+            "path": "bot.py",
+            "commit": "0796039f42f0113d7c4f51b2f8e1409835f2c519"
+          },
+          {
+            "ref": "origin/research/evolution-2026-11-07",
+            "path": "outputs/bot.py",
+            "commit": "0796039f42f0113d7c4f51b2f8e1409835f2c519"
+          },
+          {
+            "ref": "origin/research/evolution-2026-11-07",
+            "path": "outputs/bot_evolved.py",
+            "commit": "0796039f42f0113d7c4f51b2f8e1409835f2c519"
+          }
+        ]
+      },
+      {
+        "name": "b2de2f334e88",
+        "role": "primary",
+        "path": "consolidation_candidates/frozen/b2de2f334e88.py",
+        "sha256": "b2de2f334e889b3b2d3a2d4a2ad647f1b285ce9a249a4c558b527bbcfa32104b",
+        "bytes": 115504,
+        "imports": [
+          "collections",
+          "time"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/claude/rulefix-stuck-home",
+            "path": "bot.py",
+            "commit": "ed708f30105c465122e3fd983d836be4dc093682"
+          },
+          {
+            "ref": "pr/10",
+            "path": "bot.py",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62"
+          }
+        ]
+      },
+      {
+        "name": "5457b5fdf4ca",
+        "role": "primary",
+        "path": "consolidation_candidates/frozen/5457b5fdf4ca.py",
+        "sha256": "5457b5fdf4ca0e52d8502c6b237f975a88b1e8a97dd7bb4900f2b2acfbda1497",
+        "bytes": 20226,
+        "imports": [
+          "collections"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "human_arena/candidates/branch_5457b5fdf4ca.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "human_arena/candidates/branch_5457b5fdf4ca.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/research/evolution-2026-11-07",
+            "path": "outputs/bot_transfer_candidate.py",
+            "commit": "0796039f42f0113d7c4f51b2f8e1409835f2c519"
+          }
+        ]
+      },
+      {
+        "name": "31965e1412c6",
+        "role": "primary",
+        "path": "consolidation_candidates/frozen/31965e1412c6.py",
+        "sha256": "31965e1412c6e973e7e877c0653f6d9ca072dfcd94a10460f8a7d76bdfa25015",
+        "bytes": 38700,
+        "imports": [
+          "collections",
+          "time"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "human_arena/candidates/branch_31965e1412c6.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "human_arena/candidates/branch_31965e1412c6.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/v7-independent-field",
+            "path": "bot.py",
+            "commit": "c7cbaa97e226738934401ad33a8cda12c7c680bc"
+          }
+        ]
+      },
+      {
+        "name": "aa49608fe334",
+        "role": "primary",
+        "path": "consolidation_candidates/frozen/aa49608fe334.py",
+        "sha256": "aa49608fe334a09a756cd4821dac282e5756bad5be3819ef6442b13ab931e081",
+        "bytes": 48179,
+        "imports": [
+          "collections",
+          "time"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "human_arena/candidates/branch_aa49608fe334.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/hardened-field-and-fixes",
+            "path": "bot.py",
+            "commit": "961e729a30736f41f272f3ecc8a2f9e033ca1d57"
+          },
+          {
+            "ref": "origin/main",
+            "path": "human_arena/candidates/branch_aa49608fe334.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          }
+        ]
+      },
+      {
+        "name": "f995547a68e7",
+        "role": "tester",
+        "path": "consolidation_candidates/frozen/f995547a68e7.py",
+        "sha256": "f995547a68e7f6c081e0ad515ced0ccd03baf48987c6108a8da1727be79dc9ef",
+        "bytes": 15424,
+        "imports": [
+          "heapq"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/claude/rulefix-stuck-home",
+            "path": "crossfield/research/action_beam.py",
+            "commit": "ed708f30105c465122e3fd983d836be4dc093682"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "crossfield/research/action_beam.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "crossfield/research/action_beam.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "pr/10",
+            "path": "crossfield/research/action_beam.py",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62"
+          }
+        ]
+      },
+      {
+        "name": "27c2b068fb86",
+        "role": "tester",
+        "path": "consolidation_candidates/frozen/27c2b068fb86.py",
+        "sha256": "27c2b068fb8665864f77074c7f6fbea0a4be6d309c8e7be0d985861a593c2c0a",
+        "bytes": 7543,
+        "imports": [
+          "collections"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/claude/rulefix-stuck-home",
+            "path": "crossfield/research/adversary.py",
+            "commit": "ed708f30105c465122e3fd983d836be4dc093682"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "crossfield/research/adversary.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "crossfield/research/adversary.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "pr/10",
+            "path": "crossfield/research/adversary.py",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62"
+          }
+        ]
+      },
+      {
+        "name": "9203f00255d5",
+        "role": "tester",
+        "path": "consolidation_candidates/frozen/9203f00255d5.py",
+        "sha256": "9203f00255d58b2c430c3f5b1b317973b12e2997bfccb3348d02c95083273364",
+        "bytes": 11692,
+        "imports": [
+          "collections",
+          "heapq"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/claude/rulefix-stuck-home",
+            "path": "crossfield/research/challengers.py",
+            "commit": "ed708f30105c465122e3fd983d836be4dc093682"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "crossfield/research/challengers.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "crossfield/research/challengers.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "pr/10",
+            "path": "crossfield/research/challengers.py",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62"
+          }
+        ]
+      },
+      {
+        "name": "34bdf1bab1bb",
+        "role": "tester",
+        "path": "consolidation_candidates/frozen/34bdf1bab1bb.py",
+        "sha256": "34bdf1bab1bbd190ba9529450238a7ab295cabd2d268cdce575b056e3aad5eb8",
+        "bytes": 19703,
+        "imports": [
+          "collections"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/claude/rulefix-stuck-home",
+            "path": "crossfield/research/economic.py",
+            "commit": "ed708f30105c465122e3fd983d836be4dc093682"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "crossfield/research/economic.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "crossfield/research/economic.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "pr/10",
+            "path": "crossfield/research/economic.py",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62"
+          }
+        ]
+      },
+      {
+        "name": "bbff919db34a",
+        "role": "primary",
+        "path": "consolidation_candidates/frozen/bbff919db34a.py",
+        "sha256": "bbff919db34a23d8da68936a53900005962deb34b7d53e2b616f9461a3f8fc2a",
+        "bytes": 16166,
+        "imports": [
+          "collections"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/claude/rulefix-stuck-home",
+            "path": "crossfield/research/incumbent.py",
+            "commit": "ed708f30105c465122e3fd983d836be4dc093682"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "crossfield/research/incumbent.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "human_arena/candidates/branch_bbff919db34a.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "crossfield/research/incumbent.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/main",
+            "path": "human_arena/candidates/branch_bbff919db34a.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/research/evolution-2026-11-07",
+            "path": "outputs/bot_before_evolution.py",
+            "commit": "0796039f42f0113d7c4f51b2f8e1409835f2c519"
+          },
+          {
+            "ref": "pr/10",
+            "path": "crossfield/research/incumbent.py",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62"
+          }
+        ]
+      },
+      {
+        "name": "e7f4fd616c15",
+        "role": "tester",
+        "path": "consolidation_candidates/frozen/e7f4fd616c15.py",
+        "sha256": "e7f4fd616c155c29643a697eff4552869a77a62428a9e4d20a3c7b2bbbb00638",
+        "bytes": 15903,
+        "imports": [
+          "collections",
+          "heapq",
+          "math"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/claude/rulefix-stuck-home",
+            "path": "crossfield/research/planner_beam.py",
+            "commit": "ed708f30105c465122e3fd983d836be4dc093682"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "crossfield/research/planner_beam.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "crossfield/research/planner_beam.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "pr/10",
+            "path": "crossfield/research/planner_beam.py",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62"
+          }
+        ]
+      },
+      {
+        "name": "2388ad499944",
+        "role": "tester",
+        "path": "consolidation_candidates/frozen/2388ad499944.py",
+        "sha256": "2388ad4999449035dbe50e224680979e3dd788865d8793c7a3ccbb06e1da17d1",
+        "bytes": 16829,
+        "imports": [
+          "collections",
+          "itertools",
+          "math"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/claude/rulefix-stuck-home",
+            "path": "crossfield/research/tactical.py",
+            "commit": "ed708f30105c465122e3fd983d836be4dc093682"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "crossfield/research/tactical.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "crossfield/research/tactical.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "pr/10",
+            "path": "crossfield/research/tactical.py",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62"
+          }
+        ]
+      },
+      {
+        "name": "dfc547464ff2",
+        "role": "tester",
+        "path": "consolidation_candidates/frozen/dfc547464ff2.py",
+        "sha256": "dfc547464ff2f236f2f245b02e306578342d5f47439dfd814927794757b5cdfb",
+        "bytes": 38169,
+        "imports": [
+          "collections",
+          "time"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/claude/rulefix-stuck-home",
+            "path": "crossfield/research/user_family.py",
+            "commit": "ed708f30105c465122e3fd983d836be4dc093682"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "crossfield/research/user_family.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "crossfield/research/user_family.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "pr/10",
+            "path": "crossfield/research/user_family.py",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62"
+          }
+        ]
+      },
+      {
+        "name": "e23de391a94d",
+        "role": "tester",
+        "path": "consolidation_candidates/frozen/e23de391a94d.py",
+        "sha256": "e23de391a94d36a3656f9fd157438f20c101f3aae703a372c2dd5f7be7b682be",
+        "bytes": 4421,
+        "imports": [
+          "collections"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/claude/rulefix-stuck-home",
+            "path": "opponents/opp_adaptive_01.py",
+            "commit": "ed708f30105c465122e3fd983d836be4dc093682"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "opponents/opp_adaptive_01.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "opponents/opp_adaptive_01.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/shaunakbr1",
+            "path": "opponents/opp_adaptive_01.py",
+            "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672"
+          },
+          {
+            "ref": "origin/shaunakbr2",
+            "path": "opponents/opp_adaptive_01.py",
+            "commit": "4baf23937475031ee2e83b08673b2facf505a42c"
+          },
+          {
+            "ref": "pr/10",
+            "path": "opponents/opp_adaptive_01.py",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62"
+          }
+        ]
+      },
+      {
+        "name": "2a9fa5c1127f",
+        "role": "tester",
+        "path": "consolidation_candidates/frozen/2a9fa5c1127f.py",
+        "sha256": "2a9fa5c1127f8952334726eba7b03e10321706bce5ce23a75ec44ce1327c2c98",
+        "bytes": 4448,
+        "imports": [],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/claude/rulefix-stuck-home",
+            "path": "opponents/opp_adaptive_02.py",
+            "commit": "ed708f30105c465122e3fd983d836be4dc093682"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "opponents/opp_adaptive_02.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "opponents/opp_adaptive_02.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/shaunakbr1",
+            "path": "opponents/opp_adaptive_02.py",
+            "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672"
+          },
+          {
+            "ref": "origin/shaunakbr2",
+            "path": "opponents/opp_adaptive_02.py",
+            "commit": "4baf23937475031ee2e83b08673b2facf505a42c"
+          },
+          {
+            "ref": "pr/10",
+            "path": "opponents/opp_adaptive_02.py",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62"
+          }
+        ]
+      },
+      {
+        "name": "1cdcba187107",
+        "role": "tester",
+        "path": "consolidation_candidates/frozen/1cdcba187107.py",
+        "sha256": "1cdcba187107e204762f712fcc4d9388b2661c95b0723508d91da6a43d448821",
+        "bytes": 3853,
+        "imports": [
+          "collections"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/claude/rulefix-stuck-home",
+            "path": "opponents/opp_adaptive_03.py",
+            "commit": "ed708f30105c465122e3fd983d836be4dc093682"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "opponents/opp_adaptive_03.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "opponents/opp_adaptive_03.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/shaunakbr1",
+            "path": "opponents/opp_adaptive_03.py",
+            "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672"
+          },
+          {
+            "ref": "origin/shaunakbr2",
+            "path": "opponents/opp_adaptive_03.py",
+            "commit": "4baf23937475031ee2e83b08673b2facf505a42c"
+          },
+          {
+            "ref": "pr/10",
+            "path": "opponents/opp_adaptive_03.py",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62"
+          }
+        ]
+      },
+      {
+        "name": "8fb32ee24081",
+        "role": "tester",
+        "path": "consolidation_candidates/frozen/8fb32ee24081.py",
+        "sha256": "8fb32ee24081e7bf9ff4919a18490320d50925bc5aa94ef1f69f59a866a5b8cc",
+        "bytes": 3893,
+        "imports": [],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/claude/rulefix-stuck-home",
+            "path": "opponents/opp_bait_01.py",
+            "commit": "ed708f30105c465122e3fd983d836be4dc093682"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "opponents/opp_bait_01.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "opponents/opp_bait_01.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/shaunakbr1",
+            "path": "opponents/opp_bait_01.py",
+            "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672"
+          },
+          {
+            "ref": "origin/shaunakbr2",
+            "path": "opponents/opp_bait_01.py",
+            "commit": "4baf23937475031ee2e83b08673b2facf505a42c"
+          },
+          {
+            "ref": "pr/10",
+            "path": "opponents/opp_bait_01.py",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62"
+          }
+        ]
+      },
+      {
+        "name": "98c622e3bf72",
+        "role": "tester",
+        "path": "consolidation_candidates/frozen/98c622e3bf72.py",
+        "sha256": "98c622e3bf72755ee52555de7cb198589e7dca2f32755c47bd842b7c25428f48",
+        "bytes": 3118,
+        "imports": [
+          "collections",
+          "random"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/claude/rulefix-stuck-home",
+            "path": "opponents/opp_bait_02.py",
+            "commit": "ed708f30105c465122e3fd983d836be4dc093682"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "opponents/opp_bait_02.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "opponents/opp_bait_02.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/shaunakbr1",
+            "path": "opponents/opp_bait_02.py",
+            "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672"
+          },
+          {
+            "ref": "origin/shaunakbr2",
+            "path": "opponents/opp_bait_02.py",
+            "commit": "4baf23937475031ee2e83b08673b2facf505a42c"
+          },
+          {
+            "ref": "pr/10",
+            "path": "opponents/opp_bait_02.py",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62"
+          }
+        ]
+      },
+      {
+        "name": "1056046dff6b",
+        "role": "tester",
+        "path": "consolidation_candidates/frozen/1056046dff6b.py",
+        "sha256": "1056046dff6b5d0c4db7da1a89a7df28afd74a11a7445535792c0fd8c4ddb236",
+        "bytes": 3800,
+        "imports": [
+          "collections"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/claude/rulefix-stuck-home",
+            "path": "opponents/opp_bait_03.py",
+            "commit": "ed708f30105c465122e3fd983d836be4dc093682"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "opponents/opp_bait_03.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "opponents/opp_bait_03.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/shaunakbr1",
+            "path": "opponents/opp_bait_03.py",
+            "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672"
+          },
+          {
+            "ref": "origin/shaunakbr2",
+            "path": "opponents/opp_bait_03.py",
+            "commit": "4baf23937475031ee2e83b08673b2facf505a42c"
+          },
+          {
+            "ref": "pr/10",
+            "path": "opponents/opp_bait_03.py",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62"
+          }
+        ]
+      },
+      {
+        "name": "a5031eaed1a1",
+        "role": "tester",
+        "path": "consolidation_candidates/frozen/a5031eaed1a1.py",
+        "sha256": "a5031eaed1a1aa5e60b655a5f54fe99dd41db1f57cd2bff6e30f20d6782d1ec0",
+        "bytes": 1396,
+        "imports": [
+          "random"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/claude/rulefix-stuck-home",
+            "path": "opponents/opp_buggy_01.py",
+            "commit": "ed708f30105c465122e3fd983d836be4dc093682"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "opponents/opp_buggy_01.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "opponents/opp_buggy_01.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/shaunakbr1",
+            "path": "opponents/opp_buggy_01.py",
+            "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672"
+          },
+          {
+            "ref": "origin/shaunakbr2",
+            "path": "opponents/opp_buggy_01.py",
+            "commit": "4baf23937475031ee2e83b08673b2facf505a42c"
+          },
+          {
+            "ref": "pr/10",
+            "path": "opponents/opp_buggy_01.py",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62"
+          }
+        ]
+      },
+      {
+        "name": "be885384874c",
+        "role": "tester",
+        "path": "consolidation_candidates/frozen/be885384874c.py",
+        "sha256": "be885384874c4036b01a8bd2f5ac97c7edb61b3866acef2d95d4d4bf2ed184f5",
+        "bytes": 1954,
+        "imports": [
+          "random",
+          "time"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/claude/rulefix-stuck-home",
+            "path": "opponents/opp_buggy_02.py",
+            "commit": "ed708f30105c465122e3fd983d836be4dc093682"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "opponents/opp_buggy_02.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "opponents/opp_buggy_02.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/shaunakbr1",
+            "path": "opponents/opp_buggy_02.py",
+            "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672"
+          },
+          {
+            "ref": "origin/shaunakbr2",
+            "path": "opponents/opp_buggy_02.py",
+            "commit": "4baf23937475031ee2e83b08673b2facf505a42c"
+          },
+          {
+            "ref": "pr/10",
+            "path": "opponents/opp_buggy_02.py",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62"
+          }
+        ]
+      },
+      {
+        "name": "4b5659bf878a",
+        "role": "tester",
+        "path": "consolidation_candidates/frozen/4b5659bf878a.py",
+        "sha256": "4b5659bf878a12c345d42cde23b50446f68f938cec5f994428a43006c348923a",
+        "bytes": 1381,
+        "imports": [],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/claude/rulefix-stuck-home",
+            "path": "opponents/opp_buggy_03.py",
+            "commit": "ed708f30105c465122e3fd983d836be4dc093682"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "opponents/opp_buggy_03.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "opponents/opp_buggy_03.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/shaunakbr1",
+            "path": "opponents/opp_buggy_03.py",
+            "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672"
+          },
+          {
+            "ref": "origin/shaunakbr2",
+            "path": "opponents/opp_buggy_03.py",
+            "commit": "4baf23937475031ee2e83b08673b2facf505a42c"
+          },
+          {
+            "ref": "pr/10",
+            "path": "opponents/opp_buggy_03.py",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62"
+          }
+        ]
+      },
+      {
+        "name": "b2a28fd04cbe",
+        "role": "tester",
+        "path": "consolidation_candidates/frozen/b2a28fd04cbe.py",
+        "sha256": "b2a28fd04cbe0f13afdee2ac71d45831473f4cb7fbc9a7e263480c7227661ea1",
+        "bytes": 2728,
+        "imports": [
+          "collections"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/claude/rulefix-stuck-home",
+            "path": "opponents/opp_farmer_01.py",
+            "commit": "ed708f30105c465122e3fd983d836be4dc093682"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "opponents/opp_farmer_01.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "opponents/opp_farmer_01.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/shaunakbr1",
+            "path": "opponents/opp_farmer_01.py",
+            "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672"
+          },
+          {
+            "ref": "origin/shaunakbr2",
+            "path": "opponents/opp_farmer_01.py",
+            "commit": "4baf23937475031ee2e83b08673b2facf505a42c"
+          },
+          {
+            "ref": "pr/10",
+            "path": "opponents/opp_farmer_01.py",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62"
+          }
+        ]
+      },
+      {
+        "name": "ab39cda757ee",
+        "role": "tester",
+        "path": "consolidation_candidates/frozen/ab39cda757ee.py",
+        "sha256": "ab39cda757ee3746fec17fbdb961e8c01ddb7f16b6bdd3c7e56f3118f70bf8e3",
+        "bytes": 2380,
+        "imports": [],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/claude/rulefix-stuck-home",
+            "path": "opponents/opp_farmer_02.py",
+            "commit": "ed708f30105c465122e3fd983d836be4dc093682"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "opponents/opp_farmer_02.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "opponents/opp_farmer_02.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/shaunakbr1",
+            "path": "opponents/opp_farmer_02.py",
+            "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672"
+          },
+          {
+            "ref": "origin/shaunakbr2",
+            "path": "opponents/opp_farmer_02.py",
+            "commit": "4baf23937475031ee2e83b08673b2facf505a42c"
+          },
+          {
+            "ref": "pr/10",
+            "path": "opponents/opp_farmer_02.py",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62"
+          }
+        ]
+      },
+      {
+        "name": "885b73a29a3a",
+        "role": "tester",
+        "path": "consolidation_candidates/frozen/885b73a29a3a.py",
+        "sha256": "885b73a29a3ab186a3770673db05cb78d895dddb3798f4850926c8331ecb8a51",
+        "bytes": 2294,
+        "imports": [
+          "collections"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/claude/rulefix-stuck-home",
+            "path": "opponents/opp_farmer_03.py",
+            "commit": "ed708f30105c465122e3fd983d836be4dc093682"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "opponents/opp_farmer_03.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "opponents/opp_farmer_03.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/shaunakbr1",
+            "path": "opponents/opp_farmer_03.py",
+            "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672"
+          },
+          {
+            "ref": "origin/shaunakbr2",
+            "path": "opponents/opp_farmer_03.py",
+            "commit": "4baf23937475031ee2e83b08673b2facf505a42c"
+          },
+          {
+            "ref": "pr/10",
+            "path": "opponents/opp_farmer_03.py",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62"
+          }
+        ]
+      },
+      {
+        "name": "0db330d2bb63",
+        "role": "tester",
+        "path": "consolidation_candidates/frozen/0db330d2bb63.py",
+        "sha256": "0db330d2bb63cd0e6dc71910a250956d14a7c019e58a0bd36ec3a07381a6d2d4",
+        "bytes": 1911,
+        "imports": [],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/claude/rulefix-stuck-home",
+            "path": "opponents/opp_farmer_04.py",
+            "commit": "ed708f30105c465122e3fd983d836be4dc093682"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "opponents/opp_farmer_04.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "opponents/opp_farmer_04.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/shaunakbr1",
+            "path": "opponents/opp_farmer_04.py",
+            "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672"
+          },
+          {
+            "ref": "origin/shaunakbr2",
+            "path": "opponents/opp_farmer_04.py",
+            "commit": "4baf23937475031ee2e83b08673b2facf505a42c"
+          },
+          {
+            "ref": "pr/10",
+            "path": "opponents/opp_farmer_04.py",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62"
+          }
+        ]
+      },
+      {
+        "name": "2164474c40f9",
+        "role": "tester",
+        "path": "consolidation_candidates/frozen/2164474c40f9.py",
+        "sha256": "2164474c40f906b7ce55bbd598994502d525b00035d22b0cbc1536648f9a95c7",
+        "bytes": 1220,
+        "imports": [],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/claude/rulefix-stuck-home",
+            "path": "opponents/opp_naive_01.py",
+            "commit": "ed708f30105c465122e3fd983d836be4dc093682"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "opponents/opp_naive_01.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "opponents/opp_naive_01.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/shaunakbr1",
+            "path": "opponents/opp_naive_01.py",
+            "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672"
+          },
+          {
+            "ref": "origin/shaunakbr2",
+            "path": "opponents/opp_naive_01.py",
+            "commit": "4baf23937475031ee2e83b08673b2facf505a42c"
+          },
+          {
+            "ref": "pr/10",
+            "path": "opponents/opp_naive_01.py",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62"
+          }
+        ]
+      },
+      {
+        "name": "c7620a987067",
+        "role": "tester",
+        "path": "consolidation_candidates/frozen/c7620a987067.py",
+        "sha256": "c7620a9870673205d78eb72b1cb508c3b392c6ba97b70eea3f7b1b10e561998f",
+        "bytes": 881,
+        "imports": [
+          "random"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/claude/rulefix-stuck-home",
+            "path": "opponents/opp_naive_02.py",
+            "commit": "ed708f30105c465122e3fd983d836be4dc093682"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "opponents/opp_naive_02.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "opponents/opp_naive_02.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/shaunakbr1",
+            "path": "opponents/opp_naive_02.py",
+            "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672"
+          },
+          {
+            "ref": "origin/shaunakbr2",
+            "path": "opponents/opp_naive_02.py",
+            "commit": "4baf23937475031ee2e83b08673b2facf505a42c"
+          },
+          {
+            "ref": "pr/10",
+            "path": "opponents/opp_naive_02.py",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62"
+          }
+        ]
+      },
+      {
+        "name": "6af698080016",
+        "role": "tester",
+        "path": "consolidation_candidates/frozen/6af698080016.py",
+        "sha256": "6af6980800164895631fa0b6aa4dcd8392fd154fb003b16711a598083ab3076b",
+        "bytes": 1156,
+        "imports": [],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/claude/rulefix-stuck-home",
+            "path": "opponents/opp_naive_03.py",
+            "commit": "ed708f30105c465122e3fd983d836be4dc093682"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "opponents/opp_naive_03.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "opponents/opp_naive_03.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/shaunakbr1",
+            "path": "opponents/opp_naive_03.py",
+            "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672"
+          },
+          {
+            "ref": "origin/shaunakbr2",
+            "path": "opponents/opp_naive_03.py",
+            "commit": "4baf23937475031ee2e83b08673b2facf505a42c"
+          },
+          {
+            "ref": "pr/10",
+            "path": "opponents/opp_naive_03.py",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62"
+          }
+        ]
+      },
+      {
+        "name": "27fbb33378ea",
+        "role": "tester",
+        "path": "consolidation_candidates/frozen/27fbb33378ea.py",
+        "sha256": "27fbb33378ea11378390f6a32a58340e4153e80e4aa3f7ec3a54929386ef2ba8",
+        "bytes": 1066,
+        "imports": [],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/claude/rulefix-stuck-home",
+            "path": "opponents/opp_naive_04.py",
+            "commit": "ed708f30105c465122e3fd983d836be4dc093682"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "opponents/opp_naive_04.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "opponents/opp_naive_04.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/shaunakbr1",
+            "path": "opponents/opp_naive_04.py",
+            "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672"
+          },
+          {
+            "ref": "origin/shaunakbr2",
+            "path": "opponents/opp_naive_04.py",
+            "commit": "4baf23937475031ee2e83b08673b2facf505a42c"
+          },
+          {
+            "ref": "pr/10",
+            "path": "opponents/opp_naive_04.py",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62"
+          }
+        ]
+      },
+      {
+        "name": "3a50a56aa9ae",
+        "role": "tester",
+        "path": "consolidation_candidates/frozen/3a50a56aa9ae.py",
+        "sha256": "3a50a56aa9aefc98dc49fe9de1ecc46079b5f505b6dea133900170068aff7497",
+        "bytes": 835,
+        "imports": [],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/claude/rulefix-stuck-home",
+            "path": "opponents/opp_naive_05.py",
+            "commit": "ed708f30105c465122e3fd983d836be4dc093682"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "opponents/opp_naive_05.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "opponents/opp_naive_05.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/shaunakbr1",
+            "path": "opponents/opp_naive_05.py",
+            "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672"
+          },
+          {
+            "ref": "origin/shaunakbr2",
+            "path": "opponents/opp_naive_05.py",
+            "commit": "4baf23937475031ee2e83b08673b2facf505a42c"
+          },
+          {
+            "ref": "pr/10",
+            "path": "opponents/opp_naive_05.py",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62"
+          }
+        ]
+      },
+      {
+        "name": "8eac9789c4c5",
+        "role": "tester",
+        "path": "consolidation_candidates/frozen/8eac9789c4c5.py",
+        "sha256": "8eac9789c4c55c7efe032fb9843b160a97d6f6236810e07907ee91a6fd1d916c",
+        "bytes": 2755,
+        "imports": [
+          "collections"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/claude/rulefix-stuck-home",
+            "path": "opponents/opp_raider_01.py",
+            "commit": "ed708f30105c465122e3fd983d836be4dc093682"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "opponents/opp_raider_01.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "opponents/opp_raider_01.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/shaunakbr1",
+            "path": "opponents/opp_raider_01.py",
+            "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672"
+          },
+          {
+            "ref": "origin/shaunakbr2",
+            "path": "opponents/opp_raider_01.py",
+            "commit": "4baf23937475031ee2e83b08673b2facf505a42c"
+          },
+          {
+            "ref": "pr/10",
+            "path": "opponents/opp_raider_01.py",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62"
+          }
+        ]
+      },
+      {
+        "name": "19f1b426c49c",
+        "role": "tester",
+        "path": "consolidation_candidates/frozen/19f1b426c49c.py",
+        "sha256": "19f1b426c49ce5588a9bf1e0dd44522948432e4326438c5d4e9c9f532bb9b65c",
+        "bytes": 3055,
+        "imports": [
+          "collections"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/claude/rulefix-stuck-home",
+            "path": "opponents/opp_raider_02.py",
+            "commit": "ed708f30105c465122e3fd983d836be4dc093682"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "opponents/opp_raider_02.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "opponents/opp_raider_02.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/shaunakbr1",
+            "path": "opponents/opp_raider_02.py",
+            "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672"
+          },
+          {
+            "ref": "origin/shaunakbr2",
+            "path": "opponents/opp_raider_02.py",
+            "commit": "4baf23937475031ee2e83b08673b2facf505a42c"
+          },
+          {
+            "ref": "pr/10",
+            "path": "opponents/opp_raider_02.py",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62"
+          }
+        ]
+      },
+      {
+        "name": "a6c0c5abcded",
+        "role": "tester",
+        "path": "consolidation_candidates/frozen/a6c0c5abcded.py",
+        "sha256": "a6c0c5abcded42ba4c6297845f936caeccdafd6651273ba2b6fe494e16d74a08",
+        "bytes": 2789,
+        "imports": [],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/claude/rulefix-stuck-home",
+            "path": "opponents/opp_raider_03.py",
+            "commit": "ed708f30105c465122e3fd983d836be4dc093682"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "opponents/opp_raider_03.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "opponents/opp_raider_03.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/shaunakbr1",
+            "path": "opponents/opp_raider_03.py",
+            "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672"
+          },
+          {
+            "ref": "origin/shaunakbr2",
+            "path": "opponents/opp_raider_03.py",
+            "commit": "4baf23937475031ee2e83b08673b2facf505a42c"
+          },
+          {
+            "ref": "pr/10",
+            "path": "opponents/opp_raider_03.py",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62"
+          }
+        ]
+      },
+      {
+        "name": "b05ff3b815e6",
+        "role": "tester",
+        "path": "consolidation_candidates/frozen/b05ff3b815e6.py",
+        "sha256": "b05ff3b815e6235428869e78153090f60ef86b18363ba8b27443e0577fc0e12d",
+        "bytes": 1916,
+        "imports": [],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/claude/rulefix-stuck-home",
+            "path": "opponents/opp_raider_04.py",
+            "commit": "ed708f30105c465122e3fd983d836be4dc093682"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "opponents/opp_raider_04.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "opponents/opp_raider_04.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/shaunakbr1",
+            "path": "opponents/opp_raider_04.py",
+            "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672"
+          },
+          {
+            "ref": "origin/shaunakbr2",
+            "path": "opponents/opp_raider_04.py",
+            "commit": "4baf23937475031ee2e83b08673b2facf505a42c"
+          },
+          {
+            "ref": "pr/10",
+            "path": "opponents/opp_raider_04.py",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62"
+          }
+        ]
+      },
+      {
+        "name": "261f10170209",
+        "role": "tester",
+        "path": "consolidation_candidates/frozen/261f10170209.py",
+        "sha256": "261f101702095100664bdcf5f96cae8761cc174dc4ec4d4e614db1d3dfd7f01d",
+        "bytes": 1594,
+        "imports": [],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/claude/rulefix-stuck-home",
+            "path": "opponents/opp_shield_01.py",
+            "commit": "ed708f30105c465122e3fd983d836be4dc093682"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "opponents/opp_shield_01.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "opponents/opp_shield_01.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/shaunakbr1",
+            "path": "opponents/opp_shield_01.py",
+            "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672"
+          },
+          {
+            "ref": "origin/shaunakbr2",
+            "path": "opponents/opp_shield_01.py",
+            "commit": "4baf23937475031ee2e83b08673b2facf505a42c"
+          },
+          {
+            "ref": "pr/10",
+            "path": "opponents/opp_shield_01.py",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62"
+          }
+        ]
+      },
+      {
+        "name": "2956bbd05ffc",
+        "role": "tester",
+        "path": "consolidation_candidates/frozen/2956bbd05ffc.py",
+        "sha256": "2956bbd05ffc796f89164dfd3b9a77ecf0f0cd0999e3aba4c12639638e01a4bc",
+        "bytes": 2586,
+        "imports": [],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/claude/rulefix-stuck-home",
+            "path": "opponents/opp_shield_02.py",
+            "commit": "ed708f30105c465122e3fd983d836be4dc093682"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "opponents/opp_shield_02.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "opponents/opp_shield_02.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/shaunakbr1",
+            "path": "opponents/opp_shield_02.py",
+            "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672"
+          },
+          {
+            "ref": "origin/shaunakbr2",
+            "path": "opponents/opp_shield_02.py",
+            "commit": "4baf23937475031ee2e83b08673b2facf505a42c"
+          },
+          {
+            "ref": "pr/10",
+            "path": "opponents/opp_shield_02.py",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62"
+          }
+        ]
+      },
+      {
+        "name": "42e759b51db9",
+        "role": "tester",
+        "path": "consolidation_candidates/frozen/42e759b51db9.py",
+        "sha256": "42e759b51db977fe0a6c3cafb2adde225d4976d20ce6dada8a9f873b293ba239",
+        "bytes": 2213,
+        "imports": [],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/claude/rulefix-stuck-home",
+            "path": "opponents/opp_shield_03.py",
+            "commit": "ed708f30105c465122e3fd983d836be4dc093682"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "opponents/opp_shield_03.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "opponents/opp_shield_03.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/shaunakbr1",
+            "path": "opponents/opp_shield_03.py",
+            "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672"
+          },
+          {
+            "ref": "origin/shaunakbr2",
+            "path": "opponents/opp_shield_03.py",
+            "commit": "4baf23937475031ee2e83b08673b2facf505a42c"
+          },
+          {
+            "ref": "pr/10",
+            "path": "opponents/opp_shield_03.py",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62"
+          }
+        ]
+      },
+      {
+        "name": "cefe2fa7bce1",
+        "role": "primary",
+        "path": "consolidation_candidates/frozen/cefe2fa7bce1.py",
+        "sha256": "cefe2fa7bce14d7a90bd1b292333b7d5f3ed3325210da7e0b11b151494a261f4",
+        "bytes": 49651,
+        "imports": [
+          "collections",
+          "time"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/codex-audit-and-robustness",
+            "path": "bot.py",
+            "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "human_arena/candidates/branch_cefe2fa7bce1.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "human_arena/candidates/branch_cefe2fa7bce1.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          }
+        ]
+      },
+      {
+        "name": "cb30b5ae32f7",
+        "role": "primary",
+        "path": "consolidation_candidates/frozen/cb30b5ae32f7.py",
+        "sha256": "cb30b5ae32f7e9013173adf7774c034482df3ce2592bfc2a7c3479a2dfa045e6",
+        "bytes": 49650,
+        "imports": [
+          "collections",
+          "time"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "baselines/v8.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "human_arena/candidates/baseline_v8.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "human_arena/candidates/branch_cb30b5ae32f7.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "baselines/v8.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/main",
+            "path": "human_arena/candidates/baseline_v8.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/main",
+            "path": "human_arena/candidates/branch_cb30b5ae32f7.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          }
+        ]
+      },
+      {
+        "name": "720e5a3daf7b",
+        "role": "primary",
+        "path": "consolidation_candidates/frozen/720e5a3daf7b.py",
+        "sha256": "720e5a3daf7b848e8a25038c20bda47e8fb0433495aaa7bdbff9b285b8ba5a2d",
+        "bytes": 117100,
+        "imports": [
+          "collections",
+          "time"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "bot.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "bot.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          }
+        ]
+      },
+      {
+        "name": "d2bef4e077e9",
+        "role": "primary",
+        "path": "consolidation_candidates/frozen/d2bef4e077e9.py",
+        "sha256": "d2bef4e077e9b601a4bdf42dd3351a708b9d70b725b897ff6870cea048178890",
+        "bytes": 84885,
+        "imports": [
+          "collections",
+          "math",
+          "random",
+          "time"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "futurelab/submission/bot.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "human_arena/candidates/forward_original.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "human_arena/candidates/root_v9.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "futurelab/submission/bot.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/main",
+            "path": "human_arena/candidates/forward_original.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/main",
+            "path": "human_arena/candidates/root_v9.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          }
+        ]
+      },
+      {
+        "name": "beec3a70b4e6",
+        "role": "primary",
+        "path": "consolidation_candidates/frozen/beec3a70b4e6.py",
+        "sha256": "beec3a70b4e6fb9e1555afe01cb8c6b789aefe27fd4afcf894340f1513c06825",
+        "bytes": 36123,
+        "imports": [
+          "collections",
+          "time"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "human_arena/candidates/branch_beec3a70b4e6.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "human_arena/candidates/branch_beec3a70b4e6.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          }
+        ]
+      },
+      {
+        "name": "f6b4385da8e0",
+        "role": "primary",
+        "path": "consolidation_candidates/frozen/f6b4385da8e0.py",
+        "sha256": "f6b4385da8e071709e8546820711bf2c20c507571a100dd2f0b8a89f260f1048",
+        "bytes": 37453,
+        "imports": [
+          "collections",
+          "time"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "human_arena/candidates/branch_f6b4385da8e0.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "human_arena/candidates/branch_f6b4385da8e0.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/research/evolution-2026-11-07",
+            "path": "outputs/bot_user_corrected.py",
+            "commit": "0796039f42f0113d7c4f51b2f8e1409835f2c519"
+          }
+        ]
+      },
+      {
+        "name": "95da830e6f29",
+        "role": "primary",
+        "path": "consolidation_candidates/frozen/95da830e6f29.py",
+        "sha256": "95da830e6f29d0ac06b095fb4de57ace8eb7962881818fa50a4c19f714ec07d9",
+        "bytes": 87642,
+        "imports": [
+          "collections",
+          "math",
+          "random",
+          "time"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "human_arena/candidates/forward_fixed.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "human_arena/candidates/forward_fixed.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          }
+        ]
+      },
+      {
+        "name": "68094583daf8",
+        "role": "primary",
+        "path": "consolidation_candidates/frozen/68094583daf8.py",
+        "sha256": "68094583daf8b7207d74d6c87232ff4b165b491b65092023fa0ffeb06d454677",
+        "bytes": 88777,
+        "imports": [
+          "collections",
+          "math",
+          "random",
+          "time"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "human_arena/candidates/forward_presence.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "human_arena/candidates/forward_presence.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          }
+        ]
+      },
+      {
+        "name": "ae1594276aff",
+        "role": "primary",
+        "path": "consolidation_candidates/frozen/ae1594276aff.py",
+        "sha256": "ae1594276aff78fd3f6829e254289243e86a5e7b8a6d7bf6692026360f0682ce",
+        "bytes": 26083,
+        "imports": [
+          "collections"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "human_arena/candidates/research_correctness.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "human_arena/candidates/research_correctness.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          }
+        ]
+      },
+      {
+        "name": "1a718fd8b514",
+        "role": "primary",
+        "path": "consolidation_candidates/frozen/1a718fd8b514.py",
+        "sha256": "1a718fd8b5146f9b6a5796b00a1a7a7993ae17edc66cc17d997b086cfaf83bc6",
+        "bytes": 25988,
+        "imports": [
+          "collections"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "human_arena/candidates/research_fixed.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "human_arena/candidates/research_fixed.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          }
+        ]
+      },
+      {
+        "name": "bec1daf8bb0c",
+        "role": "primary",
+        "path": "consolidation_candidates/frozen/bec1daf8bb0c.py",
+        "sha256": "bec1daf8bb0ce63a70807bed219d5bb67d93c1a8bcaf3dda21174ff06cc56504",
+        "bytes": 27986,
+        "imports": [
+          "collections"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "human_arena/candidates/research_presence.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "human_arena/candidates/research_presence.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          }
+        ]
+      },
+      {
+        "name": "fe03b8164ed3",
+        "role": "primary",
+        "path": "consolidation_candidates/frozen/fe03b8164ed3.py",
+        "sha256": "fe03b8164ed3b4ebd2a04abcdfbb6fa729bdc34dea825088f7e82bf6e5b5ab5e",
+        "bytes": 25984,
+        "imports": [
+          "collections"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "human_arena/candidates/transfer_fixed.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "human_arena/release/archive/fe03b8164ed3b4ebd2a04abcdfbb6fa729bdc34dea825088f7e82bf6e5b5ab5e/bot.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "human_arena/candidates/transfer_fixed.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/main",
+            "path": "human_arena/release/archive/fe03b8164ed3b4ebd2a04abcdfbb6fa729bdc34dea825088f7e82bf6e5b5ab5e/bot.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          }
+        ]
+      },
+      {
+        "name": "03470e6151e5",
+        "role": "primary",
+        "path": "consolidation_candidates/frozen/03470e6151e5.py",
+        "sha256": "03470e6151e545a7f4d20d75383a7f1dc4e7d0e5d89bf7387d243c6f7c4bfcf7",
+        "bytes": 27982,
+        "imports": [
+          "collections"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "human_arena/candidates/transfer_presence.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "human_arena/candidates/transfer_presence.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          }
+        ]
+      },
+      {
+        "name": "aef27c1c5d6c",
+        "role": "primary",
+        "path": "consolidation_candidates/frozen/aef27c1c5d6c.py",
+        "sha256": "aef27c1c5d6c1dadccdbe51fabc2e53ec32c10d592a9ed917bd9b49ee4fca42c",
+        "bytes": 27892,
+        "imports": [
+          "collections"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "human_arena/candidates/transfer_presence_core.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "human_arena/release/bot.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "human_arena/candidates/transfer_presence_core.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          },
+          {
+            "ref": "origin/main",
+            "path": "human_arena/release/bot.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          }
+        ]
+      },
+      {
+        "name": "6517c92b65e4",
+        "role": "primary",
+        "path": "consolidation_candidates/frozen/6517c92b65e4.py",
+        "sha256": "6517c92b65e45160ac2239f1c08bfbc5e92d009b42f9f2215825c75ec71cd6ef",
+        "bytes": 28600,
+        "imports": [
+          "collections"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/codex/fresh-opponents-and-adaptation",
+            "path": "human_arena/candidates/transfer_presence_noentry.py",
+            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+          },
+          {
+            "ref": "origin/main",
+            "path": "human_arena/candidates/transfer_presence_noentry.py",
+            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+          }
+        ]
+      },
+      {
+        "name": "f7b40080a522",
+        "role": "primary",
+        "path": "consolidation_candidates/frozen/f7b40080a522.py",
+        "sha256": "f7b40080a522f5120d20154b06da55e24429bf8ac38140414e96c21d2d2e16d4",
+        "bytes": 70429,
+        "imports": [
+          "collections",
+          "math",
+          "time"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "origin/shaunakbr1",
+            "path": "bot.py",
+            "commit": "9b7432bc40373e6be83cad844b0106dfbbaaf672"
+          },
+          {
+            "ref": "origin/shaunakbr2",
+            "path": "bot.py",
+            "commit": "4baf23937475031ee2e83b08673b2facf505a42c"
+          },
+          {
+            "ref": "origin/visual-harness",
+            "path": "bot.py",
+            "commit": "7fa9b73affed2b3f6669512a4ce4bd11f28328d3"
+          }
+        ]
+      },
+      {
+        "name": "pr10_novel_v9",
+        "label": "PR10 novel v9 goal forecast route",
+        "role": "primary",
+        "path": "consolidation_candidates/frozen/pr10_novel_v9.py",
+        "sha256": "a40334b3209c022403ee5f4684512ae62a196c69055442b72c9eed2ddbd58c72",
+        "bytes": 80549,
+        "kind": "generated-route",
+        "sources": {
+          "mybot.py": "64b90e9c676b1a28cb001e7e836339646ca62bd226732b0abeb2e2062a97bc8f",
+          "ship.py": "9464064f7ca8100ad1430784435076eb5116f49ef5d6541a9947bef269615e35",
+          "v9_params.json": "2116629bdcdd004065bb8cc2f383d2adeee8266cfa0b08863c7b81b96574f16a"
+        },
+        "build": "ship.build(params_file='v9_params.json')",
+        "imports": [
+          "collections",
+          "math",
+          "time"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "pr/10",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62",
+            "path": "mybot.py + v9_params.json (ship.build)"
+          }
+        ]
+      },
+      {
+        "name": "novel_a_mcts",
+        "role": "primary",
+        "family": "novel-a",
+        "path": "consolidation_candidates/frozen/b87478d47485.py",
+        "sha256": "b87478d4748569e0e8ef8c50a0f381d0c2764bd904c450af2047f20774f7213c",
+        "bytes": 35913,
+        "kind": "standalone-class-wrapper",
+        "class_name": "MctsBot",
+        "sources": {
+          "strategy_audit/novel/novel_a.py": "2a2a5dabd65fa4cee9fb7725a2acf492cf823befeb3a26cd934182fc8ddd8502"
+        },
+        "build": "Exact committed module plus per-seat act(state) wrapper; calls class.act directly to expose errors. Seed=seat*7919.",
+        "imports": [
+          "math",
+          "random",
+          "time"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "pr/10",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62",
+            "path": "strategy_audit/novel/novel_a.py::MctsBot"
+          }
+        ]
+      },
+      {
+        "name": "novel_a_paranoid",
+        "role": "primary",
+        "family": "novel-a",
+        "path": "consolidation_candidates/frozen/b9d9e5ac8ec2.py",
+        "sha256": "b9d9e5ac8ec2fbaf6d38fab9373212531f6f01071c4ebd60641253538f2cd6cf",
+        "bytes": 35917,
+        "kind": "standalone-class-wrapper",
+        "class_name": "ParanoidBot",
+        "sources": {
+          "strategy_audit/novel/novel_a.py": "2a2a5dabd65fa4cee9fb7725a2acf492cf823befeb3a26cd934182fc8ddd8502"
+        },
+        "build": "Exact committed module plus per-seat act(state) wrapper; calls class.act directly to expose errors. Seed=seat*7919.",
+        "imports": [
+          "math",
+          "random",
+          "time"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "pr/10",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62",
+            "path": "strategy_audit/novel/novel_a.py::ParanoidBot"
+          }
+        ]
+      },
+      {
+        "name": "novel_a_rhea",
+        "role": "primary",
+        "family": "novel-a",
+        "path": "consolidation_candidates/frozen/e60b6d8bbe3c.py",
+        "sha256": "e60b6d8bbe3c460883dbfe21eece8ace4b2d5983afd1b03dcc927d6e9d72fd08",
+        "bytes": 35913,
+        "kind": "standalone-class-wrapper",
+        "class_name": "RheaBot",
+        "sources": {
+          "strategy_audit/novel/novel_a.py": "2a2a5dabd65fa4cee9fb7725a2acf492cf823befeb3a26cd934182fc8ddd8502"
+        },
+        "build": "Exact committed module plus per-seat act(state) wrapper; calls class.act directly to expose errors. Seed=seat*7919.",
+        "imports": [
+          "math",
+          "random",
+          "time"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "pr/10",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62",
+            "path": "strategy_audit/novel/novel_a.py::RheaBot"
+          }
+        ]
+      },
+      {
+        "name": "novel_b_feint",
+        "role": "primary",
+        "family": "novel-b",
+        "path": "consolidation_candidates/frozen/f95dc9fc2266.py",
+        "sha256": "f95dc9fc22660331b1368a876d907f111fd3cb21aef6e3e34315b41e6af94e94",
+        "bytes": 38073,
+        "kind": "standalone-class-wrapper",
+        "class_name": "FeintBot",
+        "sources": {
+          "strategy_audit/novel/novel_b.py": "3218162337a3db3279a45cfb2150a9c314fcc2c0e7c9eacb4253489e5918aad8"
+        },
+        "build": "Exact committed module plus per-seat act(state) wrapper; calls class.act directly to expose errors. Seed=seat*7919.",
+        "imports": [
+          "random"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "pr/10",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62",
+            "path": "strategy_audit/novel/novel_b.py::FeintBot"
+          }
+        ]
+      },
+      {
+        "name": "novel_b_blocker",
+        "role": "primary",
+        "family": "novel-b",
+        "path": "consolidation_candidates/frozen/1bb70109a75e.py",
+        "sha256": "1bb70109a75e2880bfdf3ac9b6fd8e368b0f3d02b9a3e65de53cef0defa505e5",
+        "bytes": 38075,
+        "kind": "standalone-class-wrapper",
+        "class_name": "BlockerBot",
+        "sources": {
+          "strategy_audit/novel/novel_b.py": "3218162337a3db3279a45cfb2150a9c314fcc2c0e7c9eacb4253489e5918aad8"
+        },
+        "build": "Exact committed module plus per-seat act(state) wrapper; calls class.act directly to expose errors. Seed=seat*7919.",
+        "imports": [
+          "random"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "pr/10",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62",
+            "path": "strategy_audit/novel/novel_b.py::BlockerBot"
+          }
+        ]
+      },
+      {
+        "name": "novel_b_racer",
+        "role": "primary",
+        "family": "novel-b",
+        "path": "consolidation_candidates/frozen/a35c2c481164.py",
+        "sha256": "a35c2c4811645091adef6cbd263f1573bf2b184d5dd5741a070234a422ce54c8",
+        "bytes": 38073,
+        "kind": "standalone-class-wrapper",
+        "class_name": "RacerBot",
+        "sources": {
+          "strategy_audit/novel/novel_b.py": "3218162337a3db3279a45cfb2150a9c314fcc2c0e7c9eacb4253489e5918aad8"
+        },
+        "build": "Exact committed module plus per-seat act(state) wrapper; calls class.act directly to expose errors. Seed=seat*7919.",
+        "imports": [
+          "random"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "pr/10",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62",
+            "path": "strategy_audit/novel/novel_b.py::RacerBot"
+          }
+        ]
+      },
+      {
+        "name": "novel_c_voronoi",
+        "role": "primary",
+        "family": "novel-c",
+        "path": "consolidation_candidates/frozen/5c9fc5cf6b0e.py",
+        "sha256": "5c9fc5cf6b0e3e58a3065b1afcf6bf42cfd0127487c2b31b878dad07205f467c",
+        "bytes": 40554,
+        "kind": "standalone-class-wrapper",
+        "class_name": "VoronoiBot",
+        "sources": {
+          "strategy_audit/novel/novel_c.py": "7a6b3133805eac461f61bdb391f1f520ce7b85957db1422486d42ac7b77463f4"
+        },
+        "build": "Exact committed module plus per-seat act(state) wrapper; calls class.act directly to expose errors. Seed=seat*7919.",
+        "imports": [
+          "math",
+          "random"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "pr/10",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62",
+            "path": "strategy_audit/novel/novel_c.py::VoronoiBot"
+          }
+        ]
+      },
+      {
+        "name": "novel_c_bloomer",
+        "role": "primary",
+        "family": "novel-c",
+        "path": "consolidation_candidates/frozen/78e6919475de.py",
+        "sha256": "78e6919475dee8f6a27ddbf7c433b49844bcdfdc865be334e3836cbb68fec8c6",
+        "bytes": 40554,
+        "kind": "standalone-class-wrapper",
+        "class_name": "BloomerBot",
+        "sources": {
+          "strategy_audit/novel/novel_c.py": "7a6b3133805eac461f61bdb391f1f520ce7b85957db1422486d42ac7b77463f4"
+        },
+        "build": "Exact committed module plus per-seat act(state) wrapper; calls class.act directly to expose errors. Seed=seat*7919.",
+        "imports": [
+          "math",
+          "random"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "pr/10",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62",
+            "path": "strategy_audit/novel/novel_c.py::BloomerBot"
+          }
+        ]
+      },
+      {
+        "name": "novel_c_portfolio",
+        "role": "primary",
+        "family": "novel-c",
+        "path": "consolidation_candidates/frozen/c09b3363418e.py",
+        "sha256": "c09b3363418e124ba7cfbcf1494244562bc6a311f17f6ca762f16a0b37ae9398",
+        "bytes": 40556,
+        "kind": "standalone-class-wrapper",
+        "class_name": "PortfolioBot",
+        "sources": {
+          "strategy_audit/novel/novel_c.py": "7a6b3133805eac461f61bdb391f1f520ce7b85957db1422486d42ac7b77463f4"
+        },
+        "build": "Exact committed module plus per-seat act(state) wrapper; calls class.act directly to expose errors. Seed=seat*7919.",
+        "imports": [
+          "math",
+          "random"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "pr/10",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62",
+            "path": "strategy_audit/novel/novel_c.py::PortfolioBot"
+          }
+        ]
+      },
+      {
+        "name": "novel_d_titfortat",
+        "role": "primary",
+        "family": "novel-d",
+        "path": "consolidation_candidates/frozen/f9ebc7878ac1.py",
+        "sha256": "f9ebc7878ac1c120ac98987b2c521fb050fea535f8e4c62dae433d09a453bbb3",
+        "bytes": 29750,
+        "kind": "standalone-class-wrapper",
+        "class_name": "TitForTatBot",
+        "sources": {
+          "strategy_audit/novel/novel_d.py": "d4352beb97aa8d4162f8f4c8b506f579b56e0079ad81f463f2aa2c485551d5f0"
+        },
+        "build": "Exact committed module plus per-seat act(state) wrapper; calls class.act directly to expose errors. Seed=seat*7919.",
+        "imports": [
+          "random"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "pr/10",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62",
+            "path": "strategy_audit/novel/novel_d.py::TitForTatBot"
+          }
+        ]
+      },
+      {
+        "name": "novel_d_antileader",
+        "role": "primary",
+        "family": "novel-d",
+        "path": "consolidation_candidates/frozen/825a695c56bf.py",
+        "sha256": "825a695c56bf7f7b8211148f678ef178e9e241d0b0b4ccf09db5b314738a3d21",
+        "bytes": 29751,
+        "kind": "standalone-class-wrapper",
+        "class_name": "AntiLeaderBot",
+        "sources": {
+          "strategy_audit/novel/novel_d.py": "d4352beb97aa8d4162f8f4c8b506f579b56e0079ad81f463f2aa2c485551d5f0"
+        },
+        "build": "Exact committed module plus per-seat act(state) wrapper; calls class.act directly to expose errors. Seed=seat*7919.",
+        "imports": [
+          "random"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "pr/10",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62",
+            "path": "strategy_audit/novel/novel_d.py::AntiLeaderBot"
+          }
+        ]
+      },
+      {
+        "name": "novel_d_shieldmaster",
+        "role": "primary",
+        "family": "novel-d",
+        "path": "consolidation_candidates/frozen/d75575389253.py",
+        "sha256": "d75575389253984ef6b47eb6b1189d2a60fa6b20da976b71107da91f5a02cb9c",
+        "bytes": 29753,
+        "kind": "standalone-class-wrapper",
+        "class_name": "ShieldMasterBot",
+        "sources": {
+          "strategy_audit/novel/novel_d.py": "d4352beb97aa8d4162f8f4c8b506f579b56e0079ad81f463f2aa2c485551d5f0"
+        },
+        "build": "Exact committed module plus per-seat act(state) wrapper; calls class.act directly to expose errors. Seed=seat*7919.",
+        "imports": [
+          "random"
+        ],
+        "act_arguments": [
+          "state"
+        ],
+        "sensitive_builtin_calls": [],
+        "aliases": [
+          {
+            "ref": "pr/10",
+            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62",
+            "path": "strategy_audit/novel/novel_d.py::ShieldMasterBot"
+          }
+        ]
+      },
+      {
+        "name": "presence_guarded",
+        "label": "Presence Transfer with public-interface and failed-job guards",
+        "path": "consolidation_candidates/presence_guarded.py",
+        "sha256": "fc00af81fdf7e457b1256a838f363cd536cce9cb2eaa4e68d096622cd74b84cf",
+        "parent": "human_arena/candidates/transfer_presence_core.py",
+        "parent_sha256": "aef27c1c5d6c1dadccdbe51fabc2e53ec32c10d592a9ed917bd9b49ee4fca42c",
+        "changes": [
+          "public-only input normalization and original action type preservation",
+          "legal STAY fallback with auditable failure counters",
+          "abandon jobs only after expected completion leaves cell unchanged"
+        ],
+        "calibration": "No weight changes; expected canonical-rule action equivalence requires testing.",
+        "role": "development",
+        "aliases": [
+          {
+            "ref": "consolidation-development",
+            "path": "consolidation_candidates/presence_guarded.py",
+            "parent_sha256": "aef27c1c5d6c1dadccdbe51fabc2e53ec32c10d592a9ed917bd9b49ee4fca42c"
+          }
+        ]
+      },
+      {
+        "name": "presence_legacy_pricing",
+        "label": "Presence Transfer with legacy task pricing and public guards",
+        "path": "consolidation_candidates/presence_legacy_pricing.py",
+        "sha256": "d8255047f77a82fc4bc7f81802dcbd4d1f5e7e1b698de94f4cf9c3828f8e8461",
+        "parent": "consolidation_candidates/presence_guarded.py",
+        "parent_sha256": "fc00af81fdf7e457b1256a838f363cd536cce9cb2eaa4e68d096622cd74b84cf",
+        "changes": {
+          "conditional_postraid_upgrade": false,
+          "renewal_guard": false,
+          "imminent_shield": false
+        },
+        "calibration": "No coefficient fitting or source-logic changes. Three existing strategic additions switched off after exploratory screening; fresh registered comparison is required. Public tracking, full-land feints and all input/failed-job guards remain unchanged.",
+        "role": "development",
+        "aliases": [
+          {
+            "ref": "consolidation-development",
+            "path": "consolidation_candidates/presence_legacy_pricing.py",
+            "parent_sha256": "fc00af81fdf7e457b1256a838f363cd536cce9cb2eaa4e68d096622cd74b84cf"
+          }
+        ]
+      },
+      {
+        "name": "pr10_presence_forecast",
+        "label": "PR10 goal forecast with presence-rule tracking",
+        "path": "consolidation_candidates/pr10_presence_forecast.py",
+        "sha256": "9f03b1bbb4e51fc25d8d9beca10ab501522699cc2a73628a76b1eda3640dc83c",
+        "parent": "consolidation_candidates/frozen/pr10_novel_v9.py",
+        "parent_sha256": "a40334b3209c022403ee5f4684512ae62a196c69055442b72c9eed2ddbd58c72",
+        "changes": [
+          "force existing irreversible-history clockguard on",
+          "post-movement Shield victims including mutualshielders",
+          "moved and productive seats cannot be inferred shielders",
+          "all feasible cooldown/progress sets; conservative scalar minima",
+          "censor ambiguous defense labels and learn territory retention",
+          "target-arrival Shield hazard included"
+        ],
+        "weights": "No numeric playing weights changed; fresh_guard correctness switch enabled.",
+        "role": "development",
+        "aliases": [
+          {
+            "ref": "consolidation-development",
+            "path": "consolidation_candidates/pr10_presence_forecast.py",
+            "parent_sha256": "a40334b3209c022403ee5f4684512ae62a196c69055442b72c9eed2ddbd58c72"
+          }
+        ]
+      }
+    ],
+    "candidates": [
+      "641c909b7ef1",
+      "1dca0c916af4",
+      "b2de2f334e88",
+      "5457b5fdf4ca",
+      "31965e1412c6",
+      "aa49608fe334",
+      "f995547a68e7",
+      "27c2b068fb86",
+      "9203f00255d5",
+      "34bdf1bab1bb",
+      "bbff919db34a",
+      "e7f4fd616c15",
+      "2388ad499944",
+      "dfc547464ff2",
+      "e23de391a94d",
+      "2a9fa5c1127f",
+      "1cdcba187107",
+      "8fb32ee24081",
+      "98c622e3bf72",
+      "1056046dff6b",
+      "be885384874c",
+      "4b5659bf878a",
+      "b2a28fd04cbe",
+      "ab39cda757ee",
+      "885b73a29a3a",
+      "0db330d2bb63",
+      "2164474c40f9",
+      "c7620a987067",
+      "6af698080016",
+      "27fbb33378ea",
+      "3a50a56aa9ae",
+      "8eac9789c4c5",
+      "19f1b426c49c",
+      "a6c0c5abcded",
+      "b05ff3b815e6",
+      "261f10170209",
+      "2956bbd05ffc",
+      "42e759b51db9",
+      "cefe2fa7bce1",
+      "cb30b5ae32f7",
+      "720e5a3daf7b",
+      "d2bef4e077e9",
+      "beec3a70b4e6",
+      "f6b4385da8e0",
+      "95da830e6f29",
+      "68094583daf8",
+      "ae1594276aff",
+      "1a718fd8b514",
+      "bec1daf8bb0c",
+      "fe03b8164ed3",
+      "03470e6151e5",
+      "aef27c1c5d6c",
+      "6517c92b65e4",
+      "f7b40080a522",
+      "pr10_novel_v9",
+      "novel_a_mcts",
+      "novel_a_paranoid",
+      "novel_a_rhea",
+      "novel_b_feint",
+      "novel_b_blocker",
+      "novel_b_racer",
+      "novel_c_voronoi",
+      "novel_c_bloomer",
+      "novel_c_portfolio",
+      "novel_d_titfortat",
+      "novel_d_antileader",
+      "novel_d_shieldmaster",
+      "presence_guarded",
+      "presence_legacy_pricing",
+      "pr10_presence_forecast"
+    ],
+    "fixtures": [
+      {
+        "id": 0,
+        "base": [
+          1,
+          1,
+          1,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          1,
+          1,
+          1,
+          2,
+          2,
+          3,
+          3,
+          2,
+          2,
+          1,
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          2,
+          2,
+          1,
+          2,
+          2,
+          3,
+          3,
+          2,
+          2,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          1,
+          1,
+          1
+        ],
+        "map_group": 0,
+        "map_kind": "slope",
+        "map_seed": 1012364692,
+        "seat": 0,
+        "token": 1,
+        "field": "legacy-economic",
+        "opponents": [
+          "fe03b8164ed3",
+          "1a718fd8b514",
+          "720e5a3daf7b"
+        ]
+      },
+      {
+        "id": 1,
+        "base": [
+          1,
+          1,
+          1,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          1,
+          1,
+          1,
+          2,
+          2,
+          3,
+          3,
+          2,
+          2,
+          1,
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          2,
+          2,
+          1,
+          2,
+          2,
+          3,
+          3,
+          2,
+          2,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          1,
+          1,
+          1
+        ],
+        "map_group": 0,
+        "map_kind": "slope",
+        "map_seed": 1012364692,
+        "seat": 1,
+        "token": 2,
+        "field": "novel-pressure",
+        "opponents": [
+          "novel_b_blocker",
+          "novel_b_racer",
+          "641c909b7ef1"
+        ]
+      },
+      {
+        "id": 2,
+        "base": [
+          1,
+          1,
+          1,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          1,
+          1,
+          1,
+          2,
+          2,
+          3,
+          3,
+          2,
+          2,
+          1,
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          2,
+          2,
+          1,
+          2,
+          2,
+          3,
+          3,
+          2,
+          2,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          1,
+          1,
+          1
+        ],
+        "map_group": 0,
+        "map_kind": "slope",
+        "map_seed": 1012364692,
+        "seat": 2,
+        "token": 3,
+        "field": "beam-defence",
+        "opponents": [
+          "f7b40080a522",
+          "novel_d_shieldmaster",
+          "d2bef4e077e9"
+        ]
+      },
+      {
+        "id": 3,
+        "base": [
+          1,
+          1,
+          1,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          1,
+          1,
+          1,
+          2,
+          2,
+          3,
+          3,
+          2,
+          2,
+          1,
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          2,
+          2,
+          1,
+          2,
+          2,
+          3,
+          3,
+          2,
+          2,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          1,
+          1,
+          1
+        ],
+        "map_group": 0,
+        "map_kind": "slope",
+        "map_seed": 1012364692,
+        "seat": 3,
+        "token": 4,
+        "field": "legacy-economic",
+        "opponents": [
+          "fe03b8164ed3",
+          "1a718fd8b514",
+          "720e5a3daf7b"
+        ]
+      },
+      {
+        "id": 4,
+        "base": [
+          3,
+          3,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          1,
+          3,
+          3,
+          1,
+          3,
+          3,
+          1,
+          1,
+          2,
+          1,
+          1,
+          2,
+          1,
+          1,
+          2,
+          1,
+          3,
+          1,
+          1,
+          3,
+          1,
+          2,
+          2,
+          1,
+          3,
+          1,
+          1,
+          3,
+          1,
+          2,
+          1,
+          1,
+          2,
+          1,
+          1,
+          2,
+          1,
+          1,
+          3,
+          3,
+          1,
+          3,
+          3,
+          1,
+          3,
+          3,
+          3,
+          3,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3
+        ],
+        "map_group": 1,
+        "map_kind": "corners",
+        "map_seed": 975604120,
+        "seat": 0,
+        "token": 2,
+        "field": "novel-pressure",
+        "opponents": [
+          "novel_b_blocker",
+          "novel_b_racer",
+          "641c909b7ef1"
+        ]
+      },
+      {
+        "id": 5,
+        "base": [
+          3,
+          3,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          1,
+          3,
+          3,
+          1,
+          3,
+          3,
+          1,
+          1,
+          2,
+          1,
+          1,
+          2,
+          1,
+          1,
+          2,
+          1,
+          3,
+          1,
+          1,
+          3,
+          1,
+          2,
+          2,
+          1,
+          3,
+          1,
+          1,
+          3,
+          1,
+          2,
+          1,
+          1,
+          2,
+          1,
+          1,
+          2,
+          1,
+          1,
+          3,
+          3,
+          1,
+          3,
+          3,
+          1,
+          3,
+          3,
+          3,
+          3,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3
+        ],
+        "map_group": 1,
+        "map_kind": "corners",
+        "map_seed": 975604120,
+        "seat": 1,
+        "token": 3,
+        "field": "beam-defence",
+        "opponents": [
+          "f7b40080a522",
+          "novel_d_shieldmaster",
+          "d2bef4e077e9"
+        ]
+      },
+      {
+        "id": 6,
+        "base": [
+          3,
+          3,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          1,
+          3,
+          3,
+          1,
+          3,
+          3,
+          1,
+          1,
+          2,
+          1,
+          1,
+          2,
+          1,
+          1,
+          2,
+          1,
+          3,
+          1,
+          1,
+          3,
+          1,
+          2,
+          2,
+          1,
+          3,
+          1,
+          1,
+          3,
+          1,
+          2,
+          1,
+          1,
+          2,
+          1,
+          1,
+          2,
+          1,
+          1,
+          3,
+          3,
+          1,
+          3,
+          3,
+          1,
+          3,
+          3,
+          3,
+          3,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3
+        ],
+        "map_group": 1,
+        "map_kind": "corners",
+        "map_seed": 975604120,
+        "seat": 2,
+        "token": 4,
+        "field": "legacy-economic",
+        "opponents": [
+          "fe03b8164ed3",
+          "1a718fd8b514",
+          "720e5a3daf7b"
+        ]
+      },
+      {
+        "id": 7,
+        "base": [
+          3,
+          3,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          1,
+          3,
+          3,
+          1,
+          3,
+          3,
+          1,
+          1,
+          2,
+          1,
+          1,
+          2,
+          1,
+          1,
+          2,
+          1,
+          3,
+          1,
+          1,
+          3,
+          1,
+          2,
+          2,
+          1,
+          3,
+          1,
+          1,
+          3,
+          1,
+          2,
+          1,
+          1,
+          2,
+          1,
+          1,
+          2,
+          1,
+          1,
+          3,
+          3,
+          1,
+          3,
+          3,
+          1,
+          3,
+          3,
+          3,
+          3,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3
+        ],
+        "map_group": 1,
+        "map_kind": "corners",
+        "map_seed": 975604120,
+        "seat": 3,
+        "token": 1,
+        "field": "novel-pressure",
+        "opponents": [
+          "novel_b_blocker",
+          "novel_b_racer",
+          "641c909b7ef1"
+        ]
+      },
+      {
+        "id": 8,
+        "base": [
+          2,
+          3,
+          2,
+          1,
+          1,
+          2,
+          3,
+          2,
+          2,
+          1,
+          2,
+          2,
+          2,
+          2,
+          1,
+          2,
+          1,
+          3,
+          3,
+          2,
+          2,
+          3,
+          3,
+          1,
+          3,
+          2,
+          1,
+          1,
+          1,
+          1,
+          2,
+          3,
+          3,
+          2,
+          1,
+          1,
+          1,
+          1,
+          2,
+          3,
+          1,
+          3,
+          3,
+          2,
+          2,
+          3,
+          3,
+          1,
+          2,
+          1,
+          2,
+          2,
+          2,
+          2,
+          1,
+          2,
+          2,
+          3,
+          2,
+          1,
+          1,
+          2,
+          3,
+          2
+        ],
+        "map_group": 2,
+        "map_kind": "uniform",
+        "map_seed": 1004239384,
+        "seat": 0,
+        "token": 3,
+        "field": "beam-defence",
+        "opponents": [
+          "f7b40080a522",
+          "novel_d_shieldmaster",
+          "d2bef4e077e9"
+        ]
+      },
+      {
+        "id": 9,
+        "base": [
+          2,
+          3,
+          2,
+          1,
+          1,
+          2,
+          3,
+          2,
+          2,
+          1,
+          2,
+          2,
+          2,
+          2,
+          1,
+          2,
+          1,
+          3,
+          3,
+          2,
+          2,
+          3,
+          3,
+          1,
+          3,
+          2,
+          1,
+          1,
+          1,
+          1,
+          2,
+          3,
+          3,
+          2,
+          1,
+          1,
+          1,
+          1,
+          2,
+          3,
+          1,
+          3,
+          3,
+          2,
+          2,
+          3,
+          3,
+          1,
+          2,
+          1,
+          2,
+          2,
+          2,
+          2,
+          1,
+          2,
+          2,
+          3,
+          2,
+          1,
+          1,
+          2,
+          3,
+          2
+        ],
+        "map_group": 2,
+        "map_kind": "uniform",
+        "map_seed": 1004239384,
+        "seat": 1,
+        "token": 4,
+        "field": "legacy-economic",
+        "opponents": [
+          "fe03b8164ed3",
+          "1a718fd8b514",
+          "720e5a3daf7b"
+        ]
+      },
+      {
+        "id": 10,
+        "base": [
+          2,
+          3,
+          2,
+          1,
+          1,
+          2,
+          3,
+          2,
+          2,
+          1,
+          2,
+          2,
+          2,
+          2,
+          1,
+          2,
+          1,
+          3,
+          3,
+          2,
+          2,
+          3,
+          3,
+          1,
+          3,
+          2,
+          1,
+          1,
+          1,
+          1,
+          2,
+          3,
+          3,
+          2,
+          1,
+          1,
+          1,
+          1,
+          2,
+          3,
+          1,
+          3,
+          3,
+          2,
+          2,
+          3,
+          3,
+          1,
+          2,
+          1,
+          2,
+          2,
+          2,
+          2,
+          1,
+          2,
+          2,
+          3,
+          2,
+          1,
+          1,
+          2,
+          3,
+          2
+        ],
+        "map_group": 2,
+        "map_kind": "uniform",
+        "map_seed": 1004239384,
+        "seat": 2,
+        "token": 1,
+        "field": "novel-pressure",
+        "opponents": [
+          "novel_b_blocker",
+          "novel_b_racer",
+          "641c909b7ef1"
+        ]
+      },
+      {
+        "id": 11,
+        "base": [
+          2,
+          3,
+          2,
+          1,
+          1,
+          2,
+          3,
+          2,
+          2,
+          1,
+          2,
+          2,
+          2,
+          2,
+          1,
+          2,
+          1,
+          3,
+          3,
+          2,
+          2,
+          3,
+          3,
+          1,
+          3,
+          2,
+          1,
+          1,
+          1,
+          1,
+          2,
+          3,
+          3,
+          2,
+          1,
+          1,
+          1,
+          1,
+          2,
+          3,
+          1,
+          3,
+          3,
+          2,
+          2,
+          3,
+          3,
+          1,
+          2,
+          1,
+          2,
+          2,
+          2,
+          2,
+          1,
+          2,
+          2,
+          3,
+          2,
+          1,
+          1,
+          2,
+          3,
+          2
+        ],
+        "map_group": 2,
+        "map_kind": "uniform",
+        "map_seed": 1004239384,
+        "seat": 3,
+        "token": 2,
+        "field": "beam-defence",
+        "opponents": [
+          "f7b40080a522",
+          "novel_d_shieldmaster",
+          "d2bef4e077e9"
+        ]
+      }
+    ],
+    "excluded": {
+      "bb2cf166a49f": "Incompatible public interface: 960 exceptions in prior screen",
+      "a5031eaed1a1": "Deliberately faulty control returned an illegal action"
+    }
+  },
+  "spec_sha256": "97f6a7c12f395e54b8e4e960c359a651a4fe7231992edce0e218b86762ad648f",
+  "benchmark_sha256": "40fc6744ac41d0a0b2ada84e644402367c2491cfdc82481c6fa6b74852799ebe",
+  "referee_sha256": "f1125e8ceee664781827c670c0c4481da41a7ef41a4e5276d6b3b118274af337",
+  "worker_sha256": "9ae8c11c7bbcc0696a6c1fd4d1cc66684bb546d9db2c604a72b161c336d8db5f",
+  "timing": {
+    "enforce": true,
+    "turn_ms": 200,
+    "first_ms": 2000,
+    "hard_s": 1.0,
+    "load_s": 5.0
+  },
+  "rules": {
+    "frozen_stay_counts": false,
+    "claim_resets_progress": true,
+    "catch_requires_stay": true,
+    "lost_contest_is_stay": true,
+    "home_upgradable": true,
+    "legal_excludes_occupied": false
+  }
+}
