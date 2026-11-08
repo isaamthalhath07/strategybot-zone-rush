@@ -1,0 +1,23 @@
+{
+  "format": "zone-rush-delivery-root-reproduction/2",
+  "command": "python -m unittest compute_delivery.test_extract_retry compute_delivery.test_runner compute_delivery.test_independent -v",
+  "filesystem_context": "Approved normal Windows filesystem permissions",
+  "observed_exit_code": 0,
+  "tests_run": 42,
+  "passed": 42,
+  "failed": 0,
+  "skipped": 0,
+  "unittest_wall_s": 9.915,
+  "runner_sha256": "c7c7dff3bd10fb2fdfa62d7f8bb374649d5ccc59111c0aa9d529502a42e08a5a",
+  "builder_sha256": "66c1e1369b785c90198f65362ac55e8f11d38f2ca593ec8acc7079eba37ab478",
+  "author_validation_v2_sha256": "5b189c33acfe7688a71c14b665cda92f0979d87ade7f46af3c8887f1b08ddb02",
+  "historical_source_archive_sha256": "10ff499df0e11d2348e179f8647747fe5df65038b8d926117b599395355b0550",
+  "prior_root_failure_evidence_preserved": true,
+  "bounded_windows_wrapper_review": "passed",
+  "actual_actor_calls": 0,
+  "real_plans_or_jobs_issued": 0,
+  "private_keys_changed": 0,
+  "primary_game_credit": 0,
+  "qualification_returns_invalidated": false,
+  "scope": "Native shell/filesystem and isolated mock-admission regression checks; not universal recovery, real remote execution, game-strength evidence or actual workload admission."
+}

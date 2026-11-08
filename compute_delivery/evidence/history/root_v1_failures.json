@@ -1,0 +1,44 @@
+{
+  "format": "zone-rush-delivery-root-reproduction-failures/1",
+  "historical_runner_sha256": "852fd8a4e0d10fd9cdd35276cd25814de161a0575093edc9a564ca12071d50c0",
+  "historical_builder_sha256": "66c1e1369b785c90198f65362ac55e8f11d38f2ca593ec8acc7079eba37ab478",
+  "historical_archive_sha256": "10ff499df0e11d2348e179f8647747fe5df65038b8d926117b599395355b0550",
+  "command": "python -m unittest compute_delivery.test_runner compute_delivery.test_independent -v",
+  "runs": [
+    {
+      "filesystem_context": "Default restricted tool execution",
+      "observed_exit_code": 1,
+      "tests_run": 26,
+      "passed": 24,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 1,
+      "unittest_wall_s": 8.196,
+      "failing_test": "test_cmd_powershell_preflight_handles_spaces_percent_bang_and_failure_codes",
+      "error": "WinError5 Access is denied during os.replace(temporary extraction directory, worker directory)",
+      "skipped_test": "test_linked_return_and_lock_paths_cannot_modify_an_unrelated_sentinel",
+      "skip_reason": "Hard-link creation unavailable in this test environment"
+    },
+    {
+      "filesystem_context": "Approved normal filesystem permissions",
+      "observed_exit_code": 1,
+      "tests_run": 26,
+      "passed": 25,
+      "failures": 0,
+      "errors": 1,
+      "skipped": 0,
+      "unittest_wall_s": 7.301,
+      "failing_test": "test_play_and_audit_use_their_distinct_authenticated_admission_paths",
+      "error": "WinError5 Access is denied during os.replace(temporary extraction directory, worker directory)",
+      "native_cmd_preflight_passed": true,
+      "native_hardlink_sentinel_test_passed": true
+    }
+  ],
+  "interpretation": "The directory-promotion failure reproduced in a normal-permission run. Its precise OS cause is not established. Earlier passing runs do not establish reliable startup.",
+  "required_resolution": "Bounded safe native promotion with no overwrite, deterministic transient/permanent-error tests and fresh normal-permission verification before publication or actual wrapping.",
+  "actual_actor_calls": 0,
+  "real_plans_or_jobs_issued": 0,
+  "private_keys_changed": 0,
+  "primary_game_credit": 0,
+  "qualification_returns_invalidated": false
+}
