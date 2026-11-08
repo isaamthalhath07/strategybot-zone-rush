@@ -1,0 +1,17 @@
+novel opponents: 12 bots, 8 games each against 3x STAY and against spine/pro/camper (seat rotated)
+
+bot                errors  mean ms   max ms  STAY %  shld %    vs STAY    vs strong
+nv_a_mcts               0      7.8     20.1     66%    4.1%       3320         2131
+nv_a_paranoid           0      1.6      9.1     64%    4.5%       3390         1985
+nv_a_rhea               0      5.0     13.7     70%    3.4%       3404         2040
+nv_b_blocker            0      0.6      1.2     67%    5.3%       3478         2572
+nv_b_feint              0      0.6      5.8     68%    5.0%       3457         2690
+nv_b_racer              0      0.5      1.5     68%    4.9%       3469         2664
+nv_c_bloomer            0      0.5      1.7     64%    3.9%       3520         2612
+nv_c_portfolio          0      0.4      1.2     66%    3.0%       3470         2488
+nv_c_voronoi            0      0.4      1.2     70%    3.4%       3492         2672
+nv_d_antileader         0      0.2      0.4     63%    2.5%       3605         2636
+nv_d_shieldmaster       0      0.2      4.2     63%    1.6%       3595         2821
+nv_d_titfortat          0      0.2      3.2     63%    1.2%       3605         2532
+
+no problems found
