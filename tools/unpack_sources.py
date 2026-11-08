@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def main():
     restored = 0
-    manifests = [ROOT/"validation/source_archive_manifest.json", ROOT/"validation/official/source_archive_manifest.json"]
+    manifests = [ROOT/"validation/source_archive_manifest.json", ROOT/"validation/official/source_archive_manifest.json", ROOT/"validation/branch_audit/source_archive_manifest.json"]
     for path in manifests:
         if path.exists():
             restored += restore(path)

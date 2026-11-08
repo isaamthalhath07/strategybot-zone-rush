@@ -1,6 +1,8 @@
 __pycache__/
 *.pyc
 *.log
+# Resumable journals duplicate the published compressed full trajectories.
+validation/branch_audit/*.journal.jsonl
 .cache/
 consolidation_candidates/
 consolidation_review/

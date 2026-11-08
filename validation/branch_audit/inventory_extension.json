@@ -1,0 +1,877 @@
+{
+  "policies": [
+    {
+      "name": "bot_479793996c3b",
+      "sha256": "479793996c3bf8afd8df9614699f7cd8793c9a473b838bc08a659c14bf3f0b99",
+      "path": "consolidation_candidates/branch_audit/479793996c3bf8afd8df9614699f7cd8793c9a473b838bc08a659c14bf3f0b99.py",
+      "aliases": [
+        {
+          "class_name": "StayBot",
+          "module": "zoo.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "StayBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "zoo.py",
+          "sha256": "a07822d4a5d3245f83d29a55011e95dd0ff44c5781ca2b426df4c60e2e5de581"
+        }
+      ]
+    },
+    {
+      "name": "bot_b73d70bcda60",
+      "sha256": "b73d70bcda60235d5b751f154f305cb8fefef7286b54920d7f75b01d13e2c4a3",
+      "path": "consolidation_candidates/branch_audit/b73d70bcda60235d5b751f154f305cb8fefef7286b54920d7f75b01d13e2c4a3.py",
+      "aliases": [
+        {
+          "class_name": "RandomBot",
+          "module": "zoo.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "RandomBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "zoo.py",
+          "sha256": "a07822d4a5d3245f83d29a55011e95dd0ff44c5781ca2b426df4c60e2e5de581"
+        }
+      ]
+    },
+    {
+      "name": "bot_c03a13ea7349",
+      "sha256": "c03a13ea7349b86bcbb4552964d926d1f2cbb760afadd35a54fd59787bf5640c",
+      "path": "consolidation_candidates/branch_audit/c03a13ea7349b86bcbb4552964d926d1f2cbb760afadd35a54fd59787bf5640c.py",
+      "aliases": [
+        {
+          "class_name": "GreedyValueBot",
+          "module": "zoo.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "GreedyValueBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "zoo.py",
+          "sha256": "a07822d4a5d3245f83d29a55011e95dd0ff44c5781ca2b426df4c60e2e5de581"
+        }
+      ]
+    },
+    {
+      "name": "bot_ede52321b2c5",
+      "sha256": "ede52321b2c567c8a5c7f2c48396ed1f2450d6d859e7fa5c3e3b53f793396b58",
+      "path": "consolidation_candidates/branch_audit/ede52321b2c567c8a5c7f2c48396ed1f2450d6d859e7fa5c3e3b53f793396b58.py",
+      "aliases": [
+        {
+          "class_name": "GreedyShieldBot",
+          "module": "zoo.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "GreedyShieldBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "zoo.py",
+          "sha256": "a07822d4a5d3245f83d29a55011e95dd0ff44c5781ca2b426df4c60e2e5de581"
+        }
+      ]
+    },
+    {
+      "name": "bot_c3621deb6773",
+      "sha256": "c3621deb67731fd2392bc26257c2c95c378a0c123ee9404b795643405181e018",
+      "path": "consolidation_candidates/branch_audit/c3621deb67731fd2392bc26257c2c95c378a0c123ee9404b795643405181e018.py",
+      "aliases": [
+        {
+          "class_name": "PacifistBot",
+          "module": "zoo.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "PacifistBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "zoo.py",
+          "sha256": "a07822d4a5d3245f83d29a55011e95dd0ff44c5781ca2b426df4c60e2e5de581"
+        }
+      ]
+    },
+    {
+      "name": "bot_e89042e60e73",
+      "sha256": "e89042e60e7393644df8ee166de074f0a81718d8903c3fe76db75f73be7475b4",
+      "path": "consolidation_candidates/branch_audit/e89042e60e7393644df8ee166de074f0a81718d8903c3fe76db75f73be7475b4.py",
+      "aliases": [
+        {
+          "class_name": "SpineFarmerBot",
+          "module": "zoo.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "SpineFarmerBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "zoo.py",
+          "sha256": "a07822d4a5d3245f83d29a55011e95dd0ff44c5781ca2b426df4c60e2e5de581"
+        }
+      ]
+    },
+    {
+      "name": "bot_91d888bad7fc",
+      "sha256": "91d888bad7fcf6a7246ac96ea9cb7badfb09f74261879e9c6b8428efeb2025df",
+      "path": "consolidation_candidates/branch_audit/91d888bad7fcf6a7246ac96ea9cb7badfb09f74261879e9c6b8428efeb2025df.py",
+      "aliases": [
+        {
+          "class_name": "RaiderBot",
+          "module": "zoo.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "RaiderBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "zoo.py",
+          "sha256": "a07822d4a5d3245f83d29a55011e95dd0ff44c5781ca2b426df4c60e2e5de581"
+        }
+      ]
+    },
+    {
+      "name": "bot_238790102d13",
+      "sha256": "238790102d13451f5db99813deb27dc87b8fab3e5632cee568826575f69c1fa6",
+      "path": "consolidation_candidates/branch_audit/238790102d13451f5db99813deb27dc87b8fab3e5632cee568826575f69c1fa6.py",
+      "aliases": [
+        {
+          "class_name": "CamperBot",
+          "module": "zoo.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "CamperBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "zoo.py",
+          "sha256": "a07822d4a5d3245f83d29a55011e95dd0ff44c5781ca2b426df4c60e2e5de581"
+        }
+      ]
+    },
+    {
+      "name": "bot_e60cf4147155",
+      "sha256": "e60cf414715554ff673f34c7527286f4c9833189a69a714316633acc4bd2eb51",
+      "path": "consolidation_candidates/branch_audit/e60cf414715554ff673f34c7527286f4c9833189a69a714316633acc4bd2eb51.py",
+      "aliases": [
+        {
+          "class_name": "BaiterBot",
+          "module": "zoo.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "BaiterBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "zoo.py",
+          "sha256": "a07822d4a5d3245f83d29a55011e95dd0ff44c5781ca2b426df4c60e2e5de581"
+        }
+      ]
+    },
+    {
+      "name": "bot_815918c3a2db",
+      "sha256": "815918c3a2db14c07f694a32a7e6f9f752b989e2952554cb2ce60e63810c0ae9",
+      "path": "consolidation_candidates/branch_audit/815918c3a2db14c07f694a32a7e6f9f752b989e2952554cb2ce60e63810c0ae9.py",
+      "aliases": [
+        {
+          "class_name": "TurtleBot",
+          "module": "holdout.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "TurtleBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "zoo.py",
+          "sha256": "a07822d4a5d3245f83d29a55011e95dd0ff44c5781ca2b426df4c60e2e5de581"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "holdout.py",
+          "sha256": "8ea4cfbeaa774965a36a11e087a714eff3fb6c3a60997eb8228323f7cd24a8fc"
+        }
+      ]
+    },
+    {
+      "name": "bot_f7f9acb0057b",
+      "sha256": "f7f9acb0057bc18b42c44b303a810a0df6fe0868a341a433579894c3f3dda723",
+      "path": "consolidation_candidates/branch_audit/f7f9acb0057bc18b42c44b303a810a0df6fe0868a341a433579894c3f3dda723.py",
+      "aliases": [
+        {
+          "class_name": "LeaderHunterBot",
+          "module": "holdout.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "LeaderHunterBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "zoo.py",
+          "sha256": "a07822d4a5d3245f83d29a55011e95dd0ff44c5781ca2b426df4c60e2e5de581"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "holdout.py",
+          "sha256": "8ea4cfbeaa774965a36a11e087a714eff3fb6c3a60997eb8228323f7cd24a8fc"
+        }
+      ]
+    },
+    {
+      "name": "bot_cc26fd640c08",
+      "sha256": "cc26fd640c08828424b29d1d36a4cec7577c30e706b1da02614cda60b78c058f",
+      "path": "consolidation_candidates/branch_audit/cc26fd640c08828424b29d1d36a4cec7577c30e706b1da02614cda60b78c058f.py",
+      "aliases": [
+        {
+          "class_name": "CentreRushBot",
+          "module": "holdout.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "CentreRushBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "zoo.py",
+          "sha256": "a07822d4a5d3245f83d29a55011e95dd0ff44c5781ca2b426df4c60e2e5de581"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "holdout.py",
+          "sha256": "8ea4cfbeaa774965a36a11e087a714eff3fb6c3a60997eb8228323f7cd24a8fc"
+        }
+      ]
+    },
+    {
+      "name": "bot_25e30d29c248",
+      "sha256": "25e30d29c248a616fd55ad2b7f1221a4e093e9c8be93223fb8f56cdd5616f441",
+      "path": "consolidation_candidates/branch_audit/25e30d29c248a616fd55ad2b7f1221a4e093e9c8be93223fb8f56cdd5616f441.py",
+      "aliases": [
+        {
+          "class_name": "CooldownRaiderBot",
+          "module": "holdout.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "CooldownRaiderBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "zoo.py",
+          "sha256": "a07822d4a5d3245f83d29a55011e95dd0ff44c5781ca2b426df4c60e2e5de581"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "holdout.py",
+          "sha256": "8ea4cfbeaa774965a36a11e087a714eff3fb6c3a60997eb8228323f7cd24a8fc"
+        }
+      ]
+    },
+    {
+      "name": "bot_3ac6d190b421",
+      "sha256": "3ac6d190b421360939e71c13fb7c5a70b937a246b6fd8631ba35f97e36ce71cd",
+      "path": "consolidation_candidates/branch_audit/3ac6d190b421360939e71c13fb7c5a70b937a246b6fd8631ba35f97e36ce71cd.py",
+      "aliases": [
+        {
+          "class_name": "MarginalBot",
+          "module": "aifield.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "MarginalBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "aifield.py",
+          "sha256": "32bc735b599bf3db8c3e416fef34b99507584d87bc20144d967fd4e16175fcd6"
+        }
+      ]
+    },
+    {
+      "name": "bot_684566ff8ecc",
+      "sha256": "684566ff8ecc2afa8c078a2c5fe8a24b865b88625aaf9ccb5fd44eaede24083a",
+      "path": "consolidation_candidates/branch_audit/684566ff8ecc2afa8c078a2c5fe8a24b865b88625aaf9ccb5fd44eaede24083a.py",
+      "aliases": [
+        {
+          "class_name": "CheapRaiderBot",
+          "module": "aifield.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "CheapRaiderBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "aifield.py",
+          "sha256": "32bc735b599bf3db8c3e416fef34b99507584d87bc20144d967fd4e16175fcd6"
+        }
+      ]
+    },
+    {
+      "name": "bot_84043e975773",
+      "sha256": "84043e97577386dfd7c2c8905819e6f78685a7e21a76b9f72fb36635c7b88a82",
+      "path": "consolidation_candidates/branch_audit/84043e97577386dfd7c2c8905819e6f78685a7e21a76b9f72fb36635c7b88a82.py",
+      "aliases": [
+        {
+          "class_name": "HomeFortBot",
+          "module": "aifield.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "HomeFortBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "aifield.py",
+          "sha256": "32bc735b599bf3db8c3e416fef34b99507584d87bc20144d967fd4e16175fcd6"
+        }
+      ]
+    },
+    {
+      "name": "bot_edee7e6993e1",
+      "sha256": "edee7e6993e1198af189402d99770338d73ade8dc42c9a950f76de2ca49e80ce",
+      "path": "consolidation_candidates/branch_audit/edee7e6993e1198af189402d99770338d73ade8dc42c9a950f76de2ca49e80ce.py",
+      "aliases": [
+        {
+          "class_name": "CentreLockBot",
+          "module": "aifield.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "CentreLockBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "aifield.py",
+          "sha256": "32bc735b599bf3db8c3e416fef34b99507584d87bc20144d967fd4e16175fcd6"
+        }
+      ]
+    },
+    {
+      "name": "bot_c3f7d36077ad",
+      "sha256": "c3f7d36077ad8bea61d6ac5e51429d7ac406c91e8337f6b3435739fbd741a52e",
+      "path": "consolidation_candidates/branch_audit/c3f7d36077ad8bea61d6ac5e51429d7ac406c91e8337f6b3435739fbd741a52e.py",
+      "aliases": [
+        {
+          "class_name": "RouteBot",
+          "module": "aifield.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "RouteBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "aifield.py",
+          "sha256": "32bc735b599bf3db8c3e416fef34b99507584d87bc20144d967fd4e16175fcd6"
+        }
+      ]
+    },
+    {
+      "name": "bot_b64da0272cbb",
+      "sha256": "b64da0272cbbaa782e6af251ee0fdae69fc0120ed228c51534a30da00d6bc2f6",
+      "path": "consolidation_candidates/branch_audit/b64da0272cbbaa782e6af251ee0fdae69fc0120ed228c51534a30da00d6bc2f6.py",
+      "aliases": [
+        {
+          "class_name": "CooldownHawkBot",
+          "module": "aifield.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "CooldownHawkBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "aifield.py",
+          "sha256": "32bc735b599bf3db8c3e416fef34b99507584d87bc20144d967fd4e16175fcd6"
+        }
+      ]
+    },
+    {
+      "name": "bot_8cbef7eccb4e",
+      "sha256": "8cbef7eccb4e1d8ab9dcb21d0d768295cfec530dc3deb05262fbdbd38cf96a2e",
+      "path": "consolidation_candidates/branch_audit/8cbef7eccb4e1d8ab9dcb21d0d768295cfec530dc3deb05262fbdbd38cf96a2e.py",
+      "aliases": [
+        {
+          "class_name": "EloEndgameBot",
+          "module": "aifield.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "EloEndgameBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "aifield.py",
+          "sha256": "32bc735b599bf3db8c3e416fef34b99507584d87bc20144d967fd4e16175fcd6"
+        }
+      ]
+    },
+    {
+      "name": "bot_514775d141be",
+      "sha256": "514775d141be466c6507fca74e3b99594920d1151f27f0d6d3d124d800e9fa87",
+      "path": "consolidation_candidates/branch_audit/514775d141be466c6507fca74e3b99594920d1151f27f0d6d3d124d800e9fa87.py",
+      "aliases": [
+        {
+          "class_name": "ProBot",
+          "module": "probot.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "ProBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "probot.py",
+          "sha256": "63d906ecc29373e6b0f3578f979153f67d422a62c79ae1f21e283d1f5c03f5a1"
+        }
+      ]
+    },
+    {
+      "name": "bot_11045a993b06",
+      "sha256": "11045a993b063465daa5571cee9ec876a37e1919cd9fb5d6dfe730f4fc5760e8",
+      "path": "consolidation_candidates/branch_audit/11045a993b063465daa5571cee9ec876a37e1919cd9fb5d6dfe730f4fc5760e8.py",
+      "aliases": [
+        {
+          "class_name": "IndependentFarmer",
+          "module": "audit/independent_bot.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "IndependentFarmer_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "audit/independent_bot.py",
+          "sha256": "93a046a0f4347290b46658d8be2c0e9c38ac5fa22dbb61063cf7d4ce4513005c"
+        }
+      ]
+    },
+    {
+      "name": "bot_53f876827a9f",
+      "sha256": "53f876827a9f6987b9483003ae8bdd7714e67d7116bff109007b3fafbf3f1109",
+      "path": "consolidation_candidates/branch_audit/53f876827a9f6987b9483003ae8bdd7714e67d7116bff109007b3fafbf3f1109.py",
+      "aliases": [
+        {
+          "class_name": "IndependentRaider",
+          "module": "audit/independent_bot.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "IndependentRaider_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "audit/independent_bot.py",
+          "sha256": "93a046a0f4347290b46658d8be2c0e9c38ac5fa22dbb61063cf7d4ce4513005c"
+        }
+      ]
+    },
+    {
+      "name": "bot_cc3cb316bbc4",
+      "sha256": "cc3cb316bbc4fd149ba1235aea5f2d6b234e5807fbf5b3636f1adf43f2b4eebc",
+      "path": "consolidation_candidates/branch_audit/cc3cb316bbc4fd149ba1235aea5f2d6b234e5807fbf5b3636f1adf43f2b4eebc.py",
+      "aliases": [
+        {
+          "class_name": "NNAgent",
+          "module": "nnbot.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "NNAgent_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "mybot.py",
+          "sha256": "f7ec724c1473b23104a25c47a2fbc9e5f54e8ee476c5c91930b3dd3b120b670e"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "nnbot.py",
+          "sha256": "daad28bc4276603e0bc395e03994edc92c2cbcfb6a058e56c891e82bd28398ea"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "nn_policy.json",
+          "sha256": "2d7555fdaa161a2e42a62f13053caf171e4145be2a6c3b0d6f8e1baa6be8ea52"
+        }
+      ]
+    },
+    {
+      "name": "bot_3927b1a0ccb6",
+      "sha256": "3927b1a0ccb6e6288803160ba6511c28cf89119aaca6df720617675cc66f02f4",
+      "path": "consolidation_candidates/branch_audit/3927b1a0ccb6e6288803160ba6511c28cf89119aaca6df720617675cc66f02f4.py",
+      "aliases": [
+        {
+          "class_name": "ProBot",
+          "module": "probot.py",
+          "variant": "frozen_v1",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "ProBot_frozen_v1"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "probot.py",
+          "sha256": "63d906ecc29373e6b0f3578f979153f67d422a62c79ae1f21e283d1f5c03f5a1"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "pro_params_v1.json",
+          "sha256": "f81079605afbd2e28e5bb84f23b8917f5b76416ecc2491768097b746cd673766"
+        }
+      ]
+    }
+  ],
+  "build_equivalence": [
+    {
+      "class_name": "StayBot",
+      "variant": "default",
+      "calls": 320,
+      "exact_actions": true
+    },
+    {
+      "class_name": "RandomBot",
+      "variant": "default",
+      "calls": 320,
+      "exact_actions": true
+    },
+    {
+      "class_name": "GreedyValueBot",
+      "variant": "default",
+      "calls": 320,
+      "exact_actions": true
+    },
+    {
+      "class_name": "GreedyShieldBot",
+      "variant": "default",
+      "calls": 320,
+      "exact_actions": true
+    },
+    {
+      "class_name": "PacifistBot",
+      "variant": "default",
+      "calls": 320,
+      "exact_actions": true
+    },
+    {
+      "class_name": "SpineFarmerBot",
+      "variant": "default",
+      "calls": 320,
+      "exact_actions": true
+    },
+    {
+      "class_name": "RaiderBot",
+      "variant": "default",
+      "calls": 320,
+      "exact_actions": true
+    },
+    {
+      "class_name": "CamperBot",
+      "variant": "default",
+      "calls": 320,
+      "exact_actions": true
+    },
+    {
+      "class_name": "BaiterBot",
+      "variant": "default",
+      "calls": 320,
+      "exact_actions": true
+    },
+    {
+      "class_name": "TurtleBot",
+      "variant": "default",
+      "calls": 320,
+      "exact_actions": true
+    },
+    {
+      "class_name": "LeaderHunterBot",
+      "variant": "default",
+      "calls": 320,
+      "exact_actions": true
+    },
+    {
+      "class_name": "CentreRushBot",
+      "variant": "default",
+      "calls": 320,
+      "exact_actions": true
+    },
+    {
+      "class_name": "CooldownRaiderBot",
+      "variant": "default",
+      "calls": 320,
+      "exact_actions": true
+    },
+    {
+      "class_name": "MarginalBot",
+      "variant": "default",
+      "calls": 320,
+      "exact_actions": true
+    },
+    {
+      "class_name": "CheapRaiderBot",
+      "variant": "default",
+      "calls": 320,
+      "exact_actions": true
+    },
+    {
+      "class_name": "HomeFortBot",
+      "variant": "default",
+      "calls": 320,
+      "exact_actions": true
+    },
+    {
+      "class_name": "CentreLockBot",
+      "variant": "default",
+      "calls": 320,
+      "exact_actions": true
+    },
+    {
+      "class_name": "RouteBot",
+      "variant": "default",
+      "calls": 320,
+      "exact_actions": true
+    },
+    {
+      "class_name": "CooldownHawkBot",
+      "variant": "default",
+      "calls": 320,
+      "exact_actions": true
+    },
+    {
+      "class_name": "EloEndgameBot",
+      "variant": "default",
+      "calls": 320,
+      "exact_actions": true
+    },
+    {
+      "class_name": "ProBot",
+      "variant": "default",
+      "calls": 320,
+      "exact_actions": true
+    },
+    {
+      "class_name": "IndependentFarmer",
+      "variant": "default",
+      "calls": 320,
+      "exact_actions": true
+    },
+    {
+      "class_name": "IndependentRaider",
+      "variant": "default",
+      "calls": 320,
+      "exact_actions": true
+    },
+    {
+      "class_name": "NNAgent",
+      "variant": "default",
+      "calls": 320,
+      "exact_actions": true
+    },
+    {
+      "class_name": "ProBot",
+      "variant": "frozen_v1",
+      "calls": 320,
+      "exact_actions": true
+    }
+  ],
+  "scope": "Class defaults, one previously frozen ProBot genotype, and embedded frozen PPO weights. No training or coefficient changes. Original-vs-build checks use 320 public callbacks per export."
+}

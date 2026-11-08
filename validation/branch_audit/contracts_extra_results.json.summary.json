@@ -1,0 +1,310 @@
+{
+  "summary": {
+    "bot_11045a993b06": {
+      "games": 4,
+      "mean_pw": 2.75,
+      "mean_score": 3405.0,
+      "fields": {
+        "novel_economy": 2.75
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 8.619199972599745,
+      "mean_ms": 1.1800131211202824
+    },
+    "bot_53f876827a9f": {
+      "games": 4,
+      "mean_pw": 2.25,
+      "mean_score": 3203.75,
+      "fields": {
+        "novel_economy": 2.25
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 8.927799994125962,
+      "mean_ms": 1.1675071880745236
+    },
+    "bot_25e30d29c248": {
+      "games": 4,
+      "mean_pw": 1.5,
+      "mean_score": 2811.75,
+      "fields": {
+        "novel_economy": 1.5
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.7756000850349665,
+      "mean_ms": 0.08678531485202257
+    },
+    "bot_b64da0272cbb": {
+      "games": 4,
+      "mean_pw": 1.5,
+      "mean_score": 3125.25,
+      "fields": {
+        "novel_economy": 1.5
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 1.6725999303162098,
+      "mean_ms": 0.2277637533552479
+    },
+    "bot_3927b1a0ccb6": {
+      "games": 4,
+      "mean_pw": 1.25,
+      "mean_score": 3165.5,
+      "fields": {
+        "novel_economy": 1.25
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 4.710700013674796,
+      "mean_ms": 0.5418118762463564
+    },
+    "bot_684566ff8ecc": {
+      "games": 4,
+      "mean_pw": 1.25,
+      "mean_score": 2925.75,
+      "fields": {
+        "novel_economy": 1.25
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 1.7914000200107694,
+      "mean_ms": 0.2365462511079386
+    },
+    "bot_3ac6d190b421": {
+      "games": 4,
+      "mean_pw": 0.75,
+      "mean_score": 2777.5,
+      "fields": {
+        "novel_economy": 0.75
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 2.1830000914633274,
+      "mean_ms": 0.2327025038539432
+    },
+    "bot_514775d141be": {
+      "games": 4,
+      "mean_pw": 0.75,
+      "mean_score": 2777.5,
+      "fields": {
+        "novel_economy": 0.75
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 1.2376999948173761,
+      "mean_ms": 0.19940499660151545
+    },
+    "bot_8cbef7eccb4e": {
+      "games": 4,
+      "mean_pw": 0.75,
+      "mean_score": 2796.25,
+      "fields": {
+        "novel_economy": 0.75
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 2.6591999921947718,
+      "mean_ms": 0.23958312813192606
+    },
+    "bot_84043e975773": {
+      "games": 4,
+      "mean_pw": 0.25,
+      "mean_score": 2426.25,
+      "fields": {
+        "novel_economy": 0.25
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 1.9119000062346458,
+      "mean_ms": 0.2628184411150869
+    },
+    "bot_91d888bad7fc": {
+      "games": 4,
+      "mean_pw": 0.25,
+      "mean_score": 2461.75,
+      "fields": {
+        "novel_economy": 0.25
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.7314999820664525,
+      "mean_ms": 0.06883031383040361
+    },
+    "bot_e60cf4147155": {
+      "games": 4,
+      "mean_pw": 0.25,
+      "mean_score": 2322.25,
+      "fields": {
+        "novel_economy": 0.25
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.6982999620959163,
+      "mean_ms": 0.08703499952389393
+    },
+    "bot_edee7e6993e1": {
+      "games": 4,
+      "mean_pw": 0.25,
+      "mean_score": 2627.25,
+      "fields": {
+        "novel_economy": 0.25
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 4.335899953730404,
+      "mean_ms": 0.5678034362063045
+    },
+    "bot_238790102d13": {
+      "games": 4,
+      "mean_pw": 0.0,
+      "mean_score": 2654.0,
+      "fields": {
+        "novel_economy": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 2.3111000191420317,
+      "mean_ms": 0.29194750350143295
+    },
+    "bot_479793996c3b": {
+      "games": 4,
+      "mean_pw": 0.0,
+      "mean_score": 355.5,
+      "fields": {
+        "novel_economy": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.15730003360658884,
+      "mean_ms": 0.01403125024808105
+    },
+    "bot_815918c3a2db": {
+      "games": 4,
+      "mean_pw": 0.0,
+      "mean_score": 2349.75,
+      "fields": {
+        "novel_economy": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.9262000676244497,
+      "mean_ms": 0.11984749762632418
+    },
+    "bot_b73d70bcda60": {
+      "games": 4,
+      "mean_pw": 0.0,
+      "mean_score": 835.25,
+      "fields": {
+        "novel_economy": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.17609994392842054,
+      "mean_ms": 0.019389372027944773
+    },
+    "bot_c03a13ea7349": {
+      "games": 4,
+      "mean_pw": 0.0,
+      "mean_score": 2258.5,
+      "fields": {
+        "novel_economy": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.3633000887930393,
+      "mean_ms": 0.0814609356893925
+    },
+    "bot_c3621deb6773": {
+      "games": 4,
+      "mean_pw": 0.0,
+      "mean_score": 2741.25,
+      "fields": {
+        "novel_economy": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.4816000582650304,
+      "mean_ms": 0.08423562285315711
+    },
+    "bot_c3f7d36077ad": {
+      "games": 4,
+      "mean_pw": 0.0,
+      "mean_score": 2139.0,
+      "fields": {
+        "novel_economy": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 23.74440000858158,
+      "mean_ms": 0.6647243702900596
+    },
+    "bot_cc26fd640c08": {
+      "games": 4,
+      "mean_pw": 0.0,
+      "mean_score": 2525.5,
+      "fields": {
+        "novel_economy": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 1.2506000930443406,
+      "mean_ms": 0.09965156714315526
+    },
+    "bot_cc3cb316bbc4": {
+      "games": 4,
+      "mean_pw": 0.0,
+      "mean_score": 1213.25,
+      "fields": {
+        "novel_economy": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 2.2468999959528446,
+      "mean_ms": 0.9596921900083544
+    },
+    "bot_e89042e60e73": {
+      "games": 4,
+      "mean_pw": 0.0,
+      "mean_score": 2073.0,
+      "fields": {
+        "novel_economy": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 3.449799958616495,
+      "mean_ms": 0.0839981235913001
+    },
+    "bot_ede52321b2c5": {
+      "games": 4,
+      "mean_pw": 0.0,
+      "mean_score": 2269.0,
+      "fields": {
+        "novel_economy": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.5058998940512538,
+      "mean_ms": 0.08904343558242545
+    },
+    "bot_f7f9acb0057b": {
+      "games": 4,
+      "mean_pw": 0.0,
+      "mean_score": 2202.75,
+      "fields": {
+        "novel_economy": 0.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 0.9408999467268586,
+      "mean_ms": 0.08425937667198014
+    }
+  },
+  "paired": [],
+  "elapsed_s": 11.631455900031142,
+  "caveat": "Frozen candidates; no weight fitting. Branch ranking is conditional on registered fields. Diagnostic scores are not strength evidence. Final intervals cluster matched results by distinct board contents, not by individual turns.",
+  "games": 100,
+  "timed_callbacks": 32000,
+  "all_faults": 0
+}
