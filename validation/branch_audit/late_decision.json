@@ -1,0 +1,86 @@
+{
+  "best_measured": "bot_191059b37141",
+  "best_measured_sha256": "191059b371414fe10a78857de3ab0296ec1c80a6615f34cdd7fd0d0f7467ef69",
+  "conservative_recommendation": "bot_e8b3682d8b39",
+  "comparisons": {
+    "bot_92f38af1a559": {
+      "references": {
+        "bot_e8b3682d8b39": {
+          "mean": -0.04383680555555555,
+          "clusters": 24,
+          "alpha": 0.0125,
+          "interval": [
+            -0.2387152777777778,
+            0.17751736111111113
+          ]
+        },
+        "bot_f95dc9fc2266": {
+          "mean": -0.2530381944444445,
+          "clusters": 24,
+          "alpha": 0.0125,
+          "interval": [
+            -0.46484375,
+            0.0069444444444444545
+          ]
+        }
+      },
+      "novel_only_vs_main": {
+        "mean": 0.11653645833333333,
+        "clusters": 24,
+        "alpha": 0.05,
+        "interval": [
+          -0.046875,
+          0.2877604166666667
+        ]
+      },
+      "field_mean_differences": {
+        "league": -0.36458333333333326,
+        "novel_economy": 0.13671875,
+        "novel_dynamic": 0.09635416666666696
+      }
+    },
+    "bot_191059b37141": {
+      "references": {
+        "bot_e8b3682d8b39": {
+          "mean": 0.2599826388888889,
+          "clusters": 24,
+          "alpha": 0.0125,
+          "interval": [
+            0.07769097222222222,
+            0.4392361111111111
+          ]
+        },
+        "bot_f95dc9fc2266": {
+          "mean": 0.05078125,
+          "clusters": 24,
+          "alpha": 0.0125,
+          "interval": [
+            -0.0881076388888889,
+            0.18880208333333334
+          ]
+        }
+      },
+      "novel_only_vs_main": {
+        "mean": 0.2838541666666667,
+        "clusters": 24,
+        "alpha": 0.05,
+        "interval": [
+          0.12760416666666666,
+          0.44140625
+        ]
+      },
+      "field_mean_differences": {
+        "league": 0.21223958333333326,
+        "novel_economy": 0.3880208333333335,
+        "novel_dynamic": 0.1796875
+      }
+    }
+  },
+  "caveat": "Second-cohort means are compared only within that cohort. Original final is preserved and not pooled. A finite field is not a universal ranking.",
+  "all_turn_diagnostic_reproduction": {
+    "games": 120,
+    "exact_actions_and_scores": 120,
+    "exception_events": 0,
+    "worker_faults": 0
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "summary": {
+    "bot_f95dc9fc2266": {
+      "games": 24,
+      "mean_pw": 2.125,
+      "mean_score": 3221.8333333333335,
+      "fields": {
+        "league": 2.25,
+        "novel_dynamic": 2.25,
+        "novel_economy": 1.875
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 6.4471999648958445,
+      "mean_ms": 3.814860258535191
+    },
+    "bot_92f38af1a559": {
+      "games": 24,
+      "mean_pw": 1.8333333333333333,
+      "mean_score": 3128.8333333333335,
+      "fields": {
+        "league": 1.25,
+        "novel_dynamic": 2.25,
+        "novel_economy": 2.0
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 6.573299993760884,
+      "mean_ms": 3.773230782159468
+    },
+    "bot_191059b37141": {
+      "games": 24,
+      "mean_pw": 1.7916666666666667,
+      "mean_score": 3134.0,
+      "fields": {
+        "league": 1.75,
+        "novel_dynamic": 1.875,
+        "novel_economy": 1.75
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 7.6058999402448535,
+      "mean_ms": 4.122534584106082
+    },
+    "bot_1bb70109a75e": {
+      "games": 24,
+      "mean_pw": 1.7916666666666667,
+      "mean_score": 3128.5416666666665,
+      "fields": {
+        "league": 1.75,
+        "novel_dynamic": 1.875,
+        "novel_economy": 1.75
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 10.401200037449598,
+      "mean_ms": 4.056778645523688
+    },
+    "bot_e8b3682d8b39": {
+      "games": 24,
+      "mean_pw": 1.75,
+      "mean_score": 3173.0833333333335,
+      "fields": {
+        "league": 1.625,
+        "novel_dynamic": 1.5,
+        "novel_economy": 2.125
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 8.099299971945584,
+      "mean_ms": 3.908512188597039
+    }
+  },
+  "paired": [],
+  "elapsed_s": 22.24352700007148,
+  "caveat": "Frozen candidates; no weight fitting. Branch ranking is conditional on registered fields. Diagnostic scores are not strength evidence. Final intervals cluster matched results by distinct board contents, not by individual turns.",
+  "games": 120,
+  "timed_callbacks": 38400,
+  "all_faults": 0
+}

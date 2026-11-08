@@ -202,9 +202,13 @@
     }
   },
   "totals": {
-    "games": 11672,
-    "callbacks": 3733808,
-    "faults": 13
+    "games": 23544,
+    "callbacks": 7532848,
+    "faults": 13,
+    "complete_games": 23540,
+    "aborted_diagnostic_games": 4
   },
-  "criterion": "Positive Bonferroni-adjusted paired board-clustered bootstrap interval against incumbent; positive ordinary 95% novel-only interval; nonnegative mean difference in each novel field; no focal faults. Otherwise retain incumbent."
+  "criterion": "Positive Bonferroni-adjusted paired board-clustered bootstrap interval against incumbent; positive ordinary 95% novel-only interval; nonnegative mean difference in each novel field; no focal faults. Otherwise retain incumbent.",
+  "scope": "First confirmation cohort only. Campaign totals include every listed panel.",
+  "latest_confirmation_decision": "late_decision.json"
 }

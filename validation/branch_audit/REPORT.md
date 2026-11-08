@@ -1,8 +1,10 @@
 # All-branches frozen bot audit
 
+The later branch and its new confirmation are covered in [LATE_CONFIRMATION.md](LATE_CONFIRMATION.md). The result below preserves the first confirmation cohort; scores from different cohorts are not pooled.
+
 Snapshot: 8 November 2026. All policies and opponent draws were frozen before their registered panels. No weights were trained or fitted in this campaign.
 
-## Result
+## Result: first confirmation cohort
 
 **Best measured: Novel B Feint** (`f95dc9fc22660331b1368a876d907f111fd3cb21aef6e3e34315b41e6af94e94`).
 **Conservative promotion decision: retain Current main: Guarded Transfer** under the preregistered uncertainty threshold. A larger sample mean alone does not establish superiority.
@@ -44,11 +46,30 @@ Every distinct passing remote root `bot.py` received the same 96-game developmen
 | shaunakbr2 | `4baf23937475` | `f7b40080a522` | 1.2083 |
 | v7-independent-field | `c7cbaa97e226` | `31965e1412c6` | 1.3542 |
 | visual-harness | `7fa9b73affed` | `f7b40080a522` | 1.2083 |
+| codex/evolve-existing-league (late arrival) | `482ef54435b1` | `e8b3682d8b39` | 1.7917 |
+
+The audit branch itself retains the same root bot as main. Late-branch archives add 58 standalone exports, including numerical genomes, mathematical planners and reseeded tester instances. Exact-byte export counts are not counts of independent architectures. They received a separate 96-game selection panel, with Feint and main rerun on the same fixtures. Those scores are not pooled with the consumed final.
+
+| Late selection leader | PW / 3 | Focal faults |
+|---|---:|---:|
+| `bot_92f38af1a559` Archived evolved Transfer (depth 2) | 2.3750 | 0 |
+| `bot_191059b37141` Blocker with archived seat-1 seed | 2.2188 | 0 |
+| `bot_f95dc9fc2266` Novel B Feint | 2.2188 | 0 |
+| `bot_8e84ff655452` bot_8e84ff655452 | 2.1875 | 0 |
+| `bot_d9d800393d95` bot_d9d800393d95 | 2.1458 | 0 |
+| `bot_07ccfe799139` bot_07ccfe799139 | 2.1250 | 0 |
+| `bot_88496d239f5d` bot_88496d239f5d | 2.1250 | 0 |
+| `bot_b9e2f84869a4` bot_b9e2f84869a4 | 2.0938 | 0 |
+| `bot_047ed5d8391e` bot_047ed5d8391e | 2.0833 | 0 |
+| `bot_2a2563b3aaf4` bot_2a2563b3aaf4 | 2.0833 | 0 |
+
+The follow-up rule was registered before reading this completed panel: at most two late policies within 0.05 PW of Feint or above advance to a new fresh confirmation. See late_confirmation_rule.json and late_selection.json.
+
 
 ## Coverage and protocol
 
-- 12 live remote branches and 25 local/remote references were pinned; 352 unique Python sources parsed with zero syntax errors.
-- 93 exact-byte standalone exports plus 33 class builds were inventoried. Class builds matched their originals on 10,560 public callbacks. The NN export embeds the existing frozen weights; its training-side Torch self-test is removed.
+- 13 target remote branch tips were pinned across the original and late inventories; 452 unique Python sources were scanned, with 0 syntax failures. The published audit branch retains already tested policy sources.
+- 151 exact-byte standalone exports plus 33 class builds were inventoried. Class builds matched their originals on 10,560 public callbacks. The NN export embeds the existing frozen weights; its training-side Torch self-test is removed.
 - Independent per-seat processes receive only board, bot ID, priority-token flag and legal actions. Input fingerprints detect mutation. Diagnostic games sample caught exceptions; strength games use the actual 200 ms limit (2 seconds first turn).
 - Only current effective-STAY Shield rules are used. Moving successfully escapes Shield; a blocked or lost move counts as STAY; frozen STAY does not advance work.
 - Boards are rejected by actual contents if present in earlier validation JSON. Final boards and four final challenger decision families are separate from screening/development.
@@ -64,8 +85,12 @@ Every distinct passing remote root `bot.py` received the same 96-game developmen
 | outsiders_contract | 8 | 32 | 10240 | 0 |
 | outsiders_screen | 8 | 256 | 81920 | 0 |
 | final | 5 | 5760 | 1843200 | 0 |
+| late_contract | 58 | 232 | 74240 | 0 |
+| late_development | 60 | 5760 | 1843200 | 0 |
+| late_final | 5 | 5760 | 1843200 | 0 |
+| final_diagnostic | 5 | 120 | 38400 | 0 |
 
-**Total: 11672 games, 3733808 callbacks.**
+**Total: 23540 complete games, 4 stopped diagnostic attempts, 7532848 callbacks.**
 
 Contract games diagnose safety, not playing strength. The incomplete `agent_new.py` fragment crashes because `PARAMS` is missing. `opp_buggy_01.py` intentionally returns diagonal illegal actions and is a negative control. Neither is eligible for promotion. Other deliberate negative controls (slow, oscillator and Flaky) can return legal actions while deliberately playing poorly; legal execution is distinct from strategic correctness. Original sources and failures are preserved instead of silently rewriting their history.
 
@@ -81,6 +106,12 @@ Eight class-only outsider controls were discovered in the final coverage review.
 
 These are distinct decision rules using shared parsing and pathfinding, not independently authored AI submissions. Novel families reduce dependence on the historical zoo; they cannot establish that overfitting is impossible.
 
+## What the leading policies do
+
+Feint combines a three-job route planner with rival-goal forecasts, public-history cooldown estimates and deceptive shortest paths. When good plans nearly tie, it can move toward a decoy without adding travel, or step off rival land to bait an empty Shield. Blocker shares the economic core but targets useful cells and routes near the projected leader. These whole-policy comparisons do not isolate the causal contribution of any individual feature.
+
+The equal-weight mixture is a testing choice, not an estimate of the actual competition. Against the stronger historical league alone, Blocker led at 1.6641; Feint scored 1.4688 and main 1.6094. Blocker also has the highest minimum observed field mean. These are descriptive field-specific rankings, not separate confirmed superiority claims.
+
 ## Reproduce and inspect
 
 Run `python tools/unpack_sources.py`, then `python tools/check_release.py`. The source archive manifest checks every restored file. Specs, registrations, compressed full trajectories, per-panel summaries and `decision.json` are retained here. Sources and runner/referee hashes were checked before and after each panel.
@@ -93,4 +124,4 @@ To rerun a panel, use `python tools/audit_run.py --spec validation/branch_audit/
 
 All branch tips and known archived standalone builds are covered, plus listed class defaults from the historical audit branch. This is not an enumeration of every historical commit, every possible parameter combination, or every training checkpoint. Early stages are selection data; their scores are not pooled with final scores. Zero observed faults is not proof of bug-free code. Timing is measured on this machine. No official server simulator is available; the independent-engine release tests check the local interpretation.
 
-The best measured frozen source is exported as [`audit_best_measured.py`](../../audit_best_measured.py), byte-identical to its tested snapshot. `bot.py` and the existing release manifest retain the initial merged release under the stricter promotion rule; this audit is on a separate branch. See [release checks](release_checks.txt) and [independent replay](independent_replay.json).
+The first-cohort [Feint source at its audit commit](https://github.com/isaamthalhath07/strategybot-zone-rush/blob/150d2c8578646984ad885f8985dbcd32ce4bd613/audit_best_measured.py) is byte-identical to its tested snapshot. The latest exported source and recommendation are described in [LATE_CONFIRMATION.md](LATE_CONFIRMATION.md). `bot.py` and the release manifest retain the merged baseline on this separate audit branch. See [release checks](release_checks.txt) and [independent replay](independent_replay.json).

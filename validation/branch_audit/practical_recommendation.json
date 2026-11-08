@@ -1,0 +1,12 @@
+{
+  "kind": "Practical judgment after tests; separate from the preregistered automatic promotion decision.",
+  "selected": "bot_1bb70109a75e",
+  "sha256": "1bb70109a75e2880bfdf3ac9b6fd8e368b0f3d02b9a3e65de53cef0defa505e5",
+  "latest_mean": 2.21484375,
+  "seeded_variant_mean": 2.2152777777777777,
+  "seed_variant_minus_original": 0.0004340277777776791,
+  "first_final_difference_vs_feint": -0.009114583333333481,
+  "latest_difference_vs_feint": 0.05034722222222232,
+  "reason": "Original Blocker led the strong historical league and the minimum field mean in both fresh cohorts. Its latest mean is essentially identical to the highest-scoring reseeded export. Prefer the unchanged original to selecting a seed on noise. No coefficients or seeds are changed.",
+  "uncertainty": "Blocker and Feint are not conclusively separated. The automatic gate requiring superiority over both references was not met. This practical pick does not claim universal optimality or bug-free code."
+}

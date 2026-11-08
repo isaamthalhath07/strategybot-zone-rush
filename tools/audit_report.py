@@ -45,7 +45,9 @@ def main():
                   'bot_95da830e6f29':'Forward planner, fixed export',
                   'bot_d2bef4e077e9':'Forward planner, original export',
                   'bot_a8f7a74e7ed3':'Ultimate',
-                  'bot_f95dc9fc2266':'Novel B Feint'}
+                  'bot_f95dc9fc2266':'Novel B Feint',
+                  'bot_92f38af1a559':'Archived evolved Transfer (depth 2)',
+                  'bot_191059b37141':'Blocker with archived seat-1 seed'}
         if name in pretty:
             return pretty[name]
         refs = [a['ref'].replace('refs/remotes/origin/','') for a in p['aliases'] if a.get('path')=='bot.py' and a.get('ref','').startswith('refs/remotes/origin/')]
@@ -58,6 +60,14 @@ def main():
         for stage in ('late_contract','late_development'):
             with gzip.open(OUT/(stage+'_results.json.gz'),'rt',encoding='utf8') as f:
                 stages[stage] = json.load(f)
+        late_final = OUT/'late_final_results.json.gz'
+        if late_final.exists():
+            with gzip.open(late_final,'rt',encoding='utf8') as f:
+                stages['late_final'] = json.load(f)
+        diagnostic = OUT/'final_diagnostic_results.json.gz'
+        if diagnostic.exists():
+            with gzip.open(diagnostic,'rt',encoding='utf8') as f:
+                stages['final_diagnostic'] = json.load(f)
     final = stages['final']
     summary = final['summary']
     incumbent = next(p['name'] for p in policies if p['sha256']==MAIN_SHA)
@@ -74,12 +84,18 @@ def main():
     totals = dict(games=sum(len(s['games']) for s in stages.values()),
                   callbacks=sum(t['calls'] for s in stages.values() for r in s['games'] for t in r['timing']),
                   faults=sum(len(r['faults']) for s in stages.values() for r in s['games']))
+    totals['complete_games'] = sum(r.get('complete',True) for s in stages.values() for r in s['games'])
+    totals['aborted_diagnostic_games'] = totals['games']-totals['complete_games']
     decision = dict(selected=selected,selected_sha256=by_name[selected]['sha256'],point_leader=next(iter(summary)),incumbent=incumbent,
                     comparisons=comparisons,totals=totals,criterion='Positive Bonferroni-adjusted paired board-clustered bootstrap interval against incumbent; positive ordinary 95% novel-only interval; nonnegative mean difference in each novel field; no focal faults. Otherwise retain incumbent.')
+    decision['scope'] = 'First confirmation cohort only. Campaign totals include every listed panel.'
+    if 'late_final' in stages:
+        decision['latest_confirmation_decision'] = 'late_decision.json'
     (OUT/'decision.json').write_text(json.dumps(decision,indent=2),encoding='utf8',newline='\n')
     lines = ['# All-branches frozen bot audit','',
+        'The later branch and its new confirmation are covered in [LATE_CONFIRMATION.md](LATE_CONFIRMATION.md). The result below preserves the first confirmation cohort; scores from different cohorts are not pooled.','',
         'Snapshot: 8 November 2026. All policies and opponent draws were frozen before their registered panels. No weights were trained or fitted in this campaign.','',
-        '## Result','',
+        '## Result: first confirmation cohort','',
         '**Best measured: %s** (`%s`).' % (label(next(iter(summary))),by_name[next(iter(summary))]['sha256']),
         '**Conservative promotion decision: retain %s** under the preregistered uncertainty threshold. A larger sample mean alone does not establish superiority.' % label(selected), '',
         '| Frozen finalist | PW / 3 | League | Novel economy | Novel dynamic | Focal faults | Worst callback ms |',
@@ -104,7 +120,7 @@ def main():
             lines.append('| %s | `%s` | `%s` | %s |' % (ref['ref'].replace('refs/remotes/origin/',''),ref['commit'][:12],by_name[name]['sha256'][:12],'%.4f' % value if value is not None else 'not qualified'))
     if late_inventory:
         lines.append('| codex/evolve-existing-league (late arrival) | `%s` | `%s` | %.4f |' % (late_inventory['commit'][:12],MAIN_SHA[:12],stages['late_development']['summary'][incumbent]['mean_pw']))
-        lines += ['', 'The audit branch itself retains the same root bot as main; its best-measured export is the already tested Feint snapshot. Late-branch archives add %d standalone exports. They received a separate 96-game selection panel, with Feint and main rerun on the same fixtures. Those scores are not pooled with the consumed final.' % len(late_inventory['policies']), '',
+        lines += ['', 'The audit branch itself retains the same root bot as main. Late-branch archives add %d standalone exports, including numerical genomes, mathematical planners and reseeded tester instances. Exact-byte export counts are not counts of independent architectures. They received a separate 96-game selection panel, with Feint and main rerun on the same fixtures. Those scores are not pooled with the consumed final.' % len(late_inventory['policies']), '',
                   '| Late selection leader | PW / 3 | Focal faults |', '|---|---:|---:|']
         for name,s in list(stages['late_development']['summary'].items())[:10]:
             lines.append('| `%s` %s | %.4f | %d |' % (name,label(name),s['mean_pw'],s['focal_faults']))
@@ -126,7 +142,7 @@ def main():
               '|---|---:|---:|---:|---:|']
     for name,d in stages.items():
         lines.append('| %s | %d | %d | %d | %d |' % (name,len(d['summary']),len(d['games']),sum(t['calls'] for r in d['games'] for t in r['timing']),sum(len(r['faults']) for r in d['games'])))
-    lines += ['', '**Total: %(games)d games, %(callbacks)d callbacks.**' % totals,'',
+    lines += ['', '**Total: %(complete_games)d complete games, %(aborted_diagnostic_games)d stopped diagnostic attempts, %(callbacks)d callbacks.**' % totals,'',
               'Contract games diagnose safety, not playing strength. The incomplete `agent_new.py` fragment crashes because `PARAMS` is missing. `opp_buggy_01.py` intentionally returns diagonal illegal actions and is a negative control. Neither is eligible for promotion. Other deliberate negative controls (slow, oscillator and Flaky) can return legal actions while deliberately playing poorly; legal execution is distinct from strategic correctness. Original sources and failures are preserved instead of silently rewriting their history.','',
               'Eight class-only outsider controls were discovered in the final coverage review. They were frozen, checked for exact build equivalence, and tested against the original contract and screen fixtures before final outcomes were opened. None met the original eighth-place screen threshold, so the frozen final pool stayed unchanged. See inventory_outsiders.json, outsiders_selection.json and outsiders_equivalence.json.','',
               '## Challenger families','',
@@ -145,7 +161,7 @@ def main():
               '## Limits','',
               'All branch tips and known archived standalone builds are covered, plus listed class defaults from the historical audit branch. This is not an enumeration of every historical commit, every possible parameter combination, or every training checkpoint. Early stages are selection data; their scores are not pooled with final scores. Zero observed faults is not proof of bug-free code. Timing is measured on this machine. No official server simulator is available; the independent-engine release tests check the local interpretation.','']
     (OUT/'REPORT.md').write_text('\n'.join(lines),encoding='utf8',newline='\n')
-    coverage = ['# Policy coverage','', '| SHA / label | Contract | Screen PW / 3 | Development PW / 3 | Final PW / 3 |','|---|---|---:|---:|---:|']
+    coverage = ['# Policy coverage','', '| SHA / label | Contract | Screen PW / 3 | Development PW / 3 | First final PW / 3 | Late final PW / 3 |','|---|---|---:|---:|---:|---:|']
     contract = dict(stages['contracts']['summary'],**stages['contracts_extra']['summary'],**stages['outsiders_contract']['summary'])
     if late_inventory:
         contract.update(stages['late_contract']['summary'])
@@ -156,15 +172,16 @@ def main():
         development = dict(stages['development']['summary'])
         if late_inventory:
             development.update({n:s for n,s in stages['late_development']['summary'].items() if n not in development})
-        values = [screen.get(name,{}).get('mean_pw'),development.get(name,{}).get('mean_pw'),stages['final']['summary'].get(name,{}).get('mean_pw')]
+        values = [screen.get(name,{}).get('mean_pw'),development.get(name,{}).get('mean_pw'),stages['final']['summary'].get(name,{}).get('mean_pw'),stages.get('late_final',{}).get('summary',{}).get(name,{}).get('mean_pw')]
         coverage.append('| `%s` %s | %s | %s |' % (name[4:],label(name),mark,' | '.join('%.4f' % v if v is not None else '-' for v in values)))
     coverage += ['', 'A dash means not selected for that next panel; it does not mean a draw or a failed execution. Each column is a different matched field and must not be compared as if it were the same tournament. Detailed source aliases, commit hashes and build inputs are in the inventories.','']
     (OUT/'COVERAGE.md').write_text('\n'.join(coverage),encoding='utf8',newline='\n')
     winner_path = ROOT/'audit_best_measured.py'
     winner_source = (ROOT/by_name[next(iter(summary))]['path']).read_bytes()
-    winner_path.write_bytes(winner_source)
+    if not (OUT/'late_decision.json').exists():
+        winner_path.write_bytes(winner_source)
     lines = (OUT/'REPORT.md').read_text(encoding='utf8')
-    lines += '\nThe best measured frozen source is exported as [`audit_best_measured.py`](../../audit_best_measured.py), byte-identical to its tested snapshot. `bot.py` and the existing release manifest retain the initial merged release under the stricter promotion rule; this audit is on a separate branch. See [release checks](release_checks.txt) and [independent replay](independent_replay.json).\n'
+    lines += '\nThe first-cohort [Feint source at its audit commit](https://github.com/isaamthalhath07/strategybot-zone-rush/blob/150d2c8578646984ad885f8985dbcd32ce4bd613/audit_best_measured.py) is byte-identical to its tested snapshot. The latest exported source and recommendation are described in [LATE_CONFIRMATION.md](LATE_CONFIRMATION.md). `bot.py` and the release manifest retain the merged baseline on this separate audit branch. See [release checks](release_checks.txt) and [independent replay](independent_replay.json).\n'
     (OUT/'REPORT.md').write_text(lines,encoding='utf8',newline='\n')
     archive = OUT/'source_archive.zip'
     entries = []

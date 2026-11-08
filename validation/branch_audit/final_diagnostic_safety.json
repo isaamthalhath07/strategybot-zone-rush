@@ -1,0 +1,8 @@
+{
+  "games": 120,
+  "focal_callbacks": 9600,
+  "faults": 0,
+  "observed_python_exception_events": 0,
+  "events": [],
+  "selection": "One fixture per map, balanced across seats/tokens and fields. Diagnostic scores and timings never enter ranking."
+}

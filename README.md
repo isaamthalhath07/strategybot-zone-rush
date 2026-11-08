@@ -8,23 +8,36 @@ when public evidence proves a requested Shield was replaced with STAY.
 
 ## All-branches audit: 8 November 2026
 
-The new audit covers **12 remote branches, 126 frozen policies/builds, 11,672
-games and 3,733,808 callbacks**. No weights were trained in this campaign. It
-uses current STAY-only rules and new opponent families on fresh boards.
+The audit covers **13 source branches, 184 frozen exports/builds, 23,540
+complete games and 7,532,848 callbacks**, plus four stopped diagnostic starts.
+Export counts include numerical and random-seed variants, not 184 independent
+architectures. No weights or seeds were fitted in this campaign.
 
-**Novel B Feint was the best measured finalist:** 2.1155 opponents outscored
-per game versus 1.9627 for the merged release. The exact tested source is
-[`audit_best_measured.py`](audit_best_measured.py). Its advantage against the
-new opponents was +0.2995 (95% map-clustered interval +0.1419 to +0.4642).
-The overall difference was +0.1528; the interval adjusted for all four
-challengers was -0.0816 to +0.3698. This does not establish an overall winner
-with confidence, so the preregistered promotion rule retains `bot.py`.
+**Practical pick: original Blocker**, exported byte-for-byte as
+[`audit_recommended.py`](audit_recommended.py). In the latest untouched panel,
+it scored **2.2148** opponents outscored per game, versus **2.1645** for Feint
+and **1.9553** for the merged release. It led the strong historical league
+and minimum field mean in both fresh cohorts. A reseeded Blocker scored
+2.2153; that negligible difference does not establish a seed advantage. The
+raw point leader is preserved in [`audit_best_measured.py`](audit_best_measured.py).
 
-All 5,760 final games had zero worker faults. The independent engine replayed
-360 complete final games exactly. [Results and uncertainty](validation/branch_audit/REPORT.md),
+The reseeded Blocker's adjusted difference against main was +0.2600
+(simultaneous 95% interval +0.0777 to +0.4392), but its difference against
+Feint remained uncertain. Blocker and Feint are not conclusively separated.
+The registered automatic gate required superiority to both references, so
+`bot.py` remains the shipping baseline on this separate audit branch. This
+mechanical gate is distinct from the practical choice above.
+
+The evolved candidate that led selection at 2.375 fell to 1.9115 on fresh
+boards and was rejected. Both 5,760-game confirmation cohorts had zero
+worker faults. Independent replay matched 1,080 sampled complete games;
+120 further games with all-turn exception tracing reproduced the native
+decisions exactly, with zero observed exception events.
+
+[Latest results and uncertainty](validation/branch_audit/LATE_CONFIRMATION.md),
+[full campaign report](validation/branch_audit/REPORT.md),
 [all policy coverage](validation/branch_audit/COVERAGE.md), and
-[the exact selection decision](validation/branch_audit/decision.json) distinguish
-the best measured challenger from the conservative shipping choice.
+[practical recommendation](validation/branch_audit/practical_recommendation.json).
 
 ## Confirmed rule
 
@@ -34,7 +47,7 @@ cells owned by the shielder. A blocked or lost-contest move counts as STAY.
 Using Shield is not a STAY. Already-frozen rivals remain ineligible.
 
 Caught or backfired on turn 10 means frozen on turns **11 and 12**. Shield used
-on turn 10 is unavailable on **11ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“14**, and can next be used on **15**. Catching
+on turn 10 is unavailable on **11 through 14**, and can next be used on **15**. Catching
 nobody eligible backfires. Other capture, income and work rules are unchanged.
 
 This explicit clarification supersedes the earlier territory-presence

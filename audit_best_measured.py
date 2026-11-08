@@ -1089,6 +1089,8 @@ def act(state):
     seat = state.bot_id
     player = _CONSOLIDATED_PLAYERS.get(seat)
     if player is None:
-        player = FeintBot(seed=seat * 7919)
+        player = BlockerBot(seed=seat * 7919)
         _CONSOLIDATED_PLAYERS[seat] = player
     return player.act(state)
+
+_CONSOLIDATED_PLAYERS[1] = BlockerBot(seed=5496785029780908319)
