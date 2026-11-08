@@ -1,0 +1,171 @@
+{
+  "reference_mean": 2.21875,
+  "threshold": 2.16875,
+  "advancing": [
+    "bot_92f38af1a559",
+    "bot_191059b37141"
+  ],
+  "top_late": [
+    {
+      "name": "bot_92f38af1a559",
+      "games": 96,
+      "mean_pw": 2.375,
+      "mean_score": 3102.3020833333335,
+      "fields": {
+        "league": 2.46875,
+        "novel_dynamic": 1.875,
+        "novel_economy": 2.78125
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 2.230699989013374,
+      "mean_ms": 0.31087548156089423
+    },
+    {
+      "name": "bot_191059b37141",
+      "games": 96,
+      "mean_pw": 2.21875,
+      "mean_score": 3020.9791666666665,
+      "fields": {
+        "league": 2.71875,
+        "novel_dynamic": 2.09375,
+        "novel_economy": 1.84375
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 1.8631999846547842,
+      "mean_ms": 0.49173235652233416
+    },
+    {
+      "name": "bot_8e84ff655452",
+      "games": 96,
+      "mean_pw": 2.1875,
+      "mean_score": 3069.9479166666665,
+      "fields": {
+        "league": 2.59375,
+        "novel_dynamic": 1.875,
+        "novel_economy": 2.09375
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 1.4736000448465347,
+      "mean_ms": 0.36265496063000074
+    },
+    {
+      "name": "bot_d9d800393d95",
+      "games": 96,
+      "mean_pw": 2.1458333333333335,
+      "mean_score": 3018.9791666666665,
+      "fields": {
+        "league": 2.71875,
+        "novel_dynamic": 1.96875,
+        "novel_economy": 1.75
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 2.503099967725575,
+      "mean_ms": 0.6201363804393623
+    },
+    {
+      "name": "bot_07ccfe799139",
+      "games": 96,
+      "mean_pw": 2.125,
+      "mean_score": 3053.25,
+      "fields": {
+        "league": 2.53125,
+        "novel_dynamic": 1.59375,
+        "novel_economy": 2.25
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 1.621500006876886,
+      "mean_ms": 0.3631638278117559
+    },
+    {
+      "name": "bot_88496d239f5d",
+      "games": 96,
+      "mean_pw": 2.125,
+      "mean_score": 3023.9583333333335,
+      "fields": {
+        "league": 2.65625,
+        "novel_dynamic": 1.96875,
+        "novel_economy": 1.75
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 3.0991999665275216,
+      "mean_ms": 0.6031234643160133
+    },
+    {
+      "name": "bot_b9e2f84869a4",
+      "games": 96,
+      "mean_pw": 2.09375,
+      "mean_score": 3009.8854166666665,
+      "fields": {
+        "league": 2.65625,
+        "novel_dynamic": 1.9375,
+        "novel_economy": 1.6875
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 2.2146000992506742,
+      "mean_ms": 0.5971538420302144
+    },
+    {
+      "name": "bot_047ed5d8391e",
+      "games": 96,
+      "mean_pw": 2.0833333333333335,
+      "mean_score": 3013.875,
+      "fields": {
+        "league": 2.3125,
+        "novel_dynamic": 2.09375,
+        "novel_economy": 1.84375
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 2.344899927265942,
+      "mean_ms": 0.6011138557975452
+    },
+    {
+      "name": "bot_2a2563b3aaf4",
+      "games": 96,
+      "mean_pw": 2.0833333333333335,
+      "mean_score": 3010.4895833333335,
+      "fields": {
+        "league": 2.3125,
+        "novel_dynamic": 2.09375,
+        "novel_economy": 1.84375
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 1.9966999534517527,
+      "mean_ms": 0.6019573177278895
+    },
+    {
+      "name": "bot_5db015ae27ed",
+      "games": 96,
+      "mean_pw": 2.0833333333333335,
+      "mean_score": 3012.375,
+      "fields": {
+        "league": 2.3125,
+        "novel_dynamic": 2.09375,
+        "novel_economy": 1.84375
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 3.6853000055998564,
+      "mean_ms": 0.49060583263174823
+    }
+  ],
+  "interpretation": "Late scores are selection data only. No training or parameter fitting. No final promotion is made from this panel.",
+  "reference_reproduction": {
+    "bot_f95dc9fc2266": {
+      "games": 96,
+      "exact_actions_and_scores": 96
+    },
+    "bot_e8b3682d8b39": {
+      "games": 96,
+      "exact_actions_and_scores": 96
+    }
+  }
+}

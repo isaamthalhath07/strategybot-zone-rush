@@ -30,6 +30,10 @@ def interval(rows,a,b,alpha=.05,field=None):
 def main():
     inventory = json.loads((OUT/'inventory.json').read_text())
     policies = inventory['policies']+json.loads((OUT/'inventory_extension.json').read_text())['policies']+json.loads((OUT/'inventory_outsiders.json').read_text())['policies']
+    late_path = OUT/'inventory_late_branch.json'
+    late_inventory = json.loads(late_path.read_text()) if late_path.exists() else None
+    if late_inventory:
+        policies.extend(late_inventory['policies'])
     by_name = {p['name']:p for p in policies}
     def label(name):
         p = by_name[name]
@@ -50,6 +54,10 @@ def main():
     for stage in ('contracts','contracts_extra','screen','development','outsiders_contract','outsiders_screen','final'):
         with gzip.open(OUT/(stage+'_results.json.gz'),'rt',encoding='utf8') as f:
             stages[stage] = json.load(f)
+    if late_inventory:
+        for stage in ('late_contract','late_development'):
+            with gzip.open(OUT/(stage+'_results.json.gz'),'rt',encoding='utf8') as f:
+                stages[stage] = json.load(f)
     final = stages['final']
     summary = final['summary']
     incumbent = next(p['name'] for p in policies if p['sha256']==MAIN_SHA)
@@ -94,10 +102,21 @@ def main():
         if name:
             value = stages['development']['summary'].get(name,{}).get('mean_pw')
             lines.append('| %s | `%s` | `%s` | %s |' % (ref['ref'].replace('refs/remotes/origin/',''),ref['commit'][:12],by_name[name]['sha256'][:12],'%.4f' % value if value is not None else 'not qualified'))
+    if late_inventory:
+        lines.append('| codex/evolve-existing-league (late arrival) | `%s` | `%s` | %.4f |' % (late_inventory['commit'][:12],MAIN_SHA[:12],stages['late_development']['summary'][incumbent]['mean_pw']))
+        lines += ['', 'The audit branch itself retains the same root bot as main; its best-measured export is the already tested Feint snapshot. Late-branch archives add %d standalone exports. They received a separate 96-game selection panel, with Feint and main rerun on the same fixtures. Those scores are not pooled with the consumed final.' % len(late_inventory['policies']), '',
+                  '| Late selection leader | PW / 3 | Focal faults |', '|---|---:|---:|']
+        for name,s in list(stages['late_development']['summary'].items())[:10]:
+            lines.append('| `%s` %s | %.4f | %d |' % (name,label(name),s['mean_pw'],s['focal_faults']))
+        lines += ['', 'The follow-up rule was registered before reading this completed panel: at most two late policies within 0.05 PW of Feint or above advance to a new fresh confirmation. See late_confirmation_rule.json and late_selection.json.','']
+    standalone = len(inventory['policies'])+(len(late_inventory['policies']) if late_inventory else 0)
+    scanned = {s['sha256']:s for s in inventory['source_inventory']}
+    if late_inventory:
+        scanned.update({s['sha256']:s for s in late_inventory['source_inventory']})
     lines += ['',
               '## Coverage and protocol','',
-              '- %d live remote branches and %d local/remote references were pinned; %d unique Python sources parsed with zero syntax errors.' % (inventory['remote_branch_count'],len(inventory['refs']),inventory['unique_python_sources']),
-              '- %d exact-byte standalone exports plus %d class builds were inventoried. Class builds matched their originals on 10,560 public callbacks. The NN export embeds the existing frozen weights; its training-side Torch self-test is removed.' % (len(inventory['policies']),len(policies)-len(inventory['policies'])),
+              '- %d target remote branch tips were pinned across the original and late inventories; %d unique Python sources were scanned, with %d syntax failures. The published audit branch retains already tested policy sources.' % (inventory['remote_branch_count']+bool(late_inventory),len(scanned),sum(not s['audit']['parses'] for s in scanned.values())),
+              '- %d exact-byte standalone exports plus %d class builds were inventoried. Class builds matched their originals on 10,560 public callbacks. The NN export embeds the existing frozen weights; its training-side Torch self-test is removed.' % (standalone,len(policies)-standalone),
               '- Independent per-seat processes receive only board, bot ID, priority-token flag and legal actions. Input fingerprints detect mutation. Diagnostic games sample caught exceptions; strength games use the actual 200 ms limit (2 seconds first turn).',
               '- Only current effective-STAY Shield rules are used. Moving successfully escapes Shield; a blocked or lost move counts as STAY; frozen STAY does not advance work.',
               '- Boards are rejected by actual contents if present in earlier validation JSON. Final boards and four final challenger decision families are separate from screening/development.',
@@ -116,6 +135,9 @@ def main():
               '| Development | Return schedule commits to capture plus upgrade; capture deadline anticipates races; sector bids values neighborhood resources and congestion; sampling portfolio randomizes among valuable jobs. |',
               '| Final | Boundary cluster works near enemy borders; periodic switch changes between inner and outer priorities; cooldown feint steps away from a ready landlord; chase income attacks projected leaders. |','',
               'These are distinct decision rules using shared parsing and pathfinding, not independently authored AI submissions. Novel families reduce dependence on the historical zoo; they cannot establish that overfitting is impossible.','',
+              '## What the leading policies do','',
+              'Feint combines a three-job route planner with rival-goal forecasts, public-history cooldown estimates and deceptive shortest paths. When good plans nearly tie, it can move toward a decoy without adding travel, or step off rival land to bait an empty Shield. Blocker shares the economic core but targets useful cells and routes near the projected leader. These whole-policy comparisons do not isolate the causal contribution of any individual feature.','',
+              'The equal-weight mixture is a testing choice, not an estimate of the actual competition. Against the stronger historical league alone, Blocker led at 1.6641; Feint scored 1.4688 and main 1.6094. Blocker also has the highest minimum observed field mean. These are descriptive field-specific rankings, not separate confirmed superiority claims.','',
               '## Reproduce and inspect','',
               'Run `python tools/unpack_sources.py`, then `python tools/check_release.py`. The source archive manifest checks every restored file. Specs, registrations, compressed full trajectories, per-panel summaries and `decision.json` are retained here. Sources and runner/referee hashes were checked before and after each panel.','',
               'To rerun a panel, use `python tools/audit_run.py --spec validation/branch_audit/final_spec.json --out .cache/recheck.json.gz --workers 8`. Use a new output path. `--resume` only accepts an identical registration and code. Some historical policies use unseeded global randomness or wall-clock throttling; reruns need not reproduce their exact moves. Raw recorded actions preserve what actually happened.','',
@@ -125,11 +147,16 @@ def main():
     (OUT/'REPORT.md').write_text('\n'.join(lines),encoding='utf8',newline='\n')
     coverage = ['# Policy coverage','', '| SHA / label | Contract | Screen PW / 3 | Development PW / 3 | Final PW / 3 |','|---|---|---:|---:|---:|']
     contract = dict(stages['contracts']['summary'],**stages['contracts_extra']['summary'],**stages['outsiders_contract']['summary'])
+    if late_inventory:
+        contract.update(stages['late_contract']['summary'])
     for name in sorted(by_name):
         status = contract.get(name,{})
         mark = ('%d faults' % status['focal_faults']) if status.get('focal_faults') else 'passed'
         screen = dict(stages['screen']['summary'],**stages['outsiders_screen']['summary'])
-        values = [screen.get(name,{}).get('mean_pw'),stages['development']['summary'].get(name,{}).get('mean_pw'),stages['final']['summary'].get(name,{}).get('mean_pw')]
+        development = dict(stages['development']['summary'])
+        if late_inventory:
+            development.update({n:s for n,s in stages['late_development']['summary'].items() if n not in development})
+        values = [screen.get(name,{}).get('mean_pw'),development.get(name,{}).get('mean_pw'),stages['final']['summary'].get(name,{}).get('mean_pw')]
         coverage.append('| `%s` %s | %s | %s |' % (name[4:],label(name),mark,' | '.join('%.4f' % v if v is not None else '-' for v in values)))
     coverage += ['', 'A dash means not selected for that next panel; it does not mean a draw or a failed execution. Each column is a different matched field and must not be compared as if it were the same tournament. Detailed source aliases, commit hashes and build inputs are in the inventories.','']
     (OUT/'COVERAGE.md').write_text('\n'.join(coverage),encoding='utf8',newline='\n')

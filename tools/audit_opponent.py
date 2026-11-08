@@ -181,6 +181,22 @@ class Player:
                     value *= 1.8
             elif family == "boundary_cluster":
                 value *= 1+0.15*sum(self.owner[q] not in (0,self.seat) for q in NEIGH[p])
+            elif family == "space_split":
+                central = sum(min(q//8,q%8,7-q//8,7-q%8)>=2 for j,q in enumerate(self.pos) if j!=self.seat-1)
+                value *= (1.6 if depth<=1 else 0.75) if central>=2 else (1+0.15*depth)
+            elif family == "junction_keeper":
+                traffic = sum(DIST[q][p]<=3 for j,q in enumerate(self.pos) if j!=self.seat-1)
+                value *= 1+0.12*len(NEIGH[p])+0.2*traffic*(o in (0,self.seat))
+            elif family == "late_flipper":
+                if self.remaining<=24 and o not in (0,self.seat):
+                    value *= 1+24/max(4,self.remaining)
+                elif self.remaining>24 and o==self.seat:
+                    value *= 1.4
+            elif family == "rental_horizon":
+                if o==self.seat:
+                    value *= 0.6+min(1.4,rival/4)
+                else:
+                    value *= 1+near/14
             elif family == "periodic_switch":
                 inward = (self.turn//CONFIG["period"]+CONFIG["phase"]) % 2
                 value *= math.exp((0.3 if inward else -0.3)*depth)

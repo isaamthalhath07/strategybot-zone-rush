@@ -1,4 +1,5 @@
 """Verify final trajectories with the independently implemented test engine."""
+import argparse
 import gzip
 import hashlib
 import json
@@ -11,7 +12,10 @@ from tests.reference_engine import Game
 
 
 def main():
-    path = ROOT/'validation/branch_audit/final_results.json.gz'
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--panel',default='final',choices=('final','late_development','late_final'))
+    args = parser.parse_args()
+    path = ROOT/('validation/branch_audit/'+args.panel+'_results.json.gz')
     data = json.loads(gzip.decompress(path.read_bytes()))
     spec = data['registration']['spec']
     fixtures = {f['id']:f for f in spec['fixtures']}
@@ -40,7 +44,7 @@ def main():
                   final_rows_checked=len(data['games']),sampled_full_replays=len(selected),replayed_turns=turns,
                   sampling='First fixture per finalist, board and opponent field. All rows checked for full 80-turn completion and pairwise score conservation.',
                   exact=True)
-    target = ROOT/'validation/branch_audit/independent_replay.json'
+    target = ROOT/('validation/branch_audit/'+('independent_replay.json' if args.panel=='final' else args.panel+'_independent_replay.json'))
     target.write_text(json.dumps(report,indent=2),encoding='utf8',newline='\n')
     print(json.dumps(report,indent=2))
 
