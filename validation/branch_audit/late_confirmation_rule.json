@@ -1,0 +1,8 @@
+{
+  "branch_commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+  "selection_data": "late_development_results.json.gz",
+  "reference": "bot_f95dc9fc2266",
+  "advance_rule": "At most two late zero-fault exports, ranked by shared development mean, within 0.05 PW of Feint or above. Others remain screening-only. No parameter fitting.",
+  "if_advanced": "Compare frozen exports with Feint and current main on a newly registered 24-board panel; do not pool consumed earlier finals as new confirmation evidence.",
+  "if_none": "Keep first-final ranking and report late selection evidence separately."
+}

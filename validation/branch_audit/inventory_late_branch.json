@@ -1,0 +1,4934 @@
+{
+  "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+  "branch": "codex/evolve-existing-league",
+  "policies": [
+    {
+      "name": "bot_801e12ab6063",
+      "sha256": "801e12ab60631ec1c16bf358a9d3d2db96f9a1e572b51f0f18e902f317881134",
+      "path": "consolidation_candidates/branch_audit/801e12ab60631ec1c16bf358a9d3d2db96f9a1e572b51f0f18e902f317881134.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/mathematical_candidates/arrival_lifetime.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        },
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/mathematical_candidates/source_archive.zip!evolution/mathematical_candidates/arrival_lifetime.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_3a64f9d476a1",
+      "sha256": "3a64f9d476a1021349a3aef2088e97995eacabbe9327e008e62305c5c5aa3ab2",
+      "path": "consolidation_candidates/branch_audit/3a64f9d476a1021349a3aef2088e97995eacabbe9327e008e62305c5c5aa3ab2.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/mathematical_candidates/arrival_lifetime_depth2.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        },
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/mathematical_candidates/source_archive.zip!evolution/mathematical_candidates/arrival_lifetime_depth2.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_747b732ef32a",
+      "sha256": "747b732ef32a0a50e0ea76dd16b3f89f018ffced3ae99f3e211c09c7fce1d4ab",
+      "path": "consolidation_candidates/branch_audit/747b732ef32a0a50e0ea76dd16b3f89f018ffced3ae99f3e211c09c7fce1d4ab.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/mathematical_candidates/baseline_depth2.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        },
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/mathematical_candidates/source_archive.zip!evolution/mathematical_candidates/baseline_depth2.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_8768c232dfa2",
+      "sha256": "8768c232dfa23b2b67c687f86c95bf341062929f386dfa0b94de23ff2a8de08d",
+      "path": "consolidation_candidates/branch_audit/8768c232dfa23b2b67c687f86c95bf341062929f386dfa0b94de23ff2a8de08d.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/confirmation_001/discovery_finalist.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        },
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/discovery_001/mutation_05.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_def6a8585f26",
+      "sha256": "def6a8585f26dc51df5d6be8dd59d39c35f53417e76bfa0fd9c54c5837608b7a",
+      "path": "consolidation_candidates/branch_audit/def6a8585f26dc51df5d6be8dd59d39c35f53417e76bfa0fd9c54c5837608b7a.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/discovery_001/mutation_01.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_1edc9d0c2693",
+      "sha256": "1edc9d0c269328fb420ba582fed0bfa3cd46012c3dc354ea69275fa028088d4b",
+      "path": "consolidation_candidates/branch_audit/1edc9d0c269328fb420ba582fed0bfa3cd46012c3dc354ea69275fa028088d4b.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/discovery_001/mutation_02.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_4737b8184da3",
+      "sha256": "4737b8184da3d392b44a6ab882cf916bc731c7497df5f6879ef9e53fcbe782bb",
+      "path": "consolidation_candidates/branch_audit/4737b8184da3d392b44a6ab882cf916bc731c7497df5f6879ef9e53fcbe782bb.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/discovery_001/mutation_03.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_0ae328cd6849",
+      "sha256": "0ae328cd6849545f4509fd3368247a0af9309e6f88418dc639772d900c73c795",
+      "path": "consolidation_candidates/branch_audit/0ae328cd6849545f4509fd3368247a0af9309e6f88418dc639772d900c73c795.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/discovery_001/mutation_04.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_5c79f7aad73d",
+      "sha256": "5c79f7aad73d452381874a5391fa3416dd64bc815578e37e83bcd94c42247dbd",
+      "path": "consolidation_candidates/branch_audit/5c79f7aad73d452381874a5391fa3416dd64bc815578e37e83bcd94c42247dbd.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/discovery_001/mutation_06.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_35f76a6d091d",
+      "sha256": "35f76a6d091d6c14bd848e9e37d274258556f702020ee802518f860a7ac4fc62",
+      "path": "consolidation_candidates/branch_audit/35f76a6d091d6c14bd848e9e37d274258556f702020ee802518f860a7ac4fc62.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/discovery_001/mutation_07.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_1f39121ab611",
+      "sha256": "1f39121ab611cf0fcbc931c5d1973240eef7468d05035c847e1306bac8c432fb",
+      "path": "consolidation_candidates/branch_audit/1f39121ab611cf0fcbc931c5d1973240eef7468d05035c847e1306bac8c432fb.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/0b1ab83af2078f0df4af850879a71c55fe3c9dd8705a8532af9038496200bea0.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_651f76d932b5",
+      "sha256": "651f76d932b503d30db5e812441d60905ad2d03fe8abcf498208b8da9d3c160b",
+      "path": "consolidation_candidates/branch_audit/651f76d932b503d30db5e812441d60905ad2d03fe8abcf498208b8da9d3c160b.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/26c53cbb105668e5ab19843ae153c04e3ae3308d57007ab1d7f50252079f11dd.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_d22576ac14c2",
+      "sha256": "d22576ac14c2fb78b7522e1562dd5c92d0c372ba005f5fe66757f746bfeed523",
+      "path": "consolidation_candidates/branch_audit/d22576ac14c2fb78b7522e1562dd5c92d0c372ba005f5fe66757f746bfeed523.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/2ee97b4f0f786917b47776f1c80506c671fe5916cba441afbfcd2b06ce8a89c5.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_75c815b0e25e",
+      "sha256": "75c815b0e25e371f836aaad6cbb5be1618e7de334ec8264c069470c952aa7704",
+      "path": "consolidation_candidates/branch_audit/75c815b0e25e371f836aaad6cbb5be1618e7de334ec8264c069470c952aa7704.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/31cb400e297074bf03de61425517d892231c9bdfaa17f06963cb8b754d0cc0e7.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_191059b37141",
+      "sha256": "191059b371414fe10a78857de3ab0296ec1c80a6615f34cdd7fd0d0f7467ef69",
+      "path": "consolidation_candidates/branch_audit/191059b371414fe10a78857de3ab0296ec1c80a6615f34cdd7fd0d0f7467ef69.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "_Core"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/332f38a76d36586855a808a9094b6e93830a88ffc02dfa488631cebfa397e982.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_b1f56f1d2d28",
+      "sha256": "b1f56f1d2d28b67beb2697791b983b9d773c28ce40a80b5fd52fd144ad18b2f1",
+      "path": "consolidation_candidates/branch_audit/b1f56f1d2d28b67beb2697791b983b9d773c28ce40a80b5fd52fd144ad18b2f1.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/38e4e6a0f8ed73aa3057975fab4802da2fec989812b21420b11a5109438457be.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_5db015ae27ed",
+      "sha256": "5db015ae27ed7f6da3fa2b96d9c00b3433a060ce4e9d51ae5b597dd8e6682924",
+      "path": "consolidation_candidates/branch_audit/5db015ae27ed7f6da3fa2b96d9c00b3433a060ce4e9d51ae5b597dd8e6682924.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "_Core"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/38f32b0260415d625c245820f54f9f0299f3731aa9a9976c167df4f1fd50c431.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_aa308ce71155",
+      "sha256": "aa308ce71155aeb1290de308f1d785bd2ac8ef6a8e3eb1c0d19840811d2f4f5f",
+      "path": "consolidation_candidates/branch_audit/aa308ce71155aeb1290de308f1d785bd2ac8ef6a8e3eb1c0d19840811d2f4f5f.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/3f6f13d7e3ba96f26deca9e8509f4282f52494248d055288582d9bbb947176ff.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_2e044c4d24d9",
+      "sha256": "2e044c4d24d90fa5472c023ede83b6652b3135025af4b8b0d63e0c6da6ce2d40",
+      "path": "consolidation_candidates/branch_audit/2e044c4d24d90fa5472c023ede83b6652b3135025af4b8b0d63e0c6da6ce2d40.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/407ff92668ba4d7a1e3cb92466b3547e96895517449f0912a6e7acd327c46c23.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_ec6bfb8f29dd",
+      "sha256": "ec6bfb8f29dd0721c785c7df5c2c806ca2fa7d758ba596e56db3f685bcfc0a3e",
+      "path": "consolidation_candidates/branch_audit/ec6bfb8f29dd0721c785c7df5c2c806ca2fa7d758ba596e56db3f685bcfc0a3e.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/416d4ba94ab693d840da709751be669ac6d2f2f5e556ec881c3991c713316585.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_b9e2f84869a4",
+      "sha256": "b9e2f84869a4a97c6490611c8d2831abc71e83fe95c39344ef8d5b210ad80879",
+      "path": "consolidation_candidates/branch_audit/b9e2f84869a4a97c6490611c8d2831abc71e83fe95c39344ef8d5b210ad80879.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "_Core"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/423c052840c68eded42ad061f0c69053b2738d4b85fc833c8f6684ad67b8f07f.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_3598d1870493",
+      "sha256": "3598d1870493650f1172081481beaafeb03356dc51c03e4f955b0f9b83761f4e",
+      "path": "consolidation_candidates/branch_audit/3598d1870493650f1172081481beaafeb03356dc51c03e4f955b0f9b83761f4e.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/461c60eb879f842490366d1508dd73dab974be8dbbb06dc349303393d701a507.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_ea4d3771a167",
+      "sha256": "ea4d3771a167bc30d4ef1d8318ee629622f1d27b96c8b0896f8433676be68436",
+      "path": "consolidation_candidates/branch_audit/ea4d3771a167bc30d4ef1d8318ee629622f1d27b96c8b0896f8433676be68436.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/46c984c5227ddb3c10f0753819c9d0ce0a6e26e1e352b258b464937104a4a0fc.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_2ffec027ad86",
+      "sha256": "2ffec027ad86162f47d048922e4c68f5fa1c698200e71ee1d626d5bc85f8ec20",
+      "path": "consolidation_candidates/branch_audit/2ffec027ad86162f47d048922e4c68f5fa1c698200e71ee1d626d5bc85f8ec20.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/4c9bfe331cb0c3822d48a301a7ab8f664e2de691e51bb02c621c8dde40695ace.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_48a3b05a88b2",
+      "sha256": "48a3b05a88b286aaaa666fabe2bda4fb19212b3a5ab03abedec1dbcfbc01091d",
+      "path": "consolidation_candidates/branch_audit/48a3b05a88b286aaaa666fabe2bda4fb19212b3a5ab03abedec1dbcfbc01091d.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/509bfc28b8f535a4ef1cb9b657a87158e0563e02a7d5fa3871357d734d0011e5.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_1f7ccdec4a24",
+      "sha256": "1f7ccdec4a24db278f6d0d635c58c8d67cbb66b03e0272d18f6c2eb40ed13f50",
+      "path": "consolidation_candidates/branch_audit/1f7ccdec4a24db278f6d0d635c58c8d67cbb66b03e0272d18f6c2eb40ed13f50.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/56826bd865a4ab55572e56e3b610f1d97bfd13981dd96a1904ebd5f5410fb2d6.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_97c5ab4c97b6",
+      "sha256": "97c5ab4c97b65d36349fea2767ebb9b62fcd70ed63d7ecb58272e8a573f7baba",
+      "path": "consolidation_candidates/branch_audit/97c5ab4c97b65d36349fea2767ebb9b62fcd70ed63d7ecb58272e8a573f7baba.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/5b9ab664a41e5f47fee2e12d1a1dd3f14f01e727bb2ecdf89083c6fed53aed21.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_d000ed1bd98f",
+      "sha256": "d000ed1bd98f0a46d83ed8db737913f0e069162cd6bd020db66729f501474cdf",
+      "path": "consolidation_candidates/branch_audit/d000ed1bd98f0a46d83ed8db737913f0e069162cd6bd020db66729f501474cdf.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/5e9cd25c6f871cd3ccca52c8b252adcfd24011347ace749c7f14174648447763.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_42bc3f43d67d",
+      "sha256": "42bc3f43d67d791443438821fdf44d9199344903b8fbaf357f4e20f3afc7e662",
+      "path": "consolidation_candidates/branch_audit/42bc3f43d67d791443438821fdf44d9199344903b8fbaf357f4e20f3afc7e662.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/62fc5c2cb75265589b914430a67c227fb7faa0a098a5496b8e59f4c063c937f6.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_709a5c02398f",
+      "sha256": "709a5c02398f5df448aefa9f2c6c232933cb190bd3ab75575e4048865411d3e2",
+      "path": "consolidation_candidates/branch_audit/709a5c02398f5df448aefa9f2c6c232933cb190bd3ab75575e4048865411d3e2.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "_Core"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/6a52734787d5e9567c5ba15503228cb1c0aaa58483e63f7b58d17d824773d200.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_ebfa5e8b5162",
+      "sha256": "ebfa5e8b51629bd7043875c433cfe7cf29d1dd668defec51d36bdc49a09e923a",
+      "path": "consolidation_candidates/branch_audit/ebfa5e8b51629bd7043875c433cfe7cf29d1dd668defec51d36bdc49a09e923a.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/6adbda3902d11f15fc8fe1b5768fb44bda8739de6e15d2817e567271430916de.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_581791066105",
+      "sha256": "5817910661054b91c6d0d4fea0e713298a8b0c76b910c3769a80126a0a87ffa3",
+      "path": "consolidation_candidates/branch_audit/5817910661054b91c6d0d4fea0e713298a8b0c76b910c3769a80126a0a87ffa3.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/7125545dbc07a83c6071f8369e3c1f854c328fbdbb393e247c1729619eb2fbe2.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_8c0a5e14a664",
+      "sha256": "8c0a5e14a6645b354681e16e2e47806507488c7a98e8261b930004e0fa294e8f",
+      "path": "consolidation_candidates/branch_audit/8c0a5e14a6645b354681e16e2e47806507488c7a98e8261b930004e0fa294e8f.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/7bad0473a439168a784f273c7ce215a49c00037fda867a2826303b9c83dcff4c.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_15958cc8debf",
+      "sha256": "15958cc8debfae38127ccc00cedece26acbc2f85b91c9cd479b63c306902c2e2",
+      "path": "consolidation_candidates/branch_audit/15958cc8debfae38127ccc00cedece26acbc2f85b91c9cd479b63c306902c2e2.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/7d86c971d496e61ba63ce1800ba21b72c5fd23f1e98e13dbd9c13493a6b4a733.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_2a2563b3aaf4",
+      "sha256": "2a2563b3aaf4ccf1d254875953d2a353ea319b177e3ccd7aa577e7837889379a",
+      "path": "consolidation_candidates/branch_audit/2a2563b3aaf4ccf1d254875953d2a353ea319b177e3ccd7aa577e7837889379a.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "_Core"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/81b8d045c641731e84896e425a677b24cc78b25d18669bc175f0bd6636849539.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_b1c03b05de5a",
+      "sha256": "b1c03b05de5accd90b253b46a7b29de92ef78d34d7c53a210b87cbc04f148fd0",
+      "path": "consolidation_candidates/branch_audit/b1c03b05de5accd90b253b46a7b29de92ef78d34d7c53a210b87cbc04f148fd0.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/85494cdb0619c62f3c32f25cb949c483294b72392d2ad62c37eb4bbbd6fdf49e.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_d9d800393d95",
+      "sha256": "d9d800393d9510d2d5af19592ecc1f96bc4216a1443734edf0a817adbb4ba797",
+      "path": "consolidation_candidates/branch_audit/d9d800393d9510d2d5af19592ecc1f96bc4216a1443734edf0a817adbb4ba797.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "_Core"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/85de8d708dc60fe05db9b85caddc9a37c4c843c7d05aec9b02d321990dd17dee.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_2444d1714498",
+      "sha256": "2444d1714498444e9b7b8cbf0dd074bd2e05a24d8ce1698fe025fbcba707e700",
+      "path": "consolidation_candidates/branch_audit/2444d1714498444e9b7b8cbf0dd074bd2e05a24d8ce1698fe025fbcba707e700.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/87d682c02be96f4a3e7dbb4d79dc62ca7351d9b2fbf75494cfba411d5554de00.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_0bab0e69ac16",
+      "sha256": "0bab0e69ac167251ab37e183e61ef2a03c99dc82e053790ba821f0e370940679",
+      "path": "consolidation_candidates/branch_audit/0bab0e69ac167251ab37e183e61ef2a03c99dc82e053790ba821f0e370940679.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/889f2b6aed727065e1e685b4eeed1b3e81a2e3f9b0267e9cdcbef0f362d81367.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_d631c112e332",
+      "sha256": "d631c112e332932f09bf271d23686db0247de7b87e8ffcd0dc00bd0b74d27b90",
+      "path": "consolidation_candidates/branch_audit/d631c112e332932f09bf271d23686db0247de7b87e8ffcd0dc00bd0b74d27b90.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/8aa2d05c477d1d9627bc4a0635b6245dcf8b3444a9f4e79b290fc5d8b140be61.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_fbb732fdf81f",
+      "sha256": "fbb732fdf81f71a26d523a574447123665295db84f9ffc44facddb6d8793d4be",
+      "path": "consolidation_candidates/branch_audit/fbb732fdf81f71a26d523a574447123665295db84f9ffc44facddb6d8793d4be.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/8d269f6f1cd96c3c4aeeaf2208efd05fcc414e2cc36796652e7e4d982e4fe392.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_9496320d0850",
+      "sha256": "9496320d0850b8ca107b393f44a928848f8261aef69b888a0c9459e0841d8916",
+      "path": "consolidation_candidates/branch_audit/9496320d0850b8ca107b393f44a928848f8261aef69b888a0c9459e0841d8916.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/9408af255ee060dc80cdf042eeb62ee34fe9ba9fae3c60adbc3c53560af21a10.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_df8ae3ce630e",
+      "sha256": "df8ae3ce630ecfa11eac00e9135178c7389808ef055c1eb70366d192d253b950",
+      "path": "consolidation_candidates/branch_audit/df8ae3ce630ecfa11eac00e9135178c7389808ef055c1eb70366d192d253b950.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/95884cdbeef20c985d1687ee7c63ba99e16d28c9d18c56f5fd97062ded37004c.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_0dac7f82726d",
+      "sha256": "0dac7f82726dcb9c72631bd93c8ec771d0532689447a4b4a83247239fb3d1085",
+      "path": "consolidation_candidates/branch_audit/0dac7f82726dcb9c72631bd93c8ec771d0532689447a4b4a83247239fb3d1085.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/a1cdad51a76b1bd5eb3c9a51f17e9e3f47ad66ccc815261376229bd2ee04fd0f.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_88496d239f5d",
+      "sha256": "88496d239f5d1c51954fa010ec21b897561f1b22a023fcadb20a77eac0739db6",
+      "path": "consolidation_candidates/branch_audit/88496d239f5d1c51954fa010ec21b897561f1b22a023fcadb20a77eac0739db6.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "_Core"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/a2fe750349a9bd2f3bcb01cff1a5948598819b253ae6e0251bb038a75e8c0642.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_ae807b1789e4",
+      "sha256": "ae807b1789e4e145774d86625933a51419e0bc5315b37ad0f38b0bbe6145fe15",
+      "path": "consolidation_candidates/branch_audit/ae807b1789e4e145774d86625933a51419e0bc5315b37ad0f38b0bbe6145fe15.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/af7f93db2cd4e2b81be8cf545e01a515816bf9c20150bf16d154507793c4979b.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_2f2e047f4532",
+      "sha256": "2f2e047f45329a822e4e912bc2527e1eb7b135aa7e714b59fb28b1b56aceb49e",
+      "path": "consolidation_candidates/branch_audit/2f2e047f45329a822e4e912bc2527e1eb7b135aa7e714b59fb28b1b56aceb49e.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/bcde2db5b35775249054b4bda0e8c1aeb33e723c140375e98afb05e9d42f0b53.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_4d7c8e68b900",
+      "sha256": "4d7c8e68b900c82402b93b1634ec866e050d523567eb43cbc16fdf2ef2f846e8",
+      "path": "consolidation_candidates/branch_audit/4d7c8e68b900c82402b93b1634ec866e050d523567eb43cbc16fdf2ef2f846e8.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/c3f25a6914192146fd62497a46f995e9f0ad56a7ea5c2d4dd27f14f595147902.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_92f38af1a559",
+      "sha256": "92f38af1a55979536940283c0d30585dcb2c287f126c1cd99b12818ce857bf47",
+      "path": "consolidation_candidates/branch_audit/92f38af1a55979536940283c0d30585dcb2c287f126c1cd99b12818ce857bf47.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/c5b5f1bcad3a4750f41d9fa29987c6fa76f659c23839f8872fef6d5d879d767e.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_67e5e048ab10",
+      "sha256": "67e5e048ab10c13f6dd894bed7820aa67898a78b7318841086641f5a03f7ae77",
+      "path": "consolidation_candidates/branch_audit/67e5e048ab10c13f6dd894bed7820aa67898a78b7318841086641f5a03f7ae77.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/cb4ad645b2358d5e61ba68c2a3960c8842a9673923214c64d22157d85c0f6498.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_07ccfe799139",
+      "sha256": "07ccfe799139b7e6fdf1f9aa1a280e466eb8fd1f1a09be62b576d3beb8cec714",
+      "path": "consolidation_candidates/branch_audit/07ccfe799139b7e6fdf1f9aa1a280e466eb8fd1f1a09be62b576d3beb8cec714.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/cbf75bfc7b7087b84a695c2c6e9d65b43b217a0b2a6f6a30df0953ce6014fa38.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_93be90676285",
+      "sha256": "93be906762852e707e78448e72df4aa5e2ef9cfeaeee716f5835adafb3a78c6b",
+      "path": "consolidation_candidates/branch_audit/93be906762852e707e78448e72df4aa5e2ef9cfeaeee716f5835adafb3a78c6b.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/d6b0712e7a313d814471de7f9e1fe41ea28541cf01707bb2db4e39621a10d34a.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_4cbe78f5d941",
+      "sha256": "4cbe78f5d94128719a7e18f6a7c630c213b87f937500794d53deadd9c5842ed8",
+      "path": "consolidation_candidates/branch_audit/4cbe78f5d94128719a7e18f6a7c630c213b87f937500794d53deadd9c5842ed8.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/db22f46555cd5e4f03831c2254753e674ea4dd1aaf4ab02795012b99d0c58bd7.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_cafa58d3140c",
+      "sha256": "cafa58d3140ce8930099480def0f04ea8136746d4e889be568e878617757d76c",
+      "path": "consolidation_candidates/branch_audit/cafa58d3140ce8930099480def0f04ea8136746d4e889be568e878617757d76c.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/e3accb4a46596a157f0c2291d487b19d3235e788c44be5c029f57202806f617f.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_75d5ad95bb84",
+      "sha256": "75d5ad95bb84449be1a51c1a17d4ed38c06b0381eea29462c5d227e88829f960",
+      "path": "consolidation_candidates/branch_audit/75d5ad95bb84449be1a51c1a17d4ed38c06b0381eea29462c5d227e88829f960.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/ecdb930ba0e5977afe9e58cb92c83280f6f5dad4ed01d448506b411f2adbae76.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_c54bc17924ba",
+      "sha256": "c54bc17924baa6e22e36999b2d48f79e0765e0d6003db9ed54e27ff2def684a2",
+      "path": "consolidation_candidates/branch_audit/c54bc17924baa6e22e36999b2d48f79e0765e0d6003db9ed54e27ff2def684a2.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/f3534dbfd7c25813bb60d9352ccc7668bfef19810988c274b278dd0cca0a0fea.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_8e84ff655452",
+      "sha256": "8e84ff655452551dcc63083b1582481b27968b1d2f6c17616098192f40133d42",
+      "path": "consolidation_candidates/branch_audit/8e84ff655452551dcc63083b1582481b27968b1d2f6c17616098192f40133d42.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/fa9d68b71887396739904cd15a71152bb58be82c22e3e5eed5c7d6d530187c0e.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_047ed5d8391e",
+      "sha256": "047ed5d8391e3afb573cc58102a4105b5a4e348d168fdb3b08e1552f64818804",
+      "path": "consolidation_candidates/branch_audit/047ed5d8391e3afb573cc58102a4105b5a4e348d168fdb3b08e1552f64818804.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "_Core"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/fb3ed1dc2c8d66588aaa302be0549a22131bba3bbbb48af3f7fdee5045fc9d15.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    }
+  ],
+  "source_inventory": [
+    {
+      "path": "bot.py",
+      "sha256": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "compute_share/__init__.py",
+      "sha256": "f20dd5dc883f7f16808278ab8ea16bf6cb2840086ef8fbfaf5fd7f52ddbd4a53",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "compute_share/doctor.py",
+      "sha256": "9d1a4ff48d144fa766cb74d61608946e6bf22d1cedba0e4e3684236b2e852a3f",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "argparse",
+          "json",
+          "os",
+          "pathlib",
+          "platform",
+          "re",
+          "subprocess",
+          "sys",
+          "tempfile",
+          "time"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "compute_share/gpu_jobs.py",
+      "sha256": "520dbbffc5dc15d94ef5e0faa465b2b5cfb883eab381c410560c7021ecbd11bf",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "argparse",
+          "compute_share",
+          "hashlib",
+          "json",
+          "pathlib",
+          "search_coach",
+          "shutil",
+          "zipfile"
+        ],
+        "external": [
+          "compute_share",
+          "search_coach"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "compute_share/make_sample_jobs.py",
+      "sha256": "05525317a9a8f335fb7acee3e632e19c3f8eebc62e239b75c0dd3d262e3a302f",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "argparse",
+          "compute_share",
+          "gzip",
+          "hashlib",
+          "json",
+          "pathlib",
+          "search_coach",
+          "tests"
+        ],
+        "external": [
+          "compute_share",
+          "search_coach",
+          "tests"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "compute_share/offline.py",
+      "sha256": "318c02623e64522830c441baa46c031f497247024a6a6efbdf203c98d9ca90cd",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "argparse",
+          "doctor",
+          "hashlib",
+          "json",
+          "pathlib",
+          "re"
+        ],
+        "external": [
+          "doctor"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "compute_share/test_compute_share.py",
+      "sha256": "766298047e7c499753b8a1391601aa4e2fe3d9fe6080c9048254617f9d763096",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "collections",
+          "copy",
+          "hashlib",
+          "json",
+          "pathlib",
+          "tempfile",
+          "unittest"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "compute_share/test_gpu_jobs.py",
+      "sha256": "b41fa3de896735af98a97551be2869759af4a1101de30c0e73ad6f422c182fd1",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "compute_share",
+          "copy",
+          "pathlib",
+          "search_coach",
+          "tempfile",
+          "tests",
+          "unittest"
+        ],
+        "external": [
+          "compute_share",
+          "search_coach",
+          "tests"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "compute_share/test_setup.py",
+      "sha256": "4437b2365b60a02101c2bb062d68efe074824bc85da2d1809cfbb01c142e993f",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "compute_share",
+          "copy",
+          "pathlib",
+          "unittest"
+        ],
+        "external": [
+          "compute_share"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "compute_share/verify_cuda.py",
+      "sha256": "ed927fd0195ba0e12a349c048d31f981a3115c59cd397a9b0055cdd527f2f18a",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "doctor",
+          "pathlib",
+          "sys"
+        ],
+        "external": [
+          "doctor"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/__init__.py",
+      "sha256": "4acc044002188125c940ab3b5a69e2968bb27a2bfb8d79cf8c43cc3b8d1c2d2c",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/evidence/audit_comparison_1583f855.py",
+      "sha256": "1583f855c0a2671ea506b2955f56c76e532424b7d1c03de924605d9389ff4f58",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "argparse",
+          "ast",
+          "collections",
+          "concurrent",
+          "copy",
+          "evolution",
+          "gzip",
+          "hashlib",
+          "importlib",
+          "json",
+          "math",
+          "pathlib",
+          "random",
+          "tests",
+          "time"
+        ],
+        "external": [
+          "evolution",
+          "tests"
+        ],
+        "sensitive_calls": [
+          "compile",
+          "exec"
+        ],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/evidence/oversight_auditor_251d3424.py",
+      "sha256": "251d3424d8763bf2ae4dd9520e0e5db9387a424d8d4fdb6ccb61e362ac93e981",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "argparse",
+          "ast",
+          "collections",
+          "concurrent",
+          "copy",
+          "evolution",
+          "hashlib",
+          "importlib",
+          "json",
+          "math",
+          "pathlib",
+          "random",
+          "tests",
+          "time"
+        ],
+        "external": [
+          "evolution",
+          "tests"
+        ],
+        "sensitive_calls": [
+          "compile",
+          "exec"
+        ],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/genomes.py",
+      "sha256": "a16800b4daed6f4b78190db9db755ba17447c179d601a5a481754478f1ad70f2",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "ast",
+          "hashlib",
+          "math",
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/league.py",
+      "sha256": "8d577ef77bf5adbfba06c6399b374ef4c684fafc847cf3ee471e4f78eb4c7825",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "argparse",
+          "evolution",
+          "json",
+          "os",
+          "pathlib",
+          "random"
+        ],
+        "external": [
+          "evolution"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/maps.py",
+      "sha256": "e0c9328d89aff7ab23caa9a9fa6b672fc4074f66f57dd69678d1a121d5d679ef",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "hashlib",
+          "math",
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/mathematical_candidates/archive_sources.py",
+      "sha256": "fd3b71d63624520d8539df6dbd077d99ba805d7c57f384d22b7e5f2b72a36382",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "hashlib",
+          "json",
+          "pathlib",
+          "zipfile"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/mathematical_candidates/arrival_lifetime.py",
+      "sha256": "801e12ab60631ec1c16bf358a9d3d2db96f9a1e572b51f0f18e902f317881134",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/mathematical_candidates/arrival_lifetime_depth2.py",
+      "sha256": "3a64f9d476a1021349a3aef2088e97995eacabbe9327e008e62305c5c5aa3ab2",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/mathematical_candidates/audit_comparison.py",
+      "sha256": "762e08ddf8ec32a7064fe38d0bc3e417c8f8b296a913255bfb6199b448bb5d2a",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "argparse",
+          "ast",
+          "collections",
+          "concurrent",
+          "copy",
+          "evolution",
+          "gzip",
+          "hashlib",
+          "importlib",
+          "json",
+          "math",
+          "pathlib",
+          "random",
+          "tests",
+          "time"
+        ],
+        "external": [
+          "evolution",
+          "tests"
+        ],
+        "sensitive_calls": [
+          "compile",
+          "exec"
+        ],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/mathematical_candidates/baseline_depth2.py",
+      "sha256": "747b732ef32a0a50e0ea76dd16b3f89f018ffced3ae99f3e211c09c7fce1d4ab",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/mathematical_candidates/build_arrival.py",
+      "sha256": "9f088b7760ff853a648ec5e143253e7e3f65b60506af5e8f0ddbd921c73ea33f",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "evolution",
+          "hashlib",
+          "json",
+          "pathlib"
+        ],
+        "external": [
+          "evolution"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/mathematical_candidates/mathematical_probes_a792fedac788.py",
+      "sha256": "a792fedac78859cd8544d6bf99ba039b91f4523997e686d05e4b8b15efbef31e",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "argparse",
+          "copy",
+          "evolution",
+          "hashlib",
+          "importlib",
+          "json",
+          "pathlib",
+          "tests"
+        ],
+        "external": [
+          "evolution",
+          "tests"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/mathematical_candidates/mathematical_probes_f5f4745fa40a.py",
+      "sha256": "f5f4745fa40ac70f9fe093414056218a6747e519c607874dd4b06222d859180d",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "argparse",
+          "copy",
+          "evolution",
+          "hashlib",
+          "importlib",
+          "json",
+          "pathlib",
+          "tests"
+        ],
+        "external": [
+          "evolution",
+          "tests"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/mathematical_candidates/record_validation.py",
+      "sha256": "098cb4030f300da6b3acc0a587d9eb8a02f72a500f40297c4f9f018e0cda1255",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "contextlib",
+          "hashlib",
+          "io",
+          "json",
+          "pathlib",
+          "platform",
+          "re",
+          "time",
+          "unittest"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/mathematical_candidates/test_arrival.py",
+      "sha256": "f7ca305166a9e9262d8bd6c95b5ba32a4dcc55f17a66fe6f98d343713a54adb4",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "ast",
+          "build_arrival",
+          "evolution",
+          "hashlib",
+          "importlib",
+          "pathlib",
+          "random",
+          "tests",
+          "time",
+          "unittest"
+        ],
+        "external": [
+          "build_arrival",
+          "evolution",
+          "tests"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/mathematical_candidates/test_mathematics.py",
+      "sha256": "f6bae8c644a2dfcbe6938109f8a6fd0184a51e4fb183047dffec7e2ba50c8863",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "evolution",
+          "fractions",
+          "simulator",
+          "unittest"
+        ],
+        "external": [
+          "evolution",
+          "simulator"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/mathematical_probes.py",
+      "sha256": "fdd461e2fa48a617b2cabbb335be173fa160f145599d3ea3256c75c781bd0c93",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "argparse",
+          "copy",
+          "evolution",
+          "hashlib",
+          "importlib",
+          "json",
+          "pathlib",
+          "tests"
+        ],
+        "external": [
+          "evolution",
+          "tests"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/opponents.py",
+      "sha256": "b2b2c12cc3c27b209bd4af9089242f32c5128e17c411228e9bee4b692bf84c29",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/oversight.py",
+      "sha256": "02fbb41a16df510a33214207f6f3d0561b4865d75cb1a293ea614680df9000b6",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "argparse",
+          "ast",
+          "collections",
+          "concurrent",
+          "copy",
+          "evolution",
+          "gzip",
+          "hashlib",
+          "importlib",
+          "json",
+          "math",
+          "pathlib",
+          "random",
+          "tests",
+          "time"
+        ],
+        "external": [
+          "evolution",
+          "tests"
+        ],
+        "sensitive_calls": [
+          "compile",
+          "exec"
+        ],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/runner.py",
+      "sha256": "bae5c92c51efa83eaef90db0ede9940be72201d2bb78e9d0527e3f6139d7503b",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "argparse",
+          "concurrent",
+          "copy",
+          "evolution",
+          "hashlib",
+          "json",
+          "math",
+          "os",
+          "pathlib",
+          "random",
+          "tests",
+          "time"
+        ],
+        "external": [
+          "evolution",
+          "tests"
+        ],
+        "sensitive_calls": [
+          "compile",
+          "exec"
+        ],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/test_benchmark_design.py",
+      "sha256": "ce6ea02db4949e920f8f02f2dde6bdbb4f7d995a9f5645957be8e1d96001fc6b",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "collections",
+          "copy",
+          "tools",
+          "unittest"
+        ],
+        "external": [
+          "tools"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/test_evolution.py",
+      "sha256": "e72533bff5a891bee0b38c46479f336b27e40c2f5975593ae99f9c9cab1eb068",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "ast",
+          "collections",
+          "concurrent",
+          "copy",
+          "evolution",
+          "hashlib",
+          "json",
+          "pathlib",
+          "random",
+          "tempfile",
+          "tests",
+          "unittest"
+        ],
+        "external": [
+          "evolution",
+          "tests"
+        ],
+        "sensitive_calls": [
+          "compile",
+          "exec"
+        ],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/test_league.py",
+      "sha256": "0751ed7621b59eff05c2b9c8dcb7de5b2c6cf613998d7c4ecf11bc59b4fcff37",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "ast",
+          "copy",
+          "evolution",
+          "json",
+          "pathlib",
+          "tempfile",
+          "unittest"
+        ],
+        "external": [
+          "evolution"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/verify_isolation.py",
+      "sha256": "39bb0811cca4d40a89687d68f27b2b878bbc0896188a07bbb9418b5ee729be1e",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "argparse",
+          "concurrent",
+          "evolution",
+          "gzip",
+          "json",
+          "pathlib",
+          "random",
+          "tools"
+        ],
+        "external": [
+          "evolution",
+          "tools"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "search_coach/__init__.py",
+      "sha256": "63563ec08cbca672ef264b2fa5678313820a8bf22b69e361279507d7f181df45",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "beam",
+          "belief"
+        ],
+        "external": [
+          "beam",
+          "belief"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "search_coach/beam.py",
+      "sha256": "33d8d138d1b2a290b4599a65122eb0dfc16d977277a19e4fb97cea7717c08925",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "belief",
+          "hashlib",
+          "math",
+          "random",
+          "statistics",
+          "tests"
+        ],
+        "external": [
+          "belief",
+          "tests"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "search_coach/belief.py",
+      "sha256": "f4188a87e5f253685df98ba596af97601bd00b68a42ff397f4d244126aa8669c",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "dataclasses",
+          "hashlib",
+          "itertools",
+          "json",
+          "tests"
+        ],
+        "external": [
+          "tests"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "search_coach/gpu_batch.py",
+      "sha256": "1a15460f1ba38b31a701322683423d642f1e9d358a92a398238cac1683bbbc8b",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "argparse",
+          "belief",
+          "dataclasses",
+          "hashlib",
+          "json",
+          "pathlib",
+          "platform",
+          "random",
+          "tests",
+          "time",
+          "torch",
+          "training_gpu"
+        ],
+        "external": [
+          "belief",
+          "tests",
+          "torch",
+          "training_gpu"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "search_coach/replay.py",
+      "sha256": "3848b7057c4394862ce63fa576e322f9c11422867a6ea1fb19fa6837b75852c2",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "argparse",
+          "beam",
+          "belief",
+          "gzip",
+          "hashlib",
+          "importlib",
+          "json",
+          "pathlib",
+          "tests",
+          "time"
+        ],
+        "external": [
+          "beam",
+          "belief",
+          "tests"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "search_coach/test_coach.py",
+      "sha256": "3cc5bdd166f978027806d6b6c0e0e0865c6c1092cfffb7ee025ce03709c0deed",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "beam",
+          "belief",
+          "copy",
+          "tests",
+          "unittest"
+        ],
+        "external": [
+          "beam",
+          "belief",
+          "tests"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "search_coach/test_gpu_batch.py",
+      "sha256": "d2febc358334d68182eb79ab5cca8029bfd4694d49d04c1a4e2a8c059ed71907",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "belief",
+          "copy",
+          "gpu_batch",
+          "random",
+          "test_coach",
+          "tests",
+          "torch",
+          "unittest"
+        ],
+        "external": [
+          "belief",
+          "gpu_batch",
+          "test_coach",
+          "tests",
+          "torch"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "simulator/__init__.py",
+      "sha256": "f366d93f431cc411a28478e67fd0ef80748082b7fb0111b4de75a6e09ac9f6d9",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "simulator/history.py",
+      "sha256": "0e6ead51a2500ed6bfe9cbd254b52047077decaa0ada703b1902525a77330797",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "copy",
+          "datetime",
+          "json",
+          "os",
+          "pathlib",
+          "re"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "simulator/server.py",
+      "sha256": "8d8edccfe4f1ce3a462616c61efe33190930b5b823c7880b147176fd7a921296",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "argparse",
+          "ast",
+          "copy",
+          "hashlib",
+          "history",
+          "http",
+          "importlib",
+          "json",
+          "math",
+          "os",
+          "pathlib",
+          "re",
+          "sys",
+          "threading",
+          "urllib",
+          "uuid",
+          "webbrowser"
+        ],
+        "external": [
+          "history"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "simulator/vendor_harness/match.py",
+      "sha256": "d65edb2f6e3f3c44ccb49f352993445062efc27a92bfe05f4df0157b171389f1",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [
+          "BotProcess"
+        ],
+        "imports": [
+          "argparse",
+          "datetime",
+          "json",
+          "os",
+          "queue",
+          "referee",
+          "sources",
+          "subprocess",
+          "sys",
+          "threading",
+          "time",
+          "uuid"
+        ],
+        "external": [
+          "referee",
+          "sources"
+        ],
+        "sensitive_calls": [
+          "open"
+        ],
+        "eligible": false
+      }
+    },
+    {
+      "path": "simulator/vendor_harness/referee.py",
+      "sha256": "f1125e8ceee664781827c670c0c4481da41a7ef41a4e5276d6b3b118274af337",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "simulator/vendor_harness/sources.py",
+      "sha256": "a973cfab2405a4327f5026f232726b4dc91e7828a7cbdc949a477cbacd07a0f4",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "hashlib",
+          "os",
+          "re",
+          "subprocess",
+          "threading"
+        ],
+        "external": [],
+        "sensitive_calls": [
+          "open"
+        ],
+        "eligible": false
+      }
+    },
+    {
+      "path": "simulator/vendor_harness/worker.py",
+      "sha256": "9ae8c11c7bbcc0696a6c1fd4d1cc66684bb546d9db2c604a72b161c336d8db5f",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "importlib",
+          "io",
+          "json",
+          "os",
+          "sys",
+          "time",
+          "traceback"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "tester_bots/apex.py",
+      "sha256": "641c909b7ef188f3ba4dfa7fe0ccb935fe3dde2e23f99c07f83fbc1d7b9f7d4d",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "EvoSim"
+        ],
+        "imports": [
+          "collections",
+          "math",
+          "time"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "tester_bots/blocker.py",
+      "sha256": "1bb70109a75e2880bfdf3ac9b6fd8e368b0f3d02b9a3e65de53cef0defa505e5",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "_Core"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "tester_bots/fusion.py",
+      "sha256": "720e5a3daf7b848e8a25038c20bda47e8fb0433495aaa7bdbff9b285b8ba5a2d",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Agent"
+        ],
+        "imports": [
+          "collections",
+          "time"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "tester_bots/racer.py",
+      "sha256": "a35c2c4811645091adef6cbd263f1573bf2b184d5dd5741a070234a422ce54c8",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "_Core"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "tester_bots/research_alternative.py",
+      "sha256": "6f2ac1487cd0a66793db3f2fab01f621d9c945a4f71a78cc92d176ef1de321f4",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "tester_bots/transfer_original.py",
+      "sha256": "5457b5fdf4ca0e52d8502c6b237f975a88b1e8a97dd7bb4900f2b2acfbda1497",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "tester_bots/transfer_previous.py",
+      "sha256": "fe03b8164ed3b4ebd2a04abcdfbb6fa729bdc34dea825088f7e82bf6e5b5ab5e",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "tester_bots/ultimate.py",
+      "sha256": "a8f7a74e7ed34548f092dc0acfa5402a47a6c4c2f0115359fc2e56ecfe1b9b73",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "UltimateBot"
+        ],
+        "imports": [
+          "math",
+          "time"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "tests/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "tests/_source_archive.py",
+      "sha256": "4b9049c632fc38d3c52570d288ce179ca855a9830a9b00dd71efe178a74fe963",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "functools",
+          "hashlib",
+          "importlib",
+          "json",
+          "pathlib",
+          "tempfile",
+          "zipfile"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "tests/reference_engine.py",
+      "sha256": "8f7b89995cad0f724fb8ac7c7bc8311a6fa9b3b722f2204097031ba2333726f4",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "tests/test_bot_interface.py",
+      "sha256": "f3e49c06088c465a1f0d707b57b06786f956fced78b569c5d0a99cd67b15f603",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "ast",
+          "copy",
+          "enum",
+          "importlib",
+          "json",
+          "pathlib",
+          "sys",
+          "tests",
+          "time",
+          "unittest"
+        ],
+        "external": [
+          "tests"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "tests/test_evidence.py",
+      "sha256": "b1ec18bb43053eb5c32acdc28e5299ec9f96508918059d795d4fa5cabcaf5344",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "collections",
+          "gzip",
+          "hashlib",
+          "json",
+          "pathlib",
+          "simulator",
+          "unittest",
+          "zipfile"
+        ],
+        "external": [
+          "simulator"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "tests/test_historical_inference.py",
+      "sha256": "1651865ec488c688cb4bdd2c26bbb9f6a089a1c5c260e5a6c1d08aed869b46f3",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "copy",
+          "importlib",
+          "pathlib",
+          "random",
+          "simulator",
+          "tests",
+          "types",
+          "unittest"
+        ],
+        "external": [
+          "simulator",
+          "tests"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "tests/test_official_candidate.py",
+      "sha256": "101ad5d1d2474442868a8fa08d6476e61afe093e4198a1026d69974194a8effe",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "ast",
+          "importlib",
+          "pathlib",
+          "random",
+          "tests",
+          "time",
+          "unittest"
+        ],
+        "external": [
+          "tests"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "tests/test_official_evidence.py",
+      "sha256": "b0a73e203e92ba850c20d233febb63d8399c2419df35b6f03b499217a261b897",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "collections",
+          "gzip",
+          "hashlib",
+          "json",
+          "pathlib",
+          "simulator",
+          "unittest",
+          "zipfile"
+        ],
+        "external": [
+          "simulator"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "tests/test_rejected_shield.py",
+      "sha256": "192cc205452cf54a98631e59e2f697b2ed5242294f123768f62773234f9628f8",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "tests",
+          "unittest"
+        ],
+        "external": [
+          "tests"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "tests/test_release.py",
+      "sha256": "d74b1cbbdeee78828bfb9b73a9418bf3ecdb5f6325d7dbabeffc6c3efe50b774",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "hashlib",
+          "importlib",
+          "json",
+          "pathlib",
+          "simulator",
+          "tempfile",
+          "tests",
+          "time",
+          "unittest"
+        ],
+        "external": [
+          "simulator",
+          "tests"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "tests/test_rules.py",
+      "sha256": "da76f6afe30b6b844582e7c26c53fbaab7b2765a30d6622d04b6fd73bd9f47bc",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "copy",
+          "hashlib",
+          "json",
+          "pathlib",
+          "random",
+          "simulator",
+          "tempfile",
+          "tests",
+          "threading",
+          "unittest"
+        ],
+        "external": [
+          "simulator",
+          "tests"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "tests/test_simulator_catalog.py",
+      "sha256": "0d7d94c09a5ac71f6073ec39448da8d3535dcbd479f89ad359da1122c0eb8066",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "hashlib",
+          "json",
+          "pathlib",
+          "shutil",
+          "simulator",
+          "subprocess",
+          "sys",
+          "tempfile",
+          "tests",
+          "types",
+          "unittest"
+        ],
+        "external": [
+          "simulator",
+          "tests"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "tests/test_simulator_guards.py",
+      "sha256": "8e72f895e6ce155b603c941ed8509fff4e46225c719d594f7884ae1e9e74e28d",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "copy",
+          "hashlib",
+          "json",
+          "pathlib",
+          "simulator",
+          "tempfile",
+          "tests",
+          "threading",
+          "unittest"
+        ],
+        "external": [
+          "simulator",
+          "tests"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "tests/test_simulator_history.py",
+      "sha256": "5dc37e961fd71ebc6c7fd00f69ec57e7a1eb0cc3931582367cbba1a2c2f17b7f",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [
+          "RecordedProcess"
+        ],
+        "imports": [
+          "concurrent",
+          "copy",
+          "hashlib",
+          "http",
+          "json",
+          "pathlib",
+          "simulator",
+          "tempfile",
+          "threading",
+          "unittest"
+        ],
+        "external": [
+          "simulator"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "tests/test_simulator_package.py",
+      "sha256": "d8b58fa125117bbcd4e9ef8c06432eb75fc77f20b054b336fcfc9181d1ed8b5a",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "json",
+          "pathlib",
+          "shutil",
+          "simulator",
+          "subprocess",
+          "sys",
+          "tempfile",
+          "unittest"
+        ],
+        "external": [
+          "simulator"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "tests/test_simulator_server.py",
+      "sha256": "8a09ca336d5f199f1297a984e1cfbc3cc18eb8479c6b8273d62e8351fe9afab7",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [
+          "FakeProcess"
+        ],
+        "imports": [
+          "copy",
+          "http",
+          "json",
+          "pathlib",
+          "simulator",
+          "tempfile",
+          "threading",
+          "time",
+          "unittest"
+        ],
+        "external": [
+          "simulator"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "tests/test_simulator_views.py",
+      "sha256": "e0e13898e875b2662cd4008fcd30482cd15db6770e67c1e0052c03852b4cd242",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [
+          "RecordingWorker"
+        ],
+        "imports": [
+          "concurrent",
+          "copy",
+          "simulator",
+          "threading",
+          "time",
+          "unittest"
+        ],
+        "external": [
+          "simulator"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "tests/test_ultimate.py",
+      "sha256": "0b40e358d301f309587cadbe7df8a83d591771f0ea4db4ee5619b5f2e5ff64d6",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "engine",
+          "tests",
+          "time",
+          "ultimate",
+          "unittest"
+        ],
+        "external": [
+          "engine",
+          "tests",
+          "ultimate"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "tools/benchmark.py",
+      "sha256": "fa902887143867da1b6e2608d5e92194165e59b4090fa0e5b03216cfa85c9455",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "argparse",
+          "concurrent",
+          "gzip",
+          "hashlib",
+          "json",
+          "match",
+          "pathlib",
+          "random",
+          "referee",
+          "sys",
+          "time"
+        ],
+        "external": [
+          "match",
+          "referee"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "tools/check_release.py",
+      "sha256": "722a042255d05f11bbbdb23101cbe71a2b1e5788ba723097cbd98a7d46d7aea3",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "os",
+          "pathlib",
+          "shutil",
+          "subprocess",
+          "sys",
+          "unittest"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "tools/replay_policy_equivalence.py",
+      "sha256": "60d09256f703680fdf2336fa2689e0f3a30e0a9978dffcdeddfebe9b5f3499c3",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "gzip",
+          "hashlib",
+          "importlib",
+          "json",
+          "pathlib",
+          "simulator",
+          "types"
+        ],
+        "external": [
+          "simulator"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "tools/unpack_sources.py",
+      "sha256": "0667879ae4cd3210a8795217d017151c30e1aee1b516d1722657fa2d84c4a3e0",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "hashlib",
+          "json",
+          "pathlib",
+          "zipfile"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "training_gpu/__init__.py",
+      "sha256": "87dc9ae50c90732a585cda760c993217cd440e8bd2078fd9c867fb3bc5386d73",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "training_gpu/batch_game.py",
+      "sha256": "4c314c10e733d9eea496a9973110639b95cb496b8ff9e7b9d49bc8459d8efb9f",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "torch"
+        ],
+        "external": [
+          "torch"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "training_gpu/probe.py",
+      "sha256": "bb7794421e4eb72361405362e0498e3a6ade6cfeff408dc7f6b70e462f293b25",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "argparse",
+          "batch_game",
+          "hashlib",
+          "json",
+          "pathlib",
+          "platform",
+          "random",
+          "tests",
+          "time",
+          "torch"
+        ],
+        "external": [
+          "batch_game",
+          "tests",
+          "torch"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "ultimate.py",
+      "sha256": "a8f7a74e7ed34548f092dc0acfa5402a47a6c4c2f0115359fc2e56ecfe1b9b73",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "UltimateBot"
+        ],
+        "imports": [
+          "math",
+          "time"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "validation/benchmark_versions/40fc6744ac41d0a0b2ada84e644402367c2491cfdc82481c6fa6b74852799ebe.py",
+      "sha256": "40fc6744ac41d0a0b2ada84e644402367c2491cfdc82481c6fa6b74852799ebe",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "argparse",
+          "concurrent",
+          "gzip",
+          "hashlib",
+          "json",
+          "match",
+          "pathlib",
+          "random",
+          "referee",
+          "sys",
+          "time"
+        ],
+        "external": [
+          "match",
+          "referee"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "validation/benchmark_versions/c9acbd11915d3eab4ef87b8c9e5ea0aaca4799a7326421f2b3e82b9a7c087aae.py",
+      "sha256": "c9acbd11915d3eab4ef87b8c9e5ea0aaca4799a7326421f2b3e82b9a7c087aae",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "argparse",
+          "concurrent",
+          "gzip",
+          "hashlib",
+          "json",
+          "match",
+          "pathlib",
+          "random",
+          "referee",
+          "sys",
+          "time"
+        ],
+        "external": [
+          "match",
+          "referee"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "validation/benchmark_versions/fa902887143867da1b6e2608d5e92194165e59b4090fa0e5b03216cfa85c9455.py",
+      "sha256": "fa902887143867da1b6e2608d5e92194165e59b4090fa0e5b03216cfa85c9455",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "argparse",
+          "concurrent",
+          "gzip",
+          "hashlib",
+          "json",
+          "match",
+          "pathlib",
+          "random",
+          "referee",
+          "sys",
+          "time"
+        ],
+        "external": [
+          "match",
+          "referee"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/mathematical_candidates/source_archive.zip!bot.py",
+      "sha256": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/mathematical_candidates/source_archive.zip!evolution/__init__.py",
+      "sha256": "4acc044002188125c940ab3b5a69e2968bb27a2bfb8d79cf8c43cc3b8d1c2d2c",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/mathematical_candidates/source_archive.zip!evolution/genomes.py",
+      "sha256": "a16800b4daed6f4b78190db9db755ba17447c179d601a5a481754478f1ad70f2",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "ast",
+          "hashlib",
+          "math",
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/mathematical_candidates/source_archive.zip!evolution/maps.py",
+      "sha256": "e0c9328d89aff7ab23caa9a9fa6b672fc4074f66f57dd69678d1a121d5d679ef",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "hashlib",
+          "math",
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/mathematical_candidates/source_archive.zip!evolution/mathematical_candidates/archive_sources.py",
+      "sha256": "fd3b71d63624520d8539df6dbd077d99ba805d7c57f384d22b7e5f2b72a36382",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "hashlib",
+          "json",
+          "pathlib",
+          "zipfile"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/mathematical_candidates/source_archive.zip!evolution/mathematical_candidates/arrival_lifetime.py",
+      "sha256": "801e12ab60631ec1c16bf358a9d3d2db96f9a1e572b51f0f18e902f317881134",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/mathematical_candidates/source_archive.zip!evolution/mathematical_candidates/arrival_lifetime_depth2.py",
+      "sha256": "3a64f9d476a1021349a3aef2088e97995eacabbe9327e008e62305c5c5aa3ab2",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/mathematical_candidates/source_archive.zip!evolution/mathematical_candidates/audit_comparison.py",
+      "sha256": "1583f855c0a2671ea506b2955f56c76e532424b7d1c03de924605d9389ff4f58",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "argparse",
+          "ast",
+          "collections",
+          "concurrent",
+          "copy",
+          "evolution",
+          "gzip",
+          "hashlib",
+          "importlib",
+          "json",
+          "math",
+          "pathlib",
+          "random",
+          "tests",
+          "time"
+        ],
+        "external": [
+          "evolution",
+          "tests"
+        ],
+        "sensitive_calls": [
+          "compile",
+          "exec"
+        ],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/mathematical_candidates/source_archive.zip!evolution/mathematical_candidates/baseline_depth2.py",
+      "sha256": "747b732ef32a0a50e0ea76dd16b3f89f018ffced3ae99f3e211c09c7fce1d4ab",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/mathematical_candidates/source_archive.zip!evolution/mathematical_candidates/build_arrival.py",
+      "sha256": "9f088b7760ff853a648ec5e143253e7e3f65b60506af5e8f0ddbd921c73ea33f",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "evolution",
+          "hashlib",
+          "json",
+          "pathlib"
+        ],
+        "external": [
+          "evolution"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/mathematical_candidates/source_archive.zip!evolution/mathematical_candidates/mathematical_probes_a792fedac788.py",
+      "sha256": "a792fedac78859cd8544d6bf99ba039b91f4523997e686d05e4b8b15efbef31e",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "argparse",
+          "copy",
+          "evolution",
+          "hashlib",
+          "importlib",
+          "json",
+          "pathlib",
+          "tests"
+        ],
+        "external": [
+          "evolution",
+          "tests"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/mathematical_candidates/source_archive.zip!evolution/mathematical_candidates/mathematical_probes_f5f4745fa40a.py",
+      "sha256": "f5f4745fa40ac70f9fe093414056218a6747e519c607874dd4b06222d859180d",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "argparse",
+          "copy",
+          "evolution",
+          "hashlib",
+          "importlib",
+          "json",
+          "pathlib",
+          "tests"
+        ],
+        "external": [
+          "evolution",
+          "tests"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/mathematical_candidates/source_archive.zip!evolution/mathematical_candidates/record_validation.py",
+      "sha256": "098cb4030f300da6b3acc0a587d9eb8a02f72a500f40297c4f9f018e0cda1255",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "contextlib",
+          "hashlib",
+          "io",
+          "json",
+          "pathlib",
+          "platform",
+          "re",
+          "time",
+          "unittest"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/mathematical_candidates/source_archive.zip!evolution/mathematical_candidates/test_arrival.py",
+      "sha256": "f7ca305166a9e9262d8bd6c95b5ba32a4dcc55f17a66fe6f98d343713a54adb4",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "ast",
+          "build_arrival",
+          "evolution",
+          "hashlib",
+          "importlib",
+          "pathlib",
+          "random",
+          "tests",
+          "time",
+          "unittest"
+        ],
+        "external": [
+          "build_arrival",
+          "evolution",
+          "tests"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/mathematical_candidates/source_archive.zip!evolution/mathematical_candidates/test_mathematics.py",
+      "sha256": "f6bae8c644a2dfcbe6938109f8a6fd0184a51e4fb183047dffec7e2ba50c8863",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "evolution",
+          "fractions",
+          "simulator",
+          "unittest"
+        ],
+        "external": [
+          "evolution",
+          "simulator"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/mathematical_candidates/source_archive.zip!evolution/mathematical_probes.py",
+      "sha256": "fdd461e2fa48a617b2cabbb335be173fa160f145599d3ea3256c75c781bd0c93",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "argparse",
+          "copy",
+          "evolution",
+          "hashlib",
+          "importlib",
+          "json",
+          "pathlib",
+          "tests"
+        ],
+        "external": [
+          "evolution",
+          "tests"
+        ],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/mathematical_candidates/source_archive.zip!evolution/opponents.py",
+      "sha256": "b2b2c12cc3c27b209bd4af9089242f32c5128e17c411228e9bee4b692bf84c29",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/mathematical_candidates/source_archive.zip!evolution/runner.py",
+      "sha256": "bae5c92c51efa83eaef90db0ede9940be72201d2bb78e9d0527e3f6139d7503b",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "argparse",
+          "concurrent",
+          "copy",
+          "evolution",
+          "hashlib",
+          "json",
+          "math",
+          "os",
+          "pathlib",
+          "random",
+          "tests",
+          "time"
+        ],
+        "external": [
+          "evolution",
+          "tests"
+        ],
+        "sensitive_calls": [
+          "compile",
+          "exec"
+        ],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/mathematical_candidates/source_archive.zip!simulator/vendor_harness/referee.py",
+      "sha256": "f1125e8ceee664781827c670c0c4481da41a7ef41a4e5276d6b3b118274af337",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/mathematical_candidates/source_archive.zip!tests/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/mathematical_candidates/source_archive.zip!tests/reference_engine.py",
+      "sha256": "8f7b89995cad0f724fb8ac7c7bc8311a6fa9b3b722f2204097031ba2333726f4",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/confirmation_001/discovery_finalist.py",
+      "sha256": "8768c232dfa23b2b67c687f86c95bf341062929f386dfa0b94de23ff2a8de08d",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/confirmation_001/incumbent.py",
+      "sha256": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/discovery_001/incumbent.py",
+      "sha256": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/discovery_001/mutation_01.py",
+      "sha256": "def6a8585f26dc51df5d6be8dd59d39c35f53417e76bfa0fd9c54c5837608b7a",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/discovery_001/mutation_02.py",
+      "sha256": "1edc9d0c269328fb420ba582fed0bfa3cd46012c3dc354ea69275fa028088d4b",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/discovery_001/mutation_03.py",
+      "sha256": "4737b8184da3d392b44a6ab882cf916bc731c7497df5f6879ef9e53fcbe782bb",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/discovery_001/mutation_04.py",
+      "sha256": "0ae328cd6849545f4509fd3368247a0af9309e6f88418dc639772d900c73c795",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/discovery_001/mutation_05.py",
+      "sha256": "8768c232dfa23b2b67c687f86c95bf341062929f386dfa0b94de23ff2a8de08d",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/discovery_001/mutation_06.py",
+      "sha256": "5c79f7aad73d452381874a5391fa3416dd64bc815578e37e83bcd94c42247dbd",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/discovery_001/mutation_07.py",
+      "sha256": "35f76a6d091d6c14bd848e9e37d274258556f702020ee802518f860a7ac4fc62",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/0b1ab83af2078f0df4af850879a71c55fe3c9dd8705a8532af9038496200bea0.py",
+      "sha256": "1f39121ab611cf0fcbc931c5d1973240eef7468d05035c847e1306bac8c432fb",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/26c53cbb105668e5ab19843ae153c04e3ae3308d57007ab1d7f50252079f11dd.py",
+      "sha256": "651f76d932b503d30db5e812441d60905ad2d03fe8abcf498208b8da9d3c160b",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/2ee97b4f0f786917b47776f1c80506c671fe5916cba441afbfcd2b06ce8a89c5.py",
+      "sha256": "d22576ac14c2fb78b7522e1562dd5c92d0c372ba005f5fe66757f746bfeed523",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/31cb400e297074bf03de61425517d892231c9bdfaa17f06963cb8b754d0cc0e7.py",
+      "sha256": "75c815b0e25e371f836aaad6cbb5be1618e7de334ec8264c069470c952aa7704",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/332f38a76d36586855a808a9094b6e93830a88ffc02dfa488631cebfa397e982.py",
+      "sha256": "191059b371414fe10a78857de3ab0296ec1c80a6615f34cdd7fd0d0f7467ef69",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "_Core"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/38e4e6a0f8ed73aa3057975fab4802da2fec989812b21420b11a5109438457be.py",
+      "sha256": "b1f56f1d2d28b67beb2697791b983b9d773c28ce40a80b5fd52fd144ad18b2f1",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/38f32b0260415d625c245820f54f9f0299f3731aa9a9976c167df4f1fd50c431.py",
+      "sha256": "5db015ae27ed7f6da3fa2b96d9c00b3433a060ce4e9d51ae5b597dd8e6682924",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "_Core"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/3f6f13d7e3ba96f26deca9e8509f4282f52494248d055288582d9bbb947176ff.py",
+      "sha256": "aa308ce71155aeb1290de308f1d785bd2ac8ef6a8e3eb1c0d19840811d2f4f5f",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/407ff92668ba4d7a1e3cb92466b3547e96895517449f0912a6e7acd327c46c23.py",
+      "sha256": "2e044c4d24d90fa5472c023ede83b6652b3135025af4b8b0d63e0c6da6ce2d40",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/416d4ba94ab693d840da709751be669ac6d2f2f5e556ec881c3991c713316585.py",
+      "sha256": "ec6bfb8f29dd0721c785c7df5c2c806ca2fa7d758ba596e56db3f685bcfc0a3e",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/423c052840c68eded42ad061f0c69053b2738d4b85fc833c8f6684ad67b8f07f.py",
+      "sha256": "b9e2f84869a4a97c6490611c8d2831abc71e83fe95c39344ef8d5b210ad80879",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "_Core"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/461c60eb879f842490366d1508dd73dab974be8dbbb06dc349303393d701a507.py",
+      "sha256": "3598d1870493650f1172081481beaafeb03356dc51c03e4f955b0f9b83761f4e",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/46c984c5227ddb3c10f0753819c9d0ce0a6e26e1e352b258b464937104a4a0fc.py",
+      "sha256": "ea4d3771a167bc30d4ef1d8318ee629622f1d27b96c8b0896f8433676be68436",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/4c9bfe331cb0c3822d48a301a7ab8f664e2de691e51bb02c621c8dde40695ace.py",
+      "sha256": "2ffec027ad86162f47d048922e4c68f5fa1c698200e71ee1d626d5bc85f8ec20",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/509bfc28b8f535a4ef1cb9b657a87158e0563e02a7d5fa3871357d734d0011e5.py",
+      "sha256": "48a3b05a88b286aaaa666fabe2bda4fb19212b3a5ab03abedec1dbcfbc01091d",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/56826bd865a4ab55572e56e3b610f1d97bfd13981dd96a1904ebd5f5410fb2d6.py",
+      "sha256": "1f7ccdec4a24db278f6d0d635c58c8d67cbb66b03e0272d18f6c2eb40ed13f50",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/5b9ab664a41e5f47fee2e12d1a1dd3f14f01e727bb2ecdf89083c6fed53aed21.py",
+      "sha256": "97c5ab4c97b65d36349fea2767ebb9b62fcd70ed63d7ecb58272e8a573f7baba",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/5e9cd25c6f871cd3ccca52c8b252adcfd24011347ace749c7f14174648447763.py",
+      "sha256": "d000ed1bd98f0a46d83ed8db737913f0e069162cd6bd020db66729f501474cdf",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/62fc5c2cb75265589b914430a67c227fb7faa0a098a5496b8e59f4c063c937f6.py",
+      "sha256": "42bc3f43d67d791443438821fdf44d9199344903b8fbaf357f4e20f3afc7e662",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/6a52734787d5e9567c5ba15503228cb1c0aaa58483e63f7b58d17d824773d200.py",
+      "sha256": "709a5c02398f5df448aefa9f2c6c232933cb190bd3ab75575e4048865411d3e2",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "_Core"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/6adbda3902d11f15fc8fe1b5768fb44bda8739de6e15d2817e567271430916de.py",
+      "sha256": "ebfa5e8b51629bd7043875c433cfe7cf29d1dd668defec51d36bdc49a09e923a",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/7125545dbc07a83c6071f8369e3c1f854c328fbdbb393e247c1729619eb2fbe2.py",
+      "sha256": "5817910661054b91c6d0d4fea0e713298a8b0c76b910c3769a80126a0a87ffa3",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/7bad0473a439168a784f273c7ce215a49c00037fda867a2826303b9c83dcff4c.py",
+      "sha256": "8c0a5e14a6645b354681e16e2e47806507488c7a98e8261b930004e0fa294e8f",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/7d86c971d496e61ba63ce1800ba21b72c5fd23f1e98e13dbd9c13493a6b4a733.py",
+      "sha256": "15958cc8debfae38127ccc00cedece26acbc2f85b91c9cd479b63c306902c2e2",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/81b8d045c641731e84896e425a677b24cc78b25d18669bc175f0bd6636849539.py",
+      "sha256": "2a2563b3aaf4ccf1d254875953d2a353ea319b177e3ccd7aa577e7837889379a",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "_Core"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/85494cdb0619c62f3c32f25cb949c483294b72392d2ad62c37eb4bbbd6fdf49e.py",
+      "sha256": "b1c03b05de5accd90b253b46a7b29de92ef78d34d7c53a210b87cbc04f148fd0",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/85de8d708dc60fe05db9b85caddc9a37c4c843c7d05aec9b02d321990dd17dee.py",
+      "sha256": "d9d800393d9510d2d5af19592ecc1f96bc4216a1443734edf0a817adbb4ba797",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "_Core"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/87d682c02be96f4a3e7dbb4d79dc62ca7351d9b2fbf75494cfba411d5554de00.py",
+      "sha256": "2444d1714498444e9b7b8cbf0dd074bd2e05a24d8ce1698fe025fbcba707e700",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/889f2b6aed727065e1e685b4eeed1b3e81a2e3f9b0267e9cdcbef0f362d81367.py",
+      "sha256": "0bab0e69ac167251ab37e183e61ef2a03c99dc82e053790ba821f0e370940679",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/8aa2d05c477d1d9627bc4a0635b6245dcf8b3444a9f4e79b290fc5d8b140be61.py",
+      "sha256": "d631c112e332932f09bf271d23686db0247de7b87e8ffcd0dc00bd0b74d27b90",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/8d269f6f1cd96c3c4aeeaf2208efd05fcc414e2cc36796652e7e4d982e4fe392.py",
+      "sha256": "fbb732fdf81f71a26d523a574447123665295db84f9ffc44facddb6d8793d4be",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/9408af255ee060dc80cdf042eeb62ee34fe9ba9fae3c60adbc3c53560af21a10.py",
+      "sha256": "9496320d0850b8ca107b393f44a928848f8261aef69b888a0c9459e0841d8916",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/95884cdbeef20c985d1687ee7c63ba99e16d28c9d18c56f5fd97062ded37004c.py",
+      "sha256": "df8ae3ce630ecfa11eac00e9135178c7389808ef055c1eb70366d192d253b950",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/a1cdad51a76b1bd5eb3c9a51f17e9e3f47ad66ccc815261376229bd2ee04fd0f.py",
+      "sha256": "0dac7f82726dcb9c72631bd93c8ec771d0532689447a4b4a83247239fb3d1085",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/a2fe750349a9bd2f3bcb01cff1a5948598819b253ae6e0251bb038a75e8c0642.py",
+      "sha256": "88496d239f5d1c51954fa010ec21b897561f1b22a023fcadb20a77eac0739db6",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "_Core"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/af7f93db2cd4e2b81be8cf545e01a515816bf9c20150bf16d154507793c4979b.py",
+      "sha256": "ae807b1789e4e145774d86625933a51419e0bc5315b37ad0f38b0bbe6145fe15",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/bcde2db5b35775249054b4bda0e8c1aeb33e723c140375e98afb05e9d42f0b53.py",
+      "sha256": "2f2e047f45329a822e4e912bc2527e1eb7b135aa7e714b59fb28b1b56aceb49e",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/c3f25a6914192146fd62497a46f995e9f0ad56a7ea5c2d4dd27f14f595147902.py",
+      "sha256": "4d7c8e68b900c82402b93b1634ec866e050d523567eb43cbc16fdf2ef2f846e8",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/c5b5f1bcad3a4750f41d9fa29987c6fa76f659c23839f8872fef6d5d879d767e.py",
+      "sha256": "92f38af1a55979536940283c0d30585dcb2c287f126c1cd99b12818ce857bf47",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/cb4ad645b2358d5e61ba68c2a3960c8842a9673923214c64d22157d85c0f6498.py",
+      "sha256": "67e5e048ab10c13f6dd894bed7820aa67898a78b7318841086641f5a03f7ae77",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/cbf75bfc7b7087b84a695c2c6e9d65b43b217a0b2a6f6a30df0953ce6014fa38.py",
+      "sha256": "07ccfe799139b7e6fdf1f9aa1a280e466eb8fd1f1a09be62b576d3beb8cec714",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/d6b0712e7a313d814471de7f9e1fe41ea28541cf01707bb2db4e39621a10d34a.py",
+      "sha256": "93be906762852e707e78448e72df4aa5e2ef9cfeaeee716f5835adafb3a78c6b",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/db22f46555cd5e4f03831c2254753e674ea4dd1aaf4ab02795012b99d0c58bd7.py",
+      "sha256": "4cbe78f5d94128719a7e18f6a7c630c213b87f937500794d53deadd9c5842ed8",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/e3accb4a46596a157f0c2291d487b19d3235e788c44be5c029f57202806f617f.py",
+      "sha256": "cafa58d3140ce8930099480def0f04ea8136746d4e889be568e878617757d76c",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/ecdb930ba0e5977afe9e58cb92c83280f6f5dad4ed01d448506b411f2adbae76.py",
+      "sha256": "75d5ad95bb84449be1a51c1a17d4ed38c06b0381eea29462c5d227e88829f960",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/f3534dbfd7c25813bb60d9352ccc7668bfef19810988c274b278dd0cca0a0fea.py",
+      "sha256": "c54bc17924baa6e22e36999b2d48f79e0765e0d6003db9ed54e27ff2def684a2",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/fa9d68b71887396739904cd15a71152bb58be82c22e3e5eed5c7d6d530187c0e.py",
+      "sha256": "8e84ff655452551dcc63083b1582481b27968b1d2f6c17616098192f40133d42",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/fb3ed1dc2c8d66588aaa302be0549a22131bba3bbbb48af3f7fdee5045fc9d15.py",
+      "sha256": "047ed5d8391e3afb573cc58102a4105b5a4e348d168fdb3b08e1552f64818804",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "_Core"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!bot.py",
+      "sha256": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!evolution/genomes.py",
+      "sha256": "a16800b4daed6f4b78190db9db755ba17447c179d601a5a481754478f1ad70f2",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "ast",
+          "hashlib",
+          "math",
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!evolution/maps.py",
+      "sha256": "e0c9328d89aff7ab23caa9a9fa6b672fc4074f66f57dd69678d1a121d5d679ef",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "hashlib",
+          "math",
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!evolution/opponents.py",
+      "sha256": "b2b2c12cc3c27b209bd4af9089242f32c5128e17c411228e9bee4b692bf84c29",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!evolution/runner.py",
+      "sha256": "bae5c92c51efa83eaef90db0ede9940be72201d2bb78e9d0527e3f6139d7503b",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "argparse",
+          "concurrent",
+          "copy",
+          "evolution",
+          "hashlib",
+          "json",
+          "math",
+          "os",
+          "pathlib",
+          "random",
+          "tests",
+          "time"
+        ],
+        "external": [
+          "evolution",
+          "tests"
+        ],
+        "sensitive_calls": [
+          "compile",
+          "exec"
+        ],
+        "eligible": false
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!tester_bots/blocker.py",
+      "sha256": "1bb70109a75e2880bfdf3ac9b6fd8e368b0f3d02b9a3e65de53cef0defa505e5",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "_Core"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!tester_bots/racer.py",
+      "sha256": "a35c2c4811645091adef6cbd263f1573bf2b184d5dd5741a070234a422ce54c8",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "_Core"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!tester_bots/research_alternative.py",
+      "sha256": "6f2ac1487cd0a66793db3f2fab01f621d9c945a4f71a78cc92d176ef1de321f4",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      }
+    },
+    {
+      "path": "evolution/evidence/first_round_artifacts.zip!tests/reference_engine.py",
+      "sha256": "8f7b89995cad0f724fb8ac7c7bc8311a6fa9b3b722f2204097031ba2333726f4",
+      "audit": {
+        "parses": true,
+        "entry": false,
+        "classes": [],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": false
+      }
+    }
+  ],
+  "scope": "Late branch appeared after the first final completed. Root bot matches incumbent; additional tree and three research-archive standalone exports are frozen for supplementary evaluation. No original panels or decisions overwritten."
+}

@@ -1,0 +1,2881 @@
+{
+  "id": "all_branches_late_contract",
+  "stage": "late_contract",
+  "diagnostic": true,
+  "candidates": [
+    "bot_801e12ab6063",
+    "bot_3a64f9d476a1",
+    "bot_747b732ef32a",
+    "bot_8768c232dfa2",
+    "bot_def6a8585f26",
+    "bot_1edc9d0c2693",
+    "bot_4737b8184da3",
+    "bot_0ae328cd6849",
+    "bot_5c79f7aad73d",
+    "bot_35f76a6d091d",
+    "bot_1f39121ab611",
+    "bot_651f76d932b5",
+    "bot_d22576ac14c2",
+    "bot_75c815b0e25e",
+    "bot_191059b37141",
+    "bot_b1f56f1d2d28",
+    "bot_5db015ae27ed",
+    "bot_aa308ce71155",
+    "bot_2e044c4d24d9",
+    "bot_ec6bfb8f29dd",
+    "bot_b9e2f84869a4",
+    "bot_3598d1870493",
+    "bot_ea4d3771a167",
+    "bot_2ffec027ad86",
+    "bot_48a3b05a88b2",
+    "bot_1f7ccdec4a24",
+    "bot_97c5ab4c97b6",
+    "bot_d000ed1bd98f",
+    "bot_42bc3f43d67d",
+    "bot_709a5c02398f",
+    "bot_ebfa5e8b5162",
+    "bot_581791066105",
+    "bot_8c0a5e14a664",
+    "bot_15958cc8debf",
+    "bot_2a2563b3aaf4",
+    "bot_b1c03b05de5a",
+    "bot_d9d800393d95",
+    "bot_2444d1714498",
+    "bot_0bab0e69ac16",
+    "bot_d631c112e332",
+    "bot_fbb732fdf81f",
+    "bot_9496320d0850",
+    "bot_df8ae3ce630e",
+    "bot_0dac7f82726d",
+    "bot_88496d239f5d",
+    "bot_ae807b1789e4",
+    "bot_2f2e047f4532",
+    "bot_4d7c8e68b900",
+    "bot_92f38af1a559",
+    "bot_67e5e048ab10",
+    "bot_07ccfe799139",
+    "bot_93be90676285",
+    "bot_4cbe78f5d941",
+    "bot_cafa58d3140c",
+    "bot_75d5ad95bb84",
+    "bot_c54bc17924ba",
+    "bot_8e84ff655452",
+    "bot_047ed5d8391e"
+  ],
+  "sources": [
+    {
+      "name": "bot_11045a993b06",
+      "sha256": "11045a993b063465daa5571cee9ec876a37e1919cd9fb5d6dfe730f4fc5760e8",
+      "path": "consolidation_candidates/branch_audit/11045a993b063465daa5571cee9ec876a37e1919cd9fb5d6dfe730f4fc5760e8.py",
+      "aliases": [
+        {
+          "class_name": "IndependentFarmer",
+          "module": "audit/independent_bot.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "IndependentFarmer_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "audit/independent_bot.py",
+          "sha256": "93a046a0f4347290b46658d8be2c0e9c38ac5fa22dbb61063cf7d4ce4513005c"
+        }
+      ]
+    },
+    {
+      "name": "bot_238790102d13",
+      "sha256": "238790102d13451f5db99813deb27dc87b8fab3e5632cee568826575f69c1fa6",
+      "path": "consolidation_candidates/branch_audit/238790102d13451f5db99813deb27dc87b8fab3e5632cee568826575f69c1fa6.py",
+      "aliases": [
+        {
+          "class_name": "CamperBot",
+          "module": "zoo.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "CamperBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "zoo.py",
+          "sha256": "a07822d4a5d3245f83d29a55011e95dd0ff44c5781ca2b426df4c60e2e5de581"
+        }
+      ]
+    },
+    {
+      "name": "bot_25e30d29c248",
+      "sha256": "25e30d29c248a616fd55ad2b7f1221a4e093e9c8be93223fb8f56cdd5616f441",
+      "path": "consolidation_candidates/branch_audit/25e30d29c248a616fd55ad2b7f1221a4e093e9c8be93223fb8f56cdd5616f441.py",
+      "aliases": [
+        {
+          "class_name": "CooldownRaiderBot",
+          "module": "holdout.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "CooldownRaiderBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "zoo.py",
+          "sha256": "a07822d4a5d3245f83d29a55011e95dd0ff44c5781ca2b426df4c60e2e5de581"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "holdout.py",
+          "sha256": "8ea4cfbeaa774965a36a11e087a714eff3fb6c3a60997eb8228323f7cd24a8fc"
+        }
+      ]
+    },
+    {
+      "name": "bot_3927b1a0ccb6",
+      "sha256": "3927b1a0ccb6e6288803160ba6511c28cf89119aaca6df720617675cc66f02f4",
+      "path": "consolidation_candidates/branch_audit/3927b1a0ccb6e6288803160ba6511c28cf89119aaca6df720617675cc66f02f4.py",
+      "aliases": [
+        {
+          "class_name": "ProBot",
+          "module": "probot.py",
+          "variant": "frozen_v1",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "ProBot_frozen_v1"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "probot.py",
+          "sha256": "63d906ecc29373e6b0f3578f979153f67d422a62c79ae1f21e283d1f5c03f5a1"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "pro_params_v1.json",
+          "sha256": "f81079605afbd2e28e5bb84f23b8917f5b76416ecc2491768097b746cd673766"
+        }
+      ]
+    },
+    {
+      "name": "bot_3ac6d190b421",
+      "sha256": "3ac6d190b421360939e71c13fb7c5a70b937a246b6fd8631ba35f97e36ce71cd",
+      "path": "consolidation_candidates/branch_audit/3ac6d190b421360939e71c13fb7c5a70b937a246b6fd8631ba35f97e36ce71cd.py",
+      "aliases": [
+        {
+          "class_name": "MarginalBot",
+          "module": "aifield.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "MarginalBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "aifield.py",
+          "sha256": "32bc735b599bf3db8c3e416fef34b99507584d87bc20144d967fd4e16175fcd6"
+        }
+      ]
+    },
+    {
+      "name": "bot_479793996c3b",
+      "sha256": "479793996c3bf8afd8df9614699f7cd8793c9a473b838bc08a659c14bf3f0b99",
+      "path": "consolidation_candidates/branch_audit/479793996c3bf8afd8df9614699f7cd8793c9a473b838bc08a659c14bf3f0b99.py",
+      "aliases": [
+        {
+          "class_name": "StayBot",
+          "module": "zoo.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "StayBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "zoo.py",
+          "sha256": "a07822d4a5d3245f83d29a55011e95dd0ff44c5781ca2b426df4c60e2e5de581"
+        }
+      ]
+    },
+    {
+      "name": "bot_514775d141be",
+      "sha256": "514775d141be466c6507fca74e3b99594920d1151f27f0d6d3d124d800e9fa87",
+      "path": "consolidation_candidates/branch_audit/514775d141be466c6507fca74e3b99594920d1151f27f0d6d3d124d800e9fa87.py",
+      "aliases": [
+        {
+          "class_name": "ProBot",
+          "module": "probot.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "ProBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "probot.py",
+          "sha256": "63d906ecc29373e6b0f3578f979153f67d422a62c79ae1f21e283d1f5c03f5a1"
+        }
+      ]
+    },
+    {
+      "name": "bot_53f876827a9f",
+      "sha256": "53f876827a9f6987b9483003ae8bdd7714e67d7116bff109007b3fafbf3f1109",
+      "path": "consolidation_candidates/branch_audit/53f876827a9f6987b9483003ae8bdd7714e67d7116bff109007b3fafbf3f1109.py",
+      "aliases": [
+        {
+          "class_name": "IndependentRaider",
+          "module": "audit/independent_bot.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "IndependentRaider_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "audit/independent_bot.py",
+          "sha256": "93a046a0f4347290b46658d8be2c0e9c38ac5fa22dbb61063cf7d4ce4513005c"
+        }
+      ]
+    },
+    {
+      "name": "bot_684566ff8ecc",
+      "sha256": "684566ff8ecc2afa8c078a2c5fe8a24b865b88625aaf9ccb5fd44eaede24083a",
+      "path": "consolidation_candidates/branch_audit/684566ff8ecc2afa8c078a2c5fe8a24b865b88625aaf9ccb5fd44eaede24083a.py",
+      "aliases": [
+        {
+          "class_name": "CheapRaiderBot",
+          "module": "aifield.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "CheapRaiderBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "aifield.py",
+          "sha256": "32bc735b599bf3db8c3e416fef34b99507584d87bc20144d967fd4e16175fcd6"
+        }
+      ]
+    },
+    {
+      "name": "bot_815918c3a2db",
+      "sha256": "815918c3a2db14c07f694a32a7e6f9f752b989e2952554cb2ce60e63810c0ae9",
+      "path": "consolidation_candidates/branch_audit/815918c3a2db14c07f694a32a7e6f9f752b989e2952554cb2ce60e63810c0ae9.py",
+      "aliases": [
+        {
+          "class_name": "TurtleBot",
+          "module": "holdout.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "TurtleBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "zoo.py",
+          "sha256": "a07822d4a5d3245f83d29a55011e95dd0ff44c5781ca2b426df4c60e2e5de581"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "holdout.py",
+          "sha256": "8ea4cfbeaa774965a36a11e087a714eff3fb6c3a60997eb8228323f7cd24a8fc"
+        }
+      ]
+    },
+    {
+      "name": "bot_84043e975773",
+      "sha256": "84043e97577386dfd7c2c8905819e6f78685a7e21a76b9f72fb36635c7b88a82",
+      "path": "consolidation_candidates/branch_audit/84043e97577386dfd7c2c8905819e6f78685a7e21a76b9f72fb36635c7b88a82.py",
+      "aliases": [
+        {
+          "class_name": "HomeFortBot",
+          "module": "aifield.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "HomeFortBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "aifield.py",
+          "sha256": "32bc735b599bf3db8c3e416fef34b99507584d87bc20144d967fd4e16175fcd6"
+        }
+      ]
+    },
+    {
+      "name": "bot_8cbef7eccb4e",
+      "sha256": "8cbef7eccb4e1d8ab9dcb21d0d768295cfec530dc3deb05262fbdbd38cf96a2e",
+      "path": "consolidation_candidates/branch_audit/8cbef7eccb4e1d8ab9dcb21d0d768295cfec530dc3deb05262fbdbd38cf96a2e.py",
+      "aliases": [
+        {
+          "class_name": "EloEndgameBot",
+          "module": "aifield.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "EloEndgameBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "aifield.py",
+          "sha256": "32bc735b599bf3db8c3e416fef34b99507584d87bc20144d967fd4e16175fcd6"
+        }
+      ]
+    },
+    {
+      "name": "bot_91d888bad7fc",
+      "sha256": "91d888bad7fcf6a7246ac96ea9cb7badfb09f74261879e9c6b8428efeb2025df",
+      "path": "consolidation_candidates/branch_audit/91d888bad7fcf6a7246ac96ea9cb7badfb09f74261879e9c6b8428efeb2025df.py",
+      "aliases": [
+        {
+          "class_name": "RaiderBot",
+          "module": "zoo.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "RaiderBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "zoo.py",
+          "sha256": "a07822d4a5d3245f83d29a55011e95dd0ff44c5781ca2b426df4c60e2e5de581"
+        }
+      ]
+    },
+    {
+      "name": "bot_b64da0272cbb",
+      "sha256": "b64da0272cbbaa782e6af251ee0fdae69fc0120ed228c51534a30da00d6bc2f6",
+      "path": "consolidation_candidates/branch_audit/b64da0272cbbaa782e6af251ee0fdae69fc0120ed228c51534a30da00d6bc2f6.py",
+      "aliases": [
+        {
+          "class_name": "CooldownHawkBot",
+          "module": "aifield.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "CooldownHawkBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "aifield.py",
+          "sha256": "32bc735b599bf3db8c3e416fef34b99507584d87bc20144d967fd4e16175fcd6"
+        }
+      ]
+    },
+    {
+      "name": "bot_b73d70bcda60",
+      "sha256": "b73d70bcda60235d5b751f154f305cb8fefef7286b54920d7f75b01d13e2c4a3",
+      "path": "consolidation_candidates/branch_audit/b73d70bcda60235d5b751f154f305cb8fefef7286b54920d7f75b01d13e2c4a3.py",
+      "aliases": [
+        {
+          "class_name": "RandomBot",
+          "module": "zoo.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "RandomBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "zoo.py",
+          "sha256": "a07822d4a5d3245f83d29a55011e95dd0ff44c5781ca2b426df4c60e2e5de581"
+        }
+      ]
+    },
+    {
+      "name": "bot_c03a13ea7349",
+      "sha256": "c03a13ea7349b86bcbb4552964d926d1f2cbb760afadd35a54fd59787bf5640c",
+      "path": "consolidation_candidates/branch_audit/c03a13ea7349b86bcbb4552964d926d1f2cbb760afadd35a54fd59787bf5640c.py",
+      "aliases": [
+        {
+          "class_name": "GreedyValueBot",
+          "module": "zoo.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "GreedyValueBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "zoo.py",
+          "sha256": "a07822d4a5d3245f83d29a55011e95dd0ff44c5781ca2b426df4c60e2e5de581"
+        }
+      ]
+    },
+    {
+      "name": "bot_c3621deb6773",
+      "sha256": "c3621deb67731fd2392bc26257c2c95c378a0c123ee9404b795643405181e018",
+      "path": "consolidation_candidates/branch_audit/c3621deb67731fd2392bc26257c2c95c378a0c123ee9404b795643405181e018.py",
+      "aliases": [
+        {
+          "class_name": "PacifistBot",
+          "module": "zoo.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "PacifistBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "zoo.py",
+          "sha256": "a07822d4a5d3245f83d29a55011e95dd0ff44c5781ca2b426df4c60e2e5de581"
+        }
+      ]
+    },
+    {
+      "name": "bot_c3f7d36077ad",
+      "sha256": "c3f7d36077ad8bea61d6ac5e51429d7ac406c91e8337f6b3435739fbd741a52e",
+      "path": "consolidation_candidates/branch_audit/c3f7d36077ad8bea61d6ac5e51429d7ac406c91e8337f6b3435739fbd741a52e.py",
+      "aliases": [
+        {
+          "class_name": "RouteBot",
+          "module": "aifield.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "RouteBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "aifield.py",
+          "sha256": "32bc735b599bf3db8c3e416fef34b99507584d87bc20144d967fd4e16175fcd6"
+        }
+      ]
+    },
+    {
+      "name": "bot_cc26fd640c08",
+      "sha256": "cc26fd640c08828424b29d1d36a4cec7577c30e706b1da02614cda60b78c058f",
+      "path": "consolidation_candidates/branch_audit/cc26fd640c08828424b29d1d36a4cec7577c30e706b1da02614cda60b78c058f.py",
+      "aliases": [
+        {
+          "class_name": "CentreRushBot",
+          "module": "holdout.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "CentreRushBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "zoo.py",
+          "sha256": "a07822d4a5d3245f83d29a55011e95dd0ff44c5781ca2b426df4c60e2e5de581"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "holdout.py",
+          "sha256": "8ea4cfbeaa774965a36a11e087a714eff3fb6c3a60997eb8228323f7cd24a8fc"
+        }
+      ]
+    },
+    {
+      "name": "bot_cc3cb316bbc4",
+      "sha256": "cc3cb316bbc4fd149ba1235aea5f2d6b234e5807fbf5b3636f1adf43f2b4eebc",
+      "path": "consolidation_candidates/branch_audit/cc3cb316bbc4fd149ba1235aea5f2d6b234e5807fbf5b3636f1adf43f2b4eebc.py",
+      "aliases": [
+        {
+          "class_name": "NNAgent",
+          "module": "nnbot.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "NNAgent_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "mybot.py",
+          "sha256": "f7ec724c1473b23104a25c47a2fbc9e5f54e8ee476c5c91930b3dd3b120b670e"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "nnbot.py",
+          "sha256": "daad28bc4276603e0bc395e03994edc92c2cbcfb6a058e56c891e82bd28398ea"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "nn_policy.json",
+          "sha256": "2d7555fdaa161a2e42a62f13053caf171e4145be2a6c3b0d6f8e1baa6be8ea52"
+        }
+      ]
+    },
+    {
+      "name": "bot_e60cf4147155",
+      "sha256": "e60cf414715554ff673f34c7527286f4c9833189a69a714316633acc4bd2eb51",
+      "path": "consolidation_candidates/branch_audit/e60cf414715554ff673f34c7527286f4c9833189a69a714316633acc4bd2eb51.py",
+      "aliases": [
+        {
+          "class_name": "BaiterBot",
+          "module": "zoo.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "BaiterBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "zoo.py",
+          "sha256": "a07822d4a5d3245f83d29a55011e95dd0ff44c5781ca2b426df4c60e2e5de581"
+        }
+      ]
+    },
+    {
+      "name": "bot_e89042e60e73",
+      "sha256": "e89042e60e7393644df8ee166de074f0a81718d8903c3fe76db75f73be7475b4",
+      "path": "consolidation_candidates/branch_audit/e89042e60e7393644df8ee166de074f0a81718d8903c3fe76db75f73be7475b4.py",
+      "aliases": [
+        {
+          "class_name": "SpineFarmerBot",
+          "module": "zoo.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "SpineFarmerBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "zoo.py",
+          "sha256": "a07822d4a5d3245f83d29a55011e95dd0ff44c5781ca2b426df4c60e2e5de581"
+        }
+      ]
+    },
+    {
+      "name": "bot_ede52321b2c5",
+      "sha256": "ede52321b2c567c8a5c7f2c48396ed1f2450d6d859e7fa5c3e3b53f793396b58",
+      "path": "consolidation_candidates/branch_audit/ede52321b2c567c8a5c7f2c48396ed1f2450d6d859e7fa5c3e3b53f793396b58.py",
+      "aliases": [
+        {
+          "class_name": "GreedyShieldBot",
+          "module": "zoo.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "GreedyShieldBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "zoo.py",
+          "sha256": "a07822d4a5d3245f83d29a55011e95dd0ff44c5781ca2b426df4c60e2e5de581"
+        }
+      ]
+    },
+    {
+      "name": "bot_edee7e6993e1",
+      "sha256": "edee7e6993e1198af189402d99770338d73ade8dc42c9a950f76de2ca49e80ce",
+      "path": "consolidation_candidates/branch_audit/edee7e6993e1198af189402d99770338d73ade8dc42c9a950f76de2ca49e80ce.py",
+      "aliases": [
+        {
+          "class_name": "CentreLockBot",
+          "module": "aifield.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "CentreLockBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "aifield.py",
+          "sha256": "32bc735b599bf3db8c3e416fef34b99507584d87bc20144d967fd4e16175fcd6"
+        }
+      ]
+    },
+    {
+      "name": "bot_f7f9acb0057b",
+      "sha256": "f7f9acb0057bc18b42c44b303a810a0df6fe0868a341a433579894c3f3dda723",
+      "path": "consolidation_candidates/branch_audit/f7f9acb0057bc18b42c44b303a810a0df6fe0868a341a433579894c3f3dda723.py",
+      "aliases": [
+        {
+          "class_name": "LeaderHunterBot",
+          "module": "holdout.py",
+          "variant": "default",
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68"
+        }
+      ],
+      "registered_names": [
+        "LeaderHunterBot_default"
+      ],
+      "build_inputs": [
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "botlib.py",
+          "sha256": "bdd4a91b9ac00ecf524ed945afae9f2542d856656554c6333ee0649411e9b2bf"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "zoo.py",
+          "sha256": "a07822d4a5d3245f83d29a55011e95dd0ff44c5781ca2b426df4c60e2e5de581"
+        },
+        {
+          "commit": "3e787a9828e83e864f99e2f3241ddf2e3df96e68",
+          "path": "holdout.py",
+          "sha256": "8ea4cfbeaa774965a36a11e087a714eff3fb6c3a60997eb8228323f7cd24a8fc"
+        }
+      ]
+    },
+    {
+      "name": "novel_0412b54e3ab1",
+      "path": "consolidation_candidates/branch_audit/0412b54e3ab14211e6dc211472ffddb3b1ea2489ecac77c5115ddb5dc0085d2b.py",
+      "sha256": "0412b54e3ab14211e6dc211472ffddb3b1ea2489ecac77c5115ddb5dc0085d2b",
+      "role": "fresh-opponent",
+      "configuration": {
+        "seed": 1598449490,
+        "family": "time_discount",
+        "claim": 1.2480598547738246,
+        "upgrade": 1.1198284076989953,
+        "raid": 0.7809996170592037,
+        "stick": 1.3278560601858438,
+        "power": 1.0589108558555704,
+        "shield": 0.7302513568154816,
+        "period": 16,
+        "phase": 0
+      },
+      "generation": {
+        "stage": "contracts_extra",
+        "map_group": 1,
+        "field": "novel_economy",
+        "slot": 0
+      }
+    },
+    {
+      "name": "novel_0cd7e175e625",
+      "path": "consolidation_candidates/branch_audit/0cd7e175e6251baec478a74abd9fd5eed3ef5421b6d8467bafcda571f8864bf9.py",
+      "sha256": "0cd7e175e6251baec478a74abd9fd5eed3ef5421b6d8467bafcda571f8864bf9",
+      "role": "fresh-opponent",
+      "configuration": {
+        "seed": 437574029,
+        "family": "time_discount",
+        "claim": 0.8838410542254359,
+        "upgrade": 1.2709496002798004,
+        "raid": 0.35798508070265456,
+        "stick": 1.3482082321777435,
+        "power": 0.9482303251027533,
+        "shield": 0.9119872986859976,
+        "period": 13,
+        "phase": 0
+      },
+      "generation": {
+        "stage": "contracts_extra",
+        "map_group": 0,
+        "field": "novel_economy",
+        "slot": 0
+      }
+    },
+    {
+      "name": "novel_180e7a921c02",
+      "path": "consolidation_candidates/branch_audit/180e7a921c02f5d85540a59442ece7b1dca377af3cf17ae1108f3aa2a564ac7a.py",
+      "sha256": "180e7a921c02f5d85540a59442ece7b1dca377af3cf17ae1108f3aa2a564ac7a",
+      "role": "fresh-opponent",
+      "configuration": {
+        "seed": 795247492,
+        "family": "time_discount",
+        "claim": 0.850408050552443,
+        "upgrade": 1.6383688576267896,
+        "raid": 0.40903646175290737,
+        "stick": 1.217520817370666,
+        "power": 1.1095933132305382,
+        "shield": 0.6753045912017083,
+        "period": 12,
+        "phase": 1
+      },
+      "generation": {
+        "stage": "contracts_extra",
+        "map_group": 2,
+        "field": "novel_economy",
+        "slot": 0
+      }
+    },
+    {
+      "name": "novel_45d91a14843a",
+      "path": "consolidation_candidates/branch_audit/45d91a14843a7a79aa5b69d09f09b7ec5c9d40b4921087b5fa4364044a2806ea.py",
+      "sha256": "45d91a14843a7a79aa5b69d09f09b7ec5c9d40b4921087b5fa4364044a2806ea",
+      "role": "fresh-opponent",
+      "configuration": {
+        "seed": 1336173911,
+        "family": "time_discount",
+        "claim": 0.9479009071723065,
+        "upgrade": 1.5107675286981566,
+        "raid": 0.37819399249307495,
+        "stick": 1.2716615934039608,
+        "power": 1.1364987064874628,
+        "shield": 0.8574782253141824,
+        "period": 9,
+        "phase": 0
+      },
+      "generation": {
+        "stage": "contracts_extra",
+        "map_group": 0,
+        "field": "novel_economy",
+        "slot": 1
+      }
+    },
+    {
+      "name": "novel_492aa8a38c12",
+      "path": "consolidation_candidates/branch_audit/492aa8a38c12c0140a8d16ba9fbcc29a09bb800b7af5eb61f2718ed371788add.py",
+      "sha256": "492aa8a38c12c0140a8d16ba9fbcc29a09bb800b7af5eb61f2718ed371788add",
+      "role": "fresh-opponent",
+      "configuration": {
+        "seed": 1579487285,
+        "family": "district_rate",
+        "claim": 1.078244709873339,
+        "upgrade": 1.0608126248193244,
+        "raid": 0.39579953285448416,
+        "stick": 1.1813392433600602,
+        "power": 0.8997476654363833,
+        "shield": 0.88495152283061,
+        "period": 15,
+        "phase": 1
+      },
+      "generation": {
+        "stage": "contracts_extra",
+        "map_group": 1,
+        "field": "novel_economy",
+        "slot": 1
+      }
+    },
+    {
+      "name": "novel_5d887fd38c8f",
+      "path": "consolidation_candidates/branch_audit/5d887fd38c8f631d6993d153b68f265316626b9f11472bcea0d148e1f85d185f.py",
+      "sha256": "5d887fd38c8f631d6993d153b68f265316626b9f11472bcea0d148e1f85d185f",
+      "role": "fresh-opponent",
+      "configuration": {
+        "seed": 1722284528,
+        "family": "district_rate",
+        "claim": 0.9107813835603191,
+        "upgrade": 1.2808576961839242,
+        "raid": 0.7941918609240322,
+        "stick": 1.1082796587101633,
+        "power": 0.9292133198537982,
+        "shield": 0.8935175467889594,
+        "period": 10,
+        "phase": 0
+      },
+      "generation": {
+        "stage": "contracts_extra",
+        "map_group": 3,
+        "field": "novel_economy",
+        "slot": 1
+      }
+    },
+    {
+      "name": "novel_84bb59a0fb04",
+      "path": "consolidation_candidates/branch_audit/84bb59a0fb046b0fe14256578413e7f5ad7f9f03ab58fc4981ee5b103e8cef4c.py",
+      "sha256": "84bb59a0fb046b0fe14256578413e7f5ad7f9f03ab58fc4981ee5b103e8cef4c",
+      "role": "fresh-opponent",
+      "configuration": {
+        "seed": 1620847498,
+        "family": "time_discount",
+        "claim": 0.9004625339758487,
+        "upgrade": 1.3190444999963213,
+        "raid": 0.37141536211498,
+        "stick": 1.0915422589059165,
+        "power": 0.9378374042977329,
+        "shield": 0.8403210608352978,
+        "period": 11,
+        "phase": 0
+      },
+      "generation": {
+        "stage": "contracts_extra",
+        "map_group": 2,
+        "field": "novel_economy",
+        "slot": 1
+      }
+    },
+    {
+      "name": "novel_97df8781064e",
+      "path": "consolidation_candidates/branch_audit/97df8781064edacff0d31e9182f86a09e9db331d33a8711071e25822544e05ca.py",
+      "sha256": "97df8781064edacff0d31e9182f86a09e9db331d33a8711071e25822544e05ca",
+      "role": "fresh-opponent",
+      "configuration": {
+        "seed": 941060464,
+        "family": "district_rate",
+        "claim": 0.9972134766756356,
+        "upgrade": 1.401747309257433,
+        "raid": 0.5404361755269402,
+        "stick": 1.0882770768651453,
+        "power": 0.855141694479437,
+        "shield": 0.9347280467314418,
+        "period": 17,
+        "phase": 1
+      },
+      "generation": {
+        "stage": "contracts_extra",
+        "map_group": 1,
+        "field": "novel_economy",
+        "slot": 2
+      }
+    },
+    {
+      "name": "novel_aabbd479dd2f",
+      "path": "consolidation_candidates/branch_audit/aabbd479dd2f8da3c48a9dd07b2d187a81c5bc6b71749cb7fd4b97427b219f4d.py",
+      "sha256": "aabbd479dd2f8da3c48a9dd07b2d187a81c5bc6b71749cb7fd4b97427b219f4d",
+      "role": "fresh-opponent",
+      "configuration": {
+        "seed": 844534885,
+        "family": "district_rate",
+        "claim": 1.2113750080837058,
+        "upgrade": 1.4411482307769892,
+        "raid": 0.6125873378727227,
+        "stick": 1.3491928508693165,
+        "power": 0.9760395777396864,
+        "shield": 0.7552096625584295,
+        "period": 8,
+        "phase": 0
+      },
+      "generation": {
+        "stage": "contracts_extra",
+        "map_group": 2,
+        "field": "novel_economy",
+        "slot": 2
+      }
+    },
+    {
+      "name": "novel_d32f99f7a06e",
+      "path": "consolidation_candidates/branch_audit/d32f99f7a06e2bbadec425710cb19afddafb22a6f3d9807da259eb19e1818b9f.py",
+      "sha256": "d32f99f7a06e2bbadec425710cb19afddafb22a6f3d9807da259eb19e1818b9f",
+      "role": "fresh-opponent",
+      "configuration": {
+        "seed": 1529725186,
+        "family": "time_discount",
+        "claim": 1.002193324410658,
+        "upgrade": 1.3543864967577748,
+        "raid": 0.8147515085459889,
+        "stick": 1.3414501727512667,
+        "power": 1.1056353789138915,
+        "shield": 0.7045867045675177,
+        "period": 8,
+        "phase": 1
+      },
+      "generation": {
+        "stage": "contracts_extra",
+        "map_group": 0,
+        "field": "novel_economy",
+        "slot": 2
+      }
+    },
+    {
+      "name": "novel_e305df54207d",
+      "path": "consolidation_candidates/branch_audit/e305df54207de7677fdc0388bfb7ff1cc94d1f263c10e2273cc64f7a033ba321.py",
+      "sha256": "e305df54207de7677fdc0388bfb7ff1cc94d1f263c10e2273cc64f7a033ba321",
+      "role": "fresh-opponent",
+      "configuration": {
+        "seed": 1697937187,
+        "family": "district_rate",
+        "claim": 0.9158303439382255,
+        "upgrade": 1.4882998525792648,
+        "raid": 0.5660283185396517,
+        "stick": 1.083245109583523,
+        "power": 0.9663033096464545,
+        "shield": 0.6913631919118826,
+        "period": 14,
+        "phase": 0
+      },
+      "generation": {
+        "stage": "contracts_extra",
+        "map_group": 3,
+        "field": "novel_economy",
+        "slot": 0
+      }
+    },
+    {
+      "name": "novel_f158838067bd",
+      "path": "consolidation_candidates/branch_audit/f158838067bdd9a42dcc27fbf43c7290edaefd8b374fe73dd65b3583be3565ac.py",
+      "sha256": "f158838067bdd9a42dcc27fbf43c7290edaefd8b374fe73dd65b3583be3565ac",
+      "role": "fresh-opponent",
+      "configuration": {
+        "seed": 1208189026,
+        "family": "time_discount",
+        "claim": 1.1433134739974058,
+        "upgrade": 1.6131547289487536,
+        "raid": 0.3698501689382417,
+        "stick": 1.0976266204451537,
+        "power": 1.0696335986617764,
+        "shield": 0.8051365140051607,
+        "period": 17,
+        "phase": 0
+      },
+      "generation": {
+        "stage": "contracts_extra",
+        "map_group": 3,
+        "field": "novel_economy",
+        "slot": 2
+      }
+    },
+    {
+      "name": "bot_801e12ab6063",
+      "sha256": "801e12ab60631ec1c16bf358a9d3d2db96f9a1e572b51f0f18e902f317881134",
+      "path": "consolidation_candidates/branch_audit/801e12ab60631ec1c16bf358a9d3d2db96f9a1e572b51f0f18e902f317881134.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/mathematical_candidates/arrival_lifetime.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        },
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/mathematical_candidates/source_archive.zip!evolution/mathematical_candidates/arrival_lifetime.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_3a64f9d476a1",
+      "sha256": "3a64f9d476a1021349a3aef2088e97995eacabbe9327e008e62305c5c5aa3ab2",
+      "path": "consolidation_candidates/branch_audit/3a64f9d476a1021349a3aef2088e97995eacabbe9327e008e62305c5c5aa3ab2.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/mathematical_candidates/arrival_lifetime_depth2.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        },
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/mathematical_candidates/source_archive.zip!evolution/mathematical_candidates/arrival_lifetime_depth2.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_747b732ef32a",
+      "sha256": "747b732ef32a0a50e0ea76dd16b3f89f018ffced3ae99f3e211c09c7fce1d4ab",
+      "path": "consolidation_candidates/branch_audit/747b732ef32a0a50e0ea76dd16b3f89f018ffced3ae99f3e211c09c7fce1d4ab.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/mathematical_candidates/baseline_depth2.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        },
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/mathematical_candidates/source_archive.zip!evolution/mathematical_candidates/baseline_depth2.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_8768c232dfa2",
+      "sha256": "8768c232dfa23b2b67c687f86c95bf341062929f386dfa0b94de23ff2a8de08d",
+      "path": "consolidation_candidates/branch_audit/8768c232dfa23b2b67c687f86c95bf341062929f386dfa0b94de23ff2a8de08d.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/confirmation_001/discovery_finalist.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        },
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/discovery_001/mutation_05.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_def6a8585f26",
+      "sha256": "def6a8585f26dc51df5d6be8dd59d39c35f53417e76bfa0fd9c54c5837608b7a",
+      "path": "consolidation_candidates/branch_audit/def6a8585f26dc51df5d6be8dd59d39c35f53417e76bfa0fd9c54c5837608b7a.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/discovery_001/mutation_01.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_1edc9d0c2693",
+      "sha256": "1edc9d0c269328fb420ba582fed0bfa3cd46012c3dc354ea69275fa028088d4b",
+      "path": "consolidation_candidates/branch_audit/1edc9d0c269328fb420ba582fed0bfa3cd46012c3dc354ea69275fa028088d4b.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/discovery_001/mutation_02.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_4737b8184da3",
+      "sha256": "4737b8184da3d392b44a6ab882cf916bc731c7497df5f6879ef9e53fcbe782bb",
+      "path": "consolidation_candidates/branch_audit/4737b8184da3d392b44a6ab882cf916bc731c7497df5f6879ef9e53fcbe782bb.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/discovery_001/mutation_03.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_0ae328cd6849",
+      "sha256": "0ae328cd6849545f4509fd3368247a0af9309e6f88418dc639772d900c73c795",
+      "path": "consolidation_candidates/branch_audit/0ae328cd6849545f4509fd3368247a0af9309e6f88418dc639772d900c73c795.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/discovery_001/mutation_04.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_5c79f7aad73d",
+      "sha256": "5c79f7aad73d452381874a5391fa3416dd64bc815578e37e83bcd94c42247dbd",
+      "path": "consolidation_candidates/branch_audit/5c79f7aad73d452381874a5391fa3416dd64bc815578e37e83bcd94c42247dbd.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/discovery_001/mutation_06.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_35f76a6d091d",
+      "sha256": "35f76a6d091d6c14bd848e9e37d274258556f702020ee802518f860a7ac4fc62",
+      "path": "consolidation_candidates/branch_audit/35f76a6d091d6c14bd848e9e37d274258556f702020ee802518f860a7ac4fc62.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/discovery_001/mutation_07.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_1f39121ab611",
+      "sha256": "1f39121ab611cf0fcbc931c5d1973240eef7468d05035c847e1306bac8c432fb",
+      "path": "consolidation_candidates/branch_audit/1f39121ab611cf0fcbc931c5d1973240eef7468d05035c847e1306bac8c432fb.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/0b1ab83af2078f0df4af850879a71c55fe3c9dd8705a8532af9038496200bea0.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_651f76d932b5",
+      "sha256": "651f76d932b503d30db5e812441d60905ad2d03fe8abcf498208b8da9d3c160b",
+      "path": "consolidation_candidates/branch_audit/651f76d932b503d30db5e812441d60905ad2d03fe8abcf498208b8da9d3c160b.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/26c53cbb105668e5ab19843ae153c04e3ae3308d57007ab1d7f50252079f11dd.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_d22576ac14c2",
+      "sha256": "d22576ac14c2fb78b7522e1562dd5c92d0c372ba005f5fe66757f746bfeed523",
+      "path": "consolidation_candidates/branch_audit/d22576ac14c2fb78b7522e1562dd5c92d0c372ba005f5fe66757f746bfeed523.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/2ee97b4f0f786917b47776f1c80506c671fe5916cba441afbfcd2b06ce8a89c5.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_75c815b0e25e",
+      "sha256": "75c815b0e25e371f836aaad6cbb5be1618e7de334ec8264c069470c952aa7704",
+      "path": "consolidation_candidates/branch_audit/75c815b0e25e371f836aaad6cbb5be1618e7de334ec8264c069470c952aa7704.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/31cb400e297074bf03de61425517d892231c9bdfaa17f06963cb8b754d0cc0e7.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_191059b37141",
+      "sha256": "191059b371414fe10a78857de3ab0296ec1c80a6615f34cdd7fd0d0f7467ef69",
+      "path": "consolidation_candidates/branch_audit/191059b371414fe10a78857de3ab0296ec1c80a6615f34cdd7fd0d0f7467ef69.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "_Core"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/332f38a76d36586855a808a9094b6e93830a88ffc02dfa488631cebfa397e982.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_b1f56f1d2d28",
+      "sha256": "b1f56f1d2d28b67beb2697791b983b9d773c28ce40a80b5fd52fd144ad18b2f1",
+      "path": "consolidation_candidates/branch_audit/b1f56f1d2d28b67beb2697791b983b9d773c28ce40a80b5fd52fd144ad18b2f1.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/38e4e6a0f8ed73aa3057975fab4802da2fec989812b21420b11a5109438457be.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_5db015ae27ed",
+      "sha256": "5db015ae27ed7f6da3fa2b96d9c00b3433a060ce4e9d51ae5b597dd8e6682924",
+      "path": "consolidation_candidates/branch_audit/5db015ae27ed7f6da3fa2b96d9c00b3433a060ce4e9d51ae5b597dd8e6682924.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "_Core"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/38f32b0260415d625c245820f54f9f0299f3731aa9a9976c167df4f1fd50c431.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_aa308ce71155",
+      "sha256": "aa308ce71155aeb1290de308f1d785bd2ac8ef6a8e3eb1c0d19840811d2f4f5f",
+      "path": "consolidation_candidates/branch_audit/aa308ce71155aeb1290de308f1d785bd2ac8ef6a8e3eb1c0d19840811d2f4f5f.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/3f6f13d7e3ba96f26deca9e8509f4282f52494248d055288582d9bbb947176ff.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_2e044c4d24d9",
+      "sha256": "2e044c4d24d90fa5472c023ede83b6652b3135025af4b8b0d63e0c6da6ce2d40",
+      "path": "consolidation_candidates/branch_audit/2e044c4d24d90fa5472c023ede83b6652b3135025af4b8b0d63e0c6da6ce2d40.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/407ff92668ba4d7a1e3cb92466b3547e96895517449f0912a6e7acd327c46c23.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_ec6bfb8f29dd",
+      "sha256": "ec6bfb8f29dd0721c785c7df5c2c806ca2fa7d758ba596e56db3f685bcfc0a3e",
+      "path": "consolidation_candidates/branch_audit/ec6bfb8f29dd0721c785c7df5c2c806ca2fa7d758ba596e56db3f685bcfc0a3e.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/416d4ba94ab693d840da709751be669ac6d2f2f5e556ec881c3991c713316585.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_b9e2f84869a4",
+      "sha256": "b9e2f84869a4a97c6490611c8d2831abc71e83fe95c39344ef8d5b210ad80879",
+      "path": "consolidation_candidates/branch_audit/b9e2f84869a4a97c6490611c8d2831abc71e83fe95c39344ef8d5b210ad80879.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "_Core"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/423c052840c68eded42ad061f0c69053b2738d4b85fc833c8f6684ad67b8f07f.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_3598d1870493",
+      "sha256": "3598d1870493650f1172081481beaafeb03356dc51c03e4f955b0f9b83761f4e",
+      "path": "consolidation_candidates/branch_audit/3598d1870493650f1172081481beaafeb03356dc51c03e4f955b0f9b83761f4e.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/461c60eb879f842490366d1508dd73dab974be8dbbb06dc349303393d701a507.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_ea4d3771a167",
+      "sha256": "ea4d3771a167bc30d4ef1d8318ee629622f1d27b96c8b0896f8433676be68436",
+      "path": "consolidation_candidates/branch_audit/ea4d3771a167bc30d4ef1d8318ee629622f1d27b96c8b0896f8433676be68436.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/46c984c5227ddb3c10f0753819c9d0ce0a6e26e1e352b258b464937104a4a0fc.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_2ffec027ad86",
+      "sha256": "2ffec027ad86162f47d048922e4c68f5fa1c698200e71ee1d626d5bc85f8ec20",
+      "path": "consolidation_candidates/branch_audit/2ffec027ad86162f47d048922e4c68f5fa1c698200e71ee1d626d5bc85f8ec20.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/4c9bfe331cb0c3822d48a301a7ab8f664e2de691e51bb02c621c8dde40695ace.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_48a3b05a88b2",
+      "sha256": "48a3b05a88b286aaaa666fabe2bda4fb19212b3a5ab03abedec1dbcfbc01091d",
+      "path": "consolidation_candidates/branch_audit/48a3b05a88b286aaaa666fabe2bda4fb19212b3a5ab03abedec1dbcfbc01091d.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/509bfc28b8f535a4ef1cb9b657a87158e0563e02a7d5fa3871357d734d0011e5.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_1f7ccdec4a24",
+      "sha256": "1f7ccdec4a24db278f6d0d635c58c8d67cbb66b03e0272d18f6c2eb40ed13f50",
+      "path": "consolidation_candidates/branch_audit/1f7ccdec4a24db278f6d0d635c58c8d67cbb66b03e0272d18f6c2eb40ed13f50.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/56826bd865a4ab55572e56e3b610f1d97bfd13981dd96a1904ebd5f5410fb2d6.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_97c5ab4c97b6",
+      "sha256": "97c5ab4c97b65d36349fea2767ebb9b62fcd70ed63d7ecb58272e8a573f7baba",
+      "path": "consolidation_candidates/branch_audit/97c5ab4c97b65d36349fea2767ebb9b62fcd70ed63d7ecb58272e8a573f7baba.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/5b9ab664a41e5f47fee2e12d1a1dd3f14f01e727bb2ecdf89083c6fed53aed21.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_d000ed1bd98f",
+      "sha256": "d000ed1bd98f0a46d83ed8db737913f0e069162cd6bd020db66729f501474cdf",
+      "path": "consolidation_candidates/branch_audit/d000ed1bd98f0a46d83ed8db737913f0e069162cd6bd020db66729f501474cdf.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/5e9cd25c6f871cd3ccca52c8b252adcfd24011347ace749c7f14174648447763.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_42bc3f43d67d",
+      "sha256": "42bc3f43d67d791443438821fdf44d9199344903b8fbaf357f4e20f3afc7e662",
+      "path": "consolidation_candidates/branch_audit/42bc3f43d67d791443438821fdf44d9199344903b8fbaf357f4e20f3afc7e662.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/62fc5c2cb75265589b914430a67c227fb7faa0a098a5496b8e59f4c063c937f6.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_709a5c02398f",
+      "sha256": "709a5c02398f5df448aefa9f2c6c232933cb190bd3ab75575e4048865411d3e2",
+      "path": "consolidation_candidates/branch_audit/709a5c02398f5df448aefa9f2c6c232933cb190bd3ab75575e4048865411d3e2.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "_Core"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/6a52734787d5e9567c5ba15503228cb1c0aaa58483e63f7b58d17d824773d200.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_ebfa5e8b5162",
+      "sha256": "ebfa5e8b51629bd7043875c433cfe7cf29d1dd668defec51d36bdc49a09e923a",
+      "path": "consolidation_candidates/branch_audit/ebfa5e8b51629bd7043875c433cfe7cf29d1dd668defec51d36bdc49a09e923a.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/6adbda3902d11f15fc8fe1b5768fb44bda8739de6e15d2817e567271430916de.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_581791066105",
+      "sha256": "5817910661054b91c6d0d4fea0e713298a8b0c76b910c3769a80126a0a87ffa3",
+      "path": "consolidation_candidates/branch_audit/5817910661054b91c6d0d4fea0e713298a8b0c76b910c3769a80126a0a87ffa3.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/7125545dbc07a83c6071f8369e3c1f854c328fbdbb393e247c1729619eb2fbe2.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_8c0a5e14a664",
+      "sha256": "8c0a5e14a6645b354681e16e2e47806507488c7a98e8261b930004e0fa294e8f",
+      "path": "consolidation_candidates/branch_audit/8c0a5e14a6645b354681e16e2e47806507488c7a98e8261b930004e0fa294e8f.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/7bad0473a439168a784f273c7ce215a49c00037fda867a2826303b9c83dcff4c.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_15958cc8debf",
+      "sha256": "15958cc8debfae38127ccc00cedece26acbc2f85b91c9cd479b63c306902c2e2",
+      "path": "consolidation_candidates/branch_audit/15958cc8debfae38127ccc00cedece26acbc2f85b91c9cd479b63c306902c2e2.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/7d86c971d496e61ba63ce1800ba21b72c5fd23f1e98e13dbd9c13493a6b4a733.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_2a2563b3aaf4",
+      "sha256": "2a2563b3aaf4ccf1d254875953d2a353ea319b177e3ccd7aa577e7837889379a",
+      "path": "consolidation_candidates/branch_audit/2a2563b3aaf4ccf1d254875953d2a353ea319b177e3ccd7aa577e7837889379a.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "_Core"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/81b8d045c641731e84896e425a677b24cc78b25d18669bc175f0bd6636849539.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_b1c03b05de5a",
+      "sha256": "b1c03b05de5accd90b253b46a7b29de92ef78d34d7c53a210b87cbc04f148fd0",
+      "path": "consolidation_candidates/branch_audit/b1c03b05de5accd90b253b46a7b29de92ef78d34d7c53a210b87cbc04f148fd0.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/85494cdb0619c62f3c32f25cb949c483294b72392d2ad62c37eb4bbbd6fdf49e.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_d9d800393d95",
+      "sha256": "d9d800393d9510d2d5af19592ecc1f96bc4216a1443734edf0a817adbb4ba797",
+      "path": "consolidation_candidates/branch_audit/d9d800393d9510d2d5af19592ecc1f96bc4216a1443734edf0a817adbb4ba797.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "_Core"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/85de8d708dc60fe05db9b85caddc9a37c4c843c7d05aec9b02d321990dd17dee.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_2444d1714498",
+      "sha256": "2444d1714498444e9b7b8cbf0dd074bd2e05a24d8ce1698fe025fbcba707e700",
+      "path": "consolidation_candidates/branch_audit/2444d1714498444e9b7b8cbf0dd074bd2e05a24d8ce1698fe025fbcba707e700.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/87d682c02be96f4a3e7dbb4d79dc62ca7351d9b2fbf75494cfba411d5554de00.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_0bab0e69ac16",
+      "sha256": "0bab0e69ac167251ab37e183e61ef2a03c99dc82e053790ba821f0e370940679",
+      "path": "consolidation_candidates/branch_audit/0bab0e69ac167251ab37e183e61ef2a03c99dc82e053790ba821f0e370940679.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/889f2b6aed727065e1e685b4eeed1b3e81a2e3f9b0267e9cdcbef0f362d81367.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_d631c112e332",
+      "sha256": "d631c112e332932f09bf271d23686db0247de7b87e8ffcd0dc00bd0b74d27b90",
+      "path": "consolidation_candidates/branch_audit/d631c112e332932f09bf271d23686db0247de7b87e8ffcd0dc00bd0b74d27b90.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/8aa2d05c477d1d9627bc4a0635b6245dcf8b3444a9f4e79b290fc5d8b140be61.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_fbb732fdf81f",
+      "sha256": "fbb732fdf81f71a26d523a574447123665295db84f9ffc44facddb6d8793d4be",
+      "path": "consolidation_candidates/branch_audit/fbb732fdf81f71a26d523a574447123665295db84f9ffc44facddb6d8793d4be.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/8d269f6f1cd96c3c4aeeaf2208efd05fcc414e2cc36796652e7e4d982e4fe392.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_9496320d0850",
+      "sha256": "9496320d0850b8ca107b393f44a928848f8261aef69b888a0c9459e0841d8916",
+      "path": "consolidation_candidates/branch_audit/9496320d0850b8ca107b393f44a928848f8261aef69b888a0c9459e0841d8916.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/9408af255ee060dc80cdf042eeb62ee34fe9ba9fae3c60adbc3c53560af21a10.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_df8ae3ce630e",
+      "sha256": "df8ae3ce630ecfa11eac00e9135178c7389808ef055c1eb70366d192d253b950",
+      "path": "consolidation_candidates/branch_audit/df8ae3ce630ecfa11eac00e9135178c7389808ef055c1eb70366d192d253b950.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/95884cdbeef20c985d1687ee7c63ba99e16d28c9d18c56f5fd97062ded37004c.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_0dac7f82726d",
+      "sha256": "0dac7f82726dcb9c72631bd93c8ec771d0532689447a4b4a83247239fb3d1085",
+      "path": "consolidation_candidates/branch_audit/0dac7f82726dcb9c72631bd93c8ec771d0532689447a4b4a83247239fb3d1085.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/a1cdad51a76b1bd5eb3c9a51f17e9e3f47ad66ccc815261376229bd2ee04fd0f.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_88496d239f5d",
+      "sha256": "88496d239f5d1c51954fa010ec21b897561f1b22a023fcadb20a77eac0739db6",
+      "path": "consolidation_candidates/branch_audit/88496d239f5d1c51954fa010ec21b897561f1b22a023fcadb20a77eac0739db6.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "_Core"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/a2fe750349a9bd2f3bcb01cff1a5948598819b253ae6e0251bb038a75e8c0642.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_ae807b1789e4",
+      "sha256": "ae807b1789e4e145774d86625933a51419e0bc5315b37ad0f38b0bbe6145fe15",
+      "path": "consolidation_candidates/branch_audit/ae807b1789e4e145774d86625933a51419e0bc5315b37ad0f38b0bbe6145fe15.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/af7f93db2cd4e2b81be8cf545e01a515816bf9c20150bf16d154507793c4979b.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_2f2e047f4532",
+      "sha256": "2f2e047f45329a822e4e912bc2527e1eb7b135aa7e714b59fb28b1b56aceb49e",
+      "path": "consolidation_candidates/branch_audit/2f2e047f45329a822e4e912bc2527e1eb7b135aa7e714b59fb28b1b56aceb49e.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/bcde2db5b35775249054b4bda0e8c1aeb33e723c140375e98afb05e9d42f0b53.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_4d7c8e68b900",
+      "sha256": "4d7c8e68b900c82402b93b1634ec866e050d523567eb43cbc16fdf2ef2f846e8",
+      "path": "consolidation_candidates/branch_audit/4d7c8e68b900c82402b93b1634ec866e050d523567eb43cbc16fdf2ef2f846e8.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/c3f25a6914192146fd62497a46f995e9f0ad56a7ea5c2d4dd27f14f595147902.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_92f38af1a559",
+      "sha256": "92f38af1a55979536940283c0d30585dcb2c287f126c1cd99b12818ce857bf47",
+      "path": "consolidation_candidates/branch_audit/92f38af1a55979536940283c0d30585dcb2c287f126c1cd99b12818ce857bf47.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/c5b5f1bcad3a4750f41d9fa29987c6fa76f659c23839f8872fef6d5d879d767e.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_67e5e048ab10",
+      "sha256": "67e5e048ab10c13f6dd894bed7820aa67898a78b7318841086641f5a03f7ae77",
+      "path": "consolidation_candidates/branch_audit/67e5e048ab10c13f6dd894bed7820aa67898a78b7318841086641f5a03f7ae77.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/cb4ad645b2358d5e61ba68c2a3960c8842a9673923214c64d22157d85c0f6498.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_07ccfe799139",
+      "sha256": "07ccfe799139b7e6fdf1f9aa1a280e466eb8fd1f1a09be62b576d3beb8cec714",
+      "path": "consolidation_candidates/branch_audit/07ccfe799139b7e6fdf1f9aa1a280e466eb8fd1f1a09be62b576d3beb8cec714.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/cbf75bfc7b7087b84a695c2c6e9d65b43b217a0b2a6f6a30df0953ce6014fa38.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_93be90676285",
+      "sha256": "93be906762852e707e78448e72df4aa5e2ef9cfeaeee716f5835adafb3a78c6b",
+      "path": "consolidation_candidates/branch_audit/93be906762852e707e78448e72df4aa5e2ef9cfeaeee716f5835adafb3a78c6b.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/d6b0712e7a313d814471de7f9e1fe41ea28541cf01707bb2db4e39621a10d34a.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_4cbe78f5d941",
+      "sha256": "4cbe78f5d94128719a7e18f6a7c630c213b87f937500794d53deadd9c5842ed8",
+      "path": "consolidation_candidates/branch_audit/4cbe78f5d94128719a7e18f6a7c630c213b87f937500794d53deadd9c5842ed8.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/db22f46555cd5e4f03831c2254753e674ea4dd1aaf4ab02795012b99d0c58bd7.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_cafa58d3140c",
+      "sha256": "cafa58d3140ce8930099480def0f04ea8136746d4e889be568e878617757d76c",
+      "path": "consolidation_candidates/branch_audit/cafa58d3140ce8930099480def0f04ea8136746d4e889be568e878617757d76c.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/e3accb4a46596a157f0c2291d487b19d3235e788c44be5c029f57202806f617f.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_75d5ad95bb84",
+      "sha256": "75d5ad95bb84449be1a51c1a17d4ed38c06b0381eea29462c5d227e88829f960",
+      "path": "consolidation_candidates/branch_audit/75d5ad95bb84449be1a51c1a17d4ed38c06b0381eea29462c5d227e88829f960.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "Rival"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/ecdb930ba0e5977afe9e58cb92c83280f6f5dad4ed01d448506b411f2adbae76.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_c54bc17924ba",
+      "sha256": "c54bc17924baa6e22e36999b2d48f79e0765e0d6003db9ed54e27ff2def684a2",
+      "path": "consolidation_candidates/branch_audit/c54bc17924baa6e22e36999b2d48f79e0765e0d6003db9ed54e27ff2def684a2.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/f3534dbfd7c25813bb60d9352ccc7668bfef19810988c274b278dd0cca0a0fea.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_8e84ff655452",
+      "sha256": "8e84ff655452551dcc63083b1582481b27968b1d2f6c17616098192f40133d42",
+      "path": "consolidation_candidates/branch_audit/8e84ff655452551dcc63083b1582481b27968b1d2f6c17616098192f40133d42.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [],
+        "imports": [
+          "collections"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/fa9d68b71887396739904cd15a71152bb58be82c22e3e5eed5c7d6d530187c0e.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    },
+    {
+      "name": "bot_047ed5d8391e",
+      "sha256": "047ed5d8391e3afb573cc58102a4105b5a4e348d168fdb3b08e1552f64818804",
+      "path": "consolidation_candidates/branch_audit/047ed5d8391e3afb573cc58102a4105b5a4e348d168fdb3b08e1552f64818804.py",
+      "audit": {
+        "parses": true,
+        "entry": true,
+        "classes": [
+          "_Core"
+        ],
+        "imports": [
+          "random"
+        ],
+        "external": [],
+        "sensitive_calls": [],
+        "eligible": true
+      },
+      "aliases": [
+        {
+          "commit": "482ef54435b1188b8fdceb9f9bf7a6dbdaf7ee43",
+          "path": "evolution/evidence/first_round_artifacts.zip!.cache/evolution/isolated_confirmation_003/fb3ed1dc2c8d66588aaa302be0549a22131bba3bbbb48af3f7fdee5045fc9d15.py",
+          "ref": "refs/remotes/origin/codex/evolve-existing-league"
+        }
+      ],
+      "registered_names": []
+    }
+  ],
+  "fixtures": [
+    {
+      "id": 0,
+      "map_group": 0,
+      "map_family": "gradient",
+      "base": [
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        2,
+        2,
+        3,
+        3,
+        2,
+        2,
+        1,
+        1,
+        2,
+        3,
+        3,
+        3,
+        3,
+        2,
+        1,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2,
+        1,
+        2,
+        3,
+        3,
+        3,
+        3,
+        2,
+        1,
+        1,
+        2,
+        2,
+        3,
+        3,
+        2,
+        2,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1
+      ],
+      "seat": 0,
+      "token": 1,
+      "field": "novel_economy",
+      "opponents": [
+        "novel_0cd7e175e625",
+        "novel_45d91a14843a",
+        "novel_d32f99f7a06e"
+      ]
+    },
+    {
+      "id": 1,
+      "map_group": 1,
+      "map_family": "noise",
+      "base": [
+        2,
+        2,
+        3,
+        2,
+        2,
+        3,
+        2,
+        2,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        2,
+        3,
+        2,
+        3,
+        3,
+        2,
+        3,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        2,
+        3,
+        2,
+        3,
+        3,
+        2,
+        3,
+        2,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        2,
+        2,
+        3,
+        2,
+        2,
+        3,
+        2,
+        2
+      ],
+      "seat": 1,
+      "token": 2,
+      "field": "novel_economy",
+      "opponents": [
+        "novel_0412b54e3ab1",
+        "novel_492aa8a38c12",
+        "novel_97df8781064e"
+      ]
+    },
+    {
+      "id": 2,
+      "map_group": 2,
+      "map_family": "edge",
+      "base": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2,
+        3,
+        3,
+        2,
+        3,
+        3,
+        3,
+        2,
+        2,
+        1,
+        1,
+        2,
+        2,
+        3,
+        3,
+        3,
+        2,
+        1,
+        1,
+        2,
+        3,
+        3,
+        3,
+        3,
+        2,
+        1,
+        1,
+        2,
+        3,
+        3,
+        3,
+        2,
+        2,
+        1,
+        1,
+        2,
+        2,
+        3,
+        3,
+        3,
+        2,
+        3,
+        3,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "seat": 2,
+      "token": 3,
+      "field": "novel_economy",
+      "opponents": [
+        "novel_180e7a921c02",
+        "novel_84bb59a0fb04",
+        "novel_aabbd479dd2f"
+      ]
+    },
+    {
+      "id": 3,
+      "map_group": 3,
+      "map_family": "highhome",
+      "base": [
+        3,
+        1,
+        2,
+        3,
+        3,
+        2,
+        1,
+        3,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        3,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        3,
+        2,
+        3,
+        3,
+        2,
+        2,
+        3,
+        3,
+        2,
+        2,
+        3,
+        3,
+        2,
+        2,
+        3,
+        3,
+        2,
+        3,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        3,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        3,
+        1,
+        2,
+        3,
+        3,
+        2,
+        1,
+        3
+      ],
+      "seat": 3,
+      "token": 4,
+      "field": "novel_economy",
+      "opponents": [
+        "novel_e305df54207d",
+        "novel_5d887fd38c8f",
+        "novel_f158838067bd"
+      ]
+    }
+  ],
+  "rules": {
+    "frozen_stay_counts": false,
+    "claim_resets_progress": true,
+    "catch_requires_stay": true,
+    "lost_contest_is_stay": true,
+    "home_upgradable": true,
+    "legal_excludes_occupied": false
+  },
+  "forbidden_board_contents": 47,
+  "candidate_selection": "Frozen source snapshots. Screen retains all passing distinct remote branch roots for development. Final takes the leading four development means plus the incumbent; no strategic coefficients fitted.",
+  "inference": "Only final aggregate paired intervals are confirmatory. Each final map crosses all seats/tokens and all three fields. Promotion needs zero contract/worker faults, a positive paired map-clustered interval against the incumbent, and inspection of novel-only and per-field results. Otherwise retain the incumbent and report uncertainty.",
+  "challenger_scope": "Per-map generated opponents are reset for every game and identical across candidate pairs. Each stage reserves different decision rules. Parameters are drawn without checking how they perform against any focal candidate."
+}
