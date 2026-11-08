@@ -6,14 +6,14 @@ separate from actual primary campaign games and full BMCTS.
 | Helper | GPU | Returned diagnostics independently reproduced | State |
 |---|---|---:|---|
 | 1 | RTX 4050 | 4 | Verified; second batch assigned |
-| 2 | RTX 5070 Ti | 0 | Awaiting return |
+| 2 | RTX 5070 Ti | 4 | Verified; second batch assigned |
 | 3 | RTX 2060 | 4 | Verified; second batch assigned |
 | 4 | GTX 1660 Ti | 4 | Verified; second batch assigned |
 | 5 | RTX 5050 Laptop | 4 | Verified; second batch assigned |
 
 The owner's separately tested RTX 5070 Ti is not counted as helper 2.
-The four remote returns contain **16 unique diagnostics**, **11,904 synthetic
-trajectories** and **35,712 synthetic turns**. Every numerical result was
+The five remote returns contain **20 unique diagnostics**, **14,720 synthetic
+trajectories** and **44,160 synthetic turns**. Every numerical result was
 recomputed on the owner's CPU against its original pinned public input and
 source files. Counts and result fingerprints are in
 [the receipt registry](verified_returns/registry.json). They contribute **zero
@@ -34,7 +34,7 @@ Updated setup installs NumPy 2.5.4 in the existing private environment.
 
 The second batches contain eight different public positions per helper, with a
 six-turn horizon, 32 plans per root action and 32 sampled rollouts per plan.
-Their 32 diagnostic IDs are disjoint from the accepted first returns and the
+Their 40 diagnostic IDs are disjoint from the accepted first returns and the
 owner's local calibration. These jobs were not already computed on the owner
 before dispatch. Source, archive and assignment fingerprints are in
 [the assignment list](releases/2026-11-08-v2/fresh_batch02_assignments.json).

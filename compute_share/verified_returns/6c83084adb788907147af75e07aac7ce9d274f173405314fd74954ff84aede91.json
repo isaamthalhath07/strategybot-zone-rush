@@ -1,0 +1,24 @@
+{
+  "assigned_slot": 2,
+  "bundle_id": "6c83084adb788907147af75e07aac7ce9d274f173405314fd74954ff84aede91",
+  "client_worker_seconds": 1.2911977999610826,
+  "diagnostics_verified": 4,
+  "games_bmcts_audited": 0,
+  "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+  "hardware_protocol_calibration": true,
+  "independent_cpu_reproduction": true,
+  "job_ids": [
+    "fa59e8f1c95885896edf61ba27fbbc36e2d0793abcd988f183aee99f5cf7be22",
+    "89219df4173fd7676b7f6c7bdef05af0020d04bf1a2fe7dc73fb5e5949e50af6",
+    "487b2a8c636019a7fade4d06c5dd6d95c8eb485177b8c449a093f9536981e677",
+    "ef16d257ae0b980e952e1adcb4511b48c243de4b6f6232082c3dc406c1d1a3c1"
+  ],
+  "novel_primary_or_strength_games": 0,
+  "primary_campaign_games": 0,
+  "promotion_allowed": false,
+  "received_source": "User result attachment; no personal paths retained",
+  "result_sha256": "10fcd82aa9871be47e349ca4d684d62d35a5b38e1bab783f9c42f47693792c1f",
+  "source_pins_passed": true,
+  "synthetic_trajectories": 2816,
+  "synthetic_turns": 8448
+}

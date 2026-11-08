@@ -24,6 +24,30 @@
     "status": "assigned_fresh_not_computed_locally"
   },
   {
+    "archive": "compute_share\\releases\\2026-11-08-v2\\RTX5070Ti-batch02.zip",
+    "archive_sha256": "8d3045065f8281a5675edb92b7024c70d191ee1dac84d80d206b13bac52b9606",
+    "assigned_slot": 2,
+    "bundle_id": "9c8283ce906beb80749652a8cbde840e47b8e5f039a93fd0efe480b779dda0c0",
+    "diagnostics": 8,
+    "gpu": "RTX5070Ti",
+    "horizon": 6,
+    "job_ids": [
+      "9d2491464e6b4564ab539151aa3e53aa6976fdbcd6bd89326ba547a95662c0f9",
+      "13f4d1f5a4fc8b53e43bfc84496cfef7e1fdb54836b3f8fc98da91ee1c67697d",
+      "6df8a198ebe901377e7f03d35012c39e30a764f7f8800b11a970ccc27c54dca1",
+      "d722157b7344a0f393238798d2c9e118293b9e299442c5954f7cdedd00389e66",
+      "eebbeebd14e86272d7db3d606cdb9a8eadffa83aa5d7b099b3ae4ed74cfd5e98",
+      "5a5e1704d9ee3ef757747a7fe8f6bb95924a388190ec8c78bd8a660abbd7ceae",
+      "47006a632a29c95e903c8a7dc3bfbc7c9ad0ff755bb929a855d80fc4e9d54c65",
+      "0e4d09bdccb5131877e3547e52544e6cbccd7fe8b7cc16d6854d5d8f067db4a3"
+    ],
+    "owner_bundle": ".cache\\shared_gpu\\fresh_5070ti_batch02\\laptop_01",
+    "plans_per_root": 32,
+    "primary_games": 0,
+    "rollouts_per_plan": 32,
+    "status": "assigned_fresh_not_computed_locally"
+  },
+  {
     "archive": "compute_share\\releases\\2026-11-08-v2\\RTX2060-batch02.zip",
     "archive_sha256": "d3cf4a68dbd72a299dd4927f1a412aa549c136d886ea117ec7ee630ba71acb66",
     "assigned_slot": 3,
