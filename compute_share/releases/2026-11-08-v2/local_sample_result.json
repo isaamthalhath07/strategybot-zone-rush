@@ -1,0 +1,2673 @@
+{
+  "bundle_id": "a3288c9a719d28c1a1311ff5e18f4d041832fda7b205191b86752f378a8f2bbf",
+  "format": "zone-rush-public-gpu-bundle/1/result",
+  "games_bmcts_audited": 0,
+  "input_sha256": "bbcb993dae75ec9d3e3508327730733b3da5011fd725de613b195938bea77e8e",
+  "max_trajectories": 8192,
+  "primary_campaign_games": 0,
+  "result": {
+    "certifies_optimality": false,
+    "chunks": 1,
+    "deployed_policy_changed": false,
+    "device": "cuda",
+    "full_bmcts": false,
+    "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+    "independent_cpu_turn_checks": 8832,
+    "independent_cpu_verified": true,
+    "jobs": [
+      {
+        "belief": {
+          "belief_weights": "uniform support; not calibrated action likelihoods",
+          "cap": 512,
+          "cooldown_domains": [
+            [
+              0
+            ],
+            [
+              0
+            ],
+            [
+              0
+            ],
+            [
+              0
+            ]
+          ],
+          "dropped_states": 0,
+          "exact_support": true,
+          "history_sha256": "85400d76e15a6670b8c67aa4952a44c11665f3f969120c7164f133db568fd8d5",
+          "possible_tokens": [
+            3
+          ],
+          "progress_domains": [
+            [
+              0
+            ],
+            [
+              0
+            ],
+            [
+              0
+            ],
+            [
+              0
+            ]
+          ],
+          "support_states": 1,
+          "transitions": 11
+        },
+        "effective_horizon": 3,
+        "input_sha256": "2ccecff3cf5c37bc6f53e396e7c70e6b8d4aa9702d280854215ad041aa25b87b",
+        "job_id": "71d24a0e681e1cf5bd4fb3b356c3dcb6dd3f6ba13ace34e6f14a7e1ab0438acd",
+        "recommended_action": "STAY",
+        "root_estimates": [
+          {
+            "action": "STAY",
+            "best_common_plan": {
+              "mean_projected_pairwise_points": 2.1875,
+              "rollouts": 16,
+              "sequence": [
+                "STAY",
+                "WEST",
+                "STAY"
+              ],
+              "value_denominator": 32,
+              "value_numerator_sum": 70
+            },
+            "plans": [
+              {
+                "mean_projected_pairwise_points": 2.1875,
+                "rollouts": 16,
+                "sequence": [
+                  "STAY",
+                  "WEST",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 70
+              },
+              {
+                "mean_projected_pairwise_points": 2.0625,
+                "rollouts": 16,
+                "sequence": [
+                  "STAY",
+                  "WEST",
+                  "WEST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 66
+              },
+              {
+                "mean_projected_pairwise_points": 1.9375,
+                "rollouts": 16,
+                "sequence": [
+                  "STAY",
+                  "NORTH",
+                  "EAST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 62
+              },
+              {
+                "mean_projected_pairwise_points": 1.9375,
+                "rollouts": 16,
+                "sequence": [
+                  "STAY",
+                  "EAST",
+                  "SOUTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 62
+              },
+              {
+                "mean_projected_pairwise_points": 1.9375,
+                "rollouts": 16,
+                "sequence": [
+                  "STAY",
+                  "EAST",
+                  "WEST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 62
+              },
+              {
+                "mean_projected_pairwise_points": 1.9375,
+                "rollouts": 16,
+                "sequence": [
+                  "STAY",
+                  "WEST",
+                  "SOUTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 62
+              },
+              {
+                "mean_projected_pairwise_points": 1.9375,
+                "rollouts": 16,
+                "sequence": [
+                  "STAY",
+                  "STAY",
+                  "EAST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 62
+              },
+              {
+                "mean_projected_pairwise_points": 1.9375,
+                "rollouts": 16,
+                "sequence": [
+                  "STAY",
+                  "STAY",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 62
+              }
+            ]
+          },
+          {
+            "action": "NORTH",
+            "best_common_plan": {
+              "mean_projected_pairwise_points": 1.9375,
+              "rollouts": 16,
+              "sequence": [
+                "NORTH",
+                "STAY",
+                "STAY"
+              ],
+              "value_denominator": 32,
+              "value_numerator_sum": 62
+            },
+            "plans": [
+              {
+                "mean_projected_pairwise_points": 1.9375,
+                "rollouts": 16,
+                "sequence": [
+                  "NORTH",
+                  "STAY",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 62
+              },
+              {
+                "mean_projected_pairwise_points": 0.9375,
+                "rollouts": 16,
+                "sequence": [
+                  "NORTH",
+                  "WEST",
+                  "SOUTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 30
+              },
+              {
+                "mean_projected_pairwise_points": 0.0625,
+                "rollouts": 16,
+                "sequence": [
+                  "NORTH",
+                  "NORTH",
+                  "SOUTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 2
+              },
+              {
+                "mean_projected_pairwise_points": 0.0625,
+                "rollouts": 16,
+                "sequence": [
+                  "NORTH",
+                  "SOUTH",
+                  "EAST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 2
+              },
+              {
+                "mean_projected_pairwise_points": 0.0625,
+                "rollouts": 16,
+                "sequence": [
+                  "NORTH",
+                  "WEST",
+                  "WEST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 2
+              },
+              {
+                "mean_projected_pairwise_points": 0.0625,
+                "rollouts": 16,
+                "sequence": [
+                  "NORTH",
+                  "WEST",
+                  "SHIELD"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 2
+              },
+              {
+                "mean_projected_pairwise_points": 0.0625,
+                "rollouts": 16,
+                "sequence": [
+                  "NORTH",
+                  "SHIELD",
+                  "EAST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 2
+              },
+              {
+                "mean_projected_pairwise_points": 0.0625,
+                "rollouts": 16,
+                "sequence": [
+                  "NORTH",
+                  "SHIELD",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 2
+              }
+            ]
+          },
+          {
+            "action": "EAST",
+            "best_common_plan": {
+              "mean_projected_pairwise_points": 1.9375,
+              "rollouts": 16,
+              "sequence": [
+                "EAST",
+                "SOUTH",
+                "STAY"
+              ],
+              "value_denominator": 32,
+              "value_numerator_sum": 62
+            },
+            "plans": [
+              {
+                "mean_projected_pairwise_points": 1.9375,
+                "rollouts": 16,
+                "sequence": [
+                  "EAST",
+                  "SOUTH",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 62
+              },
+              {
+                "mean_projected_pairwise_points": 0.9375,
+                "rollouts": 16,
+                "sequence": [
+                  "EAST",
+                  "WEST",
+                  "WEST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 30
+              },
+              {
+                "mean_projected_pairwise_points": 0.0625,
+                "rollouts": 16,
+                "sequence": [
+                  "EAST",
+                  "NORTH",
+                  "WEST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 2
+              },
+              {
+                "mean_projected_pairwise_points": 0.0625,
+                "rollouts": 16,
+                "sequence": [
+                  "EAST",
+                  "NORTH",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 2
+              },
+              {
+                "mean_projected_pairwise_points": 0.0625,
+                "rollouts": 16,
+                "sequence": [
+                  "EAST",
+                  "STAY",
+                  "EAST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 2
+              },
+              {
+                "mean_projected_pairwise_points": 0.0625,
+                "rollouts": 16,
+                "sequence": [
+                  "EAST",
+                  "STAY",
+                  "WEST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 2
+              },
+              {
+                "mean_projected_pairwise_points": 0.0625,
+                "rollouts": 16,
+                "sequence": [
+                  "EAST",
+                  "STAY",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 2
+              },
+              {
+                "mean_projected_pairwise_points": 0.0625,
+                "rollouts": 16,
+                "sequence": [
+                  "EAST",
+                  "SHIELD",
+                  "NORTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 2
+              }
+            ]
+          },
+          {
+            "action": "SOUTH",
+            "best_common_plan": {
+              "mean_projected_pairwise_points": 1.9375,
+              "rollouts": 16,
+              "sequence": [
+                "SOUTH",
+                "WEST",
+                "STAY"
+              ],
+              "value_denominator": 32,
+              "value_numerator_sum": 62
+            },
+            "plans": [
+              {
+                "mean_projected_pairwise_points": 1.9375,
+                "rollouts": 16,
+                "sequence": [
+                  "SOUTH",
+                  "WEST",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 62
+              },
+              {
+                "mean_projected_pairwise_points": 1.9375,
+                "rollouts": 16,
+                "sequence": [
+                  "SOUTH",
+                  "STAY",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 62
+              },
+              {
+                "mean_projected_pairwise_points": 0.3125,
+                "rollouts": 16,
+                "sequence": [
+                  "SOUTH",
+                  "EAST",
+                  "NORTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 10
+              },
+              {
+                "mean_projected_pairwise_points": 0.3125,
+                "rollouts": 16,
+                "sequence": [
+                  "SOUTH",
+                  "EAST",
+                  "WEST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 10
+              },
+              {
+                "mean_projected_pairwise_points": 0.3125,
+                "rollouts": 16,
+                "sequence": [
+                  "SOUTH",
+                  "WEST",
+                  "EAST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 10
+              },
+              {
+                "mean_projected_pairwise_points": 0.3125,
+                "rollouts": 16,
+                "sequence": [
+                  "SOUTH",
+                  "WEST",
+                  "SHIELD"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 10
+              },
+              {
+                "mean_projected_pairwise_points": 0.3125,
+                "rollouts": 16,
+                "sequence": [
+                  "SOUTH",
+                  "SHIELD",
+                  "SOUTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 10
+              },
+              {
+                "mean_projected_pairwise_points": 0.3125,
+                "rollouts": 16,
+                "sequence": [
+                  "SOUTH",
+                  "SHIELD",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 10
+              }
+            ]
+          },
+          {
+            "action": "WEST",
+            "best_common_plan": {
+              "mean_projected_pairwise_points": 1.9375,
+              "rollouts": 16,
+              "sequence": [
+                "WEST",
+                "STAY",
+                "EAST"
+              ],
+              "value_denominator": 32,
+              "value_numerator_sum": 62
+            },
+            "plans": [
+              {
+                "mean_projected_pairwise_points": 1.9375,
+                "rollouts": 16,
+                "sequence": [
+                  "WEST",
+                  "STAY",
+                  "EAST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 62
+              },
+              {
+                "mean_projected_pairwise_points": 1.9375,
+                "rollouts": 16,
+                "sequence": [
+                  "WEST",
+                  "STAY",
+                  "SOUTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 62
+              },
+              {
+                "mean_projected_pairwise_points": 1.9375,
+                "rollouts": 16,
+                "sequence": [
+                  "WEST",
+                  "STAY",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 62
+              },
+              {
+                "mean_projected_pairwise_points": 1.875,
+                "rollouts": 16,
+                "sequence": [
+                  "WEST",
+                  "WEST",
+                  "WEST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 60
+              },
+              {
+                "mean_projected_pairwise_points": 1.625,
+                "rollouts": 16,
+                "sequence": [
+                  "WEST",
+                  "SOUTH",
+                  "SOUTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 52
+              },
+              {
+                "mean_projected_pairwise_points": 1.0,
+                "rollouts": 16,
+                "sequence": [
+                  "WEST",
+                  "EAST",
+                  "SOUTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 32
+              },
+              {
+                "mean_projected_pairwise_points": 0.9375,
+                "rollouts": 16,
+                "sequence": [
+                  "WEST",
+                  "SHIELD",
+                  "NORTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 30
+              },
+              {
+                "mean_projected_pairwise_points": 0.9375,
+                "rollouts": 16,
+                "sequence": [
+                  "WEST",
+                  "SHIELD",
+                  "SOUTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 30
+              }
+            ]
+          },
+          {
+            "action": "SHIELD",
+            "best_common_plan": {
+              "mean_projected_pairwise_points": 0.0625,
+              "rollouts": 16,
+              "sequence": [
+                "SHIELD",
+                "NORTH",
+                "NORTH"
+              ],
+              "value_denominator": 32,
+              "value_numerator_sum": 2
+            },
+            "plans": [
+              {
+                "mean_projected_pairwise_points": 0.0625,
+                "rollouts": 16,
+                "sequence": [
+                  "SHIELD",
+                  "NORTH",
+                  "NORTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 2
+              },
+              {
+                "mean_projected_pairwise_points": 0.0625,
+                "rollouts": 16,
+                "sequence": [
+                  "SHIELD",
+                  "EAST",
+                  "NORTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 2
+              },
+              {
+                "mean_projected_pairwise_points": 0.0625,
+                "rollouts": 16,
+                "sequence": [
+                  "SHIELD",
+                  "EAST",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 2
+              },
+              {
+                "mean_projected_pairwise_points": 0.0625,
+                "rollouts": 16,
+                "sequence": [
+                  "SHIELD",
+                  "SOUTH",
+                  "EAST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 2
+              },
+              {
+                "mean_projected_pairwise_points": 0.0625,
+                "rollouts": 16,
+                "sequence": [
+                  "SHIELD",
+                  "WEST",
+                  "NORTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 2
+              },
+              {
+                "mean_projected_pairwise_points": 0.0625,
+                "rollouts": 16,
+                "sequence": [
+                  "SHIELD",
+                  "STAY",
+                  "WEST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 2
+              },
+              {
+                "mean_projected_pairwise_points": 0.0625,
+                "rollouts": 16,
+                "sequence": [
+                  "SHIELD",
+                  "STAY",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 2
+              },
+              {
+                "mean_projected_pairwise_points": 0.0625,
+                "rollouts": 16,
+                "sequence": [
+                  "SHIELD",
+                  "SHIELD",
+                  "SHIELD"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 2
+              }
+            ]
+          }
+        ],
+        "sampled_support_states": 1,
+        "search": {
+          "horizon": 3,
+          "income_tail": 12,
+          "plans_per_root": 8,
+          "rollouts_per_plan": 16,
+          "seed": 747619783,
+          "support_cap": 512
+        }
+      },
+      {
+        "belief": {
+          "belief_weights": "uniform support; not calibrated action likelihoods",
+          "cap": 512,
+          "cooldown_domains": [
+            [
+              0
+            ],
+            [
+              0
+            ],
+            [
+              0
+            ],
+            [
+              0
+            ]
+          ],
+          "dropped_states": 0,
+          "exact_support": true,
+          "history_sha256": "bc9f1021a8946f20c0cbde1c4b48340d5db457b8aa8b54c297c988a915618914",
+          "possible_tokens": [
+            2
+          ],
+          "progress_domains": [
+            [
+              0
+            ],
+            [
+              1
+            ],
+            [
+              2
+            ],
+            [
+              2
+            ]
+          ],
+          "support_states": 1,
+          "transitions": 33
+        },
+        "effective_horizon": 3,
+        "input_sha256": "c3565c09effcf1457549433eee012e825c1813582e0511aeb995f0d0b4f97229",
+        "job_id": "987a638e68101c0322f0cf625f25ba8fa39ec2b1a58719e764cf51739417bf1c",
+        "recommended_action": "NORTH",
+        "root_estimates": [
+          {
+            "action": "NORTH",
+            "best_common_plan": {
+              "mean_projected_pairwise_points": 3.0,
+              "rollouts": 16,
+              "sequence": [
+                "NORTH",
+                "EAST",
+                "EAST"
+              ],
+              "value_denominator": 32,
+              "value_numerator_sum": 96
+            },
+            "plans": [
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "NORTH",
+                  "EAST",
+                  "EAST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "NORTH",
+                  "EAST",
+                  "WEST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "NORTH",
+                  "WEST",
+                  "EAST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "NORTH",
+                  "WEST",
+                  "WEST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "NORTH",
+                  "WEST",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "NORTH",
+                  "WEST",
+                  "SHIELD"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "NORTH",
+                  "STAY",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "NORTH",
+                  "SHIELD",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              }
+            ]
+          },
+          {
+            "action": "EAST",
+            "best_common_plan": {
+              "mean_projected_pairwise_points": 3.0,
+              "rollouts": 16,
+              "sequence": [
+                "EAST",
+                "NORTH",
+                "SHIELD"
+              ],
+              "value_denominator": 32,
+              "value_numerator_sum": 96
+            },
+            "plans": [
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "EAST",
+                  "NORTH",
+                  "SHIELD"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "EAST",
+                  "EAST",
+                  "WEST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "EAST",
+                  "SOUTH",
+                  "NORTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "EAST",
+                  "WEST",
+                  "NORTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "EAST",
+                  "WEST",
+                  "WEST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "EAST",
+                  "STAY",
+                  "EAST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "EAST",
+                  "STAY",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "EAST",
+                  "STAY",
+                  "SHIELD"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              }
+            ]
+          },
+          {
+            "action": "SOUTH",
+            "best_common_plan": {
+              "mean_projected_pairwise_points": 3.0,
+              "rollouts": 16,
+              "sequence": [
+                "SOUTH",
+                "NORTH",
+                "SHIELD"
+              ],
+              "value_denominator": 32,
+              "value_numerator_sum": 96
+            },
+            "plans": [
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "SOUTH",
+                  "NORTH",
+                  "SHIELD"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "SOUTH",
+                  "EAST",
+                  "WEST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "SOUTH",
+                  "SOUTH",
+                  "SHIELD"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "SOUTH",
+                  "WEST",
+                  "NORTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "SOUTH",
+                  "WEST",
+                  "SOUTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "SOUTH",
+                  "STAY",
+                  "EAST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "SOUTH",
+                  "STAY",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "SOUTH",
+                  "SHIELD",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              }
+            ]
+          },
+          {
+            "action": "WEST",
+            "best_common_plan": {
+              "mean_projected_pairwise_points": 3.0,
+              "rollouts": 16,
+              "sequence": [
+                "WEST",
+                "NORTH",
+                "STAY"
+              ],
+              "value_denominator": 32,
+              "value_numerator_sum": 96
+            },
+            "plans": [
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "WEST",
+                  "NORTH",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "WEST",
+                  "SOUTH",
+                  "NORTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "WEST",
+                  "SOUTH",
+                  "EAST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "WEST",
+                  "WEST",
+                  "SOUTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "WEST",
+                  "WEST",
+                  "WEST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "WEST",
+                  "STAY",
+                  "EAST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "WEST",
+                  "STAY",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "WEST",
+                  "SHIELD",
+                  "NORTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              }
+            ]
+          },
+          {
+            "action": "STAY",
+            "best_common_plan": {
+              "mean_projected_pairwise_points": 3.0,
+              "rollouts": 16,
+              "sequence": [
+                "STAY",
+                "NORTH",
+                "SHIELD"
+              ],
+              "value_denominator": 32,
+              "value_numerator_sum": 96
+            },
+            "plans": [
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "STAY",
+                  "NORTH",
+                  "SHIELD"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "STAY",
+                  "EAST",
+                  "NORTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "STAY",
+                  "EAST",
+                  "SOUTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "STAY",
+                  "SOUTH",
+                  "EAST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "STAY",
+                  "SOUTH",
+                  "SOUTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "STAY",
+                  "WEST",
+                  "SHIELD"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "STAY",
+                  "STAY",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "STAY",
+                  "SHIELD",
+                  "EAST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              }
+            ]
+          },
+          {
+            "action": "SHIELD",
+            "best_common_plan": {
+              "mean_projected_pairwise_points": 3.0,
+              "rollouts": 16,
+              "sequence": [
+                "SHIELD",
+                "NORTH",
+                "SOUTH"
+              ],
+              "value_denominator": 32,
+              "value_numerator_sum": 96
+            },
+            "plans": [
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "SHIELD",
+                  "NORTH",
+                  "SOUTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "SHIELD",
+                  "NORTH",
+                  "SHIELD"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "SHIELD",
+                  "EAST",
+                  "WEST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "SHIELD",
+                  "EAST",
+                  "SHIELD"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "SHIELD",
+                  "STAY",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "SHIELD",
+                  "SHIELD",
+                  "EAST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "SHIELD",
+                  "SHIELD",
+                  "WEST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              },
+              {
+                "mean_projected_pairwise_points": 3.0,
+                "rollouts": 16,
+                "sequence": [
+                  "SHIELD",
+                  "SHIELD",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 96
+              }
+            ]
+          }
+        ],
+        "sampled_support_states": 1,
+        "search": {
+          "horizon": 3,
+          "income_tail": 12,
+          "plans_per_root": 8,
+          "rollouts_per_plan": 16,
+          "seed": 747619784,
+          "support_cap": 512
+        }
+      },
+      {
+        "belief": {
+          "belief_weights": "uniform support; not calibrated action likelihoods",
+          "cap": 512,
+          "cooldown_domains": [
+            [
+              0
+            ],
+            [
+              0
+            ],
+            [
+              0
+            ],
+            [
+              0
+            ]
+          ],
+          "dropped_states": 0,
+          "exact_support": true,
+          "history_sha256": "2d29767c5cea1e2b8860223dd4eb4e5a8b37d6b8676c0a22f320ce9597927d97",
+          "possible_tokens": [
+            1
+          ],
+          "progress_domains": [
+            [
+              0
+            ],
+            [
+              0
+            ],
+            [
+              2
+            ],
+            [
+              1
+            ]
+          ],
+          "support_states": 1,
+          "transitions": 59
+        },
+        "effective_horizon": 3,
+        "input_sha256": "b4150dfc87cedd8a74d3d2133c14c5bd3326a3c40f7aabce3e287dd730efc9fc",
+        "job_id": "29c5cc1ccbc6c0083e907120f0db6ca9cc79327c05c1514f0e5b4abda0eba7d7",
+        "recommended_action": "STAY",
+        "root_estimates": [
+          {
+            "action": "STAY",
+            "best_common_plan": {
+              "mean_projected_pairwise_points": 0.5,
+              "rollouts": 16,
+              "sequence": [
+                "STAY",
+                "STAY",
+                "STAY"
+              ],
+              "value_denominator": 32,
+              "value_numerator_sum": 16
+            },
+            "plans": [
+              {
+                "mean_projected_pairwise_points": 0.5,
+                "rollouts": 16,
+                "sequence": [
+                  "STAY",
+                  "STAY",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 16
+              },
+              {
+                "mean_projected_pairwise_points": 0.0,
+                "rollouts": 16,
+                "sequence": [
+                  "STAY",
+                  "NORTH",
+                  "SOUTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 0
+              },
+              {
+                "mean_projected_pairwise_points": 0.0,
+                "rollouts": 16,
+                "sequence": [
+                  "STAY",
+                  "NORTH",
+                  "WEST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 0
+              },
+              {
+                "mean_projected_pairwise_points": 0.0,
+                "rollouts": 16,
+                "sequence": [
+                  "STAY",
+                  "SOUTH",
+                  "SOUTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 0
+              },
+              {
+                "mean_projected_pairwise_points": 0.0,
+                "rollouts": 16,
+                "sequence": [
+                  "STAY",
+                  "WEST",
+                  "NORTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 0
+              },
+              {
+                "mean_projected_pairwise_points": 0.0,
+                "rollouts": 16,
+                "sequence": [
+                  "STAY",
+                  "STAY",
+                  "SOUTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 0
+              },
+              {
+                "mean_projected_pairwise_points": 0.0,
+                "rollouts": 16,
+                "sequence": [
+                  "STAY",
+                  "STAY",
+                  "SHIELD"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 0
+              },
+              {
+                "mean_projected_pairwise_points": 0.0,
+                "rollouts": 16,
+                "sequence": [
+                  "STAY",
+                  "SHIELD",
+                  "EAST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 0
+              }
+            ]
+          },
+          {
+            "action": "NORTH",
+            "best_common_plan": {
+              "mean_projected_pairwise_points": 0.0,
+              "rollouts": 16,
+              "sequence": [
+                "NORTH",
+                "NORTH",
+                "NORTH"
+              ],
+              "value_denominator": 32,
+              "value_numerator_sum": 0
+            },
+            "plans": [
+              {
+                "mean_projected_pairwise_points": 0.0,
+                "rollouts": 16,
+                "sequence": [
+                  "NORTH",
+                  "NORTH",
+                  "NORTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 0
+              },
+              {
+                "mean_projected_pairwise_points": 0.0,
+                "rollouts": 16,
+                "sequence": [
+                  "NORTH",
+                  "EAST",
+                  "NORTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 0
+              },
+              {
+                "mean_projected_pairwise_points": 0.0,
+                "rollouts": 16,
+                "sequence": [
+                  "NORTH",
+                  "WEST",
+                  "EAST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 0
+              },
+              {
+                "mean_projected_pairwise_points": 0.0,
+                "rollouts": 16,
+                "sequence": [
+                  "NORTH",
+                  "WEST",
+                  "SHIELD"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 0
+              },
+              {
+                "mean_projected_pairwise_points": 0.0,
+                "rollouts": 16,
+                "sequence": [
+                  "NORTH",
+                  "STAY",
+                  "SOUTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 0
+              },
+              {
+                "mean_projected_pairwise_points": 0.0,
+                "rollouts": 16,
+                "sequence": [
+                  "NORTH",
+                  "STAY",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 0
+              },
+              {
+                "mean_projected_pairwise_points": 0.0,
+                "rollouts": 16,
+                "sequence": [
+                  "NORTH",
+                  "STAY",
+                  "SHIELD"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 0
+              },
+              {
+                "mean_projected_pairwise_points": 0.0,
+                "rollouts": 16,
+                "sequence": [
+                  "NORTH",
+                  "SHIELD",
+                  "SOUTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 0
+              }
+            ]
+          },
+          {
+            "action": "EAST",
+            "best_common_plan": {
+              "mean_projected_pairwise_points": 0.0,
+              "rollouts": 16,
+              "sequence": [
+                "EAST",
+                "EAST",
+                "EAST"
+              ],
+              "value_denominator": 32,
+              "value_numerator_sum": 0
+            },
+            "plans": [
+              {
+                "mean_projected_pairwise_points": 0.0,
+                "rollouts": 16,
+                "sequence": [
+                  "EAST",
+                  "EAST",
+                  "EAST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 0
+              },
+              {
+                "mean_projected_pairwise_points": 0.0,
+                "rollouts": 16,
+                "sequence": [
+                  "EAST",
+                  "SOUTH",
+                  "NORTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 0
+              },
+              {
+                "mean_projected_pairwise_points": 0.0,
+                "rollouts": 16,
+                "sequence": [
+                  "EAST",
+                  "SOUTH",
+                  "WEST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 0
+              },
+              {
+                "mean_projected_pairwise_points": 0.0,
+                "rollouts": 16,
+                "sequence": [
+                  "EAST",
+                  "SOUTH",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 0
+              },
+              {
+                "mean_projected_pairwise_points": 0.0,
+                "rollouts": 16,
+                "sequence": [
+                  "EAST",
+                  "WEST",
+                  "WEST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 0
+              },
+              {
+                "mean_projected_pairwise_points": 0.0,
+                "rollouts": 16,
+                "sequence": [
+                  "EAST",
+                  "STAY",
+                  "EAST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 0
+              },
+              {
+                "mean_projected_pairwise_points": 0.0,
+                "rollouts": 16,
+                "sequence": [
+                  "EAST",
+                  "STAY",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 0
+              },
+              {
+                "mean_projected_pairwise_points": 0.0,
+                "rollouts": 16,
+                "sequence": [
+                  "EAST",
+                  "SHIELD",
+                  "SHIELD"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 0
+              }
+            ]
+          },
+          {
+            "action": "SOUTH",
+            "best_common_plan": {
+              "mean_projected_pairwise_points": 0.0,
+              "rollouts": 16,
+              "sequence": [
+                "SOUTH",
+                "EAST",
+                "NORTH"
+              ],
+              "value_denominator": 32,
+              "value_numerator_sum": 0
+            },
+            "plans": [
+              {
+                "mean_projected_pairwise_points": 0.0,
+                "rollouts": 16,
+                "sequence": [
+                  "SOUTH",
+                  "EAST",
+                  "NORTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 0
+              },
+              {
+                "mean_projected_pairwise_points": 0.0,
+                "rollouts": 16,
+                "sequence": [
+                  "SOUTH",
+                  "EAST",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 0
+              },
+              {
+                "mean_projected_pairwise_points": 0.0,
+                "rollouts": 16,
+                "sequence": [
+                  "SOUTH",
+                  "SOUTH",
+                  "SOUTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 0
+              },
+              {
+                "mean_projected_pairwise_points": 0.0,
+                "rollouts": 16,
+                "sequence": [
+                  "SOUTH",
+                  "WEST",
+                  "SOUTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 0
+              },
+              {
+                "mean_projected_pairwise_points": 0.0,
+                "rollouts": 16,
+                "sequence": [
+                  "SOUTH",
+                  "WEST",
+                  "WEST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 0
+              },
+              {
+                "mean_projected_pairwise_points": 0.0,
+                "rollouts": 16,
+                "sequence": [
+                  "SOUTH",
+                  "STAY",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 0
+              },
+              {
+                "mean_projected_pairwise_points": 0.0,
+                "rollouts": 16,
+                "sequence": [
+                  "SOUTH",
+                  "SHIELD",
+                  "SOUTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 0
+              },
+              {
+                "mean_projected_pairwise_points": 0.0,
+                "rollouts": 16,
+                "sequence": [
+                  "SOUTH",
+                  "SHIELD",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 0
+              }
+            ]
+          },
+          {
+            "action": "SHIELD",
+            "best_common_plan": {
+              "mean_projected_pairwise_points": 0.0,
+              "rollouts": 16,
+              "sequence": [
+                "SHIELD",
+                "NORTH",
+                "WEST"
+              ],
+              "value_denominator": 32,
+              "value_numerator_sum": 0
+            },
+            "plans": [
+              {
+                "mean_projected_pairwise_points": 0.0,
+                "rollouts": 16,
+                "sequence": [
+                  "SHIELD",
+                  "NORTH",
+                  "WEST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 0
+              },
+              {
+                "mean_projected_pairwise_points": 0.0,
+                "rollouts": 16,
+                "sequence": [
+                  "SHIELD",
+                  "NORTH",
+                  "SHIELD"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 0
+              },
+              {
+                "mean_projected_pairwise_points": 0.0,
+                "rollouts": 16,
+                "sequence": [
+                  "SHIELD",
+                  "EAST",
+                  "NORTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 0
+              },
+              {
+                "mean_projected_pairwise_points": 0.0,
+                "rollouts": 16,
+                "sequence": [
+                  "SHIELD",
+                  "EAST",
+                  "SOUTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 0
+              },
+              {
+                "mean_projected_pairwise_points": 0.0,
+                "rollouts": 16,
+                "sequence": [
+                  "SHIELD",
+                  "WEST",
+                  "NORTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 0
+              },
+              {
+                "mean_projected_pairwise_points": 0.0,
+                "rollouts": 16,
+                "sequence": [
+                  "SHIELD",
+                  "WEST",
+                  "WEST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 0
+              },
+              {
+                "mean_projected_pairwise_points": 0.0,
+                "rollouts": 16,
+                "sequence": [
+                  "SHIELD",
+                  "STAY",
+                  "EAST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 0
+              },
+              {
+                "mean_projected_pairwise_points": 0.0,
+                "rollouts": 16,
+                "sequence": [
+                  "SHIELD",
+                  "STAY",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 0
+              }
+            ]
+          }
+        ],
+        "sampled_support_states": 1,
+        "search": {
+          "horizon": 3,
+          "income_tail": 12,
+          "plans_per_root": 8,
+          "rollouts_per_plan": 16,
+          "seed": 747619785,
+          "support_cap": 512
+        }
+      },
+      {
+        "belief": {
+          "belief_weights": "uniform support; not calibrated action likelihoods",
+          "cap": 512,
+          "cooldown_domains": [
+            [
+              0
+            ],
+            [
+              0
+            ],
+            [
+              0
+            ],
+            [
+              0
+            ]
+          ],
+          "dropped_states": 0,
+          "exact_support": true,
+          "history_sha256": "1a63d6e21a06752d6b4050624f30cb3ed49735cf37179aa6f228ac2976728a8c",
+          "possible_tokens": [
+            2
+          ],
+          "progress_domains": [
+            [
+              1
+            ],
+            [
+              2
+            ],
+            [
+              2
+            ],
+            [
+              2
+            ]
+          ],
+          "support_states": 1,
+          "transitions": 11
+        },
+        "effective_horizon": 3,
+        "input_sha256": "74ae87588e947288dee3ede2ed36aa66dbcf8245c41ee56b48d33015b131f27d",
+        "job_id": "f4011b3b1c23e634837692a08a932a5a5d1594248abfc416bc7e63ea9828cb99",
+        "recommended_action": "EAST",
+        "root_estimates": [
+          {
+            "action": "EAST",
+            "best_common_plan": {
+              "mean_projected_pairwise_points": 2.46875,
+              "rollouts": 16,
+              "sequence": [
+                "EAST",
+                "WEST",
+                "STAY"
+              ],
+              "value_denominator": 32,
+              "value_numerator_sum": 79
+            },
+            "plans": [
+              {
+                "mean_projected_pairwise_points": 2.46875,
+                "rollouts": 16,
+                "sequence": [
+                  "EAST",
+                  "WEST",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 79
+              },
+              {
+                "mean_projected_pairwise_points": 2.15625,
+                "rollouts": 16,
+                "sequence": [
+                  "EAST",
+                  "EAST",
+                  "NORTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 69
+              },
+              {
+                "mean_projected_pairwise_points": 2.0625,
+                "rollouts": 16,
+                "sequence": [
+                  "EAST",
+                  "SOUTH",
+                  "SOUTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 66
+              },
+              {
+                "mean_projected_pairwise_points": 2.0625,
+                "rollouts": 16,
+                "sequence": [
+                  "EAST",
+                  "SOUTH",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 66
+              },
+              {
+                "mean_projected_pairwise_points": 2.0625,
+                "rollouts": 16,
+                "sequence": [
+                  "EAST",
+                  "WEST",
+                  "NORTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 66
+              },
+              {
+                "mean_projected_pairwise_points": 2.0625,
+                "rollouts": 16,
+                "sequence": [
+                  "EAST",
+                  "STAY",
+                  "EAST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 66
+              },
+              {
+                "mean_projected_pairwise_points": 2.0625,
+                "rollouts": 16,
+                "sequence": [
+                  "EAST",
+                  "STAY",
+                  "WEST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 66
+              },
+              {
+                "mean_projected_pairwise_points": 2.0625,
+                "rollouts": 16,
+                "sequence": [
+                  "EAST",
+                  "STAY",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 66
+              }
+            ]
+          },
+          {
+            "action": "STAY",
+            "best_common_plan": {
+              "mean_projected_pairwise_points": 2.0625,
+              "rollouts": 16,
+              "sequence": [
+                "STAY",
+                "NORTH",
+                "NORTH"
+              ],
+              "value_denominator": 32,
+              "value_numerator_sum": 66
+            },
+            "plans": [
+              {
+                "mean_projected_pairwise_points": 2.0625,
+                "rollouts": 16,
+                "sequence": [
+                  "STAY",
+                  "NORTH",
+                  "NORTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 66
+              },
+              {
+                "mean_projected_pairwise_points": 2.0625,
+                "rollouts": 16,
+                "sequence": [
+                  "STAY",
+                  "NORTH",
+                  "SOUTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 66
+              },
+              {
+                "mean_projected_pairwise_points": 2.0625,
+                "rollouts": 16,
+                "sequence": [
+                  "STAY",
+                  "EAST",
+                  "SOUTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 66
+              },
+              {
+                "mean_projected_pairwise_points": 2.0625,
+                "rollouts": 16,
+                "sequence": [
+                  "STAY",
+                  "SOUTH",
+                  "WEST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 66
+              },
+              {
+                "mean_projected_pairwise_points": 2.0625,
+                "rollouts": 16,
+                "sequence": [
+                  "STAY",
+                  "WEST",
+                  "NORTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 66
+              },
+              {
+                "mean_projected_pairwise_points": 2.0625,
+                "rollouts": 16,
+                "sequence": [
+                  "STAY",
+                  "STAY",
+                  "NORTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 66
+              },
+              {
+                "mean_projected_pairwise_points": 2.0625,
+                "rollouts": 16,
+                "sequence": [
+                  "STAY",
+                  "STAY",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 66
+              },
+              {
+                "mean_projected_pairwise_points": 2.0625,
+                "rollouts": 16,
+                "sequence": [
+                  "STAY",
+                  "SHIELD",
+                  "SOUTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 66
+              }
+            ]
+          },
+          {
+            "action": "NORTH",
+            "best_common_plan": {
+              "mean_projected_pairwise_points": 1.15625,
+              "rollouts": 16,
+              "sequence": [
+                "NORTH",
+                "STAY",
+                "NORTH"
+              ],
+              "value_denominator": 32,
+              "value_numerator_sum": 37
+            },
+            "plans": [
+              {
+                "mean_projected_pairwise_points": 1.15625,
+                "rollouts": 16,
+                "sequence": [
+                  "NORTH",
+                  "STAY",
+                  "NORTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 37
+              },
+              {
+                "mean_projected_pairwise_points": 1.15625,
+                "rollouts": 16,
+                "sequence": [
+                  "NORTH",
+                  "STAY",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 37
+              },
+              {
+                "mean_projected_pairwise_points": 1.0,
+                "rollouts": 16,
+                "sequence": [
+                  "NORTH",
+                  "EAST",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 32
+              },
+              {
+                "mean_projected_pairwise_points": 0.4375,
+                "rollouts": 16,
+                "sequence": [
+                  "NORTH",
+                  "SOUTH",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 14
+              },
+              {
+                "mean_projected_pairwise_points": 0.4375,
+                "rollouts": 16,
+                "sequence": [
+                  "NORTH",
+                  "SOUTH",
+                  "SHIELD"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 14
+              },
+              {
+                "mean_projected_pairwise_points": 0.375,
+                "rollouts": 16,
+                "sequence": [
+                  "NORTH",
+                  "NORTH",
+                  "SOUTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 12
+              },
+              {
+                "mean_projected_pairwise_points": 0.375,
+                "rollouts": 16,
+                "sequence": [
+                  "NORTH",
+                  "WEST",
+                  "EAST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 12
+              },
+              {
+                "mean_projected_pairwise_points": 0.375,
+                "rollouts": 16,
+                "sequence": [
+                  "NORTH",
+                  "SHIELD",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 12
+              }
+            ]
+          },
+          {
+            "action": "SOUTH",
+            "best_common_plan": {
+              "mean_projected_pairwise_points": 0.8125,
+              "rollouts": 16,
+              "sequence": [
+                "SOUTH",
+                "WEST",
+                "SOUTH"
+              ],
+              "value_denominator": 32,
+              "value_numerator_sum": 26
+            },
+            "plans": [
+              {
+                "mean_projected_pairwise_points": 0.8125,
+                "rollouts": 16,
+                "sequence": [
+                  "SOUTH",
+                  "WEST",
+                  "SOUTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 26
+              },
+              {
+                "mean_projected_pairwise_points": 0.4375,
+                "rollouts": 16,
+                "sequence": [
+                  "SOUTH",
+                  "NORTH",
+                  "NORTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 14
+              },
+              {
+                "mean_projected_pairwise_points": 0.4375,
+                "rollouts": 16,
+                "sequence": [
+                  "SOUTH",
+                  "NORTH",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 14
+              },
+              {
+                "mean_projected_pairwise_points": 0.4375,
+                "rollouts": 16,
+                "sequence": [
+                  "SOUTH",
+                  "EAST",
+                  "SHIELD"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 14
+              },
+              {
+                "mean_projected_pairwise_points": 0.4375,
+                "rollouts": 16,
+                "sequence": [
+                  "SOUTH",
+                  "SOUTH",
+                  "SHIELD"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 14
+              },
+              {
+                "mean_projected_pairwise_points": 0.40625,
+                "rollouts": 16,
+                "sequence": [
+                  "SOUTH",
+                  "SOUTH",
+                  "NORTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 13
+              },
+              {
+                "mean_projected_pairwise_points": 0.40625,
+                "rollouts": 16,
+                "sequence": [
+                  "SOUTH",
+                  "SOUTH",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 13
+              },
+              {
+                "mean_projected_pairwise_points": 0.40625,
+                "rollouts": 16,
+                "sequence": [
+                  "SOUTH",
+                  "STAY",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 13
+              }
+            ]
+          },
+          {
+            "action": "WEST",
+            "best_common_plan": {
+              "mean_projected_pairwise_points": 0.8125,
+              "rollouts": 16,
+              "sequence": [
+                "WEST",
+                "SOUTH",
+                "STAY"
+              ],
+              "value_denominator": 32,
+              "value_numerator_sum": 26
+            },
+            "plans": [
+              {
+                "mean_projected_pairwise_points": 0.8125,
+                "rollouts": 16,
+                "sequence": [
+                  "WEST",
+                  "SOUTH",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 26
+              },
+              {
+                "mean_projected_pairwise_points": 0.8125,
+                "rollouts": 16,
+                "sequence": [
+                  "WEST",
+                  "STAY",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 26
+              },
+              {
+                "mean_projected_pairwise_points": 0.4375,
+                "rollouts": 16,
+                "sequence": [
+                  "WEST",
+                  "EAST",
+                  "NORTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 14
+              },
+              {
+                "mean_projected_pairwise_points": 0.4375,
+                "rollouts": 16,
+                "sequence": [
+                  "WEST",
+                  "EAST",
+                  "WEST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 14
+              },
+              {
+                "mean_projected_pairwise_points": 0.4375,
+                "rollouts": 16,
+                "sequence": [
+                  "WEST",
+                  "EAST",
+                  "SHIELD"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 14
+              },
+              {
+                "mean_projected_pairwise_points": 0.4375,
+                "rollouts": 16,
+                "sequence": [
+                  "WEST",
+                  "WEST",
+                  "SHIELD"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 14
+              },
+              {
+                "mean_projected_pairwise_points": 0.40625,
+                "rollouts": 16,
+                "sequence": [
+                  "WEST",
+                  "SOUTH",
+                  "WEST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 13
+              },
+              {
+                "mean_projected_pairwise_points": 0.40625,
+                "rollouts": 16,
+                "sequence": [
+                  "WEST",
+                  "WEST",
+                  "EAST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 13
+              }
+            ]
+          },
+          {
+            "action": "SHIELD",
+            "best_common_plan": {
+              "mean_projected_pairwise_points": 0.4375,
+              "rollouts": 16,
+              "sequence": [
+                "SHIELD",
+                "NORTH",
+                "STAY"
+              ],
+              "value_denominator": 32,
+              "value_numerator_sum": 14
+            },
+            "plans": [
+              {
+                "mean_projected_pairwise_points": 0.4375,
+                "rollouts": 16,
+                "sequence": [
+                  "SHIELD",
+                  "NORTH",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 14
+              },
+              {
+                "mean_projected_pairwise_points": 0.4375,
+                "rollouts": 16,
+                "sequence": [
+                  "SHIELD",
+                  "EAST",
+                  "NORTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 14
+              },
+              {
+                "mean_projected_pairwise_points": 0.4375,
+                "rollouts": 16,
+                "sequence": [
+                  "SHIELD",
+                  "SOUTH",
+                  "SHIELD"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 14
+              },
+              {
+                "mean_projected_pairwise_points": 0.4375,
+                "rollouts": 16,
+                "sequence": [
+                  "SHIELD",
+                  "WEST",
+                  "SHIELD"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 14
+              },
+              {
+                "mean_projected_pairwise_points": 0.4375,
+                "rollouts": 16,
+                "sequence": [
+                  "SHIELD",
+                  "STAY",
+                  "EAST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 14
+              },
+              {
+                "mean_projected_pairwise_points": 0.4375,
+                "rollouts": 16,
+                "sequence": [
+                  "SHIELD",
+                  "STAY",
+                  "SOUTH"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 14
+              },
+              {
+                "mean_projected_pairwise_points": 0.4375,
+                "rollouts": 16,
+                "sequence": [
+                  "SHIELD",
+                  "STAY",
+                  "STAY"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 14
+              },
+              {
+                "mean_projected_pairwise_points": 0.4375,
+                "rollouts": 16,
+                "sequence": [
+                  "SHIELD",
+                  "SHIELD",
+                  "WEST"
+                ],
+                "value_denominator": 32,
+                "value_numerator_sum": 14
+              }
+            ]
+          }
+        ],
+        "sampled_support_states": 1,
+        "search": {
+          "horizon": 3,
+          "income_tail": 12,
+          "plans_per_root": 8,
+          "rollouts_per_plan": 16,
+          "seed": 747619786,
+          "support_cap": 512
+        }
+      }
+    ],
+    "kind": "public_history_gpu_coach_batch_result",
+    "limitations": [
+      "sampled open-loop continuations, not an information-set tree",
+      "handwritten rival models and nonterminal projected-pairwise cutoff proxy",
+      "search runtime is offline, no 200ms deployment guarantee",
+      "CUDA trajectories are diagnostic rollouts, not full incumbent games"
+    ],
+    "objective": "Round 1 pairwise points: exact at terminal; projected scores plus bounded income tail otherwise",
+    "peak_torch_allocated_bytes": 90582528,
+    "per_particle_focal_optimization": false,
+    "policy_model": "row-local public-only integer heuristic mixture v1",
+    "primary_campaign_games": 0,
+    "python": "3.12.10",
+    "schema": 1,
+    "source_sha256": {
+      "search_coach/belief.py": "f4188a87e5f253685df98ba596af97601bd00b68a42ff397f4d244126aa8669c",
+      "search_coach/gpu_batch.py": "1a15460f1ba38b31a701322683423d642f1e9d358a92a398238cac1683bbbc8b",
+      "tests/reference_engine.py": "8f7b89995cad0f724fb8ac7c7bc8311a6fa9b3b722f2204097031ba2333726f4",
+      "training_gpu/batch_game.py": "4c314c10e733d9eea496a9973110639b95cb496b8ff9e7b9d49bc8459d8efb9f"
+    },
+    "synthetic_game_turns": 8832,
+    "synthetic_trajectories": 2944,
+    "timing_seconds": {
+      "independent_cpu_replay": 1.098834199947305,
+      "prefix_reconstruction": 0.1457709000678733,
+      "public_policy_and_physics_with_trace_transfers": 0.3533528000116348,
+      "tensor_setup_and_transfer": 0.20618059998378158,
+      "total_end_to_end": 2.146291400073096
+    },
+    "torch": "2.11.0+cu128",
+    "torch_cuda": "12.8",
+    "trace_sha256": "db7911fd9f9a53738546fd0763e12f071c7a936c5b3c2ec7e1e6d29ba610d0d4",
+    "uniform_support_not_calibrated_posterior": true
+  }
+}

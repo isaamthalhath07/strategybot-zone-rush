@@ -23,7 +23,7 @@ Seeing `cuda_available: true` alone is insufficient: **kernel_ok must be true**.
 A missing or incompatible PyTorch installation does not mean the GPU is unusable;
 the owner can choose an appropriate separate environment from the report.
 
-The RTX 4070, RTX 5070 Ti, RTX 2060, GTX 1660 and RTX 5050 are candidate CUDA
+The RTX 4050, RTX 5070 Ti, RTX 2060, GTX 1660 Ti and RTX 5050 are candidate CUDA
 workers. Actual support depends on the installed driver and PyTorch build. An
 Intel integrated GPU is not a CUDA device; that laptop can contribute CPU work.
 No game jobs are included in this hardware-check ZIP. Game/referee parity and

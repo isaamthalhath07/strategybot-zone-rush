@@ -6,6 +6,8 @@ py -3.12 -c "import struct; assert struct.calcsize('P') == 8, '64-bit Python is 
 if errorlevel 1 goto python_missing
 py -3.12 -m venv .venv-worker
 if errorlevel 1 goto failed
+".venv-worker\Scripts\python.exe" -m pip install numpy==2.5.4 --index-url https://pypi.org/simple
+if errorlevel 1 goto failed
 ".venv-worker\Scripts\python.exe" -m pip install -r requirements-gpu.txt
 if errorlevel 1 goto failed
 ".venv-worker\Scripts\python.exe" verify_cuda.py

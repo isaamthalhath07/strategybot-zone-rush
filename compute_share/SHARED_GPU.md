@@ -29,7 +29,7 @@ same assigned package to multiple laptops. No same-Wi-Fi connection, account
 sharing, firewall changes or router ports are needed. Keep bot-related code under
 the participating team's control; sharing code between competing teams is forbidden.
 
-The RTX 4070, RTX 5070 Ti, RTX 2060, GTX 1660 and RTX 5050 are NVIDIA worker
+The RTX 4050, RTX 5070 Ti, RTX 2060, GTX 1660 Ti and RTX 5050 are NVIDIA worker
 candidates, subject to actual kernel/parity checks. If person3 has only Intel
 integrated graphics, it cannot run CUDA; use CPU work instead. CPU tensor
 diagnostics still need PyTorch, while pure Python game evaluation does not.

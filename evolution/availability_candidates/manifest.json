@@ -1,0 +1,19 @@
+{
+  "parent_sha256": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+  "builder_sha256": "dc3fe655a5a2dca6f9499842158e3b4a0155589836b36d83477a830543f5e445",
+  "artifacts": [
+    {
+      "path": "evolution/availability_candidates/availability_only.py",
+      "sha256": "9b70ead68aeffe9a7e5b6e4cedcb0713f0985c8d9b38c0eb0e15fd1c335e4637"
+    },
+    {
+      "path": "evolution/availability_candidates/arrival_and_availability.py",
+      "sha256": "26736ce075cb6199ddf0e8dce5e603152d6c29163ea41ec6c294533f14506d32"
+    }
+  ],
+  "production_changed": false,
+  "hypothesis": "Preserve defense when a certainly ready landlord can freeze us before a later raid completion and every immediate exit is closed.",
+  "statistical_strength": "untested",
+  "genes_changed": false,
+  "caveat": "A reachable counterexample motivates this narrow change; field performance must be tested independently."
+}

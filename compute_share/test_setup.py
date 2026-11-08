@@ -22,8 +22,9 @@ class SetupTests(unittest.TestCase):
     def test_setup_installs_only_into_its_separate_environment(self):
         script = (Path(__file__).parent/"setup_gpu.cmd").read_text()
         installs = [line for line in script.splitlines() if "pip install" in line]
-        self.assertEqual(len(installs), 1)
-        self.assertTrue(installs[0].startswith('".venv-worker\\Scripts\\python.exe"'))
+        self.assertEqual(len(installs), 2)
+        self.assertTrue(all(line.startswith('".venv-worker\\Scripts\\python.exe"') for line in installs))
+        self.assertTrue(any('numpy==2.5.4' in line for line in installs))
         self.assertIn('verify_cuda.py', script)
         self.assertNotIn('--system-site-packages', script)
 

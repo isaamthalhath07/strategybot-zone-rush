@@ -22,14 +22,17 @@ Every helper laptop still needs its own successful hardware and job checks.
    [PyTorch Windows FAQ](https://docs.pytorch.org/docs/stable/notes/windows.html)
    documents this Windows binary dependency.
 
-The RTX 4070, RTX 5070 Ti, RTX 2060, GTX 1660 and RTX 5050 should each be checked
+The RTX 4050, RTX 5070 Ti, RTX 2060, GTX 1660 Ti and RTX 5050 should each be checked
 individually. Their installed drivers, available memory and laptop power limits
 can differ. This exact PyTorch build has executed a real CUDA kernel on the
 owner's RTX 5070 Ti. Other laptops remain unverified until their reports pass.
 The Intel integrated alternative can contribute CPU work; it cannot run CUDA.
 
 Only `torch` is required beyond Python's standard library for the current GPU
-physics tools. There is no need for torchvision, torchaudio, the full CUDA
+physics tools. Setup also includes **NumPy2.5.4** to prevent PyTorch's optional
+NumPy-initialization warning; this exact combination was checked locally. A
+successful CUDA/job check remains valid if an older package printed that warning.
+There is no need for torchvision, torchaudio, the full CUDA
 Toolkit, a separate cuDNN installation, Visual Studio, Docker, Git or WSL. The
 [official PyTorch version instructions](https://pytorch.org/get-started/previous-versions/)
 list the Windows CUDA 12.8 build for 2.11.0. PyTorch's binaries bundle their CUDA
@@ -51,6 +54,7 @@ For manual installation, open Command Prompt in the extracted folder:
 
 ```bat
 py -3.12 -m venv .venv-worker
+.venv-worker\Scripts\python.exe -m pip install numpy==2.5.4 --index-url https://pypi.org/simple
 .venv-worker\Scripts\python.exe -m pip install torch==2.11.0 --index-url https://download.pytorch.org/whl/cu128
 .venv-worker\Scripts\python.exe verify_cuda.py
 ```
