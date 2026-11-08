@@ -1,0 +1,153 @@
+{
+  "accepted_source_raw_hashes_unchanged": true,
+  "all_four_field_mean_logloss_differences_favor_persistent": true,
+  "all_transition_log_probabilities_finite": true,
+  "approved_with_scope": true,
+  "bootstrap": {
+    "independent_raw_transition_arithmetic": true,
+    "quantile_indices": [
+      499,
+      19499
+    ],
+    "replicates": 20000,
+    "same_draws_all_contrasts": true,
+    "seed": 202611092150,
+    "shared_draw_indices_sha256": "dc447f7bfa1775ced593b0a25e345dade181144ab17d57c84cff7d9ac2a41bcc",
+    "stratified_fields": [
+      "economic",
+      "independent",
+      "erratic",
+      "pressure"
+    ],
+    "whole_map_game_clusters": true
+  },
+  "cases_per_field": 4,
+  "complete_registered_case_order": true,
+  "completed_per_game_bmcts_audits": 0,
+  "created_utc": "2026-11-08T23:07:14.864585+00:00",
+  "current_and_committed_source_pins_passed": true,
+  "distinct_rotation_orbits": 16,
+  "distinct_train_maps": 16,
+  "existing_physical_turns_replayed_by_original_pilot": 1280,
+  "exploratory_counts_and_losses_recomputed": true,
+  "final_joint_log_weight_vectors_stored_in_receipt": false,
+  "format": "independent-public-intent-pilot-results-review/1",
+  "frozen_archive_passed": true,
+  "independent_contrasts": [
+    {
+      "descriptive95_interval": [
+        -0.44857823329397706,
+        -0.34455152390949434
+      ],
+      "first": "persistent",
+      "mean_delta_nll": -0.39875560543616145,
+      "second": "mixture"
+    },
+    {
+      "descriptive95_interval": [
+        -2.186091954210564,
+        -1.9601044250437187
+      ],
+      "first": "persistent",
+      "mean_delta_nll": -2.0705831794520955,
+      "second": "uniform"
+    },
+    {
+      "descriptive95_interval": [
+        -1.7593252768262955,
+        -1.590484670614456
+      ],
+      "first": "mixture",
+      "mean_delta_nll": -1.671827574015934,
+      "second": "uniform"
+    }
+  ],
+  "independent_field_mean_nll": {
+    "mixture": {
+      "economic": 2.3137716391357204,
+      "erratic": 3.3365934076414496,
+      "independent": 2.5144623234376686,
+      "pressure": 3.1856920163998277
+    },
+    "persistent": {
+      "economic": 1.6086222992797679,
+      "erratic": 2.8638015223172983,
+      "independent": 2.3386492795070737,
+      "pressure": 2.94442386376588
+    },
+    "uniform": {
+      "economic": 4.682079032758314,
+      "erratic": 4.537667552131468,
+      "independent": 4.322071667689133,
+      "pressure": 4.496011430099486
+    }
+  },
+  "independent_mean_nll": {
+    "mixture": 2.8376298466536665,
+    "persistent": 2.438874241217505,
+    "uniform": 4.509457420669601
+  },
+  "interpretation": "About14% lower conditional public-transition log loss versus the per-step mixture on sixteen already-consumed TRAIN histories. This is not14% more wins, empirical calibration of real identities, fresh policy confirmation or a deployment result.",
+  "log_probability_range": [
+    -9.967121689294531,
+    -0.09432697138859923
+  ],
+  "mode_prediction_records": 3792,
+  "new_actor_callbacks": 0,
+  "new_games": 0,
+  "new_model_evaluations": 0,
+  "no_pruning_or_dropped_prediction_records": true,
+  "no_recorded_budget_exception": true,
+  "observed_support_maxima": {
+    "mixture": {
+      "modeled_particles": 2,
+      "physical_states": 2
+    },
+    "persistent": {
+      "modeled_particles": 128,
+      "physical_states": 2
+    },
+    "uniform": {
+      "modeled_particles": 2,
+      "physical_states": 2
+    }
+  },
+  "persistent_relative_logloss_reduction_percent": 14.052417932747725,
+  "posterior_weight_internal_normalization_scope": "Only transition evidence sums and displayed marginals can be checked from this receipt; internal joint vectors were covered by pre-execution tests, not regenerated in this review.",
+  "primary_games": 0,
+  "promoted": false,
+  "public_commit_independently_confirmed_via_github": true,
+  "public_commit_url": "https://github.com/isaamthalhath07/strategybot-zone-rush/commit/263fec01ddac47b44c0b9f34ef0583b41f60da33",
+  "public_prediction_steps": 1264,
+  "public_preregistration_commit": "263fec01ddac47b44c0b9f34ef0583b41f60da33",
+  "registration_identical_to_published_commit": true,
+  "registration_sha256": "1f57d80d08e1632ea220ce935955d0cfe52e2afa5df247a05f4465dff1c5008f",
+  "results_sha256": "c9bd506f8b8c42d1b92a5015d280da7101b5b053e3747b69ece5bddcd08cf977",
+  "scope": "Read-only source/protocol/receipt/statistical review. No actor, physical referee or model inference was rerun; no tuning performed.",
+  "selection_independently_recomputed": true,
+  "source_generations": [
+    {
+      "generation": 0,
+      "hashes_matched": true
+    },
+    {
+      "generation": 1,
+      "hashes_matched": true
+    },
+    {
+      "generation": 2,
+      "hashes_matched": true
+    },
+    {
+      "generation": 3,
+      "hashes_matched": true
+    },
+    {
+      "generation": 4,
+      "hashes_matched": true
+    }
+  ],
+  "trace_evidence_and_case_means_recomputed": true,
+  "type_marginals_normalized": true,
+  "validation_checks": 35202
+}

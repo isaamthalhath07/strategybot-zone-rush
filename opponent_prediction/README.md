@@ -56,6 +56,18 @@ weights and a shared within-field map bootstrap. Intervals and public-context
 subsets are descriptive. The data were already used for primary training, so
 this is neither fresh policy confirmation nor a playing-strength test.
 
+The first fixed pilot completed all 16 histories and 1,264 public prediction
+steps, with no pruning, unsupported history, dropped case or inference-limit
+failure. Mean log loss was 4.50946 for uniform intentions, 2.83763 for the per-turn
+mixture and 2.43887 for persistent styles. The persistent model's loss was
+14.05% lower than the per-turn mixture; every field improved in this sample.
+The paired difference was -0.39876, with a descriptive within-field bootstrap
+interval of [-0.44858, -0.34455]. This is a prediction result on consumed TRAIN
+data, not a win-rate improvement, calibration proof or simultaneous confidence
+claim. An independent implementation reproduced the means and bootstrap draws.
+Exact results, the preregistration published before execution, and the independent
+review are under `evidence/intent_001/`.
+
 Prediction quality alone cannot establish stronger search decisions. Any later
 search integration must retain public information boundaries and be checked
 against responding counterfactual rivals, then validated in fresh complete

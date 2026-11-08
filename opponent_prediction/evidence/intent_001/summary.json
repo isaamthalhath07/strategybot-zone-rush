@@ -1,0 +1,249 @@
+{
+  "bootstrap": {
+    "algorithm": "stdlib Random(seed).randrange(4); replicate-major, core.FIELDS order, four draws per field; cases in registered selected-fixture order; same draws for all three contrasts.",
+    "allocation": "Resample four maps with replacement within each of four fields; preserve equal field weights.",
+    "quantile_indices": [
+      499,
+      19499
+    ],
+    "replicates": 20000,
+    "scope": "Unadjusted descriptive95% percentile intervals; no simultaneous, fresh-data or strength guarantee.",
+    "seed": 202611092150,
+    "shared_draw_indices_sha256": "dc447f7bfa1775ced593b0a25e345dade181144ab17d57c84cff7d9ac2a41bcc",
+    "unit": "whole selected map/game, stratified within each registered field"
+  },
+  "compressed_results_sha256": "38c6c564360b5e53cfb30fa26af80cac32d2cd688d3b6fb684190255f9eb5962",
+  "contrasts": [
+    {
+      "descriptive95_interval": [
+        -0.44857823329397745,
+        -0.34455152390949423
+      ],
+      "first": "persistent",
+      "mean_delta_nll": -0.39875560543616145,
+      "second": "mixture"
+    },
+    {
+      "descriptive95_interval": [
+        -2.18609195421056,
+        -1.9601044250437154
+      ],
+      "first": "persistent",
+      "mean_delta_nll": -2.0705831794520915,
+      "second": "uniform"
+    },
+    {
+      "descriptive95_interval": [
+        -1.7593252768262924,
+        -1.5904846706144526
+      ],
+      "first": "mixture",
+      "mean_delta_nll": -1.6718275740159303,
+      "second": "uniform"
+    }
+  ],
+  "exploratory": {
+    "definition": {
+      "forced_context": "Prior public all-rivals-frozen yes/no.",
+      "public_opportunity": "Prior-public Shield-opportunity proxy: any nonfrozen rival occupies land owned by a different player. Cooldown readiness and intended STAY are unknown.",
+      "reporting": "Counts and pooled per-event NLL by mode only; no extra intervals, significance, tactical-plan or strength claims.",
+      "turn_bins": [
+        [
+          1,
+          20
+        ],
+        [
+          21,
+          40
+        ],
+        [
+          41,
+          60
+        ],
+        [
+          61,
+          79
+        ]
+      ]
+    },
+    "slices": {
+      "all_rivals_frozen_no": {
+        "events": 1264,
+        "models": {
+          "mixture": {
+            "mean_nll": 2.8376298466536665,
+            "total_nll": 3586.7641261702342
+          },
+          "persistent": {
+            "mean_nll": 2.438874241217505,
+            "total_nll": 3082.7370408989264
+          },
+          "uniform": {
+            "mean_nll": 4.5094574206696,
+            "total_nll": 5699.954179726375
+          }
+        }
+      },
+      "all_rivals_frozen_yes": {
+        "events": 0,
+        "models": {
+          "mixture": {
+            "mean_nll": null,
+            "total_nll": 0.0
+          },
+          "persistent": {
+            "mean_nll": null,
+            "total_nll": 0.0
+          },
+          "uniform": {
+            "mean_nll": null,
+            "total_nll": 0.0
+          }
+        }
+      },
+      "public_intrusion_no": {
+        "events": 820,
+        "models": {
+          "mixture": {
+            "mean_nll": 2.7866684596764655,
+            "total_nll": 2285.0681369347017
+          },
+          "persistent": {
+            "mean_nll": 2.3612537407252128,
+            "total_nll": 1936.2280673946746
+          },
+          "uniform": {
+            "mean_nll": 4.4942734837559914,
+            "total_nll": 3685.3042566799127
+          }
+        }
+      },
+      "public_intrusion_yes": {
+        "events": 444,
+        "models": {
+          "mixture": {
+            "mean_nll": 2.9317477235034524,
+            "total_nll": 1301.6959892355328
+          },
+          "persistent": {
+            "mean_nll": 2.5822274178023683,
+            "total_nll": 1146.5089735042516
+          },
+          "uniform": {
+            "mean_nll": 4.537499826681222,
+            "total_nll": 2014.6499230464624
+          }
+        }
+      },
+      "turn_01_20": {
+        "events": 320,
+        "models": {
+          "mixture": {
+            "mean_nll": 2.9224965531860887,
+            "total_nll": 935.1988970195483
+          },
+          "persistent": {
+            "mean_nll": 2.683056395739252,
+            "total_nll": 858.5780466365607
+          },
+          "uniform": {
+            "mean_nll": 4.714140228112796,
+            "total_nll": 1508.5248729960947
+          }
+        }
+      },
+      "turn_21_40": {
+        "events": 320,
+        "models": {
+          "mixture": {
+            "mean_nll": 2.876224353044195,
+            "total_nll": 920.3917929741424
+          },
+          "persistent": {
+            "mean_nll": 2.398855879393003,
+            "total_nll": 767.6338814057609
+          },
+          "uniform": {
+            "mean_nll": 4.578547690432808,
+            "total_nll": 1465.1352609384985
+          }
+        }
+      },
+      "turn_41_60": {
+        "events": 320,
+        "models": {
+          "mixture": {
+            "mean_nll": 2.786334074196041,
+            "total_nll": 891.6269037427331
+          },
+          "persistent": {
+            "mean_nll": 2.3329625521046133,
+            "total_nll": 746.5480166734762
+          },
+          "uniform": {
+            "mean_nll": 4.419352617175074,
+            "total_nll": 1414.1928374960235
+          }
+        }
+      },
+      "turn_61_79": {
+        "events": 304,
+        "models": {
+          "mixture": {
+            "mean_nll": 2.761666225111219,
+            "total_nll": 839.5465324338105
+          },
+          "persistent": {
+            "mean_nll": 2.335450974286607,
+            "total_nll": 709.9770961831285
+          },
+          "uniform": {
+            "mean_nll": 4.316122395709732,
+            "total_nll": 1312.1012082957584
+          }
+        }
+      }
+    }
+  },
+  "format": "public-intent-filter-pilot/1",
+  "full_bmcts_audits": 0,
+  "histories": 16,
+  "limitation": "Posterior conditional on four fixed heuristic policies, not calibrated real identity or a counterfactual strength result.",
+  "models": {
+    "mixture": {
+      "fields": {
+        "economic": 2.3137716391357204,
+        "erratic": 3.336593407641449,
+        "independent": 2.514462323437668,
+        "pressure": 3.1856920163998277
+      },
+      "mean_nll": 2.8376298466536665
+    },
+    "persistent": {
+      "fields": {
+        "economic": 1.6086222992797679,
+        "erratic": 2.8638015223172983,
+        "independent": 2.3386492795070737,
+        "pressure": 2.9444238637658797
+      },
+      "mean_nll": 2.438874241217505
+    },
+    "uniform": {
+      "fields": {
+        "economic": 4.68207903275831,
+        "erratic": 4.537667552131464,
+        "independent": 4.322071667689129,
+        "pressure": 4.496011430099483
+      },
+      "mean_nll": 4.509457420669596
+    }
+  },
+  "physical_turns_replayed": 1280,
+  "primary_games": 0,
+  "promotion": false,
+  "public_prediction_steps": 1264,
+  "raw_results_sha256": "c9bd506f8b8c42d1b92a5015d280da7101b5b053e3747b69ece5bddcd08cf977",
+  "registration_sha256": "1f57d80d08e1632ea220ce935955d0cfe52e2afa5df247a05f4465dff1c5008f",
+  "result_review_sha256": "0676d7354cdff29d3220c47a11a3a4b83c8df2dbfdd8a8cde287e052305d4d3e",
+  "source_preregistration_commit": "263fec01ddac47b44c0b9f34ef0583b41f60da33"
+}
