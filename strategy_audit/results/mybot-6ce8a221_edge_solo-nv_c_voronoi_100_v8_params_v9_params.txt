@@ -1,0 +1,7 @@
+[solo:nv_c_voronoi] 100 paired games, reference = @v8_params.json
+@v8_params.json          PW 0.9550  score  2407.8
+    per game: shields=0.61, last_shields=0.20, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.05, l1_lost_anyway=0.03, backfires=0.04, raids=1.99, raids_early=0.11, cells_lost=2.30, idle=0.91, idle_late=0.00, moves=26.57, turns90=17.14, reversals=5.01
+@v9_params.json          PW 1.1800  score  2442.5  dPW +0.2250 +/- 0.1026 (z +2.19)  dScore +34.70 +/- 17.09 (z +2.03)  games changed 43
+    per game: shields=0.83, last_shields=0.23, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.07, l1_lost_anyway=0.05, backfires=0.07, raids=1.94, raids_early=0.16, cells_lost=2.27, idle=0.81, idle_late=0.00, moves=25.95, turns90=16.43, reversals=4.65
+    pairwise win rate vs each opponent (columns: variants in order)
+      nv_c_voronoi     0.318  0.393  (n=300)
