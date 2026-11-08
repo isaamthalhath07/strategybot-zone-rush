@@ -1,0 +1,181 @@
+{
+  "summary": {
+    "bot_f95dc9fc2266": {
+      "games": 1152,
+      "mean_pw": 2.115451388888889,
+      "mean_score": 3172.417534722222,
+      "fields": {
+        "league": 1.46875,
+        "novel_dynamic": 2.4791666666666665,
+        "novel_economy": 2.3984375
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 5.901800002902746,
+      "mean_ms": 0.4709710265299489
+    },
+    "bot_1bb70109a75e": {
+      "games": 1152,
+      "mean_pw": 2.1063368055555554,
+      "mean_score": 3146.7204861111113,
+      "fields": {
+        "league": 1.6640625,
+        "novel_dynamic": 2.3763020833333335,
+        "novel_economy": 2.2786458333333335
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 2.8220999520272017,
+      "mean_ms": 0.4705067873045563
+    },
+    "bot_1dca0c916af4": {
+      "games": 1152,
+      "mean_pw": 2.0477430555555554,
+      "mean_score": 3177.1805555555557,
+      "fields": {
+        "league": 1.390625,
+        "novel_dynamic": 2.2109375,
+        "novel_economy": 2.5416666666666665
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 1.4661999884992838,
+      "mean_ms": 0.15344678830236566
+    },
+    "bot_a8f7a74e7ed3": {
+      "games": 1152,
+      "mean_pw": 2.0308159722222223,
+      "mean_score": 3160.4079861111113,
+      "fields": {
+        "league": 1.2708333333333333,
+        "novel_dynamic": 2.3255208333333335,
+        "novel_economy": 2.49609375
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 2.2285000886768103,
+      "mean_ms": 0.2809649294893764
+    },
+    "bot_e8b3682d8b39": {
+      "games": 1152,
+      "mean_pw": 1.9626736111111112,
+      "mean_score": 3148.5850694444443,
+      "fields": {
+        "league": 1.609375,
+        "novel_dynamic": 2.0729166666666665,
+        "novel_economy": 2.2057291666666665
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 2.063299994915724,
+      "mean_ms": 0.34652863794488237
+    }
+  },
+  "paired": [
+    {
+      "first": "bot_f95dc9fc2266",
+      "second": "bot_1bb70109a75e",
+      "mean": 0.009114583333333329,
+      "clusters": 24,
+      "bootstrap_95": [
+        -0.11414930555555557,
+        0.13888888888888887
+      ]
+    },
+    {
+      "first": "bot_f95dc9fc2266",
+      "second": "bot_1dca0c916af4",
+      "mean": 0.06770833333333333,
+      "clusters": 24,
+      "bootstrap_95": [
+        -0.09461805555555554,
+        0.2222222222222222
+      ]
+    },
+    {
+      "first": "bot_f95dc9fc2266",
+      "second": "bot_a8f7a74e7ed3",
+      "mean": 0.08463541666666667,
+      "clusters": 24,
+      "bootstrap_95": [
+        -0.06510416666666667,
+        0.2261284722222222
+      ]
+    },
+    {
+      "first": "bot_f95dc9fc2266",
+      "second": "bot_e8b3682d8b39",
+      "mean": 0.15277777777777776,
+      "clusters": 24,
+      "bootstrap_95": [
+        -0.030815972222222224,
+        0.3276909722222222
+      ]
+    },
+    {
+      "first": "bot_1bb70109a75e",
+      "second": "bot_1dca0c916af4",
+      "mean": 0.05859374999999999,
+      "clusters": 24,
+      "bootstrap_95": [
+        -0.15711805555555555,
+        0.2569444444444444
+      ]
+    },
+    {
+      "first": "bot_1bb70109a75e",
+      "second": "bot_a8f7a74e7ed3",
+      "mean": 0.07552083333333333,
+      "clusters": 24,
+      "bootstrap_95": [
+        -0.11371527777777778,
+        0.24479166666666666
+      ]
+    },
+    {
+      "first": "bot_1bb70109a75e",
+      "second": "bot_e8b3682d8b39",
+      "mean": 0.14366319444444445,
+      "clusters": 24,
+      "bootstrap_95": [
+        -0.11197916666666667,
+        0.3854166666666667
+      ]
+    },
+    {
+      "first": "bot_1dca0c916af4",
+      "second": "bot_a8f7a74e7ed3",
+      "mean": 0.016927083333333332,
+      "clusters": 24,
+      "bootstrap_95": [
+        -0.13368055555555555,
+        0.1618923611111111
+      ]
+    },
+    {
+      "first": "bot_1dca0c916af4",
+      "second": "bot_e8b3682d8b39",
+      "mean": 0.08506944444444443,
+      "clusters": 24,
+      "bootstrap_95": [
+        -0.0859375,
+        0.24913194444444445
+      ]
+    },
+    {
+      "first": "bot_a8f7a74e7ed3",
+      "second": "bot_e8b3682d8b39",
+      "mean": 0.0681423611111111,
+      "clusters": 24,
+      "bootstrap_95": [
+        -0.09375,
+        0.24913194444444442
+      ]
+    }
+  ],
+  "elapsed_s": 492.9116347999079,
+  "caveat": "Frozen candidates; no weight fitting. Branch ranking is conditional on registered fields. Diagnostic scores are not strength evidence. Final intervals cluster matched results by distinct board contents, not by individual turns.",
+  "games": 5760,
+  "timed_callbacks": 1843200,
+  "all_faults": 0
+}

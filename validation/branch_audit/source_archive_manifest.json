@@ -1,0 +1,1278 @@
+{
+  "archive": "validation/branch_audit/source_archive.zip",
+  "sha256": "87a419843a4307a3335b371e78a0fe823d3162183c5a0aaa02329d69172e7e4f",
+  "files": [
+    {
+      "path": "consolidation_candidates/branch_audit/00033f8357532975c4bcd3915c4ade2abac8165c8a0727badf7f6a878424e6ca.py",
+      "sha256": "00033f8357532975c4bcd3915c4ade2abac8165c8a0727badf7f6a878424e6ca"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/002d7bddb75790f38cc6795d6f9d823b765a5cf7d7160049dbe048933685eca1.py",
+      "sha256": "002d7bddb75790f38cc6795d6f9d823b765a5cf7d7160049dbe048933685eca1"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/013fbccc96f30f67f7c90dc1013bac8ddcf5d4c352555e8943f1b3a512cbf2a5.py",
+      "sha256": "013fbccc96f30f67f7c90dc1013bac8ddcf5d4c352555e8943f1b3a512cbf2a5"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/02d64851a30843efca509242f7723a3dc3b99f0819f6f77623ec5b8f3f4799b6.py",
+      "sha256": "02d64851a30843efca509242f7723a3dc3b99f0819f6f77623ec5b8f3f4799b6"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/03470e6151e545a7f4d20d75383a7f1dc4e7d0e5d89bf7387d243c6f7c4bfcf7.py",
+      "sha256": "03470e6151e545a7f4d20d75383a7f1dc4e7d0e5d89bf7387d243c6f7c4bfcf7"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/036f50fabe2c0bdb69729631b3827c4e2d777df558335d4995825388f4641bff.py",
+      "sha256": "036f50fabe2c0bdb69729631b3827c4e2d777df558335d4995825388f4641bff"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/0412b54e3ab14211e6dc211472ffddb3b1ea2489ecac77c5115ddb5dc0085d2b.py",
+      "sha256": "0412b54e3ab14211e6dc211472ffddb3b1ea2489ecac77c5115ddb5dc0085d2b"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/044e72a940c5da256cbcd7dfe3540a6f8f0bd832390ba4b36d50fa271fdcd7d2.py",
+      "sha256": "044e72a940c5da256cbcd7dfe3540a6f8f0bd832390ba4b36d50fa271fdcd7d2"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/070919242a55cb29c3455ee6fb12a8f2d7ffc463c3d3b73d6103b66b9cd4efc5.py",
+      "sha256": "070919242a55cb29c3455ee6fb12a8f2d7ffc463c3d3b73d6103b66b9cd4efc5"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/083e6f66fca9eee058476151886e04180f6a401992ab7be7efcdd3acd10ee14b.py",
+      "sha256": "083e6f66fca9eee058476151886e04180f6a401992ab7be7efcdd3acd10ee14b"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/0af16778b1e05f53e69650e9be3965f89a57d3a517ec5ca228ccafa153db627f.py",
+      "sha256": "0af16778b1e05f53e69650e9be3965f89a57d3a517ec5ca228ccafa153db627f"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/0b02400475299f32dfff539e4616749d628b2fd7faf7c400b1e46240694dd5f3.py",
+      "sha256": "0b02400475299f32dfff539e4616749d628b2fd7faf7c400b1e46240694dd5f3"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/0b57f0be12997591bda7cf92c5d7efc91395f0fe065d26bb412c249cb3893e42.py",
+      "sha256": "0b57f0be12997591bda7cf92c5d7efc91395f0fe065d26bb412c249cb3893e42"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/0c34fb29b3d2a178dd5f906af61011d8b1c9c4e9215a58f38c727ecc4381d284.py",
+      "sha256": "0c34fb29b3d2a178dd5f906af61011d8b1c9c4e9215a58f38c727ecc4381d284"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/0cd7e175e6251baec478a74abd9fd5eed3ef5421b6d8467bafcda571f8864bf9.py",
+      "sha256": "0cd7e175e6251baec478a74abd9fd5eed3ef5421b6d8467bafcda571f8864bf9"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/0ce93d1bed8e83f3f4c5656f08779fa4bd985f7f706fe1a00c711a6e418fd4f4.py",
+      "sha256": "0ce93d1bed8e83f3f4c5656f08779fa4bd985f7f706fe1a00c711a6e418fd4f4"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/0db330d2bb63cd0e6dc71910a250956d14a7c019e58a0bd36ec3a07381a6d2d4.py",
+      "sha256": "0db330d2bb63cd0e6dc71910a250956d14a7c019e58a0bd36ec3a07381a6d2d4"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/0eba22235e5056e59661bbade6c2ae3b5aa8c3bcdf8bb68d41441086339f9162.py",
+      "sha256": "0eba22235e5056e59661bbade6c2ae3b5aa8c3bcdf8bb68d41441086339f9162"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/1056046dff6b5d0c4db7da1a89a7df28afd74a11a7445535792c0fd8c4ddb236.py",
+      "sha256": "1056046dff6b5d0c4db7da1a89a7df28afd74a11a7445535792c0fd8c4ddb236"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/11045a993b063465daa5571cee9ec876a37e1919cd9fb5d6dfe730f4fc5760e8.py",
+      "sha256": "11045a993b063465daa5571cee9ec876a37e1919cd9fb5d6dfe730f4fc5760e8"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/111a2261c2d94cc739c5aea2cc358f3505fd93b0a6765325a9a76f4f86a3278b.py",
+      "sha256": "111a2261c2d94cc739c5aea2cc358f3505fd93b0a6765325a9a76f4f86a3278b"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/13a39a6858252e418db105782ade551e54690ce23e76ea790910449f94c7e449.py",
+      "sha256": "13a39a6858252e418db105782ade551e54690ce23e76ea790910449f94c7e449"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/180e7a921c02f5d85540a59442ece7b1dca377af3cf17ae1108f3aa2a564ac7a.py",
+      "sha256": "180e7a921c02f5d85540a59442ece7b1dca377af3cf17ae1108f3aa2a564ac7a"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/19059bece6536879a5577c85ff5f3872b1effb22c71e418d738551bb18965773.py",
+      "sha256": "19059bece6536879a5577c85ff5f3872b1effb22c71e418d738551bb18965773"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/19130dae312d78a17c22dce29e5ce8fde2333032d8256bf1ea18b2d5d2ef42cf.py",
+      "sha256": "19130dae312d78a17c22dce29e5ce8fde2333032d8256bf1ea18b2d5d2ef42cf"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/19f1b426c49ce5588a9bf1e0dd44522948432e4326438c5d4e9c9f532bb9b65c.py",
+      "sha256": "19f1b426c49ce5588a9bf1e0dd44522948432e4326438c5d4e9c9f532bb9b65c"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/1a08ff9195cefc121533582dc2cdb1fa67effd6d964df20de69e7d700456270c.py",
+      "sha256": "1a08ff9195cefc121533582dc2cdb1fa67effd6d964df20de69e7d700456270c"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/1a70872447130961bfba3215b054d209426662786ce11a6af23e8178c328a42a.py",
+      "sha256": "1a70872447130961bfba3215b054d209426662786ce11a6af23e8178c328a42a"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/1a718fd8b5146f9b6a5796b00a1a7a7993ae17edc66cc17d997b086cfaf83bc6.py",
+      "sha256": "1a718fd8b5146f9b6a5796b00a1a7a7993ae17edc66cc17d997b086cfaf83bc6"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/1b2fb8b377d188c0aaa76590e06f3ca298173f864f0975578fc1b70f2ee48f75.py",
+      "sha256": "1b2fb8b377d188c0aaa76590e06f3ca298173f864f0975578fc1b70f2ee48f75"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/1bb70109a75e2880bfdf3ac9b6fd8e368b0f3d02b9a3e65de53cef0defa505e5.py",
+      "sha256": "1bb70109a75e2880bfdf3ac9b6fd8e368b0f3d02b9a3e65de53cef0defa505e5"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/1bd939d99bfaf8e2638c152a3d021b4f843b27ec7551fa71fe832a5adf02f3ac.py",
+      "sha256": "1bd939d99bfaf8e2638c152a3d021b4f843b27ec7551fa71fe832a5adf02f3ac"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/1c7e83af6c36ab91660e6ebd1ee69c8166e6f6300c2f48605a17acc7e90811e6.py",
+      "sha256": "1c7e83af6c36ab91660e6ebd1ee69c8166e6f6300c2f48605a17acc7e90811e6"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/1cdcba187107e204762f712fcc4d9388b2661c95b0723508d91da6a43d448821.py",
+      "sha256": "1cdcba187107e204762f712fcc4d9388b2661c95b0723508d91da6a43d448821"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/1dca0c916af4ff4ac4c2e90fabe3f3c29c550c5db61663f8a3c2b0efc72f81ca.py",
+      "sha256": "1dca0c916af4ff4ac4c2e90fabe3f3c29c550c5db61663f8a3c2b0efc72f81ca"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/201f441730813f482e83360c6a36eda848d5fb482cadcdc0b142b8e2c9ded6fc.py",
+      "sha256": "201f441730813f482e83360c6a36eda848d5fb482cadcdc0b142b8e2c9ded6fc"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/208bc84d1915ee075d00247f1e201618b4be7378e3f3ffe862b0de17cf45df29.py",
+      "sha256": "208bc84d1915ee075d00247f1e201618b4be7378e3f3ffe862b0de17cf45df29"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/2164474c40f906b7ce55bbd598994502d525b00035d22b0cbc1536648f9a95c7.py",
+      "sha256": "2164474c40f906b7ce55bbd598994502d525b00035d22b0cbc1536648f9a95c7"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/219abf2e7151e9dc594911b7e7f5b236c3e1475ecf9d5b326232bcb25adba821.py",
+      "sha256": "219abf2e7151e9dc594911b7e7f5b236c3e1475ecf9d5b326232bcb25adba821"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/21ad420998051815407a9c697cef9fb68684fb3e054800b759810597e8b3df7c.py",
+      "sha256": "21ad420998051815407a9c697cef9fb68684fb3e054800b759810597e8b3df7c"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/22badfa2ee552e669db1095726c4afdd0a823441a6198ea6ff5d3839d07501aa.py",
+      "sha256": "22badfa2ee552e669db1095726c4afdd0a823441a6198ea6ff5d3839d07501aa"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/238790102d13451f5db99813deb27dc87b8fab3e5632cee568826575f69c1fa6.py",
+      "sha256": "238790102d13451f5db99813deb27dc87b8fab3e5632cee568826575f69c1fa6"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/2388ad4999449035dbe50e224680979e3dd788865d8793c7a3ccbb06e1da17d1.py",
+      "sha256": "2388ad4999449035dbe50e224680979e3dd788865d8793c7a3ccbb06e1da17d1"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/23d78e2909fb9ebd4f0dfa9098b35a0780e8c225baf7a760f2bd508ce1f4781f.py",
+      "sha256": "23d78e2909fb9ebd4f0dfa9098b35a0780e8c225baf7a760f2bd508ce1f4781f"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/25e30d29c248a616fd55ad2b7f1221a4e093e9c8be93223fb8f56cdd5616f441.py",
+      "sha256": "25e30d29c248a616fd55ad2b7f1221a4e093e9c8be93223fb8f56cdd5616f441"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/261f101702095100664bdcf5f96cae8761cc174dc4ec4d4e614db1d3dfd7f01d.py",
+      "sha256": "261f101702095100664bdcf5f96cae8761cc174dc4ec4d4e614db1d3dfd7f01d"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/264686ac90e138a8d79809e6b435559c9dc247118dba2b49946ce6dad27b15fe.py",
+      "sha256": "264686ac90e138a8d79809e6b435559c9dc247118dba2b49946ce6dad27b15fe"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/2775aa3d6d4018ad2ba6d56cd05ab022fdc570d27054fb2e7f6002a36d9c8821.py",
+      "sha256": "2775aa3d6d4018ad2ba6d56cd05ab022fdc570d27054fb2e7f6002a36d9c8821"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/27c2b068fb8665864f77074c7f6fbea0a4be6d309c8e7be0d985861a593c2c0a.py",
+      "sha256": "27c2b068fb8665864f77074c7f6fbea0a4be6d309c8e7be0d985861a593c2c0a"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/27fbb33378ea11378390f6a32a58340e4153e80e4aa3f7ec3a54929386ef2ba8.py",
+      "sha256": "27fbb33378ea11378390f6a32a58340e4153e80e4aa3f7ec3a54929386ef2ba8"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/284f94f4e723713e8316476f426793cd451749fad001d69cb4c3d7aa4e19b2eb.py",
+      "sha256": "284f94f4e723713e8316476f426793cd451749fad001d69cb4c3d7aa4e19b2eb"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/2956bbd05ffc796f89164dfd3b9a77ecf0f0cd0999e3aba4c12639638e01a4bc.py",
+      "sha256": "2956bbd05ffc796f89164dfd3b9a77ecf0f0cd0999e3aba4c12639638e01a4bc"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/29943674e478229ad5c4b869b15852d4581e0c305c1e73c7002f6c064540b489.py",
+      "sha256": "29943674e478229ad5c4b869b15852d4581e0c305c1e73c7002f6c064540b489"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/29abfe9dc7bd905fdb5c3019b5572bbdf3d98a3eb06a93b8ba352f1375304a60.py",
+      "sha256": "29abfe9dc7bd905fdb5c3019b5572bbdf3d98a3eb06a93b8ba352f1375304a60"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/2a092692e4be3e3fd63e26fcf6953e9aa95b40d4127366194aa12ef7d12989f4.py",
+      "sha256": "2a092692e4be3e3fd63e26fcf6953e9aa95b40d4127366194aa12ef7d12989f4"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/2a9fa5c1127f8952334726eba7b03e10321706bce5ce23a75ec44ce1327c2c98.py",
+      "sha256": "2a9fa5c1127f8952334726eba7b03e10321706bce5ce23a75ec44ce1327c2c98"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/2bbe66748e55086f7c891bf6a778294624c8bdb2159a5424af3658c157eaf7e6.py",
+      "sha256": "2bbe66748e55086f7c891bf6a778294624c8bdb2159a5424af3658c157eaf7e6"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/2beb1c803986bfe960fd303358ae1df909bb428abd622d9bcaf055227370e94f.py",
+      "sha256": "2beb1c803986bfe960fd303358ae1df909bb428abd622d9bcaf055227370e94f"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/2ce4d9d7fca646c7d04913bae7cb96f6f3256fd3918fa6f9ff7894a0870e3aac.py",
+      "sha256": "2ce4d9d7fca646c7d04913bae7cb96f6f3256fd3918fa6f9ff7894a0870e3aac"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/2fdcd8ccf891a35d4732c11ebf0daa7cfb1a4b5b19b4dc27304a51507a4db043.py",
+      "sha256": "2fdcd8ccf891a35d4732c11ebf0daa7cfb1a4b5b19b4dc27304a51507a4db043"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/31965e1412c6e973e7e877c0653f6d9ca072dfcd94a10460f8a7d76bdfa25015.py",
+      "sha256": "31965e1412c6e973e7e877c0653f6d9ca072dfcd94a10460f8a7d76bdfa25015"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/31cc7b93f23cef96fc65451a66a93d9339793ebf825b38b9ea8f8130e46d6f9b.py",
+      "sha256": "31cc7b93f23cef96fc65451a66a93d9339793ebf825b38b9ea8f8130e46d6f9b"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/334707718414306f911049dac9a06f7985aced08bd541fc3b56f1f2bd72b7870.py",
+      "sha256": "334707718414306f911049dac9a06f7985aced08bd541fc3b56f1f2bd72b7870"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/33915aab14af4b716f8af275ec824062410830af331f94596b4cdaa310760313.py",
+      "sha256": "33915aab14af4b716f8af275ec824062410830af331f94596b4cdaa310760313"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/33a7d6066aee1ac27387f8e5bfa02eb3f861029b603be0c1b81367f20f630858.py",
+      "sha256": "33a7d6066aee1ac27387f8e5bfa02eb3f861029b603be0c1b81367f20f630858"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/34831f1756657707447b46e2690da739e6f6b41faeb4707c4928160fe6eeed54.py",
+      "sha256": "34831f1756657707447b46e2690da739e6f6b41faeb4707c4928160fe6eeed54"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/34bdf1bab1bbd190ba9529450238a7ab295cabd2d268cdce575b056e3aad5eb8.py",
+      "sha256": "34bdf1bab1bbd190ba9529450238a7ab295cabd2d268cdce575b056e3aad5eb8"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/3533bd4a98eb788ff26176d2d1329043bc14192f5b8d2d4879d957d98e695946.py",
+      "sha256": "3533bd4a98eb788ff26176d2d1329043bc14192f5b8d2d4879d957d98e695946"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/35f136e9e108bd1a109e637764b5b63e4e132cd8aad64e9db2a519f9e2aba2e2.py",
+      "sha256": "35f136e9e108bd1a109e637764b5b63e4e132cd8aad64e9db2a519f9e2aba2e2"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/3723c6975fea0e051539fbaa8a2e2707052410898c07bd8289c1df3c857d2429.py",
+      "sha256": "3723c6975fea0e051539fbaa8a2e2707052410898c07bd8289c1df3c857d2429"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/3927b1a0ccb6e6288803160ba6511c28cf89119aaca6df720617675cc66f02f4.py",
+      "sha256": "3927b1a0ccb6e6288803160ba6511c28cf89119aaca6df720617675cc66f02f4"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/3a50a56aa9aefc98dc49fe9de1ecc46079b5f505b6dea133900170068aff7497.py",
+      "sha256": "3a50a56aa9aefc98dc49fe9de1ecc46079b5f505b6dea133900170068aff7497"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/3a56c6a88766da5f42b2d67610a02f0583ea96619aadba3ad68a6f5a3f229684.py",
+      "sha256": "3a56c6a88766da5f42b2d67610a02f0583ea96619aadba3ad68a6f5a3f229684"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/3a585dbd47de172a2f013801ffd7d60e32a8e8d0084876de56dd4b8426594a04.py",
+      "sha256": "3a585dbd47de172a2f013801ffd7d60e32a8e8d0084876de56dd4b8426594a04"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/3ac6d190b421360939e71c13fb7c5a70b937a246b6fd8631ba35f97e36ce71cd.py",
+      "sha256": "3ac6d190b421360939e71c13fb7c5a70b937a246b6fd8631ba35f97e36ce71cd"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/3ae316c793886a5fdaabb00647871affdf75a0c86cace4bac82d0ba228dc7456.py",
+      "sha256": "3ae316c793886a5fdaabb00647871affdf75a0c86cace4bac82d0ba228dc7456"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/3b709806c3f4a02426e22077aaab2136730d41b103a37fd1b25bca32f4373933.py",
+      "sha256": "3b709806c3f4a02426e22077aaab2136730d41b103a37fd1b25bca32f4373933"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/3bc996cb39602d19ef1be4f19b6e6ada20527d446cf3f3cbc48f389173481966.py",
+      "sha256": "3bc996cb39602d19ef1be4f19b6e6ada20527d446cf3f3cbc48f389173481966"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/3d8b48404f354fbcc3c0c66f8825b2adb667ed958f2ac8b13c46321872174fd7.py",
+      "sha256": "3d8b48404f354fbcc3c0c66f8825b2adb667ed958f2ac8b13c46321872174fd7"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/3e05e5aaee7cbe50a2c99c0ff65bd9ee352d78e7280744e548f63272f7da63fa.py",
+      "sha256": "3e05e5aaee7cbe50a2c99c0ff65bd9ee352d78e7280744e548f63272f7da63fa"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/3e91b94e1081345b60b3b26b671a1dbf434898ba2c9d441b07f4494fc7dafc9b.py",
+      "sha256": "3e91b94e1081345b60b3b26b671a1dbf434898ba2c9d441b07f4494fc7dafc9b"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/4160cf99ce6d0f2c416ae73f9bf506e0c5929e1101195ae37e100b8a7fa0bca5.py",
+      "sha256": "4160cf99ce6d0f2c416ae73f9bf506e0c5929e1101195ae37e100b8a7fa0bca5"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/42e759b51db977fe0a6c3cafb2adde225d4976d20ce6dada8a9f873b293ba239.py",
+      "sha256": "42e759b51db977fe0a6c3cafb2adde225d4976d20ce6dada8a9f873b293ba239"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/45d91a14843a7a79aa5b69d09f09b7ec5c9d40b4921087b5fa4364044a2806ea.py",
+      "sha256": "45d91a14843a7a79aa5b69d09f09b7ec5c9d40b4921087b5fa4364044a2806ea"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/46c23637c8333749253e8e7d982197be05d55d06f4d470aaea3e4050d34c20f6.py",
+      "sha256": "46c23637c8333749253e8e7d982197be05d55d06f4d470aaea3e4050d34c20f6"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/47551115a0122cb36466b7068d016595f3e2dcc4d0739f3d0b7616e600f2c396.py",
+      "sha256": "47551115a0122cb36466b7068d016595f3e2dcc4d0739f3d0b7616e600f2c396"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/479793996c3bf8afd8df9614699f7cd8793c9a473b838bc08a659c14bf3f0b99.py",
+      "sha256": "479793996c3bf8afd8df9614699f7cd8793c9a473b838bc08a659c14bf3f0b99"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/492aa8a38c12c0140a8d16ba9fbcc29a09bb800b7af5eb61f2718ed371788add.py",
+      "sha256": "492aa8a38c12c0140a8d16ba9fbcc29a09bb800b7af5eb61f2718ed371788add"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/4afed62b2742d83822d03ba5de7b2e26b19d2a36e1e6eb4ec076ae701132c657.py",
+      "sha256": "4afed62b2742d83822d03ba5de7b2e26b19d2a36e1e6eb4ec076ae701132c657"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/4b5659bf878a12c345d42cde23b50446f68f938cec5f994428a43006c348923a.py",
+      "sha256": "4b5659bf878a12c345d42cde23b50446f68f938cec5f994428a43006c348923a"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/4be1276ff32989cfde4cd6b37d10f89145980d70dffefd03f14f40d1da9f3ffb.py",
+      "sha256": "4be1276ff32989cfde4cd6b37d10f89145980d70dffefd03f14f40d1da9f3ffb"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/4dc8a91b2eb8832cf02c401a65353f9210ded23afad2862b436a1679575f21da.py",
+      "sha256": "4dc8a91b2eb8832cf02c401a65353f9210ded23afad2862b436a1679575f21da"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/4ec816bcb4d4993f4643564bd8b8260835335335f7e04ab0052e8b9a6b829162.py",
+      "sha256": "4ec816bcb4d4993f4643564bd8b8260835335335f7e04ab0052e8b9a6b829162"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/4fb8269883a3e247afbed2aedb1d4ebd6dea0ea50d8eb3046d2d900e0ebd73e1.py",
+      "sha256": "4fb8269883a3e247afbed2aedb1d4ebd6dea0ea50d8eb3046d2d900e0ebd73e1"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/4fecce318344313f038fcf5cfe6f1414870d86776f049d6b48d79bd0491c2f22.py",
+      "sha256": "4fecce318344313f038fcf5cfe6f1414870d86776f049d6b48d79bd0491c2f22"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/506ac60b6a7b3406f60c214f403e7618923040476f6310997f09226f796aafc9.py",
+      "sha256": "506ac60b6a7b3406f60c214f403e7618923040476f6310997f09226f796aafc9"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/514775d141be466c6507fca74e3b99594920d1151f27f0d6d3d124d800e9fa87.py",
+      "sha256": "514775d141be466c6507fca74e3b99594920d1151f27f0d6d3d124d800e9fa87"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/52546043ecc9e522cd8f71578897e6fa0591acd56976dce68edc80a84158a784.py",
+      "sha256": "52546043ecc9e522cd8f71578897e6fa0591acd56976dce68edc80a84158a784"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/52a05cba6f74758c9727cff2c08b3643b801549a294ba82fc173f6361c815438.py",
+      "sha256": "52a05cba6f74758c9727cff2c08b3643b801549a294ba82fc173f6361c815438"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/53f876827a9f6987b9483003ae8bdd7714e67d7116bff109007b3fafbf3f1109.py",
+      "sha256": "53f876827a9f6987b9483003ae8bdd7714e67d7116bff109007b3fafbf3f1109"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/5451ead76bcb85b76184fae184d38945aded3d1a51cdeb315cc00a7c2d63ccf3.py",
+      "sha256": "5451ead76bcb85b76184fae184d38945aded3d1a51cdeb315cc00a7c2d63ccf3"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/5457b5fdf4ca0e52d8502c6b237f975a88b1e8a97dd7bb4900f2b2acfbda1497.py",
+      "sha256": "5457b5fdf4ca0e52d8502c6b237f975a88b1e8a97dd7bb4900f2b2acfbda1497"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/55437d0627139174bb82e76818327ed910ee9aa74557ee2a4c4a77ef632d5300.py",
+      "sha256": "55437d0627139174bb82e76818327ed910ee9aa74557ee2a4c4a77ef632d5300"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/5860703bb3a3690c60f2859049193c6694e28c472c391923e2a6b3ae32453d75.py",
+      "sha256": "5860703bb3a3690c60f2859049193c6694e28c472c391923e2a6b3ae32453d75"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/59608033eb40778d258118e396bc8eb6439f59406de8e93b271a70059ce5bbfa.py",
+      "sha256": "59608033eb40778d258118e396bc8eb6439f59406de8e93b271a70059ce5bbfa"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/59e3f210b3e7f124ccfdba94ffcd9f98415fa3b4473dd3f480d18bcaf181c3c1.py",
+      "sha256": "59e3f210b3e7f124ccfdba94ffcd9f98415fa3b4473dd3f480d18bcaf181c3c1"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/5a890c6242bee9431078a808137e29c728c4b92d71231c2f2d9fec631950bcf9.py",
+      "sha256": "5a890c6242bee9431078a808137e29c728c4b92d71231c2f2d9fec631950bcf9"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/5bd3e3e73203e49efe2952936c106fb18e33b48a1d849ee5da68f9f289a9b4de.py",
+      "sha256": "5bd3e3e73203e49efe2952936c106fb18e33b48a1d849ee5da68f9f289a9b4de"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/5c9fc5cf6b0e3e58a3065b1afcf6bf42cfd0127487c2b31b878dad07205f467c.py",
+      "sha256": "5c9fc5cf6b0e3e58a3065b1afcf6bf42cfd0127487c2b31b878dad07205f467c"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/5d4e77c1b40b700076aeab39bbe0aabb6f35e236c977bde19aa52a0caea66e10.py",
+      "sha256": "5d4e77c1b40b700076aeab39bbe0aabb6f35e236c977bde19aa52a0caea66e10"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/5d887fd38c8f631d6993d153b68f265316626b9f11472bcea0d148e1f85d185f.py",
+      "sha256": "5d887fd38c8f631d6993d153b68f265316626b9f11472bcea0d148e1f85d185f"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/60128841971ef7baab12e3044e5fb02fd3a8b9d3e14623b176dbcc3227c072b0.py",
+      "sha256": "60128841971ef7baab12e3044e5fb02fd3a8b9d3e14623b176dbcc3227c072b0"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/605f98c72110f01ea4882d41006c09d8bb2b6ba08d5b23aad2cd3648c40b1831.py",
+      "sha256": "605f98c72110f01ea4882d41006c09d8bb2b6ba08d5b23aad2cd3648c40b1831"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/641c909b7ef188f3ba4dfa7fe0ccb935fe3dde2e23f99c07f83fbc1d7b9f7d4d.py",
+      "sha256": "641c909b7ef188f3ba4dfa7fe0ccb935fe3dde2e23f99c07f83fbc1d7b9f7d4d"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/64b90e9c676b1a28cb001e7e836339646ca62bd226732b0abeb2e2062a97bc8f.py",
+      "sha256": "64b90e9c676b1a28cb001e7e836339646ca62bd226732b0abeb2e2062a97bc8f"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/6517c92b65e45160ac2239f1c08bfbc5e92d009b42f9f2215825c75ec71cd6ef.py",
+      "sha256": "6517c92b65e45160ac2239f1c08bfbc5e92d009b42f9f2215825c75ec71cd6ef"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/66f73201fca1902a0bf1bb892578e2d8b0c7b8c9e08304d7c8d6bf01575b1c4a.py",
+      "sha256": "66f73201fca1902a0bf1bb892578e2d8b0c7b8c9e08304d7c8d6bf01575b1c4a"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/68094583daf8b7207d74d6c87232ff4b165b491b65092023fa0ffeb06d454677.py",
+      "sha256": "68094583daf8b7207d74d6c87232ff4b165b491b65092023fa0ffeb06d454677"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/684566ff8ecc2afa8c078a2c5fe8a24b865b88625aaf9ccb5fd44eaede24083a.py",
+      "sha256": "684566ff8ecc2afa8c078a2c5fe8a24b865b88625aaf9ccb5fd44eaede24083a"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/684dde975cfb450d1caa823816eb45d4d8c4042e21f8ebd83b3e297b01ddd947.py",
+      "sha256": "684dde975cfb450d1caa823816eb45d4d8c4042e21f8ebd83b3e297b01ddd947"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/6862f44486417a2f24e96496b0ef2c103844241957bac366e6a96fa2439b7744.py",
+      "sha256": "6862f44486417a2f24e96496b0ef2c103844241957bac366e6a96fa2439b7744"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/6970d68d17ff60c64eb5fd4b091af17441358c44301e0884d65643099d7c2e76.py",
+      "sha256": "6970d68d17ff60c64eb5fd4b091af17441358c44301e0884d65643099d7c2e76"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/698feae1ef9da4e69907b26d31652dad9355b13db67698f0597f3adc86c1e2f5.py",
+      "sha256": "698feae1ef9da4e69907b26d31652dad9355b13db67698f0597f3adc86c1e2f5"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/6af6980800164895631fa0b6aa4dcd8392fd154fb003b16711a598083ab3076b.py",
+      "sha256": "6af6980800164895631fa0b6aa4dcd8392fd154fb003b16711a598083ab3076b"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/6d89dfce12922634ee9c3038a52c06003bb419f1fc91c4b7df3d014d322b0dbf.py",
+      "sha256": "6d89dfce12922634ee9c3038a52c06003bb419f1fc91c4b7df3d014d322b0dbf"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/6e58e14dca7302e60ec234f7da51d26e7a961ec1b8549e3974228313e7f2a3c0.py",
+      "sha256": "6e58e14dca7302e60ec234f7da51d26e7a961ec1b8549e3974228313e7f2a3c0"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/6e960d224ab52a64738eed1e913570f4b5b221ee1113fdacc2a997b5ea612b78.py",
+      "sha256": "6e960d224ab52a64738eed1e913570f4b5b221ee1113fdacc2a997b5ea612b78"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/6f2ac1487cd0a66793db3f2fab01f621d9c945a4f71a78cc92d176ef1de321f4.py",
+      "sha256": "6f2ac1487cd0a66793db3f2fab01f621d9c945a4f71a78cc92d176ef1de321f4"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/707a3856b372a685b48691c55890a2394a14b5116ee09d1c6b77e4622c01ee37.py",
+      "sha256": "707a3856b372a685b48691c55890a2394a14b5116ee09d1c6b77e4622c01ee37"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/710e79a95e37622aa0009fd01d9a42709da310bd6c057b0622454d27a88907bc.py",
+      "sha256": "710e79a95e37622aa0009fd01d9a42709da310bd6c057b0622454d27a88907bc"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/7162d1545fbf58ef3f29035d6e4d460c71d1f2f3799aa390f7262dbc7e410b9d.py",
+      "sha256": "7162d1545fbf58ef3f29035d6e4d460c71d1f2f3799aa390f7262dbc7e410b9d"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/720e5a3daf7b848e8a25038c20bda47e8fb0433495aaa7bdbff9b285b8ba5a2d.py",
+      "sha256": "720e5a3daf7b848e8a25038c20bda47e8fb0433495aaa7bdbff9b285b8ba5a2d"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/72932ac69d8e75836b3610b54da27fb0af4917e59ed938a62cd40cacb799f149.py",
+      "sha256": "72932ac69d8e75836b3610b54da27fb0af4917e59ed938a62cd40cacb799f149"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/7546b589da81be7e4fcf00a8cb27ff4748ab281ba441c05114236f09173cde3b.py",
+      "sha256": "7546b589da81be7e4fcf00a8cb27ff4748ab281ba441c05114236f09173cde3b"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/7773ed52b9b89f3f6159c88b866debbdd46d786932ea0ace72b30df03457e9b0.py",
+      "sha256": "7773ed52b9b89f3f6159c88b866debbdd46d786932ea0ace72b30df03457e9b0"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/7793268599f429615bcee6b2b5c01207fd57c085e5d26c46ee6244ff697e9951.py",
+      "sha256": "7793268599f429615bcee6b2b5c01207fd57c085e5d26c46ee6244ff697e9951"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/78aaeea82ba297ad3eef8c575787c36ef57741592fa83155e7a1f809200f3497.py",
+      "sha256": "78aaeea82ba297ad3eef8c575787c36ef57741592fa83155e7a1f809200f3497"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/78e6919475dee8f6a27ddbf7c433b49844bcdfdc865be334e3836cbb68fec8c6.py",
+      "sha256": "78e6919475dee8f6a27ddbf7c433b49844bcdfdc865be334e3836cbb68fec8c6"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/7a9381a30249b56063c3e7b46bbdcbb51a731a4b8e68e0fc658ae40c8a8d4f07.py",
+      "sha256": "7a9381a30249b56063c3e7b46bbdcbb51a731a4b8e68e0fc658ae40c8a8d4f07"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/7c9f1e431c644ee2a9e0c0fcdba1d29e2cd4adf6b1e2f1aa65aca0c73becbdbc.py",
+      "sha256": "7c9f1e431c644ee2a9e0c0fcdba1d29e2cd4adf6b1e2f1aa65aca0c73becbdbc"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/7db81c260e4a6e3842399f226627f8c9d5dc0a4c456fa501d500d7c8b94d1ccc.py",
+      "sha256": "7db81c260e4a6e3842399f226627f8c9d5dc0a4c456fa501d500d7c8b94d1ccc"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/7de1792bb1beadd8acc3b97f7290966253cc3689b7db611c21fe129b7258bc6e.py",
+      "sha256": "7de1792bb1beadd8acc3b97f7290966253cc3689b7db611c21fe129b7258bc6e"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/7e17afbb7d1df9099a55d871844842a580f57f5adc31267a364d102d1d057d0b.py",
+      "sha256": "7e17afbb7d1df9099a55d871844842a580f57f5adc31267a364d102d1d057d0b"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/7e322ce18c11c3c8be1f8801c6e68cf6da16cdea99ab0a61e03fe82b01db31e8.py",
+      "sha256": "7e322ce18c11c3c8be1f8801c6e68cf6da16cdea99ab0a61e03fe82b01db31e8"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/80235e109f3468eb5782660be5433c3ba1ee6fc2d2739ef0b4560f488d267704.py",
+      "sha256": "80235e109f3468eb5782660be5433c3ba1ee6fc2d2739ef0b4560f488d267704"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/80f427aec6f220b8113336d54dc7c887d39b05858f2b4f88f3a24f9877c5c983.py",
+      "sha256": "80f427aec6f220b8113336d54dc7c887d39b05858f2b4f88f3a24f9877c5c983"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/815918c3a2db14c07f694a32a7e6f9f752b989e2952554cb2ce60e63810c0ae9.py",
+      "sha256": "815918c3a2db14c07f694a32a7e6f9f752b989e2952554cb2ce60e63810c0ae9"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/8191e3172b8477e16dd447e7cdb1622b79e26049f705abb36e2a4710e42afdea.py",
+      "sha256": "8191e3172b8477e16dd447e7cdb1622b79e26049f705abb36e2a4710e42afdea"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/825a695c56bf7f7b8211148f678ef178e9e241d0b0b4ccf09db5b314738a3d21.py",
+      "sha256": "825a695c56bf7f7b8211148f678ef178e9e241d0b0b4ccf09db5b314738a3d21"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/835a2f3756a654cd0960ec218e72ecc9b19ddb50ab0ab0913fd5d347d19f0c1e.py",
+      "sha256": "835a2f3756a654cd0960ec218e72ecc9b19ddb50ab0ab0913fd5d347d19f0c1e"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/83a79ab14dbb1baf2b767d6791c7d3efa1921152d719d47bbe14d31bcf057440.py",
+      "sha256": "83a79ab14dbb1baf2b767d6791c7d3efa1921152d719d47bbe14d31bcf057440"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/83edc77b2b3fc45f2670baf7116c899d4374240e442da3339152b6620c04575b.py",
+      "sha256": "83edc77b2b3fc45f2670baf7116c899d4374240e442da3339152b6620c04575b"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/84043e97577386dfd7c2c8905819e6f78685a7e21a76b9f72fb36635c7b88a82.py",
+      "sha256": "84043e97577386dfd7c2c8905819e6f78685a7e21a76b9f72fb36635c7b88a82"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/84bb59a0fb046b0fe14256578413e7f5ad7f9f03ab58fc4981ee5b103e8cef4c.py",
+      "sha256": "84bb59a0fb046b0fe14256578413e7f5ad7f9f03ab58fc4981ee5b103e8cef4c"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/86180a765ed75aaf723965c7f5909a24246f2810eb6b1fd3a7a4e790799c2fcc.py",
+      "sha256": "86180a765ed75aaf723965c7f5909a24246f2810eb6b1fd3a7a4e790799c2fcc"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/86ea5b330f567af30d9f5402c0adb986dd2d336140e51e93195b61b3a162326e.py",
+      "sha256": "86ea5b330f567af30d9f5402c0adb986dd2d336140e51e93195b61b3a162326e"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/871082906a3dfbcf03d7464f47ce40a9b9dc741b4f4f8a369e9d2039f8fe6a18.py",
+      "sha256": "871082906a3dfbcf03d7464f47ce40a9b9dc741b4f4f8a369e9d2039f8fe6a18"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/8746e19a96c602c015a3ce77a9b27ed93875d80235b76a5dadcf84ec1e307991.py",
+      "sha256": "8746e19a96c602c015a3ce77a9b27ed93875d80235b76a5dadcf84ec1e307991"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/885b73a29a3ab186a3770673db05cb78d895dddb3798f4850926c8331ecb8a51.py",
+      "sha256": "885b73a29a3ab186a3770673db05cb78d895dddb3798f4850926c8331ecb8a51"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/8879f6f27a3b48206129455dfea65552f45f3b1572dee595692d048e039c3fcb.py",
+      "sha256": "8879f6f27a3b48206129455dfea65552f45f3b1572dee595692d048e039c3fcb"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/8946856226c5e6f5b76ee90289b115cbd9d36743e5627c1b256bb2d1d3e00a65.py",
+      "sha256": "8946856226c5e6f5b76ee90289b115cbd9d36743e5627c1b256bb2d1d3e00a65"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/8ae6c29de48396976477d20680902ad0cf91d223f5d822748ad907dfe3f663dd.py",
+      "sha256": "8ae6c29de48396976477d20680902ad0cf91d223f5d822748ad907dfe3f663dd"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/8bd92fbe5981d822cd3f722e47321f625605cf59a01de2d822260240b0d6c238.py",
+      "sha256": "8bd92fbe5981d822cd3f722e47321f625605cf59a01de2d822260240b0d6c238"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/8cbef7eccb4e1d8ab9dcb21d0d768295cfec530dc3deb05262fbdbd38cf96a2e.py",
+      "sha256": "8cbef7eccb4e1d8ab9dcb21d0d768295cfec530dc3deb05262fbdbd38cf96a2e"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/8cd5c1de46d42c2c61bee6e3e09a380065a82ba96b5588c3b923bdd720a87d3b.py",
+      "sha256": "8cd5c1de46d42c2c61bee6e3e09a380065a82ba96b5588c3b923bdd720a87d3b"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/8daa5d1de9c3afcadd68fafffc98d7e4880eced55e46ded99531f5f900d0a2d9.py",
+      "sha256": "8daa5d1de9c3afcadd68fafffc98d7e4880eced55e46ded99531f5f900d0a2d9"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/8df168eb33119daa8426f9a397ceba89b91eb271399e15e8b5332d7c88117c21.py",
+      "sha256": "8df168eb33119daa8426f9a397ceba89b91eb271399e15e8b5332d7c88117c21"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/8eac9789c4c55c7efe032fb9843b160a97d6f6236810e07907ee91a6fd1d916c.py",
+      "sha256": "8eac9789c4c55c7efe032fb9843b160a97d6f6236810e07907ee91a6fd1d916c"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/8ecfbc1043dbf8edb1f0717fe60e02fe4669db3118ed1edb28396d5470554f82.py",
+      "sha256": "8ecfbc1043dbf8edb1f0717fe60e02fe4669db3118ed1edb28396d5470554f82"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/8fb0b82dba6d16b3acc36f42e8d746219e5944999397b43c2194e47ac57fcb45.py",
+      "sha256": "8fb0b82dba6d16b3acc36f42e8d746219e5944999397b43c2194e47ac57fcb45"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/8fb32ee24081e7bf9ff4919a18490320d50925bc5aa94ef1f69f59a866a5b8cc.py",
+      "sha256": "8fb32ee24081e7bf9ff4919a18490320d50925bc5aa94ef1f69f59a866a5b8cc"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/911b744e2242302c448c0c220993fc38bc0d2a99e65cacd2bcd61ca43fba64f7.py",
+      "sha256": "911b744e2242302c448c0c220993fc38bc0d2a99e65cacd2bcd61ca43fba64f7"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/91d888bad7fcf6a7246ac96ea9cb7badfb09f74261879e9c6b8428efeb2025df.py",
+      "sha256": "91d888bad7fcf6a7246ac96ea9cb7badfb09f74261879e9c6b8428efeb2025df"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/9203f00255d58b2c430c3f5b1b317973b12e2997bfccb3348d02c95083273364.py",
+      "sha256": "9203f00255d58b2c430c3f5b1b317973b12e2997bfccb3348d02c95083273364"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/951a6cca7e0f6429dc34f25549b977dd3090b662ee5ee9589185a9fa2625a98d.py",
+      "sha256": "951a6cca7e0f6429dc34f25549b977dd3090b662ee5ee9589185a9fa2625a98d"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/953b0b410c35914b1587bbefd077ed37e9e01f4d2fb3c4338ebd375520fb7dc9.py",
+      "sha256": "953b0b410c35914b1587bbefd077ed37e9e01f4d2fb3c4338ebd375520fb7dc9"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/95da830e6f29d0ac06b095fb4de57ace8eb7962881818fa50a4c19f714ec07d9.py",
+      "sha256": "95da830e6f29d0ac06b095fb4de57ace8eb7962881818fa50a4c19f714ec07d9"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/96d75ae1883685630ddc61e77db526a5b28eff85ac79fdd02dcfea31ca028420.py",
+      "sha256": "96d75ae1883685630ddc61e77db526a5b28eff85ac79fdd02dcfea31ca028420"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/96f5ad11f8f3f57169a4024074f3ad2815118c6942ac1d896620e20fb88e38d1.py",
+      "sha256": "96f5ad11f8f3f57169a4024074f3ad2815118c6942ac1d896620e20fb88e38d1"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/97a75dcd2461b3781b625bb9d86c8b93d2a75c85b1ebec21f52afd6a1c2e48e2.py",
+      "sha256": "97a75dcd2461b3781b625bb9d86c8b93d2a75c85b1ebec21f52afd6a1c2e48e2"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/97df8781064edacff0d31e9182f86a09e9db331d33a8711071e25822544e05ca.py",
+      "sha256": "97df8781064edacff0d31e9182f86a09e9db331d33a8711071e25822544e05ca"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/98c622e3bf72755ee52555de7cb198589e7dca2f32755c47bd842b7c25428f48.py",
+      "sha256": "98c622e3bf72755ee52555de7cb198589e7dca2f32755c47bd842b7c25428f48"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/9971efcdcf487d3d05e7370362f59116b322ce3b4b0f60e2b01780532e5e3f01.py",
+      "sha256": "9971efcdcf487d3d05e7370362f59116b322ce3b4b0f60e2b01780532e5e3f01"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/9d72d64657ca4b9bcc333a3e08a62698782ab8e9273855dfed357235dd741496.py",
+      "sha256": "9d72d64657ca4b9bcc333a3e08a62698782ab8e9273855dfed357235dd741496"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/9eda766930de72e781ef45d8f544fcd703464dc635e68ca49f7491509c100f2f.py",
+      "sha256": "9eda766930de72e781ef45d8f544fcd703464dc635e68ca49f7491509c100f2f"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/9f03b1bbb4e51fc25d8d9beca10ab501522699cc2a73628a76b1eda3640dc83c.py",
+      "sha256": "9f03b1bbb4e51fc25d8d9beca10ab501522699cc2a73628a76b1eda3640dc83c"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/a12c00342f98907a018a8ae780fea0d1584b3d375f388e518258a4242c730b0b.py",
+      "sha256": "a12c00342f98907a018a8ae780fea0d1584b3d375f388e518258a4242c730b0b"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/a35ab1ef52ca893461bb864faf9e94c47ff08a89a7b521d8d4d495d30161114a.py",
+      "sha256": "a35ab1ef52ca893461bb864faf9e94c47ff08a89a7b521d8d4d495d30161114a"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/a35c2c4811645091adef6cbd263f1573bf2b184d5dd5741a070234a422ce54c8.py",
+      "sha256": "a35c2c4811645091adef6cbd263f1573bf2b184d5dd5741a070234a422ce54c8"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/a40334b3209c022403ee5f4684512ae62a196c69055442b72c9eed2ddbd58c72.py",
+      "sha256": "a40334b3209c022403ee5f4684512ae62a196c69055442b72c9eed2ddbd58c72"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/a4a1690acb18674e3bc3568f4c6f7c988d81b083aeded9cf5802dc5696ac584f.py",
+      "sha256": "a4a1690acb18674e3bc3568f4c6f7c988d81b083aeded9cf5802dc5696ac584f"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/a5031eaed1a1aa5e60b655a5f54fe99dd41db1f57cd2bff6e30f20d6782d1ec0.py",
+      "sha256": "a5031eaed1a1aa5e60b655a5f54fe99dd41db1f57cd2bff6e30f20d6782d1ec0"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/a5098d62e1c2ad4297f46db7906463eecd69c4370ea08864adfb16e7172d8d23.py",
+      "sha256": "a5098d62e1c2ad4297f46db7906463eecd69c4370ea08864adfb16e7172d8d23"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/a5967c136beab84513de8e054ca61f956cd723b9abb04758f61f2e86e144597d.py",
+      "sha256": "a5967c136beab84513de8e054ca61f956cd723b9abb04758f61f2e86e144597d"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/a5faa6111a0dd6a84b366132ba7f0f94ab97f0c19ec6322fe04dbc1748a767d2.py",
+      "sha256": "a5faa6111a0dd6a84b366132ba7f0f94ab97f0c19ec6322fe04dbc1748a767d2"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/a6c0c5abcded42ba4c6297845f936caeccdafd6651273ba2b6fe494e16d74a08.py",
+      "sha256": "a6c0c5abcded42ba4c6297845f936caeccdafd6651273ba2b6fe494e16d74a08"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/a8b3c73d1016a2a26173adbb19a612880bd63b9cf46276bd345b96507e4c1d19.py",
+      "sha256": "a8b3c73d1016a2a26173adbb19a612880bd63b9cf46276bd345b96507e4c1d19"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/a8bf9a0838da7bfd429591181cf4285942001abcef3cb6061ec1ca442efb4daf.py",
+      "sha256": "a8bf9a0838da7bfd429591181cf4285942001abcef3cb6061ec1ca442efb4daf"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/a8f7a74e7ed34548f092dc0acfa5402a47a6c4c2f0115359fc2e56ecfe1b9b73.py",
+      "sha256": "a8f7a74e7ed34548f092dc0acfa5402a47a6c4c2f0115359fc2e56ecfe1b9b73"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/a9163654b2d57350b3c6ff54748239daeedbc15fda23da6b8d4c02099c80abe3.py",
+      "sha256": "a9163654b2d57350b3c6ff54748239daeedbc15fda23da6b8d4c02099c80abe3"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/aa49608fe334a09a756cd4821dac282e5756bad5be3819ef6442b13ab931e081.py",
+      "sha256": "aa49608fe334a09a756cd4821dac282e5756bad5be3819ef6442b13ab931e081"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/aabbd479dd2f8da3c48a9dd07b2d187a81c5bc6b71749cb7fd4b97427b219f4d.py",
+      "sha256": "aabbd479dd2f8da3c48a9dd07b2d187a81c5bc6b71749cb7fd4b97427b219f4d"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/ab39cda757ee3746fec17fbdb961e8c01ddb7f16b6bdd3c7e56f3118f70bf8e3.py",
+      "sha256": "ab39cda757ee3746fec17fbdb961e8c01ddb7f16b6bdd3c7e56f3118f70bf8e3"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/ac91e4cd93668626fe37d2b5dd0e4e750811038c1d64d922e8c0b75bb21a58e2.py",
+      "sha256": "ac91e4cd93668626fe37d2b5dd0e4e750811038c1d64d922e8c0b75bb21a58e2"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/ad053b858504a284fda171fdfe7323ffee7603900dca86ae43c9fbe86a48ca5b.py",
+      "sha256": "ad053b858504a284fda171fdfe7323ffee7603900dca86ae43c9fbe86a48ca5b"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/ae1594276aff78fd3f6829e254289243e86a5e7b8a6d7bf6692026360f0682ce.py",
+      "sha256": "ae1594276aff78fd3f6829e254289243e86a5e7b8a6d7bf6692026360f0682ce"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/aeeac56ee37e4b6cfb56b6b1465e72108ec2d6ae7571fc56305dc79542243000.py",
+      "sha256": "aeeac56ee37e4b6cfb56b6b1465e72108ec2d6ae7571fc56305dc79542243000"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/aef27c1c5d6c1dadccdbe51fabc2e53ec32c10d592a9ed917bd9b49ee4fca42c.py",
+      "sha256": "aef27c1c5d6c1dadccdbe51fabc2e53ec32c10d592a9ed917bd9b49ee4fca42c"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/af6e02f8a2532f2add5690697e97d53346a9b7aba9d5e23e638dd218e076bbdd.py",
+      "sha256": "af6e02f8a2532f2add5690697e97d53346a9b7aba9d5e23e638dd218e076bbdd"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/af776ab2af1cee9799cdf075510c4cc4e08c92e1d256a3027ee2e803e84be011.py",
+      "sha256": "af776ab2af1cee9799cdf075510c4cc4e08c92e1d256a3027ee2e803e84be011"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/b02fa600a52b1d746f38568ca07428b89f833149d05cd52fcbe66a47f69fc2ec.py",
+      "sha256": "b02fa600a52b1d746f38568ca07428b89f833149d05cd52fcbe66a47f69fc2ec"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/b0339dc0720fd42edd1d786371180d5a851b29f486cc2db4be5e12ce75c61fe3.py",
+      "sha256": "b0339dc0720fd42edd1d786371180d5a851b29f486cc2db4be5e12ce75c61fe3"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/b05ff3b815e6235428869e78153090f60ef86b18363ba8b27443e0577fc0e12d.py",
+      "sha256": "b05ff3b815e6235428869e78153090f60ef86b18363ba8b27443e0577fc0e12d"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/b238d83270ecd0467cc15e5e53d3521dbf2c71bf6e17aefbef949d3bdf11c296.py",
+      "sha256": "b238d83270ecd0467cc15e5e53d3521dbf2c71bf6e17aefbef949d3bdf11c296"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/b2a28fd04cbe0f13afdee2ac71d45831473f4cb7fbc9a7e263480c7227661ea1.py",
+      "sha256": "b2a28fd04cbe0f13afdee2ac71d45831473f4cb7fbc9a7e263480c7227661ea1"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/b2de2f334e889b3b2d3a2d4a2ad647f1b285ce9a249a4c558b527bbcfa32104b.py",
+      "sha256": "b2de2f334e889b3b2d3a2d4a2ad647f1b285ce9a249a4c558b527bbcfa32104b"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/b39f2e1923864b2750b4e8500b8dcee103cbd6e23ccaa71862008aa32284965d.py",
+      "sha256": "b39f2e1923864b2750b4e8500b8dcee103cbd6e23ccaa71862008aa32284965d"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/b3a2cd626fb55f62ca5685508abdf7a6ffb0366881627f7fbee5bd042e85423d.py",
+      "sha256": "b3a2cd626fb55f62ca5685508abdf7a6ffb0366881627f7fbee5bd042e85423d"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/b44523025a4606fc09b864bc57dd54fb8d2db0627866f11675fc7c7c5aab0511.py",
+      "sha256": "b44523025a4606fc09b864bc57dd54fb8d2db0627866f11675fc7c7c5aab0511"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/b4a5da4cce01ae89c4fa4565e97a8cce01a80403a0ce77f86c79803fe6232526.py",
+      "sha256": "b4a5da4cce01ae89c4fa4565e97a8cce01a80403a0ce77f86c79803fe6232526"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/b59fc933349956f61fbb0f2cf2741dbbd9cd0dd88e56670c29fd39a947889439.py",
+      "sha256": "b59fc933349956f61fbb0f2cf2741dbbd9cd0dd88e56670c29fd39a947889439"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/b5f421ecfad4fefe89cd5096ae3c1fc55af4c8febff6906b4e261a10e8c36c81.py",
+      "sha256": "b5f421ecfad4fefe89cd5096ae3c1fc55af4c8febff6906b4e261a10e8c36c81"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/b603a9876079d15176dd5211fafa554a5f0019136ae5c173d9e046a3fc93d871.py",
+      "sha256": "b603a9876079d15176dd5211fafa554a5f0019136ae5c173d9e046a3fc93d871"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/b61bfaa1c5e7ed8f7f82d6c7971ebe9006d4063529cefac7fd74a1434293cdde.py",
+      "sha256": "b61bfaa1c5e7ed8f7f82d6c7971ebe9006d4063529cefac7fd74a1434293cdde"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/b64da0272cbbaa782e6af251ee0fdae69fc0120ed228c51534a30da00d6bc2f6.py",
+      "sha256": "b64da0272cbbaa782e6af251ee0fdae69fc0120ed228c51534a30da00d6bc2f6"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/b6fa23cc5ee71eeb1359623e6cf855944cedc36e85cb0afd672dbdee57f15e0f.py",
+      "sha256": "b6fa23cc5ee71eeb1359623e6cf855944cedc36e85cb0afd672dbdee57f15e0f"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/b73d70bcda60235d5b751f154f305cb8fefef7286b54920d7f75b01d13e2c4a3.py",
+      "sha256": "b73d70bcda60235d5b751f154f305cb8fefef7286b54920d7f75b01d13e2c4a3"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/b87478d4748569e0e8ef8c50a0f381d0c2764bd904c450af2047f20774f7213c.py",
+      "sha256": "b87478d4748569e0e8ef8c50a0f381d0c2764bd904c450af2047f20774f7213c"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/b958ac3dcdd1307a4a6482e1e6760806db793e748cc6774ddf8422d3c87c226e.py",
+      "sha256": "b958ac3dcdd1307a4a6482e1e6760806db793e748cc6774ddf8422d3c87c226e"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/b9d9e5ac8ec2fbaf6d38fab9373212531f6f01071c4ebd60641253538f2cd6cf.py",
+      "sha256": "b9d9e5ac8ec2fbaf6d38fab9373212531f6f01071c4ebd60641253538f2cd6cf"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/bb2cf166a49fde066e1f432895a33e30317ed7853da4566ce107798d3015f39b.py",
+      "sha256": "bb2cf166a49fde066e1f432895a33e30317ed7853da4566ce107798d3015f39b"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/bbff919db34a23d8da68936a53900005962deb34b7d53e2b616f9461a3f8fc2a.py",
+      "sha256": "bbff919db34a23d8da68936a53900005962deb34b7d53e2b616f9461a3f8fc2a"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/bc14c9bc7470c709d2fc270d3753e29bec04b19592abfb2dda6bbeffd8c06ed2.py",
+      "sha256": "bc14c9bc7470c709d2fc270d3753e29bec04b19592abfb2dda6bbeffd8c06ed2"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/be885384874c4036b01a8bd2f5ac97c7edb61b3866acef2d95d4d4bf2ed184f5.py",
+      "sha256": "be885384874c4036b01a8bd2f5ac97c7edb61b3866acef2d95d4d4bf2ed184f5"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/bec1daf8bb0ce63a70807bed219d5bb67d93c1a8bcaf3dda21174ff06cc56504.py",
+      "sha256": "bec1daf8bb0ce63a70807bed219d5bb67d93c1a8bcaf3dda21174ff06cc56504"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/beec3a70b4e6fb9e1555afe01cb8c6b789aefe27fd4afcf894340f1513c06825.py",
+      "sha256": "beec3a70b4e6fb9e1555afe01cb8c6b789aefe27fd4afcf894340f1513c06825"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/bf955f0fe3612a7c1030b1148b9ac5783835ba7df7141017bb4bbe2f1e33ffa7.py",
+      "sha256": "bf955f0fe3612a7c1030b1148b9ac5783835ba7df7141017bb4bbe2f1e33ffa7"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/c03a13ea7349b86bcbb4552964d926d1f2cbb760afadd35a54fd59787bf5640c.py",
+      "sha256": "c03a13ea7349b86bcbb4552964d926d1f2cbb760afadd35a54fd59787bf5640c"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/c09b3363418e124ba7cfbcf1494244562bc6a311f17f6ca762f16a0b37ae9398.py",
+      "sha256": "c09b3363418e124ba7cfbcf1494244562bc6a311f17f6ca762f16a0b37ae9398"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/c09f981aa63c3319db8765cf56630b32ea719fbab1370e6738872e4ce2a4d641.py",
+      "sha256": "c09f981aa63c3319db8765cf56630b32ea719fbab1370e6738872e4ce2a4d641"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/c10ac8bb96f163b69afbcefb758432afe237edbe64357062fbccd8f942fc935c.py",
+      "sha256": "c10ac8bb96f163b69afbcefb758432afe237edbe64357062fbccd8f942fc935c"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/c137e917334d308e851b0418123d5af13333d51935034426956be947b33f051d.py",
+      "sha256": "c137e917334d308e851b0418123d5af13333d51935034426956be947b33f051d"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/c14f37ef30b14647063b967970f88b5e87d41ae5db3ddf1e6f84ec4e245b7516.py",
+      "sha256": "c14f37ef30b14647063b967970f88b5e87d41ae5db3ddf1e6f84ec4e245b7516"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/c2610eae0f70e12d1510ee201b8d9d8a98af0ce3faeae151d3068041d6ae2178.py",
+      "sha256": "c2610eae0f70e12d1510ee201b8d9d8a98af0ce3faeae151d3068041d6ae2178"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/c3621deb67731fd2392bc26257c2c95c378a0c123ee9404b795643405181e018.py",
+      "sha256": "c3621deb67731fd2392bc26257c2c95c378a0c123ee9404b795643405181e018"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/c3f7d36077ad8bea61d6ac5e51429d7ac406c91e8337f6b3435739fbd741a52e.py",
+      "sha256": "c3f7d36077ad8bea61d6ac5e51429d7ac406c91e8337f6b3435739fbd741a52e"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/c47b6a8191631a6f0e1483f3de5db0b12d08301a4bea09d27861362886e40810.py",
+      "sha256": "c47b6a8191631a6f0e1483f3de5db0b12d08301a4bea09d27861362886e40810"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/c525ed87540f30d1c0736679374e2ff8172d361ff4ab5dcf03d80cfc95c9c485.py",
+      "sha256": "c525ed87540f30d1c0736679374e2ff8172d361ff4ab5dcf03d80cfc95c9c485"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/c5baa1169b8e4b2e4b4436c0bcae8f00c13ea3be5a006785a4db93767c89c1e5.py",
+      "sha256": "c5baa1169b8e4b2e4b4436c0bcae8f00c13ea3be5a006785a4db93767c89c1e5"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/c6c03f8b5e327050544b3b9d556433ae1ad4e545d856230cea3001d2727771c0.py",
+      "sha256": "c6c03f8b5e327050544b3b9d556433ae1ad4e545d856230cea3001d2727771c0"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/c7620a9870673205d78eb72b1cb508c3b392c6ba97b70eea3f7b1b10e561998f.py",
+      "sha256": "c7620a9870673205d78eb72b1cb508c3b392c6ba97b70eea3f7b1b10e561998f"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/cb30b5ae32f7e9013173adf7774c034482df3ce2592bfc2a7c3479a2dfa045e6.py",
+      "sha256": "cb30b5ae32f7e9013173adf7774c034482df3ce2592bfc2a7c3479a2dfa045e6"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/cb9e8a85e220cda4a14ec7e676a15657a35227be5702e2bf57080b6e4e5b690a.py",
+      "sha256": "cb9e8a85e220cda4a14ec7e676a15657a35227be5702e2bf57080b6e4e5b690a"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/cc26fd640c08828424b29d1d36a4cec7577c30e706b1da02614cda60b78c058f.py",
+      "sha256": "cc26fd640c08828424b29d1d36a4cec7577c30e706b1da02614cda60b78c058f"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/cc3cb316bbc4fd149ba1235aea5f2d6b234e5807fbf5b3636f1adf43f2b4eebc.py",
+      "sha256": "cc3cb316bbc4fd149ba1235aea5f2d6b234e5807fbf5b3636f1adf43f2b4eebc"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/ce772ce88a29e039a542d81bec437367022af0948acaf44307e8ab631111a8bd.py",
+      "sha256": "ce772ce88a29e039a542d81bec437367022af0948acaf44307e8ab631111a8bd"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/cefe2fa7bce14d7a90bd1b292333b7d5f3ed3325210da7e0b11b151494a261f4.py",
+      "sha256": "cefe2fa7bce14d7a90bd1b292333b7d5f3ed3325210da7e0b11b151494a261f4"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/cf5f02337dadf70beef9fd0db31256d27c831992fe96d59dccc28fb455d3aad5.py",
+      "sha256": "cf5f02337dadf70beef9fd0db31256d27c831992fe96d59dccc28fb455d3aad5"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/d0163fa3982f6817e410617d3831f8bd8e5a72c9acc13552727cfbcea6d1ada3.py",
+      "sha256": "d0163fa3982f6817e410617d3831f8bd8e5a72c9acc13552727cfbcea6d1ada3"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/d09279b31adc4bbd71480545a7b0c32083cb7630619cc581f962d47e00437e57.py",
+      "sha256": "d09279b31adc4bbd71480545a7b0c32083cb7630619cc581f962d47e00437e57"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/d0c6e141c242b0b83940d5450486e90535898dee4bf47f4a06f85d125ab96ed2.py",
+      "sha256": "d0c6e141c242b0b83940d5450486e90535898dee4bf47f4a06f85d125ab96ed2"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/d1ccf3e4c2119191618ebded5144bdefecb480aab6d61bb325a5688fcdea8ae2.py",
+      "sha256": "d1ccf3e4c2119191618ebded5144bdefecb480aab6d61bb325a5688fcdea8ae2"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/d268c510eb893592d6b3f5a05520e342c16114a1d8dbacd67fe63c1093881c8d.py",
+      "sha256": "d268c510eb893592d6b3f5a05520e342c16114a1d8dbacd67fe63c1093881c8d"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/d2bef4e077e9b601a4bdf42dd3351a708b9d70b725b897ff6870cea048178890.py",
+      "sha256": "d2bef4e077e9b601a4bdf42dd3351a708b9d70b725b897ff6870cea048178890"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/d32f99f7a06e2bbadec425710cb19afddafb22a6f3d9807da259eb19e1818b9f.py",
+      "sha256": "d32f99f7a06e2bbadec425710cb19afddafb22a6f3d9807da259eb19e1818b9f"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/d75575389253984ef6b47eb6b1189d2a60fa6b20da976b71107da91f5a02cb9c.py",
+      "sha256": "d75575389253984ef6b47eb6b1189d2a60fa6b20da976b71107da91f5a02cb9c"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/d8255047f77a82fc4bc7f81802dcbd4d1f5e7e1b698de94f4cf9c3828f8e8461.py",
+      "sha256": "d8255047f77a82fc4bc7f81802dcbd4d1f5e7e1b698de94f4cf9c3828f8e8461"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/d8c693d2b47f66de01c2fe6853795353484a75ce275f49ea353b5485dfb53489.py",
+      "sha256": "d8c693d2b47f66de01c2fe6853795353484a75ce275f49ea353b5485dfb53489"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/d8e12594d770dd68b28885a5d41b1bca0f804963d8a09816cc55399945e7906a.py",
+      "sha256": "d8e12594d770dd68b28885a5d41b1bca0f804963d8a09816cc55399945e7906a"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/da186e8776da54cdfa541e2977bf8aae376667b62758b3394e68cbf81e62b0f0.py",
+      "sha256": "da186e8776da54cdfa541e2977bf8aae376667b62758b3394e68cbf81e62b0f0"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/da4a0515831047919b68ff8a5b94a31f745c5b2122ea4ca01c4210fd73e51b32.py",
+      "sha256": "da4a0515831047919b68ff8a5b94a31f745c5b2122ea4ca01c4210fd73e51b32"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/dc2c502a9d613504078efe9a81ba6bcd11fa2e605de225c2e537f728e3f385ab.py",
+      "sha256": "dc2c502a9d613504078efe9a81ba6bcd11fa2e605de225c2e537f728e3f385ab"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/dd26262ba90b7beeab57455bebabffb06f3d3dc32e7525fc59064428ca9252f4.py",
+      "sha256": "dd26262ba90b7beeab57455bebabffb06f3d3dc32e7525fc59064428ca9252f4"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/dfa6e0427b2a9e3614579723ff20550603ef8e2c6cf3b4c12fd5a47f98afc530.py",
+      "sha256": "dfa6e0427b2a9e3614579723ff20550603ef8e2c6cf3b4c12fd5a47f98afc530"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/dfc547464ff2f236f2f245b02e306578342d5f47439dfd814927794757b5cdfb.py",
+      "sha256": "dfc547464ff2f236f2f245b02e306578342d5f47439dfd814927794757b5cdfb"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/e1940cb738a7e47f24e3d04d78d8f88b98cc83ab452f6f8b5d4b905e4cc06629.py",
+      "sha256": "e1940cb738a7e47f24e3d04d78d8f88b98cc83ab452f6f8b5d4b905e4cc06629"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/e23de391a94d36a3656f9fd157438f20c101f3aae703a372c2dd5f7be7b682be.py",
+      "sha256": "e23de391a94d36a3656f9fd157438f20c101f3aae703a372c2dd5f7be7b682be"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/e305df54207de7677fdc0388bfb7ff1cc94d1f263c10e2273cc64f7a033ba321.py",
+      "sha256": "e305df54207de7677fdc0388bfb7ff1cc94d1f263c10e2273cc64f7a033ba321"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/e604e1c520b3523a26194318e8622710f9439b406844cc5244f5b9ebba3ff061.py",
+      "sha256": "e604e1c520b3523a26194318e8622710f9439b406844cc5244f5b9ebba3ff061"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/e60b6d8bbe3c460883dbfe21eece8ace4b2d5983afd1b03dcc927d6e9d72fd08.py",
+      "sha256": "e60b6d8bbe3c460883dbfe21eece8ace4b2d5983afd1b03dcc927d6e9d72fd08"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/e60cf414715554ff673f34c7527286f4c9833189a69a714316633acc4bd2eb51.py",
+      "sha256": "e60cf414715554ff673f34c7527286f4c9833189a69a714316633acc4bd2eb51"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/e7e6a73ffdd3fe159dd6c2fe93b351234dd36f5b345cb9543639e5233a5029bb.py",
+      "sha256": "e7e6a73ffdd3fe159dd6c2fe93b351234dd36f5b345cb9543639e5233a5029bb"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/e7ea25fe857482c34541cf739e8ec1eabb5290e191070af5cdf51cd1431a65ce.py",
+      "sha256": "e7ea25fe857482c34541cf739e8ec1eabb5290e191070af5cdf51cd1431a65ce"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/e7f4fd616c155c29643a697eff4552869a77a62428a9e4d20a3c7b2bbbb00638.py",
+      "sha256": "e7f4fd616c155c29643a697eff4552869a77a62428a9e4d20a3c7b2bbbb00638"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/e80dd8341b718ace60f44d6cb344b492ef62a9fef63c3ebc95589dd270462f33.py",
+      "sha256": "e80dd8341b718ace60f44d6cb344b492ef62a9fef63c3ebc95589dd270462f33"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/e89042e60e7393644df8ee166de074f0a81718d8903c3fe76db75f73be7475b4.py",
+      "sha256": "e89042e60e7393644df8ee166de074f0a81718d8903c3fe76db75f73be7475b4"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/e8a9541449b79518fefce9bb4d8718e5f4cf383af34b8aa9620529d696ed67ef.py",
+      "sha256": "e8a9541449b79518fefce9bb4d8718e5f4cf383af34b8aa9620529d696ed67ef"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5.py",
+      "sha256": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/ead3c24d59c610b14f6ef0e04584e0b28dbf25e4d2520bed3d4c95b9f67c6148.py",
+      "sha256": "ead3c24d59c610b14f6ef0e04584e0b28dbf25e4d2520bed3d4c95b9f67c6148"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/ec88c06911740ec29fd821d04de8f0dfd6e8bbbb0d3936048ee5b1352477bb8c.py",
+      "sha256": "ec88c06911740ec29fd821d04de8f0dfd6e8bbbb0d3936048ee5b1352477bb8c"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/ede52321b2c567c8a5c7f2c48396ed1f2450d6d859e7fa5c3e3b53f793396b58.py",
+      "sha256": "ede52321b2c567c8a5c7f2c48396ed1f2450d6d859e7fa5c3e3b53f793396b58"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/edee7e6993e1198af189402d99770338d73ade8dc42c9a950f76de2ca49e80ce.py",
+      "sha256": "edee7e6993e1198af189402d99770338d73ade8dc42c9a950f76de2ca49e80ce"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/edef8bfa2e0f6a5d8da03a123735cab7e160042ca58b1996a6b0468eb75a8595.py",
+      "sha256": "edef8bfa2e0f6a5d8da03a123735cab7e160042ca58b1996a6b0468eb75a8595"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/ee98dcfe0ef999bafbaa37de37905e7174dc0542a99a2d9f70dc60abde260023.py",
+      "sha256": "ee98dcfe0ef999bafbaa37de37905e7174dc0542a99a2d9f70dc60abde260023"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/f00d152aebaa49a4747960cedd53d900d6344316511cd425b55960b11f55d3bb.py",
+      "sha256": "f00d152aebaa49a4747960cedd53d900d6344316511cd425b55960b11f55d3bb"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/f074cd444ed354041b6b65914ae2b450eb11c1ff6ece0cfd2462582ed01814a8.py",
+      "sha256": "f074cd444ed354041b6b65914ae2b450eb11c1ff6ece0cfd2462582ed01814a8"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/f0c36af99230851a8858fcfb9bce97208a81427de38fd6dee2610f06668bf717.py",
+      "sha256": "f0c36af99230851a8858fcfb9bce97208a81427de38fd6dee2610f06668bf717"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/f158838067bdd9a42dcc27fbf43c7290edaefd8b374fe73dd65b3583be3565ac.py",
+      "sha256": "f158838067bdd9a42dcc27fbf43c7290edaefd8b374fe73dd65b3583be3565ac"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/f25ab71bf1a13161b13b55a83cf4f30d75275fa1753375773451f0f8d576934b.py",
+      "sha256": "f25ab71bf1a13161b13b55a83cf4f30d75275fa1753375773451f0f8d576934b"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/f5573545e5adeb5053a7da2a868a5569bc7c39a7abdb92c8196e2bc68a059b9a.py",
+      "sha256": "f5573545e5adeb5053a7da2a868a5569bc7c39a7abdb92c8196e2bc68a059b9a"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/f5a54e20dbe36133c62d1bb57a157d5ab50d0964f1dd8a526bc4b18ee6631982.py",
+      "sha256": "f5a54e20dbe36133c62d1bb57a157d5ab50d0964f1dd8a526bc4b18ee6631982"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/f6226e4070ab430446cbc39c963dca8cb46426a816ad5c57f61c4373c11aafc7.py",
+      "sha256": "f6226e4070ab430446cbc39c963dca8cb46426a816ad5c57f61c4373c11aafc7"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/f6b4385da8e071709e8546820711bf2c20c507571a100dd2f0b8a89f260f1048.py",
+      "sha256": "f6b4385da8e071709e8546820711bf2c20c507571a100dd2f0b8a89f260f1048"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/f6ce1650ae566ff5f5dbe2a9a1e863a30d710b4ed634fcf10c754151ee34e383.py",
+      "sha256": "f6ce1650ae566ff5f5dbe2a9a1e863a30d710b4ed634fcf10c754151ee34e383"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/f76ca58277448effad0bb7bd662d325b62f1ee820915af676cf0c37f3aa1bb5f.py",
+      "sha256": "f76ca58277448effad0bb7bd662d325b62f1ee820915af676cf0c37f3aa1bb5f"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/f7b40080a522f5120d20154b06da55e24429bf8ac38140414e96c21d2d2e16d4.py",
+      "sha256": "f7b40080a522f5120d20154b06da55e24429bf8ac38140414e96c21d2d2e16d4"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/f7ec724c1473b23104a25c47a2fbc9e5f54e8ee476c5c91930b3dd3b120b670e.py",
+      "sha256": "f7ec724c1473b23104a25c47a2fbc9e5f54e8ee476c5c91930b3dd3b120b670e"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/f7f9acb0057bc18b42c44b303a810a0df6fe0868a341a433579894c3f3dda723.py",
+      "sha256": "f7f9acb0057bc18b42c44b303a810a0df6fe0868a341a433579894c3f3dda723"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/f874cd5b9966fee295b79c4251a1cad7be44f16db993cea955fa1758b727a0f0.py",
+      "sha256": "f874cd5b9966fee295b79c4251a1cad7be44f16db993cea955fa1758b727a0f0"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/f94574e84444eff99bf963e8bd1913506bdb319f3a93691ce6c9ba0299b0a657.py",
+      "sha256": "f94574e84444eff99bf963e8bd1913506bdb319f3a93691ce6c9ba0299b0a657"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/f95dc9fc22660331b1368a876d907f111fd3cb21aef6e3e34315b41e6af94e94.py",
+      "sha256": "f95dc9fc22660331b1368a876d907f111fd3cb21aef6e3e34315b41e6af94e94"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/f995547a68e7f6c081e0ad515ced0ccd03baf48987c6108a8da1727be79dc9ef.py",
+      "sha256": "f995547a68e7f6c081e0ad515ced0ccd03baf48987c6108a8da1727be79dc9ef"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/f9ebc7878ac1c120ac98987b2c521fb050fea535f8e4c62dae433d09a453bbb3.py",
+      "sha256": "f9ebc7878ac1c120ac98987b2c521fb050fea535f8e4c62dae433d09a453bbb3"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/fa850333231a455934d67749d66e4e26c1c10a750f6df8635b4794760e94e740.py",
+      "sha256": "fa850333231a455934d67749d66e4e26c1c10a750f6df8635b4794760e94e740"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/fb3cc6b5fbf9e649740e862b276f9e12befa5b94f09bc5dc01137e38d89f6918.py",
+      "sha256": "fb3cc6b5fbf9e649740e862b276f9e12befa5b94f09bc5dc01137e38d89f6918"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/fc00af81fdf7e457b1256a838f363cd536cce9cb2eaa4e68d096622cd74b84cf.py",
+      "sha256": "fc00af81fdf7e457b1256a838f363cd536cce9cb2eaa4e68d096622cd74b84cf"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/fe03b8164ed3b4ebd2a04abcdfbb6fa729bdc34dea825088f7e82bf6e5b5ab5e.py",
+      "sha256": "fe03b8164ed3b4ebd2a04abcdfbb6fa729bdc34dea825088f7e82bf6e5b5ab5e"
+    },
+    {
+      "path": "consolidation_candidates/branch_audit/ffa8ee9189601e1cc1770e1dba5c95ebb88acb7d5e8989da81c4acdd38fede55.py",
+      "sha256": "ffa8ee9189601e1cc1770e1dba5c95ebb88acb7d5e8989da81c4acdd38fede55"
+    }
+  ]
+}

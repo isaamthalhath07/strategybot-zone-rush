@@ -1,0 +1,9 @@
+{
+  "source_sha256": "8ecdc53670728758051538a5ea0757d6aff8bbc4ea288688dca131238cc35ece",
+  "independent_engine_sha256": "8f7b89995cad0f724fb8ac7c7bc8311a6fa9b3b722f2204097031ba2333726f4",
+  "final_rows_checked": 5760,
+  "sampled_full_replays": 360,
+  "replayed_turns": 28800,
+  "sampling": "First fixture per finalist, board and opponent field. All rows checked for full 80-turn completion and pairwise score conservation.",
+  "exact": true
+}

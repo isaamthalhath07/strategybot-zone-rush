@@ -6,6 +6,26 @@ public history. It includes the selected economic planner, inferred scores and
 work/cooldowns, valid same-owner-cell Shield feints, input guards and recovery
 when public evidence proves a requested Shield was replaced with STAY.
 
+## All-branches audit: 8 November 2026
+
+The new audit covers **12 remote branches, 126 frozen policies/builds, 11,672
+games and 3,733,808 callbacks**. No weights were trained in this campaign. It
+uses current STAY-only rules and new opponent families on fresh boards.
+
+**Novel B Feint was the best measured finalist:** 2.1155 opponents outscored
+per game versus 1.9627 for the merged release. The exact tested source is
+[`audit_best_measured.py`](audit_best_measured.py). Its advantage against the
+new opponents was +0.2995 (95% map-clustered interval +0.1419 to +0.4642).
+The overall difference was +0.1528; the interval adjusted for all four
+challengers was -0.0816 to +0.3698. This does not establish an overall winner
+with confidence, so the preregistered promotion rule retains `bot.py`.
+
+All 5,760 final games had zero worker faults. The independent engine replayed
+360 complete final games exactly. [Results and uncertainty](validation/branch_audit/REPORT.md),
+[all policy coverage](validation/branch_audit/COVERAGE.md), and
+[the exact selection decision](validation/branch_audit/decision.json) distinguish
+the best measured challenger from the conservative shipping choice.
+
 ## Confirmed rule
 
 Moves resolve first. Shield catches eligible rivals whose **effective action
@@ -37,14 +57,14 @@ their old matches and rules. [Simulator details](simulator/README.md).
 python tools/check_release.py
 ```
 
-Python 3.10 or newer is sufficient. The release passes **133 Python tests** and,
+Python 3.10 or newer is sufficient. The release passes **136 Python tests** and,
 when Node is installed, six offline interface logic groups. These include both
 historical and current physics, 48 complete independent-engine differential
 games, exact public-history oracles, real-worker recording/replay and privacy,
 request races, fallback recovery and a downloaded folder without Git.
 Visual-harness testing is optional under the user's instruction.
 
-## Current selection evidence
+## Previous STAY-only selection evidence
 
 The new **STAY-only** comparison contains **5,832 games and 1,866,240 timed
 callbacks**, with zero worker faults. It screened 70 admissible archived policies,

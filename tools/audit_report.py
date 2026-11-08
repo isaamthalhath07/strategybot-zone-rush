@@ -72,8 +72,8 @@ def main():
     lines = ['# All-branches frozen bot audit','',
         'Snapshot: 8 November 2026. All policies and opponent draws were frozen before their registered panels. No weights were trained or fitted in this campaign.','',
         '## Result','',
-        '**Recommendation: %s** (`%s`).' % (label(selected),by_name[selected]['sha256']),
-        'The final point leader is %s. A larger sample mean alone does not establish superiority.' % label(next(iter(summary))), '',
+        '**Best measured: %s** (`%s`).' % (label(next(iter(summary))),by_name[next(iter(summary))]['sha256']),
+        '**Conservative promotion decision: retain %s** under the preregistered uncertainty threshold. A larger sample mean alone does not establish superiority.' % label(selected), '',
         '| Frozen finalist | PW / 3 | League | Novel economy | Novel dynamic | Focal faults | Worst callback ms |',
         '|---|---:|---:|---:|---:|---:|---:|']
     for name,s in summary.items():
@@ -133,11 +133,11 @@ def main():
         coverage.append('| `%s` %s | %s | %s |' % (name[4:],label(name),mark,' | '.join('%.4f' % v if v is not None else '-' for v in values)))
     coverage += ['', 'A dash means not selected for that next panel; it does not mean a draw or a failed execution. Each column is a different matched field and must not be compared as if it were the same tournament. Detailed source aliases, commit hashes and build inputs are in the inventories.','']
     (OUT/'COVERAGE.md').write_text('\n'.join(coverage),encoding='utf8',newline='\n')
-    winner_path = ROOT/'audit_winner.py'
-    winner_source = (ROOT/by_name[selected]['path']).read_bytes()
+    winner_path = ROOT/'audit_best_measured.py'
+    winner_source = (ROOT/by_name[next(iter(summary))]['path']).read_bytes()
     winner_path.write_bytes(winner_source)
     lines = (OUT/'REPORT.md').read_text(encoding='utf8')
-    lines += '\nThe recommended frozen source is also exported as [`audit_winner.py`](../../audit_winner.py), byte-identical to its tested snapshot. `bot.py` and the existing release manifest retain the initial merged release; this audit is on a separate branch. See [release checks](release_checks.txt) and [independent replay](independent_replay.json).\n'
+    lines += '\nThe best measured frozen source is exported as [`audit_best_measured.py`](../../audit_best_measured.py), byte-identical to its tested snapshot. `bot.py` and the existing release manifest retain the initial merged release under the stricter promotion rule; this audit is on a separate branch. See [release checks](release_checks.txt) and [independent replay](independent_replay.json).\n'
     (OUT/'REPORT.md').write_text(lines,encoding='utf8',newline='\n')
     archive = OUT/'source_archive.zip'
     entries = []
