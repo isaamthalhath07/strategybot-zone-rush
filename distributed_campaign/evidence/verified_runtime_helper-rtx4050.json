@@ -1,0 +1,24 @@
+{
+  "approval_sha256": "452656334d92f37e02f3a74a22e0673ad51da4fe18b2692f8698eae6a11e9214",
+  "canaries_required": true,
+  "full_audit_callbacks": 2560,
+  "no_global_reinstall": true,
+  "primary_games_accepted": 0,
+  "qualification_games": 8,
+  "qualification_replicas_new_study_credit": 0,
+  "return_archive_sha256": "3e415c3217e022f55c62ac051774ff9297b2e5ec68982acdfff0c11577ac96e0",
+  "runtime": {
+    "actor_backend": "CPython CPU",
+    "cuda_used_by_policy": false,
+    "executable_sha256": "42ac541168e97dedb9aabd8be335539fc41c682e414b9e8d137b164fb68683b0",
+    "full_version": "3.12.0 (tags/v3.12.0:0fb18b0, Oct  2 2023, 13:03:39) [MSC v.1935 64 bit (AMD64)]",
+    "implementation": "CPython",
+    "logical_cores": 20,
+    "platform": "Windows-11-10.0.26200-SP0",
+    "version": "3.12.0"
+  },
+  "slot": {
+    "physical_slot_id": "FRIEND-RTX4050-LAPTOP",
+    "slot_id": "helper-rtx4050"
+  }
+}

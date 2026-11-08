@@ -53,6 +53,16 @@ once and fully audited on the owner; helper qualification replays grant no new
 study or primary credit. The larger four-policy study remains unplayed apart
 from those eight originals, and no full workload has yet been assigned remotely.
 
+Full-match compatibility returns from **RTX4050 / CPython3.12.0** and
+**RTX5050 / CPython3.12.7** have passed authenticated owner verification. Each
+contains eight reference matches and 2,560 full actor-audit callbacks, covering
+all four exact frozen policies. Qualification replicas create no new study or
+primary credit. The other three runtime returns are pending. The intended
+five-laptop original-play allocation is 6,552 matches per helper, followed by
+different-laptop full audits. Its fixed task-list fingerprints are recorded in
+`distributed_campaign/evidence/architecture_v2_allocation_preview.json`; this is
+a non-executing preview and no actual PLAY assignment has been issued yet.
+
 The second batches contain eight different public positions per helper, with a
 six-turn horizon, 32 plans per root action and 32 sampled rollouts per plan.
 Their 40 diagnostic IDs are disjoint from the accepted first returns and the

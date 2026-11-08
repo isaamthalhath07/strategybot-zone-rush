@@ -1,0 +1,76 @@
+{
+  "actual_owner_gold_originals": 8,
+  "actual_remote_original_jobs_issued": 0,
+  "format": "zone-rush-extra-study-allocation-preview/1",
+  "helpers_in_fixed_interleave_order": [
+    "helper-rtx4050",
+    "helper-rtx5070ti",
+    "helper-rtx2060",
+    "helper-gtx1660ti",
+    "helper-rtx5050"
+  ],
+  "issue_gate": "All five exact runtimes must qualify before calling the immutable study controller with this helper order. Recheck these fixture-list hashes before dispatch.",
+  "not_a_signed_worker_assignment": true,
+  "partitions": [
+    {
+      "fixture_id_list_sha256": "acf9f36f10511102956a088a67d1a3744c1132e740428a1e6adf3483c4dec34c",
+      "planned_original_games": 6552,
+      "slot": "helper-rtx4050",
+      "source_counts": {
+        "1bb70109a75e2880bfdf3ac9b6fd8e368b0f3d02b9a3e65de53cef0defa505e5": 1638,
+        "50d82d7ac58162e9cf651136afcedac5586db9a060f153854b00875f13efef37": 1638,
+        "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5": 1638,
+        "f95dc9fc22660331b1368a876d907f111fd3cb21aef6e3e34315b41e6af94e94": 1638
+      }
+    },
+    {
+      "fixture_id_list_sha256": "be4148690390769c458aadf87ac8509160faff167f211ca3ba61b56210db9542",
+      "planned_original_games": 6552,
+      "slot": "helper-rtx5070ti",
+      "source_counts": {
+        "1bb70109a75e2880bfdf3ac9b6fd8e368b0f3d02b9a3e65de53cef0defa505e5": 1638,
+        "50d82d7ac58162e9cf651136afcedac5586db9a060f153854b00875f13efef37": 1638,
+        "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5": 1638,
+        "f95dc9fc22660331b1368a876d907f111fd3cb21aef6e3e34315b41e6af94e94": 1638
+      }
+    },
+    {
+      "fixture_id_list_sha256": "ec7dae48a012652e6e4ff6518f9bb44de557b060d59424c289a8f0985da9d984",
+      "planned_original_games": 6552,
+      "slot": "helper-rtx2060",
+      "source_counts": {
+        "1bb70109a75e2880bfdf3ac9b6fd8e368b0f3d02b9a3e65de53cef0defa505e5": 1638,
+        "50d82d7ac58162e9cf651136afcedac5586db9a060f153854b00875f13efef37": 1638,
+        "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5": 1638,
+        "f95dc9fc22660331b1368a876d907f111fd3cb21aef6e3e34315b41e6af94e94": 1638
+      }
+    },
+    {
+      "fixture_id_list_sha256": "0359deb59a89aa1ddbdc17698bbd0c2893d1b8c29a60b576711662e801d88632",
+      "planned_original_games": 6552,
+      "slot": "helper-gtx1660ti",
+      "source_counts": {
+        "1bb70109a75e2880bfdf3ac9b6fd8e368b0f3d02b9a3e65de53cef0defa505e5": 1638,
+        "50d82d7ac58162e9cf651136afcedac5586db9a060f153854b00875f13efef37": 1638,
+        "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5": 1638,
+        "f95dc9fc22660331b1368a876d907f111fd3cb21aef6e3e34315b41e6af94e94": 1638
+      }
+    },
+    {
+      "fixture_id_list_sha256": "208f911a231fc570f2194485252ff749b4d57dd1cb705b69ecc647dac7746fae",
+      "planned_original_games": 6552,
+      "slot": "helper-rtx5050",
+      "source_counts": {
+        "1bb70109a75e2880bfdf3ac9b6fd8e368b0f3d02b9a3e65de53cef0defa505e5": 1638,
+        "50d82d7ac58162e9cf651136afcedac5586db9a060f153854b00875f13efef37": 1638,
+        "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5": 1638,
+        "f95dc9fc22660331b1368a876d907f111fd3cb21aef6e3e34315b41e6af94e94": 1638
+      }
+    }
+  ],
+  "peer_audits": "All32768 originals additionally require a different physical auditor and owner validation; separate workload, not extra game credit.",
+  "planned_primary_credit": 0,
+  "remaining_original_tasks": 32760,
+  "role": "non_executing_allocation_preview",
+  "study_registration_sha256": "b5ffb74f5c8ad1c7a984a54d41d86efb26cb99ae2318a8b7d5a631d23ad24eb9"
+}
