@@ -191,6 +191,51 @@ def _version_bot(name):
 # Opponents written by independent subagents (strategy_audit/novel/), each
 # designed without reading any bot in this repository. A file that does not
 # import cleanly is skipped with a warning rather than breaking the harness.
+#
+# Some of them search until a wall-clock deadline, which would make their play
+# depend on machine load and break paired measurement (both variants must face
+# the same opponent moves). Such a module gets a VIRTUAL clock: each
+# perf_counter() call advances it by that bot's measured real seconds per clock
+# check, so it searches as long as it does in real time on average, but
+# identically on every replay. Calibrated single-process on this machine:
+#   nv_a_mcts      7.19 ms per move over 129.9 checks  -> 55 us
+#   nv_a_paranoid  1.89 ms per move over  34.7 checks  -> 54 us
+#   nv_a_rhea      5.42 ms per move over 236.0 checks  -> 23 us
+VIRTUAL_STEP = {"nv_a_mcts": 55e-6, "nv_a_paranoid": 54e-6, "nv_a_rhea": 23e-6}
+
+
+class _VirtualClock(object):
+    def __init__(self):
+        self.now = 0.0
+        self.step = 50e-6
+
+    def perf_counter(self):
+        self.now += self.step
+        return self.now
+
+    def time(self):
+        return self.perf_counter()
+
+    def monotonic(self):
+        return self.perf_counter()
+
+
+def _pin_clock(module):
+    import types
+    if not isinstance(getattr(module, "time", None), types.ModuleType):
+        return
+    clock = _VirtualClock()
+    module.time = clock
+    for cls in module.BOTS:
+        step = VIRTUAL_STEP.get(cls.name, 50e-6)
+        orig = cls.act
+
+        def act(self, view, _orig=orig, _step=step):
+            clock.step = _step
+            return _orig(self, view)
+        cls.act = act
+
+
 NOVEL = {}
 _NOVEL_DIR = os.path.join(HERE, "novel")
 if os.path.isdir(_NOVEL_DIR):
@@ -201,6 +246,7 @@ if os.path.isdir(_NOVEL_DIR):
             _spec = importlib.util.spec_from_file_location(_f[:-3], os.path.join(_NOVEL_DIR, _f))
             _m = importlib.util.module_from_spec(_spec)
             _spec.loader.exec_module(_m)
+            _pin_clock(_m)
             for _c in _m.BOTS:
                 NOVEL[_c.name] = _c
         except Exception as _e:
