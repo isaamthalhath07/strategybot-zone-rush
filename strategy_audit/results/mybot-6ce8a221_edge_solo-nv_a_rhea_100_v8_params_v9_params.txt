@@ -1,0 +1,7 @@
+[solo:nv_a_rhea] 100 paired games, reference = @v8_params.json
+@v8_params.json          PW 2.8600  score  2515.8
+    per game: shields=2.27, last_shields=0.17, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.02, l1_lost_anyway=0.02, backfires=0.21, raids=2.36, raids_early=0.21, cells_lost=1.40, idle=0.77, idle_late=0.00, moves=23.29, turns90=14.27, reversals=1.70
+@v9_params.json          PW 2.8500  score  2506.6  dPW -0.0100 +/- 0.0502 (z -0.20)  dScore -9.27 +/- 21.49 (z -0.43)  games changed 19
+    per game: shields=2.16, last_shields=0.14, last_no_imminent=0.00, home_shields=0.00, l1_shields=0.04, l1_lost_anyway=0.03, backfires=0.30, raids=2.16, raids_early=0.26, cells_lost=1.47, idle=0.83, idle_late=0.00, moves=23.70, turns90=14.04, reversals=1.90
+    pairwise win rate vs each opponent (columns: variants in order)
+      nv_a_rhea        0.953  0.950  (n=300)
