@@ -11,7 +11,7 @@ those. For every bot it:
     spine / pro / camper (the same yardstick used for the outside designs, which
     all scored 1,500-2,050 there), so a strawman cannot slip into the field.
 
-    python strategy_audit/verify_novel.py [games]
+    python strategy_audit/verify_novel.py [games] [name-prefix]
 """
 import multiprocessing as mp
 import os
@@ -93,7 +93,8 @@ def check(args):
 
 def main():
     games = int(sys.argv[1]) if len(sys.argv) > 1 else 8
-    names = sorted(edge_audit.NOVEL)
+    prefix = sys.argv[2] if len(sys.argv) > 2 else ""
+    names = sorted(n for n in edge_audit.NOVEL if n.startswith(prefix))
     if not names:
         raise SystemExit("no novel bots found in strategy_audit/novel/")
     with mp.Pool(min(4, mp.cpu_count())) as pool:
@@ -121,6 +122,8 @@ def main():
     lines += (["PROBLEMS:"] + ["  " + b for b in bad]) if bad else ["no problems found"]
     txt = "\n".join(lines)
     print(txt)
+    if prefix:
+        return                       # a partial check is not the record
     path = os.path.join(HERE, "results", "novel_verification.txt")
     with open(path + ".partial", "w", encoding="utf-8") as f:
         f.write(txt + "\n")
