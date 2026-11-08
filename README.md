@@ -32,17 +32,50 @@ track that was tried and rejected.
 > methodological lessons that decide whether any of the numbers below mean
 > anything. This readme assumes you already know the game; that one does not.
 
-> **Apex.** [`apex/`](apex/README.md) holds a challenger built to beat the evolved
-> bot from `research/evolution-2026-11-07` (and the fused `bot.py` that plays like
-> it): an exact simulator of that bot for every rival seat, an exact tracker,
-> prediction-aware tactics, search over the whole game when every rival is a known
-> copy and over the last 20 turns otherwise, and a safety net under all of it.
-> On fresh paired games it beats the evolved bot by +0.114 pairwise wins with one
-> evolved bot at the table (z = +7.6), +0.045 on the broad field (z = +3.7), and takes
-> 86.8% of its pairings against three evolved copies. The root `bot.py` here is unchanged;
-> `python apex/build.py bot.py` swaps Apex in.
+## Latest round: four branches, one field, one fused bot
 
-## What this round changed
+**`bot.py` now ships the fused bot**, not v7. The full critique, every
+measurement and every fix are in [`CROSS_BRANCH_REVIEW.md`](CROSS_BRANCH_REVIEW.md).
+In short:
+
+- **All four branches were put on one field** (`crossfield/xfield.py`). It
+  groups opponents by *author*, attributes pairwise credit per opponent inside
+  mixed lineups, uses six map families from both generators and both
+  `legal_actions` conventions, and scores ties the Round 1 way. The three
+  independent rule implementations in the repository agree exactly over
+  32,000 turns.
+- **The research branch's evolved economic planner is the strongest decision
+  policy here**: +0.215 PW over this branch's v7 on 1,200 fresh paired games
+  (z = +8.0), and never worse against any author's opponents. The independent
+  branch's v7 does worse than this branch's v7 on a neutral field, even against
+  its own author's opponents.
+- **Nothing tried on top of the evolved planner's decisions survived
+  confirmation.** That covers symmetric tie-breaks, exact tracker cooldowns, the
+  finalist genome, seven single-gene probes, and predicting exact copies of public
+  bots (built, then rejected: near-relatives go unrefuted for 60–79 turns, so
+  identification is unsafe).
+- **What the evolved planner lacked was everything around it.** It has no
+  exception handling at all. On five of eleven plausible server-interface
+  variants it scores what the do-nothing skeleton scores. So does this branch's
+  v7, and the independent v7 fails on six.
+- **The fused `bot.py`** (`fusion.py` + `econ.py` + `mybot.py`, built by `ship.py`)
+  plays move-for-move like the evolved planner on the documented interface. It
+  keeps this branch's tracker and walk planner as a warm standby, and adds input
+  normalisation, planner isolation, board-based new-game detection, a cold-start
+  rescue, a shield-cooldown gate and online movement-convention calibration. It
+  passes all eleven interface variants, holds 96% of its score if module memory
+  is lost every turn, and holds 100% on a server with NORTH/SOUTH swapped, where
+  every other branch's bot keeps 17–33%.
+- **Ten fixes in `mybot.py`, `engine.py`, `ship.py` and `runtests.py`.**
+  Among them: an off-by-one that valued a last-turn capture at nothing, a clock
+  that reset in all-home openings, a flat-board parse that played STAY all game,
+  shields burned on rivals standing on an uncapturable home, a crashing
+  `python ship.py`, and Round 2 tie rules in every Round 1 number.
+
+The sections below describe v7 and the work that produced it; the walk planner
+they describe is the fused bot's standby.
+
+## What the v7 round changed
 
 This branch is the second pass over the bot, prompted by the organisers
 answering three rule questions and by one blunt observation: every number in the
@@ -94,22 +127,30 @@ measured on a field containing six of my own snapshots. See §8.3b.
 
 
 ```bash
-
 python ship.py
-
 ```
 
+Builds `bot.py` from `fusion.py`, `econ.py` and `mybot.py`, then runs
+`crossfield/acceptance.py`. It refuses to pass unless:
 
+- the file is pure ASCII, parses as Python 3.7, imports only the stdlib and
+  never prints;
+- it plays identically to `fusion.py` and, on the documented interface, to the
+  research branch's bot;
+- four seats can share one module, and a reused module plays game 2 like a
+  fresh one;
+- the failsafe chain works when each planner is forced to raise;
+- all eleven interface variants and a memory-less module hold their score;
+- a server that offers SHIELD on cooldown gets no wasted shield, and a server
+  with a flipped movement convention is recovered from;
+- the all-home and step-out-and-back openings keep an exact clock;
+- 24 live-clock games stay far under 200 ms.
 
-Rebuilds `bot.py` from the tuned weights and verifies it. It refuses to pass
+```bash
+python ship.py route v7_params.json
+```
 
-unless: imports are stdlib-only, `act(state)` is unchanged, the built file plays
-
-move-for-move identically to the development bot, `decide()` raises no internal
-
-exceptions, four seats can share one module without sharing state, and 40 stress
-
-games produce no crash, no illegal action and no turn close to the 200 ms limit.
+Builds the walk planner alone, as v7 shipped, to `bot_route.py`.
 
 
 
@@ -187,6 +228,27 @@ The report covers the verdict, the Round 1 leaderboard, the head-to-head matrix,
 and score trajectories, the Round 2 view, seat, token and map breakdowns, what each bot
 actually does (action mix, claims, upgrades, raids, shields, freezes), rule compliance
 and timing per bot, notable games with a command to replay each one, and the method.
+
+To test one bot against a folder of opponents:
+
+```bash
+python harness/simulate.py --add-dir opponents --focus main:bot.py --minutes 30
+```
+
+- `--add-dir DIR` enters every `.py` file in `DIR`, each checked exactly as `--add`
+  checks a file (self-contained, then the turn-1 check); files with no `act(state)` at
+  all, such as helpers, are listed as not entered.
+- `--focus NAME_OR_CODE` (a code from `--list`, a name, `branch:path`, or a file name)
+  seats that bot in every game. The other three seats come from the remaining bots so
+  each opponent meets it equally often (within one block of four games), and the block
+  rotation takes it through every seat and token position. The report opens with its
+  record against each opponent, worst first. If `opponents/MANIFEST.md` (or a
+  `MANIFEST.md` in the `--add-dir` folder) gives the opponents styles, that record is
+  also grouped by style, worst style first. The manifest can be a table with a file
+  column and a style column, `## Style` headings with the files listed under them, or
+  lines such as `- raider.py (style: aggressive)`. Entries match bots by file name.
+- `--minutes N` stops by itself after N minutes (games in progress finish), writes the
+  report and prints the session folder.
 
 
 
@@ -450,9 +512,17 @@ free to expand, the bot scores 3,404.
 
 |---|---|
 
-| **`bot.py`** | **the submission** — generated by `ship.py`, do not hand-edit |
+| **`bot.py`** | **the submission** — generated by `ship.py` from the three files below, do not hand-edit |
 
-| `mybot.py` | the bot's source: `Tracker`, the planner, the tactics |
+| `fusion.py` | the fused bot's controller: input normalisation, failsafes, cold-start rescue, calibration |
+
+| `econ.py` | the research branch's evolved economic planner, as a class (the primary) |
+
+| `mybot.py` | `Tracker` and the walk planner (v7; the fused bot's warm standby) |
+
+| `CROSS_BRANCH_REVIEW.md` | the critique of all four branches and every measurement behind the fused bot |
+
+| `crossfield/` | the cross-author field (`xfield.py`), interface matrix (`robustness.py`), acceptance suite, identity tests, and every other branch's bots and opponents |
 
 | `engine.py` | rules engine; the five ambiguous rules are flags in `RULES` |
 
