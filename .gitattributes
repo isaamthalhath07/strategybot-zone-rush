@@ -26,3 +26,4 @@ deadline_strategy/*.md -text
 deadline_finalization/*.md -text
 deadline_release/*.md -text
 deadline_notes/*.md -text
+deadline_official_check/*.md -text
