@@ -1,0 +1,16 @@
+{
+  "completed_serial_callbacks": 2560,
+  "completed_serial_known_replicas": 8,
+  "error_sha256": "8452b44b80fecf232465ad2f7db3948f8b150449bf49f993bbab5b277152b7c7",
+  "format": "local-policy-pool-known8-first-attempt/1",
+  "new_primary_games": 0,
+  "new_study_games": 0,
+  "next_attempt_rule": "Same known8 inputs,2repeats,source guards and timing definitions; narrow typed provenance stripping fix only. No CPU speedup was measured by the failed pool attempt.",
+  "observed_exit_code": 1,
+  "phase": "first_pool_initialization_before_worker_callbacks",
+  "pool_callbacks_before_failure": 0,
+  "preserved_private_directory": ".cache/local_policy_pool/known8_001",
+  "prior_published_source_snapshot": "dfcfd9b:evolution_templates/evidence/continuation_001/reviewed_sources.zip",
+  "reason": "Legitimate paired-control pair_parameter_id provenance was absent from the minimal initialization schema",
+  "registration_sha256": "5760f53fb76859f802d73c2fffc2cae1172ce9668a77736347a3a5cf5d726b15"
+}

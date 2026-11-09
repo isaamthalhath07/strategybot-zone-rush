@@ -257,9 +257,17 @@ class ActorPool:
                 if type(seat) is not int or seat not in range(4) or fixture['candidate'] not in candidates: raise ValueError('Bad focal assignment')
                 specs=[]
                 for raw in fixture['opponents']:
-                    allowed={'id','seat','family','seed','genes','epsilon','commitment'}
+                    allowed={'id','seat','family','seed','genes','epsilon','commitment','pair_parameter_id'}
                     if not set(raw)<=allowed: raise ValueError('Undeclared actor spec/credential field')
-                    specs.append(copy.deepcopy(raw))
+                    if 'pair_parameter_id' in raw:
+                        provenance=raw['pair_parameter_id']
+                        if (type(provenance) is not str or len(provenance)!=64
+                                or any(c not in '0123456789abcdef' for c in provenance)):
+                            raise ValueError('pair_parameter_id must be lowercase64-hex provenance')
+                    # Frozen actor constructors never consume study pairing
+                    # provenance. Validate it on the host, then omit it from
+                    # every worker setup message and actor constructor spec.
+                    specs.append({name:copy.deepcopy(value) for name,value in raw.items() if name!='pair_parameter_id'})
                 if len(specs)!=3 or {s['seat'] for s in specs}!=set(range(4))-{seat}: raise ValueError('Three distinct rival seats required')
                 lanes.append(dict(lane_id=key,candidate=candidates[fixture['candidate']],fixture=dict(id=key,seat=seat,opponents=specs)))
             # Only exact actor/source specs cross process boundaries. Registration

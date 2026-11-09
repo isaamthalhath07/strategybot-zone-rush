@@ -1,12 +1,14 @@
 """Spawn and exact-source CPU tests; no CUDA, gold or study outcomes."""
 import copy
+import json
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
 
 from evolution import oversight
 from local_policy_pool import ActorPool,PoolExecutionError
-from local_policy_pool.pool import ROOT,canonical,sha
+from local_policy_pool.pool import ROOT,canonical,sha,source_pins
 from tests import reference_engine as engine
 
 TOY='''
@@ -155,6 +157,45 @@ class PoolTests(unittest.TestCase):
             self.assertIn('source bytes changed',response['error']['message'])
             self.assertEqual(len(response['completed_lane_actions']),2)
             for counters in response['lane_counters'].values(): self.assertEqual(counters['completed'],[80]*4)
+
+    def test_frozen_qualification_spec_key_sets_accept_and_strip_pairing_provenance_before_dispatch(self):
+        body=(ROOT/'.cache/local_cuda/qualification_gold_002/registration.json').read_bytes()
+        self.assertEqual(sha(body),'8dce44596dd69a2958ead21030febd09ae485bf2f45069ec80f17d03ec319977')
+        frozen=json.loads(body)
+        shapes=sorted({tuple(sorted(spec)) for fixture in frozen['fixtures'] for spec in fixture['opponents']})
+        self.assertEqual(len(shapes),2)
+        self.assertTrue(all('pair_parameter_id' in keys for keys in shapes))
+        for shape in shapes:
+            with self.subTest(keys=shape):
+                reg=self.registration()
+                for fixture in reg['fixtures']:
+                    for spec in fixture['opponents']:
+                        values=dict(id=spec['id'],seat=spec['seat'],family='planner' if 'genes' in shape else 'wanderer',
+                                    seed=4,genes={},epsilon=.1,commitment=.5,pair_parameter_id='a'*64)
+                        spec.clear(); spec.update({key:copy.deepcopy(values[key]) for key in shape})
+                original=copy.deepcopy(reg); dispatched=[]
+                def collect(commands):
+                    dispatched.extend(copy.deepcopy(commands))
+                    return [dict(ok=True,source_sha256=source_pins()) for _ in commands]
+                with ActorPool(1) as pool,patch.object(pool,'_collect',side_effect=collect):
+                    pool.initialize_batch(reg,['SYNTHETIC-0','SYNTHETIC-1'])
+                    command=dispatched[0]
+                    self.assertEqual(command['operation'],'initialize')
+                    self.assertNotIn('pair_parameter_id',canonical(command).decode())
+                    for lane in command['lanes']:
+                        for constructor_spec in lane['fixture']['opponents']:
+                            self.assertEqual(set(constructor_spec),set(shape)-{'pair_parameter_id'})
+                self.assertEqual(reg,original)
+
+    def test_invalid_pairing_provenance_and_unknown_credential_fields_reject_before_dispatch(self):
+        for value in ('A'*64,'g'*64,'a'*63,False,None):
+            reg=self.registration(); reg['fixtures'][0]['opponents'][0]['pair_parameter_id']=value
+            with self.subTest(value=value),ActorPool(1) as pool:
+                with patch.object(pool,'_collect',side_effect=AssertionError('Worker dispatch occurred')):
+                    with self.assertRaisesRegex(ValueError,'lowercase64-hex'): pool.initialize_batch(reg,['SYNTHETIC-0'])
+        reg=self.registration(); reg['fixtures'][0]['opponents'][0].update(pair_parameter_id='a'*64,credentials='SYNTHETIC_PRIVATE_SENTINEL')
+        with ActorPool(1) as pool,patch.object(pool,'_collect',side_effect=AssertionError('Worker dispatch occurred')):
+            with self.assertRaisesRegex(ValueError,'credential field'): pool.initialize_batch(reg,['SYNTHETIC-0'])
 
 
 if __name__=='__main__': unittest.main()

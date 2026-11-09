@@ -12,6 +12,10 @@ process for all eighty turns; an ordinary shared executor queue would not.
 Only immutable compiled code may be cached across games. Reset destroys every
 actor/controller instance and namespace before another batch is initialized.
 
+Paired-control `pair_parameter_id` provenance is accepted only as a lowercase
+64-hex identifier and is removed before worker construction. It is not a policy
+input. Unknown fields, including credentials, are rejected before dispatch.
+
 Call `initialize_batch(registrationSubset, fixture_ids)` with guarded exact
 candidate/source entries and selected fixtures. Only the minimum actor setup
 specifications are sent to workers. Registration headers, maps, observer truth
