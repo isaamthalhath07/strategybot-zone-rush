@@ -1,0 +1,21 @@
+{
+  "actual_controller_callbacks": 0,
+  "actual_teacher_recommendations": 0,
+  "completed_per_game_bmcts_audits": 0,
+  "format": "joint-intent-causal-preregistration-evidence/1",
+  "frozen_trial_sources": {
+    "intent_trials/__init__.py": "00e46492040841c1d19cbe8d477fd3e9c335482b1e0dc2732d2eb0c139916fcd",
+    "intent_trials/experiment.py": "93862a0c5ef24c08a6d8c95a7a111b8598c55a399521d45cf27f7f790cff5125",
+    "intent_trials/test_continuation.py": "a2562aacdce4e0190725d3df319de452f220ecd1a7e38a7206c7a235df27e252",
+    "intent_trials/test_protocol.py": "e86a682652ab8514daca033b503edab59ec22c2a7a5a87652329d6879c3a1acf"
+  },
+  "planned_cases": 16,
+  "primary_games": 0,
+  "promoted": false,
+  "publication_gate": "Publish this exact preregistration and reviewed sources before measuring any selected recommendations or counterfactual outcomes.",
+  "registration_sha256": "51ec970ed61401fcdfa629bda061a9f132bc6d51694429d0ed3bf19802c4191e",
+  "reviewed_tests": 25,
+  "root_observed_tests": 25,
+  "root_test_duration_s": 2.149,
+  "source_archive_sha256": "d21da6bfc28dbbb9ba989c9cf9b141c2602a4171e67a5b343033a6768f4f3fd0"
+}
