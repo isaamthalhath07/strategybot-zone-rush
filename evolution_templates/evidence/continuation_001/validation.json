@@ -1,0 +1,54 @@
+{
+  "active_cuda_runtime_sources_unchanged": 49,
+  "archive_bytes": 59623,
+  "archive_roundtrip_checked": true,
+  "archive_sha256": "3275d4da89bb1b5aa3b0ab835858063b5989641c534b6f126f969f0b58aa171e",
+  "benchmark_preparation": {
+    "actual_known8_benchmark_runs": 0,
+    "gate": "Commit/publish this source snapshot before measuring the fixed known8 two-repeat serial/pool benchmark."
+  },
+  "bmcts_audits_added": 0,
+  "format": "local-research-reviewed-components/1",
+  "primary_games_added": 0,
+  "promoted": false,
+  "root_observed_tests": {
+    "local_complete_study_report": {
+      "seconds": 19.29,
+      "tests": 16
+    },
+    "local_pool_and_benchmark_protocol": {
+      "seconds": 4.374,
+      "tests": 9
+    },
+    "template_source_families": {
+      "seconds": 4.242,
+      "tests": 14
+    }
+  },
+  "scope": {
+    "pool": "Local CPU prototype unused by currentCUDAstudy; no GPU-policy or speedup claim.",
+    "report": "Read-only complete local-study authority/coverage before all6 unchanged contrasts; no actual32k report generated.",
+    "templates": "Prospective12/10 class-qualified numeric sites; no candidate/source qualification or strength run."
+  },
+  "source_sha256": {
+    "evolution_templates/README.md": "abd0bed27b072f2cf69e96ad0d15bc1e5d16b8f394411db92a1127073046ed6e",
+    "evolution_templates/REVIEW.md": "47b24e47860409f0a6f2f67fa2a67d5e6946953010dafa9c50b1ee416a813654",
+    "evolution_templates/STRATEGY_REVIEW.md": "bdd1d80455034df1ba3bdcec5f1886d0cbf5859184f32780f41b3163dbf1edbc",
+    "evolution_templates/__init__.py": "ed42d43929bb9eb525484e62a937a3d598824d3c151ab48a35bd24baeb03e381",
+    "evolution_templates/space.py": "bce6dd1fa5950a8752182ce4c70e17ea10d74245a7fe650cc735b3483b2ae041",
+    "evolution_templates/test_independent.py": "4a9f46a8f8f92d686d2972ba6d19373a00d529a9899fc5e542f60428df8a9230",
+    "evolution_templates/test_space.py": "3b34f05a043037f9036b21f12d0e01c063d84a617c302c54c741bf6d9151a601",
+    "local_cuda_analysis/README.md": "a0479c211790083dbf1eb474e0d0aefbd0724cdd6779e640bf9af59cd38b36ce",
+    "local_cuda_analysis/REVIEW.md": "fbc1c7d8ef5b54c91ffa74c3f5996c7530580b23a3a29c62c661403208cb3317",
+    "local_cuda_analysis/__init__.py": "848e72195435703552fa310c1b0b0d4ef96eeb25772ad42678d3817a7826ea36",
+    "local_cuda_analysis/report.py": "acfb40e28abb83a4a0ef16c37ec39022a46b974a860d46d38c2e7ab4195e9598",
+    "local_cuda_analysis/test_independent.py": "3e0c7977a9620d82f3a7dc98116f38b1b22690176c25871cceba91f4039c051d",
+    "local_cuda_analysis/test_report.py": "634cfc2a603b15ff4c60f7adb5b912f3a76b48437220bbc72234d1ce2e01e532",
+    "local_policy_pool/README.md": "fb30ed5f5fc3672dbade352455b44dffaaeaa302d23b386f70ab16dbad8fcec9",
+    "local_policy_pool/__init__.py": "d960b18e329d9ed135f9a03fd6411d0fb6c24e341d9ec096bcb0cd4ab2ed30a0",
+    "local_policy_pool/benchmark.py": "2837da76fc3752945b49555d41cfbc69067fb3dc29a7341e9b27cf2ccaa7f512",
+    "local_policy_pool/pool.py": "f9cd0389848142007002da2dba5a1f4b502403d6dfaf984e4aa3d57e9d5f1c19",
+    "local_policy_pool/test_benchmark.py": "e8cac29bc8b9b2a889f854ca79f38f19c5bcbd505b0da2de6458f6d59e0bdce5",
+    "local_policy_pool/test_pool.py": "c6d6f452f1bbbe39cd51b419cbfb755ff22eb67b6e9a614c364a3629a3c3b142"
+  }
+}

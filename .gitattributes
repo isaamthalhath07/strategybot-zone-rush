@@ -17,3 +17,6 @@ aligned_search/*.md -text
 local_cuda_matches/*.md -text
 local_cuda_study/*.md -text
 local_cuda_analysis/*.md -text
+evolution_templates/*.md -text
+local_policy_pool/*.md -text
+primary_local/*.md -text
