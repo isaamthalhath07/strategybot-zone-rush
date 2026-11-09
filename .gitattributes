@@ -20,3 +20,6 @@ local_cuda_analysis/*.md -text
 evolution_templates/*.md -text
 local_policy_pool/*.md -text
 primary_local/*.md -text
+deadline_runner/*.md -text
+deadline_campaign/*.md -text
+deadline_strategy/*.md -text
