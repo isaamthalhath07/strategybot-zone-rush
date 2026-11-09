@@ -1,0 +1,33 @@
+{
+  "assigned_slot": 2,
+  "bundle_id": "9c8283ce906beb80749652a8cbde840e47b8e5f039a93fd0efe480b779dda0c0",
+  "client_timing_seconds": {
+    "independent_cpu_replay": 17.552744599990547,
+    "prefix_reconstruction": 0.24925710004754364,
+    "public_policy_and_physics_with_trace_transfers": 0.9135376000776887,
+    "tensor_setup_and_transfer": 0.6021193999331445,
+    "total_end_to_end": 19.514584699994884
+  },
+  "diagnostics_verified": 8,
+  "games_bmcts_audited": 0,
+  "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+  "independent_cpu_reproduction": true,
+  "job_ids": [
+    "9d2491464e6b4564ab539151aa3e53aa6976fdbcd6bd89326ba547a95662c0f9",
+    "13f4d1f5a4fc8b53e43bfc84496cfef7e1fdb54836b3f8fc98da91ee1c67697d",
+    "6df8a198ebe901377e7f03d35012c39e30a764f7f8800b11a970ccc27c54dca1",
+    "d722157b7344a0f393238798d2c9e118293b9e299442c5954f7cdedd00389e66",
+    "eebbeebd14e86272d7db3d606cdb9a8eadffa83aa5d7b099b3ae4ed74cfd5e98",
+    "5a5e1704d9ee3ef757747a7fe8f6bb95924a388190ec8c78bd8a660abbd7ceae",
+    "47006a632a29c95e903c8a7dc3bfbc7c9ad0ff755bb929a855d80fc4e9d54c65",
+    "0e4d09bdccb5131877e3547e52544e6cbccd7fe8b7cc16d6854d5d8f067db4a3"
+  ],
+  "primary_campaign_games": 0,
+  "promotion_allowed": false,
+  "received_source": "User return; no personal paths retained",
+  "result_sha256": "6fdd3d26ecdff851e62d3be9509c63177fa6572edecb4e5c1654afa8d6e9e58e",
+  "scope": "Batch2 public-position search; not complete matches or full BMCTS",
+  "source_pins_passed": true,
+  "synthetic_trajectories": 46080,
+  "synthetic_turns": 276480
+}

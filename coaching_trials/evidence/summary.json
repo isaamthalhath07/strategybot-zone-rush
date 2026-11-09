@@ -1,0 +1,13 @@
+{
+  "archive_sha256": "6c722683cbb1a9b0bcba585a36604e6b30ed58363dae398308787a3a41a2c1e2",
+  "cases": 8,
+  "completed_per_game_bmcts_audits": 0,
+  "losses": 0,
+  "mean_delta_pairwise": 0.0,
+  "primary_games": 0,
+  "promoted": false,
+  "recommendations_changed": 3,
+  "scope": "Preregistered training-position hindsight usefulness experiment; no fresh-map strength claim.",
+  "source_sha256": "ebd520fe467a43c66ad0a99ce2cf59943bd9a8f13443f737c6a76bf88c52b513",
+  "wins": 0
+}

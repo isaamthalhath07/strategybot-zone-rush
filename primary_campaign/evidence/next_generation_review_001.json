@@ -1,0 +1,76 @@
+{
+  "format": "zone-rush-primary-next-generation-review/1",
+  "utc": "2026-11-08T19:55:21.357211+00:00",
+  "campaign_id": "66269bc2443cdff375116b3e168f1e8db6f27cc4a758a8c00e84f949d4bcac10",
+  "status": "NO_BLOCKER_FOUND_FOR_BOUNDED_CONTINUATION_WITH_FULL_STAGE_AUDITS",
+  "previous_generation": 0,
+  "previous_primary_games_accepted": 20000,
+  "previous_callbacks_regenerated": 6400000,
+  "previous_approval_deeply_revalidated_by_preparation": true,
+  "previous_evidence_unchanged": true,
+  "baseline_won_previous_generation": true,
+  "incumbent_standardized_pw": 2.265645032051282,
+  "research_elites_from_completed_audited_fitness": [
+    {
+      "sha256": "43cd3f7d255ba3690f1ceaab1c17da0a7a0a063efca12d9a03dad9f42494c36a",
+      "standardized_pw": 2.1993289262820515
+    },
+    {
+      "sha256": "93ccec95d14217794d89d703bb191b806dd99166c89eaaabd904fdb9739950cd",
+      "standardized_pw": 2.197911658653846
+    },
+    {
+      "sha256": "6d84e6433980107cb7c34bea65491fdfb80aaef74e4b5030ca70e84100306eed",
+      "standardized_pw": 2.184129607371795
+    }
+  ],
+  "next_generation": 1,
+  "next_population_exact_recipe": true,
+  "next_candidates": 8,
+  "all_exports_exact": true,
+  "ancestry_bound_to_approved_research_parents": true,
+  "next_maps": 100,
+  "next_map_indices": [
+    100,
+    199
+  ],
+  "next_planned_games": 20000,
+  "next_candidate_games": {
+    "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5": 2500,
+    "ccae721184746fbfabd03de878ef7d66f73f4ef1e8a15b6df43fc5e8fd0a754b": 2500,
+    "93ccec95d14217794d89d703bb191b806dd99166c89eaaabd904fdb9739950cd": 2500,
+    "8b5db582e88319f47054287433b4cbd6792b073d622c498907248368d8f990ee": 2500,
+    "43cd3f7d255ba3690f1ceaab1c17da0a7a0a063efca12d9a03dad9f42494c36a": 2500,
+    "c508d5bc957d290744352c1850b11ef4d4cdefd2c68e84571112d843bb77de8e": 2500,
+    "5a859ef134f1995b7ad9d842d6945a6d1ae644964b7e6bd824aee9564da587f2": 2500,
+    "3567d78ae92ed7f60e0d6005760c815506b1ac2db62ba0757c180790c39389e8": 2500
+  },
+  "next_unique_rival_ids": 60000,
+  "next_unique_rival_seeds": 60000,
+  "map_rotation_orbits_disjoint": true,
+  "rival_ids_and_seeds_disjoint_from_previous_generation": true,
+  "all_candidate_field_seat_token_cells_39_or_40": true,
+  "next_registration_sha256": "94c141c021830d0d9973d426249a77a5dd1e9090ca40b14f4e51ce67cae72321",
+  "next_actual_games_executed_by_review": 0,
+  "next_primary_games_accepted": 0,
+  "bmcts_audits": 0,
+  "production_changed": false,
+  "source_guards": {
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\bot.py": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\evolution\\genomes.py": "a16800b4daed6f4b78190db9db755ba17447c179d601a5a481754478f1ad70f2",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\evolution\\league.py": "8d577ef77bf5adbfba06c6399b374ef4c684fafc847cf3ee471e4f78eb4c7825",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\evolution\\maps.py": "e0c9328d89aff7ab23caa9a9fa6b672fc4074f66f57dd69678d1a121d5d679ef",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\evolution\\opponents.py": "b2b2c12cc3c27b209bd4af9089242f32c5128e17c411228e9bee4b692bf84c29",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\evolution\\oversight.py": "02fbb41a16df510a33214207f6f3d0561b4865d75cb1a293ea614680df9000b6",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\evolution\\runner.py": "bae5c92c51efa83eaef90db0ede9940be72201d2bb78e9d0527e3f6139d7503b",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\primary_campaign\\__init__.py": "36419e325c05695917b5a110f811f4574be69a66da97e88c7c7677707acab15f",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\primary_campaign\\core.py": "6d0de2dae757a4db821bddbb6bad1978bd6f6ac4d612ac60946b2ff01412d6fa",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\primary_campaign\\run.py": "bcaeeba986b4cdfd663be0a34bd507a93ee45db3f24ee4c80c8b60a4b1b7e98b",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\simulator\\vendor_harness\\referee.py": "f1125e8ceee664781827c670c0c4481da41a7ef41a4e5276d6b3b118274af337",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\tester_bots\\blocker.py": "1bb70109a75e2880bfdf3ac9b6fd8e368b0f3d02b9a3e65de53cef0defa505e5",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\tester_bots\\racer.py": "a35c2c4811645091adef6cbd263f1573bf2b184d5dd5741a070234a422ce54c8",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\tester_bots\\research_alternative.py": "6f2ac1487cd0a66793db3f2fab01f621d9c945a4f71a78cc92d176ef1de321f4",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\tests\\reference_engine.py": "8f7b89995cad0f724fb8ac7c7bc8311a6fa9b3b722f2204097031ba2333726f4"
+  },
+  "handoff": "Root may continue one bounded owner through at most five total training generations; every stage must pass full independent actor/dual-referee audit before the next. No promotion, development/final execution or BMCTS credit is authorized by this review."
+}

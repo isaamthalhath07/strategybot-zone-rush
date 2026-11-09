@@ -1,0 +1,33 @@
+{
+  "assigned_slot": 3,
+  "bundle_id": "5ba28c290c063c579e187a3f9c64accb2d3d6e6ba8fdf26518af080661e49438",
+  "client_timing_seconds": {
+    "independent_cpu_replay": 30.430383699946105,
+    "prefix_reconstruction": 0.5980261999648064,
+    "public_policy_and_physics_with_trace_transfers": 1.3878668999532238,
+    "tensor_setup_and_transfer": 1.3223600999917835,
+    "total_end_to_end": 34.0781624999363
+  },
+  "diagnostics_verified": 8,
+  "games_bmcts_audited": 0,
+  "gpu": "NVIDIA GeForce RTX 2060",
+  "independent_cpu_reproduction": true,
+  "job_ids": [
+    "321526ea55dacf36223367ebd369822c8b91a3fda3c8f67c2d77f414189aa757",
+    "32ae2a41f95154f7158aa06d7705c1c3d8469c552c2fd37a0f065d8e8023c715",
+    "35d633518cc711eed0d7829ab830da072f52627c4f19ac6f8b2a58d3e831e4cb",
+    "ae165ea52b3fde469d8ed2d35324feba91a4b67d9d21181e96e38e795b68e3a4",
+    "6fd5b7f9add199bb3b518285ba396ffe71b7447e6c4f9417aab3561b019fa469",
+    "191fce2d70be76d0e167fee5980e0f7e5df325decd34b5826624c8eb518ce11a",
+    "ad61b6925e20c0c4c63ca61123a09c61225961adfccff03d3a2cea0cf8c57334",
+    "33805f8c865d5d6e96aeebc88f76e3bd760c4a976bc89d4c33a927a5a934845d"
+  ],
+  "primary_campaign_games": 0,
+  "promotion_allowed": false,
+  "received_source": "User return; no personal paths retained",
+  "result_sha256": "2028d0e84f27e6e41349e0577909ef79288ec249491d714ff7983c0a54f925f2",
+  "scope": "Batch2 public-position search; not complete matches or full BMCTS",
+  "source_pins_passed": true,
+  "synthetic_trajectories": 47104,
+  "synthetic_turns": 282624
+}

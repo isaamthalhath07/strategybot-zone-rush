@@ -102,3 +102,11 @@ On the same 576 STAY-only follow-up fixtures it scored 1.3446 opponents outscore
 versus 1.7300 for the selected release, with zero worker faults. It is retained
 as a tester and has not replaced the validated root bot. Its original architecture
 tests include historical False-mode fixtures; those are not current-rule proof.
+
+This research branch also contains [evolution experiments](evolution/README.md),
+an [independent validity overseer](evolution/OVERSIGHT.md), a
+[mathematical strategy review](evolution/GAME_THEORY_REVIEW.md), and
+[portable shared-GPU diagnostic jobs](compute_share/SHARED_GPU.md). These offline
+tools keep the validated root bot unchanged. GPU research uses a separate PyTorch
+environment; the submitted bot remains standard-library-only. The requested
+two-million-game primary campaign is separate from these completed control games.

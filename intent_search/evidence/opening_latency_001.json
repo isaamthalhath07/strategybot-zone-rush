@@ -1,0 +1,34 @@
+{
+  "complete_tree_hashes_identical": true,
+  "condition": "One canonical opening; known focal token; no actual game or completed campaign history.",
+  "full_bmcts_audits": 0,
+  "horizon": 6,
+  "import_startup_excluded": true,
+  "limitation": "One small opening does not represent late-game inference, full-game audit throughput, helper performance or200ms deployment readiness.",
+  "median_wall_s": 0.4061414999887347,
+  "per_repeat_simulated_turns": 576,
+  "primary_games": 0,
+  "promoted": false,
+  "public_inference_sampling_and_dual_referee_checks_included": true,
+  "repeats": 3,
+  "role": "bounded_local_latency_probe_not_strength",
+  "simulations_per_root": 96,
+  "source_sha256": {
+    "evolution/maps.py": "e0c9328d89aff7ab23caa9a9fa6b672fc4074f66f57dd69678d1a121d5d679ef",
+    "gpu_tree_coach/protocol.py": "c07a60eb53f535ad02e21aa1c83ecc2bc5b455659a767c04518b604d73b98883",
+    "gpu_tree_coach/tree.py": "4da642282ebfabf1431c219bd106772a5900c4f9e04adf9f0ea8c3ee79349b46",
+    "intent_search/__init__.py": "b599f9ce9ef6f3aa310bfcede342d50daccf31fa1ca56ea413acaeadacb60574",
+    "intent_search/__main__.py": "61eec710aca3e1e64c8cdd06727afc83b20555e6baa74530d759f76fa6e4ed67",
+    "intent_search/mcts.py": "cc6c5c9a59254a46bf105aa6ed022f04c78cf00bbc738ef54ec65ae359a24ba7",
+    "opponent_prediction/intent_filter.py": "43a1276f29f0669f1e1bbce0379ad02805d471c174172019f0db1e517302c3b9",
+    "search_coach/belief.py": "f4188a87e5f253685df98ba596af97601bd00b68a42ff397f4d244126aa8669c",
+    "simulator/vendor_harness/referee.py": "f1125e8ceee664781827c670c0c4481da41a7ef41a4e5276d6b3b118274af337",
+    "tests/reference_engine.py": "8f7b89995cad0f724fb8ac7c7bc8311a6fa9b3b722f2204097031ba2333726f4"
+  },
+  "tree_sha256": "dde497dc4336207cf5fb4afa432ba1936e7b9f3867f8c9faf82f791e5d5478a4",
+  "wall_s": [
+    0.4061414999887347,
+    0.40234130003955215,
+    0.44630029995460063
+  ]
+}

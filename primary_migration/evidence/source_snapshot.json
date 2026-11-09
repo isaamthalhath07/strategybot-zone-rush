@@ -1,0 +1,188 @@
+{
+  "declared_remaining_accounting": {
+    "certifies_executed_games": false,
+    "declared_legacy_slots": 100000,
+    "declared_legacy_stages": 5,
+    "format": "zone-rush-primary-migration-design-contract/0",
+    "new_primary_credit": 0,
+    "remaining_train_maps": 7500,
+    "remaining_train_slots": 1500000,
+    "remaining_train_stages": 75,
+    "reserved_development_slots": 200000,
+    "reserved_final_slots": 200000,
+    "status": "PROPOSED_ACCOUNTING_ONLY",
+    "total_primary_slots": 2000000
+  },
+  "format": "zone-rush-primary-migration-source-observation/0",
+  "four_arm_architecture_selection": "NOT_MADE",
+  "four_arm_preregistration_sha256": "b5ffb74f5c8ad1c7a984a54d41d86efb26cb99ae2318a8b7d5a631d23ad24eb9",
+  "legacy_campaign_id": "66269bc2443cdff375116b3e168f1e8db6f27cc4a758a8c00e84f949d4bcac10",
+  "legacy_manifest_sha256": "d5473bfdde811dd3027f026d9b6df35e2f3cb96e9210e858b23f4b051b09dd1c",
+  "legacy_stages": [
+    {
+      "artifact_sha256": {
+        "actor_audits.jsonl": "7ebc45e76f49a5e73f464db9bb6010944bce7790469e7b207d25e0d7a54d7a5a",
+        "audit.json": "86f67515a00b9481d7fe69eaa602af6fef347128ebb68ffe66296ee3417bdcce",
+        "audit.sha256": "1d20c8df05bba328798e5600d16ce61cc5d12435366503cde629af3f62f9bc5b",
+        "games.jsonl": "2b4bc3c9ca13a16a378c658add82c6d85e9fa216ef96810973b2f6d02d1a1930",
+        "registration.json": "771ded7c1b0424fc10cce5e230133ab757022c0977545158111fa0e9730f751a",
+        "registration.sha256": "fcb29726d1d457829ffcc2d097f1f7f42f60dead951236d36be77d35b9a8ed4a",
+        "summary.json": "40451944075da04101d305173efba0551bb18b3661f85dfb6812545fb00bd41a",
+        "summary.sha256": "c85738758bdd8556d44e252d2b59eae8dea4bb9b25f6ca69c649b998ca908810"
+      },
+      "candidate_exports_sha256": {
+        "incumbent.py": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+        "offspring_02.py": "6d84e6433980107cb7c34bea65491fdfb80aaef74e4b5030ca70e84100306eed",
+        "offspring_03.py": "d0b8bd450aab225f59cf8b82ae0b445f9f00ac25e3c09de2b4397470da9fa74e",
+        "offspring_04.py": "282504e4bd02a6b5839be457efd1baa35c99a05f8f3ed6f93f1a85887e3cfbf7",
+        "offspring_05.py": "14c169a327b6a416c12c77a09dad85e2a5a867f63883e9a7f3fcfe94a971d352",
+        "offspring_06.py": "93ccec95d14217794d89d703bb191b806dd99166c89eaaabd904fdb9739950cd",
+        "offspring_07.py": "43cd3f7d255ba3690f1ceaab1c17da0a7a0a063efca12d9a03dad9f42494c36a",
+        "research_archive.py": "5a859ef134f1995b7ad9d842d6945a6d1ae644964b7e6bd824aee9564da587f2"
+      },
+      "declared_original_primary_admission": 20000,
+      "global_stage": 0,
+      "original_format": "zone-rush-primary-campaign/1"
+    },
+    {
+      "artifact_sha256": {
+        "actor_audits.jsonl": "437052d783e8b6b3a3458e4b1d2641facfe9078b6c970f934e700ecf1ef03d0b",
+        "audit.json": "b0a79d63d5661c292a149aaede5eaee2a1b5e1ff55c42f1b674f7e5c203cef7c",
+        "audit.sha256": "f6cb860ecb16fe5b76b8a407f57fdc69453b2411a8a744be0fa9e06ddf3418dd",
+        "games.jsonl": "caf96d0c2d4843845b1f46430aab0aee9576e1e7aa0bab35f633dc37af627828",
+        "registration.json": "94c141c021830d0d9973d426249a77a5dd1e9090ca40b14f4e51ce67cae72321",
+        "registration.sha256": "17ffc1536b67e35ff5629adba42fadf60f88bcc40989b0f5ef74cb5dcdaee95c",
+        "summary.json": "dbf1ac1bdd203bbaaac63a03a310eb0967d59b6a840a49bcd618b457f7ff3446",
+        "summary.sha256": "e7960f5b4fcc16afccdb66d51cd24aab83476147cfe0c995ee76d55d575832c3"
+      },
+      "candidate_exports_sha256": {
+        "elite_00.py": "43cd3f7d255ba3690f1ceaab1c17da0a7a0a063efca12d9a03dad9f42494c36a",
+        "elite_01.py": "93ccec95d14217794d89d703bb191b806dd99166c89eaaabd904fdb9739950cd",
+        "incumbent.py": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+        "offspring_04.py": "3567d78ae92ed7f60e0d6005760c815506b1ac2db62ba0757c180790c39389e8",
+        "offspring_05.py": "ccae721184746fbfabd03de878ef7d66f73f4ef1e8a15b6df43fc5e8fd0a754b",
+        "offspring_06.py": "c508d5bc957d290744352c1850b11ef4d4cdefd2c68e84571112d843bb77de8e",
+        "offspring_07.py": "8b5db582e88319f47054287433b4cbd6792b073d622c498907248368d8f990ee",
+        "research_archive.py": "5a859ef134f1995b7ad9d842d6945a6d1ae644964b7e6bd824aee9564da587f2"
+      },
+      "declared_original_primary_admission": 20000,
+      "global_stage": 1,
+      "original_format": "zone-rush-primary-campaign/1"
+    },
+    {
+      "artifact_sha256": {
+        "actor_audits.jsonl": "c1a619cd36bf4a7b54de66d2cc1e6cfdaea4bb8592c532ca6989b2653f219efc",
+        "audit.json": "be6c60dea1c388984b8f1edeb3fcea3998287889db005817ff1f1b15ac5baf45",
+        "audit.sha256": "4ea6dd5e763ecf5e8d8272c4e8227b8ea1b05dbe7247f14f22c19525a0e68f43",
+        "games.jsonl": "14807e44b94214823f9f245b36e04c31f42d39d08f1621b9d27cdecad786c500",
+        "registration.json": "d8fcab431d94fbd6e81a5a6f4a4e22bcb3ebc88379d34ba665054ce92100db35",
+        "registration.sha256": "ef620c44ecd2b0107d896b1f037f470af676b1f7898c0ffd70310ab4e027d7a1",
+        "summary.json": "447f27465ed2d05af80d8e8247b151113c59edeaede7aa36f33d6ea4dfc08122",
+        "summary.sha256": "8d8364e9165f19be7ff3894ec92d39ab4ffb91a1e392dd690caed626d58e5ab1"
+      },
+      "candidate_exports_sha256": {
+        "elite_00.py": "ccae721184746fbfabd03de878ef7d66f73f4ef1e8a15b6df43fc5e8fd0a754b",
+        "elite_01.py": "3567d78ae92ed7f60e0d6005760c815506b1ac2db62ba0757c180790c39389e8",
+        "incumbent.py": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+        "offspring_04.py": "da05e7f6e063952b2b4228e8b45549e3d7e728f9b314bf178958c28a7bd3bdbb",
+        "offspring_05.py": "50d82d7ac58162e9cf651136afcedac5586db9a060f153854b00875f13efef37",
+        "offspring_06.py": "daf7d9e52be0bc094641ce1d5cc5b49cd79311fdaebf1f3901a7b248c45a6311",
+        "offspring_07.py": "ad63613e879f81eeb4a6366951c5d10d8157f016c006ae761eea672df138bd55",
+        "research_archive.py": "5a859ef134f1995b7ad9d842d6945a6d1ae644964b7e6bd824aee9564da587f2"
+      },
+      "declared_original_primary_admission": 20000,
+      "global_stage": 2,
+      "original_format": "zone-rush-primary-campaign/1"
+    },
+    {
+      "artifact_sha256": {
+        "actor_audits.jsonl": "66334b1aa0542f999e9bfa57ec9f16a0705a118749586296205855b037100caf",
+        "audit.json": "b91d28a594154804fc5f08048568120531b2f08a3e005ece4cb5a20d59499a46",
+        "audit.sha256": "d1c962b6fa291e789c26775e239a7ada607f52669066cc6d3d4eb4a72951ba6f",
+        "games.jsonl": "bcfca9be800184f772e05e43ca7d71b4ed33a978706924de7d833a89583c65e3",
+        "registration.json": "eb0f6ba3a97cf8b6d79a5deb0ce635efc892628c9107f83504730f97b54a5827",
+        "registration.sha256": "35d56ffbb732d358baaa85ef57214d1ecfb1919b390449cf8406022aa43263a2",
+        "summary.json": "ad9f2fa3d722b65f3d1dd5381826c90386af84dc6f54c57cc82cd32a0e8c8a25",
+        "summary.sha256": "d7bb72887d80c4b625fccee1542903dd5de172510f16c0b0f449209bc1b799fe"
+      },
+      "candidate_exports_sha256": {
+        "elite_00.py": "50d82d7ac58162e9cf651136afcedac5586db9a060f153854b00875f13efef37",
+        "elite_01.py": "ccae721184746fbfabd03de878ef7d66f73f4ef1e8a15b6df43fc5e8fd0a754b",
+        "incumbent.py": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+        "offspring_04.py": "95a0ed2c4ded5bab427b4de8bad684e8d924803656bbb54b0a8063503aa7cb97",
+        "offspring_05.py": "5b4c340814224a8c1f1ed9530259c83c22b337084ec7d3e0d04804d4213defc0",
+        "offspring_06.py": "30f7ca0588711616c04b8147fa7bc4f33a42ca13ec65c81cd42842cfc78135f5",
+        "offspring_07.py": "fd5a39fa816744cb311ccdf230d1f3107d5b1dc6631cb8f94712faf9883a168c",
+        "research_archive.py": "5a859ef134f1995b7ad9d842d6945a6d1ae644964b7e6bd824aee9564da587f2"
+      },
+      "declared_original_primary_admission": 20000,
+      "global_stage": 3,
+      "original_format": "zone-rush-primary-campaign/1"
+    },
+    {
+      "artifact_sha256": {
+        "actor_audits.jsonl": "9af9ac3c4a273106cad9552a20338307a757f2d67d98d13f2958e6d85b88657b",
+        "audit.json": "b88db973f90c1b3acd6fade0b4757a8a5a6dd0a2a258dab969212133b62b94f2",
+        "audit.sha256": "02574622dc479f5b90ed1dffe1432f14fec972f7d5de3c1b41c23d9d2bd0f9eb",
+        "games.jsonl": "356b8bb0d2f9e98eb973e78c01db16d43eb668b65dfde6fb5bc7d27f4d132cb3",
+        "registration.json": "58e2aa209791d9059b1a89b3aa53b6ce8aa70212a25443c7ec2d774a925fe1da",
+        "registration.sha256": "4459dd043fef7bfdcb153a3c63e35126b3fca342ffa7fd31e5e4c8ce6c229c86",
+        "summary.json": "d9197a6f5b7caf22ba3cf719d0c6cfaad39329da80d318ba1fd04d1168cc6a03",
+        "summary.sha256": "383bccc1765849a73ef718eb246cef7edb4c19d835c19291d7c5748dfe9ded65"
+      },
+      "candidate_exports_sha256": {
+        "elite_00.py": "50d82d7ac58162e9cf651136afcedac5586db9a060f153854b00875f13efef37",
+        "elite_01.py": "ccae721184746fbfabd03de878ef7d66f73f4ef1e8a15b6df43fc5e8fd0a754b",
+        "incumbent.py": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+        "offspring_04.py": "d77b963996404a44e95f0f1d6773d7884d12e6ccfd3c028d6c7349473092f898",
+        "offspring_05.py": "fe43e2153d847ead21d44979a476cc4d16f009514edd8002e37a332a225875e4",
+        "offspring_06.py": "4c47d115298d732b69a81f012765355068d89ca0bab8b8f81f8bdd15c86427aa",
+        "offspring_07.py": "8d988cfc38dc1de0d5a80bfd468bd2b091c4569609bb503e6e1c70c6515bbb14",
+        "research_archive.py": "5a859ef134f1995b7ad9d842d6945a6d1ae644964b7e6bd824aee9564da587f2"
+      },
+      "declared_original_primary_admission": 20000,
+      "global_stage": 4,
+      "original_format": "zone-rush-primary-campaign/1"
+    }
+  ],
+  "limitations": [
+    "Existing original admissions are preserved references, not newly generated cryptographic proof of compute.",
+    "Contract checks are not an executor, authenticated migration bridge, source-family exporter or heldout admission."
+  ],
+  "new_actor_regenerations": 0,
+  "new_authorities_provisioned": 0,
+  "new_matches_executed": 0,
+  "new_primary_credit": 0,
+  "no_existing_artifact_modified": true,
+  "observed_existing_primary_admission": 100000,
+  "original_catalog_sha256": "311b51f5eef35402f88887bd18f54053fedf923cc17d3b8b13d6d1e2142f794f",
+  "original_shape": {
+    "development_maps": 1000,
+    "episodes_per_map": 200,
+    "final_maps": 1000,
+    "maps_per_generation": 100,
+    "population": 8,
+    "train_maps": 8000
+  },
+  "owner_monitor_sha256": "1c1016d822a8c949355469707a98a3b302024fa88cdd3c253327fe578dd114f1",
+  "raw_logs_hashed_not_replayed": true,
+  "source_files_sha256": {
+    "bot.py": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+    "campaign_holdout/authority.py": "3458e0acc374fb5c91f2b91ee06e247801d2da26c11def93d8d7e7cf9fb30d3d",
+    "campaign_holdout/core.py": "1fb52093adf715d4051cdc29346faa430546965e9b314155a5743ab839f230d7",
+    "campaign_holdout/run.py": "f8a4b54c980b82ccc18561a3c81c964d2b26731c98dead5fe904f948a92b8b4d",
+    "campaign_monitor/guarded_run.py": "96aef177410d9018d034f6538833654f28ea056c73052045187bfc435a51c4ee",
+    "distributed_campaign/control.py": "7a51991d4bed59b13dd56bdd68320650f8d64db5925784f7912cfa4e41ebe41d",
+    "distributed_campaign/owner.py": "7647f7b36ffa56e8281027a04e7cbf345200f3b7ededee7be46313a49e18bd29",
+    "distributed_campaign/proofs.py": "9abf4cf144d8a509ceddc9c34492fb6c82e3fabb664a72cf0c3748f616a86d59",
+    "evolution/oversight.py": "02fbb41a16df510a33214207f6f3d0561b4865d75cb1a293ea614680df9000b6",
+    "evolution/runner.py": "bae5c92c51efa83eaef90db0ede9940be72201d2bb78e9d0527e3f6139d7503b",
+    "primary_campaign/core.py": "6d0de2dae757a4db821bddbb6bad1978bd6f6ac4d612ac60946b2ff01412d6fa",
+    "primary_campaign/run.py": "bcaeeba986b4cdfd663be0a34bd507a93ee45db3f24ee4c80c8b60a4b1b7e98b",
+    "simulator/vendor_harness/referee.py": "f1125e8ceee664781827c670c0c4481da41a7ef41a4e5276d6b3b118274af337",
+    "tester_bots/blocker.py": "1bb70109a75e2880bfdf3ac9b6fd8e368b0f3d02b9a3e65de53cef0defa505e5",
+    "tests/reference_engine.py": "8f7b89995cad0f724fb8ac7c7bc8311a6fa9b3b722f2204097031ba2333726f4"
+  },
+  "status": "READ_ONLY_DESIGN_EVIDENCE_NOT_ADMISSION",
+  "terminal_handoff_sha256": "cfeae124ebe672eb9b5ceff3d567c7b4bebac5bcbcb2e73f12c2092d22869e61"
+}

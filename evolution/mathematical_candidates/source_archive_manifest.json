@@ -1,0 +1,167 @@
+{
+  "format": "zone-rush-mathematical-source-archive/1",
+  "parent_sha256": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+  "archive": "evolution/mathematical_candidates/source_archive.zip",
+  "sha256": "04a1eb0e726cdd50d19d6388dcc0b6212056fdd87a593463b038f0d08ecec5b3",
+  "files": [
+    {
+      "path": "bot.py",
+      "sha256": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+      "bytes": 32385
+    },
+    {
+      "path": "evolution/__init__.py",
+      "sha256": "4acc044002188125c940ab3b5a69e2968bb27a2bfb8d79cf8c43cc3b8d1c2d2c",
+      "bytes": 85
+    },
+    {
+      "path": "evolution/GAME_THEORY_REVIEW.md",
+      "sha256": "76a0e5efd0639b3a63a434db09182b9216cf4aff303251e9b3c31f066492883e",
+      "bytes": 20316
+    },
+    {
+      "path": "evolution/genomes.py",
+      "sha256": "a16800b4daed6f4b78190db9db755ba17447c179d601a5a481754478f1ad70f2",
+      "bytes": 3921
+    },
+    {
+      "path": "evolution/maps.py",
+      "sha256": "e0c9328d89aff7ab23caa9a9fa6b672fc4074f66f57dd69678d1a121d5d679ef",
+      "bytes": 1939
+    },
+    {
+      "path": "evolution/mathematical_candidates/archive_sources.py",
+      "sha256": "fd3b71d63624520d8539df6dbd077d99ba805d7c57f384d22b7e5f2b72a36382",
+      "bytes": 3060
+    },
+    {
+      "path": "evolution/mathematical_candidates/arrival_lifetime.py",
+      "sha256": "801e12ab60631ec1c16bf358a9d3d2db96f9a1e572b51f0f18e902f317881134",
+      "bytes": 33556
+    },
+    {
+      "path": "evolution/mathematical_candidates/arrival_lifetime_depth2.py",
+      "sha256": "3a64f9d476a1021349a3aef2088e97995eacabbe9327e008e62305c5c5aa3ab2",
+      "bytes": 33534
+    },
+    {
+      "path": "evolution/mathematical_candidates/arrival_manifest.json",
+      "sha256": "9f2eabfb7aeab7e6d18e23d0f48d961bec68a3cc366677959428b7f5c92e564d",
+      "bytes": 1745
+    },
+    {
+      "path": "evolution/mathematical_candidates/audit_comparison.py",
+      "sha256": "1583f855c0a2671ea506b2955f56c76e532424b7d1c03de924605d9389ff4f58",
+      "bytes": 18766
+    },
+    {
+      "path": "evolution/mathematical_candidates/baseline_depth2.py",
+      "sha256": "747b732ef32a0a50e0ea76dd16b3f89f018ffced3ae99f3e211c09c7fce1d4ab",
+      "bytes": 32363
+    },
+    {
+      "path": "evolution/mathematical_candidates/build_arrival.py",
+      "sha256": "9f088b7760ff853a648ec5e143253e7e3f65b60506af5e8f0ddbd921c73ea33f",
+      "bytes": 4658
+    },
+    {
+      "path": "evolution/mathematical_candidates/focused_tests.txt",
+      "sha256": "1ec86a3105c748e6de68cadbefde0213a33612bde6a0f94dcfc2ec7db0255e83",
+      "bytes": 2235
+    },
+    {
+      "path": "evolution/mathematical_candidates/focused_validation.json",
+      "sha256": "ae9091cb219c419687fe3fafd75510f72798c841d2bda0880b1895eb53adc7dd",
+      "bytes": 1564
+    },
+    {
+      "path": "evolution/mathematical_candidates/mathematical_probe.json",
+      "sha256": "d660f576b3b14837a813a0a086641e62cc0e320ab6d51560c7b082587c148bde",
+      "bytes": 12367
+    },
+    {
+      "path": "evolution/mathematical_candidates/mathematical_probe_final.json",
+      "sha256": "30515dac519e7e2b8f3ef6ae55181339b63f24cb16eef20a96239a4352a66f9b",
+      "bytes": 17092
+    },
+    {
+      "path": "evolution/mathematical_candidates/mathematical_probe_initial.json",
+      "sha256": "59ec12c478057d7f8fb0fd046d1843b68ef8c3660965e11290df368d170ce505",
+      "bytes": 9504
+    },
+    {
+      "path": "evolution/mathematical_candidates/mathematical_probes_a792fedac788.py",
+      "sha256": "a792fedac78859cd8544d6bf99ba039b91f4523997e686d05e4b8b15efbef31e",
+      "bytes": 9005
+    },
+    {
+      "path": "evolution/mathematical_candidates/mathematical_probes_f5f4745fa40a.py",
+      "sha256": "f5f4745fa40ac70f9fe093414056218a6747e519c607874dd4b06222d859180d",
+      "bytes": 10663
+    },
+    {
+      "path": "evolution/mathematical_candidates/record_validation.py",
+      "sha256": "098cb4030f300da6b3acc0a587d9eb8a02f72a500f40297c4f9f018e0cda1255",
+      "bytes": 2378
+    },
+    {
+      "path": "evolution/mathematical_candidates/replay_fixture/games.jsonl",
+      "sha256": "68ce7ba0e5c6b45ad2f7669415c3e71e1dee4f40529d60f6507952f4d0d48599",
+      "bytes": 116474
+    },
+    {
+      "path": "evolution/mathematical_candidates/replay_fixture/registration.json",
+      "sha256": "86d13d2d34b6617fe92db5f920e3ff09dbebf8d478544964759616d76ca53221",
+      "bytes": 1402339
+    },
+    {
+      "path": "evolution/mathematical_candidates/replay_fixture/registration.sha256",
+      "sha256": "0c49a412d26f06faa15eb5775aa831998274c83edf27836495ce81338ac2b7ea",
+      "bytes": 66
+    },
+    {
+      "path": "evolution/mathematical_candidates/test_arrival.py",
+      "sha256": "f7ca305166a9e9262d8bd6c95b5ba32a4dcc55f17a66fe6f98d343713a54adb4",
+      "bytes": 5222
+    },
+    {
+      "path": "evolution/mathematical_candidates/test_mathematics.py",
+      "sha256": "f6bae8c644a2dfcbe6938109f8a6fd0184a51e4fb183047dffec7e2ba50c8863",
+      "bytes": 3859
+    },
+    {
+      "path": "evolution/mathematical_probes.py",
+      "sha256": "fdd461e2fa48a617b2cabbb335be173fa160f145599d3ea3256c75c781bd0c93",
+      "bytes": 13884
+    },
+    {
+      "path": "evolution/opponents.py",
+      "sha256": "b2b2c12cc3c27b209bd4af9089242f32c5128e17c411228e9bee4b692bf84c29",
+      "bytes": 3728
+    },
+    {
+      "path": "evolution/runner.py",
+      "sha256": "bae5c92c51efa83eaef90db0ede9940be72201d2bb78e9d0527e3f6139d7503b",
+      "bytes": 19630
+    },
+    {
+      "path": "simulator/vendor_harness/referee.py",
+      "sha256": "f1125e8ceee664781827c670c0c4481da41a7ef41a4e5276d6b3b118274af337",
+      "bytes": 15736
+    },
+    {
+      "path": "tests/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "tests/reference_engine.py",
+      "sha256": "8f7b89995cad0f724fb8ac7c7bc8311a6fa9b3b722f2204097031ba2333726f4",
+      "bytes": 14160
+    }
+  ],
+  "source_registration_sha256": "86d13d2d34b6617fe92db5f920e3ff09dbebf8d478544964759616d76ca53221",
+  "replay_subset_games": 32,
+  "source_files_frozen": true,
+  "production_changed": false
+}

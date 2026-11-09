@@ -1,0 +1,25 @@
+{
+  "assigned_slot": 1,
+  "bundle_id": "a3288c9a719d28c1a1311ff5e18f4d041832fda7b205191b86752f378a8f2bbf",
+  "client_worker_seconds": 3.8794372999982443,
+  "diagnostics_verified": 4,
+  "games_bmcts_audited": 0,
+  "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "hardware_protocol_calibration": true,
+  "independent_cpu_reproduction": true,
+  "job_ids": [
+    "71d24a0e681e1cf5bd4fb3b356c3dcb6dd3f6ba13ace34e6f14a7e1ab0438acd",
+    "987a638e68101c0322f0cf625f25ba8fa39ec2b1a58719e764cf51739417bf1c",
+    "29c5cc1ccbc6c0083e907120f0db6ca9cc79327c05c1514f0e5b4abda0eba7d7",
+    "f4011b3b1c23e634837692a08a932a5a5d1594248abfc416bc7e63ea9828cb99"
+  ],
+  "novel_primary_or_strength_games": 0,
+  "owner_previously_calibrated_same_jobs": true,
+  "primary_campaign_games": 0,
+  "promotion_allowed": false,
+  "received_source": "User result attachment; no personal paths retained",
+  "result_sha256": "42dbc1e845a975b0485cc067bae93e6746ec7e32e5862567eb8a71bb17a11f5f",
+  "source_pins_passed": true,
+  "synthetic_trajectories": 2944,
+  "synthetic_turns": 8832
+}

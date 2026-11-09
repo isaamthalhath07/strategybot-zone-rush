@@ -1,0 +1,466 @@
+{
+  "format": "zone-rush-mathematical-probes/1",
+  "sources": {
+    "bot.py": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+    "evolution/mathematical_probes.py": "f5f4745fa40ac70f9fe093414056218a6747e519c607874dd4b06222d859180d",
+    "evolution/mathematical_candidates/build_arrival.py": "9f088b7760ff853a648ec5e143253e7e3f65b60506af5e8f0ddbd921c73ea33f",
+    "evolution/mathematical_candidates/arrival_lifetime_depth2.py": "3a64f9d476a1021349a3aef2088e97995eacabbe9327e008e62305c5c5aa3ab2",
+    "evolution/mathematical_candidates/baseline_depth2.py": "747b732ef32a0a50e0ea76dd16b3f89f018ffced3ae99f3e211c09c7fce1d4ab",
+    "evolution/mathematical_candidates/arrival_lifetime.py": "801e12ab60631ec1c16bf358a9d3d2db96f9a1e572b51f0f18e902f317881134"
+  },
+  "analytical": {
+    "neutral_clock": {
+      "left": 11,
+      "original_completion": 2,
+      "delayed_completion": 10,
+      "value": 3,
+      "parent_reward": 30,
+      "corrected_reward": 6,
+      "exact_delayed_income": 6
+    },
+    "raid_clock": {
+      "original_life": 10,
+      "delayed_life": 2,
+      "recurring_income_per_turn": 3,
+      "raid_cash_after_risk_divisor": 24,
+      "parent_reward": 54,
+      "corrected_reward": 30,
+      "exact_delayed_reward": 30
+    },
+    "rank_utility_counterexample": [
+      {
+        "scores": [
+          101,
+          100,
+          100,
+          100
+        ],
+        "pairwise_wins": 3,
+        "own_score": 101,
+        "mean_rival_margin": 1.0
+      },
+      {
+        "scores": [
+          200,
+          201,
+          202,
+          1
+        ],
+        "pairwise_wins": 1,
+        "own_score": 200,
+        "mean_rival_margin": 65.33333333333334
+      }
+    ],
+    "catch_correlation": {
+      "marginals": [
+        0.6,
+        0.6
+      ],
+      "independence_miss": 0.16,
+      "frechet_miss_bounds": [
+        0.0,
+        0.4
+      ],
+      "perfectly_correlated_miss": 0.4
+    },
+    "terminal_contest": {
+      "kind": "constructed referee counterexample, not a learned or deployed policy",
+      "cell_values": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "focal_position": 27,
+      "focal_owned_contest_destination": 28,
+      "rival_position": 29,
+      "rival_cell_owner": 3,
+      "rival_cell_upgraded": true,
+      "rival_progress": 2,
+      "scores_before": [
+        1000,
+        2000,
+        1005,
+        500
+      ],
+      "turn": 80,
+      "outcomes": [
+        {
+          "action": "STAY",
+          "joint": [
+            "STAY",
+            "WEST",
+            "STAY",
+            "STAY"
+          ],
+          "positions": [
+            27,
+            28,
+            63,
+            56
+          ],
+          "owner_of_cell29": 3,
+          "scores": [
+            1012,
+            2003,
+            1014,
+            503
+          ],
+          "pairwise_wins": 1,
+          "own_score": 1012,
+          "mean_rival_margin": -161.33333333333326
+        },
+        {
+          "action": "EAST",
+          "joint": [
+            "EAST",
+            "WEST",
+            "STAY",
+            "STAY"
+          ],
+          "positions": [
+            28,
+            29,
+            63,
+            56
+          ],
+          "owner_of_cell29": 2,
+          "scores": [
+            1012,
+            2054,
+            1008,
+            503
+          ],
+          "pairwise_wins": 2,
+          "own_score": 1012,
+          "mean_rival_margin": -176.33333333333326
+        },
+        {
+          "action": "SHIELD",
+          "joint": [
+            "SHIELD",
+            "WEST",
+            "STAY",
+            "STAY"
+          ],
+          "positions": [
+            27,
+            28,
+            63,
+            56
+          ],
+          "owner_of_cell29": 3,
+          "scores": [
+            1012,
+            2003,
+            1014,
+            503
+          ],
+          "pairwise_wins": 1,
+          "own_score": 1012,
+          "mean_rival_margin": -161.33333333333326
+        }
+      ],
+      "conclusion": "A move can improve pairwise rank by forcing a rival's blocked STAY/raid against a third player, even with unchanged own score."
+    },
+    "illustrative_local_zero_sum_mix": {
+      "attacker_payoff_rows": [
+        "STAY",
+        "MOVE"
+      ],
+      "defender_columns": [
+        "DEVELOP",
+        "SHIELD"
+      ],
+      "attacker_payoff": [
+        [
+          48,
+          -18
+        ],
+        [
+          0,
+          12
+        ]
+      ],
+      "equilibrium_stay": 0.15384615384615385,
+      "equilibrium_shield": 0.6153846153846154,
+      "attacker_value": 7.384615384615385,
+      "caveat": "Illustrative local zero-sum surrogate, not an equilibrium proof for the four-player game."
+    }
+  },
+  "public_prefix_diagnostic": {
+    "registration_sha256": "86d13d2d34b6617fe92db5f920e3ff09dbebf8d478544964759616d76ca53221",
+    "games": 32,
+    "public_decision_checkpoints": 2560,
+    "original_actions_reproduced": 2560,
+    "variant_decisions": 7680,
+    "contract_failures": 0,
+    "action_differences": {
+      "baseline_depth2": 54,
+      "arrival_depth3": 14,
+      "arrival_depth2": 47
+    },
+    "phase_differences": {
+      "baseline_depth2": {
+        "turn1_40": 29,
+        "turn41_64": 18,
+        "turn65_80": 7
+      },
+      "arrival_depth3": {
+        "turn1_40": 0,
+        "turn41_64": 8,
+        "turn65_80": 6
+      },
+      "arrival_depth2": {
+        "turn1_40": 25,
+        "turn41_64": 14,
+        "turn65_80": 8
+      }
+    },
+    "reward_recalculations": 2379741,
+    "largest_reward_corrections": [
+      {
+        "original": 360.7246916064,
+        "corrected": 76.51735882560001,
+        "original_life": 33,
+        "retention": 40.67114,
+        "turns_left": 33,
+        "completion_cost": 27,
+        "fixture": "c9f2a098f5a23f7d80958a64b126103a6da8b8a60a6c741aee1a6d7f1af01213",
+        "turn": 48,
+        "variant": "arrival_depth3"
+      },
+      {
+        "original": 356.4780672816,
+        "corrected": 86.4189254016,
+        "original_life": 33,
+        "retention": 40.67114,
+        "turns_left": 34,
+        "completion_cost": 27,
+        "fixture": "c9f2a098f5a23f7d80958a64b126103a6da8b8a60a6c741aee1a6d7f1af01213",
+        "turn": 47,
+        "variant": "arrival_depth3"
+      },
+      {
+        "original": 352.2314429568,
+        "corrected": 96.06312080639998,
+        "original_life": 33,
+        "retention": 40.67114,
+        "turns_left": 35,
+        "completion_cost": 27,
+        "fixture": "c9f2a098f5a23f7d80958a64b126103a6da8b8a60a6c741aee1a6d7f1af01213",
+        "turn": 46,
+        "variant": "arrival_depth3"
+      },
+      {
+        "original": 385.4034299808,
+        "corrected": 135.4120159392,
+        "original_life": 37,
+        "retention": 40.67114,
+        "turns_left": 37,
+        "completion_cost": 25,
+        "fixture": "6f6e9612e48f346361465a93b94739821bc16d21f62e2419bcf0ac529371ce98",
+        "turn": 44,
+        "variant": "arrival_depth3"
+      },
+      {
+        "original": 339.51324052800004,
+        "corrected": 90.53686414080002,
+        "original_life": 30,
+        "retention": 40.67114,
+        "turns_left": 30,
+        "completion_cost": 23,
+        "fixture": "ba6d228cde9207f5be01b5c2d42a7ee51471b1ff0e39b18473770e7379332ba8",
+        "turn": 51,
+        "variant": "arrival_depth3"
+      },
+      {
+        "original": 271.6250394528,
+        "corrected": 24.693185404800005,
+        "original_life": 22,
+        "retention": 40.67114,
+        "turns_left": 22,
+        "completion_cost": 21,
+        "fixture": "ba6d228cde9207f5be01b5c2d42a7ee51471b1ff0e39b18473770e7379332ba8",
+        "turn": 59,
+        "variant": "arrival_depth3"
+      },
+      {
+        "original": 380.6420633136,
+        "corrected": 144.0267266592,
+        "original_life": 37,
+        "retention": 40.67114,
+        "turns_left": 38,
+        "completion_cost": 25,
+        "fixture": "6f6e9612e48f346361465a93b94739821bc16d21f62e2419bcf0ac529371ce98",
+        "turn": 43,
+        "variant": "arrival_depth3"
+      },
+      {
+        "original": 335.65267296,
+        "corrected": 100.695801888,
+        "original_life": 30,
+        "retention": 40.67114,
+        "turns_left": 31,
+        "completion_cost": 23,
+        "fixture": "ba6d228cde9207f5be01b5c2d42a7ee51471b1ff0e39b18473770e7379332ba8",
+        "turn": 50,
+        "variant": "arrival_depth3"
+      },
+      {
+        "original": 271.6250394528,
+        "corrected": 37.03977810720002,
+        "original_life": 22,
+        "retention": 40.67114,
+        "turns_left": 22,
+        "completion_cost": 20,
+        "fixture": "c9f2a098f5a23f7d80958a64b126103a6da8b8a60a6c741aee1a6d7f1af01213",
+        "turn": 59,
+        "variant": "arrival_depth3"
+      },
+      {
+        "original": 271.6250394528,
+        "corrected": 37.03977810720002,
+        "original_life": 22,
+        "retention": 40.67114,
+        "turns_left": 22,
+        "completion_cost": 20,
+        "fixture": "c9f2a098f5a23f7d80958a64b126103a6da8b8a60a6c741aee1a6d7f1af01213",
+        "turn": 59,
+        "variant": "arrival_depth2"
+      }
+    ],
+    "examples": [
+      {
+        "fixture": "009e6937f32f2baf1f4c332517c98b9a28df8e5f8ad8684dc414edd6a05b4e98",
+        "map_id": "34b7639a91e8aa0b78d1bc4ee690d31ff7d3b065b59902e7f220061546f16c2e",
+        "focal_seat": 3,
+        "turn": 42,
+        "incumbent": "SOUTH",
+        "candidate": "WEST",
+        "current_position": 36,
+        "original_target": 44,
+        "candidate_target": 33
+      },
+      {
+        "fixture": "0909b4c19f54dd719879372e8659a16026509779f568c2d80fecbedb93e12235",
+        "map_id": "ab19960d3948a1e3fce98a8997de60c1420a25f48d383f3c78c2f87179b716c9",
+        "focal_seat": 1,
+        "turn": 61,
+        "incumbent": "SOUTH",
+        "candidate": "EAST",
+        "current_position": 13,
+        "original_target": 37,
+        "candidate_target": 22
+      },
+      {
+        "fixture": "0909b4c19f54dd719879372e8659a16026509779f568c2d80fecbedb93e12235",
+        "map_id": "ab19960d3948a1e3fce98a8997de60c1420a25f48d383f3c78c2f87179b716c9",
+        "focal_seat": 1,
+        "turn": 62,
+        "incumbent": "EAST",
+        "candidate": "STAY",
+        "current_position": 21,
+        "original_target": 22,
+        "candidate_target": 21
+      },
+      {
+        "fixture": "206b212c2bfb260a2e3257046a4eacd56e4bf9f419bdb3458ce319455d9d4cc8",
+        "map_id": "bab1e3ddd4e5dc9889a49a8564733546fa732f74c20c20e8fa8ee1db27797e8a",
+        "focal_seat": 1,
+        "turn": 72,
+        "incumbent": "NORTH",
+        "candidate": "EAST",
+        "current_position": 57,
+        "original_target": 49,
+        "candidate_target": 59
+      },
+      {
+        "fixture": "206b212c2bfb260a2e3257046a4eacd56e4bf9f419bdb3458ce319455d9d4cc8",
+        "map_id": "bab1e3ddd4e5dc9889a49a8564733546fa732f74c20c20e8fa8ee1db27797e8a",
+        "focal_seat": 1,
+        "turn": 74,
+        "incumbent": "STAY",
+        "candidate": "EAST",
+        "current_position": 49,
+        "original_target": 49,
+        "candidate_target": 50
+      },
+      {
+        "fixture": "4144f87285edd9cb77e25b9b89fd3579c63448861de5eb03168a33427537fb21",
+        "map_id": "3d70c1f1a175429759bf4afcecc167fc3832dee14294fb6dc403e5fe22a1dcf8",
+        "focal_seat": 0,
+        "turn": 68,
+        "incumbent": "EAST",
+        "candidate": "SOUTH",
+        "current_position": 8,
+        "original_target": 1,
+        "candidate_target": 24
+      }
+    ],
+    "inputs": "Four-field public views plus copied public-history-derived incumbent memory only",
+    "claimed_new_games": 0,
+    "claimed_strength_improvement": false,
+    "caveat": "Fixed-prefix diagnostics differ from closed-loop games. No hindsight opponent actions enter a decision."
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "experiment": "structural_public_copy_v1",
+  "reports": {
+    "copy_frozen_1w": {
+      "report_sha256": "7042f7cefb72f892bc33108fa6db43685a180e3eb2236329200cb7b34369fb86",
+      "metrics_sha256": "44b5a2d78e5813409a3734ac3f57cea5a25545b73e0829c434b14a60bd828927",
+      "games_per_s": 6.474690115155497,
+      "timed_games": 128,
+      "workers": 1
+    },
+    "copy_structural_1w": {
+      "report_sha256": "ef0c5c08fc21fb37796162af6e6530776bdf24435b24af79bd978af91063b15e",
+      "metrics_sha256": "2e1928963c42f2678002b4328665ee4c18026adb0736778c9d56fce4fbd2261b",
+      "games_per_s": 10.105416786847439,
+      "timed_games": 128,
+      "workers": 1
+    },
+    "copy_structural_2w": {
+      "report_sha256": "c55e1adecbdac463db9b9762e0afd238a757f9020c6021ea97af35b8c3e868ef",
+      "metrics_sha256": "57a7eeeba8c326aea9e975de8afc787f9c9f2122dc3e2b681ebd14c522e53c45",
+      "games_per_s": 22.61232886334545,
+      "timed_games": 64,
+      "workers": 2
+    },
+    "copy_frozen_2w": {
+      "report_sha256": "4e2afebb92e7d5c504ee04a697be80c6b85f0db6d27cec6cf24fd9bf1551c633",
+      "metrics_sha256": "58563ebc19fdc169bdd33a42cb8a7a5d6282249a8b66a08d4cf0da2cd4effbb4",
+      "games_per_s": 8.93291525807524,
+      "timed_games": 64,
+      "workers": 2
+    }
+  },
+  "speedup_1worker": 1.5607568249781396,
+  "speedup_2workers": 2.531349308715785,
+  "timed_game_repetitions": 384,
+  "action_vectors_compared": 30720,
+  "callbacks": 122880,
+  "observed_mismatches": 0,
+  "primary_games_accepted": 0,
+  "bmcts_audits": 0,
+  "original_source_edited": false,
+  "monkeypatch": false,
+  "migration_performed": false,
+  "validation_scope": "Canonical8x8 reference-engine View/Cell schema only. Finite repeated-game parity. No heldout-policy improvement or campaign admission.",
+  "recommendation": "Promising for a reviewed, versioned harness migration; leave live campaign frozen until broader independent replay and schema compatibility review."
+}

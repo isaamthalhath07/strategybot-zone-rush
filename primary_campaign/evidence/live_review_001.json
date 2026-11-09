@@ -1,0 +1,244 @@
+{
+  "format": "zone-rush-live-independent-review/1",
+  "utc_snapshot": "2026-11-08T19:28:43.079855+00:00",
+  "status": "NO_BLOCKER_FOUND_IN_BOUNDED_LIVE_REVIEW",
+  "campaign_id": "66269bc2443cdff375116b3e168f1e8db6f27cc4a758a8c00e84f949d4bcac10",
+  "generation": 0,
+  "planned_stage_games": 20000,
+  "observed_complete_records": 8238,
+  "observed_prefix_sha256": "c9ac8b3de40aaa1637e72a097396dcc18ed64098f3e65a490d22d94e92aeec7d",
+  "observed_trailing_bytes_ignored_in_memory_only": 0,
+  "source_snapshot_verified": true,
+  "catalog_phase_map_counts": {
+    "train": 8000,
+    "development": 1000,
+    "final": 1000
+  },
+  "catalog_phase_map_family_counts": {
+    "train": {
+      "centre-biased": 4798,
+      "noisy-centre": 1558,
+      "uniform-stress": 821,
+      "rich-home-stress": 823
+    },
+    "development": {
+      "centre-biased": 607,
+      "noisy-centre": 184,
+      "rich-home-stress": 105,
+      "uniform-stress": 104
+    },
+    "final": {
+      "centre-biased": 606,
+      "uniform-stress": 106,
+      "noisy-centre": 194,
+      "rich-home-stress": 94
+    }
+  },
+  "planned_candidate_games": {
+    "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5": 2500,
+    "14c169a327b6a416c12c77a09dad85e2a5a867f63883e9a7f3fcfe94a971d352": 2500,
+    "6d84e6433980107cb7c34bea65491fdfb80aaef74e4b5030ca70e84100306eed": 2500,
+    "43cd3f7d255ba3690f1ceaab1c17da0a7a0a063efca12d9a03dad9f42494c36a": 2500,
+    "5a859ef134f1995b7ad9d842d6945a6d1ae644964b7e6bd824aee9564da587f2": 2500,
+    "93ccec95d14217794d89d703bb191b806dd99166c89eaaabd904fdb9739950cd": 2500,
+    "d0b8bd450aab225f59cf8b82ae0b445f9f00ac25e3c09de2b4397470da9fa74e": 2500,
+    "282504e4bd02a6b5839be457efd1baa35c99a05f8f3ed6f93f1a85887e3cfbf7": 2500
+  },
+  "planned_unique_opponents": 60000,
+  "all_observed_task_ids_unique": true,
+  "all_observed_records_structurally_valid": true,
+  "all_observed_deadline_records_within_limits": true,
+  "observed_worker_faults": 0,
+  "max_all_player_ms": 89.32939998339862,
+  "max_regular_player_ms": 89.32939998339862,
+  "max_focal_ms": 45.07180000655353,
+  "outlier_threshold_ms": 10,
+  "outlier_count": 1556,
+  "worst_outliers": [
+    {
+      "fixture": "8fcbab54779ad240f9aad0517377c9321ba01bde0caee305524bad2656ee1c3d",
+      "candidate": "6d84e6433980107cb7c34bea65491fdfb80aaef74e4b5030ca70e84100306eed",
+      "max_ms": 89.32939998339862
+    },
+    {
+      "fixture": "12d111c64c5db64957b69ea51cf2f1238733895c95427e8bb544bd290e0bda65",
+      "candidate": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+      "max_ms": 56.77539994940162
+    },
+    {
+      "fixture": "a87654aa2c74d3ea65b4350df4be3c86db0905aca9102a6867c536121027d4a7",
+      "candidate": "d0b8bd450aab225f59cf8b82ae0b445f9f00ac25e3c09de2b4397470da9fa74e",
+      "max_ms": 51.41459999140352
+    },
+    {
+      "fixture": "95bfd97e31b43964d759a18d11de6e051e2cdce8cf64265a95e68b2d9fec52e5",
+      "candidate": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+      "max_ms": 51.32600001525134
+    },
+    {
+      "fixture": "16f5ff31e2a93f5968e711f2928b017a5f492def2c3abffaa44b19e00a35df9f",
+      "candidate": "d0b8bd450aab225f59cf8b82ae0b445f9f00ac25e3c09de2b4397470da9fa74e",
+      "max_ms": 45.53720005787909
+    }
+  ],
+  "sampled_games": 17,
+  "sampled_actor_callbacks_regenerated": 5440,
+  "sampled_public_memory_oracles": 2640,
+  "sampled_field_seat_pairs": 16,
+  "sampled_candidates": 8,
+  "sampled_map_families": [
+    "centre-biased",
+    "noisy-centre",
+    "rich-home-stress",
+    "uniform-stress"
+  ],
+  "sampled_proofs": [
+    {
+      "fixture": "fffdb05b5fc0d684a334895a5512ae40dbe84505427d8224f4f74ec2ff98f42b",
+      "candidate": "43cd3f7d255ba3690f1ceaab1c17da0a7a0a063efca12d9a03dad9f42494c36a",
+      "field": "independent",
+      "seat": 0,
+      "callbacks_regenerated": 320,
+      "public_memory_oracles": 80
+    },
+    {
+      "fixture": "ffd880ecc117120fa3f348e2de682688e5ca8321ae9d538299ed69a192c91f33",
+      "candidate": "d0b8bd450aab225f59cf8b82ae0b445f9f00ac25e3c09de2b4397470da9fa74e",
+      "field": "independent",
+      "seat": 1,
+      "callbacks_regenerated": 320,
+      "public_memory_oracles": 80
+    },
+    {
+      "fixture": "ffb8352af8448ac806c37ebe8f1f31cff1eef1758162bb3d5ea89936a1602bd7",
+      "candidate": "5a859ef134f1995b7ad9d842d6945a6d1ae644964b7e6bd824aee9564da587f2",
+      "field": "economic",
+      "seat": 2,
+      "callbacks_regenerated": 320,
+      "public_memory_oracles": 240
+    },
+    {
+      "fixture": "fe3b69aa76f4cfc3f36bf203c3f792780e1550c7b6aa708fb71c38d81caae054",
+      "candidate": "93ccec95d14217794d89d703bb191b806dd99166c89eaaabd904fdb9739950cd",
+      "field": "erratic",
+      "seat": 3,
+      "callbacks_regenerated": 320,
+      "public_memory_oracles": 160
+    },
+    {
+      "fixture": "ffb39e700bf7f925d268d7c7a48e55293115fe05189829b4e16a3e9c3f7edf2e",
+      "candidate": "6d84e6433980107cb7c34bea65491fdfb80aaef74e4b5030ca70e84100306eed",
+      "field": "pressure",
+      "seat": 0,
+      "callbacks_regenerated": 320,
+      "public_memory_oracles": 160
+    },
+    {
+      "fixture": "ff7ba8a3b2d02d88df4f775f10cff2b7d56a663c9e26ed07dbd75d799148999e",
+      "candidate": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+      "field": "economic",
+      "seat": 0,
+      "callbacks_regenerated": 320,
+      "public_memory_oracles": 240
+    },
+    {
+      "fixture": "ff589c6b2d0d27aecd74a50bdd3b7355f645806c16a6b597ca77ea7941505e3c",
+      "candidate": "282504e4bd02a6b5839be457efd1baa35c99a05f8f3ed6f93f1a85887e3cfbf7",
+      "field": "erratic",
+      "seat": 1,
+      "callbacks_regenerated": 320,
+      "public_memory_oracles": 160
+    },
+    {
+      "fixture": "ff187292bd0c600fcb81f3c36b442c12375eb978e14ed92bc915a4766d812131",
+      "candidate": "14c169a327b6a416c12c77a09dad85e2a5a867f63883e9a7f3fcfe94a971d352",
+      "field": "erratic",
+      "seat": 0,
+      "callbacks_regenerated": 320,
+      "public_memory_oracles": 160
+    },
+    {
+      "fixture": "ff9a6ded6d8a5d618c8db1abc82f0d84e8d4f35feed522af63eb693b1e54f3bb",
+      "candidate": "5a859ef134f1995b7ad9d842d6945a6d1ae644964b7e6bd824aee9564da587f2",
+      "field": "independent",
+      "seat": 3,
+      "callbacks_regenerated": 320,
+      "public_memory_oracles": 80
+    },
+    {
+      "fixture": "ff944886610cf781b283bfa650792b95113bf7511417d251f448833594975928",
+      "candidate": "5a859ef134f1995b7ad9d842d6945a6d1ae644964b7e6bd824aee9564da587f2",
+      "field": "erratic",
+      "seat": 2,
+      "callbacks_regenerated": 320,
+      "public_memory_oracles": 160
+    },
+    {
+      "fixture": "ff679d9c63d9567d208ffcfd3443faa8c23a1532bd902a98e5aaa3aa34f4d603",
+      "candidate": "6d84e6433980107cb7c34bea65491fdfb80aaef74e4b5030ca70e84100306eed",
+      "field": "pressure",
+      "seat": 1,
+      "callbacks_regenerated": 320,
+      "public_memory_oracles": 160
+    },
+    {
+      "fixture": "ff029b24f7005cad24861b48bfa606c737e9296d5728041ea60980548b510f86",
+      "candidate": "93ccec95d14217794d89d703bb191b806dd99166c89eaaabd904fdb9739950cd",
+      "field": "economic",
+      "seat": 1,
+      "callbacks_regenerated": 320,
+      "public_memory_oracles": 240
+    },
+    {
+      "fixture": "fee58973fce1669e40f125f59d504454e5af89a50f7ff87c19e7da37edf917d2",
+      "candidate": "282504e4bd02a6b5839be457efd1baa35c99a05f8f3ed6f93f1a85887e3cfbf7",
+      "field": "economic",
+      "seat": 3,
+      "callbacks_regenerated": 320,
+      "public_memory_oracles": 240
+    },
+    {
+      "fixture": "fed939a02263530678a0f184043cf1b75c8177f4721b94e265972e4e5e19c330",
+      "candidate": "14c169a327b6a416c12c77a09dad85e2a5a867f63883e9a7f3fcfe94a971d352",
+      "field": "independent",
+      "seat": 2,
+      "callbacks_regenerated": 320,
+      "public_memory_oracles": 80
+    },
+    {
+      "fixture": "fed2509a20b3bef0d845591e2141cf78ebdddf133f212c2039d3c799f0cc72cf",
+      "candidate": "282504e4bd02a6b5839be457efd1baa35c99a05f8f3ed6f93f1a85887e3cfbf7",
+      "field": "pressure",
+      "seat": 2,
+      "callbacks_regenerated": 320,
+      "public_memory_oracles": 160
+    },
+    {
+      "fixture": "fe721af497de004b18b214ca610236155b8f5e1f1a49dadd84ee250504b1eb2f",
+      "candidate": "d0b8bd450aab225f59cf8b82ae0b445f9f00ac25e3c09de2b4397470da9fa74e",
+      "field": "pressure",
+      "seat": 3,
+      "callbacks_regenerated": 320,
+      "public_memory_oracles": 160
+    },
+    {
+      "fixture": "8fcbab54779ad240f9aad0517377c9321ba01bde0caee305524bad2656ee1c3d",
+      "candidate": "6d84e6433980107cb7c34bea65491fdfb80aaef74e4b5030ca70e84100306eed",
+      "field": "independent",
+      "seat": 0,
+      "callbacks_regenerated": 320,
+      "public_memory_oracles": 80
+    }
+  ],
+  "primary_games_accepted_by_this_review": 0,
+  "primary_stage_fully_accepted": false,
+  "bmcts_audits": 0,
+  "production_changed": false,
+  "handoff": "Continue the single owner run; automatic full20k actor regeneration and dual-referee audit must pass before any stage credit or next-generation fitness.",
+  "limits": [
+    "This is a live prefix snapshot and bounded stratified replay, not the final all-game audit.",
+    "Partial-prefix outcomes must not be used to rank/promote candidates.",
+    "Audit replay callbacks do not add primary games.",
+    "No GPU or BMCTS work is credited."
+  ]
+}

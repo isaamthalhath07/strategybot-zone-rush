@@ -1,0 +1,41 @@
+{
+  "change": "Reject asymmetric opening maps; independent terminal backup and hidden-token checks.",
+  "completed_per_game_bmcts_audits": 0,
+  "establishes_playing_strength": false,
+  "independent_tests": 3,
+  "independently_dual_refereed_prefix_turns": 79,
+  "independently_dual_refereed_terminal_simulations": 64,
+  "primary_games": 0,
+  "prior_exact_source_preserved": "prototype_v2_before_map_guard.zip",
+  "reproduced_reference_cases": [
+    {
+      "case": "opening",
+      "input_sha256": "513f2ff4a6f1f4d723dbd6b8837476bfdcdd6a5c7036c709dba4d2d8d6805ec7",
+      "numerically_matches_prior_version": true,
+      "result_sha256": "57af134a4da78f3723aae3b085d1981a95093c44e46e732182f856c3bca1e2a0",
+      "trace_sha256": "33a997025b981cd11528fef580da0cfa87fd56f9d8f40a163f0da56a329dfc15"
+    },
+    {
+      "case": "ambiguity",
+      "input_sha256": "5d9e04cc92cab84f541f5b2a60c8cba94fce78a091e8d9a06b1aee5a7e74ef27",
+      "numerically_matches_prior_version": true,
+      "result_sha256": "fffffa04579d655f13656a8d2d453ca6785b5f4cff5e86083fde819bfaea5506",
+      "trace_sha256": "a6833848207d1a909a3854642a026ccc65c8f0b8c20521128b46ce74312d8df2"
+    },
+    {
+      "case": "terminal",
+      "input_sha256": "a8677e242e93a139e27515bb37f81590beb34e8093e344e23c355b3a15ae1fd5",
+      "numerically_matches_prior_version": true,
+      "result_sha256": "621139eb866866371d37fe4df1e1a21515a5d6a57bbaea20ae8af3fc14b7c7cf",
+      "trace_sha256": "0bb459c03cf374ee04ecda4d1629e3436be38a45a422dd06549bc1a8477941a8"
+    }
+  ],
+  "source_pins": {
+    "tree_coach/mcts.py": "3492e0a40d69a249428ec1bab634d8ad3f8cee84d0720e3bd188efb11f64889d",
+    "tree_coach/test_independent.py": "5fef9f2beb223c6b6358c422dddbce28e94a35eeb14d61375976620c5a3743dd",
+    "tree_coach/test_mcts.py": "a3061013d05c195fe44cd8f78973eca883e230b6ce9aae96628c9afc95d35fca"
+  },
+  "test_wall_seconds": 1.287,
+  "tests_passed": 15,
+  "version": 3
+}

@@ -1,0 +1,331 @@
+{
+  "format": "zone-rush-independent-oversight/1",
+  "validity": "passed_for_recorded_games",
+  "promotion": "BLOCKED",
+  "promotion_blockers": [
+    "Confirmation does not establish an improvement over incumbent.",
+    "Process-isolated promotion gate has not evaluated any mutant.",
+    "Research is finite; distribution coverage and generalization are unproven."
+  ],
+  "games": 2048,
+  "turns": 163840,
+  "recorded_callbacks": 655360,
+  "regenerated_callbacks": 655360,
+  "primary_campaign_games": 0,
+  "games_bmcts_audited": 0,
+  "incumbent_sha256": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+  "referee_sha256": "f1125e8ceee664781827c670c0c4481da41a7ef41a4e5276d6b3b118274af337",
+  "independent_engine_sha256": "8f7b89995cad0f724fb8ac7c7bc8311a6fa9b3b722f2204097031ba2333726f4",
+  "auditor_sha256": "251d3424d8763bf2ae4dd9520e0e5db9387a424d8d4fdb6ccb61e362ac93e981",
+  "results": [
+    {
+      "directory": "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\.cache\\evolution\\discovery_001",
+      "role": "discovery",
+      "registration_sha256": "10f039fc15edf48a14e1aff0622852aed351983b04bb5880c29b9963baa8ce23",
+      "transcripts_sha256": "22d6145f0d40fef4c07ea9c7b636ba38e9d574f8b7fa3fd47f19fbb3fe2a8a01",
+      "games": 1024,
+      "turns": 81920,
+      "recorded_callbacks": 327680,
+      "regenerated_callbacks": 327680,
+      "public_memory_oracles": 143360,
+      "candidates": 8,
+      "maps": 8,
+      "unique_opponent_instances": 384,
+      "zero_faults": true,
+      "two_referees_every_turn": true,
+      "field_seat_token_balance": true,
+      "summary_recomputed": true,
+      "elapsed_s": 42.75202110002283,
+      "summary": {
+        "registration_sha256": "10f039fc15edf48a14e1aff0622852aed351983b04bb5880c29b9963baa8ce23",
+        "summary": [
+          {
+            "name": "mutation_05",
+            "sha256": "8768c232dfa23b2b67c687f86c95bf341062929f386dfa0b94de23ff2a8de08d",
+            "games": 128,
+            "mean_pw": 2.3828125,
+            "mean_score": 3153.984375,
+            "fields": {
+              "economic": 2.1875,
+              "erratic": 2.65625,
+              "independent": 2.09375,
+              "pressure": 2.59375
+            },
+            "max_ms": 1.7914000200107694,
+            "all_player_max_ms": 2.1570000099018216
+          },
+          {
+            "name": "mutation_03",
+            "sha256": "4737b8184da3d392b44a6ab882cf916bc731c7497df5f6879ef9e53fcbe782bb",
+            "games": 128,
+            "mean_pw": 2.3828125,
+            "mean_score": 3141.4375,
+            "fields": {
+              "economic": 2.28125,
+              "erratic": 2.65625,
+              "independent": 2.0625,
+              "pressure": 2.53125
+            },
+            "max_ms": 1.9054999575018883,
+            "all_player_max_ms": 2.7528000064194202
+          },
+          {
+            "name": "mutation_06",
+            "sha256": "5c79f7aad73d452381874a5391fa3416dd64bc815578e37e83bcd94c42247dbd",
+            "games": 128,
+            "mean_pw": 2.3515625,
+            "mean_score": 3146.5,
+            "fields": {
+              "economic": 2.21875,
+              "erratic": 2.59375,
+              "independent": 2.0625,
+              "pressure": 2.53125
+            },
+            "max_ms": 8.608899894170463,
+            "all_player_max_ms": 8.608899894170463
+          },
+          {
+            "name": "mutation_02",
+            "sha256": "1edc9d0c269328fb420ba582fed0bfa3cd46012c3dc354ea69275fa028088d4b",
+            "games": 128,
+            "mean_pw": 2.3515625,
+            "mean_score": 3138.828125,
+            "fields": {
+              "economic": 2.1875,
+              "erratic": 2.59375,
+              "independent": 2.09375,
+              "pressure": 2.53125
+            },
+            "max_ms": 2.6955000357702374,
+            "all_player_max_ms": 6.224600016139448
+          },
+          {
+            "name": "incumbent",
+            "sha256": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+            "games": 128,
+            "mean_pw": 2.3515625,
+            "mean_score": 3138.828125,
+            "fields": {
+              "economic": 2.1875,
+              "erratic": 2.59375,
+              "independent": 2.09375,
+              "pressure": 2.53125
+            },
+            "max_ms": 1.2393000070005655,
+            "all_player_max_ms": 1.9826999632641673
+          },
+          {
+            "name": "mutation_01",
+            "sha256": "def6a8585f26dc51df5d6be8dd59d39c35f53417e76bfa0fd9c54c5837608b7a",
+            "games": 128,
+            "mean_pw": 2.32421875,
+            "mean_score": 3143.2890625,
+            "fields": {
+              "economic": 2.15625,
+              "erratic": 2.5625,
+              "independent": 2.09375,
+              "pressure": 2.484375
+            },
+            "max_ms": 1.6069000121206045,
+            "all_player_max_ms": 2.231599995866418
+          },
+          {
+            "name": "mutation_07",
+            "sha256": "35f76a6d091d6c14bd848e9e37d274258556f702020ee802518f860a7ac4fc62",
+            "games": 128,
+            "mean_pw": 2.2265625,
+            "mean_score": 3104.421875,
+            "fields": {
+              "economic": 2.078125,
+              "erratic": 2.4375,
+              "independent": 1.890625,
+              "pressure": 2.5
+            },
+            "max_ms": 1.0765999322757125,
+            "all_player_max_ms": 9.542100015096366
+          },
+          {
+            "name": "mutation_04",
+            "sha256": "0ae328cd6849545f4509fd3368247a0af9309e6f88418dc639772d900c73c795",
+            "games": 128,
+            "mean_pw": 2.140625,
+            "mean_score": 3005.09375,
+            "fields": {
+              "economic": 2.21875,
+              "erratic": 2.53125,
+              "independent": 1.59375,
+              "pressure": 2.21875
+            },
+            "max_ms": 1.4269000384956598,
+            "all_player_max_ms": 2.698599942959845
+          }
+        ],
+        "paired": [
+          {
+            "first": "def6a8585f26dc51df5d6be8dd59d39c35f53417e76bfa0fd9c54c5837608b7a",
+            "second": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+            "maps": 8,
+            "games": 128,
+            "mean": -0.02734375,
+            "bootstrap_95": [
+              -0.16796875,
+              0.1015625
+            ],
+            "caveat": "Descriptive map-cluster bootstrap; selection and repeated testing require fresh independent confirmation."
+          },
+          {
+            "first": "1edc9d0c269328fb420ba582fed0bfa3cd46012c3dc354ea69275fa028088d4b",
+            "second": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+            "maps": 8,
+            "games": 128,
+            "mean": 0.0,
+            "bootstrap_95": [
+              0.0,
+              0.0
+            ],
+            "caveat": "Descriptive map-cluster bootstrap; selection and repeated testing require fresh independent confirmation."
+          },
+          {
+            "first": "4737b8184da3d392b44a6ab882cf916bc731c7497df5f6879ef9e53fcbe782bb",
+            "second": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+            "maps": 8,
+            "games": 128,
+            "mean": 0.03125,
+            "bootstrap_95": [
+              -0.0234375,
+              0.0859375
+            ],
+            "caveat": "Descriptive map-cluster bootstrap; selection and repeated testing require fresh independent confirmation."
+          },
+          {
+            "first": "0ae328cd6849545f4509fd3368247a0af9309e6f88418dc639772d900c73c795",
+            "second": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+            "maps": 8,
+            "games": 128,
+            "mean": -0.2109375,
+            "bootstrap_95": [
+              -0.3671875,
+              -0.078125
+            ],
+            "caveat": "Descriptive map-cluster bootstrap; selection and repeated testing require fresh independent confirmation."
+          },
+          {
+            "first": "8768c232dfa23b2b67c687f86c95bf341062929f386dfa0b94de23ff2a8de08d",
+            "second": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+            "maps": 8,
+            "games": 128,
+            "mean": 0.03125,
+            "bootstrap_95": [
+              -0.0078125,
+              0.0703125
+            ],
+            "caveat": "Descriptive map-cluster bootstrap; selection and repeated testing require fresh independent confirmation."
+          },
+          {
+            "first": "5c79f7aad73d452381874a5391fa3416dd64bc815578e37e83bcd94c42247dbd",
+            "second": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+            "maps": 8,
+            "games": 128,
+            "mean": 0.0,
+            "bootstrap_95": [
+              -0.0234375,
+              0.0234375
+            ],
+            "caveat": "Descriptive map-cluster bootstrap; selection and repeated testing require fresh independent confirmation."
+          },
+          {
+            "first": "35f76a6d091d6c14bd848e9e37d274258556f702020ee802518f860a7ac4fc62",
+            "second": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+            "maps": 8,
+            "games": 128,
+            "mean": -0.125,
+            "bootstrap_95": [
+              -0.25390625,
+              -0.0078125
+            ],
+            "caveat": "Descriptive map-cluster bootstrap; selection and repeated testing require fresh independent confirmation."
+          }
+        ],
+        "games_completed": 1024,
+        "callbacks": 327680,
+        "games_bmcts_audited": 0,
+        "primary_campaign_games": 0,
+        "promoted": false
+      }
+    },
+    {
+      "directory": "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\.cache\\evolution\\confirmation_001",
+      "role": "confirmation",
+      "registration_sha256": "86d13d2d34b6617fe92db5f920e3ff09dbebf8d478544964759616d76ca53221",
+      "transcripts_sha256": "8457336cffaca61e452ba7888380c2c50b9edd07a4489716f45f408a7c7cd2ca",
+      "games": 1024,
+      "turns": 81920,
+      "recorded_callbacks": 327680,
+      "regenerated_callbacks": 327680,
+      "public_memory_oracles": 163840,
+      "candidates": 2,
+      "maps": 32,
+      "unique_opponent_instances": 1536,
+      "zero_faults": true,
+      "two_referees_every_turn": true,
+      "field_seat_token_balance": true,
+      "summary_recomputed": true,
+      "elapsed_s": 38.42220929998439,
+      "summary": {
+        "registration_sha256": "86d13d2d34b6617fe92db5f920e3ff09dbebf8d478544964759616d76ca53221",
+        "summary": [
+          {
+            "name": "incumbent",
+            "sha256": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+            "games": 512,
+            "mean_pw": 2.25,
+            "mean_score": 3101.30859375,
+            "fields": {
+              "economic": 1.9765625,
+              "erratic": 2.546875,
+              "independent": 1.9921875,
+              "pressure": 2.484375
+            },
+            "max_ms": 7.648499915376306,
+            "all_player_max_ms": 7.648499915376306
+          },
+          {
+            "name": "discovery_finalist",
+            "sha256": "8768c232dfa23b2b67c687f86c95bf341062929f386dfa0b94de23ff2a8de08d",
+            "games": 512,
+            "mean_pw": 2.2451171875,
+            "mean_score": 3103.119140625,
+            "fields": {
+              "economic": 2.01953125,
+              "erratic": 2.53125,
+              "independent": 1.9140625,
+              "pressure": 2.515625
+            },
+            "max_ms": 10.861200047656894,
+            "all_player_max_ms": 10.861200047656894
+          }
+        ],
+        "paired": [
+          {
+            "first": "8768c232dfa23b2b67c687f86c95bf341062929f386dfa0b94de23ff2a8de08d",
+            "second": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+            "maps": 32,
+            "games": 512,
+            "mean": -0.0048828125,
+            "bootstrap_95": [
+              -0.0634765625,
+              0.052734375
+            ],
+            "caveat": "Descriptive map-cluster bootstrap; selection and repeated testing require fresh independent confirmation."
+          }
+        ],
+        "games_completed": 1024,
+        "callbacks": 327680,
+        "games_bmcts_audited": 0,
+        "primary_campaign_games": 0,
+        "promoted": false
+      }
+    }
+  ],
+  "caveat": "All recorded games checked, not proof of zero bugs or all possible opponents. Trusted-source actor replay is not an adversarial code sandbox."
+}

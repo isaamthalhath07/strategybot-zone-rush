@@ -1,0 +1,21 @@
+{
+  "actual_histories_evaluated": 0,
+  "cases_preregistered": 16,
+  "completed_game_bmcts_credit": 0,
+  "execution_gate": "Commit this registration and frozen source evidence before reading selected model losses.",
+  "format": "public-intent-filter-preregistration-evidence/1",
+  "frozen_sources": {
+    "opponent_prediction/intent_filter.py": "43a1276f29f0669f1e1bbce0379ad02805d471c174172019f0db1e517302c3b9",
+    "opponent_prediction/pilot.py": "39fea9427e373a16341adbe2feeba064ffec17330dfc6aaed57ab73c5a7729ea",
+    "opponent_prediction/test_independent.py": "e1f5901bb4f96b6b98ce881f01f187e078aef6fdaf0347ce25342750a00cf4c4",
+    "opponent_prediction/test_intent_filter.py": "a174c9278005ece3e773ba4f80690c2d24a1cb5c8722f00471d95298bc015660",
+    "opponent_prediction/test_pilot.py": "91160e7f76368be3dd00a0b8920d2d2a4118851fe38e314938604d13337f5e5b"
+  },
+  "observed_tests": 22,
+  "observed_tests_duration_s": 1.637,
+  "primary_credit": 0,
+  "promoted": false,
+  "public_prediction_steps_planned": 1264,
+  "registration_sha256": "1f57d80d08e1632ea220ce935955d0cfe52e2afa5df247a05f4465dff1c5008f",
+  "source_archive_sha256": "1aac185b086e62250074299804b0ed423460e8d4bb988d62ac92334791390549"
+}

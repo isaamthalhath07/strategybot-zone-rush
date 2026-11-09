@@ -1,0 +1,16 @@
+{
+  "command": "python -m unittest primary_migration.test_contract -v",
+  "format": "zone-rush-primary-migration-design-contract/0",
+  "legacy_assignments_compared": 100000,
+  "legacy_unique_rival_seeds_checked": 300000,
+  "lossless_65_bit_seed_sqlite_blob_test": true,
+  "new_actor_calls": 0,
+  "new_matches": 0,
+  "new_primary_credit": 0,
+  "source_catalog_maps_checked": 10000,
+  "source_sha256": "9ed340e989d849ceafef275f1d11d27c144b7ad757bc79f18e011ca54935c91e",
+  "status": "PLANNING_AND_IDENTITY_CONTROLS_ONLY",
+  "test_sha256": "24d3c417c361daa67156cbb7c832df9da753a81ccc8dcf23737a613d81dd2a67",
+  "tests_passed": 13,
+  "wall_s": 4.234
+}

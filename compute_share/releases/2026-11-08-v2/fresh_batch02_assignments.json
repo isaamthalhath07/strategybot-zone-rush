@@ -1,0 +1,122 @@
+[
+  {
+    "archive": "compute_share\\releases\\2026-11-08-v2\\RTX4050-batch02.zip",
+    "archive_sha256": "0f3f50f3ea6fcf18851fb77700be81800560ece866e5ad3319db7d294f4f48a7",
+    "assigned_slot": 1,
+    "bundle_id": "8e588ffde32f413c4796c25556094a91d1e7dfe77b913822ebb4df012399fe9a",
+    "diagnostics": 8,
+    "gpu": "RTX4050",
+    "horizon": 6,
+    "job_ids": [
+      "579818500a3fc761826e1e218040cc5f5f0f4926204db62013e1ae448984f1e6",
+      "711e32aea19d6f4cc08ac956f8dacce7e7fe7d2fd576084381c1faf847a0915d",
+      "ca346f50b2aba22cb78b159ff42ae0bf4dfa9d37f8c1e8db3bcc4812b8008075",
+      "d1c04edad75e9cfc107d5fcbda19d3fd1c08073dc756a43a5f3937b3afed3a27",
+      "72b05c61cd8fa301787da190fcfc76fd502b3ba3c97d26944c44f03e7208fe9b",
+      "cd729e5e0a53478fb8281ad5077682cdb1fe02e6ec98824d1b4ce8e2fc0fc901",
+      "f1aae288d4c79a1160c89b53c01c23d9bfbc6547d41b76f451ba1db29564aa20",
+      "b581ab1373bf88e375c45f382300d05ddb2668d7e4d5c9a7ddeb5a693b91a712"
+    ],
+    "owner_bundle": ".cache\\shared_gpu\\fresh_4050_batch02\\laptop_01",
+    "plans_per_root": 32,
+    "primary_games": 0,
+    "rollouts_per_plan": 32,
+    "status": "assigned_fresh_not_computed_locally"
+  },
+  {
+    "archive": "compute_share\\releases\\2026-11-08-v2\\RTX5070Ti-batch02.zip",
+    "archive_sha256": "8d3045065f8281a5675edb92b7024c70d191ee1dac84d80d206b13bac52b9606",
+    "assigned_slot": 2,
+    "bundle_id": "9c8283ce906beb80749652a8cbde840e47b8e5f039a93fd0efe480b779dda0c0",
+    "diagnostics": 8,
+    "gpu": "RTX5070Ti",
+    "horizon": 6,
+    "job_ids": [
+      "9d2491464e6b4564ab539151aa3e53aa6976fdbcd6bd89326ba547a95662c0f9",
+      "13f4d1f5a4fc8b53e43bfc84496cfef7e1fdb54836b3f8fc98da91ee1c67697d",
+      "6df8a198ebe901377e7f03d35012c39e30a764f7f8800b11a970ccc27c54dca1",
+      "d722157b7344a0f393238798d2c9e118293b9e299442c5954f7cdedd00389e66",
+      "eebbeebd14e86272d7db3d606cdb9a8eadffa83aa5d7b099b3ae4ed74cfd5e98",
+      "5a5e1704d9ee3ef757747a7fe8f6bb95924a388190ec8c78bd8a660abbd7ceae",
+      "47006a632a29c95e903c8a7dc3bfbc7c9ad0ff755bb929a855d80fc4e9d54c65",
+      "0e4d09bdccb5131877e3547e52544e6cbccd7fe8b7cc16d6854d5d8f067db4a3"
+    ],
+    "owner_bundle": ".cache\\shared_gpu\\fresh_5070ti_batch02\\laptop_01",
+    "plans_per_root": 32,
+    "primary_games": 0,
+    "rollouts_per_plan": 32,
+    "status": "assigned_fresh_not_computed_locally"
+  },
+  {
+    "archive": "compute_share\\releases\\2026-11-08-v2\\RTX2060-batch02.zip",
+    "archive_sha256": "d3cf4a68dbd72a299dd4927f1a412aa549c136d886ea117ec7ee630ba71acb66",
+    "assigned_slot": 3,
+    "bundle_id": "5ba28c290c063c579e187a3f9c64accb2d3d6e6ba8fdf26518af080661e49438",
+    "diagnostics": 8,
+    "gpu": "RTX2060",
+    "horizon": 6,
+    "job_ids": [
+      "191fce2d70be76d0e167fee5980e0f7e5df325decd34b5826624c8eb518ce11a",
+      "321526ea55dacf36223367ebd369822c8b91a3fda3c8f67c2d77f414189aa757",
+      "32ae2a41f95154f7158aa06d7705c1c3d8469c552c2fd37a0f065d8e8023c715",
+      "33805f8c865d5d6e96aeebc88f76e3bd760c4a976bc89d4c33a927a5a934845d",
+      "35d633518cc711eed0d7829ab830da072f52627c4f19ac6f8b2a58d3e831e4cb",
+      "6fd5b7f9add199bb3b518285ba396ffe71b7447e6c4f9417aab3561b019fa469",
+      "ad61b6925e20c0c4c63ca61123a09c61225961adfccff03d3a2cea0cf8c57334",
+      "ae165ea52b3fde469d8ed2d35324feba91a4b67d9d21181e96e38e795b68e3a4"
+    ],
+    "owner_bundle": ".cache\\shared_gpu\\fresh_batch02\\laptop_01",
+    "plans_per_root": 32,
+    "primary_games": 0,
+    "rollouts_per_plan": 32,
+    "status": "assigned_fresh_not_computed_locally"
+  },
+  {
+    "archive": "compute_share\\releases\\2026-11-08-v2\\GTX1660Ti-batch02.zip",
+    "archive_sha256": "71cc87485a42ba8cc8367b7f34ab2668e4fe6316a19d07f907f961a4f5d7ba4d",
+    "assigned_slot": 4,
+    "bundle_id": "76a66c8e89acbe9995bd58febd7b6e13e9c42e3425aa20b634c1c4870c716210",
+    "diagnostics": 8,
+    "gpu": "GTX1660Ti",
+    "horizon": 6,
+    "job_ids": [
+      "46a45cc0eb610bb889844910573bd07525e4cc4b0ff38ec5b3c5a485fcf0040d",
+      "8180de2cf6bad8943c421c5264ad1412cf98dc52a256245208c185438ba716d4",
+      "a2500d96cee1af49c4df50ef908dcaad5efca60f83e2c69668bff3f9825e0083",
+      "aa6c8ef0a5dbf82c310f74035490d0c4a7e8e2ad01a8865b5ae7876b8058da3f",
+      "b2cadfe4eada946ee3c00ca0189a9dbc5b1ed84628eff549a770bd22313992da",
+      "c20a9c4f191bfec44b95124bee9cb2553d47a1456527ed85f8685a5898fb1ad0",
+      "c5990f46345b76d4f612afe69acb641bcc588d0b1d35c4be9a5819b70ad33708",
+      "c97d2a24ed9a5dfd38e8a3179220f84194967d781e54d58e08d446633b6d3761"
+    ],
+    "owner_bundle": ".cache\\shared_gpu\\fresh_batch02\\laptop_02",
+    "plans_per_root": 32,
+    "primary_games": 0,
+    "rollouts_per_plan": 32,
+    "status": "assigned_fresh_not_computed_locally"
+  },
+  {
+    "archive": "compute_share\\releases\\2026-11-08-v2\\RTX5050-batch02.zip",
+    "archive_sha256": "42ed6be2b5a51e311b0104743b9fd1d08307a503c58042851a14e6ff23c6af1b",
+    "assigned_slot": 5,
+    "bundle_id": "d7479b050905d132e1400f56d9e4a48ac14c125d2958e36a87738f34276b889c",
+    "diagnostics": 8,
+    "gpu": "RTX5050",
+    "horizon": 6,
+    "job_ids": [
+      "1047b39086fe18b04d2fdb1e03625e5d33a49585c3c5a961b0a719636627b13b",
+      "1d5fde98da2eafa3e1882574814c5401c493cbbf4c25a2ae4c283c281a5e6c1f",
+      "2c0ee191cfd0f8ea9a66e715f662d9eb8b0a577e4b92847e39c4371d8e14cf3d",
+      "967551bf982f5c5fe28608cd2e69de979dca34236f4480d7ea04f6574e085aa2",
+      "c0144af95e00d927d29f86d74230238f8006ae8ae76e81c658277e21a5877115",
+      "c353ce6704efc76b77ecf4e754ae0374e4a2c467ea5098584e5a1148bb25422b",
+      "d9bc6cad917559648842aecf646a6bcf4863d1bcea90b8a22485f319c03a6b28",
+      "eb952fd77605b61f251d011ba052798f6b5179f8e395323538e2170f734606a0"
+    ],
+    "owner_bundle": ".cache\\shared_gpu\\fresh_batch02\\laptop_03",
+    "plans_per_root": 32,
+    "primary_games": 0,
+    "rollouts_per_plan": 32,
+    "status": "assigned_fresh_not_computed_locally"
+  }
+]

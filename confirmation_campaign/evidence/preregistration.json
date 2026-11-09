@@ -1,0 +1,18 @@
+{
+  "actual_games_completed": 0,
+  "all16_seat_token_crossings_per_field_per_map": true,
+  "archive_sha256": "f80f60242b7bf761f6db94346bf8a01cb4b55440d9aab88e0c21f1d81cfb2778",
+  "bmcts_audits": 0,
+  "challenger": "50d82d7ac58162e9cf651136afcedac5586db9a060f153854b00875f13efef37",
+  "fields": 4,
+  "fresh_actor_instances": true,
+  "incumbent": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+  "map_rotation_orbits_disjoint_from_entire_primary_catalog": true,
+  "maps": 128,
+  "paired_parameters": true,
+  "planned_complete_games": 16384,
+  "primary_games": 0,
+  "registration_sha256": "5825e56d442e7318a4c13229cd3cf375230ec8e069621754cc6835e6b43336d3",
+  "test_scope": "Mocked prior admission and actual schedule construction/corruption rejection; zero executed matches.",
+  "tests_passed": 5
+}

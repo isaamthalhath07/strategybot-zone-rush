@@ -1,0 +1,23 @@
+{
+  "capacity_review": "Current caps are not proven complete for all valid histories; see REVIEW.md. No reachable history exceeding1024 states is claimed.",
+  "completed_game_bmcts_audits": 0,
+  "findings": [
+    "Reconstructed public action draws and full node/edge backups",
+    "Preserved correlated root states and persistent rival types",
+    "Same public histories share information-tree nodes",
+    "Terminal rank, no turn81 actor view, source quarantine and exclusive publication checked"
+  ],
+  "format": "joint-intent-search-independent-review/1",
+  "independent_duration_s": 2.134,
+  "independent_test_sha256": "ecc8f13eb1826fa900a680a6b17c369c260bc0cfb1fbcf5c65adc953baadb97a",
+  "independent_tests": 8,
+  "independently_replayed_counterfactual_turns": 96,
+  "mcts_sha256": "cc6c5c9a59254a46bf105aa6ed022f04c78cf00bbc738ef54ec65ae359a24ba7",
+  "offline_publication_review": "passed",
+  "original_archive_sha256": "78bc3cd2339a64ef3a90ae3ce268e698e763173c7bfbc061735fd83d7314f3fa",
+  "playing_strength_tested": false,
+  "primary_game_credit": 0,
+  "promoted": false,
+  "root_combined_duration_s": 5.104,
+  "root_combined_tests": 18
+}

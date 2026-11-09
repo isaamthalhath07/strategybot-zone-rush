@@ -1,0 +1,43 @@
+{
+  "accepted_remote_devices": 5,
+  "devices": [
+    {
+      "bundle_id": "a3288c9a719d28c1a1311ff5e18f4d041832fda7b205191b86752f378a8f2bbf",
+      "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "slot": 1
+    },
+    {
+      "bundle_id": "6c83084adb788907147af75e07aac7ce9d274f173405314fd74954ff84aede91",
+      "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+      "slot": 2
+    },
+    {
+      "bundle_id": "a1b9c9e8c44445e2966a136808abf5c1d84c613bfa15c9e2a9730680ac2ffbb1",
+      "gpu": "NVIDIA GeForce RTX 2060",
+      "slot": 3
+    },
+    {
+      "bundle_id": "95b76be2dfc691530261c8f78f5f1224a6b2142833ba77436d0f819288ea94d7",
+      "gpu": "NVIDIA GeForce GTX 1660 Ti",
+      "slot": 4
+    },
+    {
+      "bundle_id": "dfa3fc647e97b3804cebdcd7801b658d0aec99b4743d99c396e40973c6c4613e",
+      "gpu": "NVIDIA GeForce RTX 5050 Laptop GPU",
+      "slot": 5
+    }
+  ],
+  "full_bmcts_audits": 0,
+  "primary_campaign_games": 0,
+  "proof_files": [
+    "6c83084adb788907147af75e07aac7ce9d274f173405314fd74954ff84aede91.json",
+    "95b76be2dfc691530261c8f78f5f1224a6b2142833ba77436d0f819288ea94d7.json",
+    "a1b9c9e8c44445e2966a136808abf5c1d84c613bfa15c9e2a9730680ac2ffbb1.json",
+    "a3288c9a719d28c1a1311ff5e18f4d041832fda7b205191b86752f378a8f2bbf.json",
+    "dfa3fc647e97b3804cebdcd7801b658d0aec99b4743d99c396e40973c6c4613e.json"
+  ],
+  "scope": "Remote hardware/protocol pilot checks; diagnostic uniqueness is among remote returns, not novelty against owner calibration.",
+  "synthetic_trajectories": 14720,
+  "synthetic_turns": 44160,
+  "unique_diagnostics_verified": 20
+}

@@ -1,0 +1,33 @@
+{
+  "assigned_slot": 5,
+  "bundle_id": "d7479b050905d132e1400f56d9e4a48ac14c125d2958e36a87738f34276b889c",
+  "client_timing_seconds": {
+    "independent_cpu_replay": 17.513819699999658,
+    "prefix_reconstruction": 0.2821327999999994,
+    "public_policy_and_physics_with_trace_transfers": 10.729135500001576,
+    "tensor_setup_and_transfer": 0.8471896999999444,
+    "total_end_to_end": 29.71095570000034
+  },
+  "diagnostics_verified": 8,
+  "games_bmcts_audited": 0,
+  "gpu": "NVIDIA GeForce RTX 5050 Laptop GPU",
+  "independent_cpu_reproduction": true,
+  "job_ids": [
+    "967551bf982f5c5fe28608cd2e69de979dca34236f4480d7ea04f6574e085aa2",
+    "1047b39086fe18b04d2fdb1e03625e5d33a49585c3c5a961b0a719636627b13b",
+    "c0144af95e00d927d29f86d74230238f8006ae8ae76e81c658277e21a5877115",
+    "c353ce6704efc76b77ecf4e754ae0374e4a2c467ea5098584e5a1148bb25422b",
+    "d9bc6cad917559648842aecf646a6bcf4863d1bcea90b8a22485f319c03a6b28",
+    "1d5fde98da2eafa3e1882574814c5401c493cbbf4c25a2ae4c283c281a5e6c1f",
+    "2c0ee191cfd0f8ea9a66e715f662d9eb8b0a577e4b92847e39c4371d8e14cf3d",
+    "eb952fd77605b61f251d011ba052798f6b5179f8e395323538e2170f734606a0"
+  ],
+  "primary_campaign_games": 0,
+  "promotion_allowed": false,
+  "received_source": "User return; no personal paths retained",
+  "result_sha256": "fe5ba415cb14171ee3587f2cc016163d50c98f80eb7cdc5f98333a5b23c06c2e",
+  "scope": "Batch2 public-position search; not complete matches or full BMCTS",
+  "source_pins_passed": true,
+  "synthetic_trajectories": 48128,
+  "synthetic_turns": 288768
+}

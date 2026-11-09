@@ -1,0 +1,48 @@
+{
+  "format": "zone-rush-research-progress/1",
+  "incumbent_sha256": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+  "production_changed": false,
+  "stages": {
+    "first_discovery_and_confirmation": 2048,
+    "four_round_evolution_league": 7168,
+    "arrival_clock_selection": 3072,
+    "arrival_clock_confirmation": 3072
+  },
+  "extra_comparison_games": 15360,
+  "original_timed_callbacks": 4915200,
+  "worker_faults": 0,
+  "primary_campaign_games": 0,
+  "full_bmcts_audits": 0,
+  "promotion": "BLOCKED",
+  "reason": "No challenger passed independent fresh-confirmation improvement gate.",
+  "canonical_confirmation_advantage": {
+    "mean": 0.029296875,
+    "bootstrap_95": [
+      -0.0032552083333333335,
+      0.0625
+    ],
+    "maps": 32
+  },
+  "release_checks": {
+    "python_tests": 133,
+    "offline_ui_groups": 6
+  },
+  "research_checks": {
+    "distinct_tests_passed": 71,
+    "includes_actual_cpu_cuda_tests": true
+  },
+  "shared_gpu": {
+    "status": "Portable diagnostic pilot passed local extracted-ZIP CUDA execution and independent returned-result CPU reproduction; remote laptops not yet verified",
+    "assigned_laptops": 5,
+    "unique_diagnostic_jobs": 20,
+    "release_directory": "compute_share/releases/2026-11-08",
+    "real_primary_game_credit": 0
+  },
+  "coverage_limits": [
+    "Finite opponent families and custom map distribution",
+    "Time-dependent archived rivals cannot reproduce their historical private random seed",
+    "Arrival trials used fixed relative rival ordering and candidate-major scheduling; future benchmark now blocks/shuffles candidates",
+    "No full BMCTS or proof of optimality",
+    "No guarantee of zero bugs outside tested scope"
+  ]
+}

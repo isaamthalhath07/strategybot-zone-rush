@@ -1,0 +1,23 @@
+{
+  "format": "zone-rush-arrival-auditor-compatibility/1",
+  "original_full_auditor_sha256": "1583f855c0a2671ea506b2955f56c76e532424b7d1c03de924605d9389ff4f58",
+  "current_auditor_sha256": "762e08ddf8ec32a7064fe38d0bc3e417c8f8b296a913255bfb6199b448bb5d2a",
+  "historical_auditor_archive": "evolution/evidence/audit_comparison_1583f855.py",
+  "rounds": [
+    {
+      "directory": ".cache\\evolution\\arrival_001",
+      "registered_benchmark": "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\validation\\benchmark_versions\\40fc6744ac41d0a0b2ada84e644402367c2491cfdc82481c6fa6b74852799ebe.py",
+      "record_metadata_rechecked": 3072
+    },
+    {
+      "directory": ".cache\\evolution\\arrival_confirm_001",
+      "registered_benchmark": "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\validation\\benchmark_versions\\40fc6744ac41d0a0b2ada84e644402367c2491cfdc82481c6fa6b74852799ebe.py",
+      "record_metadata_rechecked": 3072
+    }
+  ],
+  "new_valid_game_focal_regeneration_checks": 1,
+  "deliberate_new_metadata_corruptions_rejected": 2,
+  "full_physics_and_actor_rerun_repeated": false,
+  "primary_campaign_games": 0,
+  "bmcts_audits": 0
+}

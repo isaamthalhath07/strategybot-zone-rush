@@ -1,0 +1,245 @@
+{
+  "cases": [
+    {
+      "all_repetitions_exactly_equal": true,
+      "complete_tree_sha256": "43a469d20d1e04431b19dce02d2d96c2faa51fa6ac270f506b32c71b4afc9a05",
+      "cpu_tensor_groups": [
+        {
+          "effective_horizon": 5,
+          "inferred_support_states": 1,
+          "packed_public_and_trace_bytes_to_host": 7800,
+          "roots": 1,
+          "search_with_cpu_tree_and_transfers_s": 0.45777770003769547,
+          "simulations_per_root": 24,
+          "tensor_bank_setup_s": 0.0025141999358311296
+        }
+      ],
+      "cuda_end_to_end_preparation_s": 0.0010270000202581286,
+      "cuda_groups": [
+        {
+          "effective_horizon": 5,
+          "inferred_support_states": 1,
+          "packed_public_and_trace_bytes_to_host": 7800,
+          "roots": 1,
+          "search_with_cpu_tree_and_transfers_s": 1.5970937999663875,
+          "simulations_per_root": 24,
+          "tensor_bank_setup_s": 0.04879800009075552
+        }
+      ],
+      "cuda_search_simulations_per_s": 16.202335850545545,
+      "cuda_speedup_over_cpu_tensor": 0.2536585043290432,
+      "cuda_speedup_over_scalar": 0.013839360174492325,
+      "median_wall_s": {
+        "cpu_tensor": 0.37573620001785457,
+        "cuda": 1.481267899973318,
+        "scalar_reference": 0.020499799982644618
+      },
+      "public_input_sha256": "91a9d3e5d9ec9eea7d7bd90218140bf7c5c5d208e5529f346db99bc8b3cbda88",
+      "roots": 1,
+      "wall_s": {
+        "cpu_tensor": [
+          0.3270710000069812,
+          0.37573620001785457,
+          0.46916400000918657
+        ],
+        "cuda": [
+          1.4757667999947444,
+          1.481267899973318,
+          1.6537350999424234
+        ],
+        "scalar_reference": [
+          0.022432600031606853,
+          0.020499799982644618,
+          0.016827299958094954
+        ]
+      }
+    },
+    {
+      "all_repetitions_exactly_equal": true,
+      "complete_tree_sha256": "094c235767dec1d25f9efa17682e47704add95736f3f1c8cae662d941ccea4c1",
+      "cpu_tensor_groups": [
+        {
+          "effective_horizon": 5,
+          "inferred_support_states": 10,
+          "packed_public_and_trace_bytes_to_host": 62400,
+          "roots": 8,
+          "search_with_cpu_tree_and_transfers_s": 0.5299038999946788,
+          "simulations_per_root": 24,
+          "tensor_bank_setup_s": 0.005574999959208071
+        }
+      ],
+      "cuda_end_to_end_preparation_s": 0.06807480019051582,
+      "cuda_groups": [
+        {
+          "effective_horizon": 5,
+          "inferred_support_states": 10,
+          "packed_public_and_trace_bytes_to_host": 62400,
+          "roots": 8,
+          "search_with_cpu_tree_and_transfers_s": 2.0574990999884903,
+          "simulations_per_root": 24,
+          "tensor_bank_setup_s": 0.041664800024591386
+        }
+      ],
+      "cuda_search_simulations_per_s": 89.72609147801396,
+      "cuda_speedup_over_cpu_tensor": 0.27148596408154024,
+      "cuda_speedup_over_scalar": 0.11235010484560948,
+      "median_wall_s": {
+        "cpu_tensor": 0.5809380999999121,
+        "cuda": 2.139845800003968,
+        "scalar_reference": 0.2404118999838829
+      },
+      "public_input_sha256": "d530da7fbf0c906b716c7c87191f04018c69d0c25157e7e065015aa8f0f67f64",
+      "roots": 8,
+      "wall_s": {
+        "cpu_tensor": [
+          0.3604541999520734,
+          0.5954424999654293,
+          0.5809380999999121
+        ],
+        "cuda": [
+          1.862565099960193,
+          2.139845800003968,
+          2.175902900053188
+        ],
+        "scalar_reference": [
+          0.18282170000020415,
+          0.2404118999838829,
+          0.2414876000257209
+        ]
+      }
+    },
+    {
+      "all_repetitions_exactly_equal": true,
+      "complete_tree_sha256": "b565ac5a1326156a1bc164fb4a91f6a551326d5e91a29b3530c9d5070cb92acb",
+      "cpu_tensor_groups": [
+        {
+          "effective_horizon": 5,
+          "inferred_support_states": 96,
+          "packed_public_and_trace_bytes_to_host": 499200,
+          "roots": 64,
+          "search_with_cpu_tree_and_transfers_s": 0.33760139998048544,
+          "simulations_per_root": 24,
+          "tensor_bank_setup_s": 0.0037951000267639756
+        }
+      ],
+      "cuda_end_to_end_preparation_s": 0.22239300014916807,
+      "cuda_groups": [
+        {
+          "effective_horizon": 5,
+          "inferred_support_states": 96,
+          "packed_public_and_trace_bytes_to_host": 499200,
+          "roots": 64,
+          "search_with_cpu_tree_and_transfers_s": 1.442413100041449,
+          "simulations_per_root": 24,
+          "tensor_bank_setup_s": 0.0414446999784559
+        }
+      ],
+      "cuda_search_simulations_per_s": 863.8530477605278,
+      "cuda_speedup_over_cpu_tensor": 0.37763515947142434,
+      "cuda_speedup_over_scalar": 0.7501362986791691,
+      "median_wall_s": {
+        "cpu_tensor": 0.6714655999094248,
+        "cuda": 1.7780802000779659,
+        "scalar_reference": 1.3338025000412017
+      },
+      "public_input_sha256": "3877d5bea10c71e05ac2bb82ca7c4b653c994b909f3562abe52907c50d7d25fc",
+      "roots": 64,
+      "wall_s": {
+        "cpu_tensor": [
+          1.1841760999523103,
+          0.6714655999094248,
+          0.5521711999317631
+        ],
+        "cuda": [
+          2.993145100073889,
+          1.6989041999913752,
+          1.7780802000779659
+        ],
+        "scalar_reference": [
+          2.2424279000842944,
+          1.3338025000412017,
+          1.0716332000447437
+        ]
+      }
+    },
+    {
+      "all_repetitions_exactly_equal": true,
+      "complete_tree_sha256": "13cb0a8fe193e9f35ee30973fd35e368749dd4392a021aa883d5b063e0113468",
+      "cpu_tensor_groups": [
+        {
+          "effective_horizon": 5,
+          "inferred_support_states": 384,
+          "packed_public_and_trace_bytes_to_host": 1996800,
+          "roots": 256,
+          "search_with_cpu_tree_and_transfers_s": 1.700784399989061,
+          "simulations_per_root": 24,
+          "tensor_bank_setup_s": 0.02584070002194494
+        }
+      ],
+      "cuda_end_to_end_preparation_s": 1.626458600978367,
+      "cuda_groups": [
+        {
+          "effective_horizon": 5,
+          "inferred_support_states": 384,
+          "packed_public_and_trace_bytes_to_host": 1996800,
+          "roots": 256,
+          "search_with_cpu_tree_and_transfers_s": 3.5904155999887735,
+          "simulations_per_root": 24,
+          "tensor_bank_setup_s": 0.09151010005734861
+        }
+      ],
+      "cuda_search_simulations_per_s": 1809.3626743771756,
+      "cuda_speedup_over_cpu_tensor": 0.5063291176422865,
+      "cuda_speedup_over_scalar": 1.3185794983349073,
+      "median_wall_s": {
+        "cpu_tensor": 1.7193269999697804,
+        "cuda": 3.3956708000041544,
+        "scalar_reference": 4.477461899979971
+      },
+      "public_input_sha256": "36c008aac166264b7c66f01961a7a14d3bf706d637723af89a35641297f9bcb3",
+      "roots": 256,
+      "wall_s": {
+        "cpu_tensor": [
+          1.6519387000007555,
+          1.7193269999697804,
+          3.814377799979411
+        ],
+        "cuda": [
+          2.5823356999317184,
+          3.3956708000041544,
+          5.361697499989532
+        ],
+        "scalar_reference": [
+          4.456024500075728,
+          4.477461899979971,
+          7.176000399980694
+        ]
+      }
+    }
+  ],
+  "caveat": "Fixed integer models and synthetic public prefixes; timings are local bounded warm workloads, not playing strength or real primary-game throughput.",
+  "completed_game_audit_credit": 0,
+  "cpu_tensor_threads": 1,
+  "cuda": "12.8",
+  "full_bmcts_audit_credit": 0,
+  "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+  "horizon": 5,
+  "model_version": "frozen-public-integer-policy/domain-separated-tree-v1",
+  "primary_match_credit": 0,
+  "python": "3.12.10",
+  "repeats": 3,
+  "schema": 1,
+  "simulations": 24,
+  "source_sha256": {
+    "gpu_tree_coach/protocol.py": "64fefd96376a8390babee1974ea365869ee8aed3c13afe618b983ad86b9b297f",
+    "gpu_tree_coach/scalar.py": "9982d0175552a9a165fee52d0016ca063284df69de6c7d8c9742bf6fb74a34e2",
+    "gpu_tree_coach/tensor.py": "b921de116f960178eabd5ec05bcdf818484fcfa3616d37571f7ae58e5b2e7178",
+    "gpu_tree_coach/tree.py": "4da642282ebfabf1431c219bd106772a5900c4f9e04adf9f0ea8c3ee79349b46",
+    "search_coach/belief.py": "f4188a87e5f253685df98ba596af97601bd00b68a42ff397f4d244126aa8669c",
+    "search_coach/gpu_batch.py": "1a15460f1ba38b31a701322683423d642f1e9d358a92a398238cac1683bbbc8b",
+    "tests/reference_engine.py": "8f7b89995cad0f724fb8ac7c7bc8311a6fa9b3b722f2204097031ba2333726f4",
+    "training_gpu/batch_game.py": "4c314c10e733d9eea496a9973110639b95cb496b8ff9e7b9d49bc8459d8efb9f"
+  },
+  "torch": "2.11.0+cu128",
+  "warm_complete_trace_parity": true
+}

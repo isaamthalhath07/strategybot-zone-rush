@@ -1,0 +1,86 @@
+{
+  "format": "zone-rush-public-memory-independent-review/1",
+  "reviewer_role": "Independent referee subagent",
+  "candidate_status": "unpromoted",
+  "parent_sha256": "1bb70109a75e2880bfdf3ac9b6fd8e368b0f3d02b9a3e65de53cef0defa505e5",
+  "hashes": {
+    "strategy_candidates/blocker_public_memory.py": "f5e870cd8bb56024c579d1251943c656daf62d2652c5eba44aee530ba1160405",
+    "strategy_candidates/build_public_memory.py": "d4a421c719c0eb2e69ce786fdc5c53042b475e50509bc7104f1b0faa9e1d35e4",
+    "strategy_candidates/test_public_memory.py": "207de9a08afbe96457040c1f716843084c816644a6f7dfdc9b40a9138cb65834",
+    "strategy_candidates/test_independent_memory.py": "454a42fb23e3de79b32a99a89483a978dda9621c36061bd7a59b9262696e1c33",
+    "strategy_candidates/evidence/public_memory_probe_500.py": "b8cf2e68bd1c2d0ce3c55be32f170ddf236fb9cf0599a1d7e0f911d2275bde7e",
+    "tester_bots/blocker.py": "1bb70109a75e2880bfdf3ac9b6fd8e368b0f3d02b9a3e65de53cef0defa505e5",
+    "tests/reference_engine.py": "8f7b89995cad0f724fb8ac7c7bc8311a6fa9b3b722f2204097031ba2333726f4",
+    "simulator/vendor_harness/referee.py": "f1125e8ceee664781827c670c0c4481da41a7ef41a4e5276d6b3b118274af337",
+    "evolution/oversight.py": "02fbb41a16df510a33214207f6f3d0561b4865d75cb1a293ea614680df9000b6",
+    "strategy_candidates/evidence/public_memory_probe_500.txt": "103de0764905fc8a2ebfb8ab593a1638e04b673fe94ecddc96e38bf61d6cf72f",
+    "strategy_candidates/evidence/public_memory_tests_9.txt": "aa2f4d8f166a124c865fca0a39a7b320af1a7ef4f5f665870813ea880c45ff6b"
+  },
+  "tests": {
+    "command": "python -m unittest strategy_candidates.test_public_memory strategy_candidates.test_independent_memory -v",
+    "passed": 9,
+    "failed": 0,
+    "skipped": 0,
+    "wall_s": 0.476,
+    "log": "strategy_candidates/evidence/public_memory_tests_9.txt",
+    "log_kind": "Preserved tool-result test names and summary; verbose module qualifiers omitted.",
+    "random_histories": 24,
+    "turns_per_history": 80,
+    "public_observations": 7776,
+    "checks": [
+      "Own Shield immunity does not contradict another owner Shield",
+      "Already frozen observer is excluded from eligible-catch contradiction",
+      "Exact own progress and publicly reconstructed scores",
+      "Public observation unchanged",
+      "Both referees agree after every joint transition",
+      "Identical public histories retain identical inference and decisions"
+    ]
+  },
+  "probe": {
+    "executed_command": "PowerShell here-string containing the preserved script piped to python -",
+    "reproduction_command": "Get-Content -Raw strategy_candidates/evidence/public_memory_probe_500.py | python -",
+    "script": "strategy_candidates/evidence/public_memory_probe_500.py",
+    "log": "strategy_candidates/evidence/public_memory_probe_500.txt",
+    "script_preservation": "Exact successful tool-payload source preserved after execution; no rerun while freezing this evidence.",
+    "action_rng_seed": "0x55A17 + seed",
+    "map_seed": "seed",
+    "start_token": "1 + seed % 4",
+    "tracker_seeds": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "schedule": "At every pre-turn view and final post-turn view, call each tracker with a deep copy of its four-field public observation. After checking own progress, choose each accepted action from list(legal_actions) + four STAY entries + two SHIELD entries when SHIELD is legal. Store that accepted own action as last; execute the same joint action in both referees.",
+    "seeds_completed": 500,
+    "turns_per_history": 80,
+    "physical_turns_checked_in_both_referees": 40000,
+    "public_observations": 162000,
+    "shield_actions": 20952,
+    "own_progress_mismatches": 0,
+    "referee_divergences": 0,
+    "successful_run_exceptions": 0,
+    "planner_act_calls": 0,
+    "log_kind": "Exact stdout text preserved from the tool result; line ending normalized to LF.",
+    "required_working_directory": "Repository root, containing strategy_candidates/ and tests/.",
+    "optional_local_ignored_logs": [
+      "strategy_candidates/evidence/public_memory_probe_500.log",
+      "strategy_candidates/evidence/public_memory_tests_9.log"
+    ],
+    "reproduction_import_check": "Resolved module spec, imported its dependencies and compiled the saved script from repository root; did not execute the 500-seed loop again.",
+    "seed_range": {
+      "start_inclusive": 0,
+      "stop_exclusive": 500,
+      "step": 1
+    }
+  },
+  "scope": {
+    "primary_credit": 0,
+    "strength_credit": 0,
+    "bmcts_credit": 0,
+    "new_real_architecture_study_outcomes": 0,
+    "hidden_referee_truth_supplied_to_candidate": false,
+    "own_accepted_scripted_action_supplied": true,
+    "claim": "Memory/mechanics controls only. Rival cooldowns remain heuristic; no universal correctness, playing-strength, speed, or optimality claim. Originals, generated candidate and builder were not edited during independent review."
+  }
+}

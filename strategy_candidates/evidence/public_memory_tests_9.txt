@@ -1,0 +1,12 @@
+test_backfire_elsewhere_does_not_erase_own_progress_or_invent_owner_cooldown ... ok
+test_blocked_move_is_stay_and_still_proves_owner_did_not_shield ... ok
+test_generated_standalone_matches_the_pinned_builder ... ok
+test_own_known_nonshield_action_is_not_replaced_by_a_guess ... ok
+test_publicly_indistinguishable_backfire_and_enemy_shield_stay_indistinguishable ... ok
+test_publicly_moved_landowner_cannot_have_cast_a_shield ... ok
+test_already_frozen_observer_does_not_disprove_a_new_catch ... ok
+test_forward_progress_and_scores_over_random_legal_public_histories ... ok
+test_own_shield_immunity_does_not_disprove_another_owners_shield ... ok
+
+Ran 9 tests in 0.476s
+OK

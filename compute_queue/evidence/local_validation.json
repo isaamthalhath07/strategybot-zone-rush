@@ -1,0 +1,46 @@
+{
+  "accepted_tasks": 4,
+  "command": "python -m unittest compute_queue.test_queue -v",
+  "created_utc": "2026-11-08T20:18:14.067222+00:00",
+  "devices": [
+    "cpu",
+    "cuda"
+  ],
+  "full_bmcts_games": 0,
+  "independent_owner_cpu_verification": true,
+  "jobs_per_process": 2,
+  "local_only": true,
+  "persistent_worker_processes": 2,
+  "primary_campaign_games": 0,
+  "public_https_path_tested": false,
+  "regression_checks": [
+    "auth and worker scope",
+    "concurrent disjoint claims",
+    "lost claim response idempotence",
+    "heartbeat during prefix validation",
+    "lease expiry and stale return rejection",
+    "corrupt result owner CPU quarantine",
+    "semantic duplicate idempotence",
+    "restart recovery",
+    "source drift rejection",
+    "strict public fields, finite JSON and duplicate-key rejection",
+    "malformed assignment identities return400 before database access"
+  ],
+  "schema": 1,
+  "scope": "localhost prototype; no public deployment or remote readiness",
+  "source_pins": {
+    "compute_queue/__init__.py": "bd9a43d572909ce9465514efbc69b0178f74b1c7b10938a264fb27c5ff5083f6",
+    "compute_queue/queue.py": "314e00e643a21b5cb8240be0180343ee18367ad30b2c9895f603cec8e3c600f2",
+    "search_coach/__init__.py": "63563ec08cbca672ef264b2fa5678313820a8bf22b69e361279507d7f181df45",
+    "search_coach/beam.py": "33d8d138d1b2a290b4599a65122eb0dfc16d977277a19e4fb97cea7717c08925",
+    "search_coach/belief.py": "f4188a87e5f253685df98ba596af97601bd00b68a42ff397f4d244126aa8669c",
+    "search_coach/gpu_batch.py": "1a15460f1ba38b31a701322683423d642f1e9d358a92a398238cac1683bbbc8b",
+    "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests/reference_engine.py": "8f7b89995cad0f724fb8ac7c7bc8311a6fa9b3b722f2204097031ba2333726f4",
+    "training_gpu/__init__.py": "87dc9ae50c90732a585cda760c993217cd440e8bd2078fd9c867fb3bc5386d73",
+    "training_gpu/batch_game.py": "4c314c10e733d9eea496a9973110639b95cb496b8ff9e7b9d49bc8459d8efb9f"
+  },
+  "synthetic_game_turns": 16,
+  "test_seconds": 12.06,
+  "tests_passed": 9
+}

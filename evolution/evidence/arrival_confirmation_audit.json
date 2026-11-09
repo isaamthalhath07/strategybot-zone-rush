@@ -1,0 +1,146 @@
+{
+  "format": "zone-rush-approved-logic-comparison-audit/1",
+  "validity": "PASSED",
+  "promotion": "BLOCKED_PENDING_REVIEW",
+  "role": "fresh_confirmation_consumed_once",
+  "games": 3072,
+  "turns": 245760,
+  "original_worker_callbacks": 983040,
+  "regenerated_callbacks": 819200,
+  "focal_public_oracles": 245760,
+  "two_referees_every_turn": true,
+  "zero_worker_faults": true,
+  "input_immutable": true,
+  "public_only_focal_regeneration": true,
+  "all_focal_actions_exact": true,
+  "map_field_seat_token_balanced": true,
+  "maps": 32,
+  "map_ids": [
+    "044eef5261e7cb670b33cc7d23e0f34d18772aeace01c1b8446e25ccdb49c3d2",
+    "0b590288b0d1bb4c798198f563f613c02683455795329532a70e11440bb4349a",
+    "0c5afe377d10addd97e2d303e2c709266f40b39469524b79ab082407cf2101fb",
+    "10158d27e49199a3c91f3bc37981bc887c5ed85fe83d95f9b96fa5888cfb2bc5",
+    "15b02d86dca832f23d267a3c70a5d568ecb0afb2e99fc953c9816ca0f73a5ed2",
+    "167110fc4e6d9a635d8212427e8768e2bf35af79ffd4ea0cad9ef432e1c7cacc",
+    "1af130f9ffa7368974a92ef1a056c2c7a8d672279e1abfec6adcba0011204980",
+    "256f0c842b60a9b4030668df10e2b093394eeef4009ded54f330dce0519b6660",
+    "33ae47b02a0df3a27c93abee222ed06489333133273a63772280763587e9c800",
+    "35bc0ce013b226a54763c40582464196b2032660248837561702812590274ae1",
+    "41ce2833dac0bc0fb9fa15bdf7acf0947965b5b89f9f20861c476ce058f8b166",
+    "47b27b4bd29d06d81b5c0228cd632c4ded3e5f4e46346d3bf8a90fd5c6edf8d8",
+    "4eb3a3238e0c2ee177e08395b12e3391de2aae43648fcd40a485a56e5bb25333",
+    "52681c2b7d9aa16bdc4aa3676764f52e9867f5ee16bf500977e7dc897347f431",
+    "55fa79f8ecf5a3c5519ff309dfa0581bebd6dcc539ac53ccf2e8208e7648d30f",
+    "636bf27aa72e985a0e80aa3cc3dfbde8c97c11c9a6bc2cb0f415f1756b7d029f",
+    "70901e5559d266e8223ab05c9330a0372aaf538c11cbd19cce6454600605fee7",
+    "78c1b7b4c1b9102da93103624b1c4c3ee18b3d2f50816ce5b70440992c3c7b5f",
+    "7a0d78e07c773bbbdca46cf704e3cb28e4d509253b965920351f7aea54cd0056",
+    "885de4041eb003e5a48057c82a0d0a212394b2c05a317c900e5e9000b3a743a5",
+    "9e3c3f8512838cc39f26495fd813824c84bc67a7dd4a18dd4c46df2c118d2065",
+    "a2cc9831fbd62debe875b081ebf3e4fa8b2dc56df42c844c9d951dff6aa8e926",
+    "ab5040a024f8da5511eb8fbaa91dea8f8dc9085e3f6d55a2a5bc9c77ee98273a",
+    "b1fccac91f981c131febd54b7df4cf27531eed2f99d696bb053a3ffce89b6ccf",
+    "b423f0a7bd7df2c4799828c634d905f0590ce4947fde72f167916b6f1ff936f1",
+    "b5387b60a50a6ee610b8a66d2fd948285c6c9875d8c10a76e221df8ac74a05ae",
+    "bab34df8f432dbc3b7058d2a82de0952155be319f11e659cf6bf2fb69015cb52",
+    "c0ab3ac0e7f6cffd605623c8de9737e7302886a71ad40c885937c9b7c043ee3c",
+    "c6cb024a7a59687daea177069a3f238514b49bb5573edcd9413e3ffa0d66f567",
+    "e5c70fa2cec4ddab765fc2166fe81a2950217403e8268e781e1edce302d7c553",
+    "f307aa458d2b4971762a74263652578f3c48ada968a52a43f36953fd512f222c",
+    "f5f5de590eb993a69effe27bed67066fc0b80bd10ed3ff098e5b1374f3eb7285"
+  ],
+  "disjoint_map_checks": [
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\.cache\\evolution\\arrival_001\\registration.json",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\validation\\official\\followup_spec.json",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\validation\\official\\final_spec.json",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\validation\\official\\selection_spec.json",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\validation\\official\\screen_spec.json",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\.cache\\evolution\\discovery_001\\registration.json",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\.cache\\evolution\\confirmation_001\\registration.json"
+  ],
+  "source_guards": {
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\simulator\\vendor_harness\\referee.py": "f1125e8ceee664781827c670c0c4481da41a7ef41a4e5276d6b3b118274af337",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\simulator\\vendor_harness\\worker.py": "9ae8c11c7bbcc0696a6c1fd4d1cc66684bb546d9db2c604a72b161c336d8db5f",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\tests\\reference_engine.py": "8f7b89995cad0f724fb8ac7c7bc8311a6fa9b3b722f2204097031ba2333726f4",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\consolidation_candidates\\frozen\\641c909b7ef1.py": "641c909b7ef188f3ba4dfa7fe0ccb935fe3dde2e23f99c07f83fbc1d7b9f7d4d",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\consolidation_candidates\\frozen\\720e5a3daf7b.py": "720e5a3daf7b848e8a25038c20bda47e8fb0433495aaa7bdbff9b285b8ba5a2d",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\consolidation_candidates\\frozen\\1a718fd8b514.py": "1a718fd8b5146f9b6a5796b00a1a7a7993ae17edc66cc17d997b086cfaf83bc6",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\consolidation_candidates\\frozen\\fe03b8164ed3.py": "fe03b8164ed3b4ebd2a04abcdfbb6fa729bdc34dea825088f7e82bf6e5b5ab5e",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\consolidation_candidates\\frozen\\f95dc9fc2266.py": "f95dc9fc22660331b1368a876d907f111fd3cb21aef6e3e34315b41e6af94e94",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\consolidation_candidates\\frozen\\1bb70109a75e.py": "1bb70109a75e2880bfdf3ac9b6fd8e368b0f3d02b9a3e65de53cef0defa505e5",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\consolidation_candidates\\frozen\\a35c2c481164.py": "a35c2c4811645091adef6cbd263f1573bf2b184d5dd5741a070234a422ce54c8",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\consolidation_candidates\\frozen\\d75575389253.py": "d75575389253984ef6b47eb6b1189d2a60fa6b20da976b71107da91f5a02cb9c",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\consolidation_candidates\\presence_guarded.py": "fc00af81fdf7e457b1256a838f363cd536cce9cb2eaa4e68d096622cd74b84cf",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\bot.py": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\evolution\\mathematical_candidates\\arrival_lifetime.py": "801e12ab60631ec1c16bf358a9d3d2db96f9a1e572b51f0f18e902f317881134",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\evolution\\mathematical_candidates\\baseline_depth2.py": "747b732ef32a0a50e0ea76dd16b3f89f018ffced3ae99f3e211c09c7fce1d4ab",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\evolution\\mathematical_candidates\\arrival_lifetime_depth2.py": "3a64f9d476a1021349a3aef2088e97995eacabbe9327e008e62305c5c5aa3ab2",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\tools\\benchmark.py": "40fc6744ac41d0a0b2ada84e644402367c2491cfdc82481c6fa6b74852799ebe",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\.cache\\evolution\\arrival_confirm_001\\registration.json": "37ffb4e7c1738f731591bf25ffe058b984f6551d98ae834397946890fb8cf25b",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\.cache\\evolution\\arrival_confirm_001\\results.json.gz": "069eb97c2eafbdc2fdac43b53dddc7e160d1a3a58a463c381a54fa241a099865",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\evolution\\mathematical_candidates\\build_arrival.py": "9f088b7760ff853a648ec5e143253e7e3f65b60506af5e8f0ddbd921c73ea33f",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\evolution\\mathematical_candidates\\arrival_manifest.json": "9f2eabfb7aeab7e6d18e23d0f48d961bec68a3cc366677959428b7f5c92e564d",
+    "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\evolution\\mathematical_candidates\\audit_comparison.py": "1583f855c0a2671ea506b2955f56c76e532424b7d1c03de924605d9389ff4f58"
+  },
+  "paired_canonical_recomputation": [
+    {
+      "first": "arrival_depth3",
+      "second": "current_depth3",
+      "clusters": 32,
+      "mean": 0.029296875,
+      "bootstrap_95": [
+        -0.0032552083333333335,
+        0.0625
+      ],
+      "bootstrap_order": "Canonical sorted map hashes",
+      "original_reported_bootstrap_95": [
+        -0.00390625,
+        0.06315104166666667
+      ]
+    }
+  ],
+  "original_summary": {
+    "arrival_depth3": {
+      "games": 1536,
+      "mean_pw": 1.7138671875,
+      "mean_score": 2970.9361979166665,
+      "fields": {
+        "legacy-economic": 1.693359375,
+        "novel-pressure": 1.8173828125,
+        "shield-baits": 1.630859375
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 3.251599962823093,
+      "mean_ms": 0.514778997198088
+    },
+    "current_depth3": {
+      "games": 1536,
+      "mean_pw": 1.6845703125,
+      "mean_score": 2969.158203125,
+      "fields": {
+        "legacy-economic": 1.642578125,
+        "novel-pressure": 1.7880859375,
+        "shield-baits": 1.623046875
+      },
+      "focal_faults": 0,
+      "all_faults": 0,
+      "max_ms": 2.073399955406785,
+      "mean_ms": 0.2989872429689437
+    }
+  },
+  "primary_campaign_games": 0,
+  "bmcts_audits": 0,
+  "skipped_rival_regeneration": {
+    "720e5a3daf7b848e8a25038c20bda47e8fb0433495aaa7bdbff9b285b8ba5a2d": "Fusion uses wall-clock seed/beam budgets",
+    "641c909b7ef188f3ba4dfa7fe0ccb935fe3dde2e23f99c07f83fbc1d7b9f7d4d": "Apex uses wall-clock search guards"
+  },
+  "elapsed_s": 169.81903500005137,
+  "limitations": [
+    "Selection data cannot establish an improvement without fresh confirmation.",
+    "Timing aggregates plus pinned zero-fault worker records validate original deadlines; audit reruns do not recreate original wall-clock conditions.",
+    "Archived stochastic/time-budget rivals cannot have their original private random streams reconstructed.",
+    "Canonical independent bootstrap may differ slightly from historical unsorted-set bootstrap due to Monte Carlo ordering.",
+    "Macro clock correction does not make static route/opponent approximations optimal."
+  ]
+}
