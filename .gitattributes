@@ -13,3 +13,7 @@ study_analysis/README.md -text
 intent_search/README.md -text
 # Preserve the exact bytes of the independent causal-result reports.
 intent_trials/evidence/causal_001/*.md -text
+aligned_search/*.md -text
+local_cuda_matches/*.md -text
+local_cuda_study/*.md -text
+local_cuda_analysis/*.md -text

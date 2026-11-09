@@ -1,0 +1,17 @@
+{
+  "actual_controller_callbacks": 0,
+  "actual_prepare_runs": 0,
+  "actual_teacher_recommendations": 0,
+  "agent_observed_synthetic_tests": 4,
+  "archive_sha256": "9589a5e23d89e3bb453c2d1d58c6a9693acb0839f56e69f630197fd41a346ca2",
+  "files_sha256": {
+    "REVIEW.md": "90fa7b8e8d03d1102c1891a877d67e85af48f3aacbcb0ffee54bfad7bd5f21c0",
+    "__init__.py": "dce1aff2a2e9f132e9b43f9b16f0e28ac30f222688bf1065529cba59a4d20c19",
+    "experiment.py": "0cd469f426510899b935dfff96dfd26a14d281a385f19c011ec1cc298b8fa87a",
+    "test_protocol.py": "cc883cd6d283d90864c1f4c7ad01c5569a9a7fe63f63c8be373052e53dce2590"
+  },
+  "format": "unused-aligned-cpu-experiment-draft/1",
+  "known_limit": "Partial draft; full admission, failure-path and end-to-end validation unfinished. Not a runnable validated campaign.",
+  "new_primary_games": 0,
+  "status": "Stopped before any real preparation or outcomes when user cancelled sharing and prioritized local CUDA"
+}
