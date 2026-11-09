@@ -1,0 +1,204 @@
+{
+  "audit": "PASS",
+  "completed_per_game_bmcts_audits": 0,
+  "deviating_roots": 75,
+  "deviating_roots_with_postroot_rival_action_change": 56,
+  "final_results_seal_checked": true,
+  "format": "joint-intent-causal-independent-continuations/1",
+  "independently_reconstructed_public_observations": 880,
+  "independently_verified_stage_files": 7,
+  "largest_callback_ms": 27.77259994763881,
+  "largest_first_ms": 1.057199900969863,
+  "largest_regular_ms": 27.77259994763881,
+  "losses": 3,
+  "manifest_catalog_hash_bindings_verified": true,
+  "mean_teacher_delta": -0.03125,
+  "new_controller_callbacks_by_review": 0,
+  "new_teacher_recommendations_by_review": 0,
+  "per_case": [
+    {
+      "baseline": "STAY",
+      "delta": -1,
+      "field": "economic",
+      "index": 0,
+      "opportunity": 0,
+      "recommended": "EAST",
+      "turn": 30
+    },
+    {
+      "baseline": "WEST",
+      "delta": 0,
+      "field": "independent",
+      "index": 1,
+      "opportunity": 1,
+      "recommended": "WEST",
+      "turn": 30
+    },
+    {
+      "baseline": "STAY",
+      "delta": 0,
+      "field": "erratic",
+      "index": 2,
+      "opportunity": 0,
+      "recommended": "STAY",
+      "turn": 30
+    },
+    {
+      "baseline": "NORTH",
+      "delta": 0,
+      "field": "pressure",
+      "index": 3,
+      "opportunity": 0,
+      "recommended": "WEST",
+      "turn": 30
+    },
+    {
+      "baseline": "STAY",
+      "delta": 0,
+      "field": "economic",
+      "index": 4,
+      "opportunity": 0,
+      "recommended": "STAY",
+      "turn": 50
+    },
+    {
+      "baseline": "STAY",
+      "delta": 0,
+      "field": "independent",
+      "index": 5,
+      "opportunity": 0,
+      "recommended": "NORTH",
+      "turn": 50
+    },
+    {
+      "baseline": "STAY",
+      "delta": 0,
+      "field": "erratic",
+      "index": 6,
+      "opportunity": 0,
+      "recommended": "STAY",
+      "turn": 50
+    },
+    {
+      "baseline": "SOUTH",
+      "delta": 1,
+      "field": "pressure",
+      "index": 7,
+      "opportunity": 1,
+      "recommended": "STAY",
+      "turn": 50
+    },
+    {
+      "baseline": "STAY",
+      "delta": 0.0,
+      "field": "economic",
+      "index": 8,
+      "opportunity": 0.0,
+      "recommended": "STAY",
+      "turn": 65
+    },
+    {
+      "baseline": "STAY",
+      "delta": -1,
+      "field": "independent",
+      "index": 9,
+      "opportunity": 0,
+      "recommended": "SOUTH",
+      "turn": 65
+    },
+    {
+      "baseline": "STAY",
+      "delta": 0,
+      "field": "erratic",
+      "index": 10,
+      "opportunity": 0,
+      "recommended": "STAY",
+      "turn": 65
+    },
+    {
+      "baseline": "STAY",
+      "delta": 0,
+      "field": "pressure",
+      "index": 11,
+      "opportunity": 0,
+      "recommended": "EAST",
+      "turn": 65
+    },
+    {
+      "baseline": "SHIELD",
+      "delta": 0,
+      "field": "economic",
+      "index": 12,
+      "opportunity": 0,
+      "recommended": "SHIELD",
+      "turn": 75
+    },
+    {
+      "baseline": "STAY",
+      "delta": -0.5,
+      "field": "independent",
+      "index": 13,
+      "opportunity": 0,
+      "recommended": "SHIELD",
+      "turn": 75
+    },
+    {
+      "baseline": "STAY",
+      "delta": 0,
+      "field": "erratic",
+      "index": 14,
+      "opportunity": 0,
+      "recommended": "STAY",
+      "turn": 75
+    },
+    {
+      "baseline": "STAY",
+      "delta": 1,
+      "field": "pressure",
+      "index": 15,
+      "opportunity": 1,
+      "recommended": "WEST",
+      "turn": 75
+    }
+  ],
+  "preregistration_source_archive_sha256": "d21da6bfc28dbbb9ba989c9cf9b141c2602a4171e67a5b343033a6768f4f3fd0",
+  "primary_games": 0,
+  "promoted": false,
+  "raw_archive_bytes": 482785,
+  "raw_archive_files_verified": 316,
+  "raw_archive_sha256": "fcd0f294c68f5b4844259cdfe0ffd9efaf85ffc3d67d67efb4a44d11718cec03",
+  "registration_sha256": "51ec970ed61401fcdfa629bda061a9f132bc6d51694429d0ed3bf19802c4191e",
+  "results_sha256": "58b9665bea5021d0ebedc4633010e2f583dbdb9b2ec6e0228808bd5d19d01f02",
+  "reviewer": "Independent continuation auditor; postrun artifact audit",
+  "root_simultaneous_rival_changes": 0,
+  "source_runtime_sha256": "93862a0c5ef24c08a6d8c95a7a111b8598c55a399521d45cf27f7f790cff5125",
+  "ties": 11,
+  "totals": {
+    "dual_referee_turns": 8560,
+    "full_traces": 107,
+    "independent_public_progress_checks": 34240,
+    "independent_public_score_checks": 8560,
+    "recorded_callbacks": 34240,
+    "replayed_legal_actions": 34240,
+    "supported_memory_checks": 17120
+  },
+  "verification_scope": {
+    "independent_without_controller_calls": [
+      "Every accepted action legality in both pinned referees",
+      "All 8560 recorded branch-turn events and terminal scores/pairwise",
+      "Public-cell score/income and accepted-action progress/cooldown reconstruction for every seat",
+      "All16 baseline and explicit baseline-action full80 transcripts equal source",
+      "All91 root interventions preserve prior prefix and simultaneous rival root choices",
+      "All standalone, embedded, sealed and archived records bind exact bytes",
+      "All7 admitted source-stage file hashes and manifest/catalog hash bindings",
+      "All880 serialized public observations across16 teacher prefixes reconstructed from strictly past source actions"
+    ],
+    "limitation": "No callbacks or teacher search were rerun. Callback timings/internal actor memories are recorded runner evidence, not independently regenerated callback evidence. Postroot rival action divergence is observed for56 of75 changed root actions; lack of divergence in other branches is not proof of tape reuse.",
+    "recorded_runner_attestations": [
+      "34240 actual callbacks and per-seat timing aggregates",
+      "17120 supported actor-memory oracles",
+      "Immutable isolated public callback inputs and absence of fallback"
+    ]
+  },
+  "wins": 2
+}

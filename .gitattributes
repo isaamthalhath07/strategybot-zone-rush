@@ -11,3 +11,5 @@
 gpu_tree_coach/*.md -text
 study_analysis/README.md -text
 intent_search/README.md -text
+# Preserve the exact bytes of the independent causal-result reports.
+intent_trials/evidence/causal_001/*.md -text
