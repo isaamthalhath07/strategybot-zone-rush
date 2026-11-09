@@ -95,3 +95,13 @@ subset; this function is read-only verification, not admission authority.
 `deadline_runner.benchmark.verify_complete(output_directory)` uses that shared
 validator and additionally verifies all512 known-control tapes/scores and the
 fixed benchmark schedule and budget measurement.
+
+`python -m deadline_runner.optimize` separately qualifies a fixed scheduling
+grid against the published256/4/4 baseline:128/4/4,128/8/4,256/8/4
+(batch size/actor workers/audit workers). Each new configuration runs all512
+known-control replicas with fresh lane identities and every independent audit.
+All three must complete and match before a timing-only deterministic selection.
+The selected configuration and its exact complete-pipeline measurement must be
+bound together in the training manifest and every actual execution header.
+Failed or partial attempts are preserved without retry or selection. The grid
+adds no independent strength cases, primary matches or BMCTS certificates.
