@@ -1,0 +1,39 @@
+{
+  "format": "deadline-readonly-actual-cache-review/1",
+  "checked_utc": "2026-11-09T04:08:48.469552+00:00",
+  "verdict": "Public GEN0 amendment/certificate/context and every current bound proof byte match; no integrity or validator-boundary mismatch found.",
+  "bindings": {
+    "manifest_sha256": "2560cc8b438771610bd2150e61e90bacd5a4bf8fe935544fd51e0c46b9353758",
+    "amendment_sha256": "1b89ef8ede5bdf2acd0c021917b8b230baee4297bccf70a1d4efdf9c8fa1624c",
+    "GEN0_certificate_sha256": "fa09732e736ea8ca22439ab7937f0512476e2ade2b34c21314ad6385e65d4dcc",
+    "proof_tree_sha256": "5b4d2f2c94c4679b38ee0d714b5ac7065e4f00ef7d1133bb8564ed58753a894f",
+    "adapter_cache_source_sha256": "784179de14d161a560d80c0d6dfd1fe8cc9a26552842d5f7e6474fc06ba33168"
+  },
+  "checks": {
+    "all_559_bound_proof_files_rehashed": true,
+    "all_68_directory_memberships_exact": true,
+    "original_53_and_adapter_2_source_pins_exact": true,
+    "original_function_code_defaults_closure_contracts_exact": true,
+    "configuration_runtime_and_four_qualified_rivals_exact": true,
+    "registration_and_actual_acceptance_bytes_exact": true,
+    "parsed_summary_hash_equals_bound_raw_summary": true,
+    "parsed_aggregate_equals_actual_accepted_aggregate": true,
+    "all_cache_credit_fields_exact_integer_zero": true,
+    "fresh_execute_is_exact_original_function_and_original_globals": true,
+    "fresh_execute_resolves_original_full_validator": true,
+    "frozen_module_globals_unchanged": true,
+    "function_graph_check": "Non-executed audit-only cloned namespace; no phase or cached reader invoked.",
+    "read_only_check_seconds": 2.3018215999472886
+  },
+  "limits": {
+    "owner_MAC_verified_by_reviewer": false,
+    "owner_MAC_verification": "Previously verified by root; this review checks public envelope bindings and byte identity without reading private authority material.",
+    "actual_Cache_read_invoked_by_reviewer": false,
+    "new_actor_callbacks": 0,
+    "new_physics_steps": 0,
+    "new_games": 0,
+    "private_key_or_registry_access": false,
+    "unadmitted_TRAIN_outcome_access": false,
+    "runtime_edits": 0
+  }
+}

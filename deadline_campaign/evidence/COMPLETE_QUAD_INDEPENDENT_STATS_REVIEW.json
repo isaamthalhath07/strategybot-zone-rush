@@ -1,0 +1,39 @@
+{
+  "format": "deadline-readonly-complete-architecture-statistics-review/1",
+  "checked_utc": "2026-11-09T04:08:48.469552+00:00",
+  "scope": "Complete authorized 32768-game architecture study; no current TRAIN partial outcomes, actor/physics replay or owner authority operation",
+  "verdict": "All raw terminal arithmetic, complete crossings, reported arm/field summaries and six registered bootstrap contrasts reproduced exactly.",
+  "bindings": {
+    "registration_sha256": "b5ffb74f5c8ad1c7a984a54d41d86efb26cb99ae2318a8b7d5a631d23ad24eb9",
+    "games_sha256": "b9301d2ad5389504d2e14186b6bc6a6a62f73eea287ca8f05ec4d807d299e2ae",
+    "report_sha256": "6a76e981432d13638a873ba4b45db6c3259707a45a8d26b6b8b0bf5ece915147",
+    "registered_bootstrap_draws_sha256": "a838cb10e3ab19e1185e5ddae57428119cd3e4516791ef6369c68036207d4d99"
+  },
+  "checks": {
+    "terminal_pairwise_cases": 32768,
+    "arms": 4,
+    "maps": 128,
+    "fields": 4,
+    "seat_token_crosses": 16,
+    "games_per_arm": 8192,
+    "games_per_arm_field": 2048,
+    "all_fixture_and_cell_identities_once": true,
+    "all_arm_and_field_means_histograms_raw_score_extrema_exact": true,
+    "bootstrap_replicates": 60000,
+    "bootstrap_seed": 202611091740,
+    "bootstrap_indices": [249, 59749],
+    "all_six_contrasts_exact": true,
+    "independent_calculation": "Registered stdlib draw stream; separate integer map multiplicities multiplied by map contrasts, not the frozen analyzer's per-draw arm accumulation loop.",
+    "check_seconds": 3.130689299898222
+  },
+  "fixed_protocol_reference": {
+    "name": "original_blocker",
+    "sha256": "1bb70109a75e2880bfdf3ac9b6fd8e368b0f3d02b9a3e65de53cef0defa505e5",
+    "mean_pairwise": 2.354736328125,
+    "blocker_minus_e8": {"delta": 0.09912109375, "descriptive_bonferroni_interval": [0.052490234375, 0.14581298828125]},
+    "blocker_minus_feint": {"delta": 0.05389404296875, "descriptive_bonferroni_interval": [0.02911376953125, 0.0794677734375]},
+    "e8_minus_50d": {"delta": 0.000732421875, "descriptive_bonferroni_interval": [-0.001953125, 0.003662109375]},
+    "interpretation": "Largest exact observed mean identifies the prespecified reference. These finite-field descriptive bootstrap contrasts do not automatically promote a deadline candidate or establish universal optimality."
+  },
+  "reviewer_execution": {"new_games": 0, "new_actor_callbacks": 0, "new_physics_steps": 0, "primary_credit": 0, "bmcts_credit": 0, "owner_MAC_authenticated": false, "private_key_or_registry_access": false, "unadmitted_TRAIN_outcome_access": false, "runtime_edits": 0}
+}
