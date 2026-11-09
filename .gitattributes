@@ -23,3 +23,6 @@ primary_local/*.md -text
 deadline_runner/*.md -text
 deadline_campaign/*.md -text
 deadline_strategy/*.md -text
+deadline_finalization/*.md -text
+deadline_release/*.md -text
+deadline_notes/*.md -text

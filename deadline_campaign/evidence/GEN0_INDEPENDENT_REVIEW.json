@@ -1,0 +1,105 @@
+{
+  "format": "deadline-independent-readonly-generation-review/1",
+  "reviewed_utc": "2026-11-09T03:19:20+00:00",
+  "generation": 0,
+  "verdict": "No invalid, cheating, source, phase or reported-arithmetic mismatch found in the admitted GEN0 evidence inspected.",
+  "bindings": {
+    "manifest_sha256": "2560cc8b438771610bd2150e61e90bacd5a4bf8fe935544fd51e0c46b9353758",
+    "protocol_sha256": "1235118c74ab6c9b0a14c2392fc7b1a93b3ab806898f607977c146685ff03a97",
+    "registration_sha256": "27ee64113bf60123bcd2637489cfbff09c4f5628d94b001487f395e2ef5b7bc5",
+    "acceptance_sha256": "8856ea6a5310fbb6d7f0aee6d50a410446a0e43e009eac121629117eafc77a3c",
+    "report_sha256": "9d206c521d1b70c03478b2babe7e286e75be4084e5430ebfd70f53f8c99cff96",
+    "originals_sha256": "9441254ac4eedfd0a314e683cd9c519b10f1336b8fcf8f254a75a211c53d8548",
+    "audits_sha256": "901aa2b5bccc14dc69e78ee54c71a180355b9a6d4007c3c2a0ebefb1fae27700",
+    "source_map_sha256": "90597d0c5e3cf83a032accc5bfd18336d12a362624a6843cfae239371cc8fc65",
+    "publication_commit": "fb6e810",
+    "publication_commit_utc": "2026-11-09T02:59:49+00:00",
+    "execution_start_utc": "2026-11-09T03:01:20.448415+00:00"
+  },
+  "setup_checks": {
+    "frozen_files_exact_before_and_after": 53,
+    "canonical_maps": 16,
+    "first_map": 500,
+    "last_map": 515,
+    "policies": 8,
+    "games_per_policy": 1024,
+    "balanced_map_policy_field_seat_token_cells": 8192,
+    "fresh_focal_ids": 8192,
+    "fresh_rival_ids": 24576,
+    "unique_full_integer_rival_seeds": 24576,
+    "distinct_parameter_pairs": 24576,
+    "minimum_seed_namespace": "greater than 2**96, below 2**128",
+    "seed_limit": "Distinct registered constructor seeds and fresh namespaces are not new rival algorithms. Deterministic planner policies have no action RNG to reseed; original focal/public-seat initialization is retained.",
+    "seed_identity_parameter_formulas_recomputed": true,
+    "consumed_legacy_and_reserved_heldout_map_orbit_overlap": 0,
+    "fixed_architecture_registered_map_orbit_overlap": 0,
+    "source_archives_and_all_initial_candidate_bytes_exact": true,
+    "rival_source_bytes_equal_qualification_archive": true,
+    "execution_configuration": {
+      "batch_size": 128,
+      "workers": 8,
+      "audit_workers": 4
+    },
+    "public_callback_schema": "Pinned trusted-source namedtuple View4/Cell6 with nested tuples and exact builtins; no actor/process introspection was performed.",
+    "namespace_freshness_evidence": "Pinned fresh-exec factory, reset/constructor code, distinct registration identities and prior synthetic tests; no new actual callbacks or live actor-memory inspection by this review."
+  },
+  "durable_checks": {
+    "verifier_sha256": "76f67a3f6fa27503363d9e96805205e23d80d332c33510e9dea6e26d3da2c50d",
+    "complete_games": 8192,
+    "complete_batches": 64,
+    "recorded_original_callbacks": 2621440,
+    "recorded_independent_replay_callbacks": 2621440,
+    "recorded_original_game_turn_events": 655360,
+    "recorded_audit_dual_referee_turn_events": 655360,
+    "source_supported_public_memory_oracles_independently_derived": 901120,
+    "source_supported_oracles_match_each_original_and_audit": true,
+    "max_recorded_regular_callback_ms": 42.804300086572766,
+    "max_recorded_first_callback_ms": 15.525299939326942,
+    "shared_durable_verifier_elapsed_s": 34.467649600002915,
+    "owner_mac_authentication": "Root attested successful owner-MAC verification; this reviewer did not access keys or independently authenticate the MAC.",
+    "runtime_state_comparisons": "Recorded per-turn/terminal bindings and exact frozen auditor source verified; physical states were not reexecuted by this review."
+  },
+  "independent_statistics": {
+    "terminal_score_pairwise_arithmetic_cases": 8192,
+    "exact_fraction_rank_reproduced": true,
+    "shared_map_bootstrap_replicates": 20000,
+    "overall_contrasts_exact": 28,
+    "field_intervals_exact": 112,
+    "computation": "Independent integer bootstrap multiplicities multiplied by map-field PW2 differences; same registered PCG64 draws and explicit order statistics.",
+    "empirical_top_sha256": "fcc57d1ea666b61e8d99e3fc12b05b51de8d924d0f2d2f325a6f234ad87298e5",
+    "empirical_top_vs_e8": {
+      "delta": 0.0458984375,
+      "unadjusted_95_interval": [
+        -0.03564453125,
+        0.13330078125
+      ],
+      "descriptive_bonferroni28_interval": [
+        -0.08203125,
+        0.1845703125
+      ]
+    },
+    "f5_vs_original_blocker": {
+      "delta": 0.00732421875,
+      "unadjusted_95_interval": [
+        -0.05712890625,
+        0.0771484375
+      ],
+      "descriptive_bonferroni28_interval": [
+        -0.08984375,
+        0.1162109375
+      ]
+    },
+    "interpretation": "Exploratory TRAIN rank only. These contrasts do not establish superiority or justify promotion; DEV and untouched FINAL remain required by the protocol."
+  },
+  "reviewer_execution": {
+    "actor_callbacks": 0,
+    "physics_steps": 0,
+    "new_games": 0,
+    "primary_credit": 0,
+    "bmcts_credit": 0,
+    "live_private_keys_or_registry_read": false,
+    "GEN1_partial_outcomes_read": false,
+    "quad_partial_outcomes_read": false,
+    "runtime_edits": 0
+  }
+}
