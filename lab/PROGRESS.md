@@ -343,3 +343,103 @@ and a working fallback when the planner raises. They bind to behaviour, not
 coefficients, so a later candidate ships with `lab/ship.py` alone.
 
 `python3 tools/check_release.py`: 142 tests pass, plus the six interface groups.
+
+## 10. Why `zr6` only breaks even against strong bots: it leaks un-upgraded land
+
+All of this uses opponents that are no longer held out (development pool, lab
+hold-out, EXT1). EXT2 and the second half of the stress bots are untouched.
+
+New tools: `lab/suite2.py` (five fields over every seen opponent and all 13 map
+families), `lab/h2h_strong.py`, `lab/h2h_field.py`, `lab/prof_fam.py`,
+`lab/loss_audit.py`, `lab/scratch/hazard_own.py`, `lab/scratch/raid_propensity.py`.
+
+### Diagnosis
+
+Against 26 strong bots (`python3 lab/prof_fam.py <all families> zr6 a_novel_b_racer
+cur_e8 --maps 78`), per game:
+
+| | `zr6` | Racer | previous release |
+|---|---:|---:|---:|
+| cells lost to raids | **4.3** | 1.3 | 0.8 |
+| of which un-upgraded | 3.7 | 1.0 | 0.3 |
+| bonus points handed to rivals | 89 | 30 | 24 |
+| raids made / bonus earned | 4.0 / 110 | 2.4 / 41 | 1.2 / 25 |
+| income, last third of the game | 1,279 | 1,368 | 1,395 |
+| final score | 2,852 | 2,870 | 2,878 |
+
+`python3 lab/loss_audit.py zr6 --maps 80`: three of the 4.3 lost cells are cells
+`zr6` claimed and left un-upgraded; two of those three had not been stood on for more
+than 20 turns; two thirds of all losses fall after turn 55. When `zr6` walked away
+from them the eventual raider was usually four or more steps off. Racer and the
+previous release upgrade a cell before leaving it, so they are almost never exposed.
+
+**Cause: the risk table `zr6` plans with was measured on the wrong cells.** It came
+from every bot's un-upgraded cells in development games. Most strong bots upgrade
+within three turns of claiming, so those cells were short-lived and the table says
+little about a cell left for 20 or 40 turns. Measured on `zr6`'s own cells
+(`lab/results/hazard_own_zr6.txt`), the chance of losing an un-upgraded cell within
+40 turns, nearest rival four steps away, mid-game:
+
+| Opponents | measured | `zr6` assumed |
+|---|---:|---:|
+| strong | 49% | about 15% |
+| mid | 24% | about 15% |
+| weak | 16% | about 15% |
+
+Two structural facts came out of that table:
+
+- The risk is nearly a constant rate per turn once a rival has had time to walk over
+  (about three turns per step of distance), with no real dependence on the phase of
+  the game. One shape fits every distance: exposure `g = max(0, h - 3(d-1))`.
+- The rate differs about threefold between opponent populations, and between
+  individual bots by more (`lab/results/raid_propensity.txt`: rivals take an exposed
+  cell they stand next to on 3% of turns for passive designs, about 20% for most
+  strong bots, 40 to 50% for the aggressive ones). No single number can be right.
+
+### What was changed (`lab/cand/_head3.py`, `lab/cand/_tail3.py`; build with `gen=3`)
+
+1. The un-upgraded-cell risk is now `1 - product over rivals of P(survives rival)`,
+   with each rival's rate taken from a **posterior over three raider types** (passive,
+   ordinary, aggressive) updated from how often that rival actually takes an exposed
+   cell when it stands next to one. Before any evidence the mix is 30/50/20.
+2. "Claim and upgrade without leaving" is planned as one job, so a cell that is not
+   worth holding un-upgraded can still be taken and fortified. In `zr6` such a claim
+   was discarded before its upgrade was ever considered. That discard is why raising
+   the old risk multiplier looked disastrous in section 6: the multiplier scaled
+   probabilities past 100%, claims went negative and the bot stopped expanding.
+
+### Development results (`python3 lab/suite2.py --seed 900 ...`, difference from `zr6`)
+
+First with one rate for every rival (no per-rival typing):
+
+| rate | strong | mid | weak | mix | self |
+|---:|---:|---:|---:|---:|---:|
+| 0.003 | -0.47 | -0.13 | -0.05 | -0.19 | -0.25 |
+| 0.006 | +0.10 | -0.05 | -0.06 | +0.03 | +0.30 |
+| 0.010 | +0.13 | +0.01 | -0.08 | +0.09 | +0.44 |
+| 0.016 | +0.22 | -0.13 | -0.08 | +0.04 | +0.40 |
+| 0.030 | +0.19 | -0.14 | -0.18 | -0.05 | +0.35 |
+| 0.060 | +0.19 | -0.18 | -0.19 | -0.09 | +0.34 |
+
+More caution helps against strong bots up to about 0.016 and then is flat; it costs
+against mid and weak bots. Head to head (`lab/h2h_field.py`) the cost is against
+passive designs and the gain against raiders, which is the case for typing rivals.
+
+With the per-rival posterior (`zr7h`, ordinary-raider rate 0.014):
+
+| | strong | mid | weak | mix | self |
+|---|---:|---:|---:|---:|---:|
+| `zr7h` minus `zr6` | **+0.22 [+0.08, +0.36]** | -0.02 [-0.13, +0.08] | -0.10 [-0.17, -0.03] | +0.04 [-0.04, +0.12] | **+0.41 [+0.21, +0.60]** |
+| rate 0.008 | +0.07 | +0.02 | -0.10 | +0.08 | +0.43 |
+| rate 0.022 | +0.21 | -0.14 | -0.11 | +0.01 | +0.41 |
+
+A separate 880-game weak-field run on another seed puts the weak-field cost at
+-0.04 (2.782 vs 2.822). Against strong bots `zr7h` now loses 1.6 cells per game
+instead of 4.3 and hands rivals 36 bonus points instead of 89.
+
+Tried and dropped: pricing the land taken in a raid with a lower risk than land
+already held (four combinations). It changed nothing measurable, so the model keeps
+one risk for both.
+
+Not yet done, and the numbers above are development numbers on seen opponents:
+more than half of the remaining losses fall in the last ten turns.

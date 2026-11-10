@@ -1,0 +1,119 @@
+
+strong: bot, step-on rate when adjacent to an exposed L1 rival cell, chances per game (by turn 40), L1 raids/game, L2 raids/game
+  x_outsider_flaky                   0.07    15.4 ( 4.9)    0.2   0.0
+  legacy:pro_tuned                   0.09    26.3 ( 7.7)    2.0   0.2
+  x_outsider_literal                 0.13    23.9 ( 9.6)    3.1   0.7
+  cur_e8                             0.16    23.1 ( 7.4)    2.5   0.2
+  a_transfer_fixed_fe03b8            0.17    24.7 ( 6.7)    2.8   0.3
+  a_pr10_novel_v9                    0.21    25.5 ( 8.9)    3.6   0.5
+  a_bot_cefe2f                       0.21    25.2 ( 8.3)    4.0   0.5
+  a_novel_c_bloomer                  0.21    22.5 ( 5.9)    3.8   1.5
+  a_bot_720e5a                       0.21    18.7 ( 6.1)    3.1   0.5
+  a_novel_c_voronoi                  0.21    14.5 ( 3.5)    2.6   0.2
+  x_hx_cdsnipe                       0.22    29.8 ( 9.8)    5.1   0.9
+  a_research_correctness_ae1594      0.22    22.0 ( 4.3)    3.5   0.3
+  a_branch_1dca0c916af4_1dca0c       0.22    23.5 ( 7.5)    3.8   0.4
+  x_zenith                           0.23    23.6 ( 8.8)    3.9   0.6
+  t_ultimate                         0.24    28.1 ( 8.1)    5.2   0.3
+  x_outsider_homebait                0.24    20.0 ( 7.7)    3.3   1.7
+  a_novel_b_feint                    0.25    30.8 (12.3)    5.6   0.1
+  a_novel_b_blocker                  0.25    25.7 ( 7.9)    4.2   0.4
+  a_user_family_dfc547               0.26    22.5 ( 9.1)    4.3   0.4
+  v2_bot_191059b37141                0.26    23.0 ( 6.7)    4.1   0.2
+  a_novel_b_racer                    0.27    26.5 ( 7.9)    4.4   0.3
+  x_hx_sniper                        0.29    21.6 ( 5.9)    5.0   0.6
+  x_indep_farmer                     0.30    22.6 ( 7.6)    5.6   0.7
+  a_novel_d_shieldmaster             0.32    25.3 ( 8.9)    6.0   0.3
+  x_outsider_jackal                  0.42    25.0 ( 8.9)   10.0   0.0
+  x_hx_aggro                         0.48    32.7 (14.0)   15.0   0.3
+  median step-on rate 0.23, quartiles 0.21 / 0.26
+
+mid: bot, step-on rate when adjacent to an exposed L1 rival cell, chances per game (by turn 40), L1 raids/game, L2 raids/game
+  n_junction_keeper_0                0.04    15.9 ( 4.8)    0.4   0.1
+  n_space_split_3                    0.05    18.3 ( 5.8)    0.5   0.1
+  x_gen_sampling_portfolio_1         0.05    19.5 ( 6.3)    0.3   0.1
+  x_gen_sampling_portfolio_0         0.06    21.5 ( 8.6)    0.6   0.2
+  x_gen_local_pairs_3                0.06    20.9 ( 7.6)    0.7   0.2
+  x_gen_turn_budget_0                0.07    20.0 ( 7.0)    0.7   0.0
+  x_gen_local_pairs_1                0.07    20.1 ( 8.1)    0.7   0.1
+  n_junction_keeper_2                0.07    22.3 ( 8.2)    0.9   0.2
+  x_gen_chase_income_2               0.07    20.1 ( 8.2)    1.0   0.1
+  x_gen_chase_income_0               0.07    15.8 ( 6.0)    0.7   0.2
+  x_gen_turn_budget_1                0.07    20.8 ( 7.5)    0.8   0.1
+  x_gen_chase_income_1               0.08    20.3 ( 7.0)    1.0   0.0
+  x_gen_local_pairs_0                0.09    19.8 ( 6.2)    1.1   0.1
+  x_gen_capture_deadline_1           0.09    19.4 ( 6.8)    0.7   0.0
+  x_gen_chase_income_3               0.09    25.1 ( 9.8)    1.6   0.2
+  x_gen_capture_deadline_0           0.10    18.6 ( 5.2)    0.6   0.1
+  x_gen_local_pairs_2                0.10    20.4 ( 6.6)    1.6   0.3
+  n_late_flipper_0                   0.10    20.0 ( 5.4)    1.5   0.3
+  n_rental_horizon_4                 0.11    13.0 ( 3.5)    0.8   0.2
+  a_opp_adaptive_01_e23de3           0.11    20.9 ( 7.0)    0.3   0.1
+  x_rival_feinter                    0.12    16.0 ( 4.7)    0.4   0.1
+  legacy:spine                       0.14    19.8 ( 9.7)    1.1   0.6
+  x_rival_interceptor                0.15    15.2 ( 4.2)    0.9   0.2
+  a_action_beam_f99554               0.16    23.8 ( 6.4)    3.5   0.5
+  a_novel_d_titfortat                0.16    17.9 ( 6.3)    1.4   0.0
+  a_economic_34bdf1                  0.16    22.5 ( 6.3)    3.0   0.3
+  legacy:ai_hawk                     0.18    19.2 ( 6.8)    2.9   0.6
+  legacy:ai_centre                   0.18    29.5 (12.1)    4.3   0.7
+  a_incumbent_bbff91                 0.18    22.3 ( 4.9)    3.2   0.2
+  legacy:ai_homefort                 0.22    19.1 ( 6.9)    4.0   0.4
+  x_rival_mixed                      0.24    20.4 ( 7.0)    3.4   0.6
+  a_novel_a_rhea                     0.24    24.6 ( 9.3)    4.8   1.3
+  a_novel_a_paranoid                 0.26    23.6 ( 7.6)    4.1   1.3
+  a_planner_beam_e7f4fd              0.27    24.8 ( 7.4)    5.9   0.6
+  x_gen_cooldown_feint_3             0.27    21.1 ( 5.1)    0.4   0.1
+  a_tactical_2388ad                  0.28    20.6 ( 8.1)    3.9   1.5
+  legacy:ai_cheapraid                0.29    25.7 ( 9.9)    7.0   0.4
+  a_novel_d_antileader               0.29    23.2 ( 9.8)    6.0   0.1
+  x_gen_cooldown_feint_1             0.32    17.2 ( 5.2)    0.4   0.1
+  x_gen_cooldown_feint_2             0.34    23.6 ( 9.3)    0.4   0.0
+  x_gen_cooldown_feint_0             0.39    25.6 ( 6.0)    0.3   0.1
+  median step-on rate 0.12, quartiles 0.07 / 0.24
+
+weak: bot, step-on rate when adjacent to an exposed L1 rival cell, chances per game (by turn 40), L1 raids/game, L2 raids/game
+  x_gemini_turtle1                   0.00    10.2 ( 1.4)    0.0   0.0
+  x_gemini_centrerusher1             0.02    27.5 ( 8.7)    0.4   0.1
+  st_farmer_early                    0.04    19.0 ( 6.1)    0.0   0.0
+  a_opp_raider_02_19f1b4             0.04    19.9 ( 7.8)    0.8   1.6
+  legacy:pacifist                    0.04    21.4 ( 7.4)    0.9   0.3
+  st_farmer_noshield                 0.05    19.3 ( 6.8)    0.0   0.0
+  st_farmer_coin                     0.05    18.6 ( 7.8)    0.0   0.0
+  a_opp_farmer_04_0db330             0.06    25.3 ( 9.7)    0.2   0.0
+  a_opp_shield_03_42e759             0.07    23.2 ( 8.7)    0.2   0.0
+  x_gpt_planner1                     0.07    17.0 ( 6.2)    1.2   1.3
+  legacy:raider                      0.09    21.6 ( 8.4)    1.8   1.2
+  legacy:camper                      0.09    16.3 ( 8.0)    0.9   0.4
+  x_gemini_greedy1                   0.10    21.2 ( 8.9)    2.1   1.1
+  legacy:cdraider                    0.10    18.8 ( 7.1)    1.8   0.6
+  legacy:hunter                      0.11    19.7 ( 8.4)    2.2   1.1
+  a_opp_farmer_01_b2a28f             0.11    16.3 ( 4.7)    0.0   0.0
+  x_gemini_farmer1                   0.11    15.3 ( 5.5)    1.7   0.6
+  legacy:turtle                      0.13    12.9 ( 2.8)    1.2   0.7
+  a_opp_farmer_03_885b73             0.13    20.1 ( 6.2)    0.0   0.0
+  legacy:ai_route                    0.13    27.1 (12.3)    1.9   1.0
+  legacy:centre                      0.14    23.5 ( 8.6)    3.0   1.1
+  x_gpt_turtle1                      0.14     9.9 ( 3.3)    1.3   0.1
+  a_opp_raider_01_8eac97             0.16    27.8 (11.5)    4.2   2.1
+  x_gpt_naive2                       0.16    29.5 (12.7)    4.6   0.8
+  a_opp_naive_03_6af698              0.17    24.0 ( 9.7)    3.9   1.3
+  a_opp_adaptive_02_2a9fa5           0.17    23.6 ( 9.4)    2.7   0.4
+  a_opp_raider_03_a6c0c5             0.17    19.9 ( 8.9)    3.3   1.8
+  a_opp_farmer_02_ab39cd             0.19    25.1 ( 9.5)    0.3   0.0
+  x_gpt_quadrantfarmer1              0.19    14.7 ( 5.1)    2.7   0.3
+  st_grudger                         0.20    19.7 ( 6.4)    3.3   0.2
+  st_cooldown_sniper                 0.21    22.3 ( 7.5)    2.5   0.5
+  legacy:greedyshield                0.24    22.4 ( 7.7)    5.0   0.9
+  a_opp_naive_01_216447              0.25    30.3 (11.6)    7.3   0.9
+  x_gpt_adaptive1                    0.25    27.6 (12.0)    6.5   1.2
+  legacy:greedy                      0.26    25.5 ( 8.4)    6.3   0.8
+  legacy:ai_elo                      0.29    19.0 ( 7.7)    5.0   0.7
+  legacy:pro                         0.29    23.1 ( 8.6)    6.2   0.5
+  legacy:ai_marginal                 0.30    27.4 (10.2)    7.4   0.7
+  legacy:baiter                      0.34    30.4 (12.0)    8.5   0.1
+  st_raider_noshield                 0.37    22.3 ( 7.6)    7.9   0.5
+  st_raider_feint                    0.37    22.4 ( 8.3)    7.5   0.4
+  a_opp_raider_04_b05ff3             0.45    34.5 (16.2)   14.7   0.1
+  x_gemini_naive2                    0.75    35.9 (15.4)    0.4   0.0
+  median step-on rate 0.14, quartiles 0.09 / 0.25
