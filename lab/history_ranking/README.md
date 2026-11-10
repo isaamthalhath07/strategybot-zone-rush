@@ -9,7 +9,7 @@ Run from this folder. Everything is rebuilt from Git history, so the working fil
 
 ```bash
 python3 build_corpus.py     # every distinct act(state) source in every commit and archive
-python3 -c "import ast,os,json,sys; ..."   # see note below for static.json
+python3 prep.py             # static scan and the multi-file bots
 python3 make_cands.py       # candidate list
 python3 labels.py           # provenance from the repo's registries
 python3 arch.py             # architecture clusters
@@ -20,9 +20,8 @@ python3 write_md.py         # RANKING.md
 
 Notes:
 
-- `make_cands.py` expects `static.json` (imports and call sites per source) and the
-  two multi-file bots materialised under `multi/`; both were produced by short
-  one-off commands recorded in `lab/PROGRESS.md` section 1 and are cheap to redo.
+- `prep.py` writes `static.json` (imports and call sites per source) and rebuilds the
+  bots that need sibling files from their own commit under `multi/`.
 - `runner.py` plays games on `simulator/vendor_harness/referee.py` with one worker
   process per seat and the repository's timing limits (2,000 ms first call, 200 ms
   after). It is the same boundary `tools/benchmark.py` uses.

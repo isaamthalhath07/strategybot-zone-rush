@@ -1,0 +1,11 @@
+corpus/
+multi/
+*.jsonl
+corpus.json
+cands.json
+labels.json
+static.json
+arch.json
+rank.json
+summary.json
+__pycache__/
