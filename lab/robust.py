@@ -9,7 +9,7 @@ every observation the bot receives and reports its mean score relative to the do
 interface, plus how many turns raised or returned something unusable.
 
 The perturbations are the eleven from the project's earlier crossfield/robustness.py,
-plus four server quirks and five deployment modes that file did not cover.
+plus five server quirks and four deployment modes that file did not cover.
 """
 import collections
 import os
@@ -114,6 +114,14 @@ def p_no_token_attr(v):
     return s, None
 
 
+def p_all_strings(v):
+    """A JSON-ish server: flat list of dict cells, every value a string, lower-case actions."""
+    raw = {"bot_id": str(v.bot_id), "is_priority_token": str(v.is_priority_token).lower(),
+           "legal_actions": [a.lower() for a in v.legal_actions],
+           "board": [dict((f, str(getattr(c, f)).lower()) for f in FIELDS) for row in v.board for c in row]}
+    return raw, (lambda a: a.upper() if isinstance(a, str) else a)
+
+
 def p_homes_unowned(v):
     return _mk([[NT(c.occupant, 0 if c.is_home else c.owner, c.is_upgraded, c.is_home, c.is_frozen, c.base_points)
                  for c in row] for row in v.board], v.bot_id, v.is_priority_token, list(v.legal_actions)), None
@@ -147,6 +155,7 @@ PERTURB = [
     ("is_priority_token missing", p_no_token_attr, None),
     ("state is a dict", p_dict_state, None),
     ("cells are bare 6-tuples", p_plain_tuples, None),
+    ("everything as strings, flat dicts", p_all_strings, None),
     ("homes reported unowned", p_homes_unowned, None),
     ("SHIELD listed while on cooldown", p_shield_always_listed, None),
     ("legal_actions in reverse order", p_shuffled_legal, None),

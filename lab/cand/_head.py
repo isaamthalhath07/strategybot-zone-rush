@@ -34,6 +34,13 @@ _FIELDS = ("occupant", "owner", "is_upgraded", "is_home", "is_frozen", "base_poi
 _INDEX = dict((name, k) for k, name in enumerate(_FIELDS))
 
 
+def _flag(x):
+    """Booleans may arrive as bools, 0/1 or strings ("false" must not count as true)."""
+    if isinstance(x, str):
+        return x.strip().lower() in ("1", "true", "t", "yes", "y")
+    return bool(x)
+
+
 def _read(state):
     """Normalise the documented input into flat lists. Never mutates `state`."""
     if isinstance(state, dict):
@@ -42,7 +49,7 @@ def _read(state):
         get = lambda o, k, d=None: getattr(o, k, d)
     v = _View()
     v.me = int(get(state, "bot_id"))
-    v.token = bool(get(state, "is_priority_token", False))
+    v.token = _flag(get(state, "is_priority_token", False))
     legal = []
     raw = {}
     for a in (get(state, "legal_actions", ()) or ()):
@@ -78,13 +85,13 @@ def _read(state):
     for i, c in enumerate(cells):
         o = int(cg(c, "occupant", 0) or 0)
         v.owner[i] = int(cg(c, "owner", 0) or 0)
-        v.level[i] = 1 if cg(c, "is_upgraded", False) else 0
+        v.level[i] = 1 if _flag(cg(c, "is_upgraded", False)) else 0
         v.base[i] = int(cg(c, "base_points", 1) or 1)
-        v.home[i] = bool(cg(c, "is_home", False))
+        v.home[i] = _flag(cg(c, "is_home", False))
         if 1 <= o <= 4:
             v.occ[i] = o
             v.pos[o] = i
-            v.frozen[o] = bool(cg(c, "is_frozen", False))
+            v.frozen[o] = _flag(cg(c, "is_frozen", False))
     if v.pos[v.me] < 0:
         raise ValueError("self not on board")
     return v
