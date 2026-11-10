@@ -543,3 +543,45 @@ on the evidence it is a price worth paying against these opponents.
 
 Seeds used in this section: 41, 42, 43 (gap), 51, 52 (audits), 77, 78 (profiles),
 1400, 1500 (suite2).
+
+## 13. The Shield decision mis-priced its own cost; candidate `zr8`
+
+`lab/scratch/l2_loss.py` showed about 0.13 upgraded cells per game lost against
+strong bots (0.20 against mid bots) with the shield ready and not cast. Printing the
+numbers behind those decisions gave two causes.
+
+1. **The price of a turn spiked when the bot was one stay from finishing a job.** The
+   shield's cost is "one turn, plus half a turn per banked stay", and a turn was
+   priced at the best job's gain divided by the work *left* on it. Two stays into an
+   upgrade that is the whole upgrade divided by one turn, about three times a real
+   turn, so at turn 29 the bot judged a shield to cost 555 points and let a
+   base-3 upgraded cell worth 500 go. Fixed (`"fresh_rate": 1`): the tactics price a
+   turn at gain over the full work, banked stays not credited.
+2. **In the last four turns a backfire was charged as if the cell would be lost
+   anyway.** A raider that steps aside needs a move and three stays to come back for
+   an upgraded cell; with fewer than five turns left it cannot. Fixed
+   (`"end_backfire": 1`).
+
+With both, upgraded cells lost with the shield ready fall from 44 to 14 per 312 games
+against strong bots and from 62 to 38 against mid bots (same fixtures, seed 51).
+
+Difference from the home-fixed bot, fresh fixtures:
+
+| seed | strong | mid | weak | mix | self |
+|---|---:|---:|---:|---:|---:|
+| 1600 | -0.003 [-0.03, +0.03] | +0.013 [-0.03, +0.07] | +0.019 [-0.02, +0.06] | +0.022 [-0.01, +0.05] | -0.035 [-0.07, +0.00] |
+| 1700 (x1.5) | -0.002 [-0.01, +0.01] | +0.041 [+0.01, +0.08] | +0.030 [-0.00, +0.06] | -0.011 [-0.04, +0.02] | -0.011 [-0.05, +0.02] |
+
+Small: nothing against strong bots, a few hundredths against mid and weak bots,
+which is where the persistent raiders are. Adopted because both are corrections of
+arithmetic, not tuned values, and no field is significantly worse.
+
+Tried on seed 1600 and not adopted (no gain on any field): trusting "it will stay"
+more after a side-step (`feint_pen` 0.75 and 1.0 instead of 0.5), and using the
+corrected turn price in the planner's tail term (`fresh_tail`).
+
+`zr8` = generation 4 with `homefix`, `fresh_rate`, `end_backfire` on (now the defaults
+in `lab/cand/_tail4.py`; `python3 lab/build.py zr8 gen=4`). `python3 lab/audit.py zr8 40`:
+no exceptions, no illegal actions, worst call 8 ms.
+
+Seeds used in this section: 44, 51, 53 (diagnosis), 1600, 1700 (suite2).

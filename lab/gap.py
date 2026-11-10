@@ -1,5 +1,5 @@
 """Where does the score gap come from in the pairings the focal bot loses?
-  python3 lab/gap.py cand [--field strong|mid|weak] [--maps 60] [--seed 41]
+  python3 lab/gap.py cand [--field strong|mid|weak] [--maps 60] [--seed 41] [--vs RIVAL]
 Every seat is profiled in every game. For each rival that finishes ahead of the focal
 bot, the difference (rival minus focal) is accumulated per profile key, so the table
 shows what the bots that beat us do differently in exactly the games where they do.
@@ -28,12 +28,18 @@ def job(t):
 
 if __name__ == "__main__":
     args = sys.argv[1:]
-    opt = {"--field": "strong", "--maps": "60", "--seed": "41"}
+    opt = {"--field": "strong", "--maps": "60", "--seed": "41", "--vs": None}
     for k in list(opt):
         if k in args:
             i = args.index(k); opt[k] = args[i + 1]; del args[i:i + 2]
     cand = args[0]
     field = suite2.groups()[opt["--field"]]
+    only = opt["--vs"]
+    if only:
+        # every game contains the named rival; the tables count pairings with it alone
+        import random as _r
+        rnd = _r.Random(int(opt["--seed"]))
+        field = [(only, rnd.choice(field), rnd.choice(field)) for _ in range(400)]
     fx = arena.fixtures(field, maps=int(opt["--maps"]), seed=int(opt["--seed"]), families=suite2.FAMS)
     tasks = [dict(f, cand=cand) for f in fx]
     lose = collections.Counter(); nlose = 0
@@ -53,7 +59,7 @@ if __name__ == "__main__":
             bucket = by_pw["bad (PW<=1)" if pw <= 1 else "mid" if pw < 3 else "first"]
             bucket[0] += 1; bucket[1].update(mine)
             for j in range(4):
-                if j == seat:
+                if j == seat or (only and names[j] != only):
                     continue
                 d = profs[j]["score"] - mine["score"]
                 row = by_opp[names[j]]

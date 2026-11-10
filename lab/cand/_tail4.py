@@ -85,7 +85,11 @@ _P = {
                            # cell once it is in range
     "raid_hold": 1.0,      # the same hazard as applied to a cell I am about to take
     "routes": 0,           # among shortest paths, walk through claimable cells
-    "homefix": 0,          # the home cell cannot be taken: no risk on it
+    "homefix": 1,          # the home cell cannot be taken: no risk on it
+    "fresh_rate": 1,       # tactics price a turn without counting stays already banked
+    "fresh_tail": 0,       # the same for the planner's tail term
+    "end_backfire": 1,     # near the end a side-stepping raider has no time to come back
+    "feint_pen": 0.5,      # trust in "it will stay" after each side-step of my shield
     "lag": 0,              # turns a claimed cell is assumed to wait for its upgrade;
                            # 0 = priced as never upgraded (generation 3 behaviour)
     "l1_delay": 0.3,       # share of a level-1 cell's value a shield really saves mid-game
@@ -362,7 +366,8 @@ def _take_value(v, x, c, R, d):
 
 
 def _plan(v, m, x):
-    """Beam search over sequences of jobs. Returns (target, kind, best_rate, stay_gain)."""
+    """Beam search over sequences of jobs.
+    Returns (target, kind, best_rate, stay_gain, turn_rate)."""
     me, at, left = x.me, x.at, x.left
     owner, level, base, home = v.owner, v.level, v.base, v.home
     travel = x.travel
@@ -465,9 +470,10 @@ def _plan(v, m, x):
         return g * raid_exec
 
     if not jobs:
-        return None, None, 0.0, 0.0
+        return None, None, 0.0, 0.0, 0.0
     scored = []
     best_rate = 0.0
+    turn_rate = 0.0             # best rate when banked stays are not credited to this turn
     stay_gain = 0.0
     cu_of = {}
     for k in range(n0, n1):
@@ -491,11 +497,15 @@ def _plan(v, m, x):
             continue
         if rate > best_rate:
             best_rate = rate
+        # a job I am part-way through is not a measure of what one turn is worth
+        fresh = g / (cost + myprog) if (c == at and myprog and job[1] != "C") else rate
+        if fresh > turn_rate:
+            turn_rate = fresh
         if c == at and job[2] == 1:
             stay_gain = max(stay_gain, g)
         scored.append((rate + (1e6 if c == at else 0.0), k))
     if not scored:
-        return None, None, 0.0, 0.0
+        return None, None, 0.0, 0.0, 0.0
     scored.sort(reverse=True)
     index = {}
     short = []
@@ -519,7 +529,7 @@ def _plan(v, m, x):
             excl.append(twin)
             short.append(j)
     nj = len(short)
-    tail_k = _P["tail"] * best_rate / (2.0 * left)
+    tail_k = _P["tail"] * (turn_rate if _P["fresh_tail"] else best_rate) / (2.0 * left)
     # A turn that ran long (slow or busy grading machine) narrows every later search.
     shrink = min(m.slow, 2)
     # Plans are compared at a common time horizon, not a common number of jobs: a fixed
@@ -571,15 +581,15 @@ def _plan(v, m, x):
             if best is None or state[0] > best[0]:
                 best = state
     if best is None:
-        return None, None, best_rate, stay_gain
+        return None, None, best_rate, stay_gain, turn_rate
     job = short[best[5]]
-    return job[0], job[1], best_rate, stay_gain
+    return job[0], job[1], best_rate, stay_gain, turn_rate
 
 
 def _stay_prob(m, r, ctx):
     ps = _ratio(m.st[r][ctx])
     if m.feinted_me[r]:
-        ps *= 0.5 ** m.feinted_me[r]
+        ps *= _P["feint_pen"] ** m.feinted_me[r]
     return min(0.97, max(0.03, ps))
 
 
@@ -589,6 +599,7 @@ def _shield_call(v, m, x, rate, stay_gain):
     benefit = 0.0           # expected points saved or denied by casting now
     miss = 1.0              # chance nobody eligible stays: the cast backfires
     worst = 0.0
+    worst_l1 = False
     imminent = False
     early = None            # a raider one stay short of the decisive turn
     for r in x.rivals:
@@ -622,11 +633,17 @@ def _shield_call(v, m, x, rate, stay_gain):
         benefit += ps * loss
         if loss > worst:
             worst = loss
+            worst_l1 = not lvl
     cost = rate + m.prog[me] * rate * 0.5
     if imminent:
         if left <= 1:
             return benefit > stay_gain
-        backfire = rate if left == 2 else 2.0 * rate + worst
+        if _P["end_backfire"] and left < 5:
+            # frozen for what is left of the game at most; the raider that stepped aside
+            # needs a move and three stays to come back for an upgraded cell
+            backfire = min(2, left - 1) * rate + (worst if worst_l1 else 0.0)
+        else:
+            backfire = rate if left == 2 else 2.0 * rate + worst
         return benefit > _P["shield_margin"] * (cost + miss * backfire)
     if early is not None and _P["early_shield"] > 0.0:
         # Catching a raider one stay before the decisive turn costs the same and denies it
@@ -693,7 +710,9 @@ def _decide(v, m):
     if v.frozen[me] or len(legal) <= 1:
         return stay
     x = _context(v, m)
-    target, kind, rate, stay_gain = _plan(v, m, x)
+    target, kind, rate, stay_gain, turn_rate = _plan(v, m, x)
+    if _P["fresh_rate"]:
+        rate = turn_rate
     action = stay
     if target is not None:
         if target == x.at:
