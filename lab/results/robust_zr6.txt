@@ -1,0 +1,33 @@
+
+== zr6
+condition                              score  errors  verdict
+documented 8x8 Cell objects             3055       0  ok
+flat 64-list of Cell objects            3055       0  ok
+flat 64-list of namedtuples             3055       0  ok
+8x8 rows of namedtuples                 3055       0  ok
+tuple-of-tuples board, tuple legal      3055       0  ok
+cells are dicts                         3055       0  ok
+bools as 0/1 ints                       3055       0  ok
+bot_id as a string                      3055       0  ok
+lower-case action strings               3055       0  ok
+Enum-like action objects                3055       0  ok
+is_priority_token missing               3055       0  ok
+state is a dict                         3055       0  ok
+cells are bare 6-tuples                 3055       0  ok
+everything as strings, flat dicts       3055       0  ok
+homes reported unowned                  3055       0  ok
+SHIELD listed while on cooldown         3055       0  ok
+legal_actions in reverse order          3055       0  ok
+legal list omits occupied cells         3050       0  ok
+homes cannot be upgraded                3055       0  ok
+Shield catches by presence              3008       0  ok
+lost contest is not a STAY              3055       0  ok
+frozen STAY earns progress              3178       0  ok
+claim keeps progress                    3253       0  ok
+fresh module every turn                 2064       0  ok
+second game in the same module          3459       0  ok
+loaded at turn 30 of a running game     2328       0  ok
+one module serving all four seats       2755       0  ok
+                                        2764          (four separate modules, for the row above)
+
+not ok: none
