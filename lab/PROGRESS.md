@@ -326,3 +326,20 @@ Under the alternative rule readings: zero faults, never significantly below curr
   fixtures. That run reports the `zr6` replication whatever it shows and is the test
   of the next candidate. Its plan will be committed before it is run.
 - From here on EXT1 counts as seen: it may be used for diagnosis and development.
+
+## 9. `zr6` shipped as the root `bot.py`
+
+`python3 lab/ship.py zr6 "..."` copies the frozen file to `bot.py` byte for byte
+(SHA-256 `8b87bf82…`) and points `release_manifest.json` at it. The previous release
+is now `tester_bots/guarded_transfer.py` (unchanged bytes, `e8b3682d…`); the tests
+written against its internals run against that file, and its validation record sits
+under `previous_release` in the manifest.
+
+`tests/test_root_bot.py` adds nine contracts for the root bot on the repository's
+independent reference engine: legal and timely answers, input never mutated, exact
+own score / progress / cooldown books over 1,280 self-play callbacks, one module
+playing four seats and a second game, dictionary / string / Enum / bare-tuple inputs,
+and a working fallback when the planner raises. They bind to behaviour, not
+coefficients, so a later candidate ships with `lab/ship.py` alone.
+
+`python3 tools/check_release.py`: 142 tests pass, plus the six interface groups.

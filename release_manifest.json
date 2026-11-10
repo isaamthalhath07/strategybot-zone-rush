@@ -1,7 +1,7 @@
 {
   "format": "zone-rush-consolidated-release/1",
-  "bot_sha256": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
-  "policy": "stay_guarded_resilient",
+  "bot_sha256": "8b87bf8221c5937fc3bd51562850a6ac550a0cec49681640332b19c4ea0144cb",
+  "policy": "lab_zr6",
   "rules": {
     "frozen_stay_counts": false,
     "claim_resets_progress": true,
@@ -11,6 +11,38 @@
     "legal_excludes_occupied": false
   },
   "tester_bots": [
+    {
+      "path": "tester_bots/guarded_transfer.py",
+      "sha256": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+      "label": "Previous release (guarded Transfer)",
+      "source": {
+        "name": "stay_guarded_resilient",
+        "path": "consolidation_candidates/stay_guarded_resilient.py",
+        "sha256": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+        "parent_sha256": "dd26262ba90b7beeab57455bebabffb06f3d3dc32e7525fc59064428ca9252f4",
+        "baseline_stay_solver_sha256": "fe03b8164ed3b4ebd2a04abcdfbb6fa729bdc34dea825088f7e82bf6e5b5ab5e",
+        "changes": [
+          "STAY-only effective action shield inference; excludes active shielders from victims",
+          "stationary commitment learning and valid same-owner cell feints",
+          "known own cast certainty including backfires; conservative public legal-list convention handling",
+          "retain public normalization, failed-job guards and all strategy coefficients",
+          "Retry physically inconsistent own-cast explanations without force; reconcile proven STAY substitution without inventing certainty"
+        ],
+        "rules": {
+          "catch_requires_stay": true
+        },
+        "strategy_weights": "Unchanged Transfer CONFIG",
+        "genome_source_sha256": "fe03b8164ed3b4ebd2a04abcdfbb6fa729bdc34dea825088f7e82bf6e5b5ab5e",
+        "assumption": "On-time legal own request is accepted unless public outcomes rule execution out; indistinguishable unacknowledged substitutions cannot be uniquely identified from four public fields.",
+        "aliases": [
+          {
+            "ref": "observable-fallback-correction",
+            "path": "consolidation_candidates/stay_guarded_resilient.py",
+            "parent_sha256": "dd26262ba90b7beeab57455bebabffb06f3d3dc32e7525fc59064428ca9252f4"
+          }
+        ]
+      }
+    },
     {
       "path": "tester_bots/transfer_previous.py",
       "sha256": "fe03b8164ed3b4ebd2a04abcdfbb6fa729bdc34dea825088f7e82bf6e5b5ab5e",
@@ -275,72 +307,58 @@
       }
     }
   ],
-  "recommendation": "Selected STAY-only Shield planner with public-history tracking and guarded inputs. Moving rivals escape; blocked moves count as STAY. Fresh comparisons are finite and do not guarantee every matchup.",
-  "source": {
-    "name": "stay_guarded_resilient",
-    "path": "consolidation_candidates/stay_guarded_resilient.py",
+  "recommendation": "Lab candidate zr6: exact public-history tracker, hazard-aware planner and adaptive Shield tactics. On 1,344 paired games against opponents it was never developed on it outscored the previous release by 0.26 rivals per game (95% interval 0.20 to 0.33). Against strong unseen bots the lead is not established.",
+  "previous_release": {
+    "path": "tester_bots/guarded_transfer.py",
     "sha256": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
-    "parent_sha256": "dd26262ba90b7beeab57455bebabffb06f3d3dc32e7525fc59064428ca9252f4",
-    "baseline_stay_solver_sha256": "fe03b8164ed3b4ebd2a04abcdfbb6fa729bdc34dea825088f7e82bf6e5b5ab5e",
-    "changes": [
-      "STAY-only effective action shield inference; excludes active shielders from victims",
-      "stationary commitment learning and valid same-owner cell feints",
-      "known own cast certainty including backfires; conservative public legal-list convention handling",
-      "retain public normalization, failed-job guards and all strategy coefficients",
-      "Retry physically inconsistent own-cast explanations without force; reconcile proven STAY substitution without inventing certainty"
-    ],
-    "rules": {
-      "catch_requires_stay": true
-    },
-    "strategy_weights": "Unchanged Transfer CONFIG",
-    "genome_source_sha256": "fe03b8164ed3b4ebd2a04abcdfbb6fa729bdc34dea825088f7e82bf6e5b5ab5e",
-    "assumption": "On-time legal own request is accepted unless public outcomes rule execution out; indistinguishable unacknowledged substitutions cannot be uniquely identified from four public fields.",
-    "aliases": [
-      {
-        "ref": "observable-fallback-correction",
-        "path": "consolidation_candidates/stay_guarded_resilient.py",
-        "parent_sha256": "dd26262ba90b7beeab57455bebabffb06f3d3dc32e7525fc59064428ca9252f4"
-      }
-    ]
-  },
-  "validation": {
-    "model": "effective-STAY Shield only",
-    "screen_games": 840,
-    "balanced_selection_games": 1536,
-    "frozen_final_games": 2304,
-    "recovery_followup_games": 1152,
-    "total_games": 5832,
-    "timed_callbacks": 1866240,
-    "worker_faults": 0,
-    "followup_games_per_variant": 576,
-    "followup_mean_pw": 1.7300347222222223,
-    "followup_max_ms": 2.0154000958427787,
-    "followup": "validation/official/followup_results.json.summary.json",
-    "rules": "validation/official/rule_contract.json",
-    "review": "validation/official/REVIEW.md",
-    "historical_presence_evidence": "validation/REPORT.md",
-    "tests": 133,
-    "offline_ui_groups": 6,
-    "recorded_public_action_equivalence_pairs": 61440,
-    "followup_advantage": {
-      "first": "stay_guarded_resilient",
-      "second": "stay_guarded_research_resilient",
-      "mean": 0.2309027777777778,
-      "clusters": 12,
-      "bootstrap_95": [
-        -0.024305555555555563,
-        0.49392361111111116
-      ]
-    },
-    "interpretation": "Moving rivals are immune, even on same-owner land; blocked moves count as STAY. Legal timely requests are assumed accepted unless public evidence proves substitution.",
-    "concurrent_ultimate_check": {
-      "games": 576,
-      "mean_pw": 1.3446180555555556,
+    "policy": "stay_guarded_resilient",
+    "recommendation": "Selected STAY-only Shield planner with public-history tracking and guarded inputs. Moving rivals escape; blocked moves count as STAY. Fresh comparisons are finite and do not guarantee every matchup.",
+    "validation": {
+      "model": "effective-STAY Shield only",
+      "screen_games": 840,
+      "balanced_selection_games": 1536,
+      "frozen_final_games": 2304,
+      "recovery_followup_games": 1152,
+      "total_games": 5832,
+      "timed_callbacks": 1866240,
       "worker_faults": 0,
-      "results": "validation/official/ultimate_results.json.summary.json",
-      "promoted": false
-    },
-    "total_games_including_concurrent_control": 6408,
-    "timed_callbacks_including_concurrent_control": 2050560
+      "followup_games_per_variant": 576,
+      "followup_mean_pw": 1.7300347222222223,
+      "followup_max_ms": 2.0154000958427787,
+      "followup": "validation/official/followup_results.json.summary.json",
+      "rules": "validation/official/rule_contract.json",
+      "review": "validation/official/REVIEW.md",
+      "historical_presence_evidence": "validation/REPORT.md",
+      "tests": 133,
+      "offline_ui_groups": 6,
+      "recorded_public_action_equivalence_pairs": 61440,
+      "followup_advantage": {
+        "first": "stay_guarded_resilient",
+        "second": "stay_guarded_research_resilient",
+        "mean": 0.2309027777777778,
+        "clusters": 12,
+        "bootstrap_95": [
+          -0.024305555555555563,
+          0.49392361111111116
+        ]
+      },
+      "interpretation": "Moving rivals are immune, even on same-owner land; blocked moves count as STAY. Legal timely requests are assumed accepted unless public evidence proves substitution.",
+      "concurrent_ultimate_check": {
+        "games": 576,
+        "mean_pw": 1.3446180555555556,
+        "worker_faults": 0,
+        "results": "validation/official/ultimate_results.json.summary.json",
+        "promoted": false
+      },
+      "total_games_including_concurrent_control": 6408,
+      "timed_callbacks_including_concurrent_control": 2050560
+    }
+  },
+  "source": {
+    "name": "zr6",
+    "path": "lab/cand/zr6.py",
+    "sha256": "8b87bf8221c5937fc3bd51562850a6ac550a0cec49681640332b19c4ea0144cb",
+    "bytes": 39029,
+    "built_by": "python3 lab/build.py zr6"
   }
 }

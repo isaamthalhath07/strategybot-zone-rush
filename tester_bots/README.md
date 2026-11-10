@@ -6,6 +6,7 @@ change the physics. No deliberately broken control is retained.
 
 | File | Role |
 |---|---|
+| `guarded_transfer.py` | The release before the lab bot (guarded Transfer, SHA-256 `e8b3682d…`). 2.313 rivals outscored over the 1,344 pooled out-of-sample games in `lab/results/test_ext1.txt`, against 2.575 for the current root bot. |
 | `transfer_previous.py` | Strong repaired STAY-only baseline; matched the first guarded Transfer across the 128 balanced and 384 earlier frozen current-rule games. |
 | `research_alternative.py` | Corrected guarded research genome: 1.4991 mean rivals outscored over 576 latest fresh current-rule games. Same implementation as the release apart from frozen strategic weights. |
 | `ultimate.py` | Concurrent experimental engine: 1.3446 on the same 576 current-rule follow-up fixtures. Preserved unchanged; its rule inference remains approximate. |
