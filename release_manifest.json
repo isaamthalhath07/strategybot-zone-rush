@@ -1,6 +1,6 @@
 {
  "format": "zone-rush-consolidated-release/1",
- "bot_sha256": "5b448c787cf63bb9c30d35ea635974ca0b8956e87973b771be7a616e9e6dee7b",
+ "bot_sha256": "ba116eb2fa76065545dd0f741044b241b37e51c7b15c057f674aa5b6d87b8d6f",
  "policy": "adaptive_raider",
  "rules": {
   "frozen_stay_counts": false,

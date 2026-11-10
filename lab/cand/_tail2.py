@@ -20,14 +20,14 @@ _LOSS2 = ((0, 0, 0, 0, .012, .025, .037, .059),
           (0, 0, 0, 0, 0, 0, 0, 0))
 
 
-def _curve(loss):
+def _curve(loss, knots=_KNOTS):
     out = [0.0] * 83
-    for k in range(len(_KNOTS) - 1):
-        a, b = _KNOTS[k], _KNOTS[k + 1]
+    for k in range(len(knots) - 1):
+        a, b = knots[k], knots[k + 1]
         for h in range(a, b + 1):
             out[h] = loss[k] + (loss[k + 1] - loss[k]) * (h - a) / float(b - a)
-    slope = (loss[-1] - loss[-2]) / 8.0
-    for h in range(21, 83):
+    slope = (loss[-1] - loss[-2]) / float(knots[-1] - knots[-2])
+    for h in range(knots[-1] + 1, 83):
         slope *= 0.97
         out[h] = min(0.95, out[h - 1] + slope)
     return out
@@ -50,6 +50,18 @@ def _tables(rows):
 _PL1, _SL1 = _tables(_LOSS1)
 _PL2, _SL2 = _tables(_LOSS2)
 
+# P(a neutral cell is claimed by a rival within h turns) by distance to the nearest rival,
+# same population (lab/scratch/neutral_stats.py). Knots at h = 0,1,2,3,4,6,8,12,20.
+_NKNOTS = (0, 1, 2, 3, 4, 6, 8, 12, 20)
+_TAKEN = [None] + [_curve(row, _NKNOTS) for row in (
+    (0, 0, .115, .205, .265, .383, .407, .451, .520),
+    (0, 0, 0, .009, .034, .066, .137, .228, .328),
+    (0, 0, 0, 0, .003, .019, .039, .099, .212),
+    (0, 0, 0, 0, 0, .003, .013, .042, .135),
+    (0, 0, 0, 0, 0, .001, .005, .025, .092),
+    (0, 0, 0, 0, 0, 0, .001, .015, .073),
+    (0, 0, 0, 0, 0, 0, 0, .003, .045))]
+
 # Tunables. Each is a quantity with a meaning, set from the population measurements or
 # simple reasoning and then sanity-checked on development opponents (never on hold-outs).
 _P = {
@@ -67,6 +79,7 @@ _P = {
     "shields": 1,
     "feints": 1,
     "early_shield": 0.5,   # chance of shielding one stay early when both timings look equal
+    "contest": 0.0,        # discount for claim races; measured, no gain, left off
 }
 
 
@@ -163,6 +176,52 @@ def _context(v, m):
     return x
 
 
+def _first_step(v, x, target):
+    """First move of a shortest path to `target` that passes the most claimable value.
+
+    Many shortest paths exist on a grid. Walking through neutral cells keeps the option
+    of claiming them on the way; hugging an edge of cheap cells throws it away.
+    """
+    at = x.at
+    need = x.travel[target]
+    if need <= 1 or need >= 99:
+        return x.first[target]
+    me = x.me
+    owner, base, occupied = v.owner, v.base, x.occupied
+    dist_t = _DIST[target]
+    if dist_t[at] != need:
+        return x.first[target]          # the direct box is blocked: keep the detour BFS found
+    memo = {target: 0.0}
+
+    def best(c):
+        got = memo.get(c)
+        if got is not None:
+            return got
+        dc = dist_t[c]
+        top = -1e9
+        for t in _NB[c]:
+            if dist_t[t] == dc - 1 and (t not in occupied or t == target):
+                val = best(t)
+                if val > top:
+                    top = val
+        worth = 0.0
+        if c != at:
+            if owner[c] == 0:
+                worth = base[c]
+            elif owner[c] == me and not v.level[c]:
+                worth = 0.3 * base[c]
+        memo[c] = top + worth
+        return memo[c]
+
+    choice, top = None, -1e9
+    for a, t in _ADJ[at]:
+        if a in v.legal and t not in occupied and dist_t[t] == need - 1:
+            val = best(t)
+            if val > top:
+                choice, top = a, val
+    return choice or x.first[target]
+
+
 def _hold1(v, x, c, R):
     """Expected points from owning cell c at level 1 for its last R scoring turns."""
     d = x.rd[c]
@@ -250,6 +309,7 @@ def _plan(v, m, x):
     myprog = m.prog[me]
     w = x.w
     raid_exec = _P["raid_exec"]
+    contest = _P["contest"]
     # jobs: [cell, kind, work, prerequisite, extra]
     jobs = []
     for c in range(64):
@@ -295,23 +355,32 @@ def _plan(v, m, x):
         if jobs[k][1] == "C":
             jobs.append([jobs[k][0], "U", 3, k, None])
 
-    def gain(job, k_used):
-        """Value of finishing `job` after k_used steps (this turn counts as step 1)."""
+    def gain(job, k_used, here=False):
+        """Value of finishing `job` after k_used steps (this turn counts as step 1).
+
+        `here` means the plan is already standing on the cell when the job starts.
+        """
         c, kind = job[0], job[1]
         R = left - k_used + 1
         if R <= 0:
             return -1.0
         if kind == "C":
-            return _hold1(v, x, c, R)
+            g = _hold1(v, x, c, R)
+            if k_used > 1 and contest:
+                # a rival may get there first; most of the trip is then wasted
+                g *= 1.0 - contest * _TAKEN[x.rd[c] if x.rd[c] < 7 else 7][k_used - 1]
+            return g
         if kind == "U":
+            up = _hold2(v, x, c, R) - _hold1(v, x, c, R)
+            if here:
+                return up               # nobody can enter a cell while we stand on it
             d = x.rd[c]
             r = x.rr[c]
             kk = x.rho[r] if r else 1.0
-            wait = k_used if job[3] < 0 else 3
-            keep = 1.0 - kk * _PL1[d][wait]
+            keep = 1.0 - kk * _PL1[d][k_used]
             if keep < 0.05:
                 keep = 0.05
-            return keep * (_hold2(v, x, c, R) - _hold1(v, x, c, R))
+            return keep * up
         p_now, p_late, delay, tgt, d = job[4]
         g = p_now * _take_value(v, x, tgt, R, d)
         if p_late > 0.0 and R - delay > 0:
@@ -329,7 +398,7 @@ def _plan(v, m, x):
         cost = travel[c] + job[2]
         if cost > left:
             continue
-        g = gain(job, cost)
+        g = gain(job, cost, c == at)
         if g <= 0.0:
             continue
         rate = g / cost
@@ -382,7 +451,7 @@ def _plan(v, m, x):
                 k_used = used + (travel[c] if used == 0 else drow[c]) + job[2]
                 if k_used > left:
                     continue
-                g = gain(job, k_used)
+                g = gain(job, k_used, c == pos)
                 if g <= 0.0:
                     continue
                 grew = True
@@ -528,7 +597,7 @@ def _decide(v, m):
     target, kind, rate, stay_gain = _plan(v, m, x)
     action = stay
     if target is not None:
-        action = "STAY" if target == x.at else (x.first[target] or stay)
+        action = "STAY" if target == x.at else (_first_step(v, x, target) or stay)
     can_shield = ("SHIELD" in legal) and m.cd[me] == 0
     if can_shield and _P["shields"] and _shield_call(v, m, x, rate, stay_gain if action == "STAY" else 0.0):
         return "SHIELD"
