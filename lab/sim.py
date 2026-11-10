@@ -81,7 +81,8 @@ def resolve(name):
         return ("legacy", name[7:])
     if os.path.isabs(name) and os.path.exists(name):
         return ("file", name)
-    for folder in (POOL, os.path.join(ROOT, "lab", "fresh"), os.path.join(ROOT, "lab", "cand"),
+    for folder in (POOL, os.path.join(ROOT, "lab", "ext"), os.path.join(ROOT, "lab", "stress"),
+                   os.path.join(ROOT, "lab", "fresh"), os.path.join(ROOT, "lab", "cand"),
                    os.path.join(ROOT, "lab", "holdout")):
         path = os.path.join(folder, name + ".py")
         if os.path.exists(path):
@@ -222,7 +223,36 @@ def make_map(family, seed):
                 row.append(max(1, min(3, int(round(v)))))
             q.append(row)
         return mirror(q)
+    # ---- families below were added for the final test and never used in development
+    if family == "flat":          # every cell worth the same
+        v = rnd.choice((1, 2, 3))
+        return mirror([[v] * 4 for _ in range(4)])
+    if family == "centre":        # only the middle of the board is rich
+        q = [[(3 if r >= 2 and c >= 2 else rnd.choice((1, 1, 2))) for c in range(4)] for r in range(4)]
+        return mirror(q)
+    if family == "edges":         # the rim is rich, the interior poor
+        q = [[(3 if r == 0 or c == 0 else rnd.choice((1, 1, 2))) for c in range(4)] for r in range(4)]
+        return mirror(q)
+    if family == "stripes":
+        hi = rnd.randrange(2)
+        q = [[(3 if r % 2 == hi else 1) for c in range(4)] for r in range(4)]
+        return mirror(q)
+    if family == "checker":
+        hi = rnd.randrange(2)
+        q = [[(3 if (r + c) % 2 == hi else 1) for c in range(4)] for r in range(4)]
+        return mirror(q)
+    if family == "sparse":        # poor land with a few jackpots
+        q = [[1] * 4 for _ in range(4)]
+        for _ in range(rnd.choice((2, 3))):
+            q[rnd.randrange(4)][rnd.randrange(4)] = 3
+        return mirror(q)
+    if family == "rich":          # nearly everything is a 3
+        q = [[3] * 4 for _ in range(4)]
+        for _ in range(rnd.choice((2, 3, 4))):
+            q[rnd.randrange(4)][rnd.randrange(4)] = rnd.choice((1, 2))
+        return mirror(q)
     raise ValueError(family)
 
 
 FAMILIES = ("example", "gradient", "gradient", "noisy", "uniform", "richhome", "ring")
+NEW_FAMILIES = ("flat", "centre", "edges", "stripes", "checker", "sparse", "rich")

@@ -126,3 +126,28 @@ interface with a fresh process per game.
 
 A development-only sensitivity sweep (`lab/sensitivity.py`) is running; results in
 the next entry.
+
+## 5. Opponents the candidate has never met
+
+Built before freezing the candidate; no candidate game has been played against any
+of them.
+
+- `lab/ext/` (`python3 lab/make_ext.py`): **85 bots from this repository's history
+  that were never in `lab/pool`**: 20 pasted from ChatGPT and Gemini, 42 generated
+  challengers from 12 families the pool has no member of, 6 evolution-league rival
+  types, 8 "outsider" designs, 2 independent challengers, 6 human-like exploiters
+  and Zenith. Split once (seed 20261111) into EXT1, 40 bots for the test, and EXT2,
+  45 bots held in reserve. Generated families were split whole.
+- `lab/stress/` (`python3 lab/make_stress.py`): 14 new bots on one small economy,
+  differing only in Shield habit (never, on sight, decisive, a stay early, coin
+  flip, mixed) and raid habit (none, level-1 only, everything, feint, endgame only,
+  grudge, cooldown sniping, swarm). They exist to break the assumptions an adaptive
+  bot leans on.
+- `lab/sim.py`: seven new map families reserved for the test (`flat`, `centre`,
+  `edges`, `stripes`, `checker`, `sparse`, `rich`). Development fixtures are
+  unchanged by the edit (checked).
+- Smoke run against development bots only: all 85 external and 14 stress bots load
+  and play with zero faults.
+- `lab/final_test.py`: the test runner. Four focal bots (candidate, current
+  `bot.py`, Racer, Blocker) on identical fixtures over nine fields, plus five
+  alternative rule readings.
