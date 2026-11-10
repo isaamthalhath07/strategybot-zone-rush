@@ -85,6 +85,9 @@ _P = {
                            # cell once it is in range
     "raid_hold": 1.0,      # the same hazard as applied to a cell I am about to take
     "routes": 0,           # among shortest paths, walk through claimable cells
+    "homefix": 0,          # the home cell cannot be taken: no risk on it
+    "lag": 0,              # turns a claimed cell is assumed to wait for its upgrade;
+                           # 0 = priced as never upgraded (generation 3 behaviour)
     "l1_delay": 0.3,       # share of a level-1 cell's value a shield really saves mid-game
     "shield_margin": 1.0,  # shield when benefit exceeds margin * cost
     "raids": 1,            # switches for ablation
@@ -292,11 +295,15 @@ def _risk1(x, c, taken=False):
 
 
 def _hold1(v, x, c, R, taken=False):
+    if v.home[c] and _P["homefix"]:
+        return v.base[c] * float(R)
     pl, sl, wv = _risk1(x, c, taken)
     return v.base[c] * (R - sl[R] * (1.0 + wv) - 8.0 * wv * pl[R])
 
 
 def _hold2(v, x, c, R):
+    if v.home[c] and _P["homefix"]:
+        return v.base[c] * 2.0 * R
     d = x.rd[c]
     r = x.rr[c]
     k = x.rho[r] if r else 1.0
@@ -412,6 +419,24 @@ def _plan(v, m, x):
         if jobs[k][1] == "C":
             jobs.append([jobs[k][0], "U", 3, k, None])
 
+    # A claimed cell is not left un-upgraded for the rest of the game: sooner or later it
+    # gets its upgrade and is then nearly safe. So a level-1 cell is priced as exposed for
+    # `lag` turns and protected after that, instead of exposed to the end. The upgrade's
+    # own gain is what it adds on top of that. lag = 0 keeps the old "exposed for ever".
+    lag = _P["lag"]
+    own_cache = {}
+
+    def own1(c, R):
+        """Value of holding c at level 1 from now with R turns left."""
+        if lag <= 0 or R <= lag or home[c]:
+            return _hold1(v, x, c, R)
+        val = own_cache.get(c * 128 + R)
+        if val is None:
+            pl, sl, wv = _risk1(x, c)
+            gone = sl[lag] + (R - lag) * pl[lag]        # expected turns without the cell
+            val = own_cache[c * 128 + R] = base[c] * (R - gone * (1.0 + wv) - 8.0 * wv * pl[lag])
+        return val
+
     def gain(job, k_used):
         """Value of finishing `job` after k_used steps (this turn counts as step 1)."""
         c, kind = job[0], job[1]
@@ -419,7 +444,7 @@ def _plan(v, m, x):
         if R <= 0:
             return -1.0
         if kind == "C":
-            return _hold1(v, x, c, R)
+            return own1(c, R)
         if kind == "CU":
             # three turns of level-1 income while standing on it, then level 2
             return 3.0 * base[c] + _hold2(v, x, c, R)
@@ -430,7 +455,7 @@ def _plan(v, m, x):
             keep = 1.0 - _risk1(x, c)[0][wait if wait > 0 else 0]
             if keep < 0.05:
                 keep = 0.05
-            return keep * (_hold2(v, x, c, R) - _hold1(v, x, c, R))
+            return keep * (_hold2(v, x, c, R) - own1(c, R))
         p_now, p_late, delay, tgt, d = job[4]
         g = p_now * _take_value(v, x, tgt, R, d)
         if p_late > 0.0 and R - delay > 0:
