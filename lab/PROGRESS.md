@@ -443,3 +443,41 @@ one risk for both.
 
 Not yet done, and the numbers above are development numbers on seen opponents:
 more than half of the remaining losses fall in the last ten turns.
+
+## 11. Generation 4 starts from `zr7h`; two ideas from a parallel line checked and not adopted
+
+A parallel line of work (kept in commit 1c2f7e2, candidate `zr9old`) had three changes
+on top of the `zr6` design: full upgrade value for the cell the bot is standing on,
+clamped loss probabilities, and "value-aware routes" (among equally short paths to the
+target, walk the one that passes the most claimable land). Before building on either
+line, both were measured on the same fresh fixtures.
+
+Seed 1200, difference from the shipped `zr6` (`python3 lab/suite2.py --seed 1200 --self zr7h zr9old zr7h`):
+
+| | strong | mid | weak | mix | self |
+|---|---:|---:|---:|---:|---:|
+| `zr6` (PW) | 2.109 | 2.628 | 2.865 | 2.486 | 1.965 |
+| `zr9old` | +0.072 [-0.06, +0.21] | -0.032 | -0.019 | +0.010 | +0.016 |
+| `zr7h` | +0.104 [-0.06, +0.25] | +0.032 | -0.051 [-0.12, +0.01] | +0.072 | +0.122 |
+
+`zr7h` is at least as good everywhere that matters, so generation 3 is the base.
+Note the strong-field gain of `zr7h` on this seed (+0.10) is half the +0.22 seen on
+seed 900 where it was developed: the usual shrinkage, and a reminder of its size.
+
+Generation 4 (`lab/cand/_head4.py`, `_tail4.py`; `python3 lab/build.py NAME gen=4`)
+is generation 3 plus optional features, each behind a setting that defaults to off.
+`zr8a_r0` (gen 4, everything off) is move-for-move identical to `zr7h`
+(`python3 lab/equiv.py zr7h zr8a_r0 --maps 10`: 40/40 games, 3,200 decisions).
+
+Value-aware routes on the generation 3 base, seed 1300, difference from `zr7h`
+(`python3 lab/suite2.py --ref zr7h --seed 1300 --self zr8a zr8a`):
+
+| | strong | mid | weak | mix | self |
+|---|---:|---:|---:|---:|---:|
+| `zr7h` (PW) | 2.373 | 2.545 | 2.853 | 2.591 | 2.244 |
+| routes on | **-0.051 [-0.09, -0.02]** | +0.045 [-0.01, +0.10] | +0.013 [-0.01, +0.04] | +0.010 [-0.02, +0.04] | -0.010 [-0.07, +0.06] |
+
+Not adopted: slightly but clearly worse against strong bots, no clear gain elsewhere.
+The setting stays in the file, off (`"routes": 0`).
+
+Seeds used in this section: 1200, 1300.
