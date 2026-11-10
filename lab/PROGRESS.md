@@ -244,3 +244,85 @@ was left unchanged so the test measures the candidate as designed.
 `8b87bf8221c5937fc3bd51562850a6ac550a0cec49681640332b19c4ea0144cb`. It passes all
 27 rows of `lab/robust.py` (`lab/results/robust_zr6.txt`).
 `lab/PREREGISTRATION.md` is now in force. No test game has been played.
+
+## 8. The out-of-sample test (EXT1): result and decision
+
+`python3 lab/final_test.py --set EXT1 --out lab/results/test_ext1.json`, run once on
+the frozen `zr6` exactly as pre-registered. 10,240 games, 0 faults by any focal bot,
+0 games that failed to run. Full table: `lab/results/test_ext1.txt`; per-game data:
+`lab/results/test_ext1.json`.
+
+| Field (192 games each) | `zr6` | current `bot.py` | Racer | Blocker | `zr6` minus current (95%) | minus Racer | minus Blocker |
+|---|---:|---:|---:|---:|---|---|---|
+| `holdout_elite` | 1.76 | 1.63 | 1.75 | 1.72 | +0.14 [-0.16, +0.43] | +0.01 [-0.30, +0.35] | +0.05 [-0.26, +0.38] |
+| `holdout_rest` | 2.68 | 2.49 | 2.62 | 2.63 | +0.19 [+0.06, +0.31] | +0.06 [-0.07, +0.18] | +0.05 [-0.07, +0.17] |
+| `ai_pasted` | 2.93 | 2.85 | 2.85 | 2.89 | +0.08 [+0.01, +0.15] | +0.07 [+0.01, +0.15] | +0.04 [-0.03, +0.11] |
+| `generated` | 2.84 | 2.28 | 2.60 | 2.51 | +0.56 [+0.42, +0.71] | +0.24 [+0.14, +0.34] | +0.33 [+0.23, +0.43] |
+| `other_designs` | 2.38 | 2.31 | 2.40 | 2.39 | +0.07 [-0.08, +0.21] | -0.02 [-0.18, +0.14] | -0.02 [-0.17, +0.14] |
+| `stress` | 2.81 | 2.32 | 2.61 | 2.64 | +0.49 [+0.34, +0.62] | +0.20 [+0.09, +0.31] | +0.17 [+0.07, +0.28] |
+| `unseen_mixed` | 2.64 | 2.32 | 2.52 | 2.54 | +0.32 [+0.19, +0.44] | +0.12 [+0.02, +0.21] | +0.10 [-0.00, +0.20] |
+| **Pooled** (1,344 games) | **2.575** | 2.313 | 2.478 | 2.472 | **+0.262 [+0.20, +0.33]** | **+0.097 [+0.04, +0.16]** | **+0.102 [+0.04, +0.16]** |
+| known map families | 2.62 | 2.37 | 2.54 | 2.51 | +0.25 [+0.18, +0.34] | +0.08 [+0.01, +0.15] | +0.11 [+0.04, +0.18] |
+| new map families | 2.52 | 2.24 | 2.40 | 2.42 | +0.27 [+0.17, +0.38] | +0.12 [+0.01, +0.23] | +0.09 [-0.01, +0.20] |
+| `unseen_all` | 2.76 | 2.38 | 2.56 | 2.54 | +0.38 [+0.25, +0.50] | +0.19 [+0.10, +0.29] | +0.21 [+0.10, +0.31] |
+| `with_candidate` | 1.95 | 1.83 | 1.93 | 1.81 | +0.13 [-0.10, +0.34] | +0.02 [-0.21, +0.24] | +0.15 [-0.08, +0.37] |
+
+Alternative rule readings (64 games each, `unseen_mixed` opponents): `zr6` minus
+current `bot.py` is +0.13, +0.23, +0.09, +0.20, +0.38; no interval is below zero.
+
+### The shipping rule, applied as written
+
+| # | Condition | Result |
+|---|---|---|
+| 1 | Pooled lead over current `bot.py`, lower bound above 0 | +0.262 [+0.20, +0.33]: **holds** |
+| 2 | Pooled lead over Racer and over Blocker, lower bounds above 0 | +0.097 [+0.04, +0.16] and +0.102 [+0.04, +0.16]: **holds** |
+| 3 | No field significantly below a reference | none: **holds** |
+| 4 | Lead over current positive on known and on new map families | +0.25 and +0.27: **holds** |
+| 5 | Zero faults, zero failed games | **holds** |
+| 6 | Pooled lead at least half the development lead (+0.16) | +0.262: **holds** |
+
+Under the alternative rule readings: zero faults, never significantly below current.
+**Decision: `zr6` replaces the root `bot.py`.**
+
+### What the test also shows (the part that matters for the next step)
+
+1. **The lead is real but it is made against weak and mid-strength bots.** On the
+   `generated` and `stress` fields `zr6` is +0.5 over the current bot. Against the
+   strong unseen bots (`holdout_elite`, `other_designs`) its lead over the current
+   bot is +0.14 and +0.07 with intervals spanning zero, and over Racer and Blocker
+   it is zero.
+2. **The development lead on strong bots did not carry over.** Development said
+   +0.55 over the current bot on the elite field (+0.37 on fresh development seeds);
+   unseen strong bots give +0.14. Section 7 found that 0.3 of the development elite
+   lead came from the prior over how those particular bots use Shield. That part was
+   fitted to the development bots, and this is the measurement of it.
+3. **Against strong bots `zr6` scores fewer raw points than the references and
+   places level with them anyway**: mean score 2,853 vs 2,871 to 2,879 on
+   `holdout_elite`, 2,858 vs 2,903 to 2,938 on `other_designs`. It trades its own
+   income for damage to rivals. Against strong bots that trade only breaks even.
+4. **Every strong bot beats the pasted ChatGPT and Gemini bots almost every game**
+   (2.85 to 2.93 of 3). If other teams submit one-shot AI bots, any of these four
+   wins; places are decided among the teams that iterated, i.e. on the strong fields.
+5. **Map families:** `zr6` leads on 10 of 13 families. It trails Racer and Blocker on
+   `flat` (2.27 vs 2.41 / 2.35), `rich` (2.30 vs 2.37 / 2.42) and `edges` (2.32 vs
+   2.37 / 2.39): maps where most cells are worth the same and claiming land fast
+   matters more than which land. 84 games per family, so these are leads to look
+   into, not established facts.
+6. **The hazard change (`zr6` vs `zr5`) made no measurable difference out of
+   sample:** pooled +0.012 [-0.03, +0.05]. Under the presence-catch rule reading
+   `zr6` was below `zr5` (-0.20 [-0.38, -0.05], 64 games, one of five readings
+   examined, so possibly chance; it is not the confirmed rule).
+
+### Deviations from the pre-registration
+
+- Before the test was started, one game was played with `zr6` against `x_zenith`,
+  `x_hx_aggro` (EXT1) and `x_outsider_sim` (EXT2) on development map `gradient/1`, to
+  time a game. The candidate was already frozen and was not changed; no decision
+  used that game. It is the only contact with any EXT2 bot so far.
+- **The EXT2 replication is deferred, not dropped.** The pre-registration says to
+  run the identical plan on EXT2 after shipping. EXT2 is the only untouched opponent
+  set left, and the work continues beyond `zr6` (finding 1 says where). EXT2 will be
+  run once, on the next frozen candidate, with `zr6` among the focal bots on the same
+  fixtures. That run reports the `zr6` replication whatever it shows and is the test
+  of the next candidate. Its plan will be committed before it is run.
+- From here on EXT1 counts as seen: it may be used for diagnosis and development.
