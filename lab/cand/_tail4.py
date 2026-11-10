@@ -455,7 +455,9 @@ def _plan(v, m, x):
             keep = 1.0 - _risk1(x, c)[0][wait if wait > 0 else 0]
             if keep < 0.05:
                 keep = 0.05
-            return keep * (_hold2(v, x, c, R) - own1(c, R))
+            # A cell claimed earlier in this plan was credited own1; one I already hold
+            # is compared with never upgrading it, which keeps upgrades from being put off.
+            return keep * (_hold2(v, x, c, R) - (_hold1(v, x, c, R) if job[3] < 0 else own1(c, R)))
         p_now, p_late, delay, tgt, d = job[4]
         g = p_now * _take_value(v, x, tgt, R, d)
         if p_late > 0.0 and R - delay > 0:

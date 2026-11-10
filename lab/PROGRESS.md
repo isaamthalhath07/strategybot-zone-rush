@@ -481,3 +481,65 @@ Not adopted: slightly but clearly worse against strong bots, no clear gain elsew
 The setting stays in the file, off (`"routes": 0`).
 
 Seeds used in this section: 1200, 1300.
+
+## 12. Where `zr7h` still loses, and two changes to how land is priced
+
+### Diagnosis (new tools: `lab/gap.py`, `lab/scratch/l2_loss.py`, `waste.py`, `opening.py`)
+
+- `python3 lab/gap.py zr7h --field strong|mid|weak` profiles every seat in every game
+  and compares the focal bot with exactly the rivals that finished ahead of it. In
+  the pairings `zr7h` loses, the rival is not raiding better: it has less raid bonus
+  than `zr7h`. It simply was left alone (0.4 cells lost against our 1.6, no shields
+  needed) and spent those turns on claims and upgrades. `zr7h`'s bad games are the
+  ones in which it is raided repeatedly (about 3 cells lost, one of them upgraded,
+  4 shields cast).
+- Upgraded cells (`l2_loss.py`, 0.47 lost per game against strong bots): half fall
+  while the shield is recharging after catching a different raider, a fifth after
+  the raider side-stepped a shield (backfire), a fifth with the shield ready and not
+  used. Not pursued yet.
+- Wasted turns (`waste.py`): the 2 abandoned progress points per game are almost all
+  deliberate side-steps on turns the landlord did shield. Nothing to recover there.
+- **Opening** (`opening.py`: each bot alone against three bots that never move; the
+  position's worth at turn 27 is score + income x turns left). `zr7h` had the slowest
+  opening of all the strong bots: 1,966 against Racer 2,054 and `zr6` 2,243. Two
+  causes, both visible in the move traces:
+  1. it upgraded its **home cell first**. The home cell cannot be taken, but the
+     risk model priced it like any other un-upgraded cell, which made "upgrade home"
+     look like rescuing a cell about to be lost;
+  2. it walks over cheap cells near home without claiming them, because a claim is
+     priced as "held un-upgraded, and exposed, for the rest of the game".
+
+### Change 1, adopted: no risk on the home cell (`"homefix": 1`)
+
+A modelling error, fixed. Difference from `zr7h`, fresh fixtures:
+
+| seed | strong | mid | weak | mix | self |
+|---|---:|---:|---:|---:|---:|
+| 1400 | +0.040 [-0.03, +0.11] | +0.032 [-0.03, +0.10] | +0.006 [-0.03, +0.04] | +0.014 [-0.04, +0.07] | +0.115 [-0.03, +0.29] |
+| 1500 | +0.104 [+0.03, +0.18] | +0.032 [-0.04, +0.12] | -0.026 [-0.07, +0.02] | +0.043 [-0.03, +0.13] | +0.090 [+0.00, +0.18] |
+
+### Change 2, not adopted: price a claim as exposed for `lag` turns, then upgraded
+
+Three versions were tried.
+
+- Charging the three future upgrade turns at last turn's best rate: the price fed
+  back into itself from one turn to the next and the bot dithered. Dropped before
+  any real-game run.
+- Exposure cut off after `lag` turns for every un-upgraded cell (seed 1400): the
+  undisturbed opening jumps to 2,308, but in real games it is a disaster,
+  **strong -1.11 (lag 8), -0.73 (lag 16)**, mid -0.21 / -0.12. Upgrades of cells
+  already held looked less urgent, were put off, and 4.6 un-upgraded cells per game
+  were raided. This is the `zr6` leak again, and a clean measurement of how hard
+  the known strong bots punish exposed land.
+- Exposure cut off only for a claim made inside the current plan, full urgency for
+  cells already held (seed 1500, difference from the home-fixed bot): the opening
+  now equals Racer's (2,050) and a first look on development seed 78 said +0.10 on
+  strong, but the fresh seed says strong -0.04 / -0.03 / +0.02 (lag 6 / 10 / 16),
+  mid -0.03 / -0.02 / -0.01, weak -0.05 / -0.04 / -0.01. No gain. The setting stays in
+  the file, off (`"lag": 0`).
+
+The slower opening of generation 3 is therefore the price of not exposing land, and
+on the evidence it is a price worth paying against these opponents.
+
+Seeds used in this section: 41, 42, 43 (gap), 51, 52 (audits), 77, 78 (profiles),
+1400, 1500 (suite2).
