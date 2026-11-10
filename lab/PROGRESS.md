@@ -615,3 +615,74 @@ Seeds used in this section: 44, 51, 53 (diagnosis), 1600, 1700 (suite2).
   No EXT2 game has been played.
 
 Seeds used in this section: 18, 79 (diagnosis), 1800, 1900 (suite2).
+
+## 15. The second out-of-sample test (EXT2): `zr8` does not replace `zr6`
+
+`python3 lab/final_test.py --set EXT2 --focals zr8,zr6,zr7h,a_novel_b_racer,a_novel_b_blocker,cur_e8 --out lab/results/test_ext2.json`,
+run once on the frozen `zr8` exactly as pre-registered in `lab/PREREGISTRATION2.md`.
+8,832 games, 0 faults by any focal bot, 0 games that failed to run. Full table:
+`lab/results/test_ext2.txt`; per-game data: `lab/results/test_ext2.json`.
+
+| Field (192 games each) | `zr8` | `zr6` | `zr7h` | Racer | Blocker | `cur_e8` | `zr8` minus `zr6` (95%) |
+|---|---:|---:|---:|---:|---:|---:|---|
+| `ai_pasted` | 2.79 | 2.76 | 2.77 | 2.71 | 2.72 | 2.58 | +0.031 [-0.04, +0.10] |
+| `generated` | 2.61 | **2.78** | 2.67 | 2.37 | 2.29 | 2.23 | **-0.164 [-0.29, -0.04]** |
+| `other_designs` (strong) | 2.42 | 2.41 | 2.45 | 2.33 | 2.32 | 2.13 | +0.016 [-0.14, +0.18] |
+| `stress` | 2.87 | 2.88 | 2.86 | 2.69 | 2.70 | 2.59 | -0.005 [-0.10, +0.08] |
+| `unseen_mixed` | 2.68 | 2.73 | 2.69 | 2.54 | 2.52 | 2.40 | -0.047 [-0.15, +0.05] |
+| **Pooled** (960 games) | 2.676 | **2.709** | 2.686 | 2.529 | 2.510 | 2.386 | -0.034 [-0.09, +0.02] |
+| known map families | 2.69 | 2.76 | 2.70 | 2.61 | 2.58 | 2.44 | -0.069 [-0.14, -0.01] |
+| new map families | 2.66 | 2.64 | 2.66 | 2.43 | 2.42 | 2.32 | +0.012 [-0.07, +0.10] |
+| `with_candidate` | 2.14 | 2.06 | 2.09 | 2.00 | 1.92 | 1.96 | +0.083 [-0.10, +0.27] |
+
+Alternative rule readings (64 games each): `zr8` minus `zr6` is -0.06, -0.05, +0.09,
++0.13, +0.06; none significant.
+
+### The shipping rule, applied as written (`python3 lab/ext2_rule.py lab/results/test_ext2.json`)
+
+| # | Condition | Result |
+|---|---|---|
+| 1 | `other_designs`: `zr8` minus `zr6` lower bound above 0 | +0.016 [-0.14, +0.18]: **fails** |
+| 2 | that lead at least +0.13 | +0.016: **fails** |
+| 3 | pooled: not significantly below `zr6` | -0.034 [-0.09, +0.02]: holds |
+| 4 | no field below `zr6` by more than 0.08, significantly | `generated` -0.164 [-0.29, -0.04]: **fails** |
+| 5 | pooled lead over Racer and Blocker | +0.147 and +0.166, both clear: holds |
+| 6 | zero faults, zero failed games, no rule reading significantly below | holds |
+
+**Decision: `zr6` stays as the root `bot.py`. `zr8` is not shipped.**
+
+### What this test says
+
+1. **The generation 3 and 4 gain was overfitted to the strong bots we had seen.**
+   Development said +0.37 against strong bots on a fresh seed; eight strong designs
+   nobody had looked at give +0.02. The seen strong pool (17 bots from this
+   repository's history plus nine from EXT1) punishes un-upgraded land very hard;
+   the unseen designs evidently do not, so the caution bought nothing there.
+2. **The caution has a real price, larger than development showed.** On the 27
+   unseen generated bots `zr8` is 0.16 below `zr6`. Development had put the price at
+   about 0.04 against weak bots and nothing against mid-strength ones.
+3. **The fresh seeds did not protect against this.** Every development decision in
+   sections 11 to 14 was confirmed on fixtures never used before, and it still did
+   not transfer. Fresh maps and seats guard against fitting the fixtures; they do
+   not guard against fitting the *opponents*. Only opponents never looked at do.
+4. **The small corrections of sections 12 and 13 are not shown to help out of
+   sample:** `zr8` minus `zr7h` is pooled -0.010 [-0.04, +0.02].
+5. **`zr6` replicates.** This is the deferred replication of the first test, on
+   opponents it had never met: pooled 2.709, **+0.32 [+0.26, +0.39] over the
+   previous release, +0.18 [+0.12, +0.24] over Racer, +0.20 [+0.14, +0.26] over
+   Blocker**; first or level with the first on every field. Its lead on the first
+   test was +0.26, +0.10 and +0.10.
+
+### Deviations from the pre-registration
+
+- `lab/ext2_rule.py`, which applies the six conditions mechanically, was written
+  after the plan was committed and while the games were running, before any result
+  had been read. It encodes the rule as written and changes nothing in it.
+- The result file was committed once while still partial (a repository hook asks
+  for every change to be pushed); no number in it had been looked at.
+
+### Where this leaves the work
+
+EXT2 and all the stress bots now count as seen. No untouched opponents remain, so a
+later candidate cannot be given a clean test of this kind unless new opponents are
+obtained from outside this project.
