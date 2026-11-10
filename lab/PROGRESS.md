@@ -151,3 +151,52 @@ of them.
 - `lab/final_test.py`: the test runner. Four focal bots (candidate, current
   `bot.py`, Racer, Blocker) on identical fixtures over nine fields, plus five
   alternative rule readings.
+
+## 6. Development sensitivity sweep: is the candidate tuned on a knife-edge?
+
+`python3 lab/sensitivity.py` (16,720 games, development opponents only, fresh
+fixture seed 300; table in `lab/results/sensitivity_dev.txt`). One setting moved at a
+time, difference from the unmodified candidate per field with 95% intervals.
+
+On these fresh development fixtures the candidate scores elite 2.19, mid 2.46,
+weak 2.87, mix 2.56, self 1.82. On the fixtures the previous session tuned on
+(seed 100) the elite figure was 2.37, so about 0.18 of that headline was the
+tuning fixtures; the other fields did not move.
+
+| Setting moved | Effect |
+|---|---|
+| `raid_exec` 0.7 / 1.0 | flat (worst -0.25 on the self field at 1.0) |
+| `l1_delay` 0.1 / 0.6 | flat, all within +/-0.03 |
+| `shield_margin` 0.7 / 1.4 | flat, all within +/-0.05 |
+| `early_shield` 0 / 1 | flat; 0 helps mix (+0.07) and hurts self (-0.09) |
+| `denial_floor` 0 / 0.3 | 0 is as good; 0.3 costs 0.16 on elite |
+| `tail` 0.3 / 0.9 | flat within noise |
+| `horizon` 12 / 22 | 22 is as good; 12 costs 0.19 on elite |
+| `beam` 8 / 28 | 28 is as good; 8 costs 0.35 on self |
+| **`hazard` 0.5 / 2.0** | **0.5 costs 0.20 on elite; 2.0 costs 0.97 on elite, 0.37 on mid, 0.39 on mix** |
+
+Ablations (mechanism switched off entirely):
+
+| Off | elite | mid | weak | mix | self |
+|---|---:|---:|---:|---:|---:|
+| sidestep feints | -0.32 | -0.19 | -0.15 | -0.28 | -0.22 |
+| raids | -0.38 | -0.23 | -0.45 | -0.48 | -0.45 |
+| shields | -0.43 | -0.51 | -0.49 | -0.45 | -0.69 |
+
+### What this says
+
+1. **Nine of ten settings are flat.** The lead does not depend on their exact
+   values, so they are not where overfitting could hide.
+2. **`hazard` is the exception and it is asymmetric.** It scales the measured
+   chance that an un-upgraded cell near a rival is lost. Assuming twice the real
+   risk makes the bot far too timid (-0.97); assuming half costs much less (-0.20).
+   That curve was measured on the development population, so it is the setting most
+   likely to be wrong against bots built by other teams. The bot does rescale it per
+   rival from the raiding it observes (between 0.35x and 2.2x), which is the
+   protection; the stress bots and the generated families in the test set include
+   both heavy raiders and bots that never raid, to check that protection works.
+3. **All three mechanisms carry weight.** No single trick explains the lead; the
+   feints, which depend most on how opponents use Shield, are the smallest part.
+
+A finer sweep of `hazard` and of the prior over landlords' Shield habits is running
+(`lab/sensitivity2.py`).
