@@ -534,6 +534,7 @@ _P = {
     "fresh_rate": 1,       # tactics price a turn without counting stays already banked
     "fresh_tail": 0,       # the same for the planner's tail term
     "end_backfire": 1,     # near the end a side-stepping raider has no time to come back
+    "bank_shield": 0,      # catch one stay early when waiting would cost me a banked stay
     "feint_pen": 0.5,      # trust in "it will stay" after each side-step of my shield
     "lag": 0,              # turns a claimed cell is assumed to wait for its upgrade;
                            # 0 = priced as never upgraded (generation 3 behaviour)
@@ -1038,7 +1039,7 @@ def _stay_prob(m, r, ctx):
     return min(0.97, max(0.03, ps))
 
 
-def _shield_call(v, m, x, rate, stay_gain):
+def _shield_call(v, m, x, rate, stay_gain, banking=False):
     """Is SHIELD worth more than carrying on? Compares expected points, not reflexes."""
     me, left = x.me, x.left
     benefit = 0.0           # expected points saved or denied by casting now
@@ -1103,6 +1104,8 @@ def _shield_call(v, m, x, rate, stay_gain):
             return False                             # finish my own job first
         if ps1 > ps2 + 0.15:
             return True
+        if banking and _P["bank_shield"]:
+            return True         # the stay I would bank now is wiped by a shield next turn
         return _rng(m).random() < _P["early_shield"]
     return False
 
@@ -1167,8 +1170,13 @@ def _decide(v, m):
         else:
             action = x.first[target] or stay
     can_shield = ("SHIELD" in legal) and m.cd[me] == 0
-    if can_shield and _P["shields"] and _shield_call(v, m, x, rate, stay_gain if action == "STAY" else 0.0):
-        return "SHIELD"
+    if can_shield and _P["shields"]:
+        banking = False
+        if action == "STAY" and m.prog[me] <= 1:
+            o = v.owner[x.at]
+            banking = (not v.level[x.at]) if o == me else (o != 0 and bool(v.level[x.at]))
+        if _shield_call(v, m, x, rate, stay_gain if action == "STAY" else 0.0, banking):
+            return "SHIELD"
     if action == "STAY" and kind == "R":
         action = _raid_step(v, m, x, rate)
     if action not in legal:

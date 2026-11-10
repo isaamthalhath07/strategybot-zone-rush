@@ -585,3 +585,33 @@ in `lab/cand/_tail4.py`; `python3 lab/build.py zr8 gen=4`). `python3 lab/audit.p
 no exceptions, no illegal actions, worst call 8 ms.
 
 Seeds used in this section: 44, 51, 53 (diagnosis), 1600, 1700 (suite2).
+
+## 14. Last development checks, candidate frozen, second test pre-registered
+
+- "Cast the shield a stay early when waiting would wipe a stay I am about to bank"
+  (`bank_shield`), seed 1800, difference from `zr8`: strong -0.013, mid +0.019,
+  weak +0.026 [+0.01, +0.05], mix -0.005, self -0.019. No clear gain; left off.
+- Summary on a fresh seed (1900, 1.5x fixtures), difference from the shipped `zr6`:
+
+  | | strong | mid | weak | mix | self |
+  |---|---:|---:|---:|---:|---:|
+  | `zr6` (PW) | 2.046 | 2.616 | 2.853 | 2.575 | 1.940 |
+  | `zr7h` | +0.324 [+0.21, +0.43] | +0.054 | -0.065 [-0.12, -0.00] | -0.016 | +0.108 |
+  | `zr8` | **+0.368 [+0.25, +0.48]** | +0.017 [-0.08, +0.11] | -0.043 [-0.10, +0.01] | +0.014 [-0.07, +0.10] | +0.110 [-0.06, +0.28] |
+  | Racer | -0.126 | -0.043 | -0.086 | -0.053 | -0.233 |
+
+- The small cost against weak bots is against passive farmers only
+  (`python3 lab/h2h_field.py weak zr6 zr8 --maps 150 --seed 18`: farmer_early 0.95 to
+  0.79, farmer_noshield 0.94 to 0.85, farmer_coin 0.86 to 0.75; raiders and naive bots
+  unchanged or better). Profiled against six farmers (seed 79), `zr6` makes 11.5
+  raids a game on their exposed land for 264 bonus points, `zr8` 8.9 for 204: the
+  generation 3 risk model prices a cell taken from a rival as likely to be retaken
+  until that rival has shown it does not retake. Known, accepted, written into the
+  pre-registration as the expected price.
+- `python3 lab/robust.py zr8`: all 27 rows pass.
+- `lab/final_test.py` now takes `--focals` (first name is the candidate) and
+  `--report FILE --as NAME`; its defaults and the EXT1 report are unchanged.
+- **`zr8` frozen** at SHA-256 `4b472af3…f5be0`. `lab/PREREGISTRATION2.md` is in force.
+  No EXT2 game has been played.
+
+Seeds used in this section: 18, 79 (diagnosis), 1800, 1900 (suite2).

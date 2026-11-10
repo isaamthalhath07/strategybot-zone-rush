@@ -4,6 +4,9 @@ exist during development), from every seat and token start.
 
   python3 lab/final_test.py --set EXT1 --out lab/results/test_ext1.json [--maps 48]
   python3 lab/final_test.py --report lab/results/test_ext1.json
+  python3 lab/final_test.py --set EXT2 --focals zr8,zr6,... --out lab/results/test_ext2.json
+  python3 lab/final_test.py --report lab/results/test_ext2.json --as zr6   (differences from zr6's side)
+The first name in --focals is the candidate (default: the EXT1 line-up below).
 
 The plan, the fields, the seeds and the shipping rule are fixed in
 lab/PREREGISTRATION.md, committed before the first test game was played.
@@ -33,7 +36,7 @@ RULE_VARIANTS = [("presence_catch", {"catch_requires_stay": False}),
                  ("legal_omits_occupied", {"legal_excludes_occupied": True})]
 
 
-def test_fields(which):
+def test_fields(which, candidate=CANDIDATE):
     split = json.load(open(os.path.join(HERE, "ext", "split.json")))
     index = json.load(open(os.path.join(HERE, "ext", "index.json")))
     ext = split[which]
@@ -50,12 +53,12 @@ def test_fields(which):
         out = [("holdout_elite", fields.HOLDOUT_ELITE), ("holdout_rest", fields.HOLDOUT_MID + fields.HOLDOUT_WEAK)] + out
         out.append(("unseen_all", ext + half + fields.HOLDOUT_ALL))
     # a field in which other teams built something like the candidate itself
-    out.append(("with_candidate", strong + (fields.HOLDOUT_ELITE if which == "EXT1" else []) + [CANDIDATE] * 4))
+    out.append(("with_candidate", strong + (fields.HOLDOUT_ELITE if which == "EXT1" else []) + [candidate] * 4))
     return out
 
 
-def run(which, maps, out_path, workers=4):
-    plan = test_fields(which)
+def run(which, maps, out_path, workers=4, FOCALS=FOCALS):
+    plan = test_fields(which, FOCALS[0])
     data = dict(which=which, maps=maps, focals=FOCALS, seed=SEED[which], fields={}, rules={}, started=time.time())
     for k, (name, field) in enumerate(plan):
         fx = arena.fixtures(field, maps=maps, seed=SEED[which] + k, families=FAMILIES)
@@ -91,9 +94,11 @@ def paired(rows_a, rows_b, cluster_of, boot=4000, seed=7):
     return sum(means) / n, bs[int(0.025 * boot)], bs[int(0.975 * boot) - 1], n
 
 
-def report(path, quiet=False):
+def report(path, quiet=False, cand=None):
     data = json.load(open(path))
     focals = data["focals"]
+    if cand:
+        focals = [cand] + [c for c in focals if c != cand]
     cand = focals[0]
     lines = []
     say = lines.append
@@ -165,11 +170,12 @@ def report(path, quiet=False):
 if __name__ == "__main__":
     args = sys.argv[1:]
     if "--report" in args:
-        report(args[args.index("--report") + 1])
+        report(args[args.index("--report") + 1], cand=args[args.index("--as") + 1] if "--as" in args else None)
     else:
         which = args[args.index("--set") + 1]
         maps = int(args[args.index("--maps") + 1]) if "--maps" in args else 48
         out = args[args.index("--out") + 1]
-        run(which, maps, out)
+        focals = args[args.index("--focals") + 1].split(",") if "--focals" in args else FOCALS
+        run(which, maps, out, FOCALS=focals)
         summary, text = report(out)
         open(out.replace(".json", ".txt"), "w").write(text + "\n")
