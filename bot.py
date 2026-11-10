@@ -4,7 +4,6 @@ Single file, standard library only, entry point act(state). Uses the four docume
 inputs (board, bot_id, is_priority_token, legal_actions) plus its own memory of earlier
 public boards. Nothing here reads another bot's pending action or any hidden counter.
 """
-import time
 
 # ----------------------------------------------------------------------------- geometry
 _ADJ = []
@@ -23,13 +22,23 @@ for _i in range(64):
     _ADJ.append(tuple(_row))
     _DIST.append(tuple(abs(_r - j // 8) + abs(_c - j % 8) for j in range(64)))
 _NB = [tuple(j for _, j in row) for row in _ADJ]
-_ACTIONS = ("NORTH", "EAST", "SOUTH", "WEST", "STAY", "SHIELD")
 
 
 # ----------------------------------------------------------------------------- reading
 
 class _View(object):
     __slots__ = ("me", "legal", "raw", "token", "pos", "owner", "level", "frozen", "base", "home", "occ")
+
+
+_FIELDS = ("occupant", "owner", "is_upgraded", "is_home", "is_frozen", "base_points")
+_INDEX = dict((name, k) for k, name in enumerate(_FIELDS))
+
+
+def _flag(x):
+    """Booleans may arrive as bools, 0/1 or strings ("false" must not count as true)."""
+    if isinstance(x, str):
+        return x.strip().lower() in ("1", "true", "t", "yes", "y")
+    return bool(x)
 
 
 def _read(state):
@@ -40,18 +49,16 @@ def _read(state):
         get = lambda o, k, d=None: getattr(o, k, d)
     v = _View()
     v.me = int(get(state, "bot_id"))
-    v.token = bool(get(state, "is_priority_token", False))
+    v.token = _flag(get(state, "is_priority_token", False))
     legal = []
-    raw = {}                              # action name -> the object the server handed us
+    raw = {}
     for a in (get(state, "legal_actions", ()) or ()):
         name = a if isinstance(a, str) else (getattr(a, "name", None) or getattr(a, "value", None))
         if isinstance(name, str):
-            name = name.strip().upper()
-            if name in _ACTIONS and name not in raw:
-                raw[name] = a
+            name = name.upper()
+            if name not in raw:
+                raw[name] = a            # answer with the server's own object, whatever its type
                 legal.append(name)
-    if not legal:
-        raise ValueError("legal_actions")
     v.legal = legal
     v.raw = raw
     board = get(state, "board")
@@ -64,6 +71,8 @@ def _read(state):
         raise ValueError("board")
     if isinstance(cells[0], dict):
         cg = lambda o, k, d=None: o.get(k, d)
+    elif isinstance(cells[0], (list, tuple)) and not hasattr(cells[0], "owner"):
+        cg = lambda o, k, d=None: o[_INDEX[k]]      # bare 6-tuples in the documented field order
     else:
         cg = lambda o, k, d=None: getattr(o, k, d)
     v.pos = [-1] * 5
@@ -76,13 +85,13 @@ def _read(state):
     for i, c in enumerate(cells):
         o = int(cg(c, "occupant", 0) or 0)
         v.owner[i] = int(cg(c, "owner", 0) or 0)
-        v.level[i] = 1 if cg(c, "is_upgraded", False) else 0
+        v.level[i] = 1 if _flag(cg(c, "is_upgraded", False)) else 0
         v.base[i] = int(cg(c, "base_points", 1) or 1)
-        v.home[i] = bool(cg(c, "is_home", False))
+        v.home[i] = _flag(cg(c, "is_home", False))
         if 1 <= o <= 4:
             v.occ[i] = o
             v.pos[o] = i
-            v.frozen[o] = bool(cg(c, "is_frozen", False))
+            v.frozen[o] = _flag(cg(c, "is_frozen", False))
     if v.pos[v.me] < 0:
         raise ValueError("self not on board")
     return v
@@ -102,11 +111,15 @@ def _need(seat, owner, level, home):
 
 
 def _pristine(v):
-    if sum(1 for o in v.owner if o) != 4 or any(v.level):
+    """Turn-1 board: nothing upgraded, nothing owned except homes, every bot on a home."""
+    if any(v.level):
         return False
+    for c in range(64):
+        if v.owner[c] and not v.home[c]:
+            return False
     for s in range(1, 5):
         p = v.pos[s]
-        if p < 0 or not v.home[p] or v.owner[p] != s:
+        if p < 0 or not v.home[p] or v.owner[p] not in (0, s):
             return False
     return True
 
@@ -163,9 +176,12 @@ class _Mem(object):
         self.presence_rule = False       # a successful mover was caught: sidesteps are unsafe
         self.failed = {}                 # cell -> (owner, level) for jobs that refused to complete
         self.unexplained = 0
+        self.slow = 0                    # turns that ran long: the search narrows itself
+        self.home_of = {}                # home cell -> seat, for servers that report homes unowned
+        if fresh:
+            for s in range(1, 5):
+                self.home_of[v.pos[s]] = s
         self.rng = None
-        self.scale = 1.0                 # search effort; shrinks if a turn ever runs long
-        self.errors = 0
         self.plan = None
         self.raid = None
         self.note_token(v)
@@ -381,23 +397,33 @@ class _Mem(object):
         return best
 
 
-_M = None
+_MEMS = {}       # seat -> _Mem. Keyed by seat so one module can play several seats.
+
+
+def _patch_homes(v, m):
+    """Some servers leave home cells unowned in the board; a home always belongs to its seat."""
+    for c, s in m.home_of.items():
+        if v.home[c] and v.owner[c] == 0:
+            v.owner[c] = s
 
 
 def _update(v):
-    global _M
-    m = _M
+    me = v.me
+    m = _MEMS.get(me)
     restart = m is None
     if not restart and _pristine(v):
         # A pristine board can also be turn 2 of a quiet opening; a new game is certain
         # once the remembered board had developed.
-        if m.turn >= 80 or any(m.level) or sum(1 for o in m.owner if o) > 4:
+        if m.turn >= 80 or any(m.level) or sum(1 for c in range(64) if m.owner[c] and not v.home[c]) > 0:
             restart = True
     if restart:
-        m = _M = _Mem(v)
+        m = _Mem(v)
+        _patch_homes(v, m)
+        m.owner = list(v.owner)
+        _MEMS[me] = m
     else:
+        _patch_homes(v, m)
         m.observe(v)
-    me = v.me
     # Own cooldown: the legal list is authoritative once the server is seen to filter it.
     if not v.frozen[me]:
         if "SHIELD" not in v.legal:
@@ -432,14 +458,14 @@ _LOSS2 = ((0, 0, 0, 0, .012, .025, .037, .059),
           (0, 0, 0, 0, 0, 0, 0, 0))
 
 
-def _curve(loss, knots=_KNOTS):
+def _curve(loss):
     out = [0.0] * 83
-    for k in range(len(knots) - 1):
-        a, b = knots[k], knots[k + 1]
+    for k in range(len(_KNOTS) - 1):
+        a, b = _KNOTS[k], _KNOTS[k + 1]
         for h in range(a, b + 1):
             out[h] = loss[k] + (loss[k + 1] - loss[k]) * (h - a) / float(b - a)
-    slope = (loss[-1] - loss[-2]) / float(knots[-1] - knots[-2])
-    for h in range(knots[-1] + 1, 83):
+    slope = (loss[-1] - loss[-2]) / 8.0
+    for h in range(21, 83):
         slope *= 0.97
         out[h] = min(0.95, out[h - 1] + slope)
     return out
@@ -462,18 +488,6 @@ def _tables(rows):
 _PL1, _SL1 = _tables(_LOSS1)
 _PL2, _SL2 = _tables(_LOSS2)
 
-# P(a neutral cell is claimed by a rival within h turns) by distance to the nearest rival,
-# same population (lab/scratch/neutral_stats.py). Knots at h = 0,1,2,3,4,6,8,12,20.
-_NKNOTS = (0, 1, 2, 3, 4, 6, 8, 12, 20)
-_TAKEN = [None] + [_curve(row, _NKNOTS) for row in (
-    (0, 0, .115, .205, .265, .383, .407, .451, .520),
-    (0, 0, 0, .009, .034, .066, .137, .228, .328),
-    (0, 0, 0, 0, .003, .019, .039, .099, .212),
-    (0, 0, 0, 0, 0, .003, .013, .042, .135),
-    (0, 0, 0, 0, 0, .001, .005, .025, .092),
-    (0, 0, 0, 0, 0, 0, .001, .015, .073),
-    (0, 0, 0, 0, 0, 0, 0, .003, .045))]
-
 # Tunables. Each is a quantity with a meaning, set from the population measurements or
 # simple reasoning and then sanity-checked on development opponents (never on hold-outs).
 _P = {
@@ -484,14 +498,15 @@ _P = {
     "tail": 0.6,           # value of time left after the plan, relative to today's best rate
     "raid_exec": 0.85,     # discount for everything a raid model cannot see
     "denial_floor": 0.10,
-    "hazard": 1.0,         # global multiplier on the population loss curves
+    "hazard": 0.8,         # multiplier on the population loss curves. Development is flat
+                           # from 0.6 to 1.0 and falls steeply above, so sit inside the
+                           # plateau, not on its edge (lab/PROGRESS.md section 7)
     "l1_delay": 0.3,       # share of a level-1 cell's value a shield really saves mid-game
     "shield_margin": 1.0,  # shield when benefit exceeds margin * cost
     "raids": 1,            # switches for ablation
     "shields": 1,
     "feints": 1,
     "early_shield": 0.5,   # chance of shielding one stay early when both timings look equal
-    "contest": 0.0,        # discount for claim races; measured, no gain, left off
 }
 
 
@@ -588,65 +603,12 @@ def _context(v, m):
     return x
 
 
-def _first_step(v, x, target):
-    """First move of a shortest path to `target` that passes the most claimable value.
-
-    Many shortest paths exist on a grid. Walking through neutral cells keeps the option
-    of claiming them on the way; hugging an edge of cheap cells throws it away.
-    """
-    at = x.at
-    need = x.travel[target]
-    if need <= 1 or need >= 99:
-        return x.first[target]
-    me = x.me
-    owner, base, occupied = v.owner, v.base, x.occupied
-    dist_t = _DIST[target]
-    if dist_t[at] != need:
-        return x.first[target]          # the direct box is blocked: keep the detour BFS found
-    memo = {target: 0.0}
-
-    def best(c):
-        got = memo.get(c)
-        if got is not None:
-            return got
-        dc = dist_t[c]
-        top = -1e9
-        for t in _NB[c]:
-            if dist_t[t] == dc - 1 and (t not in occupied or t == target):
-                val = best(t)
-                if val > top:
-                    top = val
-        worth = 0.0
-        if c != at:
-            if owner[c] == 0:
-                worth = base[c]
-            elif owner[c] == me and not v.level[c]:
-                worth = 0.3 * base[c]
-        memo[c] = top + worth
-        return memo[c]
-
-    choice, top = None, -1e9
-    for a, t in _ADJ[at]:
-        if a in v.legal and t not in occupied and dist_t[t] == need - 1:
-            val = best(t)
-            if val > top:
-                choice, top = a, val
-    return choice or x.first[target]
-
-
 def _hold1(v, x, c, R):
-    """Expected points from owning cell c at level 1 for its last R scoring turns."""
     d = x.rd[c]
     r = x.rr[c]
     k = x.rho[r] if r else 1.0
     wv = x.w[r] if r else 0.33
-    lost_turns = k * _SL1[d][R]
-    if lost_turns > 0.9 * R:
-        lost_turns = 0.9 * R
-    p_lost = k * _PL1[d][R]
-    if p_lost > 0.95:
-        p_lost = 0.95
-    return v.base[c] * (R - lost_turns * (1.0 + wv) - 8.0 * wv * p_lost)
+    return v.base[c] * (R - k * (_SL1[d][R] * (1.0 + wv) + 8.0 * wv * _PL1[d][R]))
 
 
 def _hold2(v, x, c, R):
@@ -654,13 +616,7 @@ def _hold2(v, x, c, R):
     r = x.rr[c]
     k = x.rho[r] if r else 1.0
     wv = x.w[r] if r else 0.33
-    lost_turns = k * _SL2[d][R]
-    if lost_turns > 0.9 * R:
-        lost_turns = 0.9 * R
-    p_lost = k * _PL2[d][R]
-    if p_lost > 0.95:
-        p_lost = 0.95
-    return v.base[c] * (2.0 * R - lost_turns * (2.0 + wv) - 16.0 * wv * p_lost)
+    return v.base[c] * (2.0 * R - k * (_SL2[d][R] * (2.0 + wv) + 16.0 * wv * _PL2[d][R]))
 
 
 def _shield_ready_in(m, v, d):
@@ -721,7 +677,6 @@ def _plan(v, m, x):
     myprog = m.prog[me]
     w = x.w
     raid_exec = _P["raid_exec"]
-    contest = _P["contest"]
     # jobs: [cell, kind, work, prerequisite, extra]
     jobs = []
     for c in range(64):
@@ -767,32 +722,23 @@ def _plan(v, m, x):
         if jobs[k][1] == "C":
             jobs.append([jobs[k][0], "U", 3, k, None])
 
-    def gain(job, k_used, here=False):
-        """Value of finishing `job` after k_used steps (this turn counts as step 1).
-
-        `here` means the plan is already standing on the cell when the job starts.
-        """
+    def gain(job, k_used):
+        """Value of finishing `job` after k_used steps (this turn counts as step 1)."""
         c, kind = job[0], job[1]
         R = left - k_used + 1
         if R <= 0:
             return -1.0
         if kind == "C":
-            g = _hold1(v, x, c, R)
-            if k_used > 1 and contest:
-                # a rival may get there first; most of the trip is then wasted
-                g *= 1.0 - contest * _TAKEN[x.rd[c] if x.rd[c] < 7 else 7][k_used - 1]
-            return g
+            return _hold1(v, x, c, R)
         if kind == "U":
-            up = _hold2(v, x, c, R) - _hold1(v, x, c, R)
-            if here:
-                return up               # nobody can enter a cell while we stand on it
             d = x.rd[c]
             r = x.rr[c]
             kk = x.rho[r] if r else 1.0
-            keep = 1.0 - kk * _PL1[d][k_used]
+            wait = k_used if job[3] < 0 else 3
+            keep = 1.0 - kk * _PL1[d][wait]
             if keep < 0.05:
                 keep = 0.05
-            return keep * up
+            return keep * (_hold2(v, x, c, R) - _hold1(v, x, c, R))
         p_now, p_late, delay, tgt, d = job[4]
         g = p_now * _take_value(v, x, tgt, R, d)
         if p_late > 0.0 and R - delay > 0:
@@ -810,7 +756,7 @@ def _plan(v, m, x):
         cost = travel[c] + job[2]
         if cost > left:
             continue
-        g = gain(job, cost, c == at)
+        g = gain(job, cost)
         if g <= 0.0:
             continue
         rate = g / cost
@@ -824,7 +770,7 @@ def _plan(v, m, x):
     scored.sort(reverse=True)
     index = {}
     short = []
-    for _, k in scored[:max(6, int(_P["jobs"] * m.scale))]:
+    for _, k in scored[:_P["jobs"]]:
         index[k] = len(short)
         short.append(jobs[k])
     for k in range(n0, len(jobs)):
@@ -835,13 +781,15 @@ def _plan(v, m, x):
             short.append(j)
     nj = len(short)
     tail_k = _P["tail"] * best_rate / (2.0 * left)
+    # A turn that ran long (slow or busy grading machine) narrows every later search.
+    shrink = min(m.slow, 2)
     # Plans are compared at a common time horizon, not a common number of jobs: a fixed
     # job count would rate "six big jobs" above "one small job on the way plus five big".
     horizon = min(left, _P["horizon"])
     beam = [(0.0, 0.0, 0, at, 0, -1)]
     best = None
-    width = max(4, int(_P["beam"] * m.scale))
-    for depth in range(_P["depth"]):
+    width = max(3, _P["beam"] >> shrink)
+    for depth in range(max(4, _P["depth"] >> shrink)):
         seen = {}
         for state in beam:
             _, value, used, pos, mask, f0 = state
@@ -863,7 +811,7 @@ def _plan(v, m, x):
                 k_used = used + (travel[c] if used == 0 else drow[c]) + job[2]
                 if k_used > left:
                     continue
-                g = gain(job, k_used, c == pos)
+                g = gain(job, k_used)
                 if g <= 0.0:
                     continue
                 grew = True
@@ -1009,7 +957,7 @@ def _decide(v, m):
     target, kind, rate, stay_gain = _plan(v, m, x)
     action = stay
     if target is not None:
-        action = "STAY" if target == x.at else (_first_step(v, x, target) or stay)
+        action = "STAY" if target == x.at else (x.first[target] or stay)
     can_shield = ("SHIELD" in legal) and m.cd[me] == 0
     if can_shield and _P["shields"] and _shield_call(v, m, x, rate, stay_gain if action == "STAY" else 0.0):
         return "SHIELD"
@@ -1021,62 +969,82 @@ def _decide(v, m):
 
 
 def _fallback(v):
-    """Used only if the main policy raises: keep working instead of idling for the game."""
+    """Stateless greedy policy, used only if the planner itself raises: work the cell we
+    stand on if there is work, else walk to the nearest claimable or upgradable cell."""
     me = v.me
     at = v.pos[me]
     legal = v.legal
     stay = "STAY" if "STAY" in legal else legal[0]
-    o = v.owner[at]
-    if o == 0 or (o == me and not v.level[at]) or (o != me and not v.home[at] and not v.level[at]):
+    if v.frozen[me] or len(legal) <= 1:
+        return stay
+    owner, level, home = v.owner, v.level, v.home
+
+    def work(c):
+        o = owner[c]
+        if home[c]:
+            return False
+        return o == 0 or (o == me and not level[c]) or (o != me and not level[c])
+
+    if work(at):
         return stay
     occupied = set(p for p in v.pos[1:] if p >= 0 and p != at)
-    best = None
+    seen = {at: None}
+    frontier = []
     for a, t in _ADJ[at]:
-        if a not in legal or t in occupied:
-            continue
-        for c in range(64):
-            if c in occupied or (v.owner[c] == me and v.level[c]) or (v.owner[c] not in (0, me)):
-                continue
-            score = v.base[c] / (2.0 + _DIST[t][c])
-            if best is None or score > best[0]:
-                best = (score, a)
-    return best[1] if best else stay
+        if a in legal and t not in occupied:
+            seen[t] = a
+            frontier.append(t)
+    while frontier:
+        nxt = []
+        for h in frontier:
+            if work(h):
+                return seen[h]
+            for t in _NB[h]:
+                if t not in seen and t not in occupied:
+                    seen[t] = seen[h]
+                    nxt.append(t)
+        frontier = nxt
+    return stay
+
+
+_clock = None
 
 
 def act(state):
-    started = time.perf_counter()
+    global _clock
+    if _clock is None:
+        import time
+        _clock = time.perf_counter
+    t0 = _clock()
     try:
         v = _read(state)
     except Exception:
-        # Unreadable input: answer with whatever the server calls STAY.
         try:
-            legal = list(state.get("legal_actions") if isinstance(state, dict) else state.legal_actions)
-            for a in legal:
-                name = a if isinstance(a, str) else getattr(a, "name", "")
-                if str(name).strip().upper() == "STAY":
-                    return a
-            return legal[0]
+            legal = list(getattr(state, "legal_actions", None) or state["legal_actions"])
         except Exception:
-            return "STAY"
+            legal = []
+        for a in legal:
+            if a == "STAY":
+                return a
+        return legal[0] if legal else "STAY"
     m = None
     try:
         m = _update(v)
         action = _decide(v, m)
     except Exception:
-        m = _M
-        if m is not None:
-            m.errors += 1
+        # Never let one bad assumption cost the game: drop this seat's memory (it is
+        # rebuilt from the board next turn) and play a safe greedy move now.
+        _MEMS.pop(v.me, None)
+        m = None
         try:
             action = _fallback(v)
         except Exception:
             action = "STAY"
     if action not in v.legal:
-        action = "STAY" if "STAY" in v.legal else v.legal[0]
+        action = "STAY" if "STAY" in v.legal else (v.legal[0] if v.legal else "STAY")
     if m is not None:
         m.last = action
         m.shield_was_legal = "SHIELD" in v.legal
-        # 200 ms is allowed; a normal turn takes about 1 ms. If one ever takes 40 ms the
-        # machine is far slower than expected, so search less for the rest of the game.
-        if time.perf_counter() - started > 0.040:
-            m.scale = max(0.25, m.scale * 0.5)
+        if _clock() - t0 > 0.06:
+            m.slow += 1
     return v.raw.get(action, action)

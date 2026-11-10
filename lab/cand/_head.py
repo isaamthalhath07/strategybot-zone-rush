@@ -4,7 +4,6 @@ Single file, standard library only, entry point act(state). Uses the four docume
 inputs (board, bot_id, is_priority_token, legal_actions) plus its own memory of earlier
 public boards. Nothing here reads another bot's pending action or any hidden counter.
 """
-import time
 
 # ----------------------------------------------------------------------------- geometry
 _ADJ = []
@@ -23,13 +22,23 @@ for _i in range(64):
     _ADJ.append(tuple(_row))
     _DIST.append(tuple(abs(_r - j // 8) + abs(_c - j % 8) for j in range(64)))
 _NB = [tuple(j for _, j in row) for row in _ADJ]
-_ACTIONS = ("NORTH", "EAST", "SOUTH", "WEST", "STAY", "SHIELD")
 
 
 # ----------------------------------------------------------------------------- reading
 
 class _View(object):
     __slots__ = ("me", "legal", "raw", "token", "pos", "owner", "level", "frozen", "base", "home", "occ")
+
+
+_FIELDS = ("occupant", "owner", "is_upgraded", "is_home", "is_frozen", "base_points")
+_INDEX = dict((name, k) for k, name in enumerate(_FIELDS))
+
+
+def _flag(x):
+    """Booleans may arrive as bools, 0/1 or strings ("false" must not count as true)."""
+    if isinstance(x, str):
+        return x.strip().lower() in ("1", "true", "t", "yes", "y")
+    return bool(x)
 
 
 def _read(state):
@@ -40,18 +49,16 @@ def _read(state):
         get = lambda o, k, d=None: getattr(o, k, d)
     v = _View()
     v.me = int(get(state, "bot_id"))
-    v.token = bool(get(state, "is_priority_token", False))
+    v.token = _flag(get(state, "is_priority_token", False))
     legal = []
-    raw = {}                              # action name -> the object the server handed us
+    raw = {}
     for a in (get(state, "legal_actions", ()) or ()):
         name = a if isinstance(a, str) else (getattr(a, "name", None) or getattr(a, "value", None))
         if isinstance(name, str):
-            name = name.strip().upper()
-            if name in _ACTIONS and name not in raw:
-                raw[name] = a
+            name = name.upper()
+            if name not in raw:
+                raw[name] = a            # answer with the server's own object, whatever its type
                 legal.append(name)
-    if not legal:
-        raise ValueError("legal_actions")
     v.legal = legal
     v.raw = raw
     board = get(state, "board")
@@ -64,6 +71,8 @@ def _read(state):
         raise ValueError("board")
     if isinstance(cells[0], dict):
         cg = lambda o, k, d=None: o.get(k, d)
+    elif isinstance(cells[0], (list, tuple)) and not hasattr(cells[0], "owner"):
+        cg = lambda o, k, d=None: o[_INDEX[k]]      # bare 6-tuples in the documented field order
     else:
         cg = lambda o, k, d=None: getattr(o, k, d)
     v.pos = [-1] * 5
@@ -76,13 +85,13 @@ def _read(state):
     for i, c in enumerate(cells):
         o = int(cg(c, "occupant", 0) or 0)
         v.owner[i] = int(cg(c, "owner", 0) or 0)
-        v.level[i] = 1 if cg(c, "is_upgraded", False) else 0
+        v.level[i] = 1 if _flag(cg(c, "is_upgraded", False)) else 0
         v.base[i] = int(cg(c, "base_points", 1) or 1)
-        v.home[i] = bool(cg(c, "is_home", False))
+        v.home[i] = _flag(cg(c, "is_home", False))
         if 1 <= o <= 4:
             v.occ[i] = o
             v.pos[o] = i
-            v.frozen[o] = bool(cg(c, "is_frozen", False))
+            v.frozen[o] = _flag(cg(c, "is_frozen", False))
     if v.pos[v.me] < 0:
         raise ValueError("self not on board")
     return v
@@ -102,11 +111,15 @@ def _need(seat, owner, level, home):
 
 
 def _pristine(v):
-    if sum(1 for o in v.owner if o) != 4 or any(v.level):
+    """Turn-1 board: nothing upgraded, nothing owned except homes, every bot on a home."""
+    if any(v.level):
         return False
+    for c in range(64):
+        if v.owner[c] and not v.home[c]:
+            return False
     for s in range(1, 5):
         p = v.pos[s]
-        if p < 0 or not v.home[p] or v.owner[p] != s:
+        if p < 0 or not v.home[p] or v.owner[p] not in (0, s):
             return False
     return True
 
@@ -163,9 +176,12 @@ class _Mem(object):
         self.presence_rule = False       # a successful mover was caught: sidesteps are unsafe
         self.failed = {}                 # cell -> (owner, level) for jobs that refused to complete
         self.unexplained = 0
+        self.slow = 0                    # turns that ran long: the search narrows itself
+        self.home_of = {}                # home cell -> seat, for servers that report homes unowned
+        if fresh:
+            for s in range(1, 5):
+                self.home_of[v.pos[s]] = s
         self.rng = None
-        self.scale = 1.0                 # search effort; shrinks if a turn ever runs long
-        self.errors = 0
         self.plan = None
         self.raid = None
         self.note_token(v)
@@ -381,23 +397,33 @@ class _Mem(object):
         return best
 
 
-_M = None
+_MEMS = {}       # seat -> _Mem. Keyed by seat so one module can play several seats.
+
+
+def _patch_homes(v, m):
+    """Some servers leave home cells unowned in the board; a home always belongs to its seat."""
+    for c, s in m.home_of.items():
+        if v.home[c] and v.owner[c] == 0:
+            v.owner[c] = s
 
 
 def _update(v):
-    global _M
-    m = _M
+    me = v.me
+    m = _MEMS.get(me)
     restart = m is None
     if not restart and _pristine(v):
         # A pristine board can also be turn 2 of a quiet opening; a new game is certain
         # once the remembered board had developed.
-        if m.turn >= 80 or any(m.level) or sum(1 for o in m.owner if o) > 4:
+        if m.turn >= 80 or any(m.level) or sum(1 for c in range(64) if m.owner[c] and not v.home[c]) > 0:
             restart = True
     if restart:
-        m = _M = _Mem(v)
+        m = _Mem(v)
+        _patch_homes(v, m)
+        m.owner = list(v.owner)
+        _MEMS[me] = m
     else:
+        _patch_homes(v, m)
         m.observe(v)
-    me = v.me
     # Own cooldown: the legal list is authoritative once the server is seen to filter it.
     if not v.frozen[me]:
         if "SHIELD" not in v.legal:

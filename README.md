@@ -1,40 +1,13 @@
-# Zone Rush: adaptive release
+# Zone Rush: submission and lab
 
 `bot.py` is the standalone submission: one standard-library file exposing
-`act(state)`. It uses only the four documented public inputs and its own memory
-of earlier public boards. It replaces the guarded Transfer planner, which is kept
-byte-identical as `tester_bots/previous_release.py`.
+`act(state)`. It uses only the four documented public inputs and its own memory of
+earlier public boards. It is the lab candidate `zr6` (`lab/cand/zr6.py`, byte for
+byte): an exact public-history tracker, a route planner that discounts land by the
+measured chance of losing it, a per-rival model of Shield habits, and Shield and
+raid decisions made on expected points.
 
-## What changed and why
-
-The earlier work tuned one planner's numbers against bots from the same family
-and found nothing: after 100,000 campaign games the best variant led by 0.0003.
-Measured against a wider field the reason is clear. The strong bots here are
-economically identical, and an offline search puts the best possible score from
-one quadrant at about 2,780 points, which they already reach. The remaining
-edge is in how a bot reads and answers its opponents.
-
-- **Exact tracker.** Turn, all four scores and the priority-token cycle are
-  rebuilt exactly from public boards; rival work progress matches the referee on
-  99.99% of seat-turns and shield cooldowns on 99.9% (the rest are publicly
-  ambiguous).
-- **Risk measured, not guessed.** An un-upgraded cell is lost within five turns
-  23% of the time with a rival next to it, 4% at distance two and under 1% at
-  three or more. The planner values every cell with those survival curves, so it
-  claims freely while rivals are far and upgrades what becomes exposed.
-- **Opponent model.** For each landlord it keeps a posterior over five shield
-  habits (never, on sight, every imminent take, upgraded cells only, one stay
-  early), updated from every stand-off anyone has with that landlord.
-- **Raids that answer the landlord.** Strong bots shield 95-100% of the time on
-  the exact turn a rival would complete a take. Stepping to a neighbouring cell
-  on that turn makes the shield catch nobody: the landlord freezes for two turns
-  and cannot shield for four. Against a landlord that never shields it simply
-  stays; against one that shields on sight it steps aside at once.
-- **Defence that cannot be timed.** It shields on expected value, sometimes one
-  stay early at random, and stops trusting a raider that has dodged it before.
-- **Safety nets.** A crash in the policy falls back to a simple working policy
-  instead of idling; a turn slower than 40 ms halves the search; unreadable input
-  answers STAY. A normal turn takes about 1 ms against a 200 ms limit.
+The previous release is kept as `tester_bots/guarded_transfer.py`.
 
 ## Confirmed rule
 
@@ -44,7 +17,7 @@ cells owned by the shielder. A blocked or lost-contest move counts as STAY.
 Using Shield is not a STAY. Already-frozen rivals remain ineligible.
 
 Caught or backfired on turn 10 means frozen on turns **11 and 12**. Shield used
-on turn 10 is unavailable on **11ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“14**, and can next be used on **15**. Catching
+on turn 10 is unavailable on **11 to 14**, and can next be used on **15**. Catching
 nobody eligible backfires. Other capture, income and work rules are unchanged.
 
 This explicit clarification supersedes the earlier territory-presence
@@ -60,91 +33,55 @@ python simulator/server.py
 
 Open http://127.0.0.1:8779/. Arrows/WASD move, Space stays, Q shields;
 on-screen controls do the same. Recording is automatic. The AI view shows the
-same four public observation fields as the bot. Existing older tabs retain
-their old matches and rules. [Simulator details](simulator/README.md).
+same four public observation fields as the bot. [Simulator details](simulator/README.md).
 
 ```powershell
 python tools/check_release.py
 ```
 
 Python 3.10 or newer is sufficient. The release passes **142 Python tests** and,
-when Node is installed, six offline interface logic groups. These include both
-historical and current physics, 48 complete independent-engine differential
-games, exact public-history oracles, real-worker recording/replay and privacy,
-request races, fallback recovery and a downloaded folder without Git.
-Visual-harness testing is optional under the user's instruction.
+when Node is installed, six offline interface logic groups. `tests/test_root_bot.py`
+holds the root bot's own contracts (legal and timely on the independent reference
+engine, input never mutated, exact own score, progress and cooldown books, interface
+variations, a working fallback if the planner raises). The tests written against the
+previous release's internals now run against `tester_bots/guarded_transfer.py`.
 
-## Evidence
+## Why this bot: the out-of-sample test
 
-Every comparison is paired: both bots play the same maps, seats, tokens, opponents
-and opponent seeds, and intervals resample whole maps. The opponents are 123 bots
-recovered from this repository's own history. Before the new bot was designed, 19
-of them were split off at random with a fixed seed and never used until it was
-frozen; they were then run once.
+The candidate was frozen and the test plan committed before any test game was played
+([plan](lab/PREREGISTRATION.md), [full log](lab/PROGRESS.md)). It then played
+10,240 games against opponents it was never developed on, on fresh maps (half from
+map families that did not exist during development), next to the previous release
+and the two best existing bots on identical fixtures. Score is rivals outscored per
+game, 0 to 3.
 
-Mean rivals outscored out of 3, new bot against the previous release:
+| 1,344 pooled games | Score | New bot minus it (95% interval) |
+|---|---:|---|
+| **New `bot.py` (`zr6`)** | **2.575** | |
+| Previous release | 2.313 | +0.262 [+0.20, +0.33] |
+| Racer | 2.478 | +0.097 [+0.04, +0.16] |
+| Blocker | 2.472 | +0.102 [+0.04, +0.16] |
 
-| Opponents | Previous | New | Paired difference (95% interval) |
-|---|---:|---:|---|
-| Development, 12 strongest | 1.80 | 2.25 | +0.45 [+0.26, +0.66] |
-| Development, 14 mid-strength | 2.08 | 2.30 | +0.22 [+0.00, +0.44] |
-| Development, 18 weak | 2.65 | 2.91 | +0.26 [+0.14, +0.38] |
-| Development, all 44 mixed | 2.28 | 2.48 | +0.20 [+0.06, +0.33] |
-| Development strong plus copies of the new bot | 1.57 | 1.99 | +0.42 [+0.12, +0.73] |
-| **Hold-out, 5 strong** | 1.62 | 2.08 | **+0.46 [+0.29, +0.63]** |
-| **Hold-out, 6 mid-strength** | 2.38 | 2.64 | **+0.26 [+0.13, +0.40]** |
-| **Hold-out, 8 weak** | 2.73 | 2.88 | **+0.16 [+0.07, +0.25]** |
-| **Hold-out, all 19 mixed** | 2.34 | 2.51 | **+0.18 [+0.07, +0.28]** |
+Zero faults in every test game. All six pre-registered shipping conditions held.
 
-The hold-out gains match the development gains, which is the check that the bot
-was not fitted to the opponents it was built against. Further checks:
+What the test does **not** show: a lead against strong bots. On the two fields of
+strong unseen opponents the new bot is level with Racer and Blocker (differences
++0.01 to -0.02, intervals about +/-0.3) and its lead over the previous release
+(+0.14 and +0.07) is not established. Its margin is made against weak and
+mid-strength opponents. The development figures had suggested +0.55 against strong
+bots; that did not carry over, and [the log](lab/PROGRESS.md) explains why. Work on
+that gap continues in `lab/`.
 
-- It outscores every development opponent head to head more often than not.
-- Against a table of three copies of itself no bot in the pool does better than
-  it does, so it is not beaten by its own style.
-- Under six alternative readings of the ambiguous rules it keeps its lead in
-  five and is level in the sixth (shields that catch by presence instead of by
-  STAY, which it detects during play and adapts to).
+## Repository map
 
-What this does not show: every opponent here was written inside this project.
-Other teams' bots may behave differently, which is why the bot learns each
-opponent's habits during the game instead of assuming them. Numbers, method and
-commands are in [lab/README.md](lab/README.md).
-
-## Focused repository
-
-- `bot.py`: final already-flattened submission; no build step or extra weights.
-- `tester_bots/`: the previous release plus eight standalone alternatives and controls.
-- `lab/`: measurement harness, opponent pool, the new bot's source halves and results.
-- `simulator/`: one human simulator with immutable bot snapshots and saved history.
-- `tests/`: current regressions, a separate historical model and independent oracle.
-- `tools/`: release checks, registered comparison and exact replay helpers.
-- `validation/official/`: new STAY-only evidence, source additions and audit.
-- Other `validation/` files: explicitly historical presence-rule evidence, unchanged
-  raw results and source archives; these scores are not pooled into this ranking.
-
-To reproduce a comparison without Git:
-
-```powershell
-python tools/unpack_sources.py
-python tools/benchmark.py --spec validation/official/followup_spec.json --out .cache/repeat.json.gz --workers 8
-```
-
-Sources are restored only after archive/hash verification. Changed files and
-consumed result paths are never overwritten. Retired experiment trees remain
-in Git history. Existing live games and the separate uncommitted checkout were
-not changed by this release.
-
-The concurrently added `ultimate.py` is preserved as an experimental alternative.
-On the same 576 STAY-only follow-up fixtures it scored 1.3446 opponents outscored,
-versus 1.7300 for the previous release, with zero worker faults. It is retained
-as a tester. Its original architecture
-tests include historical False-mode fixtures; those are not current-rule proof.
-
-This research branch also contains [evolution experiments](evolution/README.md),
-an [independent validity overseer](evolution/OVERSIGHT.md), a
-[mathematical strategy review](evolution/GAME_THEORY_REVIEW.md), and
-[portable shared-GPU diagnostic jobs](compute_share/SHARED_GPU.md). These offline
-tools never modify the root bot. GPU research uses a separate PyTorch
-environment; the submitted bot remains standard-library-only. The requested
-two-million-game primary campaign is separate from these completed control games.
+- `bot.py`: the submission; no build step, no data files.
+- `lab/`: the harness, opponent pools, candidates and the running log this bot came
+  from. Start with `lab/PROGRESS.md`.
+- `tester_bots/`: nine standalone alternatives, including the previous release.
+- `simulator/`: the human simulator with immutable bot snapshots and saved history.
+- `tests/`, `tools/`: release checks, an independent reference engine, replay helpers.
+- `validation/`: evidence for the previous release (`validation/official/`) and older
+  presence-rule evidence. Those scores are not pooled with the lab's.
+- `evolution/`, `*_campaign/`, `intent_*`, `gpu_*` and similar folders: earlier
+  research, kept unchanged.
+- `ultimate.py`: an earlier experimental engine, kept as a tester.

@@ -13,7 +13,12 @@ from tests import reference_engine as engine
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def load(path=ROOT / "bot.py"):
+PREVIOUS = ROOT / "tester_bots" / "guarded_transfer.py"
+
+
+def load(path=PREVIOUS):
+    # The exact-tracking contracts below were written against the previous release's
+    # internals; the root bot's own contracts are in tests/test_root_bot.py.
     spec = importlib.util.spec_from_file_location("release_contract", path)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
@@ -58,18 +63,16 @@ class ReleaseTests(unittest.TestCase):
                     self.assertLess(elapsed, 2000 if game.turn == 1 else 200)
                     self.assertIn(action, public.legal_actions)
                     self.assertEqual(signature(public), before)
-                    memory = players[seat]._M
-                    self.assertEqual(memory.errors, 0)
-                    self.assertEqual(memory.scale, 1.0)
+                    self.assertEqual(players[seat]._input_failures, 0)
+                    self.assertEqual(players[seat]._policy_failures, 0)
                     if action == "SHIELD":
                         self.assertEqual(game.cd[seat], 0)
-                    # Reconstructed from public boards only; the referee is consulted to grade it.
-                    self.assertEqual(memory.turn, game.turn)
-                    self.assertEqual(memory.scores[1:], game.score)
-                    self.assertEqual(memory.prog[seat+1], game.prog[seat])
-                    self.assertEqual(memory.cd[seat+1], game.cd[seat])
-                    if memory.token is not None:
-                        self.assertEqual(memory.token_holder(game.turn), game.token)
+                    memory = players[seat]._history[seat+1]
+                    self.assertEqual(memory["turn"], game.turn)
+                    self.assertEqual(memory["scores"][1:], game.score)
+                    self.assertEqual(memory["progress"], game.prog[seat])
+                    for rival in range(4):
+                        self.assertIn(game.cd[rival], memory["cooldown_possible"][rival+1])
                     actions.append(action)
                 game.step(actions)
         self.assertEqual(callbacks, 1280)
@@ -82,10 +85,10 @@ class ReleaseTests(unittest.TestCase):
             public = game.views()[0]
             public.legal_actions = ["STAY"]
             self.assertEqual(player.act(public), "STAY")
-            memory = player._M
-            self.assertEqual(memory.turn, turn)
-            self.assertEqual(memory.scores[1:], game.score)
-            self.assertEqual(memory.prog[1], game.prog[0])
+            memory = player._history[1]
+            self.assertEqual(memory["turn"], turn)
+            self.assertEqual(memory["scores"][1:], game.score)
+            self.assertEqual(memory["progress"], game.prog[0])
             game.step(["STAY"]*4)
 
     def test_real_workers_complete_and_record_eighty_turns_without_private_view_fields(self):

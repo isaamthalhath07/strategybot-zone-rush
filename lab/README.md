@@ -1,7 +1,8 @@
-# lab: how the released bot was built and measured
+# lab: a new bot built against an independent opponent field
 
-The root `bot.py` is `cand/_head.py` + `cand/_tail2.py` concatenated by
-`release.py`. Everything used to design and judge it is in this folder.
+Work in progress. `bot.py` at the repository root is **not yet replaced**; the
+candidate lives in `lab/cand/`. Nothing below has been run on the hold-out
+opponents yet, so every number here is a development result.
 
 ## What is here
 
@@ -45,51 +46,24 @@ The root `bot.py` is `cand/_head.py` + `cand/_tail2.py` concatenated by
 - Tactics: expected-value shield calls (including one stay early, at random), raids
   that stay or step aside depending on what that landlord is likely to do.
 
-Results, paired against the previous release (`cur_e8`), mean rivals outscored
-out of 3. Development rows are fresh fixtures drawn after the last design decision;
-hold-out rows are opponents never used during design, run once after the bot was
-frozen (`results/dev_suite_final.json`, `results/holdout_run1.json`).
+Development results, paired against the current `bot.py` (`cur_e8`), mean rivals
+outscored out of 3:
 
-| Opponents | Previous | New | Paired difference (95% interval) |
+| Field | Current bot | Candidate `zr3` | Paired difference (95% interval) |
 |---|---:|---:|---|
-| Development, 12 strongest | 1.80 | 2.25 | +0.45 [+0.26, +0.66] |
-| Development, 14 mid-strength | 2.08 | 2.30 | +0.22 [+0.00, +0.44] |
-| Development, 18 weak | 2.65 | 2.91 | +0.26 [+0.14, +0.38] |
-| Development, all 44 mixed | 2.28 | 2.48 | +0.20 [+0.06, +0.33] |
-| Development strong plus copies of the new bot | 1.57 | 1.99 | +0.42 [+0.12, +0.73] |
-| **Hold-out, 5 strong** | 1.62 | 2.08 | **+0.46 [+0.29, +0.63]** |
-| **Hold-out, 6 mid-strength** | 2.38 | 2.64 | **+0.26 [+0.13, +0.40]** |
-| **Hold-out, 8 weak** | 2.73 | 2.88 | **+0.16 [+0.07, +0.25]** |
-| **Hold-out, all 19 mixed** | 2.34 | 2.51 | **+0.18 [+0.07, +0.28]** |
+| 12 strongest development bots | 1.82 | 2.30 | +0.48 [+0.31, +0.64] |
+| 14 mid-strength | 2.27 | 2.51 | +0.24 [+0.06, +0.42] |
+| 18 weak | 2.58 | 2.82 | +0.23 [+0.13, +0.33] |
+| All development bots mixed | 2.24 | 2.58 | +0.34 [+0.23, +0.46] |
+| Strong bots plus copies of the candidate | 1.53 | 1.84 | +0.30 [+0.04, +0.57] |
 
-Head to head it outscores every development opponent more often than not, and no
-pool bot does better than it against a table of three copies of it.
-
-## Choices that were tested and rejected
-
-- **Weighting loss risk more heavily** (1.5x the measured curves): -0.36 on the
-  strong field on fresh fixtures. Half weight: -0.11. The measured value stays.
-- **Longer or wider plan search, higher value of time**: better alone on an empty
-  board, worse in contested games (-0.2 on the strong field), so the cheap setting
-  stays.
-- **Claim-first variants of the previous bot**: -0.5 to -1.2; its cells get raided.
-
-## Rule readings
-
-The official reading (shields catch rivals whose effective action is STAY) is what
-the bot is built for. Against the previous release under other readings, same
-fixtures: catch by presence +0.00, legal list omits occupied cells +0.43, no
-progress reset after a claim +0.31, home not upgradable +0.40, frozen stays count
-+0.45, lost contest is not a stay +0.44. Under the presence reading the bot
-notices the first time a successful move is caught and stops stepping onto the
-same landlord's cells.
+Head to head it outscores every development opponent more often than not (lowest
+0.56 against the previous strongest bots).
 
 ## Reproduce
 
 ```bash
-python3 lab/build.py zr6                  # the released configuration
-python3 lab/suite.py --ref cur_e8 zr6     # five development fields
-python3 lab/check_tracker.py bot.py 300   # tracker against referee truth
-python3 lab/release.py                    # rebuild bot.py and refresh its fingerprint
-python3 tools/check_release.py            # 142 tests
+python3 lab/build.py zr4
+python3 lab/suite.py --ref cur_e8 zr4
+python3 lab/check_tracker.py lab/cand/zr4.py 300
 ```

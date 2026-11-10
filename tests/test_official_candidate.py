@@ -9,7 +9,7 @@ import unittest
 from tests import reference_engine as engine
 
 ROOT = Path(__file__).resolve().parents[1]
-CANDIDATE = ROOT / "tester_bots" / "previous_release.py"   # the previous release
+CANDIDATE = ROOT / "tester_bots" / "guarded_transfer.py"   # the previous release
 
 
 def load():
