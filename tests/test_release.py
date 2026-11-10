@@ -13,7 +13,12 @@ from tests import reference_engine as engine
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def load(path=ROOT / "bot.py"):
+PREVIOUS = ROOT / "tester_bots" / "guarded_transfer.py"
+
+
+def load(path=PREVIOUS):
+    # The exact-tracking contracts below were written against the previous release's
+    # internals; the root bot's own contracts are in tests/test_root_bot.py.
     spec = importlib.util.spec_from_file_location("release_contract", path)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)

@@ -1,10 +1,13 @@
-# Zone Rush: STAY-only Shield release
+# Zone Rush: submission and lab
 
 `bot.py` is the standalone submission: one standard-library file exposing
-`act(state)`. It uses only the four documented public inputs and remembered
-public history. It includes the selected economic planner, inferred scores and
-work/cooldowns, valid same-owner-cell Shield feints, input guards and recovery
-when public evidence proves a requested Shield was replaced with STAY.
+`act(state)`. It uses only the four documented public inputs and its own memory of
+earlier public boards. It is the lab candidate `zr6` (`lab/cand/zr6.py`, byte for
+byte): an exact public-history tracker, a route planner that discounts land by the
+measured chance of losing it, a per-rival model of Shield habits, and Shield and
+raid decisions made on expected points.
+
+The previous release is kept as `tester_bots/guarded_transfer.py`.
 
 ## Confirmed rule
 
@@ -14,7 +17,7 @@ cells owned by the shielder. A blocked or lost-contest move counts as STAY.
 Using Shield is not a STAY. Already-frozen rivals remain ineligible.
 
 Caught or backfired on turn 10 means frozen on turns **11 and 12**. Shield used
-on turn 10 is unavailable on **11ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“14**, and can next be used on **15**. Catching
+on turn 10 is unavailable on **11 to 14**, and can next be used on **15**. Catching
 nobody eligible backfires. Other capture, income and work rules are unchanged.
 
 This explicit clarification supersedes the earlier territory-presence
@@ -30,83 +33,55 @@ python simulator/server.py
 
 Open http://127.0.0.1:8779/. Arrows/WASD move, Space stays, Q shields;
 on-screen controls do the same. Recording is automatic. The AI view shows the
-same four public observation fields as the bot. Existing older tabs retain
-their old matches and rules. [Simulator details](simulator/README.md).
+same four public observation fields as the bot. [Simulator details](simulator/README.md).
 
 ```powershell
 python tools/check_release.py
 ```
 
-Python 3.10 or newer is sufficient. The release passes **133 Python tests** and,
-when Node is installed, six offline interface logic groups. These include both
-historical and current physics, 48 complete independent-engine differential
-games, exact public-history oracles, real-worker recording/replay and privacy,
-request races, fallback recovery and a downloaded folder without Git.
-Visual-harness testing is optional under the user's instruction.
+Python 3.10 or newer is sufficient. The release passes **142 Python tests** and,
+when Node is installed, six offline interface logic groups. `tests/test_root_bot.py`
+holds the root bot's own contracts (legal and timely on the independent reference
+engine, input never mutated, exact own score, progress and cooldown books, interface
+variations, a working fallback if the planner raises). The tests written against the
+previous release's internals now run against `tester_bots/guarded_transfer.py`.
 
-## Current selection evidence
+## Why this bot: the out-of-sample test
 
-The new **STAY-only** comparison contains **5,832 games and 1,866,240 timed
-callbacks**, with zero worker faults. It screened 70 admissible archived policies,
-then compared 12 balanced candidates, six frozen finalists and two recovered,
-fixed-genome alternatives on twelve further fresh boards. Each final follow-up
-policy played 576 common fixtures: all 16 corner/priority combinations in three fields.
+The candidate was frozen and the test plan committed before any test game was played
+([plan](lab/PREREGISTRATION.md), [full log](lab/PROGRESS.md)). It then played
+10,240 games against opponents it was never developed on, on fresh maps (half from
+map families that did not exist during development), next to the previous release
+and the two best existing bots on identical fixtures. Score is rivals outscored per
+game, 0 to 3.
 
-| Latest fresh follow-up | Mean opponents outscored / 3 | Worst callback |
-|---|---:|---:|
-| **Selected guarded Transfer** | **1.7300** | **2.02 ms** |
-| Guarded research alternative | 1.4991 | 1.48 ms |
+| 1,344 pooled games | Score | New bot minus it (95% interval) |
+|---|---:|---|
+| **New `bot.py` (`zr6`)** | **2.575** | |
+| Previous release | 2.313 | +0.262 [+0.20, +0.33] |
+| Racer | 2.478 | +0.097 [+0.04, +0.16] |
+| Blocker | 2.472 | +0.102 [+0.04, +0.16] |
 
-The paired difference is +0.2309, with 12-map clustered 95% bootstrap interval
-[-0.0243,+0.4939]. The interval includes zero: this is the best measured option
-in that follow-up, not proof of universal superiority. The research settings led
-the earlier eight-map round, while Transfer led balanced development and the
-separate follow-up. Both strategic genomes were historical, frozen settings;
-no coefficients were fitted after observing final outcomes.
+Zero faults in every test game. All six pre-registered shipping conditions held.
 
-The recovery-only revisions matched their original versions on **61,440 exact
-public-action pairs** from all 768 recorded finalist games, and received their
-own fresh process-isolated follow-up. No private acceptance acknowledgement is
-invented: an externally substituted action that is observationally identical to
-an accepted one cannot be uniquely diagnosed from the four-field interface.
+What the test does **not** show: a lead against strong bots. On the two fields of
+strong unseen opponents the new bot is level with Racer and Blocker (differences
++0.01 to -0.02, intervals about +/-0.3) and its lead over the previous release
+(+0.14 and +0.07) is not established. Its margin is made against weak and
+mid-strength opponents. The development figures had suggested +0.55 against strong
+bots; that did not carry over, and [the log](lab/PROGRESS.md) explains why. Work on
+that gap continues in `lab/`.
 
-[Current validation](validation/official/REPORT.md),
-[exact rule clarification](validation/official/rule_contract.json),
-[release fingerprints](release_manifest.json).
+## Repository map
 
-## Focused repository
-
-- `bot.py`: final already-flattened submission; no build step or extra weights.
-- `tester_bots/`: eight standalone alternatives and specialist controls.
-- `simulator/`: one human simulator with immutable bot snapshots and saved history.
-- `tests/`: current regressions, a separate historical model and independent oracle.
-- `tools/`: release checks, registered comparison and exact replay helpers.
-- `validation/official/`: new STAY-only evidence, source additions and audit.
-- Other `validation/` files: explicitly historical presence-rule evidence, unchanged
-  raw results and source archives; these scores are not pooled into this ranking.
-
-To reproduce a comparison without Git:
-
-```powershell
-python tools/unpack_sources.py
-python tools/benchmark.py --spec validation/official/followup_spec.json --out .cache/repeat.json.gz --workers 8
-```
-
-Sources are restored only after archive/hash verification. Changed files and
-consumed result paths are never overwritten. Retired experiment trees remain
-in Git history. Existing live games and the separate uncommitted checkout were
-not changed by this release.
-
-The concurrently added `ultimate.py` is preserved as an experimental alternative.
-On the same 576 STAY-only follow-up fixtures it scored 1.3446 opponents outscored,
-versus 1.7300 for the selected release, with zero worker faults. It is retained
-as a tester and has not replaced the validated root bot. Its original architecture
-tests include historical False-mode fixtures; those are not current-rule proof.
-
-This research branch also contains [evolution experiments](evolution/README.md),
-an [independent validity overseer](evolution/OVERSIGHT.md), a
-[mathematical strategy review](evolution/GAME_THEORY_REVIEW.md), and
-[portable shared-GPU diagnostic jobs](compute_share/SHARED_GPU.md). These offline
-tools keep the validated root bot unchanged. GPU research uses a separate PyTorch
-environment; the submitted bot remains standard-library-only. The requested
-two-million-game primary campaign is separate from these completed control games.
+- `bot.py`: the submission; no build step, no data files.
+- `lab/`: the harness, opponent pools, candidates and the running log this bot came
+  from. Start with `lab/PROGRESS.md`.
+- `tester_bots/`: nine standalone alternatives, including the previous release.
+- `simulator/`: the human simulator with immutable bot snapshots and saved history.
+- `tests/`, `tools/`: release checks, an independent reference engine, replay helpers.
+- `validation/`: evidence for the previous release (`validation/official/`) and older
+  presence-rule evidence. Those scores are not pooled with the lab's.
+- `evolution/`, `*_campaign/`, `intent_*`, `gpu_*` and similar folders: earlier
+  research, kept unchanged.
+- `ultimate.py`: an earlier experimental engine, kept as a tester.
