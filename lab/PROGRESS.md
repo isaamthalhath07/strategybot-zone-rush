@@ -244,3 +244,202 @@ was left unchanged so the test measures the candidate as designed.
 `8b87bf8221c5937fc3bd51562850a6ac550a0cec49681640332b19c4ea0144cb`. It passes all
 27 rows of `lab/robust.py` (`lab/results/robust_zr6.txt`).
 `lab/PREREGISTRATION.md` is now in force. No test game has been played.
+
+## 8. The out-of-sample test (EXT1): result and decision
+
+`python3 lab/final_test.py --set EXT1 --out lab/results/test_ext1.json`, run once on
+the frozen `zr6` exactly as pre-registered. 10,240 games, 0 faults by any focal bot,
+0 games that failed to run. Full table: `lab/results/test_ext1.txt`; per-game data:
+`lab/results/test_ext1.json`.
+
+| Field (192 games each) | `zr6` | current `bot.py` | Racer | Blocker | `zr6` minus current (95%) | minus Racer | minus Blocker |
+|---|---:|---:|---:|---:|---|---|---|
+| `holdout_elite` | 1.76 | 1.63 | 1.75 | 1.72 | +0.14 [-0.16, +0.43] | +0.01 [-0.30, +0.35] | +0.05 [-0.26, +0.38] |
+| `holdout_rest` | 2.68 | 2.49 | 2.62 | 2.63 | +0.19 [+0.06, +0.31] | +0.06 [-0.07, +0.18] | +0.05 [-0.07, +0.17] |
+| `ai_pasted` | 2.93 | 2.85 | 2.85 | 2.89 | +0.08 [+0.01, +0.15] | +0.07 [+0.01, +0.15] | +0.04 [-0.03, +0.11] |
+| `generated` | 2.84 | 2.28 | 2.60 | 2.51 | +0.56 [+0.42, +0.71] | +0.24 [+0.14, +0.34] | +0.33 [+0.23, +0.43] |
+| `other_designs` | 2.38 | 2.31 | 2.40 | 2.39 | +0.07 [-0.08, +0.21] | -0.02 [-0.18, +0.14] | -0.02 [-0.17, +0.14] |
+| `stress` | 2.81 | 2.32 | 2.61 | 2.64 | +0.49 [+0.34, +0.62] | +0.20 [+0.09, +0.31] | +0.17 [+0.07, +0.28] |
+| `unseen_mixed` | 2.64 | 2.32 | 2.52 | 2.54 | +0.32 [+0.19, +0.44] | +0.12 [+0.02, +0.21] | +0.10 [-0.00, +0.20] |
+| **Pooled** (1,344 games) | **2.575** | 2.313 | 2.478 | 2.472 | **+0.262 [+0.20, +0.33]** | **+0.097 [+0.04, +0.16]** | **+0.102 [+0.04, +0.16]** |
+| known map families | 2.62 | 2.37 | 2.54 | 2.51 | +0.25 [+0.18, +0.34] | +0.08 [+0.01, +0.15] | +0.11 [+0.04, +0.18] |
+| new map families | 2.52 | 2.24 | 2.40 | 2.42 | +0.27 [+0.17, +0.38] | +0.12 [+0.01, +0.23] | +0.09 [-0.01, +0.20] |
+| `unseen_all` | 2.76 | 2.38 | 2.56 | 2.54 | +0.38 [+0.25, +0.50] | +0.19 [+0.10, +0.29] | +0.21 [+0.10, +0.31] |
+| `with_candidate` | 1.95 | 1.83 | 1.93 | 1.81 | +0.13 [-0.10, +0.34] | +0.02 [-0.21, +0.24] | +0.15 [-0.08, +0.37] |
+
+Alternative rule readings (64 games each, `unseen_mixed` opponents): `zr6` minus
+current `bot.py` is +0.13, +0.23, +0.09, +0.20, +0.38; no interval is below zero.
+
+### The shipping rule, applied as written
+
+| # | Condition | Result |
+|---|---|---|
+| 1 | Pooled lead over current `bot.py`, lower bound above 0 | +0.262 [+0.20, +0.33]: **holds** |
+| 2 | Pooled lead over Racer and over Blocker, lower bounds above 0 | +0.097 [+0.04, +0.16] and +0.102 [+0.04, +0.16]: **holds** |
+| 3 | No field significantly below a reference | none: **holds** |
+| 4 | Lead over current positive on known and on new map families | +0.25 and +0.27: **holds** |
+| 5 | Zero faults, zero failed games | **holds** |
+| 6 | Pooled lead at least half the development lead (+0.16) | +0.262: **holds** |
+
+Under the alternative rule readings: zero faults, never significantly below current.
+**Decision: `zr6` replaces the root `bot.py`.**
+
+### What the test also shows (the part that matters for the next step)
+
+1. **The lead is real but it is made against weak and mid-strength bots.** On the
+   `generated` and `stress` fields `zr6` is +0.5 over the current bot. Against the
+   strong unseen bots (`holdout_elite`, `other_designs`) its lead over the current
+   bot is +0.14 and +0.07 with intervals spanning zero, and over Racer and Blocker
+   it is zero.
+2. **The development lead on strong bots did not carry over.** Development said
+   +0.55 over the current bot on the elite field (+0.37 on fresh development seeds);
+   unseen strong bots give +0.14. Section 7 found that 0.3 of the development elite
+   lead came from the prior over how those particular bots use Shield. That part was
+   fitted to the development bots, and this is the measurement of it.
+3. **Against strong bots `zr6` scores fewer raw points than the references and
+   places level with them anyway**: mean score 2,853 vs 2,871 to 2,879 on
+   `holdout_elite`, 2,858 vs 2,903 to 2,938 on `other_designs`. It trades its own
+   income for damage to rivals. Against strong bots that trade only breaks even.
+4. **Every strong bot beats the pasted ChatGPT and Gemini bots almost every game**
+   (2.85 to 2.93 of 3). If other teams submit one-shot AI bots, any of these four
+   wins; places are decided among the teams that iterated, i.e. on the strong fields.
+5. **Map families:** `zr6` leads on 10 of 13 families. It trails Racer and Blocker on
+   `flat` (2.27 vs 2.41 / 2.35), `rich` (2.30 vs 2.37 / 2.42) and `edges` (2.32 vs
+   2.37 / 2.39): maps where most cells are worth the same and claiming land fast
+   matters more than which land. 84 games per family, so these are leads to look
+   into, not established facts.
+6. **The hazard change (`zr6` vs `zr5`) made no measurable difference out of
+   sample:** pooled +0.012 [-0.03, +0.05]. Under the presence-catch rule reading
+   `zr6` was below `zr5` (-0.20 [-0.38, -0.05], 64 games, one of five readings
+   examined, so possibly chance; it is not the confirmed rule).
+
+### Deviations from the pre-registration
+
+- Before the test was started, one game was played with `zr6` against `x_zenith`,
+  `x_hx_aggro` (EXT1) and `x_outsider_sim` (EXT2) on development map `gradient/1`, to
+  time a game. The candidate was already frozen and was not changed; no decision
+  used that game. It is the only contact with any EXT2 bot so far.
+- **The EXT2 replication is deferred, not dropped.** The pre-registration says to
+  run the identical plan on EXT2 after shipping. EXT2 is the only untouched opponent
+  set left, and the work continues beyond `zr6` (finding 1 says where). EXT2 will be
+  run once, on the next frozen candidate, with `zr6` among the focal bots on the same
+  fixtures. That run reports the `zr6` replication whatever it shows and is the test
+  of the next candidate. Its plan will be committed before it is run.
+- From here on EXT1 counts as seen: it may be used for diagnosis and development.
+
+## 9. `zr6` shipped as the root `bot.py`
+
+`python3 lab/ship.py zr6 "..."` copies the frozen file to `bot.py` byte for byte
+(SHA-256 `8b87bf82…`) and points `release_manifest.json` at it. The previous release
+is now `tester_bots/guarded_transfer.py` (unchanged bytes, `e8b3682d…`); the tests
+written against its internals run against that file, and its validation record sits
+under `previous_release` in the manifest.
+
+`tests/test_root_bot.py` adds nine contracts for the root bot on the repository's
+independent reference engine: legal and timely answers, input never mutated, exact
+own score / progress / cooldown books over 1,280 self-play callbacks, one module
+playing four seats and a second game, dictionary / string / Enum / bare-tuple inputs,
+and a working fallback when the planner raises. They bind to behaviour, not
+coefficients, so a later candidate ships with `lab/ship.py` alone.
+
+`python3 tools/check_release.py`: 142 tests pass, plus the six interface groups.
+
+## 10. Why `zr6` only breaks even against strong bots: it leaks un-upgraded land
+
+All of this uses opponents that are no longer held out (development pool, lab
+hold-out, EXT1). EXT2 and the second half of the stress bots are untouched.
+
+New tools: `lab/suite2.py` (five fields over every seen opponent and all 13 map
+families), `lab/h2h_strong.py`, `lab/h2h_field.py`, `lab/prof_fam.py`,
+`lab/loss_audit.py`, `lab/scratch/hazard_own.py`, `lab/scratch/raid_propensity.py`.
+
+### Diagnosis
+
+Against 26 strong bots (`python3 lab/prof_fam.py <all families> zr6 a_novel_b_racer
+cur_e8 --maps 78`), per game:
+
+| | `zr6` | Racer | previous release |
+|---|---:|---:|---:|
+| cells lost to raids | **4.3** | 1.3 | 0.8 |
+| of which un-upgraded | 3.7 | 1.0 | 0.3 |
+| bonus points handed to rivals | 89 | 30 | 24 |
+| raids made / bonus earned | 4.0 / 110 | 2.4 / 41 | 1.2 / 25 |
+| income, last third of the game | 1,279 | 1,368 | 1,395 |
+| final score | 2,852 | 2,870 | 2,878 |
+
+`python3 lab/loss_audit.py zr6 --maps 80`: three of the 4.3 lost cells are cells
+`zr6` claimed and left un-upgraded; two of those three had not been stood on for more
+than 20 turns; two thirds of all losses fall after turn 55. When `zr6` walked away
+from them the eventual raider was usually four or more steps off. Racer and the
+previous release upgrade a cell before leaving it, so they are almost never exposed.
+
+**Cause: the risk table `zr6` plans with was measured on the wrong cells.** It came
+from every bot's un-upgraded cells in development games. Most strong bots upgrade
+within three turns of claiming, so those cells were short-lived and the table says
+little about a cell left for 20 or 40 turns. Measured on `zr6`'s own cells
+(`lab/results/hazard_own_zr6.txt`), the chance of losing an un-upgraded cell within
+40 turns, nearest rival four steps away, mid-game:
+
+| Opponents | measured | `zr6` assumed |
+|---|---:|---:|
+| strong | 49% | about 15% |
+| mid | 24% | about 15% |
+| weak | 16% | about 15% |
+
+Two structural facts came out of that table:
+
+- The risk is nearly a constant rate per turn once a rival has had time to walk over
+  (about three turns per step of distance), with no real dependence on the phase of
+  the game. One shape fits every distance: exposure `g = max(0, h - 3(d-1))`.
+- The rate differs about threefold between opponent populations, and between
+  individual bots by more (`lab/results/raid_propensity.txt`: rivals take an exposed
+  cell they stand next to on 3% of turns for passive designs, about 20% for most
+  strong bots, 40 to 50% for the aggressive ones). No single number can be right.
+
+### What was changed (`lab/cand/_head3.py`, `lab/cand/_tail3.py`; build with `gen=3`)
+
+1. The un-upgraded-cell risk is now `1 - product over rivals of P(survives rival)`,
+   with each rival's rate taken from a **posterior over three raider types** (passive,
+   ordinary, aggressive) updated from how often that rival actually takes an exposed
+   cell when it stands next to one. Before any evidence the mix is 30/50/20.
+2. "Claim and upgrade without leaving" is planned as one job, so a cell that is not
+   worth holding un-upgraded can still be taken and fortified. In `zr6` such a claim
+   was discarded before its upgrade was ever considered. That discard is why raising
+   the old risk multiplier looked disastrous in section 6: the multiplier scaled
+   probabilities past 100%, claims went negative and the bot stopped expanding.
+
+### Development results (`python3 lab/suite2.py --seed 900 ...`, difference from `zr6`)
+
+First with one rate for every rival (no per-rival typing):
+
+| rate | strong | mid | weak | mix | self |
+|---:|---:|---:|---:|---:|---:|
+| 0.003 | -0.47 | -0.13 | -0.05 | -0.19 | -0.25 |
+| 0.006 | +0.10 | -0.05 | -0.06 | +0.03 | +0.30 |
+| 0.010 | +0.13 | +0.01 | -0.08 | +0.09 | +0.44 |
+| 0.016 | +0.22 | -0.13 | -0.08 | +0.04 | +0.40 |
+| 0.030 | +0.19 | -0.14 | -0.18 | -0.05 | +0.35 |
+| 0.060 | +0.19 | -0.18 | -0.19 | -0.09 | +0.34 |
+
+More caution helps against strong bots up to about 0.016 and then is flat; it costs
+against mid and weak bots. Head to head (`lab/h2h_field.py`) the cost is against
+passive designs and the gain against raiders, which is the case for typing rivals.
+
+With the per-rival posterior (`zr7h`, ordinary-raider rate 0.014):
+
+| | strong | mid | weak | mix | self |
+|---|---:|---:|---:|---:|---:|
+| `zr7h` minus `zr6` | **+0.22 [+0.08, +0.36]** | -0.02 [-0.13, +0.08] | -0.10 [-0.17, -0.03] | +0.04 [-0.04, +0.12] | **+0.41 [+0.21, +0.60]** |
+| rate 0.008 | +0.07 | +0.02 | -0.10 | +0.08 | +0.43 |
+| rate 0.022 | +0.21 | -0.14 | -0.11 | +0.01 | +0.41 |
+
+A separate 880-game weak-field run on another seed puts the weak-field cost at
+-0.04 (2.782 vs 2.822). Against strong bots `zr7h` now loses 1.6 cells per game
+instead of 4.3 and hands rivals 36 bonus points instead of 89.
+
+Tried and dropped: pricing the land taken in a raid with a lower risk than land
+already held (four combinations). It changed nothing measurable, so the model keeps
+one risk for both.
+
+Not yet done, and the numbers above are development numbers on seen opponents:
+more than half of the remaining losses fall in the last ten turns.
