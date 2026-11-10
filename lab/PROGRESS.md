@@ -88,3 +88,41 @@ other team also used AI. So:
 - The candidate, the current `bot.py`, Racer and Blocker all play the identical
   fixtures, so differences are paired.
 - The shipping rule is written down and committed before the test is run.
+
+## 4. Hardened candidate `zr5` (same decisions, safe to deploy)
+
+`zr5` = `zr4` plus deployment fixes only. On the documented interface it is
+**move-for-move identical** to `zr4`: 160 games, 12,800 decisions, zero differences
+(`python3 lab/equiv.py zr4 zr5 --maps 40`).
+
+What changed:
+
+- one memory per seat instead of one per module, so a server that runs several seats
+  in one process cannot mix their histories;
+- it answers with the server's own action object (lower-case strings, Enum members)
+  instead of always returning an upper-case string;
+- cells may be bare 6-tuples; homes the server reports as unowned are attributed
+  to their seat;
+- an internal error no longer returns STAY: that seat's memory is dropped and
+  rebuilt from the board, and a stateless greedy policy plays the turn;
+- a turn that runs longer than 60 ms narrows every later search (never triggered in
+  testing: mean 1.4 ms, worst 9.9 ms).
+
+Robustness matrix (`python3 lab/robust.py zr5 zr4 cur_e8 a_novel_b_racer`, saved
+in `lab/results/robust.txt`): 22 input or rule variations and 4 deployment modes,
+four full games each.
+
+| Bot | Conditions passed (of 26) | Fails on |
+|---|---:|---|
+| **`zr5`** | **26** | none |
+| `zr4` | 21 | lower-case actions, Enum actions, bare-tuple cells, homes unowned, one module for four seats |
+| current `bot.py` | 25 | bare-tuple cells |
+| Racer | 16 | flat boards, dict cells, string `bot_id`, lower-case and Enum actions, missing token flag, dict state, bare tuples, **second game in the same module** |
+
+Finding: **Racer cannot be shipped as it is.** It plays a second game in the same
+process with the first game's memory and collapses, and it breaks on most input
+variations. Its strength numbers in section 1 hold only on the exact documented
+interface with a fresh process per game.
+
+A development-only sensitivity sweep (`lab/sensitivity.py`) is running; results in
+the next entry.

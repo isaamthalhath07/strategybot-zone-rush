@@ -341,13 +341,15 @@ def _plan(v, m, x):
             short.append(j)
     nj = len(short)
     tail_k = _P["tail"] * best_rate / (2.0 * left)
+    # A turn that ran long (slow or busy grading machine) narrows every later search.
+    shrink = min(m.slow, 2)
     # Plans are compared at a common time horizon, not a common number of jobs: a fixed
     # job count would rate "six big jobs" above "one small job on the way plus five big".
     horizon = min(left, _P["horizon"])
     beam = [(0.0, 0.0, 0, at, 0, -1)]
     best = None
-    width = _P["beam"]
-    for depth in range(_P["depth"]):
+    width = max(3, _P["beam"] >> shrink)
+    for depth in range(max(4, _P["depth"] >> shrink)):
         seen = {}
         for state in beam:
             _, value, used, pos, mask, f0 = state
@@ -526,22 +528,83 @@ def _decide(v, m):
     return action
 
 
+def _fallback(v):
+    """Stateless greedy policy, used only if the planner itself raises: work the cell we
+    stand on if there is work, else walk to the nearest claimable or upgradable cell."""
+    me = v.me
+    at = v.pos[me]
+    legal = v.legal
+    stay = "STAY" if "STAY" in legal else legal[0]
+    if v.frozen[me] or len(legal) <= 1:
+        return stay
+    owner, level, home = v.owner, v.level, v.home
+
+    def work(c):
+        o = owner[c]
+        if home[c]:
+            return False
+        return o == 0 or (o == me and not level[c]) or (o != me and not level[c])
+
+    if work(at):
+        return stay
+    occupied = set(p for p in v.pos[1:] if p >= 0 and p != at)
+    seen = {at: None}
+    frontier = []
+    for a, t in _ADJ[at]:
+        if a in legal and t not in occupied:
+            seen[t] = a
+            frontier.append(t)
+    while frontier:
+        nxt = []
+        for h in frontier:
+            if work(h):
+                return seen[h]
+            for t in _NB[h]:
+                if t not in seen and t not in occupied:
+                    seen[t] = seen[h]
+                    nxt.append(t)
+        frontier = nxt
+    return stay
+
+
+_clock = None
+
+
 def act(state):
+    global _clock
+    if _clock is None:
+        import time
+        _clock = time.perf_counter
+    t0 = _clock()
     try:
         v = _read(state)
     except Exception:
-        legal = getattr(state, "legal_actions", None) or ["STAY"]
-        return "STAY" if "STAY" in legal else legal[0]
+        try:
+            legal = list(getattr(state, "legal_actions", None) or state["legal_actions"])
+        except Exception:
+            legal = []
+        for a in legal:
+            if a == "STAY":
+                return a
+        return legal[0] if legal else "STAY"
     m = None
     try:
         m = _update(v)
         action = _decide(v, m)
     except Exception:
-        action = "STAY"
-        m = _M
+        # Never let one bad assumption cost the game: drop this seat's memory (it is
+        # rebuilt from the board next turn) and play a safe greedy move now.
+        _MEMS.pop(v.me, None)
+        m = None
+        try:
+            action = _fallback(v)
+        except Exception:
+            action = "STAY"
     if action not in v.legal:
-        action = "STAY" if "STAY" in v.legal else v.legal[0]
+        action = "STAY" if "STAY" in v.legal else (v.legal[0] if v.legal else "STAY")
     if m is not None:
         m.last = action
         m.shield_was_legal = "SHIELD" in v.legal
-    return action
+        if _clock() - t0 > 0.06:
+            m.slow += 1
+    return v.raw.get(action, action)

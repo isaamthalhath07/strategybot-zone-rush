@@ -27,7 +27,11 @@ _NB = [tuple(j for _, j in row) for row in _ADJ]
 # ----------------------------------------------------------------------------- reading
 
 class _View(object):
-    __slots__ = ("me", "legal", "token", "pos", "owner", "level", "frozen", "base", "home", "occ")
+    __slots__ = ("me", "legal", "raw", "token", "pos", "owner", "level", "frozen", "base", "home", "occ")
+
+
+_FIELDS = ("occupant", "owner", "is_upgraded", "is_home", "is_frozen", "base_points")
+_INDEX = dict((name, k) for k, name in enumerate(_FIELDS))
 
 
 def _read(state):
@@ -40,11 +44,16 @@ def _read(state):
     v.me = int(get(state, "bot_id"))
     v.token = bool(get(state, "is_priority_token", False))
     legal = []
+    raw = {}
     for a in (get(state, "legal_actions", ()) or ()):
         name = a if isinstance(a, str) else (getattr(a, "name", None) or getattr(a, "value", None))
         if isinstance(name, str):
-            legal.append(name.upper())
+            name = name.upper()
+            if name not in raw:
+                raw[name] = a            # answer with the server's own object, whatever its type
+                legal.append(name)
     v.legal = legal
+    v.raw = raw
     board = get(state, "board")
     first = board[0]
     if isinstance(first, (list, tuple)) and len(first) == 8 and not hasattr(first, "owner"):
@@ -55,6 +64,8 @@ def _read(state):
         raise ValueError("board")
     if isinstance(cells[0], dict):
         cg = lambda o, k, d=None: o.get(k, d)
+    elif isinstance(cells[0], (list, tuple)) and not hasattr(cells[0], "owner"):
+        cg = lambda o, k, d=None: o[_INDEX[k]]      # bare 6-tuples in the documented field order
     else:
         cg = lambda o, k, d=None: getattr(o, k, d)
     v.pos = [-1] * 5
@@ -93,11 +104,15 @@ def _need(seat, owner, level, home):
 
 
 def _pristine(v):
-    if sum(1 for o in v.owner if o) != 4 or any(v.level):
+    """Turn-1 board: nothing upgraded, nothing owned except homes, every bot on a home."""
+    if any(v.level):
         return False
+    for c in range(64):
+        if v.owner[c] and not v.home[c]:
+            return False
     for s in range(1, 5):
         p = v.pos[s]
-        if p < 0 or not v.home[p] or v.owner[p] != s:
+        if p < 0 or not v.home[p] or v.owner[p] not in (0, s):
             return False
     return True
 
@@ -154,6 +169,11 @@ class _Mem(object):
         self.presence_rule = False       # a successful mover was caught: sidesteps are unsafe
         self.failed = {}                 # cell -> (owner, level) for jobs that refused to complete
         self.unexplained = 0
+        self.slow = 0                    # turns that ran long: the search narrows itself
+        self.home_of = {}                # home cell -> seat, for servers that report homes unowned
+        if fresh:
+            for s in range(1, 5):
+                self.home_of[v.pos[s]] = s
         self.rng = None
         self.plan = None
         self.raid = None
@@ -370,23 +390,33 @@ class _Mem(object):
         return best
 
 
-_M = None
+_MEMS = {}       # seat -> _Mem. Keyed by seat so one module can play several seats.
+
+
+def _patch_homes(v, m):
+    """Some servers leave home cells unowned in the board; a home always belongs to its seat."""
+    for c, s in m.home_of.items():
+        if v.home[c] and v.owner[c] == 0:
+            v.owner[c] = s
 
 
 def _update(v):
-    global _M
-    m = _M
+    me = v.me
+    m = _MEMS.get(me)
     restart = m is None
     if not restart and _pristine(v):
         # A pristine board can also be turn 2 of a quiet opening; a new game is certain
         # once the remembered board had developed.
-        if m.turn >= 80 or any(m.level) or sum(1 for o in m.owner if o) > 4:
+        if m.turn >= 80 or any(m.level) or sum(1 for c in range(64) if m.owner[c] and not v.home[c]) > 0:
             restart = True
     if restart:
-        m = _M = _Mem(v)
+        m = _Mem(v)
+        _patch_homes(v, m)
+        m.owner = list(v.owner)
+        _MEMS[me] = m
     else:
+        _patch_homes(v, m)
         m.observe(v)
-    me = v.me
     # Own cooldown: the legal list is authoritative once the server is seen to filter it.
     if not v.frozen[me]:
         if "SHIELD" not in v.legal:

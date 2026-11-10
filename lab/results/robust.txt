@@ -1,0 +1,122 @@
+
+== zr5
+condition                              score  errors  verdict
+documented 8x8 Cell objects             3079       0  ok
+flat 64-list of Cell objects            3079       0  ok
+flat 64-list of namedtuples             3079       0  ok
+8x8 rows of namedtuples                 3079       0  ok
+tuple-of-tuples board, tuple legal      3079       0  ok
+cells are dicts                         3079       0  ok
+bools as 0/1 ints                       3079       0  ok
+bot_id as a string                      3079       0  ok
+lower-case action strings               3079       0  ok
+Enum-like action objects                3079       0  ok
+is_priority_token missing               3079       0  ok
+state is a dict                         3079       0  ok
+cells are bare 6-tuples                 3079       0  ok
+homes reported unowned                  3079       0  ok
+SHIELD listed while on cooldown         3079       0  ok
+legal_actions in reverse order          3079       0  ok
+legal list omits occupied cells         3105       0  ok
+homes cannot be upgraded                3079       0  ok
+Shield catches by presence              3010       0  ok
+lost contest is not a STAY              3079       0  ok
+frozen STAY earns progress              3044       0  ok
+claim keeps progress                    3271       0  ok
+fresh module every turn                 1934       0  ok
+second game in the same module          3424       0  ok
+loaded at turn 30 of a running game     2418       0  ok
+one module serving all four seats       2736       0  ok
+                                        2736          (four separate modules, for the row above)
+
+== zr4
+condition                              score  errors  verdict
+documented 8x8 Cell objects             3079       0  ok
+flat 64-list of Cell objects            3079       0  ok
+flat 64-list of namedtuples             3079       0  ok
+8x8 rows of namedtuples                 3079       0  ok
+tuple-of-tuples board, tuple legal      3079       0  ok
+cells are dicts                         3079       0  ok
+bools as 0/1 ints                       3079       0  ok
+bot_id as a string                      3079       0  ok
+lower-case action strings                158     320  BROKEN
+Enum-like action objects                 158     320  BROKEN
+is_priority_token missing               3079       0  ok
+state is a dict                         3079       0  ok
+cells are bare 6-tuples                  158       0  BROKEN
+homes reported unowned                  2644       0  DEGRADED
+SHIELD listed while on cooldown         3079       0  ok
+legal_actions in reverse order          3079       0  ok
+legal list omits occupied cells         3105       0  ok
+homes cannot be upgraded                3079       0  ok
+Shield catches by presence              3010       0  ok
+lost contest is not a STAY              3079       0  ok
+frozen STAY earns progress              3044       0  ok
+claim keeps progress                    3271       0  ok
+fresh module every turn                 1934       0  ok
+second game in the same module          3424       0  ok
+loaded at turn 30 of a running game     2418       0  ok
+one module serving all four seats        544       0  BROKEN
+                                        2736          (four separate modules, for the row above)
+
+== cur_e8
+condition                              score  errors  verdict
+documented 8x8 Cell objects             2997       0  ok
+flat 64-list of Cell objects            2997       0  ok
+flat 64-list of namedtuples             2997       0  ok
+8x8 rows of namedtuples                 2997       0  ok
+tuple-of-tuples board, tuple legal      2997       0  ok
+cells are dicts                         2997       0  ok
+bools as 0/1 ints                       2997       0  ok
+bot_id as a string                      2997       0  ok
+lower-case action strings               2997       0  ok
+Enum-like action objects                2997       0  ok
+is_priority_token missing               2997       0  ok
+state is a dict                         2997       0  ok
+cells are bare 6-tuples                  158       0  BROKEN
+homes reported unowned                  3000       0  ok
+SHIELD listed while on cooldown         2997       0  ok
+legal_actions in reverse order          2997       0  ok
+legal list omits occupied cells         2990       0  ok
+homes cannot be upgraded                2994       0  ok
+Shield catches by presence              2997       0  ok
+lost contest is not a STAY              2972       0  ok
+frozen STAY earns progress              3000       0  ok
+claim keeps progress                    3373       0  ok
+fresh module every turn                 2906       0  ok
+second game in the same module          3201       0  ok
+loaded at turn 30 of a running game     2921       0  ok
+one module serving all four seats       2847       0  ok
+                                        2847          (four separate modules, for the row above)
+
+== a_novel_b_racer
+condition                              score  errors  verdict
+documented 8x8 Cell objects             3099       0  ok
+flat 64-list of Cell objects             158     640  BROKEN
+flat 64-list of namedtuples              158     640  BROKEN
+8x8 rows of namedtuples                 3099       0  ok
+tuple-of-tuples board, tuple legal      3099       0  ok
+cells are dicts                          158     640  BROKEN
+bools as 0/1 ints                       3099       0  ok
+bot_id as a string                       158     640  BROKEN
+lower-case action strings                158     320  BROKEN
+Enum-like action objects                 158     320  BROKEN
+is_priority_token missing                158     640  BROKEN
+state is a dict                          158     640  BROKEN
+cells are bare 6-tuples                  158     640  BROKEN
+homes reported unowned                  3144       0  ok
+SHIELD listed while on cooldown         3099       0  ok
+legal_actions in reverse order          3099       0  ok
+legal list omits occupied cells         3091       0  ok
+homes cannot be upgraded                3099       0  ok
+Shield catches by presence              3076       0  ok
+lost contest is not a STAY              3099       0  ok
+frozen STAY earns progress              3169       0  ok
+claim keeps progress                    3580       0  ok
+fresh module every turn                 2483       0  ok
+second game in the same module           158       8  BROKEN
+loaded at turn 30 of a running game     3035       0  ok
+one module serving all four seats       2814       0  ok
+                                        2814          (four separate modules, for the row above)
+
+not ok: [('zr4', 'lower-case action strings', 'BROKEN'), ('zr4', 'Enum-like action objects', 'BROKEN'), ('zr4', 'cells are bare 6-tuples', 'BROKEN'), ('zr4', 'homes reported unowned', 'DEGRADED'), ('zr4', 'one module serving all four seats', 'BROKEN'), ('cur_e8', 'cells are bare 6-tuples', 'BROKEN'), ('a_novel_b_racer', 'flat 64-list of Cell objects', 'BROKEN'), ('a_novel_b_racer', 'flat 64-list of namedtuples', 'BROKEN'), ('a_novel_b_racer', 'cells are dicts', 'BROKEN'), ('a_novel_b_racer', 'bot_id as a string', 'BROKEN'), ('a_novel_b_racer', 'lower-case action strings', 'BROKEN'), ('a_novel_b_racer', 'Enum-like action objects', 'BROKEN'), ('a_novel_b_racer', 'is_priority_token missing', 'BROKEN'), ('a_novel_b_racer', 'state is a dict', 'BROKEN'), ('a_novel_b_racer', 'cells are bare 6-tuples', 'BROKEN'), ('a_novel_b_racer', 'second game in the same module', 'BROKEN')]
