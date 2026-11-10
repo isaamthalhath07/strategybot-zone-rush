@@ -20,8 +20,10 @@ import arena  # noqa: E402
 import fields  # noqa: E402
 import sim  # noqa: E402
 
-CANDIDATE = "zr5"
-FOCALS = [CANDIDATE, "cur_e8", "a_novel_b_racer", "a_novel_b_blocker"]
+CANDIDATE = "zr6"
+# zr5 is the candidate before its one setting change (hazard 1.0); it is reported so the
+# effect of that change is visible out of sample, and takes no part in the shipping rule.
+FOCALS = [CANDIDATE, "cur_e8", "a_novel_b_racer", "a_novel_b_blocker", "zr5"]
 SEED = {"EXT1": 5101, "EXT2": 6203}
 FAMILIES = sim.FAMILIES + sim.NEW_FAMILIES            # 7 known, 7 new: alternated per map
 RULE_VARIANTS = [("presence_catch", {"catch_requires_stay": False}),

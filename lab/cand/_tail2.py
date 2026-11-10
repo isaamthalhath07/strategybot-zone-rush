@@ -60,7 +60,9 @@ _P = {
     "tail": 0.6,           # value of time left after the plan, relative to today's best rate
     "raid_exec": 0.85,     # discount for everything a raid model cannot see
     "denial_floor": 0.10,
-    "hazard": 1.0,         # global multiplier on the population loss curves
+    "hazard": 0.8,         # multiplier on the population loss curves. Development is flat
+                           # from 0.6 to 1.0 and falls steeply above, so sit inside the
+                           # plateau, not on its edge (lab/PROGRESS.md section 7)
     "l1_delay": 0.3,       # share of a level-1 cell's value a shield really saves mid-game
     "shield_margin": 1.0,  # shield when benefit exceeds margin * cost
     "raids": 1,            # switches for ablation

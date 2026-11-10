@@ -1,7 +1,7 @@
 # Pre-registration of the out-of-sample test
 
-> **Status: DRAFT, not yet in force.** The candidate's hash and the freeze note are
-> filled in by the commit that freezes it. No test game has been played.
+> **Status: in force.** The candidate is frozen at the hash below. No test game had
+> been played when this was committed.
 
 Written and committed **before any test game was played**. The commit that adds this
 file is the timestamp. Nothing below may be changed after results are seen; anything
@@ -16,21 +16,35 @@ some other team built with an AI assistant, and none of them is in this reposito
 
 ## Frozen candidate
 
-`lab/cand/zr5.py`, SHA-256: *filled in at freeze*.
+`lab/cand/zr6.py`, SHA-256
+`8b87bf8221c5937fc3bd51562850a6ac550a0cec49681640332b19c4ea0144cb`.
 
-Built by `python3 lab/build.py zr5` from `lab/cand/_head.py` and `lab/cand/_tail2.py`.
-All its settings were chosen by the previous session on development opponents; this
-session changed deployment safety only (move-for-move identical on the documented
-interface, see `lab/PROGRESS.md` section 4) and then ran a development-only
-sensitivity sweep (section 5) to decide whether any setting should move.
+Built by `python3 lab/build.py zr6` from `lab/cand/_head.py` and `lab/cand/_tail2.py`.
 
-Freeze note: *filled in at freeze, after the sensitivity sweep is read*.
+What this session changed relative to the previous session's `zr4`, using
+development opponents only:
+
+1. Deployment safety (`zr5`): move-for-move identical to `zr4` on the documented
+   interface, passes all 27 rows of `lab/robust.py`. See `lab/PROGRESS.md` section 4.
+2. One setting (`zr6`): `hazard` 1.0 to 0.8. The development sweeps show the score is
+   flat from 0.6 to 1.0 and falls steeply above 1.0, so 1.0 sat on the edge of a
+   cliff. 0.8 is inside the plateau and is no worse on any development field on a
+   fresh confirmation run. The reason is robustness, not a development gain. See
+   `lab/PROGRESS.md` sections 6 and 7.
+
+Nothing else was changed. In particular the prior over landlords' Shield habits was
+left as the previous session set it, although the sweep shows it is worth about 0.3
+against strong development bots: whether that prior carries over to strong bots
+outside development is exactly what the `holdout_elite`, `other_designs` and
+`stress` fields test.
 
 ## Reference bots (play the identical fixtures)
 
 - `cur_e8`: the shipped root `bot.py`.
 - `a_novel_b_racer`, `a_novel_b_blocker`: the two best existing bots in the
   history-wide ranking.
+- `zr5`: the candidate before the hazard change. Reported so the effect of that one
+  change can be seen out of sample; it takes no part in the shipping rule.
 
 ## Opponents: none used in development
 
@@ -63,7 +77,7 @@ to confirm it loads and never faults; the candidate was not in those games.
 - Rule readings: the confirmed rules everywhere, plus five alternative readings of
   the referee's flags on the `unseen_mixed` field (16 maps each).
 - Opponent triples, maps, seats, tokens and opponent random seeds are identical for
-  all four focal bots, so every comparison is paired.
+  all focal bots, so every comparison is paired.
 
 Command: `python3 lab/final_test.py --set EXT1 --out lab/results/test_ext1.json`
 
@@ -75,7 +89,7 @@ on identical fixtures; intervals are 95% bootstrap intervals that resample whole
 
 ## Shipping rule
 
-The candidate replaces root `bot.py` only if all of these hold on EXT1:
+The candidate (`zr6`) replaces root `bot.py` only if all of these hold on EXT1:
 
 1. Pooled, candidate minus `cur_e8`: lower bound above 0.
 2. Pooled, candidate minus Racer and candidate minus Blocker: both lower bounds above 0.
@@ -89,7 +103,7 @@ The candidate replaces root `bot.py` only if all of these hold on EXT1:
 
 Then:
 
-- All six hold: ship `zr5`, and run the identical plan on EXT2 as a replication.
+- All six hold: ship `zr6`, and run the identical plan on EXT2 as a replication.
   Report EXT2 whatever it shows.
 - 1 holds but 2 fails: the candidate beats the current bot but not the best existing
   ones. Ship whichever focal bot has the highest pooled score and passes every row of

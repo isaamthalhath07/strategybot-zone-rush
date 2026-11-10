@@ -200,3 +200,47 @@ Ablations (mechanism switched off entirely):
 
 A finer sweep of `hazard` and of the prior over landlords' Shield habits is running
 (`lab/sensitivity2.py`).
+
+## 7. Finer sweep, one setting changed, candidate frozen as `zr6`
+
+`python3 lab/sensitivity2.py` (6,840 games, development only, fresh seed 500; table
+in `lab/results/sensitivity2_dev.txt`).
+
+**Hazard.** Difference from hazard 1.0:
+
+| hazard | elite | mid | weak | mix | self |
+|---:|---:|---:|---:|---:|---:|
+| 0.6 | -0.08 | -0.03 | +0.01 | -0.01 | +0.08 |
+| 0.75 | -0.02 | -0.08 | 0.00 | +0.01 | +0.11 |
+| 0.85 | -0.10 | -0.03 | +0.01 | +0.01 | +0.17 |
+| 1.25 | **-0.22** | **-0.18** | -0.03 | -0.02 | -0.05 |
+| 1.5 | **-0.41** | **-0.16** | -0.08 | -0.07 | -0.20 |
+
+Flat from 0.6 to 1.0 (every interval spans zero), then a cliff. The previous setting
+of 1.0 was the last safe value: if real opponents raid a quarter less often than
+the development population, the bot would be playing as if at 1.25. **Changed to
+0.8**, inside the plateau. Confirmation on a third fresh seed (700, 1,140 fixtures
+per bot, `python3 lab/suite.py --ref zr5 --seed 700 --scale 1.5 --self zr5 zr6`):
+elite +0.02, mid +0.01, weak +0.02, mix +0.08, self +0.11, no interval below zero.
+This is a robustness change; development shows no significant gain from it.
+
+**Prior over landlords' Shield habits.** Replacing the tuned prior:
+
+| Prior | elite | mid | weak | mix | self |
+|---|---:|---:|---:|---:|---:|
+| flat (20% each habit) | **-0.32** | -0.04 | -0.02 | -0.10 | -0.23 |
+| on-sight heavy | **-0.15** | -0.07 | 0.00 | -0.01 | -0.15 |
+| never-shields heavy | **-0.44** | -0.10 | -0.02 | -0.10 | -0.28 |
+
+Finding: **about 0.3 of the candidate's lead over strong development bots comes from
+knowing in advance how those bots use Shield.** Against mid and weak bots the prior
+hardly matters. This is the main channel through which the candidate could be
+overfitted. The prior encodes "a strong bot shields when a take is imminent", which
+is also the rational play, so it may well transfer to other teams' strong bots; but
+that is a hypothesis, and the out-of-sample test is where it is checked. The prior
+was left unchanged so the test measures the candidate as designed.
+
+**Frozen candidate:** `lab/cand/zr6.py`, SHA-256
+`8b87bf8221c5937fc3bd51562850a6ac550a0cec49681640332b19c4ea0144cb`. It passes all
+27 rows of `lab/robust.py` (`lab/results/robust_zr6.txt`).
+`lab/PREREGISTRATION.md` is now in force. No test game has been played.
