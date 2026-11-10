@@ -4,6 +4,7 @@ Single file, standard library only, entry point act(state). Uses the four docume
 inputs (board, bot_id, is_priority_token, legal_actions) plus its own memory of earlier
 public boards. Nothing here reads another bot's pending action or any hidden counter.
 """
+import time
 
 # ----------------------------------------------------------------------------- geometry
 _ADJ = []
@@ -22,12 +23,13 @@ for _i in range(64):
     _ADJ.append(tuple(_row))
     _DIST.append(tuple(abs(_r - j // 8) + abs(_c - j % 8) for j in range(64)))
 _NB = [tuple(j for _, j in row) for row in _ADJ]
+_ACTIONS = ("NORTH", "EAST", "SOUTH", "WEST", "STAY", "SHIELD")
 
 
 # ----------------------------------------------------------------------------- reading
 
 class _View(object):
-    __slots__ = ("me", "legal", "token", "pos", "owner", "level", "frozen", "base", "home", "occ")
+    __slots__ = ("me", "legal", "raw", "token", "pos", "owner", "level", "frozen", "base", "home", "occ")
 
 
 def _read(state):
@@ -40,11 +42,18 @@ def _read(state):
     v.me = int(get(state, "bot_id"))
     v.token = bool(get(state, "is_priority_token", False))
     legal = []
+    raw = {}                              # action name -> the object the server handed us
     for a in (get(state, "legal_actions", ()) or ()):
         name = a if isinstance(a, str) else (getattr(a, "name", None) or getattr(a, "value", None))
         if isinstance(name, str):
-            legal.append(name.upper())
+            name = name.strip().upper()
+            if name in _ACTIONS and name not in raw:
+                raw[name] = a
+                legal.append(name)
+    if not legal:
+        raise ValueError("legal_actions")
     v.legal = legal
+    v.raw = raw
     board = get(state, "board")
     first = board[0]
     if isinstance(first, (list, tuple)) and len(first) == 8 and not hasattr(first, "owner"):
@@ -155,6 +164,8 @@ class _Mem(object):
         self.failed = {}                 # cell -> (owner, level) for jobs that refused to complete
         self.unexplained = 0
         self.rng = None
+        self.scale = 1.0                 # search effort; shrinks if a turn ever runs long
+        self.errors = 0
         self.plan = None
         self.raid = None
         self.note_token(v)

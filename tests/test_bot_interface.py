@@ -1,4 +1,4 @@
-"""Rule and public-interface regressions for the guarded presence candidate."""
+"""Rule and public-interface regressions for the previous release (now a tester)."""
 import ast
 import copy
 from enum import Enum
@@ -22,7 +22,7 @@ def load(name, path):
 
 
 def guarded():
-    return load('guarded_contract', 'bot.py')
+    return load('guarded_contract', 'tester_bots/previous_release.py')
 
 
 def signature(public):
@@ -75,7 +75,7 @@ class GuardedCandidateTests(unittest.TestCase):
         self.assertEqual(candidate._policy_failures,0)
 
     def test_stdlib_only_no_io_or_dynamic_execution(self):
-        tree=ast.parse((ROOT/'bot.py').read_text())
+        tree=ast.parse((ROOT/'tester_bots/previous_release.py').read_text())
         imports={a.name.split('.')[0] for n in ast.walk(tree) if isinstance(n,ast.Import) for a in n.names}
         imports|={n.module.split('.')[0] for n in ast.walk(tree) if isinstance(n,ast.ImportFrom)}
         self.assertLessEqual(imports,{'collections'})

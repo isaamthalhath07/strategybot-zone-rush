@@ -1,346 +1,405 @@
 {
-  "format": "zone-rush-consolidated-release/1",
-  "bot_sha256": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
-  "policy": "stay_guarded_resilient",
-  "rules": {
-    "frozen_stay_counts": false,
-    "claim_resets_progress": true,
-    "catch_requires_stay": true,
-    "lost_contest_is_stay": true,
-    "home_upgradable": true,
-    "legal_excludes_occupied": false
-  },
-  "tester_bots": [
-    {
-      "path": "tester_bots/transfer_previous.py",
-      "sha256": "fe03b8164ed3b4ebd2a04abcdfbb6fa729bdc34dea825088f7e82bf6e5b5ab5e",
-      "label": "Previous Transfer release",
-      "source": {
-        "name": "fe03b8164ed3",
-        "role": "primary",
-        "path": "consolidation_candidates/frozen/fe03b8164ed3.py",
-        "sha256": "fe03b8164ed3b4ebd2a04abcdfbb6fa729bdc34dea825088f7e82bf6e5b5ab5e",
-        "bytes": 25984,
-        "imports": [
-          "collections"
-        ],
-        "act_arguments": [
-          "state"
-        ],
-        "sensitive_builtin_calls": [],
-        "aliases": [
-          {
-            "ref": "origin/codex/fresh-opponents-and-adaptation",
-            "path": "human_arena/candidates/transfer_fixed.py",
-            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
-          },
-          {
-            "ref": "origin/codex/fresh-opponents-and-adaptation",
-            "path": "human_arena/release/archive/fe03b8164ed3b4ebd2a04abcdfbb6fa729bdc34dea825088f7e82bf6e5b5ab5e/bot.py",
-            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
-          },
-          {
-            "ref": "origin/main",
-            "path": "human_arena/candidates/transfer_fixed.py",
-            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
-          },
-          {
-            "ref": "origin/main",
-            "path": "human_arena/release/archive/fe03b8164ed3b4ebd2a04abcdfbb6fa729bdc34dea825088f7e82bf6e5b5ab5e/bot.py",
-            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
-          }
-        ]
-      }
-    },
-    {
-      "path": "tester_bots/transfer_original.py",
-      "sha256": "5457b5fdf4ca0e52d8502c6b237f975a88b1e8a97dd7bb4900f2b2acfbda1497",
-      "label": "Original Transfer planner",
-      "source": {
-        "name": "5457b5fdf4ca",
-        "role": "primary",
-        "path": "consolidation_candidates/frozen/5457b5fdf4ca.py",
-        "sha256": "5457b5fdf4ca0e52d8502c6b237f975a88b1e8a97dd7bb4900f2b2acfbda1497",
-        "bytes": 20226,
-        "imports": [
-          "collections"
-        ],
-        "act_arguments": [
-          "state"
-        ],
-        "sensitive_builtin_calls": [],
-        "aliases": [
-          {
-            "ref": "origin/codex/fresh-opponents-and-adaptation",
-            "path": "human_arena/candidates/branch_5457b5fdf4ca.py",
-            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
-          },
-          {
-            "ref": "origin/main",
-            "path": "human_arena/candidates/branch_5457b5fdf4ca.py",
-            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
-          },
-          {
-            "ref": "origin/research/evolution-2026-11-07",
-            "path": "outputs/bot_transfer_candidate.py",
-            "commit": "0796039f42f0113d7c4f51b2f8e1409835f2c519"
-          }
-        ]
-      }
-    },
-    {
-      "path": "tester_bots/fusion.py",
-      "sha256": "720e5a3daf7b848e8a25038c20bda47e8fb0433495aaa7bdbff9b285b8ba5a2d",
-      "label": "Fused economic planner",
-      "source": {
-        "name": "720e5a3daf7b",
-        "role": "primary",
-        "path": "consolidation_candidates/frozen/720e5a3daf7b.py",
-        "sha256": "720e5a3daf7b848e8a25038c20bda47e8fb0433495aaa7bdbff9b285b8ba5a2d",
-        "bytes": 117100,
-        "imports": [
-          "collections",
-          "time"
-        ],
-        "act_arguments": [
-          "state"
-        ],
-        "sensitive_builtin_calls": [],
-        "aliases": [
-          {
-            "ref": "origin/codex/fresh-opponents-and-adaptation",
-            "path": "bot.py",
-            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
-          },
-          {
-            "ref": "origin/main",
-            "path": "bot.py",
-            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
-          }
-        ]
-      }
-    },
-    {
-      "path": "tester_bots/apex.py",
-      "sha256": "641c909b7ef188f3ba4dfa7fe0ccb935fe3dde2e23f99c07f83fbc1d7b9f7d4d",
-      "label": "Apex counter-player",
-      "source": {
-        "name": "641c909b7ef1",
-        "role": "primary",
-        "path": "consolidation_candidates/frozen/641c909b7ef1.py",
-        "sha256": "641c909b7ef188f3ba4dfa7fe0ccb935fe3dde2e23f99c07f83fbc1d7b9f7d4d",
-        "bytes": 74853,
-        "imports": [
-          "collections",
-          "math",
-          "time"
-        ],
-        "act_arguments": [
-          "state"
-        ],
-        "sensitive_builtin_calls": [],
-        "aliases": [
-          {
-            "ref": "origin/claude/rulefix-stuck-home",
-            "path": "apex/apex_bot.py",
-            "commit": "ed708f30105c465122e3fd983d836be4dc093682"
-          },
-          {
-            "ref": "origin/codex/fresh-opponents-and-adaptation",
-            "path": "apex/apex_bot.py",
-            "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
-          },
-          {
-            "ref": "origin/main",
-            "path": "apex/apex_bot.py",
-            "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
-          },
-          {
-            "ref": "pr/10",
-            "path": "apex/apex_bot.py",
-            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62"
-          }
-        ]
-      }
-    },
-    {
-      "path": "tester_bots/racer.py",
-      "sha256": "a35c2c4811645091adef6cbd263f1573bf2b184d5dd5741a070234a422ce54c8",
-      "label": "Race planner",
-      "source": {
-        "name": "novel_b_racer",
-        "role": "primary",
-        "family": "novel-b",
-        "path": "consolidation_candidates/frozen/a35c2c481164.py",
-        "sha256": "a35c2c4811645091adef6cbd263f1573bf2b184d5dd5741a070234a422ce54c8",
-        "bytes": 38073,
-        "kind": "standalone-class-wrapper",
-        "class_name": "RacerBot",
-        "sources": {
-          "strategy_audit/novel/novel_b.py": "3218162337a3db3279a45cfb2150a9c314fcc2c0e7c9eacb4253489e5918aad8"
-        },
-        "build": "Exact committed module plus per-seat act(state) wrapper; calls class.act directly to expose errors. Seed=seat*7919.",
-        "imports": [
-          "random"
-        ],
-        "act_arguments": [
-          "state"
-        ],
-        "sensitive_builtin_calls": [],
-        "aliases": [
-          {
-            "ref": "pr/10",
-            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62",
-            "path": "strategy_audit/novel/novel_b.py::RacerBot"
-          }
-        ]
-      }
-    },
-    {
-      "path": "tester_bots/blocker.py",
-      "sha256": "1bb70109a75e2880bfdf3ac9b6fd8e368b0f3d02b9a3e65de53cef0defa505e5",
-      "label": "Blocking planner",
-      "source": {
-        "name": "novel_b_blocker",
-        "role": "primary",
-        "family": "novel-b",
-        "path": "consolidation_candidates/frozen/1bb70109a75e.py",
-        "sha256": "1bb70109a75e2880bfdf3ac9b6fd8e368b0f3d02b9a3e65de53cef0defa505e5",
-        "bytes": 38075,
-        "kind": "standalone-class-wrapper",
-        "class_name": "BlockerBot",
-        "sources": {
-          "strategy_audit/novel/novel_b.py": "3218162337a3db3279a45cfb2150a9c314fcc2c0e7c9eacb4253489e5918aad8"
-        },
-        "build": "Exact committed module plus per-seat act(state) wrapper; calls class.act directly to expose errors. Seed=seat*7919.",
-        "imports": [
-          "random"
-        ],
-        "act_arguments": [
-          "state"
-        ],
-        "sensitive_builtin_calls": [],
-        "aliases": [
-          {
-            "ref": "pr/10",
-            "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62",
-            "path": "strategy_audit/novel/novel_b.py::BlockerBot"
-          }
-        ]
-      }
-    },
-    {
-      "path": "tester_bots/research_alternative.py",
-      "label": "Guarded research alternative",
-      "sha256": "6f2ac1487cd0a66793db3f2fab01f621d9c945a4f71a78cc92d176ef1de321f4",
-      "source": {
-        "name": "stay_guarded_research_resilient",
-        "path": "consolidation_candidates/stay_guarded_research_resilient.py",
-        "sha256": "6f2ac1487cd0a66793db3f2fab01f621d9c945a4f71a78cc92d176ef1de321f4",
-        "parent_sha256": "a5967c136beab84513de8e054ca61f956cd723b9abb04758f61f2e86e144597d",
-        "baseline_stay_solver_sha256": "fe03b8164ed3b4ebd2a04abcdfbb6fa729bdc34dea825088f7e82bf6e5b5ab5e",
-        "changes": [
-          "STAY-only effective action shield inference; excludes active shielders from victims",
-          "stationary commitment learning and valid same-owner cell feints",
-          "known own cast certainty including backfires; conservative public legal-list convention handling",
-          "retain public normalization, failed-job guards and all strategy coefficients",
-          "Retry physically inconsistent own-cast explanations without force; reconcile proven STAY substitution without inventing certainty"
-        ],
-        "rules": {
-          "catch_requires_stay": true
-        },
-        "strategy_weights": "Exact archived research_fixed CONFIG; no fitting",
-        "genome_source_sha256": "1a718fd8b5146f9b6a5796b00a1a7a7993ae17edc66cc17d997b086cfaf83bc6",
-        "assumption": "On-time legal own request is accepted unless public outcomes rule execution out; indistinguishable unacknowledged substitutions cannot be uniquely identified from four public fields.",
-        "aliases": [
-          {
-            "ref": "observable-fallback-correction",
-            "path": "consolidation_candidates/stay_guarded_research_resilient.py",
-            "parent_sha256": "a5967c136beab84513de8e054ca61f956cd723b9abb04758f61f2e86e144597d"
-          }
-        ]
-      }
-    },
-    {
-      "path": "tester_bots/ultimate.py",
-      "label": "Ultimate experimental control",
-      "sha256": "a8f7a74e7ed34548f092dc0acfa5402a47a6c4c2f0115359fc2e56ecfe1b9b73",
-      "source": {
-        "name": "ultimate_a8f7a74e7ed3",
-        "path": "consolidation_candidates/frozen/a8f7a74e7ed3.py",
-        "sha256": "a8f7a74e7ed34548f092dc0acfa5402a47a6c4c2f0115359fc2e56ecfe1b9b73",
-        "commit": "b926add047404f675be79d01dddeeb2e57d4b019",
-        "source_path": "ultimate.py",
-        "role": "concurrent independently added control"
-      }
-    }
-  ],
-  "recommendation": "Selected STAY-only Shield planner with public-history tracking and guarded inputs. Moving rivals escape; blocked moves count as STAY. Fresh comparisons are finite and do not guarantee every matchup.",
-  "source": {
+ "format": "zone-rush-consolidated-release/1",
+ "bot_sha256": "5b448c787cf63bb9c30d35ea635974ca0b8956e87973b771be7a616e9e6dee7b",
+ "policy": "adaptive_raider",
+ "rules": {
+  "frozen_stay_counts": false,
+  "claim_resets_progress": true,
+  "catch_requires_stay": true,
+  "lost_contest_is_stay": true,
+  "home_upgradable": true,
+  "legal_excludes_occupied": false
+ },
+ "tester_bots": [
+  {
+   "path": "tester_bots/previous_release.py",
+   "sha256": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+   "label": "Previous release (guarded Transfer)",
+   "source": {
     "name": "stay_guarded_resilient",
     "path": "consolidation_candidates/stay_guarded_resilient.py",
     "sha256": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
     "parent_sha256": "dd26262ba90b7beeab57455bebabffb06f3d3dc32e7525fc59064428ca9252f4",
     "baseline_stay_solver_sha256": "fe03b8164ed3b4ebd2a04abcdfbb6fa729bdc34dea825088f7e82bf6e5b5ab5e",
     "changes": [
-      "STAY-only effective action shield inference; excludes active shielders from victims",
-      "stationary commitment learning and valid same-owner cell feints",
-      "known own cast certainty including backfires; conservative public legal-list convention handling",
-      "retain public normalization, failed-job guards and all strategy coefficients",
-      "Retry physically inconsistent own-cast explanations without force; reconcile proven STAY substitution without inventing certainty"
+     "STAY-only effective action shield inference; excludes active shielders from victims",
+     "stationary commitment learning and valid same-owner cell feints",
+     "known own cast certainty including backfires; conservative public legal-list convention handling",
+     "retain public normalization, failed-job guards and all strategy coefficients",
+     "Retry physically inconsistent own-cast explanations without force; reconcile proven STAY substitution without inventing certainty"
     ],
     "rules": {
-      "catch_requires_stay": true
+     "catch_requires_stay": true
     },
     "strategy_weights": "Unchanged Transfer CONFIG",
     "genome_source_sha256": "fe03b8164ed3b4ebd2a04abcdfbb6fa729bdc34dea825088f7e82bf6e5b5ab5e",
     "assumption": "On-time legal own request is accepted unless public outcomes rule execution out; indistinguishable unacknowledged substitutions cannot be uniquely identified from four public fields.",
     "aliases": [
-      {
-        "ref": "observable-fallback-correction",
-        "path": "consolidation_candidates/stay_guarded_resilient.py",
-        "parent_sha256": "dd26262ba90b7beeab57455bebabffb06f3d3dc32e7525fc59064428ca9252f4"
-      }
+     {
+      "ref": "observable-fallback-correction",
+      "path": "consolidation_candidates/stay_guarded_resilient.py",
+      "parent_sha256": "dd26262ba90b7beeab57455bebabffb06f3d3dc32e7525fc59064428ca9252f4"
+     }
     ]
+   }
+  },
+  {
+   "path": "tester_bots/transfer_previous.py",
+   "sha256": "fe03b8164ed3b4ebd2a04abcdfbb6fa729bdc34dea825088f7e82bf6e5b5ab5e",
+   "label": "Previous Transfer release",
+   "source": {
+    "name": "fe03b8164ed3",
+    "role": "primary",
+    "path": "consolidation_candidates/frozen/fe03b8164ed3.py",
+    "sha256": "fe03b8164ed3b4ebd2a04abcdfbb6fa729bdc34dea825088f7e82bf6e5b5ab5e",
+    "bytes": 25984,
+    "imports": [
+     "collections"
+    ],
+    "act_arguments": [
+     "state"
+    ],
+    "sensitive_builtin_calls": [],
+    "aliases": [
+     {
+      "ref": "origin/codex/fresh-opponents-and-adaptation",
+      "path": "human_arena/candidates/transfer_fixed.py",
+      "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+     },
+     {
+      "ref": "origin/codex/fresh-opponents-and-adaptation",
+      "path": "human_arena/release/archive/fe03b8164ed3b4ebd2a04abcdfbb6fa729bdc34dea825088f7e82bf6e5b5ab5e/bot.py",
+      "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+     },
+     {
+      "ref": "origin/main",
+      "path": "human_arena/candidates/transfer_fixed.py",
+      "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+     },
+     {
+      "ref": "origin/main",
+      "path": "human_arena/release/archive/fe03b8164ed3b4ebd2a04abcdfbb6fa729bdc34dea825088f7e82bf6e5b5ab5e/bot.py",
+      "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+     }
+    ]
+   }
+  },
+  {
+   "path": "tester_bots/transfer_original.py",
+   "sha256": "5457b5fdf4ca0e52d8502c6b237f975a88b1e8a97dd7bb4900f2b2acfbda1497",
+   "label": "Original Transfer planner",
+   "source": {
+    "name": "5457b5fdf4ca",
+    "role": "primary",
+    "path": "consolidation_candidates/frozen/5457b5fdf4ca.py",
+    "sha256": "5457b5fdf4ca0e52d8502c6b237f975a88b1e8a97dd7bb4900f2b2acfbda1497",
+    "bytes": 20226,
+    "imports": [
+     "collections"
+    ],
+    "act_arguments": [
+     "state"
+    ],
+    "sensitive_builtin_calls": [],
+    "aliases": [
+     {
+      "ref": "origin/codex/fresh-opponents-and-adaptation",
+      "path": "human_arena/candidates/branch_5457b5fdf4ca.py",
+      "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+     },
+     {
+      "ref": "origin/main",
+      "path": "human_arena/candidates/branch_5457b5fdf4ca.py",
+      "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+     },
+     {
+      "ref": "origin/research/evolution-2026-11-07",
+      "path": "outputs/bot_transfer_candidate.py",
+      "commit": "0796039f42f0113d7c4f51b2f8e1409835f2c519"
+     }
+    ]
+   }
+  },
+  {
+   "path": "tester_bots/fusion.py",
+   "sha256": "720e5a3daf7b848e8a25038c20bda47e8fb0433495aaa7bdbff9b285b8ba5a2d",
+   "label": "Fused economic planner",
+   "source": {
+    "name": "720e5a3daf7b",
+    "role": "primary",
+    "path": "consolidation_candidates/frozen/720e5a3daf7b.py",
+    "sha256": "720e5a3daf7b848e8a25038c20bda47e8fb0433495aaa7bdbff9b285b8ba5a2d",
+    "bytes": 117100,
+    "imports": [
+     "collections",
+     "time"
+    ],
+    "act_arguments": [
+     "state"
+    ],
+    "sensitive_builtin_calls": [],
+    "aliases": [
+     {
+      "ref": "origin/codex/fresh-opponents-and-adaptation",
+      "path": "bot.py",
+      "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+     },
+     {
+      "ref": "origin/main",
+      "path": "bot.py",
+      "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+     }
+    ]
+   }
+  },
+  {
+   "path": "tester_bots/apex.py",
+   "sha256": "641c909b7ef188f3ba4dfa7fe0ccb935fe3dde2e23f99c07f83fbc1d7b9f7d4d",
+   "label": "Apex counter-player",
+   "source": {
+    "name": "641c909b7ef1",
+    "role": "primary",
+    "path": "consolidation_candidates/frozen/641c909b7ef1.py",
+    "sha256": "641c909b7ef188f3ba4dfa7fe0ccb935fe3dde2e23f99c07f83fbc1d7b9f7d4d",
+    "bytes": 74853,
+    "imports": [
+     "collections",
+     "math",
+     "time"
+    ],
+    "act_arguments": [
+     "state"
+    ],
+    "sensitive_builtin_calls": [],
+    "aliases": [
+     {
+      "ref": "origin/claude/rulefix-stuck-home",
+      "path": "apex/apex_bot.py",
+      "commit": "ed708f30105c465122e3fd983d836be4dc093682"
+     },
+     {
+      "ref": "origin/codex/fresh-opponents-and-adaptation",
+      "path": "apex/apex_bot.py",
+      "commit": "13cd215683475cfe2eec8522e4877bc00053bc30"
+     },
+     {
+      "ref": "origin/main",
+      "path": "apex/apex_bot.py",
+      "commit": "d385e007b338e8f004dc7ae3e9d2d4196d4b15b8"
+     },
+     {
+      "ref": "pr/10",
+      "path": "apex/apex_bot.py",
+      "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62"
+     }
+    ]
+   }
+  },
+  {
+   "path": "tester_bots/racer.py",
+   "sha256": "a35c2c4811645091adef6cbd263f1573bf2b184d5dd5741a070234a422ce54c8",
+   "label": "Race planner",
+   "source": {
+    "name": "novel_b_racer",
+    "role": "primary",
+    "family": "novel-b",
+    "path": "consolidation_candidates/frozen/a35c2c481164.py",
+    "sha256": "a35c2c4811645091adef6cbd263f1573bf2b184d5dd5741a070234a422ce54c8",
+    "bytes": 38073,
+    "kind": "standalone-class-wrapper",
+    "class_name": "RacerBot",
+    "sources": {
+     "strategy_audit/novel/novel_b.py": "3218162337a3db3279a45cfb2150a9c314fcc2c0e7c9eacb4253489e5918aad8"
+    },
+    "build": "Exact committed module plus per-seat act(state) wrapper; calls class.act directly to expose errors. Seed=seat*7919.",
+    "imports": [
+     "random"
+    ],
+    "act_arguments": [
+     "state"
+    ],
+    "sensitive_builtin_calls": [],
+    "aliases": [
+     {
+      "ref": "pr/10",
+      "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62",
+      "path": "strategy_audit/novel/novel_b.py::RacerBot"
+     }
+    ]
+   }
+  },
+  {
+   "path": "tester_bots/blocker.py",
+   "sha256": "1bb70109a75e2880bfdf3ac9b6fd8e368b0f3d02b9a3e65de53cef0defa505e5",
+   "label": "Blocking planner",
+   "source": {
+    "name": "novel_b_blocker",
+    "role": "primary",
+    "family": "novel-b",
+    "path": "consolidation_candidates/frozen/1bb70109a75e.py",
+    "sha256": "1bb70109a75e2880bfdf3ac9b6fd8e368b0f3d02b9a3e65de53cef0defa505e5",
+    "bytes": 38075,
+    "kind": "standalone-class-wrapper",
+    "class_name": "BlockerBot",
+    "sources": {
+     "strategy_audit/novel/novel_b.py": "3218162337a3db3279a45cfb2150a9c314fcc2c0e7c9eacb4253489e5918aad8"
+    },
+    "build": "Exact committed module plus per-seat act(state) wrapper; calls class.act directly to expose errors. Seed=seat*7919.",
+    "imports": [
+     "random"
+    ],
+    "act_arguments": [
+     "state"
+    ],
+    "sensitive_builtin_calls": [],
+    "aliases": [
+     {
+      "ref": "pr/10",
+      "commit": "9fa61215ed4bb6e47c7b0c71928b409d122eee62",
+      "path": "strategy_audit/novel/novel_b.py::BlockerBot"
+     }
+    ]
+   }
+  },
+  {
+   "path": "tester_bots/research_alternative.py",
+   "label": "Guarded research alternative",
+   "sha256": "6f2ac1487cd0a66793db3f2fab01f621d9c945a4f71a78cc92d176ef1de321f4",
+   "source": {
+    "name": "stay_guarded_research_resilient",
+    "path": "consolidation_candidates/stay_guarded_research_resilient.py",
+    "sha256": "6f2ac1487cd0a66793db3f2fab01f621d9c945a4f71a78cc92d176ef1de321f4",
+    "parent_sha256": "a5967c136beab84513de8e054ca61f956cd723b9abb04758f61f2e86e144597d",
+    "baseline_stay_solver_sha256": "fe03b8164ed3b4ebd2a04abcdfbb6fa729bdc34dea825088f7e82bf6e5b5ab5e",
+    "changes": [
+     "STAY-only effective action shield inference; excludes active shielders from victims",
+     "stationary commitment learning and valid same-owner cell feints",
+     "known own cast certainty including backfires; conservative public legal-list convention handling",
+     "retain public normalization, failed-job guards and all strategy coefficients",
+     "Retry physically inconsistent own-cast explanations without force; reconcile proven STAY substitution without inventing certainty"
+    ],
+    "rules": {
+     "catch_requires_stay": true
+    },
+    "strategy_weights": "Exact archived research_fixed CONFIG; no fitting",
+    "genome_source_sha256": "1a718fd8b5146f9b6a5796b00a1a7a7993ae17edc66cc17d997b086cfaf83bc6",
+    "assumption": "On-time legal own request is accepted unless public outcomes rule execution out; indistinguishable unacknowledged substitutions cannot be uniquely identified from four public fields.",
+    "aliases": [
+     {
+      "ref": "observable-fallback-correction",
+      "path": "consolidation_candidates/stay_guarded_research_resilient.py",
+      "parent_sha256": "a5967c136beab84513de8e054ca61f956cd723b9abb04758f61f2e86e144597d"
+     }
+    ]
+   }
+  },
+  {
+   "path": "tester_bots/ultimate.py",
+   "label": "Ultimate experimental control",
+   "sha256": "a8f7a74e7ed34548f092dc0acfa5402a47a6c4c2f0115359fc2e56ecfe1b9b73",
+   "source": {
+    "name": "ultimate_a8f7a74e7ed3",
+    "path": "consolidation_candidates/frozen/a8f7a74e7ed3.py",
+    "sha256": "a8f7a74e7ed34548f092dc0acfa5402a47a6c4c2f0115359fc2e56ecfe1b9b73",
+    "commit": "b926add047404f675be79d01dddeeb2e57d4b019",
+    "source_path": "ultimate.py",
+    "role": "concurrent independently added control"
+   }
+  }
+ ],
+ "recommendation": "Adaptive planner with exact public-history tracking, per-opponent shield models and opponent-aware raids. Outscored the previous release on development and hold-out opponents; comparisons are finite and do not guarantee every matchup.",
+ "source": {
+  "name": "adaptive_raider",
+  "built_from": [
+   "lab/cand/_head.py",
+   "lab/cand/_tail2.py"
+  ],
+  "builder": "lab/release.py",
+  "rules": {
+   "catch_requires_stay": true
+  },
+  "inputs": "board, bot_id, is_priority_token, legal_actions and its own memory of earlier boards",
+  "imports": [
+   "time",
+   "random"
+  ]
+ },
+ "validation": {
+  "model": "effective-STAY Shield only",
+  "harness": "lab/sim.py on simulator/vendor_harness/referee.py",
+  "report": "lab/README.md",
+  "holdout": "lab/results/holdout_run1.json",
+  "note": "Paired fixtures with map-clustered bootstrap intervals. Hold-out opponents were split off with a fixed seed before the bot was designed and were run once, after it was frozen."
+ },
+ "previous_release": {
+  "path": "tester_bots/previous_release.py",
+  "sha256": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+  "source": {
+   "name": "stay_guarded_resilient",
+   "path": "consolidation_candidates/stay_guarded_resilient.py",
+   "sha256": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+   "parent_sha256": "dd26262ba90b7beeab57455bebabffb06f3d3dc32e7525fc59064428ca9252f4",
+   "baseline_stay_solver_sha256": "fe03b8164ed3b4ebd2a04abcdfbb6fa729bdc34dea825088f7e82bf6e5b5ab5e",
+   "changes": [
+    "STAY-only effective action shield inference; excludes active shielders from victims",
+    "stationary commitment learning and valid same-owner cell feints",
+    "known own cast certainty including backfires; conservative public legal-list convention handling",
+    "retain public normalization, failed-job guards and all strategy coefficients",
+    "Retry physically inconsistent own-cast explanations without force; reconcile proven STAY substitution without inventing certainty"
+   ],
+   "rules": {
+    "catch_requires_stay": true
+   },
+   "strategy_weights": "Unchanged Transfer CONFIG",
+   "genome_source_sha256": "fe03b8164ed3b4ebd2a04abcdfbb6fa729bdc34dea825088f7e82bf6e5b5ab5e",
+   "assumption": "On-time legal own request is accepted unless public outcomes rule execution out; indistinguishable unacknowledged substitutions cannot be uniquely identified from four public fields.",
+   "aliases": [
+    {
+     "ref": "observable-fallback-correction",
+     "path": "consolidation_candidates/stay_guarded_resilient.py",
+     "parent_sha256": "dd26262ba90b7beeab57455bebabffb06f3d3dc32e7525fc59064428ca9252f4"
+    }
+   ]
   },
   "validation": {
-    "model": "effective-STAY Shield only",
-    "screen_games": 840,
-    "balanced_selection_games": 1536,
-    "frozen_final_games": 2304,
-    "recovery_followup_games": 1152,
-    "total_games": 5832,
-    "timed_callbacks": 1866240,
+   "model": "effective-STAY Shield only",
+   "screen_games": 840,
+   "balanced_selection_games": 1536,
+   "frozen_final_games": 2304,
+   "recovery_followup_games": 1152,
+   "total_games": 5832,
+   "timed_callbacks": 1866240,
+   "worker_faults": 0,
+   "followup_games_per_variant": 576,
+   "followup_mean_pw": 1.7300347222222223,
+   "followup_max_ms": 2.0154000958427787,
+   "followup": "validation/official/followup_results.json.summary.json",
+   "rules": "validation/official/rule_contract.json",
+   "review": "validation/official/REVIEW.md",
+   "historical_presence_evidence": "validation/REPORT.md",
+   "tests": 133,
+   "offline_ui_groups": 6,
+   "recorded_public_action_equivalence_pairs": 61440,
+   "followup_advantage": {
+    "first": "stay_guarded_resilient",
+    "second": "stay_guarded_research_resilient",
+    "mean": 0.2309027777777778,
+    "clusters": 12,
+    "bootstrap_95": [
+     -0.024305555555555563,
+     0.49392361111111116
+    ]
+   },
+   "interpretation": "Moving rivals are immune, even on same-owner land; blocked moves count as STAY. Legal timely requests are assumed accepted unless public evidence proves substitution.",
+   "concurrent_ultimate_check": {
+    "games": 576,
+    "mean_pw": 1.3446180555555556,
     "worker_faults": 0,
-    "followup_games_per_variant": 576,
-    "followup_mean_pw": 1.7300347222222223,
-    "followup_max_ms": 2.0154000958427787,
-    "followup": "validation/official/followup_results.json.summary.json",
-    "rules": "validation/official/rule_contract.json",
-    "review": "validation/official/REVIEW.md",
-    "historical_presence_evidence": "validation/REPORT.md",
-    "tests": 133,
-    "offline_ui_groups": 6,
-    "recorded_public_action_equivalence_pairs": 61440,
-    "followup_advantage": {
-      "first": "stay_guarded_resilient",
-      "second": "stay_guarded_research_resilient",
-      "mean": 0.2309027777777778,
-      "clusters": 12,
-      "bootstrap_95": [
-        -0.024305555555555563,
-        0.49392361111111116
-      ]
-    },
-    "interpretation": "Moving rivals are immune, even on same-owner land; blocked moves count as STAY. Legal timely requests are assumed accepted unless public evidence proves substitution.",
-    "concurrent_ultimate_check": {
-      "games": 576,
-      "mean_pw": 1.3446180555555556,
-      "worker_faults": 0,
-      "results": "validation/official/ultimate_results.json.summary.json",
-      "promoted": false
-    },
-    "total_games_including_concurrent_control": 6408,
-    "timed_callbacks_including_concurrent_control": 2050560
+    "results": "validation/official/ultimate_results.json.summary.json",
+    "promoted": false
+   },
+   "total_games_including_concurrent_control": 6408,
+   "timed_callbacks_including_concurrent_control": 2050560
   }
+ }
 }

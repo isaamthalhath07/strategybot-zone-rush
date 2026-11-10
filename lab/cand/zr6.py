@@ -4,6 +4,7 @@ Single file, standard library only, entry point act(state). Uses the four docume
 inputs (board, bot_id, is_priority_token, legal_actions) plus its own memory of earlier
 public boards. Nothing here reads another bot's pending action or any hidden counter.
 """
+import time
 
 # ----------------------------------------------------------------------------- geometry
 _ADJ = []
@@ -22,12 +23,13 @@ for _i in range(64):
     _ADJ.append(tuple(_row))
     _DIST.append(tuple(abs(_r - j // 8) + abs(_c - j % 8) for j in range(64)))
 _NB = [tuple(j for _, j in row) for row in _ADJ]
+_ACTIONS = ("NORTH", "EAST", "SOUTH", "WEST", "STAY", "SHIELD")
 
 
 # ----------------------------------------------------------------------------- reading
 
 class _View(object):
-    __slots__ = ("me", "legal", "token", "pos", "owner", "level", "frozen", "base", "home", "occ")
+    __slots__ = ("me", "legal", "raw", "token", "pos", "owner", "level", "frozen", "base", "home", "occ")
 
 
 def _read(state):
@@ -40,11 +42,18 @@ def _read(state):
     v.me = int(get(state, "bot_id"))
     v.token = bool(get(state, "is_priority_token", False))
     legal = []
+    raw = {}                              # action name -> the object the server handed us
     for a in (get(state, "legal_actions", ()) or ()):
         name = a if isinstance(a, str) else (getattr(a, "name", None) or getattr(a, "value", None))
         if isinstance(name, str):
-            legal.append(name.upper())
+            name = name.strip().upper()
+            if name in _ACTIONS and name not in raw:
+                raw[name] = a
+                legal.append(name)
+    if not legal:
+        raise ValueError("legal_actions")
     v.legal = legal
+    v.raw = raw
     board = get(state, "board")
     first = board[0]
     if isinstance(first, (list, tuple)) and len(first) == 8 and not hasattr(first, "owner"):
@@ -155,6 +164,8 @@ class _Mem(object):
         self.failed = {}                 # cell -> (owner, level) for jobs that refused to complete
         self.unexplained = 0
         self.rng = None
+        self.scale = 1.0                 # search effort; shrinks if a turn ever runs long
+        self.errors = 0
         self.plan = None
         self.raid = None
         self.note_token(v)
@@ -457,7 +468,7 @@ _P = {
     "beam": 14,            # plans kept per depth
     "jobs": 16,            # candidate jobs per turn
     "depth": 10,           # most jobs in one plan
-    "horizon": 12,         # turns of lookahead the plans are compared at
+    "horizon": 16,         # turns of lookahead the plans are compared at
     "tail": 0.6,           # value of time left after the plan, relative to today's best rate
     "raid_exec": 0.85,     # discount for everything a raid model cannot see
     "denial_floor": 0.10,
@@ -565,11 +576,18 @@ def _context(v, m):
 
 
 def _hold1(v, x, c, R):
+    """Expected points from owning cell c at level 1 for its last R scoring turns."""
     d = x.rd[c]
     r = x.rr[c]
     k = x.rho[r] if r else 1.0
     wv = x.w[r] if r else 0.33
-    return v.base[c] * (R - k * (_SL1[d][R] * (1.0 + wv) + 8.0 * wv * _PL1[d][R]))
+    lost_turns = k * _SL1[d][R]
+    if lost_turns > 0.9 * R:
+        lost_turns = 0.9 * R
+    p_lost = k * _PL1[d][R]
+    if p_lost > 0.95:
+        p_lost = 0.95
+    return v.base[c] * (R - lost_turns * (1.0 + wv) - 8.0 * wv * p_lost)
 
 
 def _hold2(v, x, c, R):
@@ -577,7 +595,13 @@ def _hold2(v, x, c, R):
     r = x.rr[c]
     k = x.rho[r] if r else 1.0
     wv = x.w[r] if r else 0.33
-    return v.base[c] * (2.0 * R - k * (_SL2[d][R] * (2.0 + wv) + 16.0 * wv * _PL2[d][R]))
+    lost_turns = k * _SL2[d][R]
+    if lost_turns > 0.9 * R:
+        lost_turns = 0.9 * R
+    p_lost = k * _PL2[d][R]
+    if p_lost > 0.95:
+        p_lost = 0.95
+    return v.base[c] * (2.0 * R - lost_turns * (2.0 + wv) - 16.0 * wv * p_lost)
 
 
 def _shield_ready_in(m, v, d):
@@ -731,7 +755,7 @@ def _plan(v, m, x):
     scored.sort(reverse=True)
     index = {}
     short = []
-    for _, k in scored[:_P["jobs"]]:
+    for _, k in scored[:max(6, int(_P["jobs"] * m.scale))]:
         index[k] = len(short)
         short.append(jobs[k])
     for k in range(n0, len(jobs)):
@@ -747,7 +771,7 @@ def _plan(v, m, x):
     horizon = min(left, _P["horizon"])
     beam = [(0.0, 0.0, 0, at, 0, -1)]
     best = None
-    width = _P["beam"]
+    width = max(4, int(_P["beam"] * m.scale))
     for depth in range(_P["depth"]):
         seen = {}
         for state in beam:
@@ -927,22 +951,63 @@ def _decide(v, m):
     return action
 
 
+def _fallback(v):
+    """Used only if the main policy raises: keep working instead of idling for the game."""
+    me = v.me
+    at = v.pos[me]
+    legal = v.legal
+    stay = "STAY" if "STAY" in legal else legal[0]
+    o = v.owner[at]
+    if o == 0 or (o == me and not v.level[at]) or (o != me and not v.home[at] and not v.level[at]):
+        return stay
+    occupied = set(p for p in v.pos[1:] if p >= 0 and p != at)
+    best = None
+    for a, t in _ADJ[at]:
+        if a not in legal or t in occupied:
+            continue
+        for c in range(64):
+            if c in occupied or (v.owner[c] == me and v.level[c]) or (v.owner[c] not in (0, me)):
+                continue
+            score = v.base[c] / (2.0 + _DIST[t][c])
+            if best is None or score > best[0]:
+                best = (score, a)
+    return best[1] if best else stay
+
+
 def act(state):
+    started = time.perf_counter()
     try:
         v = _read(state)
     except Exception:
-        legal = getattr(state, "legal_actions", None) or ["STAY"]
-        return "STAY" if "STAY" in legal else legal[0]
+        # Unreadable input: answer with whatever the server calls STAY.
+        try:
+            legal = list(state.get("legal_actions") if isinstance(state, dict) else state.legal_actions)
+            for a in legal:
+                name = a if isinstance(a, str) else getattr(a, "name", "")
+                if str(name).strip().upper() == "STAY":
+                    return a
+            return legal[0]
+        except Exception:
+            return "STAY"
     m = None
     try:
         m = _update(v)
         action = _decide(v, m)
     except Exception:
-        action = "STAY"
         m = _M
+        if m is not None:
+            m.errors += 1
+        try:
+            action = _fallback(v)
+        except Exception:
+            action = "STAY"
     if action not in v.legal:
         action = "STAY" if "STAY" in v.legal else v.legal[0]
     if m is not None:
         m.last = action
         m.shield_was_legal = "SHIELD" in v.legal
-    return action
+        # 200 ms is allowed; a normal turn takes about 1 ms. If one ever takes 40 ms the
+        # machine is far slower than expected, so search less for the rest of the game.
+        if time.perf_counter() - started > 0.040:
+            m.scale = max(0.25, m.scale * 0.5)
+    return v.raw.get(action, action)

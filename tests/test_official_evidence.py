@@ -30,7 +30,9 @@ class OfficialEvidenceTests(unittest.TestCase):
             for source in spec["sources"]:
                 self.assertEqual(hashlib.sha256(bodies[source["path"]]).hexdigest(), source["sha256"])
         release = json.loads((ROOT/"release_manifest.json").read_text())
-        self.assertEqual(bodies[release["source"]["path"]], (ROOT/"bot.py").read_bytes())
+        # This evidence belongs to the previous release, which is kept byte-identical as a tester.
+        previous = release["previous_release"]
+        self.assertEqual(bodies[previous["source"]["path"]], (ROOT/previous["path"]).read_bytes())
         self.assertTrue(release["rules"]["catch_requires_stay"])
 
     def test_concurrent_ultimate_control_uses_the_exact_followup_fixtures(self):
@@ -94,7 +96,7 @@ class OfficialEvidenceTests(unittest.TestCase):
                 self.assertEqual(set(Counter((f["map_group"], f["field"]) for f in fixtures.values()).values()), {16})
             if stage == "followup":
                 release = json.loads((ROOT/"release_manifest.json").read_text())
-                self.assertEqual(next(iter(data["summary"])), release["policy"])
+                self.assertEqual(next(iter(data["summary"])), release["previous_release"]["source"]["name"])
                 self.assertEqual(len(boards[-1]), 12)
         self.assertEqual(total, 5832)
         self.assertEqual(calls, 1866240)
