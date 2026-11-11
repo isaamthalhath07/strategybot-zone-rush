@@ -1,0 +1,106 @@
+{
+  "arms": {
+    "5bc": "5bc1103391205c4d9bdaca6ca657a6b8a3271b0e788a10b038f9c89287b872df",
+    "no_feints": "eca8b3e187aa1d6d48c48ba07c445e8d4cd2f9296c36393ba30e99bf27d4c578",
+    "window": "1441c61e57e368ab8a3704c834e53c9351461127a3dab2c0dbffb7dbf2f79684",
+    "window_route": "21088da5e184827c02364230fbe1e9b57540a67861ef74f47ffe4e45b4339d60",
+    "zr6": "8b87bf8221c5937fc3bd51562850a6ac550a0cec49681640332b19c4ea0144cb"
+  },
+  "base_commit": "df650011ee3eefa7ce6d955a61e5af59687086ef",
+  "fields": {
+    "A": [
+      {
+        "label": "Exact branch zr6",
+        "source_sha256": "8b87bf8221c5937fc3bd51562850a6ac550a0cec49681640332b19c4ea0144cb"
+      },
+      {
+        "label": "Exact branch zr6",
+        "source_sha256": "8b87bf8221c5937fc3bd51562850a6ac550a0cec49681640332b19c4ea0144cb"
+      },
+      {
+        "label": "Exact branch zr6",
+        "source_sha256": "8b87bf8221c5937fc3bd51562850a6ac550a0cec49681640332b19c4ea0144cb"
+      }
+    ],
+    "B": [
+      {
+        "label": "Exact branch zr6",
+        "source_sha256": "8b87bf8221c5937fc3bd51562850a6ac550a0cec49681640332b19c4ea0144cb"
+      },
+      {
+        "label": "16_00_economic_jobs_consolidation",
+        "source_sha256": "f75c7ef1dc905d5d6f0516fc2d0c9436363fd3053c4e27cfc788181f0d4f9722"
+      },
+      {
+        "label": "30_22_two_step_utility_public_inference_options",
+        "source_sha256": "c12555a643b60174b1511e2752602968cd9cb38a516fea69458a3ca0e61772b1"
+      }
+    ],
+    "C": [
+      {
+        "label": "5bc incumbent",
+        "source_sha256": "5bc1103391205c4d9bdaca6ca657a6b8a3271b0e788a10b038f9c89287b872df"
+      },
+      {
+        "label": "Adaptive402",
+        "source_sha256": "402996e44e566b733eb67b23b0976f5c970ec6fe5d9107d8757c341c35ca7e43"
+      },
+      {
+        "label": "Feint reference",
+        "source_sha256": "f95dc9fc22660331b1368a876d907f111fd3cb21aef6e3e34315b41e6af94e94"
+      }
+    ],
+    "D": [
+      {
+        "label": "5bc incumbent",
+        "source_sha256": "5bc1103391205c4d9bdaca6ca657a6b8a3271b0e788a10b038f9c89287b872df"
+      },
+      {
+        "label": "Public counter kind2",
+        "source_sha256": "a43220c8e1b151169ad313da7fc678a74840c19f20feda9fcdafd75758e5c17f"
+      },
+      {
+        "label": "Public counter kind3",
+        "source_sha256": "c2ff2107948d9780ab9b2bf16ac27ed9a2f2c213ee0b955fa2234c1de98fce8e"
+      }
+    ]
+  },
+  "format": "zr6-hybrid-publication/1",
+  "original_registration_sha256": "4c82860d3100d7ecec134db5e57ae20d2159af5d1481e7d1db3dca7dcf94eb3f",
+  "original_runtime_pins": {
+    "adversarial_20261110/harness.py": "aeddfeac05242d06ae32b69b6f0e1863b50b103c68241ceea1ce05a36da48737",
+    "adversarial_20261110/integrity/actor_observer.py": "b9af6c542eaee838876d6f44012c3fb7ce5d30533e9d4ce0e782d2e7a5f436bd",
+    "adversarial_20261110/integrity/contract.py": "60c2561163131b0ef50c3eb0a70855833985992ced248ee015a857ffb33306ec",
+    "adversarial_20261110/integrity/model_guards.py": "720666fa9e5f61854ae4879e9b194d3855124d044e050733afbc6fa2dba25e7f",
+    "adversarial_20261110/integrity/qualification_blocks.py": "70fd3faf99ae80ccfd6641abb9b3dae1766cad37632e0c93fe7bf1409fbe8a96",
+    "adversarial_20261110/monitor.py": "6be2f064ebc5545a53d218b6f78833a4225ed13c9f6087fcbed666b348847781",
+    "adversarial_20261110/register.py": "e7ea353032199a4d36a3d709312ba43b69291967448b4ad1f324af7abccf7b7b",
+    "adversarial_20261110/strategy/host_normalization_observer.py": "21abc1340122b5d16a4763f96c2e916b83a1ba3521673b8fbdd40f40d39ebc3f",
+    "evolution/maps.py": "e0c9328d89aff7ab23caa9a9fa6b672fc4074f66f57dd69678d1a121d5d679ef",
+    "raider_hybrid_20261111/branch_holdout_metadata.json": "9017f94fa21e1982f02422bfd00d6cbad9f385403c8c437330aad36e243372f7",
+    "raider_hybrid_20261111/branch_orbits.py": "290e65083820b3cd754a73ef6da67343aff8c3114dccbe05eff97b3ff88e097d",
+    "raider_hybrid_20261111/plan.json": "d6410030f7bd838e54b44099c441dfd93333863c5a12ac06bc36d0123380f8b2",
+    "raider_hybrid_20261111/report.py": "d8c5906012a17827e3ca3253dcf53b20faa05670a9ba61aa3f714f8c3420ab87",
+    "raider_hybrid_20261111/trial.py": "418bd64ae8cf5d32b1d34936b6fb755032bf6e01155712edf12d0d895e29ae9e",
+    "simulator/history.py": "32534a9884f784110af4efb80e8fbc3c67c31c3751ad578d1b76067fd30d675c",
+    "simulator/server.py": "70d106d4b4c65f905507fd398af23eb484fd7828bfb4cad2c607f6136d6b2556",
+    "simulator/vendor_harness/match.py": "d65edb2f6e3f3c44ccb49f352993445062efc27a92bfe05f4df0157b171389f1",
+    "simulator/vendor_harness/provenance.json": "9060b99d2a5a37e0282f93b1975263b91e7a25d8f391892e605691dbd258409b",
+    "simulator/vendor_harness/referee.py": "f1125e8ceee664781827c670c0c4481da41a7ef41a4e5276d6b3b118274af337",
+    "simulator/vendor_harness/sources.py": "a973cfab2405a4327f5026f232726b4dc91e7828a7cbdc949a477cbacd07a0f4",
+    "simulator/vendor_harness/worker.py": "9ae8c11c7bbcc0696a6c1fd4d1cc66684bb546d9db2c604a72b161c336d8db5f",
+    "tests/reference_engine.py": "8f7b89995cad0f724fb8ac7c7bc8311a6fa9b3b722f2204097031ba2333726f4"
+  },
+  "original_tape_sha256": "3e3d4ef413680c155783301c02a768edf991d960559a05bb61663abad0cd8f96",
+  "selection": {
+    "confirmation_games": 0,
+    "development_threshold": 0.02,
+    "nominee": null,
+    "submission": "zr6"
+  },
+  "tested_zr6": {
+    "commit": "77c867ffff4df39db20d08993ea05ba121441f36",
+    "git_blob": "22c1b11e526ec35cbee60deb18fc7c4bfb26151b",
+    "sha256": "8b87bf8221c5937fc3bd51562850a6ac550a0cec49681640332b19c4ea0144cb"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "parent_sha256": "8b87bf8221c5937fc3bd51562850a6ac550a0cec49681640332b19c4ea0144cb",
+  "candidates": [
+    {
+      "name": "zr6_window",
+      "path": "zr6_window.py",
+      "sha256": "1441c61e57e368ab8a3704c834e53c9351461127a3dab2c0dbffb7dbf2f79684",
+      "bytes": 47063,
+      "safe_route": false
+    },
+    {
+      "name": "zr6_window_route",
+      "path": "zr6_window_route.py",
+      "sha256": "21088da5e184827c02364230fbe1e9b57540a67861ef74f47ffe4e45b4339d60",
+      "bytes": 47062,
+      "safe_route": true
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "role": "development-only diagnostic control",
+  "parent_sha256": "8b87bf8221c5937fc3bd51562850a6ac550a0cec49681640332b19c4ea0144cb",
+  "control_sha256": "eca8b3e187aa1d6d48c48ba07c445e8d4cd2f9296c36393ba30e99bf27d4c578",
+  "changed_literal": "\"feints\": 1, -> \"feints\": 0,",
+  "bytes": 39029,
+  "selection_eligible": false
+}

@@ -1,0 +1,32 @@
+{
+  "format": "zr6-hybrid-paired-plan/1",
+  "scope": "Local exploration and separate held-out confirmation. Original zr6 and 5bc are exact source-pinned reference arms. No-feints is a DEV-only causal diagnostic.",
+  "dev": {
+    "maps": 20,
+    "token_offsets": [0, 2],
+    "arms": ["zr6", "5bc", "window", "window_route", "no_feints"],
+    "originals": 3200,
+    "nomination": {"min_overall_gain": 0.02, "min_field_gain": -0.15, "tie_order": ["window", "window_route"]}
+  },
+  "final": {
+    "maps": 32,
+    "token_offsets": [0, 1, 2, 3],
+    "arms": ["zr6", "5bc", "dev_nominee"],
+    "originals": 6144,
+    "promotion": {"min_overall_gain_vs_zr6": 0.05, "lower_95_vs_zr6_strictly_above": 0.0, "overall_gain_vs_5bc_strictly_above": 0.0, "min_field_mean_gain_vs_zr6": -0.10, "field_one_sided_95_lower_strictly_above": -0.20}
+  },
+  "fields": {
+    "A": {"label": "zr6 mirror", "both": ["zr6", "zr6", "zr6"]},
+    "B": {"label": "zr6 plus two independent strong planners", "dev": ["zr6", "16_00_economic_jobs_consolidation", "30_22_two_step_utility_public_inference_options"], "final": ["zr6", "24_00_economic_jobs_public_inference_options", "26_02_two_step_utility_public_inference_options"]},
+    "C": {"label": "Verified prior arena line-up", "both": ["5bc", "Adaptive402", "Feint reference"]},
+    "D": {"label": "Reactive counterplay", "both": ["5bc", "Public counter kind2", "Public counter kind3"]}
+  },
+  "map_generators": ["vendor-reference", "primary-mixture"],
+  "originals_per_fixture": "Every arm shares the exact pregame map, seat, token, rival order, rival sources/configs, and per-seat RNG seed.",
+  "max_turns": 80,
+  "workers": 8,
+  "bootstrap_draws": 20000,
+  "endpoint": "Opponents outscored per full game, range 0–3, with tied opponents worth one half. Whole maps are the bootstrap units within each of the two fixed generator strata.",
+  "validation": "Independent CPU referee agrees throughout each trace. Actual callbacks honor 2s first/200ms regular, legal inputs and immutable public observations. Each original is replayed with fresh actors and the same private per-seat RNG. Real time is preserved. Faults or replay mismatches invalidate the stage; all attempted outcomes and original tapes remain recorded. No selective rerun.",
+  "freshness": "Exclude known local campaign maps and records, prior 1,000-game screen, reconstructed branch EXT1/EXT2 holdouts, and all DEV maps from FINAL. Only the chosen DEV source enters FINAL. Opponent fields are fixed, so the inference is conditional on those fields."
+}

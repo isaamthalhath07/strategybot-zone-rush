@@ -1,0 +1,1 @@
+{"callbacks":1024000,"dual_ref_turns":256000,"originals_sha256":"3e3d4ef413680c155783301c02a768edf991d960559a05bb61663abad0cd8f96","registration_sha256":"4c82860d3100d7ecec134db5e57ae20d2159af5d1481e7d1db3dca7dcf94eb3f","replay_callbacks":1024000,"replay_ref_turns":256000,"stage":"dev","statuses":{"valid":3200},"wall_seconds":356.9845531999599}
