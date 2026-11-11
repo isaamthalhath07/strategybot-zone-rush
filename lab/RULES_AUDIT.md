@@ -23,6 +23,11 @@ leaves something open or the server turns out to differ.
 
 No file access, no printing, no `exec` / `eval`, no network (same test).
 
+Python version: the README does not say which one the Arena runs. The file is plain
+ASCII, uses no syntax newer than Python 3.5 (it parses with every `feature_version`
+from 3.5 up; no f-strings, no walrus, no annotations) and no standard-library call
+newer than that. Self-play under 3.11, 3.12 and 3.13: 0 illegal answers.
+
 Time headroom: a server 27 times slower than the development machine would still get
 every answer in time. If one call ever takes more than 60 ms the bot narrows its own
 search for the rest of the game.
