@@ -792,3 +792,22 @@ callbacks (ten runs: 0, 2, 0, 2, 0, 0, 2, 0, 0, 0). `python3 tools/check_release
 Not done, noted for a later tracker: when a bot is frozen on a landlord's cell, weigh
 "the landlord caught it" against "it shielded for its own land and missed" by whether
 it had a raider of its own to shield against that turn.
+
+## 18. Conformance with the organisers' README; main merged (2026-11-11)
+
+- Merged `main` (`c4e3f5a`): the `zr6` hybrid validation and feint ablation
+  (`lab/zr6_hybrid_20261111/`). Its findings agree with sections 15 and 16 from an
+  independent set-up: two further hybrids of `zr6` gain +0.003 and +0.008 (nil), and
+  switching the side-steps off costs 0.35, so the side-step is the part of `zr6` that
+  must keep working on the real server.
+- `lab/RULES_AUDIT.md`: every sentence of the official README
+  (<https://github.com/RedPokerJoker123/StrategyBot>, `975b643`) against the referee we
+  measure on and against what the bot assumes, and every point the README leaves open
+  against a row of `lab/robust.py`.
+- Seven rows added to `lab/robust.py` from that reading: all six actions always listed
+  (free, and also when frozen), two other seat-to-corner layouts, the bot not being
+  called while frozen, games of 60 and 100 turns. The shipped `bot.py` passes all 34
+  rows with zero errors.
+- `lab/timing.py`: load 12 ms, first call 4 ms, later calls median 1.4 ms and worst
+  7.3 ms over 4,800 calls. Limits are 2,000 and 200 ms.
+- `bot.py` is unchanged.
