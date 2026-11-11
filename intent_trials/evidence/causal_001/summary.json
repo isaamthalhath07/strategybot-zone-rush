@@ -1,0 +1,78 @@
+{
+  "baseline_mean_pairwise": 2.40625,
+  "cases_with_hindsight_headroom": 3,
+  "completed_per_game_bmcts_audits": 0,
+  "coverage": {
+    "callbacks_regenerated": 34240,
+    "calls_by_seat": [
+      8560,
+      8560,
+      8560,
+      8560
+    ],
+    "continuation_dual_referee_turns": 8560,
+    "full_branch_traces": 107,
+    "recorded_public_memory_oracle_checks": 17120,
+    "teacher_node_cap_hits": 0,
+    "teacher_simulated_dual_referee_turns": 9216
+  },
+  "format": "joint-intent-causal-root-summary/1",
+  "hindsight_regret_mean_pairwise": 0.21875,
+  "interpretation": "No demonstrated improvement. Selected consumed TRAIN positions and one fixed search seed per case; descriptive interval includes zero. Original policy unchanged.",
+  "offline_teacher_seconds": {
+    "maximum": 1.2275531999766827,
+    "median": 0.6492441500304267,
+    "minimum": 0.44159529998432845
+  },
+  "preregistration_commit": "816a30a101b1280d753b9e8d040b84f37cccbeeb",
+  "primary_games": 0,
+  "promoted": false,
+  "raw_archive_sha256": "fcd0f294c68f5b4844259cdfe0ffd9efaf85ffc3d67d67efb4a44d11718cec03",
+  "registration_sha256": "51ec970ed61401fcdfa629bda061a9f132bc6d51694429d0ed3bf19802c4191e",
+  "results_sha256": "58b9665bea5021d0ebedc4633010e2f583dbdb9b2ec6e0228808bd5d19d01f02",
+  "statistics": {
+    "bootstrap": {
+      "algorithm": "stdlib Random(seed).randrange(4); replicate-major, FIELDS order,4 draws per field, original selected case order within field; shared draws for teacher and hindsight-opportunity deltas.",
+      "allocation": "Resample4 maps with replacement within each fixed field; equal field weights.",
+      "quantile_indices": [
+        499,
+        19499
+      ],
+      "replicates": 20000,
+      "scope": "Unadjusted descriptive95% percentile interval for consumed TRAIN boundary-selected sample; no universal strength, fresh-data or simultaneous guarantee.",
+      "seed": 202611092330,
+      "shared_draw_indices_sha256": "ce9fb91e1f472bec600ad2fc1c5ee914d79ef6ef8da1a9a3b4780e530b5b0134"
+    },
+    "hindsight_opportunity": {
+      "descriptive95_interval": [
+        0.0625,
+        0.375
+      ],
+      "fields": {
+        "economic": 0.0,
+        "erratic": 0.0,
+        "independent": 0.25,
+        "pressure": 0.5
+      },
+      "mean_delta_pairwise": 0.1875
+    },
+    "losses": 3,
+    "recommendations_changed": 8,
+    "selected_teacher": {
+      "descriptive95_interval": [
+        -0.21875,
+        0.15625
+      ],
+      "fields": {
+        "economic": -0.25,
+        "erratic": 0.0,
+        "independent": -0.375,
+        "pressure": 0.5
+      },
+      "mean_delta_pairwise": -0.03125
+    },
+    "ties": 11,
+    "wins": 2
+  },
+  "teacher_intervention_mean_pairwise": 2.375
+}

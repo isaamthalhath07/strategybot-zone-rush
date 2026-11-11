@@ -1,0 +1,24 @@
+{
+  "actual_retry_benchmark_runs_at_publication": 0,
+  "archive_bytes": 20457,
+  "archive_sha256": "f48729039fc70bc0199ede36b54bb0f59fb4556f6ab9934a82dccb04f0d19136",
+  "benchmark_cases_repeats_timing_definitions_unchanged": true,
+  "change": "Validate lowercase64hex pair_parameter_id on host, then strip before any worker constructor. Unknown fields remain rejected.",
+  "format": "local-pool-known8-typed-provenance-fix/1",
+  "next_output": ".cache/local_policy_pool/known8_002",
+  "preserved_active_cuda_runtime_source_pins": 49,
+  "previous_failed_attempt": "local_policy_pool/evidence/history/known8_001_failure.json",
+  "primary_games_added": 0,
+  "publication_gate": "Publish this exact fix before explicitly launching the second known8 performance attempt.",
+  "root_observed_tests": 11,
+  "root_test_seconds": 4.6,
+  "source_sha256": {
+    "local_policy_pool/README.md": "edf53e8aa374c7fa0fb481d8e347aa31cf5f02136e0cefaada4a67ff6b4b47ab",
+    "local_policy_pool/__init__.py": "d960b18e329d9ed135f9a03fd6411d0fb6c24e341d9ec096bcb0cd4ab2ed30a0",
+    "local_policy_pool/benchmark.py": "2837da76fc3752945b49555d41cfbc69067fb3dc29a7341e9b27cf2ccaa7f512",
+    "local_policy_pool/pool.py": "e4b65c0e465b32c729682636e074bc7a8219a75699b0b3d19cd27ae1d034a16c",
+    "local_policy_pool/test_benchmark.py": "e8cac29bc8b9b2a889f854ca79f38f19c5bcbd505b0da2de6458f6d59e0bdce5",
+    "local_policy_pool/test_pool.py": "abe52deca359d3f36e9356878c68c0eb919e631493eded8e31a0ef7f773f1da5"
+  },
+  "study_games_added": 0
+}

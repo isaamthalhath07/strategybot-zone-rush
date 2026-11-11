@@ -1,0 +1,68 @@
+{
+  "bmcts_audits": 0,
+  "callbacks": 2560,
+  "exact_gold_action_histories_equal": true,
+  "failed_earlier_attempt": "local_cuda_matches/evidence/history/qualification_001_failure.json",
+  "format": "local-cuda-public-qualification/1",
+  "independent_owner_regenerated_callbacks": 2560,
+  "new_study_games": 0,
+  "physics_metadata": {
+    "accepted_batch_steps": 80,
+    "accepted_branch_turn_events": 640,
+    "batch_size": 8,
+    "cuda_kernel_executed": true,
+    "cuda_version": "12.8",
+    "device": "cuda",
+    "device_name": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+    "format": "local-cuda-match-physics/1",
+    "max_turns": 80,
+    "policy_backend": "External exact CPU actors",
+    "rules": {
+      "catch_requires_stay": true,
+      "claim_resets_progress": true,
+      "frozen_stay_counts": false,
+      "home_upgradable": true,
+      "lost_contest_is_stay": true
+    },
+    "setup_completed_game_audit_credit": 0,
+    "setup_primary_match_credit": 0,
+    "setup_throwaway_transitions": 3,
+    "source_sha256": {
+      "local_cuda_matches/physics.py": "f241931a2748de00a6d85eae961a729bace5f1505f1c6b4cbfda7c353638d1e8",
+      "search_coach/__init__.py": "63563ec08cbca672ef264b2fa5678313820a8bf22b69e361279507d7f181df45",
+      "search_coach/belief.py": "f4188a87e5f253685df98ba596af97601bd00b68a42ff397f4d244126aa8669c",
+      "search_coach/gpu_batch.py": "1a15460f1ba38b31a701322683423d642f1e9d358a92a398238cac1683bbbc8b",
+      "tests/reference_engine.py": "8f7b89995cad0f724fb8ac7c7bc8311a6fa9b3b722f2204097031ba2333726f4",
+      "training_gpu/__init__.py": "87dc9ae50c90732a585cda760c993217cd440e8bd2078fd9c867fb3bc5386d73",
+      "training_gpu/batch_game.py": "4c314c10e733d9eea496a9973110639b95cb496b8ff9e7b9d49bc8459d8efb9f"
+    },
+    "timing_basis": "Synchronized host wall seconds; not CUDA-event-only kernel throughput",
+    "torch_version": "2.11.0+cu128",
+    "use_graph": true
+  },
+  "primary_games": 0,
+  "qualification_receipt_sha256": "cf33d6301fbc361c0a04f2940bbefeff0514aff7b43ff658b436a4c36d59666e",
+  "qualification_replicas": 8,
+  "qualified": true,
+  "runtime": {
+    "capability": [
+      12,
+      0
+    ],
+    "cuda_build": "12.8",
+    "device_name": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+    "python": {
+      "actor_backend": "CPython CPU",
+      "cuda_used_by_policy": false,
+      "executable_sha256": "0b471133e110cfb53a061cad528ce8e517d7b9ac41a0a396c39ad795a487fc14",
+      "full_version": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+      "implementation": "CPython",
+      "logical_cores": 24,
+      "platform": "Windows-11-10.0.26200-SP0",
+      "version": "3.12.10"
+    },
+    "torch": "2.11.0+cu128"
+  },
+  "source_registration_sha256": "b5ffb74f5c8ad1c7a984a54d41d86efb26cb99ae2318a8b7d5a631d23ad24eb9",
+  "total_known_reference_replica_runs_including_failed_receipt_attempt": 16
+}

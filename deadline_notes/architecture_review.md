@@ -1,0 +1,73 @@
+# Completed architecture study: independent interpretation
+
+**Original Blocker is the supported reference choice among these four frozen sources.** It has the highest exact mean and is separated from e8,50d and original Feint by all three relevant registered six-comparison descriptive Bonferroni intervals. This supports the prospectively specified B anchor. It does not promote a new deadline candidate, certify a patched Blocker or establish universal optimality.
+
+Only the now-complete root-authorized [architecture report](../.cache/local_cuda/architecture_v2_001/report.json) and existing frozen source descriptions were used. No GEN3–5 raw result or incomplete case was read. This reviewer did not load a private registry/key, invoke the analyzer/authority, replay physics, execute callbacks, run a GPU probe or change any runtime.
+
+## Evidence scope and independent checks
+
+- Report SHA256: `6a76e981432d13638a873ba4b45db6c3259707a45a8d26b6b8b0bf5ece915147`.
+- Fixed registration SHA256: `b5ffb74f5c8ad1c7a984a54d41d86efb26cb99ae2318a8b7d5a631d23ad24eb9`.
+- Root-authenticated acceptance SHA256: `d8b0456e06e49ba4facb68a903495e8f51a25724cdaf54a51be96d3a077f447c`.
+- Unchanged inference-plan SHA256: `54b223e6fe3dac5e65233f1ae54c66a318771199118feda05d666e12101b4857`.
+- Coverage:128 distinct maps, 4 arms, 4 fields, 16 seat/token crossings, 32,768 complete matches, 8,192 per arm, 2,048 per arm/field,0 recorded faults. Eight canonical CPU originals and 32,760 CUDA-physics originals count once; qualification replicas receive no original-study credit.
+
+The root analyzer reports authenticated complete evidence/source validation and frozen arithmetic, with no new execution replay by the analyzer. Its owner MAC authenticates trusted-owner declarations rather than hostile-host or independent-hardware honesty. This review independently recomputed the report's rational means, field means, histograms, raw-score totals, worst-field means, all six mean/field contrast identities and interval-orientation/zero flags. It checked the fixed bootstrap settings and quantile indices. It did not independently regenerate the 60,000 bootstrap draws from per-map raw data or reperform cryptographic/game admission; reported intervals remain attributed to the admitted analyzer.
+
+## All four arms
+
+B=exact original Blocker; F=exact original Feint. Primary utility is official pairwise points 0..3 with half-credit ties. It is not first-place win rate.
+
+| Arm | Source prefix | Mean pairwise | Economic | Independent | Erratic | Pressure | Mean own score |
+|---|---|---:|---:|---:|---:|---:|---:|
+| B | `1bb70109a75e` | 2.354736 | 2.162109 | 2.016602 | 2.591797 | 2.648438 | 3117.209 |
+| F | `f95dc9fc2266` | 2.300842 | 2.128174 | 1.931152 | 2.550049 | 2.593994 | 3088.428 |
+| e8 | `e8b3682d8b39` | 2.255615 | 2.029297 | 1.913574 | 2.525391 | 2.554199 | 3086.876 |
+| 50d | `50d82d7ac581` | 2.254883 | 2.025879 | 1.914062 | 2.523438 | 2.556152 | 3086.153 |
+
+B−e8 is 203/2048=0.0991211 additional pairwise points per match. Dividing by the three-point maximum gives 0.0330404 of that scale; it is not a 9.91-percentage-point first-place gain. B−F is 883/16384=0.0538940. These gains are material on this mixture, with broad enough intervals that their exact sizes remain uncertain. Own raw score is consistent with B's ordering, but is a secondary metric and cannot replace the registered pairwise objective.
+
+## Every registered overall comparison
+
+The orientation below is the preregistered first−second source order. The intervals target the six-comparison family through alpha 0.05/6 per two-sided comparison; they are not unadjusted 95% intervals. They remain descriptive approximate percentile-bootstrap intervals, not a proven finite-sample familywise confidence guarantee.
+
+| First−second | Mean difference | Registered descriptive Bonferroni 6 interval | Contains 0 |
+|---|---:|---|---|
+| e8−50d | 0.000732 | [-0.001953, 0.003662] | yes |
+| e8−B | -0.099121 | [-0.145813, -0.052490] | no |
+| e8−F | -0.045227 | [-0.094727, 0.004395] | yes |
+| 50d−B | -0.099854 | [-0.146790, -0.053162] | no |
+| 50d−F | -0.045959 | [-0.095703, 0.003784] | yes |
+| B−F | 0.053894 | [0.029114, 0.079468] | no |
+
+In B-oriented form: B−e8=+0.099121,[0.052490,0.145813]; B−50d=+0.099854,[0.053162,0.146790]; B−F=+0.053894,[0.029114,0.079468]. All exclude zero. F has positive point differences from e8/50d but both registered intervals include zero, so this study does not resolve those two contrasts. e8−50d=+0.000732,[−0.001953,0.003662] is close and unresolved, not a formal equivalence theorem.
+
+## Field effects and paired design
+
+| B minus reference | Economic | Independent | Erratic | Pressure |
+|---|---:|---:|---:|---:|
+| B−e8 | +0.132812 | +0.103027 | +0.066406 | +0.094238 |
+| B−50d | +0.136230 | +0.102539 | +0.068359 | +0.092285 |
+| B−F | +0.033936 | +0.085449 | +0.041748 | +0.054443 |
+
+All twelve B/reference field point differences are positive, so the overall ordering is not generated by a single positive field offsetting point losses in the others. B also has the largest worst-field mean: 2.016602 versus F 1.931152,e8 1.913574,50d 1.914063. However no additional simultaneous field intervals were registered. Do not translate these point signs into "statistically proved better in every field," per-map dominance or the later deadline field-noninferiority decision.
+
+Every map preserves all fields, seats, tokens and arms in each of 60,000 common bootstrap draws, fixed seed 202611091740. The registered map is the uncertainty unit; repeated conditions on one board do not provide 128×64 independent map draws. Tail indices 249/59,749 implement the fixed empirical quantiles. 128 clusters offer more map information than a 16-map TRAIN generation, but bootstrap tail coverage and extrapolation beyond the selected map/opponent distribution remain approximate.
+
+The architecture arms have matched actual rival parameters/RNG seeds and distinct live instances. Rivals react to their own changed board; a future tape is not replayed after policy divergence. This differs from independent TRAIN streams, so interval widths and point means must not be compared across those studies as if they were the same experiment. Very narrow e8/50d uncertainty is compatible with their shared policy logic and strong paired correlation; the report alone does not establish a particular action-agreement rate. Different architectures can have wider map-level contrast variance.
+
+## Source interpretation and retained limitations
+
+These are four exact policies, not four independent implementations. e8 and 50d share the guarded economic Transfer source and differ only in frozen numeric CONFIG. B and F share the archived core; the standalone entry selects BlockerBot or FeintBot with their different fixed behavior and class coefficients. B adds leader-focused denial, route/parking/sniping terms and leader-weighted defence; F uses deceptive near-tie goal choice, decoy-biased routing and baiting. Their contrast changes that package, not a single isolated feature.
+
+The result is consistent with B's spatial-control package fitting this opponent mixture better than the economic baseline or deceptive variant. It does not identify which term caused the gain, show that deception is generally bad, or establish a calibrated opponent-plan posterior. The repeated finite rival algorithms can reward habits that would fail against unseen submissions. Numerical parameter diversity is not algorithmic diversity, and four-player pairwise constant-sum utility does not provide a two-player minimax/Nash-optimality certificate.
+
+Original B retains its documented public-memory inference defect; the f5 correction is a different source and was not one of these four arms. The confirmation does not refute the mechanical correction, prove every B memory counter correct, or transfer unchanged to f5, the numeric fcc child or the persistent-goal extension. All remain separate exact policies requiring their own prospective evidence. A source-level correctness improvement can coexist with unresolved playing-strength benefit. Do not silently patch the anchor and retain this source's strength claim.
+
+The study's policy callbacks ran as exact CPU Python with CUDA official physics, not a GPU policy. Existing recorded timing is descriptive under the measured host/load; this review makes no normalized speed ranking, new callback claim or future deadline guarantee. Legal/rule/source/referee evidence pertains to the admitted played histories rather than all unvisited states or all strategic decisions.
+
+## Consequence for the deadline campaign
+
+The prospective rule selects the complete-study arm with largest exact mean pairwise score, then own raw score and SHA for ties. B's exact 9645/4096 mean is uniquely highest, so the rule selects source `1bb70109a75e2880bfdf3ac9b6fd8e368b0f3d02b9a3e65de53cef0defa505e5` without changing a criterion after seeing results. Its positive registered contrasts make the reference choice substantively supported, not merely an arbitrary noisy argmax. There is still no automatic release or final promotion.
+
+The final challenger must remain the one frozen through the declared last-population DEV process and face this unchanged anchor under the untouched FINAL protocol. Preserve the overall-positive and field-noninferiority requirements; otherwise retain B. Do not use this completed study to retune coefficients and continue calling the same maps final confirmation. No GEN3–5 outcome has been used here, and no comparison with their raw means is made. The 32,768 study cases, old primary campaign, deadline TRAIN cases, qualification replicas and reporting/revalidation work retain their separate accounting. This analysis creates zero games, complete per-game BMCTS audits or promotion credit.

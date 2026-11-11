@@ -1,0 +1,1757 @@
+{
+  "admission": {
+    "authority_invoked": false,
+    "certifies_executed_games": false,
+    "private_key_used": false,
+    "status": "not verified by reporter; caller must supply only a complete root-admitted generation"
+  },
+  "aggregate_canonical_sha256": "f1aaa5b22a64582c33c016007f9acc2968176494d272d3f0a6358f25dca51b81",
+  "arms": [
+    {
+      "fields": {
+        "economic": 2.185546875,
+        "erratic": 2.5625,
+        "independent": 1.99609375,
+        "pressure": 2.63671875
+      },
+      "games": 1024,
+      "mean_pairwise": 2.34521484375,
+      "mean_score": 3266.01171875,
+      "metadata": {
+        "expected_focal_legacy_oracles_per_full_game": 0,
+        "family": "original-blocker",
+        "genes": {
+          "BlockerBot.DENY": 0.4,
+          "BlockerBot.LEADER_BUMP": 0.15,
+          "_Core.AGG0": 0.35,
+          "_Core.ALPHA": 0.34,
+          "_Core.CLAIM_THR": 0.35,
+          "_Core.CONF": 1.0,
+          "_Core.HOP_RISK": 0.45,
+          "_Core.KEEP": 0.8,
+          "_Core.PROT": 0.6,
+          "_Core.RHO0": 0.5,
+          "_Core.SHW": 1.0,
+          "_Core.STAY0": 0.8
+        },
+        "genotype_sha256": "9a576d3d686c07c6f8e4f64a455b99de412714c5d9c98f8181662142bf1b98aa",
+        "grants_admission": false,
+        "new_primary_credit": 0,
+        "required_actor_callbacks_per_game": 320,
+        "required_referees": 2,
+        "runtime_qualified": false,
+        "source_path": "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\.cache\\deadline\\campaign_20261109_10h_001\\train_008\\candidates\\1bb70109a75e2880bfdf3ac9b6fd8e368b0f3d02b9a3e65de53cef0defa505e5.py",
+        "source_sha256": "1bb70109a75e2880bfdf3ac9b6fd8e368b0f3d02b9a3e65de53cef0defa505e5",
+        "strategy_family": "original-blocker"
+      },
+      "worst_field_mean": 1.99609375
+    },
+    {
+      "fields": {
+        "economic": 2.23828125,
+        "erratic": 2.609375,
+        "independent": 1.974609375,
+        "pressure": 2.62890625
+      },
+      "games": 1024,
+      "mean_pairwise": 2.36279296875,
+      "mean_score": 3270.712890625,
+      "metadata": {
+        "expected_focal_legacy_oracles_per_full_game": 0,
+        "family": "original-blocker",
+        "genes": {
+          "BlockerBot.DENY": 0.4,
+          "BlockerBot.LEADER_BUMP": 0.132626,
+          "_Core.AGG0": 0.35,
+          "_Core.ALPHA": 0.34,
+          "_Core.CLAIM_THR": 0.354501,
+          "_Core.CONF": 1.0,
+          "_Core.HOP_RISK": 0.455327,
+          "_Core.KEEP": 0.8,
+          "_Core.PROT": 0.6,
+          "_Core.RHO0": 0.5,
+          "_Core.SHW": 1.0,
+          "_Core.STAY0": 0.8
+        },
+        "genotype_sha256": "0476216cfc993e5629679f2611958dc0b47571eef00ebf8b9f0aab70db3e5e52",
+        "grants_admission": false,
+        "new_primary_credit": 0,
+        "required_actor_callbacks_per_game": 320,
+        "required_referees": 2,
+        "runtime_qualified": false,
+        "source_path": "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\.cache\\deadline\\campaign_20261109_10h_001\\train_008\\candidates\\35bc886dc42d03942e9cc2c7e97d1d22cc228a64694a8eedccd9cd556bb8899b.py",
+        "source_sha256": "35bc886dc42d03942e9cc2c7e97d1d22cc228a64694a8eedccd9cd556bb8899b",
+        "strategy_family": "original-blocker"
+      },
+      "worst_field_mean": 1.974609375
+    },
+    {
+      "fields": {
+        "economic": 2.375,
+        "erratic": 2.59765625,
+        "independent": 1.93359375,
+        "pressure": 2.6328125
+      },
+      "games": 1024,
+      "mean_pairwise": 2.384765625,
+      "mean_score": 3265.77734375,
+      "metadata": {
+        "expected_focal_legacy_oracles_per_full_game": 0,
+        "family": "original-feint",
+        "genes": {
+          "FeintBot.HOP_RISK": 0.3,
+          "_Core.AGG0": 0.35,
+          "_Core.ALPHA": 0.34,
+          "_Core.CLAIM_THR": 0.358031,
+          "_Core.CONF": 1.0,
+          "_Core.KEEP": 0.848607,
+          "_Core.PROT": 0.6,
+          "_Core.RHO0": 0.5,
+          "_Core.SHW": 0.909366,
+          "_Core.STAY0": 0.8
+        },
+        "genotype_sha256": "d0d686df60925bc94e51f56b1c4d9255c8192dd68235496925eac2d7f7e969c0",
+        "grants_admission": false,
+        "new_primary_credit": 0,
+        "required_actor_callbacks_per_game": 320,
+        "required_referees": 2,
+        "runtime_qualified": false,
+        "source_path": "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\.cache\\deadline\\campaign_20261109_10h_001\\train_008\\candidates\\8f802aee1d62398ef56dadb1485973e576c6f9c1608aa990e08869625fd20404.py",
+        "source_sha256": "8f802aee1d62398ef56dadb1485973e576c6f9c1608aa990e08869625fd20404",
+        "strategy_family": "original-feint"
+      },
+      "worst_field_mean": 1.93359375
+    },
+    {
+      "fields": {
+        "economic": 2.111328125,
+        "erratic": 2.546875,
+        "independent": 1.904296875,
+        "pressure": 2.58203125
+      },
+      "games": 1024,
+      "mean_pairwise": 2.2861328125,
+      "mean_score": 3248.775390625,
+      "metadata": {
+        "expected_focal_legacy_oracles_per_full_game": 80,
+        "family": "e8-config",
+        "genes": {
+          "backfire_cost": 1.13552,
+          "breadth": 7,
+          "cash_weight": 0.987795,
+          "contest_cost": 0.42039,
+          "denial_base": 0.866409,
+          "denial_close": 0.154145,
+          "depth": 3,
+          "feint_weight": 1.25119,
+          "fortify_premium": 1.047938,
+          "income_lifetime": 40.67114,
+          "inertia": 0.026879,
+          "raid_late": 1.65061,
+          "raid_open": 1.0434,
+          "risk_late": 8.0,
+          "risk_open": 2.379654,
+          "route_delay": 0.02,
+          "route_weight": 0.61979,
+          "safety_slope": 0.0,
+          "shield_prior": 0.309096,
+          "shield_weight": 1.317889,
+          "stay_prior": 0.687458,
+          "upgrade_late": 4.5,
+          "upgrade_open": 1.46008
+        },
+        "genotype_sha256": "9012785af44d5f5c224392809c8445868f0f961f1c765f785f08b20b6e6ac17e",
+        "grants_admission": false,
+        "new_primary_credit": 0,
+        "required_actor_callbacks_per_game": 320,
+        "required_referees": 2,
+        "runtime_qualified": false,
+        "source_path": "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\.cache\\deadline\\campaign_20261109_10h_001\\train_008\\candidates\\c535b436378c5a877f35e9048aafc16cfe31d1c8cccb9631d1803440c1010d34.py",
+        "source_sha256": "c535b436378c5a877f35e9048aafc16cfe31d1c8cccb9631d1803440c1010d34",
+        "strategy_family": "e8-config"
+      },
+      "worst_field_mean": 1.904296875
+    },
+    {
+      "fields": {
+        "economic": 2.29296875,
+        "erratic": 2.66796875,
+        "independent": 2.0703125,
+        "pressure": 2.65234375
+      },
+      "games": 1024,
+      "mean_pairwise": 2.4208984375,
+      "mean_score": 3279.28515625,
+      "metadata": {
+        "family": "public-memory-blocker",
+        "genes": {
+          "BlockerBot.DENY": 0.436869,
+          "BlockerBot.LEADER_BUMP": 0.15,
+          "_Core.AGG0": 0.35,
+          "_Core.ALPHA": 0.255005,
+          "_Core.CLAIM_THR": 0.416365,
+          "_Core.CONF": 1.0,
+          "_Core.HOP_RISK": 0.45,
+          "_Core.KEEP": 0.8,
+          "_Core.PROT": 0.6,
+          "_Core.RHO0": 0.5,
+          "_Core.SHW": 1.0,
+          "_Core.STAY0": 0.8
+        },
+        "genotype_sha256": "e5ebf9a33efc1a76b131ecc41085b6ce492ff7daa99291a1b24053fdca014764",
+        "source_path": "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\.cache\\deadline\\campaign_20261109_10h_001\\train_008\\candidates\\c593668223ef225faee049c0df23a8d8238bee277b9df9e4e510f8a34ba9a800.py",
+        "source_sha256": "c593668223ef225faee049c0df23a8d8238bee277b9df9e4e510f8a34ba9a800",
+        "strategy_family": "original-blocker"
+      },
+      "worst_field_mean": 2.0703125
+    },
+    {
+      "fields": {
+        "economic": 2.259765625,
+        "erratic": 2.603515625,
+        "independent": 1.87890625,
+        "pressure": 2.685546875
+      },
+      "games": 1024,
+      "mean_pairwise": 2.35693359375,
+      "mean_score": 3274.5830078125,
+      "metadata": {
+        "expected_focal_legacy_oracles_per_full_game": 0,
+        "family": "original-blocker",
+        "genes": {
+          "BlockerBot.DENY": 0.4,
+          "BlockerBot.LEADER_BUMP": 0.132626,
+          "_Core.AGG0": 0.35,
+          "_Core.ALPHA": 0.34,
+          "_Core.CLAIM_THR": 0.354501,
+          "_Core.CONF": 1.0,
+          "_Core.HOP_RISK": 0.426812,
+          "_Core.KEEP": 0.8,
+          "_Core.PROT": 0.6,
+          "_Core.RHO0": 0.5,
+          "_Core.SHW": 1.0,
+          "_Core.STAY0": 0.8
+        },
+        "genotype_sha256": "5f74295c7249f44eb7ff11638971ab5e56797c7c1352ce145f5618d72124aed7",
+        "grants_admission": false,
+        "new_primary_credit": 0,
+        "required_actor_callbacks_per_game": 320,
+        "required_referees": 2,
+        "runtime_qualified": false,
+        "source_path": "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\.cache\\deadline\\campaign_20261109_10h_001\\train_008\\candidates\\d68bf15374a9826f1992c2537372c2f19645f7e2bdfccc5181bbeed0a2739c61.py",
+        "source_sha256": "d68bf15374a9826f1992c2537372c2f19645f7e2bdfccc5181bbeed0a2739c61",
+        "strategy_family": "original-blocker"
+      },
+      "worst_field_mean": 1.87890625
+    },
+    {
+      "fields": {
+        "economic": 2.04296875,
+        "erratic": 2.53125,
+        "independent": 2.00390625,
+        "pressure": 2.6015625
+      },
+      "games": 1024,
+      "mean_pairwise": 2.294921875,
+      "mean_score": 3246.712890625,
+      "metadata": {
+        "expected_focal_legacy_oracles_per_full_game": 80,
+        "family": "e8-config",
+        "genes": {
+          "backfire_cost": 1.13552,
+          "breadth": 7,
+          "cash_weight": 1.25275,
+          "contest_cost": 0.42039,
+          "denial_base": 0.79149,
+          "denial_close": 0.20084,
+          "depth": 3,
+          "feint_weight": 1.25119,
+          "fortify_premium": 1.11474,
+          "income_lifetime": 40.67114,
+          "inertia": 0.0496,
+          "raid_late": 1.65061,
+          "raid_open": 0.95839,
+          "risk_late": 8.0,
+          "risk_open": 1.97775,
+          "route_delay": 0.02,
+          "route_weight": 0.61979,
+          "safety_slope": 0.0,
+          "shield_prior": 0.33333,
+          "shield_weight": 1.30296,
+          "stay_prior": 0.69484,
+          "upgrade_late": 4.5,
+          "upgrade_open": 1.46008
+        },
+        "genotype_sha256": "53545313b4299ce8519725313f82818457add15abd1af524592c54fff7c84bb7",
+        "grants_admission": false,
+        "new_primary_credit": 0,
+        "required_actor_callbacks_per_game": 320,
+        "required_referees": 2,
+        "runtime_qualified": false,
+        "source_path": "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\.cache\\deadline\\campaign_20261109_10h_001\\train_008\\candidates\\e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5.py",
+        "source_sha256": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+        "strategy_family": "e8-config"
+      },
+      "worst_field_mean": 2.00390625
+    },
+    {
+      "fields": {
+        "economic": 2.23828125,
+        "erratic": 2.5859375,
+        "independent": 1.888671875,
+        "pressure": 2.630859375
+      },
+      "games": 1024,
+      "mean_pairwise": 2.3359375,
+      "mean_score": 3255.53515625,
+      "metadata": {
+        "expected_focal_legacy_oracles_per_full_game": 0,
+        "family": "original-feint",
+        "genes": {
+          "FeintBot.HOP_RISK": 0.3,
+          "_Core.AGG0": 0.35,
+          "_Core.ALPHA": 0.34,
+          "_Core.CLAIM_THR": 0.35,
+          "_Core.CONF": 1.0,
+          "_Core.KEEP": 0.8,
+          "_Core.PROT": 0.6,
+          "_Core.RHO0": 0.5,
+          "_Core.SHW": 1.0,
+          "_Core.STAY0": 0.8
+        },
+        "genotype_sha256": "646422bcc1ab3cc5130660f8438e646038969f110993120f61123b81e011342a",
+        "grants_admission": false,
+        "new_primary_credit": 0,
+        "required_actor_callbacks_per_game": 320,
+        "required_referees": 2,
+        "runtime_qualified": false,
+        "source_path": "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\.cache\\deadline\\campaign_20261109_10h_001\\train_008\\candidates\\f95dc9fc22660331b1368a876d907f111fd3cb21aef6e3e34315b41e6af94e94.py",
+        "source_sha256": "f95dc9fc22660331b1368a876d907f111fd3cb21aef6e3e34315b41e6af94e94",
+        "strategy_family": "original-feint"
+      },
+      "worst_field_mean": 1.888671875
+    }
+  ],
+  "bmcts_credit": 0,
+  "bootstrap": {
+    "base_seed": 20261109114339,
+    "bonferroni28_order_statistics": [
+      16,
+      19981
+    ],
+    "effective_seed": 20261109114347,
+    "generation": 8,
+    "generator": "NumPy default_rng PCG64; int64 draws with replacement",
+    "map_order": [
+      "07814cd000e9cca51abe60ae0baee49067d5061b85fd989683da0a52c54b4228",
+      "12b3105d7973932d65ce38f24494b684b9d4855d4347d60601ede5310a93d506",
+      "22741b2f04723ac87b10442d23aa24ffba73614f873c599c387f512c5b046631",
+      "298800b3fc33b2a695b089acc6be1cddd76c7f4ebd3e6393a92781de0eeec103",
+      "2c784d37b221282f2e6461891304432f7b9adc38897eb2b38555dcbe64950373",
+      "3660b96e1bef1d9ca85c6ba5cea2ff61792493605c7731dce46d524dad60413c",
+      "46ea42ea436188e924886d93220317ee54722469335eeae1f9ace4b8d72e32ee",
+      "62e543a981a77e042cb80429b03d5892ff9b0ba6a3975727692cef3d0547a76b",
+      "81576d8b5f96891d300f5c8abf9e6f13fb414bafc9b3a137e315a154734a4272",
+      "a954905017b9804956bbfcb0670e5ee0f83fdde9970ad2f67fa5284291cac8e8",
+      "ae761c073425d9533825f3906f16e4999558c8e33a370411bebf3dbeeddba8f1",
+      "cf1fb2b7dc69904c3128676a45d20b07ff2a6fd0e932911f8393328d65fc4605",
+      "df54a9c4384ad323c768b9dba8716dd415fe94cd832019e85eea109ed487b4de",
+      "e32d19c5318f8ea14bbdaa6ed5e127516463e39cd6387be56a74a2df9c05ea7d",
+      "ed75e2d4dc900e266b25b4a0f7e0f79d21ad6d111a13a8f84eb0de7c7bc4eee2",
+      "f0aca3f77a06ab3695585c310d6fc79e83cc50cfa8adb3311e9c334dc24b2b0e"
+    ],
+    "numpy_version": "2.5.4",
+    "quantiles": "zero-based floor(p*20000)-1; no interpolation",
+    "replicates": 20000,
+    "resampling": "whole maps; same draws for all arms/fields/28 contrasts",
+    "shared_map_draws_sha256": "c8b1cfe3c07679d16977e56f2fe623b0f591b1caa5f3849851ef71571602123c",
+    "unadjusted_order_statistics": [
+      499,
+      19499
+    ]
+  },
+  "contrast_count": 28,
+  "contrasts": [
+    {
+      "a": "1bb70109a75e2880bfdf3ac9b6fd8e368b0f3d02b9a3e65de53cef0defa505e5",
+      "b": "35bc886dc42d03942e9cc2c7e97d1d22cc228a64694a8eedccd9cd556bb8899b",
+      "descriptive_bonferroni28_95_interval": [
+        -0.080078125,
+        0.05908203125
+      ],
+      "fields": {
+        "economic": {
+          "delta": -0.052734375,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.134765625,
+            0.03125
+          ]
+        },
+        "erratic": {
+          "delta": -0.046875,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.125,
+            0.0234375
+          ]
+        },
+        "independent": {
+          "delta": 0.021484375,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.099609375,
+            0.142578125
+          ]
+        },
+        "pressure": {
+          "delta": 0.0078125,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.0625,
+            0.07421875
+          ]
+        }
+      },
+      "mean_pairwise_delta": -0.017578125,
+      "orientation": "a minus b",
+      "unadjusted_95_interval": [
+        -0.05908203125,
+        0.029296875
+      ]
+    },
+    {
+      "a": "1bb70109a75e2880bfdf3ac9b6fd8e368b0f3d02b9a3e65de53cef0defa505e5",
+      "b": "8f802aee1d62398ef56dadb1485973e576c6f9c1608aa990e08869625fd20404",
+      "descriptive_bonferroni28_95_interval": [
+        -0.1259765625,
+        0.0390625
+      ],
+      "fields": {
+        "economic": {
+          "delta": -0.189453125,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.298828125,
+            -0.09375
+          ]
+        },
+        "erratic": {
+          "delta": -0.03515625,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.10546875,
+            0.0390625
+          ]
+        },
+        "independent": {
+          "delta": 0.0625,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.0859375,
+            0.19921875
+          ]
+        },
+        "pressure": {
+          "delta": 0.00390625,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.08984375,
+            0.09375
+          ]
+        }
+      },
+      "mean_pairwise_delta": -0.03955078125,
+      "orientation": "a minus b",
+      "unadjusted_95_interval": [
+        -0.09130859375,
+        0.00927734375
+      ]
+    },
+    {
+      "a": "1bb70109a75e2880bfdf3ac9b6fd8e368b0f3d02b9a3e65de53cef0defa505e5",
+      "b": "c535b436378c5a877f35e9048aafc16cfe31d1c8cccb9631d1803440c1010d34",
+      "descriptive_bonferroni28_95_interval": [
+        -0.103515625,
+        0.22509765625
+      ],
+      "fields": {
+        "economic": {
+          "delta": 0.07421875,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.125,
+            0.2734375
+          ]
+        },
+        "erratic": {
+          "delta": 0.015625,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.08203125,
+            0.10546875
+          ]
+        },
+        "independent": {
+          "delta": 0.091796875,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.08203125,
+            0.26171875
+          ]
+        },
+        "pressure": {
+          "delta": 0.0546875,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.04296875,
+            0.16796875
+          ]
+        }
+      },
+      "mean_pairwise_delta": 0.05908203125,
+      "orientation": "a minus b",
+      "unadjusted_95_interval": [
+        -0.04345703125,
+        0.16455078125
+      ]
+    },
+    {
+      "a": "1bb70109a75e2880bfdf3ac9b6fd8e368b0f3d02b9a3e65de53cef0defa505e5",
+      "b": "c593668223ef225faee049c0df23a8d8238bee277b9df9e4e510f8a34ba9a800",
+      "descriptive_bonferroni28_95_interval": [
+        -0.1630859375,
+        0.017578125
+      ],
+      "fields": {
+        "economic": {
+          "delta": -0.107421875,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.234375,
+            0.015625
+          ]
+        },
+        "erratic": {
+          "delta": -0.10546875,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.1796875,
+            -0.03125
+          ]
+        },
+        "independent": {
+          "delta": -0.07421875,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.18359375,
+            0.0390625
+          ]
+        },
+        "pressure": {
+          "delta": -0.015625,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.09375,
+            0.06640625
+          ]
+        }
+      },
+      "mean_pairwise_delta": -0.07568359375,
+      "orientation": "a minus b",
+      "unadjusted_95_interval": [
+        -0.1318359375,
+        -0.0166015625
+      ]
+    },
+    {
+      "a": "1bb70109a75e2880bfdf3ac9b6fd8e368b0f3d02b9a3e65de53cef0defa505e5",
+      "b": "d68bf15374a9826f1992c2537372c2f19645f7e2bdfccc5181bbeed0a2739c61",
+      "descriptive_bonferroni28_95_interval": [
+        -0.09375,
+        0.0634765625
+      ],
+      "fields": {
+        "economic": {
+          "delta": -0.07421875,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.1796875,
+            0.02734375
+          ]
+        },
+        "erratic": {
+          "delta": -0.041015625,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.125,
+            0.041015625
+          ]
+        },
+        "independent": {
+          "delta": 0.1171875,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.0234375,
+            0.25
+          ]
+        },
+        "pressure": {
+          "delta": -0.048828125,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.12109375,
+            0.0234375
+          ]
+        }
+      },
+      "mean_pairwise_delta": -0.01171875,
+      "orientation": "a minus b",
+      "unadjusted_95_interval": [
+        -0.0615234375,
+        0.037109375
+      ]
+    },
+    {
+      "a": "1bb70109a75e2880bfdf3ac9b6fd8e368b0f3d02b9a3e65de53cef0defa505e5",
+      "b": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+      "descriptive_bonferroni28_95_interval": [
+        -0.12109375,
+        0.2080078125
+      ],
+      "fields": {
+        "economic": {
+          "delta": 0.142578125,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.072265625,
+            0.361328125
+          ]
+        },
+        "erratic": {
+          "delta": 0.03125,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.03125,
+            0.09375
+          ]
+        },
+        "independent": {
+          "delta": -0.0078125,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.203125,
+            0.1796875
+          ]
+        },
+        "pressure": {
+          "delta": 0.03515625,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.08203125,
+            0.16015625
+          ]
+        }
+      },
+      "mean_pairwise_delta": 0.05029296875,
+      "orientation": "a minus b",
+      "unadjusted_95_interval": [
+        -0.0546875,
+        0.15478515625
+      ]
+    },
+    {
+      "a": "1bb70109a75e2880bfdf3ac9b6fd8e368b0f3d02b9a3e65de53cef0defa505e5",
+      "b": "f95dc9fc22660331b1368a876d907f111fd3cb21aef6e3e34315b41e6af94e94",
+      "descriptive_bonferroni28_95_interval": [
+        -0.06201171875,
+        0.0888671875
+      ],
+      "fields": {
+        "economic": {
+          "delta": -0.052734375,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.15625,
+            0.05078125
+          ]
+        },
+        "erratic": {
+          "delta": -0.0234375,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.0859375,
+            0.046875
+          ]
+        },
+        "independent": {
+          "delta": 0.107421875,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.0390625,
+            0.26171875
+          ]
+        },
+        "pressure": {
+          "delta": 0.005859375,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.078125,
+            0.0859375
+          ]
+        }
+      },
+      "mean_pairwise_delta": 0.00927734375,
+      "orientation": "a minus b",
+      "unadjusted_95_interval": [
+        -0.03759765625,
+        0.0595703125
+      ]
+    },
+    {
+      "a": "35bc886dc42d03942e9cc2c7e97d1d22cc228a64694a8eedccd9cd556bb8899b",
+      "b": "8f802aee1d62398ef56dadb1485973e576c6f9c1608aa990e08869625fd20404",
+      "descriptive_bonferroni28_95_interval": [
+        -0.09814453125,
+        0.0546875
+      ],
+      "fields": {
+        "economic": {
+          "delta": -0.13671875,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.2578125,
+            -0.01171875
+          ]
+        },
+        "erratic": {
+          "delta": 0.01171875,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.06640625,
+            0.08984375
+          ]
+        },
+        "independent": {
+          "delta": 0.041015625,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.11328125,
+            0.189453125
+          ]
+        },
+        "pressure": {
+          "delta": -0.00390625,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.08203125,
+            0.07421875
+          ]
+        }
+      },
+      "mean_pairwise_delta": -0.02197265625,
+      "orientation": "a minus b",
+      "unadjusted_95_interval": [
+        -0.0712890625,
+        0.0283203125
+      ]
+    },
+    {
+      "a": "35bc886dc42d03942e9cc2c7e97d1d22cc228a64694a8eedccd9cd556bb8899b",
+      "b": "c535b436378c5a877f35e9048aafc16cfe31d1c8cccb9631d1803440c1010d34",
+      "descriptive_bonferroni28_95_interval": [
+        -0.08251953125,
+        0.23486328125
+      ],
+      "fields": {
+        "economic": {
+          "delta": 0.126953125,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.08984375,
+            0.349609375
+          ]
+        },
+        "erratic": {
+          "delta": 0.0625,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.02734375,
+            0.1640625
+          ]
+        },
+        "independent": {
+          "delta": 0.0703125,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.09375,
+            0.23828125
+          ]
+        },
+        "pressure": {
+          "delta": 0.046875,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.04296875,
+            0.140625
+          ]
+        }
+      },
+      "mean_pairwise_delta": 0.07666015625,
+      "orientation": "a minus b",
+      "unadjusted_95_interval": [
+        -0.02587890625,
+        0.177734375
+      ]
+    },
+    {
+      "a": "35bc886dc42d03942e9cc2c7e97d1d22cc228a64694a8eedccd9cd556bb8899b",
+      "b": "c593668223ef225faee049c0df23a8d8238bee277b9df9e4e510f8a34ba9a800",
+      "descriptive_bonferroni28_95_interval": [
+        -0.1435546875,
+        0.0146484375
+      ],
+      "fields": {
+        "economic": {
+          "delta": -0.0546875,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.1875,
+            0.068359375
+          ]
+        },
+        "erratic": {
+          "delta": -0.05859375,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.140625,
+            0.01953125
+          ]
+        },
+        "independent": {
+          "delta": -0.095703125,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.1953125,
+            0.0
+          ]
+        },
+        "pressure": {
+          "delta": -0.0234375,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.09375,
+            0.04296875
+          ]
+        }
+      },
+      "mean_pairwise_delta": -0.05810546875,
+      "orientation": "a minus b",
+      "unadjusted_95_interval": [
+        -0.1103515625,
+        -0.01025390625
+      ]
+    },
+    {
+      "a": "35bc886dc42d03942e9cc2c7e97d1d22cc228a64694a8eedccd9cd556bb8899b",
+      "b": "d68bf15374a9826f1992c2537372c2f19645f7e2bdfccc5181bbeed0a2739c61",
+      "descriptive_bonferroni28_95_interval": [
+        -0.10791015625,
+        0.0849609375
+      ],
+      "fields": {
+        "economic": {
+          "delta": -0.021484375,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.1640625,
+            0.12109375
+          ]
+        },
+        "erratic": {
+          "delta": 0.005859375,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.0703125,
+            0.080078125
+          ]
+        },
+        "independent": {
+          "delta": 0.095703125,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.09765625,
+            0.28125
+          ]
+        },
+        "pressure": {
+          "delta": -0.056640625,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.109375,
+            -0.00390625
+          ]
+        }
+      },
+      "mean_pairwise_delta": 0.005859375,
+      "orientation": "a minus b",
+      "unadjusted_95_interval": [
+        -0.05517578125,
+        0.0595703125
+      ]
+    },
+    {
+      "a": "35bc886dc42d03942e9cc2c7e97d1d22cc228a64694a8eedccd9cd556bb8899b",
+      "b": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+      "descriptive_bonferroni28_95_interval": [
+        -0.09619140625,
+        0.224609375
+      ],
+      "fields": {
+        "economic": {
+          "delta": 0.1953125,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.029296875,
+            0.421875
+          ]
+        },
+        "erratic": {
+          "delta": 0.078125,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            0.01171875,
+            0.15234375
+          ]
+        },
+        "independent": {
+          "delta": -0.029296875,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.224609375,
+            0.173828125
+          ]
+        },
+        "pressure": {
+          "delta": 0.02734375,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.078125,
+            0.13671875
+          ]
+        }
+      },
+      "mean_pairwise_delta": 0.06787109375,
+      "orientation": "a minus b",
+      "unadjusted_95_interval": [
+        -0.03369140625,
+        0.1689453125
+      ]
+    },
+    {
+      "a": "35bc886dc42d03942e9cc2c7e97d1d22cc228a64694a8eedccd9cd556bb8899b",
+      "b": "f95dc9fc22660331b1368a876d907f111fd3cb21aef6e3e34315b41e6af94e94",
+      "descriptive_bonferroni28_95_interval": [
+        -0.06201171875,
+        0.1064453125
+      ],
+      "fields": {
+        "economic": {
+          "delta": 0.0,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.134765625,
+            0.125
+          ]
+        },
+        "erratic": {
+          "delta": 0.0234375,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.06640625,
+            0.1171875
+          ]
+        },
+        "independent": {
+          "delta": 0.0859375,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.076171875,
+            0.23828125
+          ]
+        },
+        "pressure": {
+          "delta": -0.001953125,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.068359375,
+            0.06640625
+          ]
+        }
+      },
+      "mean_pairwise_delta": 0.02685546875,
+      "orientation": "a minus b",
+      "unadjusted_95_interval": [
+        -0.02734375,
+        0.07763671875
+      ]
+    },
+    {
+      "a": "8f802aee1d62398ef56dadb1485973e576c6f9c1608aa990e08869625fd20404",
+      "b": "c535b436378c5a877f35e9048aafc16cfe31d1c8cccb9631d1803440c1010d34",
+      "descriptive_bonferroni28_95_interval": [
+        -0.0341796875,
+        0.2314453125
+      ],
+      "fields": {
+        "economic": {
+          "delta": 0.263671875,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            0.076171875,
+            0.447265625
+          ]
+        },
+        "erratic": {
+          "delta": 0.05078125,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.015625,
+            0.11328125
+          ]
+        },
+        "independent": {
+          "delta": 0.029296875,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.1015625,
+            0.177734375
+          ]
+        },
+        "pressure": {
+          "delta": 0.05078125,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.04296875,
+            0.1484375
+          ]
+        }
+      },
+      "mean_pairwise_delta": 0.0986328125,
+      "orientation": "a minus b",
+      "unadjusted_95_interval": [
+        0.01904296875,
+        0.1806640625
+      ]
+    },
+    {
+      "a": "8f802aee1d62398ef56dadb1485973e576c6f9c1608aa990e08869625fd20404",
+      "b": "c593668223ef225faee049c0df23a8d8238bee277b9df9e4e510f8a34ba9a800",
+      "descriptive_bonferroni28_95_interval": [
+        -0.115234375,
+        0.04296875
+      ],
+      "fields": {
+        "economic": {
+          "delta": 0.08203125,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.0390625,
+            0.19921875
+          ]
+        },
+        "erratic": {
+          "delta": -0.0703125,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.171875,
+            0.03515625
+          ]
+        },
+        "independent": {
+          "delta": -0.13671875,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.26953125,
+            -0.00390625
+          ]
+        },
+        "pressure": {
+          "delta": -0.01953125,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.10546875,
+            0.08203125
+          ]
+        }
+      },
+      "mean_pairwise_delta": -0.0361328125,
+      "orientation": "a minus b",
+      "unadjusted_95_interval": [
+        -0.0849609375,
+        0.0146484375
+      ]
+    },
+    {
+      "a": "8f802aee1d62398ef56dadb1485973e576c6f9c1608aa990e08869625fd20404",
+      "b": "d68bf15374a9826f1992c2537372c2f19645f7e2bdfccc5181bbeed0a2739c61",
+      "descriptive_bonferroni28_95_interval": [
+        -0.0625,
+        0.11767578125
+      ],
+      "fields": {
+        "economic": {
+          "delta": 0.115234375,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.015625,
+            0.23828125
+          ]
+        },
+        "erratic": {
+          "delta": -0.005859375,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.10546875,
+            0.09765625
+          ]
+        },
+        "independent": {
+          "delta": 0.0546875,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.09375,
+            0.19921875
+          ]
+        },
+        "pressure": {
+          "delta": -0.052734375,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.130859375,
+            0.03515625
+          ]
+        }
+      },
+      "mean_pairwise_delta": 0.02783203125,
+      "orientation": "a minus b",
+      "unadjusted_95_interval": [
+        -0.03125,
+        0.0859375
+      ]
+    },
+    {
+      "a": "8f802aee1d62398ef56dadb1485973e576c6f9c1608aa990e08869625fd20404",
+      "b": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+      "descriptive_bonferroni28_95_interval": [
+        -0.0537109375,
+        0.21875
+      ],
+      "fields": {
+        "economic": {
+          "delta": 0.33203125,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            0.125,
+            0.53515625
+          ]
+        },
+        "erratic": {
+          "delta": 0.06640625,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.01171875,
+            0.1484375
+          ]
+        },
+        "independent": {
+          "delta": -0.0703125,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.23828125,
+            0.09765625
+          ]
+        },
+        "pressure": {
+          "delta": 0.03125,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.078125,
+            0.15234375
+          ]
+        }
+      },
+      "mean_pairwise_delta": 0.08984375,
+      "orientation": "a minus b",
+      "unadjusted_95_interval": [
+        0.00390625,
+        0.17578125
+      ]
+    },
+    {
+      "a": "8f802aee1d62398ef56dadb1485973e576c6f9c1608aa990e08869625fd20404",
+      "b": "f95dc9fc22660331b1368a876d907f111fd3cb21aef6e3e34315b41e6af94e94",
+      "descriptive_bonferroni28_95_interval": [
+        -0.052734375,
+        0.16357421875
+      ],
+      "fields": {
+        "economic": {
+          "delta": 0.13671875,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            0.01953125,
+            0.265625
+          ]
+        },
+        "erratic": {
+          "delta": 0.01171875,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.06640625,
+            0.08203125
+          ]
+        },
+        "independent": {
+          "delta": 0.044921875,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.13671875,
+            0.23046875
+          ]
+        },
+        "pressure": {
+          "delta": 0.001953125,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.080078125,
+            0.1015625
+          ]
+        }
+      },
+      "mean_pairwise_delta": 0.048828125,
+      "orientation": "a minus b",
+      "unadjusted_95_interval": [
+        -0.0185546875,
+        0.12109375
+      ]
+    },
+    {
+      "a": "c535b436378c5a877f35e9048aafc16cfe31d1c8cccb9631d1803440c1010d34",
+      "b": "c593668223ef225faee049c0df23a8d8238bee277b9df9e4e510f8a34ba9a800",
+      "descriptive_bonferroni28_95_interval": [
+        -0.318359375,
+        0.0517578125
+      ],
+      "fields": {
+        "economic": {
+          "delta": -0.181640625,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.40234375,
+            0.03515625
+          ]
+        },
+        "erratic": {
+          "delta": -0.12109375,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.2265625,
+            -0.015625
+          ]
+        },
+        "independent": {
+          "delta": -0.166015625,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.341796875,
+            0.0078125
+          ]
+        },
+        "pressure": {
+          "delta": -0.0703125,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.171875,
+            0.01953125
+          ]
+        }
+      },
+      "mean_pairwise_delta": -0.134765625,
+      "orientation": "a minus b",
+      "unadjusted_95_interval": [
+        -0.25048828125,
+        -0.02001953125
+      ]
+    },
+    {
+      "a": "c535b436378c5a877f35e9048aafc16cfe31d1c8cccb9631d1803440c1010d34",
+      "b": "d68bf15374a9826f1992c2537372c2f19645f7e2bdfccc5181bbeed0a2739c61",
+      "descriptive_bonferroni28_95_interval": [
+        -0.2705078125,
+        0.10498046875
+      ],
+      "fields": {
+        "economic": {
+          "delta": -0.1484375,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.33984375,
+            0.04296875
+          ]
+        },
+        "erratic": {
+          "delta": -0.056640625,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.162109375,
+            0.048828125
+          ]
+        },
+        "independent": {
+          "delta": 0.025390625,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.21484375,
+            0.2421875
+          ]
+        },
+        "pressure": {
+          "delta": -0.103515625,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.2109375,
+            0.0
+          ]
+        }
+      },
+      "mean_pairwise_delta": -0.07080078125,
+      "orientation": "a minus b",
+      "unadjusted_95_interval": [
+        -0.19189453125,
+        0.04296875
+      ]
+    },
+    {
+      "a": "c535b436378c5a877f35e9048aafc16cfe31d1c8cccb9631d1803440c1010d34",
+      "b": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+      "descriptive_bonferroni28_95_interval": [
+        -0.1025390625,
+        0.08935546875
+      ],
+      "fields": {
+        "economic": {
+          "delta": 0.068359375,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.1015625,
+            0.2421875
+          ]
+        },
+        "erratic": {
+          "delta": 0.015625,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.07421875,
+            0.10546875
+          ]
+        },
+        "independent": {
+          "delta": -0.099609375,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.224609375,
+            0.037109375
+          ]
+        },
+        "pressure": {
+          "delta": -0.01953125,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.09765625,
+            0.0625
+          ]
+        }
+      },
+      "mean_pairwise_delta": -0.0087890625,
+      "orientation": "a minus b",
+      "unadjusted_95_interval": [
+        -0.0673828125,
+        0.05419921875
+      ]
+    },
+    {
+      "a": "c535b436378c5a877f35e9048aafc16cfe31d1c8cccb9631d1803440c1010d34",
+      "b": "f95dc9fc22660331b1368a876d907f111fd3cb21aef6e3e34315b41e6af94e94",
+      "descriptive_bonferroni28_95_interval": [
+        -0.23974609375,
+        0.13720703125
+      ],
+      "fields": {
+        "economic": {
+          "delta": -0.126953125,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.326171875,
+            0.07421875
+          ]
+        },
+        "erratic": {
+          "delta": -0.0390625,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.11328125,
+            0.0390625
+          ]
+        },
+        "independent": {
+          "delta": 0.015625,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.203125,
+            0.244140625
+          ]
+        },
+        "pressure": {
+          "delta": -0.048828125,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.169921875,
+            0.07421875
+          ]
+        }
+      },
+      "mean_pairwise_delta": -0.0498046875,
+      "orientation": "a minus b",
+      "unadjusted_95_interval": [
+        -0.16845703125,
+        0.07080078125
+      ]
+    },
+    {
+      "a": "c593668223ef225faee049c0df23a8d8238bee277b9df9e4e510f8a34ba9a800",
+      "b": "d68bf15374a9826f1992c2537372c2f19645f7e2bdfccc5181bbeed0a2739c61",
+      "descriptive_bonferroni28_95_interval": [
+        -0.015625,
+        0.1533203125
+      ],
+      "fields": {
+        "economic": {
+          "delta": 0.033203125,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.0859375,
+            0.158203125
+          ]
+        },
+        "erratic": {
+          "delta": 0.064453125,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.015625,
+            0.15234375
+          ]
+        },
+        "independent": {
+          "delta": 0.19140625,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            0.05078125,
+            0.328125
+          ]
+        },
+        "pressure": {
+          "delta": -0.033203125,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.107421875,
+            0.046875
+          ]
+        }
+      },
+      "mean_pairwise_delta": 0.06396484375,
+      "orientation": "a minus b",
+      "unadjusted_95_interval": [
+        0.01220703125,
+        0.11962890625
+      ]
+    },
+    {
+      "a": "c593668223ef225faee049c0df23a8d8238bee277b9df9e4e510f8a34ba9a800",
+      "b": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+      "descriptive_bonferroni28_95_interval": [
+        -0.0634765625,
+        0.294921875
+      ],
+      "fields": {
+        "economic": {
+          "delta": 0.25,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            0.05078125,
+            0.45703125
+          ]
+        },
+        "erratic": {
+          "delta": 0.13671875,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            0.05078125,
+            0.2109375
+          ]
+        },
+        "independent": {
+          "delta": 0.06640625,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.15234375,
+            0.27734375
+          ]
+        },
+        "pressure": {
+          "delta": 0.05078125,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.04296875,
+            0.15234375
+          ]
+        }
+      },
+      "mean_pairwise_delta": 0.1259765625,
+      "orientation": "a minus b",
+      "unadjusted_95_interval": [
+        0.01171875,
+        0.23828125
+      ]
+    },
+    {
+      "a": "c593668223ef225faee049c0df23a8d8238bee277b9df9e4e510f8a34ba9a800",
+      "b": "f95dc9fc22660331b1368a876d907f111fd3cb21aef6e3e34315b41e6af94e94",
+      "descriptive_bonferroni28_95_interval": [
+        -0.005859375,
+        0.1748046875
+      ],
+      "fields": {
+        "economic": {
+          "delta": 0.0546875,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.08203125,
+            0.19921875
+          ]
+        },
+        "erratic": {
+          "delta": 0.08203125,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.00390625,
+            0.17578125
+          ]
+        },
+        "independent": {
+          "delta": 0.181640625,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            0.05859375,
+            0.306640625
+          ]
+        },
+        "pressure": {
+          "delta": 0.021484375,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.0625,
+            0.11328125
+          ]
+        }
+      },
+      "mean_pairwise_delta": 0.0849609375,
+      "orientation": "a minus b",
+      "unadjusted_95_interval": [
+        0.02783203125,
+        0.14208984375
+      ]
+    },
+    {
+      "a": "d68bf15374a9826f1992c2537372c2f19645f7e2bdfccc5181bbeed0a2739c61",
+      "b": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+      "descriptive_bonferroni28_95_interval": [
+        -0.1103515625,
+        0.240234375
+      ],
+      "fields": {
+        "economic": {
+          "delta": 0.216796875,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            0.029296875,
+            0.421875
+          ]
+        },
+        "erratic": {
+          "delta": 0.072265625,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.015625,
+            0.150390625
+          ]
+        },
+        "independent": {
+          "delta": -0.125,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.34375,
+            0.1015625
+          ]
+        },
+        "pressure": {
+          "delta": 0.083984375,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.009765625,
+            0.177734375
+          ]
+        }
+      },
+      "mean_pairwise_delta": 0.06201171875,
+      "orientation": "a minus b",
+      "unadjusted_95_interval": [
+        -0.044921875,
+        0.17431640625
+      ]
+    },
+    {
+      "a": "d68bf15374a9826f1992c2537372c2f19645f7e2bdfccc5181bbeed0a2739c61",
+      "b": "f95dc9fc22660331b1368a876d907f111fd3cb21aef6e3e34315b41e6af94e94",
+      "descriptive_bonferroni28_95_interval": [
+        -0.07275390625,
+        0.11962890625
+      ],
+      "fields": {
+        "economic": {
+          "delta": 0.021484375,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.115234375,
+            0.1640625
+          ]
+        },
+        "erratic": {
+          "delta": 0.017578125,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.052734375,
+            0.08984375
+          ]
+        },
+        "independent": {
+          "delta": -0.009765625,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.1953125,
+            0.177734375
+          ]
+        },
+        "pressure": {
+          "delta": 0.0546875,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.0078125,
+            0.115234375
+          ]
+        }
+      },
+      "mean_pairwise_delta": 0.02099609375,
+      "orientation": "a minus b",
+      "unadjusted_95_interval": [
+        -0.0380859375,
+        0.08349609375
+      ]
+    },
+    {
+      "a": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+      "b": "f95dc9fc22660331b1368a876d907f111fd3cb21aef6e3e34315b41e6af94e94",
+      "descriptive_bonferroni28_95_interval": [
+        -0.2333984375,
+        0.14697265625
+      ],
+      "fields": {
+        "economic": {
+          "delta": -0.1953125,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.43359375,
+            0.03125
+          ]
+        },
+        "erratic": {
+          "delta": -0.0546875,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.14453125,
+            0.0390625
+          ]
+        },
+        "independent": {
+          "delta": 0.115234375,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.140625,
+            0.375
+          ]
+        },
+        "pressure": {
+          "delta": -0.029296875,
+          "interpretation": "descriptive/exploratory; not adjusted across fields or all field contrasts",
+          "unadjusted_95_interval": [
+            -0.154296875,
+            0.09375
+          ]
+        }
+      },
+      "mean_pairwise_delta": -0.041015625,
+      "orientation": "a minus b",
+      "unadjusted_95_interval": [
+        -0.16552734375,
+        0.08203125
+      ]
+    }
+  ],
+  "format": "zone-rush-complete-deadline-train-report/1",
+  "games": 8192,
+  "generation": 8,
+  "limitations": [
+    "Sixteen finite map clusters; percentile-bootstrap intervals are approximate, not exact simultaneous coverage.",
+    "Bonferroni28 labels cover only the28 overall contrasts; field intervals are exploratory.",
+    "TRAIN parent/elite selection and prior source selection create selection uncertainty; no winner inference or promotion.",
+    "Map resampling does not isolate rival-stream variance or establish strength against unseen algorithms.",
+    "Fresh instances/parameter draws are not new algorithms; deterministic planner policies have no action RNG to reseed."
+  ],
+  "maps": 16,
+  "pairing": "Map-matched complete field/seat/token crossing; fresh independent actual rival streams across TRAIN arms. No identical-lineup pairing.",
+  "phase": "train",
+  "primary_campaign_credit": 0,
+  "promoted": false,
+  "registration_canonical_sha256": "15406ee298dc7b332d6ee3712ec1af925b3c0604d137c7bc2ff0e560073965e4",
+  "root_verified_provenance": {
+    "acceptance_sha256": "25329c803c2d69d07577e15993b6b26105ef52b7aa75a505f9a9873c5804d50c",
+    "audits_sha256": "8ba26a8c0049c2f9a7a09f1fd3deeb74fe55cd254c3dc16377d43f9fdef682f0",
+    "originals_sha256": "6b2add0e3595cd7c682dd8a7fc72e0bf98d665ea73518970168f8458233bb819",
+    "registration_sha256": "2d5f9f31f592eac2f7d3a643124e752bf0866b08b4d81613f927ea0046caf938",
+    "verification": "Owner MAC and unchanged full-proof integrity certificate; no new callbacks or games."
+  },
+  "selection_performed": false,
+  "source_sha256": {
+    "deadline_campaign/__init__.py": "463b31321d0570f8e7c4dadae0df1b75381b1daee86944dca9803162ebedbf58",
+    "deadline_campaign/design.py": "bbe9a9fb10e7110471a9f2d9c92bd9f5c0449399e2a07449d4aa133791d1d4b8",
+    "deadline_campaign/train_report.py": "571bdcb08f40f07f47905d5d6ded7476eda55499eafe0104263d6d11dcd9b08f",
+    "deadline_strategy/__init__.py": "09f456a6aaefa0edb76820cc8c54aec577c545a939d0619b786ebbdefc0cfa93",
+    "deadline_strategy/goal_space.py": "fc8c3e84778bbb810b57055a9c8a7b85175025428861d07cf9ea97326bf54c9e",
+    "deadline_strategy/space.py": "5949c9c4eaf46dbca6ba42c078f4faa4bb9bc3ef73e71dee49b8def02ab3795e",
+    "evolution/genomes.py": "a16800b4daed6f4b78190db9db755ba17447c179d601a5a481754478f1ad70f2",
+    "evolution_templates/space.py": "bce6dd1fa5950a8752182ce4c70e17ea10d74245a7fe650cc735b3483b2ae041",
+    "primary_local/recipe.py": "38ea91acd2368f08e52bb3f1acb99d28f2c50a6ff1dd8fd3d468a7f659c88501",
+    "strategy_candidates/build_public_memory.py": "d4a421c719c0eb2e69ce786fdc5c53042b475e50509bc7104f1b0faa9e1d35e4"
+  },
+  "winner_inferred": false
+}

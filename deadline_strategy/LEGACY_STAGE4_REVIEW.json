@@ -1,0 +1,4504 @@
+{
+  "bmcts_credit": 0,
+  "campaign_id": "66269bc2443cdff375116b3e168f1e8db6f27cc4a758a8c00e84f949d4bcac10",
+  "catalog_sha256": "311b51f5eef35402f88887bd18f54053fedf923cc17d3b8b13d6d1e2142f794f",
+  "fitness": "Exact equal-weight64-cell mean sum(pw2/(2*n_cell*64)); then raw own-score mean; then sourceSHA.",
+  "format": "read-only-complete-legacy-stage4-ranking-review/1",
+  "new_game_credit": 0,
+  "prior_admission_receipt": {
+    "approved": true,
+    "callbacks_regenerated": 6400000,
+    "games": 20000,
+    "proof": "All20k original receipt rowSHA links checked; prior actor regeneration/physics not rerun by this review.",
+    "public_memory_oracles": 3200000
+  },
+  "promoted": false,
+  "published_accepted_primary_games": 100000,
+  "published_accepted_snapshot_sha256": "c54517e04524718d7ef9f576c78403b56126e04354ce318795380b976b4daa36",
+  "ranking": [
+    {
+      "cells": [
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 174,
+          "score_sum": 120799,
+          "seat": 0,
+          "token": 1
+        },
+        {
+          "field": "independent",
+          "games": 40,
+          "pairwise_numerator_sum": 144,
+          "score_sum": 117815,
+          "seat": 0,
+          "token": 1
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 200,
+          "score_sum": 124952,
+          "seat": 0,
+          "token": 1
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 194,
+          "score_sum": 122697,
+          "seat": 0,
+          "token": 1
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 157,
+          "score_sum": 117308,
+          "seat": 0,
+          "token": 2
+        },
+        {
+          "field": "independent",
+          "games": 40,
+          "pairwise_numerator_sum": 154,
+          "score_sum": 118463,
+          "seat": 0,
+          "token": 2
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 190,
+          "score_sum": 118478,
+          "seat": 0,
+          "token": 2
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 198,
+          "score_sum": 123292,
+          "seat": 0,
+          "token": 2
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 146,
+          "score_sum": 117697,
+          "seat": 0,
+          "token": 3
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 142,
+          "score_sum": 116586,
+          "seat": 0,
+          "token": 3
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 200,
+          "score_sum": 122932,
+          "seat": 0,
+          "token": 3
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 196,
+          "score_sum": 122172,
+          "seat": 0,
+          "token": 3
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 170,
+          "score_sum": 120217,
+          "seat": 0,
+          "token": 4
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 145,
+          "score_sum": 117759,
+          "seat": 0,
+          "token": 4
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 200,
+          "score_sum": 124174,
+          "seat": 0,
+          "token": 4
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 202,
+          "score_sum": 121906,
+          "seat": 0,
+          "token": 4
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 165,
+          "score_sum": 119485,
+          "seat": 1,
+          "token": 1
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 142,
+          "score_sum": 115774,
+          "seat": 1,
+          "token": 1
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 200,
+          "score_sum": 120386,
+          "seat": 1,
+          "token": 1
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 190,
+          "score_sum": 122086,
+          "seat": 1,
+          "token": 1
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 169,
+          "score_sum": 122304,
+          "seat": 1,
+          "token": 2
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 146,
+          "score_sum": 114021,
+          "seat": 1,
+          "token": 2
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 200,
+          "score_sum": 123352,
+          "seat": 1,
+          "token": 2
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 203,
+          "score_sum": 126685,
+          "seat": 1,
+          "token": 2
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 170,
+          "score_sum": 120386,
+          "seat": 1,
+          "token": 3
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 160,
+          "score_sum": 117589,
+          "seat": 1,
+          "token": 3
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 208,
+          "score_sum": 124527,
+          "seat": 1,
+          "token": 3
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 192,
+          "score_sum": 123059,
+          "seat": 1,
+          "token": 3
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 158,
+          "score_sum": 120640,
+          "seat": 1,
+          "token": 4
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 164,
+          "score_sum": 119072,
+          "seat": 1,
+          "token": 4
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 214,
+          "score_sum": 125350,
+          "seat": 1,
+          "token": 4
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 196,
+          "score_sum": 123636,
+          "seat": 1,
+          "token": 4
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 138,
+          "score_sum": 117126,
+          "seat": 2,
+          "token": 1
+        },
+        {
+          "field": "independent",
+          "games": 40,
+          "pairwise_numerator_sum": 158,
+          "score_sum": 119288,
+          "seat": 2,
+          "token": 1
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 190,
+          "score_sum": 121842,
+          "seat": 2,
+          "token": 1
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 194,
+          "score_sum": 123549,
+          "seat": 2,
+          "token": 1
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 146,
+          "score_sum": 117226,
+          "seat": 2,
+          "token": 2
+        },
+        {
+          "field": "independent",
+          "games": 40,
+          "pairwise_numerator_sum": 152,
+          "score_sum": 117812,
+          "seat": 2,
+          "token": 2
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 194,
+          "score_sum": 120386,
+          "seat": 2,
+          "token": 2
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 196,
+          "score_sum": 121643,
+          "seat": 2,
+          "token": 2
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 168,
+          "score_sum": 118723,
+          "seat": 2,
+          "token": 3
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 152,
+          "score_sum": 116807,
+          "seat": 2,
+          "token": 3
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 193,
+          "score_sum": 120475,
+          "seat": 2,
+          "token": 3
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 192,
+          "score_sum": 120968,
+          "seat": 2,
+          "token": 3
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 140,
+          "score_sum": 116986,
+          "seat": 2,
+          "token": 4
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 150,
+          "score_sum": 118946,
+          "seat": 2,
+          "token": 4
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 192,
+          "score_sum": 122536,
+          "seat": 2,
+          "token": 4
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 204,
+          "score_sum": 122670,
+          "seat": 2,
+          "token": 4
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 174,
+          "score_sum": 121410,
+          "seat": 3,
+          "token": 1
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 142,
+          "score_sum": 114216,
+          "seat": 3,
+          "token": 1
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 194,
+          "score_sum": 118391,
+          "seat": 3,
+          "token": 1
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 196,
+          "score_sum": 126445,
+          "seat": 3,
+          "token": 1
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 138,
+          "score_sum": 120522,
+          "seat": 3,
+          "token": 2
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 140,
+          "score_sum": 115310,
+          "seat": 3,
+          "token": 2
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 204,
+          "score_sum": 122197,
+          "seat": 3,
+          "token": 2
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 192,
+          "score_sum": 123933,
+          "seat": 3,
+          "token": 2
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 146,
+          "score_sum": 119837,
+          "seat": 3,
+          "token": 3
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 164,
+          "score_sum": 119582,
+          "seat": 3,
+          "token": 3
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 196,
+          "score_sum": 120253,
+          "seat": 3,
+          "token": 3
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 202,
+          "score_sum": 124992,
+          "seat": 3,
+          "token": 3
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 154,
+          "score_sum": 121064,
+          "seat": 3,
+          "token": 4
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 168,
+          "score_sum": 119158,
+          "seat": 3,
+          "token": 4
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 196,
+          "score_sum": 120217,
+          "seat": 3,
+          "token": 4
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 196,
+          "score_sum": 123138,
+          "seat": 3,
+          "token": 4
+        }
+      ],
+      "games": 2500,
+      "genes": {
+        "backfire_cost": 1.674416,
+        "breadth": 7,
+        "cash_weight": 1.25275,
+        "contest_cost": 0.42039,
+        "denial_base": 0.79149,
+        "denial_close": 0.20084,
+        "depth": 3,
+        "feint_weight": 1.167526,
+        "fortify_premium": 1.11474,
+        "income_lifetime": 40.67114,
+        "inertia": 0.0496,
+        "raid_late": 1.65061,
+        "raid_open": 0.95839,
+        "risk_late": 8.0,
+        "risk_open": 1.97775,
+        "route_delay": 0.02,
+        "route_weight": 0.61979,
+        "safety_slope": 0.0,
+        "shield_prior": 0.333592,
+        "shield_weight": 1.227437,
+        "stay_prior": 0.771476,
+        "upgrade_late": 4.5,
+        "upgrade_open": 1.46008
+      },
+      "genotype_sha256": "f664aa8fd73a8afa6e428c192f716e484f64ee20e34a2e304bf283c405e51fd6",
+      "lineage": {
+        "kind": "elite_retained",
+        "parents": [
+          "50d82d7ac58162e9cf651136afcedac5586db9a060f153854b00875f13efef37"
+        ]
+      },
+      "name": "elite_00",
+      "path": "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\.cache\\primary\\campaign_v1_20261109\\train_004\\elite_00.py",
+      "raw_pw": 2.25,
+      "raw_pw_fraction": "9/4",
+      "raw_score": 3085.2988,
+      "raw_score_fraction": "7713247/2500",
+      "sha256": "50d82d7ac58162e9cf651136afcedac5586db9a060f153854b00875f13efef37",
+      "slot": 1,
+      "standardized_pw": 2.2505608974358973,
+      "standardized_pw_fraction": "28087/12480"
+    },
+    {
+      "cells": [
+        {
+          "field": "economic",
+          "games": 40,
+          "pairwise_numerator_sum": 170,
+          "score_sum": 123559,
+          "seat": 0,
+          "token": 1
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 144,
+          "score_sum": 115068,
+          "seat": 0,
+          "token": 1
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 200,
+          "score_sum": 119278,
+          "seat": 0,
+          "token": 1
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 212,
+          "score_sum": 123653,
+          "seat": 0,
+          "token": 1
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 152,
+          "score_sum": 120533,
+          "seat": 0,
+          "token": 2
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 160,
+          "score_sum": 118550,
+          "seat": 0,
+          "token": 2
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 206,
+          "score_sum": 120694,
+          "seat": 0,
+          "token": 2
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 192,
+          "score_sum": 123162,
+          "seat": 0,
+          "token": 2
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 160,
+          "score_sum": 120384,
+          "seat": 0,
+          "token": 3
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 158,
+          "score_sum": 118392,
+          "seat": 0,
+          "token": 3
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 196,
+          "score_sum": 119657,
+          "seat": 0,
+          "token": 3
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 192,
+          "score_sum": 122353,
+          "seat": 0,
+          "token": 3
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 160,
+          "score_sum": 120184,
+          "seat": 0,
+          "token": 4
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 156,
+          "score_sum": 116553,
+          "seat": 0,
+          "token": 4
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 212,
+          "score_sum": 123798,
+          "seat": 0,
+          "token": 4
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 204,
+          "score_sum": 124785,
+          "seat": 0,
+          "token": 4
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 133,
+          "score_sum": 116262,
+          "seat": 1,
+          "token": 1
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 140,
+          "score_sum": 114154,
+          "seat": 1,
+          "token": 1
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 196,
+          "score_sum": 122722,
+          "seat": 1,
+          "token": 1
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 198,
+          "score_sum": 123182,
+          "seat": 1,
+          "token": 1
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 166,
+          "score_sum": 119640,
+          "seat": 1,
+          "token": 2
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 150,
+          "score_sum": 116491,
+          "seat": 1,
+          "token": 2
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 190,
+          "score_sum": 120801,
+          "seat": 1,
+          "token": 2
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 190,
+          "score_sum": 123784,
+          "seat": 1,
+          "token": 2
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 163,
+          "score_sum": 119202,
+          "seat": 1,
+          "token": 3
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 160,
+          "score_sum": 117160,
+          "seat": 1,
+          "token": 3
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 198,
+          "score_sum": 123897,
+          "seat": 1,
+          "token": 3
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 196,
+          "score_sum": 124964,
+          "seat": 1,
+          "token": 3
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 172,
+          "score_sum": 120109,
+          "seat": 1,
+          "token": 4
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 148,
+          "score_sum": 115676,
+          "seat": 1,
+          "token": 4
+        },
+        {
+          "field": "erratic",
+          "games": 40,
+          "pairwise_numerator_sum": 212,
+          "score_sum": 126483,
+          "seat": 1,
+          "token": 4
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 202,
+          "score_sum": 125016,
+          "seat": 1,
+          "token": 4
+        },
+        {
+          "field": "economic",
+          "games": 40,
+          "pairwise_numerator_sum": 153,
+          "score_sum": 119951,
+          "seat": 2,
+          "token": 1
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 136,
+          "score_sum": 115570,
+          "seat": 2,
+          "token": 1
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 180,
+          "score_sum": 120176,
+          "seat": 2,
+          "token": 1
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 205,
+          "score_sum": 122734,
+          "seat": 2,
+          "token": 1
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 138,
+          "score_sum": 118123,
+          "seat": 2,
+          "token": 2
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 152,
+          "score_sum": 116743,
+          "seat": 2,
+          "token": 2
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 194,
+          "score_sum": 120681,
+          "seat": 2,
+          "token": 2
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 196,
+          "score_sum": 122020,
+          "seat": 2,
+          "token": 2
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 149,
+          "score_sum": 117848,
+          "seat": 2,
+          "token": 3
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 154,
+          "score_sum": 120452,
+          "seat": 2,
+          "token": 3
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 208,
+          "score_sum": 122259,
+          "seat": 2,
+          "token": 3
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 194,
+          "score_sum": 122950,
+          "seat": 2,
+          "token": 3
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 134,
+          "score_sum": 119789,
+          "seat": 2,
+          "token": 4
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 146,
+          "score_sum": 118101,
+          "seat": 2,
+          "token": 4
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 196,
+          "score_sum": 121434,
+          "seat": 2,
+          "token": 4
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 208,
+          "score_sum": 124940,
+          "seat": 2,
+          "token": 4
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 153,
+          "score_sum": 119918,
+          "seat": 3,
+          "token": 1
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 138,
+          "score_sum": 114713,
+          "seat": 3,
+          "token": 1
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 204,
+          "score_sum": 124638,
+          "seat": 3,
+          "token": 1
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 202,
+          "score_sum": 125030,
+          "seat": 3,
+          "token": 1
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 156,
+          "score_sum": 120510,
+          "seat": 3,
+          "token": 2
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 140,
+          "score_sum": 113979,
+          "seat": 3,
+          "token": 2
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 194,
+          "score_sum": 122932,
+          "seat": 3,
+          "token": 2
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 198,
+          "score_sum": 123943,
+          "seat": 3,
+          "token": 2
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 148,
+          "score_sum": 119567,
+          "seat": 3,
+          "token": 3
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 164,
+          "score_sum": 118704,
+          "seat": 3,
+          "token": 3
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 180,
+          "score_sum": 120736,
+          "seat": 3,
+          "token": 3
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 192,
+          "score_sum": 122568,
+          "seat": 3,
+          "token": 3
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 176,
+          "score_sum": 118970,
+          "seat": 3,
+          "token": 4
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 162,
+          "score_sum": 117790,
+          "seat": 3,
+          "token": 4
+        },
+        {
+          "field": "erratic",
+          "games": 40,
+          "pairwise_numerator_sum": 206,
+          "score_sum": 127914,
+          "seat": 3,
+          "token": 4
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 208,
+          "score_sum": 125751,
+          "seat": 3,
+          "token": 4
+        }
+      ],
+      "games": 2500,
+      "genes": {
+        "backfire_cost": 1.13552,
+        "breadth": 7,
+        "cash_weight": 1.25275,
+        "contest_cost": 0.42039,
+        "denial_base": 0.79149,
+        "denial_close": 0.20084,
+        "depth": 3,
+        "feint_weight": 1.25119,
+        "fortify_premium": 1.11474,
+        "income_lifetime": 40.67114,
+        "inertia": 0.0496,
+        "raid_late": 1.65061,
+        "raid_open": 0.95839,
+        "risk_late": 8.0,
+        "risk_open": 1.97775,
+        "route_delay": 0.02,
+        "route_weight": 0.61979,
+        "safety_slope": 0.0,
+        "shield_prior": 0.33333,
+        "shield_weight": 1.30296,
+        "stay_prior": 0.69484,
+        "upgrade_late": 4.5,
+        "upgrade_open": 1.46008
+      },
+      "genotype_sha256": "53545313b4299ce8519725313f82818457add15abd1af524592c54fff7c84bb7",
+      "lineage": {
+        "kind": "production_control",
+        "parents": []
+      },
+      "name": "incumbent",
+      "path": "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\.cache\\primary\\campaign_v1_20261109\\train_004\\incumbent.py",
+      "raw_pw": 2.2504,
+      "raw_pw_fraction": "2813/1250",
+      "raw_score": 3088.632,
+      "raw_score_fraction": "386079/125",
+      "sha256": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5",
+      "slot": 0,
+      "standardized_pw": 2.2502954727564104,
+      "standardized_pw_fraction": "449339/199680"
+    },
+    {
+      "cells": [
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 158,
+          "score_sum": 118730,
+          "seat": 0,
+          "token": 1
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 174,
+          "score_sum": 117060,
+          "seat": 0,
+          "token": 1
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 188,
+          "score_sum": 119219,
+          "seat": 0,
+          "token": 1
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 200,
+          "score_sum": 123065,
+          "seat": 0,
+          "token": 1
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 176,
+          "score_sum": 123118,
+          "seat": 0,
+          "token": 2
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 146,
+          "score_sum": 113350,
+          "seat": 0,
+          "token": 2
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 198,
+          "score_sum": 121823,
+          "seat": 0,
+          "token": 2
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 210,
+          "score_sum": 124077,
+          "seat": 0,
+          "token": 2
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 164,
+          "score_sum": 120121,
+          "seat": 0,
+          "token": 3
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 138,
+          "score_sum": 115811,
+          "seat": 0,
+          "token": 3
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 198,
+          "score_sum": 121577,
+          "seat": 0,
+          "token": 3
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 200,
+          "score_sum": 127216,
+          "seat": 0,
+          "token": 3
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 153,
+          "score_sum": 119885,
+          "seat": 0,
+          "token": 4
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 142,
+          "score_sum": 113633,
+          "seat": 0,
+          "token": 4
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 204,
+          "score_sum": 123313,
+          "seat": 0,
+          "token": 4
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 206,
+          "score_sum": 126679,
+          "seat": 0,
+          "token": 4
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 167,
+          "score_sum": 120478,
+          "seat": 1,
+          "token": 1
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 162,
+          "score_sum": 119995,
+          "seat": 1,
+          "token": 1
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 190,
+          "score_sum": 120778,
+          "seat": 1,
+          "token": 1
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 198,
+          "score_sum": 123381,
+          "seat": 1,
+          "token": 1
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 148,
+          "score_sum": 118179,
+          "seat": 1,
+          "token": 2
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 150,
+          "score_sum": 116272,
+          "seat": 1,
+          "token": 2
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 198,
+          "score_sum": 124196,
+          "seat": 1,
+          "token": 2
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 194,
+          "score_sum": 122397,
+          "seat": 1,
+          "token": 2
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 159,
+          "score_sum": 118165,
+          "seat": 1,
+          "token": 3
+        },
+        {
+          "field": "independent",
+          "games": 40,
+          "pairwise_numerator_sum": 133,
+          "score_sum": 116738,
+          "seat": 1,
+          "token": 3
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 197,
+          "score_sum": 121293,
+          "seat": 1,
+          "token": 3
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 200,
+          "score_sum": 122033,
+          "seat": 1,
+          "token": 3
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 169,
+          "score_sum": 118027,
+          "seat": 1,
+          "token": 4
+        },
+        {
+          "field": "independent",
+          "games": 40,
+          "pairwise_numerator_sum": 150,
+          "score_sum": 119010,
+          "seat": 1,
+          "token": 4
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 188,
+          "score_sum": 120540,
+          "seat": 1,
+          "token": 4
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 200,
+          "score_sum": 122279,
+          "seat": 1,
+          "token": 4
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 161,
+          "score_sum": 119577,
+          "seat": 2,
+          "token": 1
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 154,
+          "score_sum": 113876,
+          "seat": 2,
+          "token": 1
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 190,
+          "score_sum": 118029,
+          "seat": 2,
+          "token": 1
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 192,
+          "score_sum": 122328,
+          "seat": 2,
+          "token": 1
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 151,
+          "score_sum": 118209,
+          "seat": 2,
+          "token": 2
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 160,
+          "score_sum": 116457,
+          "seat": 2,
+          "token": 2
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 200,
+          "score_sum": 121268,
+          "seat": 2,
+          "token": 2
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 194,
+          "score_sum": 122077,
+          "seat": 2,
+          "token": 2
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 148,
+          "score_sum": 119638,
+          "seat": 2,
+          "token": 3
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 160,
+          "score_sum": 115875,
+          "seat": 2,
+          "token": 3
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 196,
+          "score_sum": 121241,
+          "seat": 2,
+          "token": 3
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 188,
+          "score_sum": 121424,
+          "seat": 2,
+          "token": 3
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 142,
+          "score_sum": 120679,
+          "seat": 2,
+          "token": 4
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 148,
+          "score_sum": 114583,
+          "seat": 2,
+          "token": 4
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 208,
+          "score_sum": 125254,
+          "seat": 2,
+          "token": 4
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 196,
+          "score_sum": 122570,
+          "seat": 2,
+          "token": 4
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 162,
+          "score_sum": 118765,
+          "seat": 3,
+          "token": 1
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 142,
+          "score_sum": 116446,
+          "seat": 3,
+          "token": 1
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 189,
+          "score_sum": 124598,
+          "seat": 3,
+          "token": 1
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 202,
+          "score_sum": 122763,
+          "seat": 3,
+          "token": 1
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 148,
+          "score_sum": 117072,
+          "seat": 3,
+          "token": 2
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 168,
+          "score_sum": 117856,
+          "seat": 3,
+          "token": 2
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 190,
+          "score_sum": 121582,
+          "seat": 3,
+          "token": 2
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 192,
+          "score_sum": 120439,
+          "seat": 3,
+          "token": 2
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 148,
+          "score_sum": 118152,
+          "seat": 3,
+          "token": 3
+        },
+        {
+          "field": "independent",
+          "games": 40,
+          "pairwise_numerator_sum": 158,
+          "score_sum": 119431,
+          "seat": 3,
+          "token": 3
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 198,
+          "score_sum": 123368,
+          "seat": 3,
+          "token": 3
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 198,
+          "score_sum": 120788,
+          "seat": 3,
+          "token": 3
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 160,
+          "score_sum": 117177,
+          "seat": 3,
+          "token": 4
+        },
+        {
+          "field": "independent",
+          "games": 40,
+          "pairwise_numerator_sum": 152,
+          "score_sum": 117976,
+          "seat": 3,
+          "token": 4
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 204,
+          "score_sum": 124558,
+          "seat": 3,
+          "token": 4
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 190,
+          "score_sum": 123627,
+          "seat": 3,
+          "token": 4
+        }
+      ],
+      "games": 2500,
+      "genes": {
+        "backfire_cost": 1.13552,
+        "breadth": 7,
+        "cash_weight": 1.047314,
+        "contest_cost": 0.42039,
+        "denial_base": 0.79149,
+        "denial_close": 0.20084,
+        "depth": 3,
+        "feint_weight": 1.25119,
+        "fortify_premium": 1.11474,
+        "income_lifetime": 40.67114,
+        "inertia": 0.0496,
+        "raid_late": 1.65061,
+        "raid_open": 0.95839,
+        "risk_late": 8.0,
+        "risk_open": 1.97775,
+        "route_delay": 0.02,
+        "route_weight": 0.61979,
+        "safety_slope": 0.0,
+        "shield_prior": 0.33333,
+        "shield_weight": 1.30296,
+        "stay_prior": 0.655883,
+        "upgrade_late": 4.5,
+        "upgrade_open": 1.46008
+      },
+      "genotype_sha256": "010939cad84e24ccb61cad1dac57605ab45d682b44adb7a32d6cfa0e2e0b92ba",
+      "lineage": {
+        "kind": "sparse_mutation",
+        "parents": [
+          "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5"
+        ],
+        "seed": 1859542525060810548
+      },
+      "name": "offspring_07",
+      "path": "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\.cache\\primary\\campaign_v1_20261109\\train_004\\offspring_07.py",
+      "raw_pw": 2.2494,
+      "raw_pw_fraction": "11247/5000",
+      "raw_score": 3076.0484,
+      "raw_score_fraction": "7690121/2500",
+      "sha256": "8d988cfc38dc1de0d5a80bfd468bd2b091c4569609bb503e6e1c70c6515bbb14",
+      "slot": 7,
+      "standardized_pw": 2.2500350560897435,
+      "standardized_pw_fraction": "449287/199680"
+    },
+    {
+      "cells": [
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 148,
+          "score_sum": 118657,
+          "seat": 0,
+          "token": 1
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 142,
+          "score_sum": 113433,
+          "seat": 0,
+          "token": 1
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 198,
+          "score_sum": 122498,
+          "seat": 0,
+          "token": 1
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 200,
+          "score_sum": 124282,
+          "seat": 0,
+          "token": 1
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 160,
+          "score_sum": 117854,
+          "seat": 0,
+          "token": 2
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 128,
+          "score_sum": 114613,
+          "seat": 0,
+          "token": 2
+        },
+        {
+          "field": "erratic",
+          "games": 40,
+          "pairwise_numerator_sum": 202,
+          "score_sum": 127596,
+          "seat": 0,
+          "token": 2
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 192,
+          "score_sum": 122156,
+          "seat": 0,
+          "token": 2
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 177,
+          "score_sum": 120423,
+          "seat": 0,
+          "token": 3
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 134,
+          "score_sum": 113120,
+          "seat": 0,
+          "token": 3
+        },
+        {
+          "field": "erratic",
+          "games": 40,
+          "pairwise_numerator_sum": 184,
+          "score_sum": 121495,
+          "seat": 0,
+          "token": 3
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 206,
+          "score_sum": 123226,
+          "seat": 0,
+          "token": 3
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 181,
+          "score_sum": 119911,
+          "seat": 0,
+          "token": 4
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 144,
+          "score_sum": 112034,
+          "seat": 0,
+          "token": 4
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 198,
+          "score_sum": 117960,
+          "seat": 0,
+          "token": 4
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 200,
+          "score_sum": 122153,
+          "seat": 0,
+          "token": 4
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 166,
+          "score_sum": 120245,
+          "seat": 1,
+          "token": 1
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 122,
+          "score_sum": 111263,
+          "seat": 1,
+          "token": 1
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 196,
+          "score_sum": 120933,
+          "seat": 1,
+          "token": 1
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 208,
+          "score_sum": 125648,
+          "seat": 1,
+          "token": 1
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 168,
+          "score_sum": 120542,
+          "seat": 1,
+          "token": 2
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 126,
+          "score_sum": 111918,
+          "seat": 1,
+          "token": 2
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 202,
+          "score_sum": 122903,
+          "seat": 1,
+          "token": 2
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 204,
+          "score_sum": 122725,
+          "seat": 1,
+          "token": 2
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 152,
+          "score_sum": 121356,
+          "seat": 1,
+          "token": 3
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 130,
+          "score_sum": 111084,
+          "seat": 1,
+          "token": 3
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 192,
+          "score_sum": 118326,
+          "seat": 1,
+          "token": 3
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 200,
+          "score_sum": 123374,
+          "seat": 1,
+          "token": 3
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 180,
+          "score_sum": 123936,
+          "seat": 1,
+          "token": 4
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 116,
+          "score_sum": 111148,
+          "seat": 1,
+          "token": 4
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 190,
+          "score_sum": 120576,
+          "seat": 1,
+          "token": 4
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 198,
+          "score_sum": 124825,
+          "seat": 1,
+          "token": 4
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 158,
+          "score_sum": 119431,
+          "seat": 2,
+          "token": 1
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 155,
+          "score_sum": 114759,
+          "seat": 2,
+          "token": 1
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 194,
+          "score_sum": 121317,
+          "seat": 2,
+          "token": 1
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 198,
+          "score_sum": 124126,
+          "seat": 2,
+          "token": 1
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 164,
+          "score_sum": 118523,
+          "seat": 2,
+          "token": 2
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 118,
+          "score_sum": 110881,
+          "seat": 2,
+          "token": 2
+        },
+        {
+          "field": "erratic",
+          "games": 40,
+          "pairwise_numerator_sum": 206,
+          "score_sum": 122842,
+          "seat": 2,
+          "token": 2
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 196,
+          "score_sum": 123053,
+          "seat": 2,
+          "token": 2
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 168,
+          "score_sum": 120219,
+          "seat": 2,
+          "token": 3
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 134,
+          "score_sum": 110605,
+          "seat": 2,
+          "token": 3
+        },
+        {
+          "field": "erratic",
+          "games": 40,
+          "pairwise_numerator_sum": 200,
+          "score_sum": 123765,
+          "seat": 2,
+          "token": 3
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 204,
+          "score_sum": 124345,
+          "seat": 2,
+          "token": 3
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 164,
+          "score_sum": 117961,
+          "seat": 2,
+          "token": 4
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 160,
+          "score_sum": 116534,
+          "seat": 2,
+          "token": 4
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 190,
+          "score_sum": 121642,
+          "seat": 2,
+          "token": 4
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 200,
+          "score_sum": 124392,
+          "seat": 2,
+          "token": 4
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 178,
+          "score_sum": 121613,
+          "seat": 3,
+          "token": 1
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 138,
+          "score_sum": 113301,
+          "seat": 3,
+          "token": 1
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 202,
+          "score_sum": 120305,
+          "seat": 3,
+          "token": 1
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 210,
+          "score_sum": 126877,
+          "seat": 3,
+          "token": 1
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 180,
+          "score_sum": 123689,
+          "seat": 3,
+          "token": 2
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 134,
+          "score_sum": 113007,
+          "seat": 3,
+          "token": 2
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 197,
+          "score_sum": 121441,
+          "seat": 3,
+          "token": 2
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 200,
+          "score_sum": 123334,
+          "seat": 3,
+          "token": 2
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 152,
+          "score_sum": 121035,
+          "seat": 3,
+          "token": 3
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 117,
+          "score_sum": 108933,
+          "seat": 3,
+          "token": 3
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 202,
+          "score_sum": 121059,
+          "seat": 3,
+          "token": 3
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 216,
+          "score_sum": 126631,
+          "seat": 3,
+          "token": 3
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 166,
+          "score_sum": 121689,
+          "seat": 3,
+          "token": 4
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 150,
+          "score_sum": 114884,
+          "seat": 3,
+          "token": 4
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 195,
+          "score_sum": 121408,
+          "seat": 3,
+          "token": 4
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 212,
+          "score_sum": 126923,
+          "seat": 3,
+          "token": 4
+        }
+      ],
+      "games": 2500,
+      "genes": {
+        "backfire_cost": 1.13552,
+        "breadth": 7,
+        "cash_weight": 1.029422,
+        "contest_cost": 0.42039,
+        "denial_base": 0.66671,
+        "denial_close": 0.20084,
+        "depth": 2,
+        "feint_weight": 1.25119,
+        "fortify_premium": 1.092099,
+        "income_lifetime": 41.062061,
+        "inertia": 0.0496,
+        "raid_late": 1.64117,
+        "raid_open": 0.95839,
+        "risk_late": 8.0,
+        "risk_open": 1.97775,
+        "route_delay": 0.02,
+        "route_weight": 0.61979,
+        "safety_slope": 3.52153,
+        "shield_prior": 0.33333,
+        "shield_weight": 1.30296,
+        "stay_prior": 0.701031,
+        "upgrade_late": 3.683706,
+        "upgrade_open": 0.995175
+      },
+      "genotype_sha256": "da99c68dc29267a3d9fe655747092d147d5ee4e97ba2baf1c5ef915959d82eee",
+      "lineage": {
+        "kind": "elite_retained",
+        "parents": [
+          "ccae721184746fbfabd03de878ef7d66f73f4ef1e8a15b6df43fc5e8fd0a754b"
+        ]
+      },
+      "name": "elite_01",
+      "path": "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\.cache\\primary\\campaign_v1_20261109\\train_004\\elite_01.py",
+      "raw_pw": 2.2404,
+      "raw_pw_fraction": "5601/2500",
+      "raw_score": 3065.0948,
+      "raw_score_fraction": "7662737/2500",
+      "sha256": "ccae721184746fbfabd03de878ef7d66f73f4ef1e8a15b6df43fc5e8fd0a754b",
+      "slot": 2,
+      "standardized_pw": 2.2400240384615384,
+      "standardized_pw_fraction": "18637/8320"
+    },
+    {
+      "cells": [
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 166,
+          "score_sum": 119496,
+          "seat": 0,
+          "token": 1
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 158,
+          "score_sum": 116500,
+          "seat": 0,
+          "token": 1
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 196,
+          "score_sum": 121824,
+          "seat": 0,
+          "token": 1
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 200,
+          "score_sum": 123137,
+          "seat": 0,
+          "token": 1
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 161,
+          "score_sum": 120431,
+          "seat": 0,
+          "token": 2
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 140,
+          "score_sum": 118170,
+          "seat": 0,
+          "token": 2
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 196,
+          "score_sum": 121995,
+          "seat": 0,
+          "token": 2
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 204,
+          "score_sum": 124158,
+          "seat": 0,
+          "token": 2
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 156,
+          "score_sum": 119596,
+          "seat": 0,
+          "token": 3
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 146,
+          "score_sum": 118041,
+          "seat": 0,
+          "token": 3
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 192,
+          "score_sum": 120982,
+          "seat": 0,
+          "token": 3
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 204,
+          "score_sum": 124320,
+          "seat": 0,
+          "token": 3
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 162,
+          "score_sum": 119528,
+          "seat": 0,
+          "token": 4
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 148,
+          "score_sum": 116572,
+          "seat": 0,
+          "token": 4
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 194,
+          "score_sum": 121572,
+          "seat": 0,
+          "token": 4
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 198,
+          "score_sum": 124107,
+          "seat": 0,
+          "token": 4
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 176,
+          "score_sum": 122164,
+          "seat": 1,
+          "token": 1
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 146,
+          "score_sum": 113909,
+          "seat": 1,
+          "token": 1
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 178,
+          "score_sum": 119397,
+          "seat": 1,
+          "token": 1
+        },
+        {
+          "field": "pressure",
+          "games": 40,
+          "pairwise_numerator_sum": 206,
+          "score_sum": 126322,
+          "seat": 1,
+          "token": 1
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 150,
+          "score_sum": 118297,
+          "seat": 1,
+          "token": 2
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 138,
+          "score_sum": 113413,
+          "seat": 1,
+          "token": 2
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 204,
+          "score_sum": 121828,
+          "seat": 1,
+          "token": 2
+        },
+        {
+          "field": "pressure",
+          "games": 40,
+          "pairwise_numerator_sum": 192,
+          "score_sum": 123889,
+          "seat": 1,
+          "token": 2
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 178,
+          "score_sum": 121583,
+          "seat": 1,
+          "token": 3
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 146,
+          "score_sum": 114098,
+          "seat": 1,
+          "token": 3
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 198,
+          "score_sum": 121793,
+          "seat": 1,
+          "token": 3
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 190,
+          "score_sum": 122661,
+          "seat": 1,
+          "token": 3
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 160,
+          "score_sum": 121597,
+          "seat": 1,
+          "token": 4
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 144,
+          "score_sum": 115934,
+          "seat": 1,
+          "token": 4
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 192,
+          "score_sum": 119765,
+          "seat": 1,
+          "token": 4
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 206,
+          "score_sum": 123506,
+          "seat": 1,
+          "token": 4
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 138,
+          "score_sum": 116868,
+          "seat": 2,
+          "token": 1
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 146,
+          "score_sum": 118240,
+          "seat": 2,
+          "token": 1
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 196,
+          "score_sum": 121766,
+          "seat": 2,
+          "token": 1
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 194,
+          "score_sum": 122935,
+          "seat": 2,
+          "token": 1
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 143,
+          "score_sum": 115978,
+          "seat": 2,
+          "token": 2
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 140,
+          "score_sum": 118435,
+          "seat": 2,
+          "token": 2
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 194,
+          "score_sum": 120730,
+          "seat": 2,
+          "token": 2
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 190,
+          "score_sum": 120006,
+          "seat": 2,
+          "token": 2
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 158,
+          "score_sum": 120132,
+          "seat": 2,
+          "token": 3
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 134,
+          "score_sum": 114826,
+          "seat": 2,
+          "token": 3
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 198,
+          "score_sum": 125607,
+          "seat": 2,
+          "token": 3
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 182,
+          "score_sum": 120500,
+          "seat": 2,
+          "token": 3
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 158,
+          "score_sum": 117747,
+          "seat": 2,
+          "token": 4
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 154,
+          "score_sum": 115343,
+          "seat": 2,
+          "token": 4
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 190,
+          "score_sum": 121878,
+          "seat": 2,
+          "token": 4
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 206,
+          "score_sum": 123568,
+          "seat": 2,
+          "token": 4
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 170,
+          "score_sum": 119584,
+          "seat": 3,
+          "token": 1
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 154,
+          "score_sum": 116589,
+          "seat": 3,
+          "token": 1
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 186,
+          "score_sum": 119776,
+          "seat": 3,
+          "token": 1
+        },
+        {
+          "field": "pressure",
+          "games": 40,
+          "pairwise_numerator_sum": 196,
+          "score_sum": 125511,
+          "seat": 3,
+          "token": 1
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 168,
+          "score_sum": 118628,
+          "seat": 3,
+          "token": 2
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 148,
+          "score_sum": 115969,
+          "seat": 3,
+          "token": 2
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 194,
+          "score_sum": 119991,
+          "seat": 3,
+          "token": 2
+        },
+        {
+          "field": "pressure",
+          "games": 40,
+          "pairwise_numerator_sum": 212,
+          "score_sum": 127109,
+          "seat": 3,
+          "token": 2
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 160,
+          "score_sum": 120272,
+          "seat": 3,
+          "token": 3
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 140,
+          "score_sum": 112417,
+          "seat": 3,
+          "token": 3
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 200,
+          "score_sum": 120044,
+          "seat": 3,
+          "token": 3
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 200,
+          "score_sum": 123282,
+          "seat": 3,
+          "token": 3
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 145,
+          "score_sum": 120241,
+          "seat": 3,
+          "token": 4
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 154,
+          "score_sum": 117099,
+          "seat": 3,
+          "token": 4
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 202,
+          "score_sum": 123452,
+          "seat": 3,
+          "token": 4
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 190,
+          "score_sum": 122372,
+          "seat": 3,
+          "token": 4
+        }
+      ],
+      "games": 2500,
+      "genes": {
+        "backfire_cost": 1.13552,
+        "breadth": 7,
+        "cash_weight": 1.25275,
+        "contest_cost": 0.42039,
+        "denial_base": 0.79149,
+        "denial_close": 0.20084,
+        "depth": 3,
+        "feint_weight": 1.25119,
+        "fortify_premium": 1.11474,
+        "income_lifetime": 40.67114,
+        "inertia": 0.054172,
+        "raid_late": 1.65061,
+        "raid_open": 0.95839,
+        "risk_late": 8.0,
+        "risk_open": 1.97775,
+        "route_delay": 0.025853,
+        "route_weight": 0.613198,
+        "safety_slope": 0.0,
+        "shield_prior": 0.33333,
+        "shield_weight": 1.30296,
+        "stay_prior": 0.69484,
+        "upgrade_late": 4.5,
+        "upgrade_open": 1.46008
+      },
+      "genotype_sha256": "e7df34830392d3296261b0328ebfc81dbcab609d249c58de8b04d36287ab6276",
+      "lineage": {
+        "kind": "grouped_mutation",
+        "parents": [
+          "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5"
+        ],
+        "seed": 8127820137638175332
+      },
+      "name": "offspring_05",
+      "path": "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\.cache\\primary\\campaign_v1_20261109\\train_004\\offspring_05.py",
+      "raw_pw": 2.233,
+      "raw_pw_fraction": "2233/1000",
+      "raw_score": 3074.992,
+      "raw_score_fraction": "384374/125",
+      "sha256": "fe43e2153d847ead21d44979a476cc4d16f009514edd8002e37a332a225875e4",
+      "slot": 5,
+      "standardized_pw": 2.2325420673076923,
+      "standardized_pw_fraction": "74299/33280"
+    },
+    {
+      "cells": [
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 172,
+          "score_sum": 124149,
+          "seat": 0,
+          "token": 1
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 140,
+          "score_sum": 113973,
+          "seat": 0,
+          "token": 1
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 194,
+          "score_sum": 120913,
+          "seat": 0,
+          "token": 1
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 194,
+          "score_sum": 124916,
+          "seat": 0,
+          "token": 1
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 186,
+          "score_sum": 123581,
+          "seat": 0,
+          "token": 2
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 122,
+          "score_sum": 110037,
+          "seat": 0,
+          "token": 2
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 194,
+          "score_sum": 118229,
+          "seat": 0,
+          "token": 2
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 214,
+          "score_sum": 125912,
+          "seat": 0,
+          "token": 2
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 178,
+          "score_sum": 122935,
+          "seat": 0,
+          "token": 3
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 126,
+          "score_sum": 110251,
+          "seat": 0,
+          "token": 3
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 192,
+          "score_sum": 121324,
+          "seat": 0,
+          "token": 3
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 214,
+          "score_sum": 123586,
+          "seat": 0,
+          "token": 3
+        },
+        {
+          "field": "economic",
+          "games": 40,
+          "pairwise_numerator_sum": 176,
+          "score_sum": 124337,
+          "seat": 0,
+          "token": 4
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 132,
+          "score_sum": 112319,
+          "seat": 0,
+          "token": 4
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 196,
+          "score_sum": 117841,
+          "seat": 0,
+          "token": 4
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 204,
+          "score_sum": 123643,
+          "seat": 0,
+          "token": 4
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 148,
+          "score_sum": 117241,
+          "seat": 1,
+          "token": 1
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 140,
+          "score_sum": 112135,
+          "seat": 1,
+          "token": 1
+        },
+        {
+          "field": "erratic",
+          "games": 40,
+          "pairwise_numerator_sum": 193,
+          "score_sum": 123318,
+          "seat": 1,
+          "token": 1
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 198,
+          "score_sum": 121701,
+          "seat": 1,
+          "token": 1
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 152,
+          "score_sum": 117346,
+          "seat": 1,
+          "token": 2
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 130,
+          "score_sum": 110988,
+          "seat": 1,
+          "token": 2
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 198,
+          "score_sum": 121296,
+          "seat": 1,
+          "token": 2
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 206,
+          "score_sum": 125966,
+          "seat": 1,
+          "token": 2
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 161,
+          "score_sum": 118059,
+          "seat": 1,
+          "token": 3
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 126,
+          "score_sum": 114127,
+          "seat": 1,
+          "token": 3
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 196,
+          "score_sum": 121360,
+          "seat": 1,
+          "token": 3
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 204,
+          "score_sum": 124584,
+          "seat": 1,
+          "token": 3
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 168,
+          "score_sum": 117224,
+          "seat": 1,
+          "token": 4
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 134,
+          "score_sum": 111382,
+          "seat": 1,
+          "token": 4
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 184,
+          "score_sum": 121898,
+          "seat": 1,
+          "token": 4
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 206,
+          "score_sum": 126511,
+          "seat": 1,
+          "token": 4
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 160,
+          "score_sum": 121409,
+          "seat": 2,
+          "token": 1
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 128,
+          "score_sum": 111665,
+          "seat": 2,
+          "token": 1
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 198,
+          "score_sum": 121860,
+          "seat": 2,
+          "token": 1
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 202,
+          "score_sum": 123521,
+          "seat": 2,
+          "token": 1
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 162,
+          "score_sum": 120690,
+          "seat": 2,
+          "token": 2
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 140,
+          "score_sum": 115813,
+          "seat": 2,
+          "token": 2
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 192,
+          "score_sum": 121144,
+          "seat": 2,
+          "token": 2
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 192,
+          "score_sum": 122220,
+          "seat": 2,
+          "token": 2
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 150,
+          "score_sum": 119526,
+          "seat": 2,
+          "token": 3
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 126,
+          "score_sum": 115428,
+          "seat": 2,
+          "token": 3
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 202,
+          "score_sum": 122449,
+          "seat": 2,
+          "token": 3
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 196,
+          "score_sum": 121344,
+          "seat": 2,
+          "token": 3
+        },
+        {
+          "field": "economic",
+          "games": 40,
+          "pairwise_numerator_sum": 162,
+          "score_sum": 121814,
+          "seat": 2,
+          "token": 4
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 132,
+          "score_sum": 112731,
+          "seat": 2,
+          "token": 4
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 190,
+          "score_sum": 117836,
+          "seat": 2,
+          "token": 4
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 200,
+          "score_sum": 125599,
+          "seat": 2,
+          "token": 4
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 168,
+          "score_sum": 119211,
+          "seat": 3,
+          "token": 1
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 134,
+          "score_sum": 111197,
+          "seat": 3,
+          "token": 1
+        },
+        {
+          "field": "erratic",
+          "games": 40,
+          "pairwise_numerator_sum": 190,
+          "score_sum": 118988,
+          "seat": 3,
+          "token": 1
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 208,
+          "score_sum": 123961,
+          "seat": 3,
+          "token": 1
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 171,
+          "score_sum": 118416,
+          "seat": 3,
+          "token": 2
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 116,
+          "score_sum": 107542,
+          "seat": 3,
+          "token": 2
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 198,
+          "score_sum": 122465,
+          "seat": 3,
+          "token": 2
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 206,
+          "score_sum": 123628,
+          "seat": 3,
+          "token": 2
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 168,
+          "score_sum": 119129,
+          "seat": 3,
+          "token": 3
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 132,
+          "score_sum": 111205,
+          "seat": 3,
+          "token": 3
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 190,
+          "score_sum": 118254,
+          "seat": 3,
+          "token": 3
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 202,
+          "score_sum": 124446,
+          "seat": 3,
+          "token": 3
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 178,
+          "score_sum": 120488,
+          "seat": 3,
+          "token": 4
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 148,
+          "score_sum": 115088,
+          "seat": 3,
+          "token": 4
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 184,
+          "score_sum": 118451,
+          "seat": 3,
+          "token": 4
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 205,
+          "score_sum": 125704,
+          "seat": 3,
+          "token": 4
+        }
+      ],
+      "games": 2500,
+      "genes": {
+        "backfire_cost": 1.13552,
+        "breadth": 7,
+        "cash_weight": 1.029422,
+        "contest_cost": 0.14088,
+        "denial_base": 0.66671,
+        "denial_close": 0.20084,
+        "depth": 2,
+        "feint_weight": 1.25119,
+        "fortify_premium": 1.092099,
+        "income_lifetime": 41.062061,
+        "inertia": 0.0496,
+        "raid_late": 1.64117,
+        "raid_open": 0.95839,
+        "risk_late": 8.0,
+        "risk_open": 1.97775,
+        "route_delay": 0.02,
+        "route_weight": 0.61979,
+        "safety_slope": 3.52153,
+        "shield_prior": 0.33333,
+        "shield_weight": 1.30296,
+        "stay_prior": 0.680646,
+        "upgrade_late": 3.683706,
+        "upgrade_open": 0.995175
+      },
+      "genotype_sha256": "ec5b5e64ac764ad82b59db7969bf80b77922e1fd3b1690cc1cfd96ac975d3b7e",
+      "lineage": {
+        "kind": "sparse_mutation",
+        "parents": [
+          "95a0ed2c4ded5bab427b4de8bad684e8d924803656bbb54b0a8063503aa7cb97"
+        ],
+        "seed": 916584172258204822
+      },
+      "name": "offspring_04",
+      "path": "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\.cache\\primary\\campaign_v1_20261109\\train_004\\offspring_04.py",
+      "raw_pw": 2.2216,
+      "raw_pw_fraction": "2777/1250",
+      "raw_score": 3054.5216,
+      "raw_score_fraction": "1909076/625",
+      "sha256": "d77b963996404a44e95f0f1d6773d7884d12e6ccfd3c028d6c7349473092f898",
+      "slot": 4,
+      "standardized_pw": 2.221549479166667,
+      "standardized_pw_fraction": "34123/15360"
+    },
+    {
+      "cells": [
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 160,
+          "score_sum": 121392,
+          "seat": 0,
+          "token": 1
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 142,
+          "score_sum": 114836,
+          "seat": 0,
+          "token": 1
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 194,
+          "score_sum": 122419,
+          "seat": 0,
+          "token": 1
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 194,
+          "score_sum": 124953,
+          "seat": 0,
+          "token": 1
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 161,
+          "score_sum": 120617,
+          "seat": 0,
+          "token": 2
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 142,
+          "score_sum": 115220,
+          "seat": 0,
+          "token": 2
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 196,
+          "score_sum": 120854,
+          "seat": 0,
+          "token": 2
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 202,
+          "score_sum": 123571,
+          "seat": 0,
+          "token": 2
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 154,
+          "score_sum": 120412,
+          "seat": 0,
+          "token": 3
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 154,
+          "score_sum": 114335,
+          "seat": 0,
+          "token": 3
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 203,
+          "score_sum": 123413,
+          "seat": 0,
+          "token": 3
+        },
+        {
+          "field": "pressure",
+          "games": 40,
+          "pairwise_numerator_sum": 210,
+          "score_sum": 126815,
+          "seat": 0,
+          "token": 3
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 166,
+          "score_sum": 120937,
+          "seat": 0,
+          "token": 4
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 134,
+          "score_sum": 111957,
+          "seat": 0,
+          "token": 4
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 186,
+          "score_sum": 118957,
+          "seat": 0,
+          "token": 4
+        },
+        {
+          "field": "pressure",
+          "games": 40,
+          "pairwise_numerator_sum": 207,
+          "score_sum": 126563,
+          "seat": 0,
+          "token": 4
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 152,
+          "score_sum": 116934,
+          "seat": 1,
+          "token": 1
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 132,
+          "score_sum": 114763,
+          "seat": 1,
+          "token": 1
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 200,
+          "score_sum": 120081,
+          "seat": 1,
+          "token": 1
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 196,
+          "score_sum": 121988,
+          "seat": 1,
+          "token": 1
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 132,
+          "score_sum": 116733,
+          "seat": 1,
+          "token": 2
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 134,
+          "score_sum": 114067,
+          "seat": 1,
+          "token": 2
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 200,
+          "score_sum": 125150,
+          "seat": 1,
+          "token": 2
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 188,
+          "score_sum": 120613,
+          "seat": 1,
+          "token": 2
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 160,
+          "score_sum": 119285,
+          "seat": 1,
+          "token": 3
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 150,
+          "score_sum": 118119,
+          "seat": 1,
+          "token": 3
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 204,
+          "score_sum": 123095,
+          "seat": 1,
+          "token": 3
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 190,
+          "score_sum": 120881,
+          "seat": 1,
+          "token": 3
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 160,
+          "score_sum": 117549,
+          "seat": 1,
+          "token": 4
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 123,
+          "score_sum": 114872,
+          "seat": 1,
+          "token": 4
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 194,
+          "score_sum": 122168,
+          "seat": 1,
+          "token": 4
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 206,
+          "score_sum": 122779,
+          "seat": 1,
+          "token": 4
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 162,
+          "score_sum": 120872,
+          "seat": 2,
+          "token": 1
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 154,
+          "score_sum": 117899,
+          "seat": 2,
+          "token": 1
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 196,
+          "score_sum": 120302,
+          "seat": 2,
+          "token": 1
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 188,
+          "score_sum": 121716,
+          "seat": 2,
+          "token": 1
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 140,
+          "score_sum": 118934,
+          "seat": 2,
+          "token": 2
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 140,
+          "score_sum": 116521,
+          "seat": 2,
+          "token": 2
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 188,
+          "score_sum": 118834,
+          "seat": 2,
+          "token": 2
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 196,
+          "score_sum": 124486,
+          "seat": 2,
+          "token": 2
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 156,
+          "score_sum": 119632,
+          "seat": 2,
+          "token": 3
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 128,
+          "score_sum": 113903,
+          "seat": 2,
+          "token": 3
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 194,
+          "score_sum": 119795,
+          "seat": 2,
+          "token": 3
+        },
+        {
+          "field": "pressure",
+          "games": 40,
+          "pairwise_numerator_sum": 198,
+          "score_sum": 126359,
+          "seat": 2,
+          "token": 3
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 136,
+          "score_sum": 118483,
+          "seat": 2,
+          "token": 4
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 132,
+          "score_sum": 113469,
+          "seat": 2,
+          "token": 4
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 200,
+          "score_sum": 119036,
+          "seat": 2,
+          "token": 4
+        },
+        {
+          "field": "pressure",
+          "games": 40,
+          "pairwise_numerator_sum": 192,
+          "score_sum": 121549,
+          "seat": 2,
+          "token": 4
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 140,
+          "score_sum": 117649,
+          "seat": 3,
+          "token": 1
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 128,
+          "score_sum": 114594,
+          "seat": 3,
+          "token": 1
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 195,
+          "score_sum": 123148,
+          "seat": 3,
+          "token": 1
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 195,
+          "score_sum": 121576,
+          "seat": 3,
+          "token": 1
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 136,
+          "score_sum": 117905,
+          "seat": 3,
+          "token": 2
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 140,
+          "score_sum": 116391,
+          "seat": 3,
+          "token": 2
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 190,
+          "score_sum": 122380,
+          "seat": 3,
+          "token": 2
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 198,
+          "score_sum": 122202,
+          "seat": 3,
+          "token": 2
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 158,
+          "score_sum": 119607,
+          "seat": 3,
+          "token": 3
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 140,
+          "score_sum": 117033,
+          "seat": 3,
+          "token": 3
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 196,
+          "score_sum": 123446,
+          "seat": 3,
+          "token": 3
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 190,
+          "score_sum": 121508,
+          "seat": 3,
+          "token": 3
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 146,
+          "score_sum": 118786,
+          "seat": 3,
+          "token": 4
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 144,
+          "score_sum": 117548,
+          "seat": 3,
+          "token": 4
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 196,
+          "score_sum": 122840,
+          "seat": 3,
+          "token": 4
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 192,
+          "score_sum": 120567,
+          "seat": 3,
+          "token": 4
+        }
+      ],
+      "games": 2500,
+      "genes": {
+        "backfire_cost": 1.13552,
+        "breadth": 7,
+        "cash_weight": 1.25275,
+        "contest_cost": 0.42039,
+        "denial_base": 0.66671,
+        "denial_close": 0.20084,
+        "depth": 2,
+        "feint_weight": 1.25119,
+        "fortify_premium": 1.11474,
+        "income_lifetime": 40.67114,
+        "inertia": 0.0496,
+        "raid_late": 1.64117,
+        "raid_open": 0.95839,
+        "risk_late": 8.0,
+        "risk_open": 1.97775,
+        "route_delay": 0.02,
+        "route_weight": 0.61979,
+        "safety_slope": 3.52153,
+        "shield_prior": 0.33333,
+        "shield_weight": 1.30296,
+        "stay_prior": 0.76,
+        "upgrade_late": 3.3705,
+        "upgrade_open": 1.46008
+      },
+      "genotype_sha256": "e23f3dfe26c38f805e3c6fa11bbf274f7cd68cc7f3c2b33c1871e86c0be77f1e",
+      "lineage": {
+        "kind": "research_archive",
+        "parents": []
+      },
+      "name": "research_archive",
+      "path": "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\.cache\\primary\\campaign_v1_20261109\\train_004\\research_archive.py",
+      "raw_pw": 2.182,
+      "raw_pw_fraction": "1091/500",
+      "raw_score": 3066.1192,
+      "raw_score_fraction": "3832649/1250",
+      "sha256": "5a859ef134f1995b7ad9d842d6945a6d1ae644964b7e6bd824aee9564da587f2",
+      "slot": 3,
+      "standardized_pw": 2.181455328525641,
+      "standardized_pw_fraction": "435593/199680"
+    },
+    {
+      "cells": [
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 150,
+          "score_sum": 116784,
+          "seat": 0,
+          "token": 1
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 138,
+          "score_sum": 115867,
+          "seat": 0,
+          "token": 1
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 194,
+          "score_sum": 120111,
+          "seat": 0,
+          "token": 1
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 186,
+          "score_sum": 121447,
+          "seat": 0,
+          "token": 1
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 120,
+          "score_sum": 114199,
+          "seat": 0,
+          "token": 2
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 136,
+          "score_sum": 112552,
+          "seat": 0,
+          "token": 2
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 198,
+          "score_sum": 124518,
+          "seat": 0,
+          "token": 2
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 184,
+          "score_sum": 121893,
+          "seat": 0,
+          "token": 2
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 124,
+          "score_sum": 115971,
+          "seat": 0,
+          "token": 3
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 142,
+          "score_sum": 115419,
+          "seat": 0,
+          "token": 3
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 188,
+          "score_sum": 122471,
+          "seat": 0,
+          "token": 3
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 188,
+          "score_sum": 121062,
+          "seat": 0,
+          "token": 3
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 134,
+          "score_sum": 117121,
+          "seat": 0,
+          "token": 4
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 132,
+          "score_sum": 114830,
+          "seat": 0,
+          "token": 4
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 198,
+          "score_sum": 123421,
+          "seat": 0,
+          "token": 4
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 190,
+          "score_sum": 122260,
+          "seat": 0,
+          "token": 4
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 137,
+          "score_sum": 117320,
+          "seat": 1,
+          "token": 1
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 144,
+          "score_sum": 117817,
+          "seat": 1,
+          "token": 1
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 182,
+          "score_sum": 121219,
+          "seat": 1,
+          "token": 1
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 188,
+          "score_sum": 120389,
+          "seat": 1,
+          "token": 1
+        },
+        {
+          "field": "economic",
+          "games": 40,
+          "pairwise_numerator_sum": 138,
+          "score_sum": 119830,
+          "seat": 1,
+          "token": 2
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 138,
+          "score_sum": 116449,
+          "seat": 1,
+          "token": 2
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 192,
+          "score_sum": 117897,
+          "seat": 1,
+          "token": 2
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 190,
+          "score_sum": 120859,
+          "seat": 1,
+          "token": 2
+        },
+        {
+          "field": "economic",
+          "games": 40,
+          "pairwise_numerator_sum": 122,
+          "score_sum": 116330,
+          "seat": 1,
+          "token": 3
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 124,
+          "score_sum": 115270,
+          "seat": 1,
+          "token": 3
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 196,
+          "score_sum": 120090,
+          "seat": 1,
+          "token": 3
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 194,
+          "score_sum": 118494,
+          "seat": 1,
+          "token": 3
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 120,
+          "score_sum": 116779,
+          "seat": 1,
+          "token": 4
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 130,
+          "score_sum": 111351,
+          "seat": 1,
+          "token": 4
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 190,
+          "score_sum": 118242,
+          "seat": 1,
+          "token": 4
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 184,
+          "score_sum": 119315,
+          "seat": 1,
+          "token": 4
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 118,
+          "score_sum": 113577,
+          "seat": 2,
+          "token": 1
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 134,
+          "score_sum": 112689,
+          "seat": 2,
+          "token": 1
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 200,
+          "score_sum": 120870,
+          "seat": 2,
+          "token": 1
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 184,
+          "score_sum": 120697,
+          "seat": 2,
+          "token": 1
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 112,
+          "score_sum": 112598,
+          "seat": 2,
+          "token": 2
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 132,
+          "score_sum": 113580,
+          "seat": 2,
+          "token": 2
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 181,
+          "score_sum": 120098,
+          "seat": 2,
+          "token": 2
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 180,
+          "score_sum": 119168,
+          "seat": 2,
+          "token": 2
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 121,
+          "score_sum": 115037,
+          "seat": 2,
+          "token": 3
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 152,
+          "score_sum": 115844,
+          "seat": 2,
+          "token": 3
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 180,
+          "score_sum": 119913,
+          "seat": 2,
+          "token": 3
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 182,
+          "score_sum": 119197,
+          "seat": 2,
+          "token": 3
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 128,
+          "score_sum": 115080,
+          "seat": 2,
+          "token": 4
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 140,
+          "score_sum": 113263,
+          "seat": 2,
+          "token": 4
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 188,
+          "score_sum": 119364,
+          "seat": 2,
+          "token": 4
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 180,
+          "score_sum": 119321,
+          "seat": 2,
+          "token": 4
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 126,
+          "score_sum": 114936,
+          "seat": 3,
+          "token": 1
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 128,
+          "score_sum": 112362,
+          "seat": 3,
+          "token": 1
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 181,
+          "score_sum": 117292,
+          "seat": 3,
+          "token": 1
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 194,
+          "score_sum": 120027,
+          "seat": 3,
+          "token": 1
+        },
+        {
+          "field": "economic",
+          "games": 40,
+          "pairwise_numerator_sum": 116,
+          "score_sum": 116389,
+          "seat": 3,
+          "token": 2
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 123,
+          "score_sum": 113774,
+          "seat": 3,
+          "token": 2
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 186,
+          "score_sum": 117328,
+          "seat": 3,
+          "token": 2
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 184,
+          "score_sum": 118634,
+          "seat": 3,
+          "token": 2
+        },
+        {
+          "field": "economic",
+          "games": 40,
+          "pairwise_numerator_sum": 122,
+          "score_sum": 117558,
+          "seat": 3,
+          "token": 3
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 138,
+          "score_sum": 114468,
+          "seat": 3,
+          "token": 3
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 182,
+          "score_sum": 117761,
+          "seat": 3,
+          "token": 3
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 178,
+          "score_sum": 118269,
+          "seat": 3,
+          "token": 3
+        },
+        {
+          "field": "economic",
+          "games": 39,
+          "pairwise_numerator_sum": 122,
+          "score_sum": 114859,
+          "seat": 3,
+          "token": 4
+        },
+        {
+          "field": "independent",
+          "games": 39,
+          "pairwise_numerator_sum": 148,
+          "score_sum": 115275,
+          "seat": 3,
+          "token": 4
+        },
+        {
+          "field": "erratic",
+          "games": 39,
+          "pairwise_numerator_sum": 186,
+          "score_sum": 117220,
+          "seat": 3,
+          "token": 4
+        },
+        {
+          "field": "pressure",
+          "games": 39,
+          "pairwise_numerator_sum": 190,
+          "score_sum": 118529,
+          "seat": 3,
+          "token": 4
+        }
+      ],
+      "games": 2500,
+      "genes": {
+        "backfire_cost": 1.13552,
+        "breadth": 7,
+        "cash_weight": 1.346953,
+        "contest_cost": 0.42039,
+        "denial_base": 0.66671,
+        "denial_close": 0.20084,
+        "depth": 2,
+        "feint_weight": 1.25119,
+        "fortify_premium": 1.195713,
+        "income_lifetime": 34.297247,
+        "inertia": 0.0496,
+        "raid_late": 1.64117,
+        "raid_open": 0.95839,
+        "risk_late": 8.0,
+        "risk_open": 1.97775,
+        "route_delay": 0.02,
+        "route_weight": 0.61979,
+        "safety_slope": 3.52153,
+        "shield_prior": 0.33333,
+        "shield_weight": 1.30296,
+        "stay_prior": 0.76,
+        "upgrade_late": 3.656161,
+        "upgrade_open": 1.726492
+      },
+      "genotype_sha256": "d900afc855c3a90ef2417cf38455449d4eb732fee3f224b1abda6eb912c5e044",
+      "lineage": {
+        "kind": "archive_mutation",
+        "parents": [
+          "5a859ef134f1995b7ad9d842d6945a6d1ae644964b7e6bd824aee9564da587f2"
+        ],
+        "seed": 5148932910752318914
+      },
+      "name": "offspring_06",
+      "path": "C:\\Users\\LEGION\\stratergybot\\human_arena\\.test-tmp\\official-stay-shield\\.cache\\primary\\campaign_v1_20261109\\train_004\\offspring_06.py",
+      "raw_pw": 2.0374,
+      "raw_pw_fraction": "10187/5000",
+      "raw_score": 3009.0216,
+      "raw_score_fraction": "3761277/1250",
+      "sha256": "4c47d115298d732b69a81f012765355068d89ca0bab8b8f81f8bdd15c86427aa",
+      "slot": 6,
+      "standardized_pw": 2.038171073717949,
+      "standardized_pw_fraction": "203491/99840"
+    }
+  ],
+  "recommendation": "Stage4 winner is50d, already retained. If preserving one additional distinct learned e8 source instead of random gen0child, use highest rank excluding both e8 and50d: offspring_07; this is diversity retention, not a claim of confirmed strength.",
+  "scope": "Only complete old TRAIN stage4; no incomplete study/outcome read; no game/controller/referee execution, no key access.",
+  "stage": 4,
+  "stage_raw_sha256": {
+    "actor_audits.jsonl": "9af9ac3c4a273106cad9552a20338307a757f2d67d98d13f2958e6d85b88657b",
+    "audit.json": "b88db973f90c1b3acd6fade0b4757a8a5a6dd0a2a258dab969212133b62b94f2",
+    "audit.sha256": "02574622dc479f5b90ed1dffe1432f14fec972f7d5de3c1b41c23d9d2bd0f9eb",
+    "games.jsonl": "356b8bb0d2f9e98eb973e78c01db16d43eb668b65dfde6fb5bc7d27f4d132cb3",
+    "registration.json": "58e2aa209791d9059b1a89b3aa53b6ce8aa70212a25443c7ec2d774a925fe1da",
+    "summary.json": "d9197a6f5b7caf22ba3cf719d0c6cfaad39329da80d318ba1fd04d1168cc6a03",
+    "summary.sha256": "383bccc1765849a73ef718eb246cef7edb4c19d835c19291d7c5748dfe9ded65"
+  }
+}

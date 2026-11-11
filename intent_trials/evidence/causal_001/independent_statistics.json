@@ -1,0 +1,207 @@
+{
+  "case_deltas": [
+    {
+      "field": "economic",
+      "hindsight_opportunity_pairwise": 0,
+      "teacher_delta_pairwise": -1,
+      "turn": 30
+    },
+    {
+      "field": "independent",
+      "hindsight_opportunity_pairwise": 1,
+      "teacher_delta_pairwise": 0,
+      "turn": 30
+    },
+    {
+      "field": "erratic",
+      "hindsight_opportunity_pairwise": 0,
+      "teacher_delta_pairwise": 0,
+      "turn": 30
+    },
+    {
+      "field": "pressure",
+      "hindsight_opportunity_pairwise": 0,
+      "teacher_delta_pairwise": 0,
+      "turn": 30
+    },
+    {
+      "field": "economic",
+      "hindsight_opportunity_pairwise": 0,
+      "teacher_delta_pairwise": 0,
+      "turn": 50
+    },
+    {
+      "field": "independent",
+      "hindsight_opportunity_pairwise": 0,
+      "teacher_delta_pairwise": 0,
+      "turn": 50
+    },
+    {
+      "field": "erratic",
+      "hindsight_opportunity_pairwise": 0,
+      "teacher_delta_pairwise": 0,
+      "turn": 50
+    },
+    {
+      "field": "pressure",
+      "hindsight_opportunity_pairwise": 1,
+      "teacher_delta_pairwise": 1,
+      "turn": 50
+    },
+    {
+      "field": "economic",
+      "hindsight_opportunity_pairwise": 0.0,
+      "teacher_delta_pairwise": 0.0,
+      "turn": 65
+    },
+    {
+      "field": "independent",
+      "hindsight_opportunity_pairwise": 0,
+      "teacher_delta_pairwise": -1,
+      "turn": 65
+    },
+    {
+      "field": "erratic",
+      "hindsight_opportunity_pairwise": 0,
+      "teacher_delta_pairwise": 0,
+      "turn": 65
+    },
+    {
+      "field": "pressure",
+      "hindsight_opportunity_pairwise": 0,
+      "teacher_delta_pairwise": 0,
+      "turn": 65
+    },
+    {
+      "field": "economic",
+      "hindsight_opportunity_pairwise": 0,
+      "teacher_delta_pairwise": 0,
+      "turn": 75
+    },
+    {
+      "field": "independent",
+      "hindsight_opportunity_pairwise": 0,
+      "teacher_delta_pairwise": -0.5,
+      "turn": 75
+    },
+    {
+      "field": "erratic",
+      "hindsight_opportunity_pairwise": 0,
+      "teacher_delta_pairwise": 0,
+      "turn": 75
+    },
+    {
+      "field": "pressure",
+      "hindsight_opportunity_pairwise": 1,
+      "teacher_delta_pairwise": 1,
+      "turn": 75
+    }
+  ],
+  "format": "joint-intent-causal-independent-result-review/1",
+  "limits": [
+    "Deterministically selected consumed TRAIN boundary positions, not fresh matches or a random future-game sample.",
+    "One-step accepted-action-memory hybrid with retained planner intent, not an unchanged or newly qualified focal policy.",
+    "Four maps per field; bootstrap is unadjusted descriptive variation within this selected sample and one frozen teacher seed per case.",
+    "Saved actual branch actions were independently replayed physically; this reviewer did not rerun actual controllers or teacher recommendations. Actual callback regeneration is supported by frozen reviewed source and complete measured execution receipts, not an independent second actor execution.",
+    "Teacher public links, utility, tree/backups and recommendation arithmetic were checked; latent posterior inference/sampling and hypothetical physics were not independently recomputed in this result review.",
+    "Hindsight-best root is evaluator-only realized-instance diagnostic, not a deployable policy or global optimum.",
+    "Offline teacher duration does not qualify a 200 ms actor. Forecast improvement does not establish decision strength.",
+    "No positive strength result, new primary-match credit, completed-game BMCTS credit, deployment or promotion is justified."
+  ],
+  "pins": {
+    "frozen_sources_zip_sha256": "d21da6bfc28dbbb9ba989c9cf9b141c2602a4171e67a5b343033a6768f4f3fd0",
+    "raw_archive_manifest_sha256": "6a3164cec35d271013470cbeb2adc4da8f52d759b054abf5e1b1caf4e16170f7",
+    "raw_artifact_hashset_sha256": "3bfca050dbe053a3490fe8908325fdbcb3ca940b40e13843981bbb1ee71060eb",
+    "raw_results_zip_bytes": 482785,
+    "raw_results_zip_sha256": "fcd0f294c68f5b4844259cdfe0ffd9efaf85ffc3d67d67efb4a44d11718cec03",
+    "registration_sha256": "51ec970ed61401fcdfa629bda061a9f132bc6d51694429d0ed3bf19802c4191e",
+    "results_sha256": "58b9665bea5021d0ebedc4633010e2f583dbdb9b2ec6e0228808bd5d19d01f02",
+    "runtime_sha256": "93862a0c5ef24c08a6d8c95a7a111b8598c55a399521d45cf27f7f790cff5125",
+    "source_closure_sha256": "696101f75f9cb407a9de4077eedaaeda40f98cc7622f24d40b4fdc488ce6feb5"
+  },
+  "preflight": {
+    "complete_incumbent_source_rows_replayed_before_fixed_roots": 2500,
+    "eligible_public_roots_independently_derived": 9767,
+    "exact_public_features_and_prefix_hashes": true,
+    "greedy_selection_exact": true,
+    "raw_stage_artifacts_verified": 7,
+    "selected_prefix_dual_referee_turns": 864,
+    "selected_public_prefixes_two_referees": 16,
+    "source_files_matched_published_commit": 21
+  },
+  "preregistered_commit": "816a30a101b1280d753b9e8d040b84f37cccbeeb",
+  "statistics": {
+    "bootstrap": {
+      "algorithm": "stdlib Random(seed).randrange(4); replicate-major, FIELDS order,4 draws per field, original selected case order within field; shared draws for teacher and hindsight-opportunity deltas.",
+      "allocation": "Resample4 maps with replacement within each fixed field; equal field weights.",
+      "quantile_indices": [
+        499,
+        19499
+      ],
+      "replicates": 20000,
+      "scope": "Unadjusted descriptive95% percentile interval for consumed TRAIN boundary-selected sample; no universal strength, fresh-data or simultaneous guarantee.",
+      "seed": 202611092330,
+      "shared_draw_indices_sha256": "ce9fb91e1f472bec600ad2fc1c5ee914d79ef6ef8da1a9a3b4780e530b5b0134"
+    },
+    "hindsight_opportunity": {
+      "descriptive95_interval": [
+        0.0625,
+        0.375
+      ],
+      "fields": {
+        "economic": 0.0,
+        "erratic": 0.0,
+        "independent": 0.25,
+        "pressure": 0.5
+      },
+      "mean_delta_pairwise": 0.1875
+    },
+    "losses": 3,
+    "recommendations_changed": 8,
+    "selected_teacher": {
+      "descriptive95_interval": [
+        -0.21875,
+        0.15625
+      ],
+      "fields": {
+        "economic": -0.25,
+        "erratic": 0.0,
+        "independent": -0.375,
+        "pressure": 0.5
+      },
+      "mean_delta_pairwise": -0.03125
+    },
+    "ties": 11,
+    "wins": 2
+  },
+  "status": "verified_recorded_artifacts_nonpositive_selected_position_result",
+  "verification": {
+    "actual_full_branches_physically_replayed_in_two_referees": 107,
+    "all16_exact_cases_and_all91_legal_root_branches_present": true,
+    "all_branch_public_score_accounting_and_terminal_pairwise_points_recomputed": true,
+    "all_original_baselines_and_explicit_baseline_actions_match_complete_source_tape": true,
+    "all_recorded_actions_legal_in_both_referees": true,
+    "alternative_branches_with_later_rival_action_divergence": 56,
+    "archive_member_bytes_match_local_artifacts": true,
+    "bootstrap_replicates_independently_recomputed": 20000,
+    "callback_timing_receipts_finite_complete_and_within_deadlines": true,
+    "callbacks_independently_rerun_by_this_reviewer": 0,
+    "completed_per_game_bmcts_audits": 0,
+    "final_statistics_exact": true,
+    "full_branch_dual_referee_turns_independently_replayed": 8560,
+    "maximum_recorded_first_callback_ms": 1.057199900969863,
+    "maximum_recorded_regular_callback_ms": 27.77259994763881,
+    "new_primary_games": 0,
+    "paired_deltas_and_hindsight_diagnostics_independently_recomputed": true,
+    "promotion": false,
+    "public_teacher_input_schema_search_settings_prefixes_exact": true,
+    "raw_json_and_sidecar_archive_members": 316,
+    "raw_json_files": 158,
+    "reported_controller_callbacks_in_validated_complete_branch_receipts": 34240,
+    "rival_actions_on_intervention_turn_match_baseline": true,
+    "teacher_hypothetical_physics_or_posterior_not_independently_rerun": true,
+    "teacher_recommendations_reconstructed_from_root_statistics": 16,
+    "teacher_simulations_trace_arithmetic_checked": 1536,
+    "teacher_steps_public_link_utility_tree_backup_arithmetic_checked": 9216
+  }
+}

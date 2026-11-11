@@ -1,0 +1,31 @@
+{
+  "format": "deadline-readonly-rival-source-continuity/1",
+  "checked_utc": "2026-11-09T03:24:08.054948+00:00",
+  "scope": "GEN0 and GEN1 registrations/source artifacts only; no GEN1 outcomes or admission inference",
+  "verdict": "All four registered rival source entries and current/archived bytes exactly match the qualified known-eight sources and fixed old primary manifest. No source drift observed.",
+  "baseline": {
+    "primary_manifest_sha256": "d5473bfdde811dd3027f026d9b6df35e2f3cb96e9210e858b23f4b051b09dd1c",
+    "primary_campaign_id_recomputed": "66269bc2443cdff375116b3e168f1e8db6f27cc4a758a8c00e84f949d4bcac10",
+    "qualification_result_sha256": "8ae5efc113e72961eebf465cdd5a9dc7ff95cb4e686679ec378f19aad75f9a84",
+    "qualified_source_snapshot_sha256": "884ca14dfcf2db13fd390fcf92db52bea32386890cc7dfd84c57f341c58516af"
+  },
+  "expected_sources": {
+    "planner": {"path": "bot.py", "sha256": "e8b3682d8b39d3fc4d22cdcd8927161290a90cd472d3ede4132ae716f8c6f8f5"},
+    "research": {"path": "tester_bots/research_alternative.py", "sha256": "6f2ac1487cd0a66793db3f2fab01f621d9c945a4f71a78cc92d176ef1de321f4"},
+    "racer": {"path": "tester_bots/racer.py", "sha256": "a35c2c4811645091adef6cbd263f1573bf2b184d5dd5741a070234a422ce54c8"},
+    "blocker": {"path": "tester_bots/blocker.py", "sha256": "1bb70109a75e2880bfdf3ac9b6fd8e368b0f3d02b9a3e65de53cef0defa505e5"}
+  },
+  "generations": {
+    "0": {"registration_sha256": "27ee64113bf60123bcd2637489cfbff09c4f5628d94b001487f395e2ef5b7bc5", "source_snapshot_sha256": "4a75106b4516e838f047a6090443045d19cb76734b7f9f0208d34c3166c4dc2f", "all_four_match": true},
+    "1": {"registration_sha256": "ad59cfdc4d6be49361ac6bfcec2c4814795803185c849d72591a310c7cdd76df", "source_snapshot_sha256": "63196c90c5100b034e948fa6433b153042d70e76e3121afa22acaefdbce3fa17", "all_four_match": true}
+  },
+  "racer_guard_boundary": {
+    "directly_in_53_runtime_pins": false,
+    "literal_expected_racer_sha_hits_in_53_files": 0,
+    "source_path_mentions": ["deadline_campaign/design.py", "primary_campaign/core.py"],
+    "active_deadline_behavior": "original_sources() computes current source hashes. Registration/source snapshots and worker setup/end checks bind each cohort's source bytes. The old primary core's generic load_catalog/check_guards functions are not invoked by the deadline design's pure catalog-content validation path.",
+    "limitation": "The 53-file runtime closure alone is not a fixed qualified-racer hash guard between construction of new cohorts. Operational source freeze and explicit comparison with this fixed qualified source map are required; do not describe the racer as directly covered by the 53 pins.",
+    "ongoing_rule": "Reconcile all four rival source entries and byte artifacts with this fixed qualified map for every fully admitted generation and heldout cohort before relying on results. Preserve and flag any mismatch; no source rewriting or fabricated admission."
+  },
+  "reviewer_execution": {"actor_callbacks": 0, "physics_steps": 0, "new_games": 0, "GEN1_outcomes_read": false, "quad_outcomes_read": false, "private_key_or_registry_read": false, "runtime_edits": 0}
+}

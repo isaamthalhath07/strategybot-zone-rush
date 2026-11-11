@@ -1,0 +1,32 @@
+{
+  "artifacts_sha256": {
+    "CONTINUATION_RESULT_REVIEW.md": "b94ce9cc8fbb24bd650dd52f711c1d4db6e9f65019e7add1675b0e28b0f40fb4",
+    "RESULTS.md": "22311f4cfee5be70a3f2d0677b094c95da4c6d854a631a44a14dfce00cdbfb9d",
+    "RESULT_REVIEW.md": "169f7b72589f8eee635bb22d734bc0732874f04e0e6f8080f58b2bd5c23e9599",
+    "STRATEGY_REVIEW.md": "f2927940b9459d11a515865beb83138fb76afcb9714575936548304566d4ecfc",
+    "frozen_sources.zip": "d21da6bfc28dbbb9ba989c9cf9b141c2602a4171e67a5b343033a6768f4f3fd0",
+    "independent_continuations.json": "548a5f0bfa0c136aa423976f5d03b14ac785a35953036ac897f3df73fa02657f",
+    "independent_statistics.json": "2ce23eca3b55a6f18d52e08f138b0f6109592a6ec71aafc082a373d3023bafa1",
+    "preregistration_evidence.json": "ab0636d62d20864284fcab28ca67a2a20c88461589a22eecf2d59282e5b9b7a1",
+    "raw_archive_manifest.json": "6a3164cec35d271013470cbeb2adc4da8f52d759b054abf5e1b1caf4e16170f7",
+    "raw_results.zip": "fcd0f294c68f5b4844259cdfe0ffd9efaf85ffc3d67d67efb4a44d11718cec03",
+    "registration.json": "51ec970ed61401fcdfa629bda061a9f132bc6d51694429d0ed3bf19802c4191e",
+    "registration.sha256": "4887e3aeaa88af2b38d506ae8c0406f00eda6eab21a3f56f3c487c455e8e7634",
+    "results.json": "58b9665bea5021d0ebedc4633010e2f583dbdb9b2ec6e0228808bd5d19d01f02",
+    "results.sha256": "213f7c47a4a345d44b719b0013a467be7c0732caa4b10dd3832143b87d8ce7c8",
+    "summary.json": "6717924d549116d53dfdd15e7fbc0fa4c95fb95305c3aeb70794ee8480d3c6c9"
+  },
+  "completed_per_game_bmcts_audits_added": 0,
+  "format": "joint-intent-causal-reviewed-publication/1",
+  "independent_review_files": [
+    "independent_continuations.json",
+    "independent_statistics.json"
+  ],
+  "interpretation": "No demonstrated decision improvement in the registered selected TRAIN sample; offline teacher exceeds regular game deadline. Keep current standalone policy unchanged.",
+  "preregistration_published_commit": "816a30a101b1280d753b9e8d040b84f37cccbeeb",
+  "primary_games_added": 0,
+  "promotion": false,
+  "raw_archive_manifest_review_pending_field_is_historical": true,
+  "root_observed_execution_exit_code": 0,
+  "status": "completed_and_independently_reviewed"
+}

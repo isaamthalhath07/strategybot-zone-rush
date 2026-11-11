@@ -11,3 +11,19 @@
 gpu_tree_coach/*.md -text
 study_analysis/README.md -text
 intent_search/README.md -text
+# Preserve the exact bytes of the independent causal-result reports.
+intent_trials/evidence/causal_001/*.md -text
+aligned_search/*.md -text
+local_cuda_matches/*.md -text
+local_cuda_study/*.md -text
+local_cuda_analysis/*.md -text
+evolution_templates/*.md -text
+local_policy_pool/*.md -text
+primary_local/*.md -text
+deadline_runner/*.md -text
+deadline_campaign/*.md -text
+deadline_strategy/*.md -text
+deadline_finalization/*.md -text
+deadline_release/*.md -text
+deadline_notes/*.md -text
+deadline_official_check/*.md -text
