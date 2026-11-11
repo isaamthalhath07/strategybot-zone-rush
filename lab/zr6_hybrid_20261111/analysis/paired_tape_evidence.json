@@ -1,0 +1,7903 @@
+{
+  "all_stats": {
+    "baseline": {
+      "neutral_claim_base3_followed_10": 1444,
+      "neutral_claim_base3_followed_20": 1444,
+      "neutral_claim_base3_followed_5": 1444,
+      "neutral_claim_base3_retained_10": 1444,
+      "neutral_claim_base3_retained_20": 1443,
+      "neutral_claim_base3_retained_5": 1444,
+      "raid_base3_followed_10": 42,
+      "raid_base3_followed_20": 15,
+      "raid_base3_followed_5": 76,
+      "raid_base3_retained_10": 42,
+      "raid_base3_retained_20": 15,
+      "raid_base3_retained_5": 75,
+      "t20_ahead_of_rivals": 552,
+      "t20_base3_owned": 1114,
+      "t20_base3_upgraded": 939,
+      "t20_income_rate": 10204,
+      "t20_score": 100080,
+      "t40_ahead_of_rivals": 795,
+      "t40_base3_owned": 1432,
+      "t40_base3_upgraded": 1426,
+      "t40_income_rate": 17898,
+      "t40_score": 391740,
+      "t60_ahead_of_rivals": 823,
+      "t60_base3_owned": 1447,
+      "t60_base3_upgraded": 1441,
+      "t60_income_rate": 22259,
+      "t60_score": 803299,
+      "t80_ahead_of_rivals": 839,
+      "t80_base3_owned": 1471,
+      "t80_base3_upgraded": 1433,
+      "t80_income_rate": 24275,
+      "t80_score": 1285196,
+      "unique_other_base3_captures_during_escape_windows": 15,
+      "unique_other_cell_captures_during_escape_windows": 29
+    },
+    "candidate": {
+      "neutral_claim_base3_followed_10": 1629,
+      "neutral_claim_base3_followed_20": 1629,
+      "neutral_claim_base3_followed_5": 1629,
+      "neutral_claim_base3_retained_10": 1629,
+      "neutral_claim_base3_retained_20": 1626,
+      "neutral_claim_base3_retained_5": 1629,
+      "raid_base3_followed_10": 498,
+      "raid_base3_followed_20": 260,
+      "raid_base3_followed_5": 630,
+      "raid_base3_retained_10": 466,
+      "raid_base3_retained_20": 248,
+      "raid_base3_retained_5": 590,
+      "t20_ahead_of_rivals": 676,
+      "t20_base3_owned": 1251,
+      "t20_base3_upgraded": 1122,
+      "t20_income_rate": 9976,
+      "t20_score": 97759,
+      "t40_ahead_of_rivals": 791,
+      "t40_base3_owned": 1636,
+      "t40_base3_upgraded": 1614,
+      "t40_income_rate": 17614,
+      "t40_score": 388499,
+      "t60_ahead_of_rivals": 971,
+      "t60_base3_owned": 1853,
+      "t60_base3_upgraded": 1782,
+      "t60_income_rate": 21936,
+      "t60_score": 809085,
+      "t80_ahead_of_rivals": 1061,
+      "t80_base3_owned": 2132,
+      "t80_base3_upgraded": 1952,
+      "t80_income_rate": 23378,
+      "t80_score": 1299590,
+      "unique_other_base3_captures_during_escape_windows": 502,
+      "unique_other_cell_captures_during_escape_windows": 574
+    }
+  },
+  "by_field": {
+    "A": {
+      "baseline": {
+        "base3_income": 106626,
+        "base3_neutral_claim": 277,
+        "base3_owned_cell_turns": 18224,
+        "base3_raid": 20,
+        "base3_upgrade": 294,
+        "base3_upgraded_cell_turns": 17318,
+        "bonus": 3824,
+        "central_base3_income": 82107,
+        "frozen_turns": 343,
+        "income": 251371,
+        "neutral_claim": 1256,
+        "opponents_bonus": 10008,
+        "opponents_income": 749719,
+        "raid": 218,
+        "shield_backfires": 60,
+        "shield_casts": 159,
+        "shield_caught": 114,
+        "shield_caught_at_work2": 56,
+        "shield_caught_on_upgraded_cell": 71,
+        "unforced_stays_on_own_upgrade": 80,
+        "upgrade": 1107,
+        "upgraded_base3_raid_bonus": 912,
+        "upgraded_base3_raids": 19
+      },
+      "candidate": {
+        "base3_income": 132654,
+        "base3_neutral_claim": 313,
+        "base3_owned_cell_turns": 22893,
+        "base3_raid": 150,
+        "base3_upgrade": 418,
+        "base3_upgraded_cell_turns": 21325,
+        "bonus": 10976,
+        "central_base3_income": 110616,
+        "frozen_turns": 202,
+        "income": 248516,
+        "neutral_claim": 1046,
+        "opponents_bonus": 12568,
+        "opponents_income": 721692,
+        "raid": 358,
+        "shield_backfires": 34,
+        "shield_casts": 177,
+        "shield_caught": 160,
+        "shield_caught_at_work2": 78,
+        "shield_caught_on_upgraded_cell": 115,
+        "unforced_stays_on_own_upgrade": 7,
+        "upgrade": 897,
+        "upgraded_base3_raid_bonus": 7152,
+        "upgraded_base3_raids": 149
+      }
+    },
+    "B": {
+      "baseline": {
+        "base3_income": 118965,
+        "base3_neutral_claim": 310,
+        "base3_owned_cell_turns": 20345,
+        "base3_raid": 30,
+        "base3_upgrade": 330,
+        "base3_upgraded_cell_turns": 19310,
+        "bonus": 4336,
+        "central_base3_income": 92943,
+        "frozen_turns": 274,
+        "income": 257817,
+        "neutral_claim": 1263,
+        "opponents_bonus": 9440,
+        "opponents_income": 746557,
+        "raid": 235,
+        "shield_backfires": 43,
+        "shield_casts": 223,
+        "shield_caught": 189,
+        "shield_caught_at_work2": 80,
+        "shield_caught_on_upgraded_cell": 104,
+        "unforced_stays_on_own_upgrade": 31,
+        "upgrade": 1112,
+        "upgraded_base3_raid_bonus": 1440,
+        "upgraded_base3_raids": 30
+      },
+      "candidate": {
+        "base3_income": 142404,
+        "base3_neutral_claim": 344,
+        "base3_owned_cell_turns": 24589,
+        "base3_raid": 147,
+        "base3_upgrade": 432,
+        "base3_upgraded_cell_turns": 22879,
+        "bonus": 10640,
+        "central_base3_income": 122505,
+        "frozen_turns": 146,
+        "income": 253349,
+        "neutral_claim": 1098,
+        "opponents_bonus": 12160,
+        "opponents_income": 731198,
+        "raid": 344,
+        "shield_backfires": 20,
+        "shield_casts": 183,
+        "shield_caught": 187,
+        "shield_caught_at_work2": 64,
+        "shield_caught_on_upgraded_cell": 117,
+        "unforced_stays_on_own_upgrade": 9,
+        "upgrade": 893,
+        "upgraded_base3_raid_bonus": 6960,
+        "upgraded_base3_raids": 145
+      }
+    },
+    "C": {
+      "baseline": {
+        "base3_income": 103374,
+        "base3_neutral_claim": 267,
+        "base3_owned_cell_turns": 17662,
+        "base3_raid": 22,
+        "base3_upgrade": 283,
+        "base3_upgraded_cell_turns": 16796,
+        "bonus": 3520,
+        "central_base3_income": 80940,
+        "frozen_turns": 401,
+        "income": 248667,
+        "neutral_claim": 1271,
+        "opponents_bonus": 9376,
+        "opponents_income": 744899,
+        "raid": 180,
+        "shield_backfires": 38,
+        "shield_casts": 149,
+        "shield_caught": 123,
+        "shield_caught_at_work2": 41,
+        "shield_caught_on_upgraded_cell": 52,
+        "unforced_stays_on_own_upgrade": 42,
+        "upgrade": 1075,
+        "upgraded_base3_raid_bonus": 1056,
+        "upgraded_base3_raids": 22
+      },
+      "candidate": {
+        "base3_income": 131277,
+        "base3_neutral_claim": 305,
+        "base3_owned_cell_turns": 22680,
+        "base3_raid": 162,
+        "base3_upgrade": 417,
+        "base3_upgraded_cell_turns": 21079,
+        "bonus": 12168,
+        "central_base3_income": 110685,
+        "frozen_turns": 156,
+        "income": 244607,
+        "neutral_claim": 1054,
+        "opponents_bonus": 11368,
+        "opponents_income": 724960,
+        "raid": 386,
+        "shield_backfires": 33,
+        "shield_casts": 192,
+        "shield_caught": 191,
+        "shield_caught_at_work2": 93,
+        "shield_caught_on_upgraded_cell": 136,
+        "unforced_stays_on_own_upgrade": 17,
+        "upgrade": 869,
+        "upgraded_base3_raid_bonus": 7776,
+        "upgraded_base3_raids": 162
+      }
+    },
+    "D": {
+      "baseline": {
+        "base3_income": 104634,
+        "base3_neutral_claim": 273,
+        "base3_owned_cell_turns": 17874,
+        "base3_raid": 14,
+        "base3_upgrade": 280,
+        "base3_upgraded_cell_turns": 17004,
+        "bonus": 3184,
+        "central_base3_income": 81831,
+        "frozen_turns": 245,
+        "income": 251406,
+        "neutral_claim": 1315,
+        "opponents_bonus": 10856,
+        "opponents_income": 751410,
+        "raid": 181,
+        "shield_backfires": 43,
+        "shield_casts": 119,
+        "shield_caught": 82,
+        "shield_caught_at_work2": 14,
+        "shield_caught_on_upgraded_cell": 19,
+        "unforced_stays_on_own_upgrade": 100,
+        "upgrade": 1118,
+        "upgraded_base3_raid_bonus": 672,
+        "upgraded_base3_raids": 14
+      },
+      "candidate": {
+        "base3_income": 130446,
+        "base3_neutral_claim": 314,
+        "base3_owned_cell_turns": 22588,
+        "base3_raid": 151,
+        "base3_upgrade": 402,
+        "base3_upgraded_cell_turns": 20894,
+        "bonus": 11256,
+        "central_base3_income": 108753,
+        "frozen_turns": 214,
+        "income": 248875,
+        "neutral_claim": 1041,
+        "opponents_bonus": 14680,
+        "opponents_income": 722907,
+        "raid": 376,
+        "shield_backfires": 29,
+        "shield_casts": 166,
+        "shield_caught": 167,
+        "shield_caught_at_work2": 56,
+        "shield_caught_on_upgraded_cell": 100,
+        "unforced_stays_on_own_upgrade": 11,
+        "upgrade": 893,
+        "upgraded_base3_raid_bonus": 7104,
+        "upgraded_base3_raids": 148
+      }
+    },
+    "E": {
+      "baseline": {
+        "base3_income": 119982,
+        "base3_neutral_claim": 317,
+        "base3_owned_cell_turns": 20531,
+        "base3_raid": 31,
+        "base3_upgrade": 333,
+        "base3_upgraded_cell_turns": 19463,
+        "bonus": 3216,
+        "central_base3_income": 92190,
+        "frozen_turns": 260,
+        "income": 257855,
+        "neutral_claim": 1326,
+        "opponents_bonus": 8400,
+        "opponents_income": 742495,
+        "raid": 142,
+        "shield_backfires": 38,
+        "shield_casts": 219,
+        "shield_caught": 197,
+        "shield_caught_at_work2": 97,
+        "shield_caught_on_upgraded_cell": 120,
+        "unforced_stays_on_own_upgrade": 48,
+        "upgrade": 1100,
+        "upgraded_base3_raid_bonus": 1488,
+        "upgraded_base3_raids": 31
+      },
+      "candidate": {
+        "base3_income": 142395,
+        "base3_neutral_claim": 353,
+        "base3_owned_cell_turns": 24558,
+        "base3_raid": 144,
+        "base3_upgrade": 444,
+        "base3_upgraded_cell_turns": 22907,
+        "bonus": 9696,
+        "central_base3_income": 114744,
+        "frozen_turns": 238,
+        "income": 249507,
+        "neutral_claim": 1095,
+        "opponents_bonus": 11344,
+        "opponents_income": 728152,
+        "raid": 296,
+        "shield_backfires": 27,
+        "shield_casts": 205,
+        "shield_caught": 200,
+        "shield_caught_at_work2": 86,
+        "shield_caught_on_upgraded_cell": 135,
+        "unforced_stays_on_own_upgrade": 13,
+        "upgrade": 873,
+        "upgraded_base3_raid_bonus": 6864,
+        "upgraded_base3_raids": 143
+      }
+    }
+  },
+  "by_phase": {
+    "baseline": {
+      "20": {
+        "base3_income": 47001,
+        "base3_neutral_claim": 1114,
+        "base3_owned_cell_turns": 9380,
+        "base3_upgrade": 939,
+        "base3_upgraded_cell_turns": 6287,
+        "bonus": 16,
+        "central_base3_income": 30633,
+        "frozen_turns": 0,
+        "income": 100064,
+        "neutral_claim": 2499,
+        "opponents_bonus": 48,
+        "opponents_income": 287850,
+        "raid": 1,
+        "unforced_stays_on_own_upgrade": 22,
+        "upgrade": 1338
+      },
+      "40": {
+        "base3_income": 159810,
+        "base3_neutral_claim": 317,
+        "base3_owned_cell_turns": 27236,
+        "base3_raid": 2,
+        "base3_upgrade": 488,
+        "base3_upgraded_cell_turns": 26034,
+        "bonus": 1552,
+        "central_base3_income": 126957,
+        "frozen_turns": 44,
+        "income": 290108,
+        "neutral_claim": 1817,
+        "opponents_bonus": 4456,
+        "opponents_income": 847310,
+        "raid": 93,
+        "shield_backfires": 14,
+        "shield_casts": 44,
+        "shield_caught": 31,
+        "shield_caught_at_work2": 0,
+        "shield_caught_on_upgraded_cell": 1,
+        "unforced_stays_on_own_upgrade": 42,
+        "upgrade": 1798,
+        "upgraded_base3_raid_bonus": 96,
+        "upgraded_base3_raids": 2
+      },
+      "60": {
+        "base3_income": 172665,
+        "base3_neutral_claim": 13,
+        "base3_owned_cell_turns": 28816,
+        "base3_raid": 13,
+        "base3_upgrade": 26,
+        "base3_upgraded_cell_turns": 28739,
+        "bonus": 5584,
+        "central_base3_income": 135507,
+        "frozen_turns": 404,
+        "income": 405975,
+        "neutral_claim": 1332,
+        "opponents_bonus": 16488,
+        "opponents_income": 1200277,
+        "raid": 329,
+        "shield_backfires": 66,
+        "shield_casts": 253,
+        "shield_caught": 195,
+        "shield_caught_at_work2": 52,
+        "shield_caught_on_upgraded_cell": 58,
+        "unforced_stays_on_own_upgrade": 52,
+        "upgrade": 1500,
+        "upgraded_base3_raid_bonus": 624,
+        "upgraded_base3_raids": 13
+      },
+      "80": {
+        "base3_income": 174105,
+        "base3_owned_cell_turns": 29204,
+        "base3_raid": 102,
+        "base3_upgrade": 67,
+        "base3_upgraded_cell_turns": 28831,
+        "bonus": 10928,
+        "central_base3_income": 136914,
+        "frozen_turns": 1075,
+        "income": 470969,
+        "neutral_claim": 783,
+        "opponents_bonus": 27088,
+        "opponents_income": 1399643,
+        "raid": 533,
+        "shield_backfires": 142,
+        "shield_casts": 572,
+        "shield_caught": 479,
+        "shield_caught_at_work2": 236,
+        "shield_caught_on_upgraded_cell": 307,
+        "unforced_stays_on_own_upgrade": 185,
+        "upgrade": 876,
+        "upgraded_base3_raid_bonus": 4848,
+        "upgraded_base3_raids": 101
+      }
+    },
+    "candidate": {
+      "20": {
+        "base3_income": 58290,
+        "base3_neutral_claim": 1251,
+        "base3_owned_cell_turns": 11579,
+        "base3_upgrade": 1122,
+        "base3_upgraded_cell_turns": 7851,
+        "bonus": 112,
+        "central_base3_income": 47508,
+        "frozen_turns": 0,
+        "income": 97647,
+        "neutral_claim": 2256,
+        "opponents_bonus": 48,
+        "opponents_income": 287886,
+        "raid": 7,
+        "unforced_stays_on_own_upgrade": 0,
+        "upgrade": 1299
+      },
+      "40": {
+        "base3_income": 179760,
+        "base3_neutral_claim": 365,
+        "base3_owned_cell_turns": 30678,
+        "base3_raid": 30,
+        "base3_upgrade": 492,
+        "base3_upgraded_cell_turns": 29242,
+        "bonus": 4600,
+        "central_base3_income": 152898,
+        "frozen_turns": 28,
+        "income": 286140,
+        "neutral_claim": 1778,
+        "opponents_bonus": 6456,
+        "opponents_income": 838576,
+        "raid": 226,
+        "shield_backfires": 2,
+        "shield_casts": 15,
+        "shield_caught": 19,
+        "shield_caught_at_work2": 3,
+        "shield_caught_on_upgraded_cell": 5,
+        "unforced_stays_on_own_upgrade": 0,
+        "upgrade": 1606,
+        "upgraded_base3_raid_bonus": 1440,
+        "upgraded_base3_raids": 30
+      },
+      "60": {
+        "base3_income": 205386,
+        "base3_neutral_claim": 13,
+        "base3_owned_cell_turns": 34586,
+        "base3_raid": 230,
+        "base3_upgrade": 193,
+        "base3_upgraded_cell_turns": 33876,
+        "bonus": 17296,
+        "central_base3_income": 170790,
+        "frozen_turns": 239,
+        "income": 403290,
+        "neutral_claim": 1024,
+        "opponents_bonus": 18488,
+        "opponents_income": 1175231,
+        "raid": 598,
+        "shield_backfires": 33,
+        "shield_casts": 209,
+        "shield_caught": 194,
+        "shield_caught_at_work2": 82,
+        "shield_caught_on_upgraded_cell": 130,
+        "unforced_stays_on_own_upgrade": 0,
+        "upgrade": 1064,
+        "upgraded_base3_raid_bonus": 11040,
+        "upgraded_base3_raids": 230
+      },
+      "80": {
+        "base3_income": 235740,
+        "base3_owned_cell_turns": 40465,
+        "base3_raid": 494,
+        "base3_upgrade": 306,
+        "base3_upgraded_cell_turns": 38115,
+        "bonus": 32728,
+        "central_base3_income": 196107,
+        "frozen_turns": 689,
+        "income": 457777,
+        "neutral_claim": 276,
+        "opponents_bonus": 37128,
+        "opponents_income": 1327216,
+        "raid": 929,
+        "shield_backfires": 108,
+        "shield_casts": 699,
+        "shield_caught": 692,
+        "shield_caught_at_work2": 292,
+        "shield_caught_on_upgraded_cell": 468,
+        "unforced_stays_on_own_upgrade": 57,
+        "upgrade": 456,
+        "upgraded_base3_raid_bonus": 23376,
+        "upgraded_base3_raids": 487
+      }
+    }
+  },
+  "common_prefix": {
+    "0": 215,
+    "1": 83,
+    "10": 1,
+    "11": 1,
+    "12": 2,
+    "13": 4,
+    "15": 1,
+    "16": 1,
+    "17": 3,
+    "18": 1,
+    "2": 77,
+    "22": 1,
+    "27": 2,
+    "28": 2,
+    "29": 1,
+    "3": 43,
+    "33": 1,
+    "36": 1,
+    "4": 20,
+    "44": 1,
+    "45": 1,
+    "5": 7,
+    "6": 22,
+    "62": 1,
+    "8": 8
+  },
+  "data_sha256": "32a1e236976b7b443245876323a76173b68f284f2f7d2ffc5a82b6fe69ef65fd",
+  "defense": {
+    "baseline": {
+      "arrived": {
+        "capture_against_on_turn": 0,
+        "casts": 39,
+        "eligible_turns": 1075
+      },
+      "imminent": {
+        "capture_against_on_turn": 322,
+        "casts": 803,
+        "eligible_turns": 1284
+      },
+      "one_early": {
+        "capture_against_on_turn": 0,
+        "casts": 27,
+        "eligible_turns": 234
+      }
+    },
+    "candidate": {
+      "arrived": {
+        "capture_against_on_turn": 0,
+        "casts": 0,
+        "eligible_turns": 1349
+      },
+      "imminent": {
+        "capture_against_on_turn": 981,
+        "casts": 736,
+        "eligible_turns": 2020
+      },
+      "one_early": {
+        "capture_against_on_turn": 0,
+        "casts": 187,
+        "eligible_turns": 410
+      }
+    }
+  },
+  "escapes": {
+    "baseline": {
+      "work0": {
+        "any_capture_window": 10,
+        "base3": 7,
+        "captured_destination_without_leaving": 9,
+        "captured_sidestep_base3": 7,
+        "captured_sidestep_destination": 9,
+        "captured_upgraded_base3_without_leaving": 7,
+        "completed_base3": 1,
+        "completed_same_cell": 1,
+        "count": 24,
+        "full_cooldown_observed": 15,
+        "other_base3_capture_window": 7,
+        "other_cell_capture_window": 9,
+        "owner_backfired": 13,
+        "returned_next": 2,
+        "same_land_sidestep": 12,
+        "third_party_capture_window": 7,
+        "unique_other_base3_captures": 7,
+        "unique_other_cell_captures": 9
+      },
+      "work1": {
+        "any_capture_window": 1,
+        "base3": 3,
+        "captured_destination_without_leaving": 1,
+        "captured_sidestep_base3": 1,
+        "captured_sidestep_destination": 1,
+        "captured_upgraded_base3_without_leaving": 1,
+        "completed_base3": 0,
+        "completed_same_cell": 0,
+        "count": 4,
+        "full_cooldown_observed": 3,
+        "other_base3_capture_window": 1,
+        "other_cell_capture_window": 1,
+        "owner_backfired": 3,
+        "returned_next": 0,
+        "same_land_sidestep": 2,
+        "third_party_capture_window": 0,
+        "unique_other_base3_captures": 1,
+        "unique_other_cell_captures": 1
+      },
+      "work2": {
+        "any_capture_window": 35,
+        "base3": 53,
+        "captured_destination_without_leaving": 13,
+        "captured_sidestep_base3": 7,
+        "captured_sidestep_destination": 13,
+        "captured_upgraded_base3_without_leaving": 7,
+        "completed_base3": 15,
+        "completed_same_cell": 18,
+        "count": 77,
+        "full_cooldown_observed": 58,
+        "other_base3_capture_window": 7,
+        "other_cell_capture_window": 17,
+        "owner_backfired": 61,
+        "returned_next": 25,
+        "same_land_sidestep": 28,
+        "third_party_capture_window": 10,
+        "unique_other_base3_captures": 7,
+        "unique_other_cell_captures": 19
+      }
+    },
+    "candidate": {
+      "work0": {
+        "any_capture_window": 16,
+        "base3": 13,
+        "captured_destination_without_leaving": 12,
+        "captured_sidestep_base3": 2,
+        "captured_sidestep_destination": 13,
+        "captured_upgraded_base3_without_leaving": 2,
+        "completed_base3": 2,
+        "completed_same_cell": 3,
+        "count": 39,
+        "full_cooldown_observed": 19,
+        "other_base3_capture_window": 2,
+        "other_cell_capture_window": 13,
+        "owner_backfired": 23,
+        "returned_next": 3,
+        "same_land_sidestep": 25,
+        "third_party_capture_window": 10,
+        "unique_other_base3_captures": 2,
+        "unique_other_cell_captures": 14
+      },
+      "work1": {
+        "any_capture_window": 3,
+        "base3": 1,
+        "captured_destination_without_leaving": 3,
+        "captured_sidestep_base3": 3,
+        "captured_sidestep_destination": 3,
+        "captured_upgraded_base3_without_leaving": 3,
+        "completed_base3": 0,
+        "completed_same_cell": 0,
+        "count": 4,
+        "full_cooldown_observed": 4,
+        "other_base3_capture_window": 3,
+        "other_cell_capture_window": 3,
+        "owner_backfired": 4,
+        "returned_next": 0,
+        "same_land_sidestep": 4,
+        "third_party_capture_window": 1,
+        "unique_other_base3_captures": 3,
+        "unique_other_cell_captures": 3
+      },
+      "work2": {
+        "any_capture_window": 581,
+        "base3": 444,
+        "captured_destination_without_leaving": 531,
+        "captured_sidestep_base3": 496,
+        "captured_sidestep_destination": 555,
+        "captured_upgraded_base3_without_leaving": 472,
+        "completed_base3": 22,
+        "completed_same_cell": 24,
+        "count": 695,
+        "full_cooldown_observed": 642,
+        "other_base3_capture_window": 497,
+        "other_cell_capture_window": 557,
+        "owner_backfired": 616,
+        "returned_next": 31,
+        "same_land_sidestep": 660,
+        "third_party_capture_window": 104,
+        "unique_other_base3_captures": 497,
+        "unique_other_cell_captures": 557
+      }
+    }
+  },
+  "examples": {
+    "neutral_base3": [
+      {
+        "baseline": [
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "NORTH"
+            ],
+            "changes": [
+              {
+                "base": 3,
+                "cell": "D4",
+                "new": 1,
+                "old": 1,
+                "upgrade": true
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "D4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 19,
+            "owner": 1,
+            "pos": "D4",
+            "score": 153,
+            "t": 18,
+            "upg": false,
+            "work": 2
+          },
+          {
+            "action": "SOUTH",
+            "actions": [
+              "SOUTH",
+              "NORTH",
+              "WEST",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "D4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 19,
+            "owner": 1,
+            "pos": "D4",
+            "score": 172,
+            "t": 19,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "D4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 19,
+            "owner": 1,
+            "pos": "D4",
+            "score": 191,
+            "t": 20,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "NORTH",
+            "actions": [
+              "NORTH",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "D3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 19,
+            "owner": 1,
+            "pos": "D4",
+            "score": 210,
+            "t": 21,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 3,
+                "cell": "D3",
+                "new": 1,
+                "old": 0,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "D3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 22,
+            "owner": 0,
+            "pos": "D3",
+            "score": 232,
+            "t": 22,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "WEST"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "D3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 22,
+            "owner": 1,
+            "pos": "D3",
+            "score": 254,
+            "t": 23,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "EAST",
+              "EAST",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "D3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 22,
+            "owner": 1,
+            "pos": "D3",
+            "score": 276,
+            "t": 24,
+            "upg": false,
+            "work": 1
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "SOUTH",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 3,
+                "cell": "D3",
+                "new": 1,
+                "old": 1,
+                "upgrade": true
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "D3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 25,
+            "owner": 1,
+            "pos": "D3",
+            "score": 301,
+            "t": 25,
+            "upg": false,
+            "work": 2
+          },
+          {
+            "action": "WEST",
+            "actions": [
+              "WEST",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 25,
+            "owner": 1,
+            "pos": "D3",
+            "score": 326,
+            "t": 26,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "C3",
+                "new": 1,
+                "old": 0,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 27,
+            "owner": 0,
+            "pos": "C3",
+            "score": 353,
+            "t": 27,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "WEST"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 27,
+            "owner": 1,
+            "pos": "C3",
+            "score": 380,
+            "t": 28,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "NORTH",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 27,
+            "owner": 1,
+            "pos": "C3",
+            "score": 407,
+            "t": 29,
+            "upg": false,
+            "work": 1
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "WEST",
+              "EAST",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "C3",
+                "new": 1,
+                "old": 1,
+                "upgrade": true
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 29,
+            "owner": 1,
+            "pos": "C3",
+            "score": 436,
+            "t": 30,
+            "upg": false,
+            "work": 2
+          }
+        ],
+        "baseline_pw": 1.0,
+        "baseline_score": [
+          2465,
+          2562,
+          2909,
+          2227
+        ],
+        "candidate": [
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "NORTH"
+            ],
+            "changes": [
+              {
+                "base": 3,
+                "cell": "D4",
+                "new": 1,
+                "old": 1,
+                "upgrade": true
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "D4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 19,
+            "owner": 1,
+            "pos": "D4",
+            "score": 153,
+            "t": 18,
+            "upg": false,
+            "work": 2
+          },
+          {
+            "action": "NORTH",
+            "actions": [
+              "NORTH",
+              "NORTH",
+              "WEST",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "D3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 19,
+            "owner": 1,
+            "pos": "D4",
+            "score": 172,
+            "t": 19,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 3,
+                "cell": "D3",
+                "new": 1,
+                "old": 0,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "D3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 22,
+            "owner": 0,
+            "pos": "D3",
+            "score": 194,
+            "t": 20,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "D3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 22,
+            "owner": 1,
+            "pos": "D3",
+            "score": 216,
+            "t": 21,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "D3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 22,
+            "owner": 1,
+            "pos": "D3",
+            "score": 238,
+            "t": 22,
+            "upg": false,
+            "work": 1
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "WEST"
+            ],
+            "changes": [
+              {
+                "base": 3,
+                "cell": "D3",
+                "new": 1,
+                "old": 1,
+                "upgrade": true
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "D3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 25,
+            "owner": 1,
+            "pos": "D3",
+            "score": 263,
+            "t": 23,
+            "upg": false,
+            "work": 2
+          },
+          {
+            "action": "SOUTH",
+            "actions": [
+              "SOUTH",
+              "EAST",
+              "EAST",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "D4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 25,
+            "owner": 1,
+            "pos": "D3",
+            "score": 288,
+            "t": 24,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "SOUTH",
+            "actions": [
+              "SOUTH",
+              "STAY",
+              "SOUTH",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "D5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 25,
+            "owner": 1,
+            "pos": "D4",
+            "score": 313,
+            "t": 25,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "NORTH",
+            "actions": [
+              "NORTH",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "D4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 25,
+            "owner": 3,
+            "pos": "D5",
+            "score": 338,
+            "t": 26,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "NORTH",
+            "actions": [
+              "NORTH",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "D3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 25,
+            "owner": 1,
+            "pos": "D4",
+            "score": 363,
+            "t": 27,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "WEST",
+            "actions": [
+              "WEST",
+              "STAY",
+              "STAY",
+              "WEST"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 25,
+            "owner": 1,
+            "pos": "D3",
+            "score": 388,
+            "t": 28,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "NORTH",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "C3",
+                "new": 1,
+                "old": 0,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 27,
+            "owner": 0,
+            "pos": "C3",
+            "score": 415,
+            "t": 29,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "WEST",
+              "EAST",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 27,
+            "owner": 1,
+            "pos": "C3",
+            "score": 442,
+            "t": 30,
+            "upg": false,
+            "work": 0
+          }
+        ],
+        "candidate_pw": 2.0,
+        "candidate_score": [
+          2621,
+          2167,
+          2767,
+          2235
+        ],
+        "field": "B",
+        "first_divergence": 19,
+        "focal": 1,
+        "map_index": 7,
+        "pair_id": "3955a78a3857c4ca08cf62b380bec9b05724d2fecd1998e75638a1005736f0d8",
+        "token": 1
+      },
+      {
+        "baseline": [
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "WEST",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "C5",
+                "new": 4,
+                "old": 0,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 15,
+            "owner": 0,
+            "pos": "C5",
+            "score": 102,
+            "t": 13,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "WEST",
+            "actions": [
+              "EAST",
+              "EAST",
+              "STAY",
+              "WEST"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "B5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 15,
+            "owner": 4,
+            "pos": "C5",
+            "score": 117,
+            "t": 14,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "B5",
+                "new": 4,
+                "old": 0,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "B5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 17,
+            "owner": 0,
+            "pos": "B5",
+            "score": 134,
+            "t": 15,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "WEST",
+            "actions": [
+              "STAY",
+              "EAST",
+              "STAY",
+              "WEST"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "A5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 17,
+            "owner": 4,
+            "pos": "B5",
+            "score": 151,
+            "t": 16,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 3,
+                "cell": "A5",
+                "new": 4,
+                "old": 0,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "A5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 20,
+            "owner": 0,
+            "pos": "A5",
+            "score": 171,
+            "t": 17,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "WEST",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "A5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 20,
+            "owner": 4,
+            "pos": "A5",
+            "score": 191,
+            "t": 18,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "SOUTH",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "A5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 20,
+            "owner": 4,
+            "pos": "A5",
+            "score": 211,
+            "t": 19,
+            "upg": false,
+            "work": 1
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 3,
+                "cell": "A5",
+                "new": 4,
+                "old": 4,
+                "upgrade": true
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "A5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 23,
+            "owner": 4,
+            "pos": "A5",
+            "score": 234,
+            "t": 20,
+            "upg": false,
+            "work": 2
+          },
+          {
+            "action": "NORTH",
+            "actions": [
+              "SOUTH",
+              "SOUTH",
+              "STAY",
+              "NORTH"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "A4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 23,
+            "owner": 4,
+            "pos": "A5",
+            "score": 257,
+            "t": 21,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 3,
+                "cell": "A4",
+                "new": 4,
+                "old": 0,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "A4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 26,
+            "owner": 0,
+            "pos": "A4",
+            "score": 283,
+            "t": 22,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "NORTH",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "A4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 26,
+            "owner": 4,
+            "pos": "A4",
+            "score": 309,
+            "t": 23,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "A4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 26,
+            "owner": 4,
+            "pos": "A4",
+            "score": 335,
+            "t": 24,
+            "upg": false,
+            "work": 1
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "NORTH",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 3,
+                "cell": "A4",
+                "new": 4,
+                "old": 4,
+                "upgrade": true
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "A4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 29,
+            "owner": 4,
+            "pos": "A4",
+            "score": 364,
+            "t": 25,
+            "upg": false,
+            "work": 2
+          }
+        ],
+        "baseline_pw": 1.0,
+        "baseline_score": [
+          2862,
+          2914,
+          2926,
+          2880
+        ],
+        "candidate": [
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "WEST",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "C5",
+                "new": 4,
+                "old": 0,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 15,
+            "owner": 0,
+            "pos": "C5",
+            "score": 102,
+            "t": 13,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "EAST",
+            "actions": [
+              "EAST",
+              "EAST",
+              "STAY",
+              "EAST"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "D5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 15,
+            "owner": 4,
+            "pos": "C5",
+            "score": 117,
+            "t": 14,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 3,
+                "cell": "D5",
+                "new": 4,
+                "old": 0,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "D5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 18,
+            "owner": 0,
+            "pos": "D5",
+            "score": 135,
+            "t": 15,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "EAST",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "D5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 18,
+            "owner": 4,
+            "pos": "D5",
+            "score": 153,
+            "t": 16,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "D5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 18,
+            "owner": 4,
+            "pos": "D5",
+            "score": 171,
+            "t": 17,
+            "upg": false,
+            "work": 1
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "WEST",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 3,
+                "cell": "D5",
+                "new": 4,
+                "old": 4,
+                "upgrade": true
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "D5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 21,
+            "owner": 4,
+            "pos": "D5",
+            "score": 192,
+            "t": 18,
+            "upg": false,
+            "work": 2
+          },
+          {
+            "action": "EAST",
+            "actions": [
+              "SOUTH",
+              "STAY",
+              "STAY",
+              "EAST"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 21,
+            "owner": 4,
+            "pos": "D5",
+            "score": 213,
+            "t": 19,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 3,
+                "cell": "E5",
+                "new": 4,
+                "old": 0,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 24,
+            "owner": 0,
+            "pos": "E5",
+            "score": 237,
+            "t": 20,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "SOUTH",
+              "SOUTH",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 24,
+            "owner": 4,
+            "pos": "E5",
+            "score": 261,
+            "t": 21,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 24,
+            "owner": 4,
+            "pos": "E5",
+            "score": 285,
+            "t": 22,
+            "upg": false,
+            "work": 1
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "SOUTH",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 3,
+                "cell": "E5",
+                "new": 4,
+                "old": 4,
+                "upgrade": true
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 27,
+            "owner": 4,
+            "pos": "E5",
+            "score": 312,
+            "t": 23,
+            "upg": false,
+            "work": 2
+          },
+          {
+            "action": "SOUTH",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "SOUTH"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E6",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 27,
+            "owner": 4,
+            "pos": "E5",
+            "score": 339,
+            "t": 24,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "E6",
+                "new": 4,
+                "old": 0,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E6",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 29,
+            "owner": 0,
+            "pos": "E6",
+            "score": 368,
+            "t": 25,
+            "upg": false,
+            "work": 0
+          }
+        ],
+        "candidate_pw": 2.0,
+        "candidate_score": [
+          3327,
+          2273,
+          2748,
+          2828
+        ],
+        "field": "B",
+        "first_divergence": 14,
+        "focal": 4,
+        "map_index": 18,
+        "pair_id": "6f29ebc38d461a81faa16161dabaf42e6d7665c7d54f52d6e8df9317bab151c7",
+        "token": 3
+      },
+      {
+        "baseline": [
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 3,
+                "cell": "F5",
+                "new": 3,
+                "old": 3,
+                "upgrade": true
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "F5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 13,
+            "owner": 3,
+            "pos": "F5",
+            "score": 75,
+            "t": 12,
+            "upg": false,
+            "work": 2
+          },
+          {
+            "action": "SOUTH",
+            "actions": [
+              "EAST",
+              "STAY",
+              "SOUTH",
+              "SOUTH"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "F6",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 13,
+            "owner": 3,
+            "pos": "F5",
+            "score": 88,
+            "t": 13,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "WEST",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "F6",
+                "new": 3,
+                "old": 0,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "F6",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 15,
+            "owner": 0,
+            "pos": "F6",
+            "score": 103,
+            "t": 14,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "WEST",
+            "actions": [
+              "STAY",
+              "STAY",
+              "WEST",
+              "EAST"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E6",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 15,
+            "owner": 3,
+            "pos": "F6",
+            "score": 118,
+            "t": 15,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 3,
+                "cell": "E6",
+                "new": 3,
+                "old": 0,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E6",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 18,
+            "owner": 0,
+            "pos": "E6",
+            "score": 136,
+            "t": 16,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E6",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 18,
+            "owner": 3,
+            "pos": "E6",
+            "score": 154,
+            "t": 17,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "EAST",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E6",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 18,
+            "owner": 3,
+            "pos": "E6",
+            "score": 172,
+            "t": 18,
+            "upg": false,
+            "work": 1
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "SOUTH",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 3,
+                "cell": "E6",
+                "new": 3,
+                "old": 3,
+                "upgrade": true
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E6",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 21,
+            "owner": 3,
+            "pos": "E6",
+            "score": 193,
+            "t": 19,
+            "upg": false,
+            "work": 2
+          },
+          {
+            "action": "NORTH",
+            "actions": [
+              "STAY",
+              "STAY",
+              "NORTH",
+              "SOUTH"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 21,
+            "owner": 3,
+            "pos": "E6",
+            "score": 214,
+            "t": 20,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "WEST",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "E5",
+                "new": 3,
+                "old": 0,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 23,
+            "owner": 0,
+            "pos": "E5",
+            "score": 237,
+            "t": 21,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 23,
+            "owner": 3,
+            "pos": "E5",
+            "score": 260,
+            "t": 22,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "EAST",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 23,
+            "owner": 3,
+            "pos": "E5",
+            "score": 283,
+            "t": 23,
+            "upg": false,
+            "work": 1
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "E5",
+                "new": 3,
+                "old": 3,
+                "upgrade": true
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 25,
+            "owner": 3,
+            "pos": "E5",
+            "score": 308,
+            "t": 24,
+            "upg": false,
+            "work": 2
+          }
+        ],
+        "baseline_pw": 1.0,
+        "baseline_score": [
+          2266,
+          2649,
+          2521,
+          2628
+        ],
+        "candidate": [
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 3,
+                "cell": "F5",
+                "new": 3,
+                "old": 3,
+                "upgrade": true
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "F5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 13,
+            "owner": 3,
+            "pos": "F5",
+            "score": 75,
+            "t": 12,
+            "upg": false,
+            "work": 2
+          },
+          {
+            "action": "NORTH",
+            "actions": [
+              "EAST",
+              "STAY",
+              "NORTH",
+              "SOUTH"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "F4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 13,
+            "owner": 3,
+            "pos": "F5",
+            "score": 88,
+            "t": 13,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "WEST",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 3,
+                "cell": "F4",
+                "new": 3,
+                "old": 0,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "F4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 16,
+            "owner": 0,
+            "pos": "F4",
+            "score": 104,
+            "t": 14,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "EAST"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "F4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 16,
+            "owner": 3,
+            "pos": "F4",
+            "score": 120,
+            "t": 15,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "F4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 16,
+            "owner": 3,
+            "pos": "F4",
+            "score": 136,
+            "t": 16,
+            "upg": false,
+            "work": 1
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 3,
+                "cell": "F4",
+                "new": 3,
+                "old": 3,
+                "upgrade": true
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "F4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 19,
+            "owner": 3,
+            "pos": "F4",
+            "score": 155,
+            "t": 17,
+            "upg": false,
+            "work": 2
+          },
+          {
+            "action": "EAST",
+            "actions": [
+              "EAST",
+              "STAY",
+              "EAST",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "G4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 19,
+            "owner": 3,
+            "pos": "F4",
+            "score": 174,
+            "t": 18,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "SOUTH",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "G4",
+                "new": 3,
+                "old": 0,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "G4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 21,
+            "owner": 0,
+            "pos": "G4",
+            "score": 195,
+            "t": 19,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "EAST"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "G4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 21,
+            "owner": 3,
+            "pos": "G4",
+            "score": 216,
+            "t": 20,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "WEST",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "G4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 21,
+            "owner": 3,
+            "pos": "G4",
+            "score": 237,
+            "t": 21,
+            "upg": false,
+            "work": 1
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "G4",
+                "new": 3,
+                "old": 3,
+                "upgrade": true
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "G4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 23,
+            "owner": 3,
+            "pos": "G4",
+            "score": 260,
+            "t": 22,
+            "upg": false,
+            "work": 2
+          },
+          {
+            "action": "EAST",
+            "actions": [
+              "EAST",
+              "STAY",
+              "EAST",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "H4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 23,
+            "owner": 3,
+            "pos": "G4",
+            "score": 283,
+            "t": 23,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "H4",
+                "new": 3,
+                "old": 0,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "H4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 25,
+            "owner": 0,
+            "pos": "H4",
+            "score": 308,
+            "t": 24,
+            "upg": false,
+            "work": 0
+          }
+        ],
+        "candidate_pw": 2.0,
+        "candidate_score": [
+          2148,
+          2745,
+          2732,
+          2546
+        ],
+        "field": "B",
+        "first_divergence": 13,
+        "focal": 3,
+        "map_index": 13,
+        "pair_id": "1bc8cb402eb82c58e4505e425fa2cebbabd3b85b858a541b38d690b070072971",
+        "token": 1
+      },
+      {
+        "baseline": [
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "SOUTH",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 3,
+                "cell": "D3",
+                "new": 1,
+                "old": 1,
+                "upgrade": true
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "D3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 11,
+            "owner": 1,
+            "pos": "D3",
+            "score": 54,
+            "t": 11,
+            "upg": false,
+            "work": 2
+          },
+          {
+            "action": "WEST",
+            "actions": [
+              "WEST",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 11,
+            "owner": 1,
+            "pos": "D3",
+            "score": 65,
+            "t": 12,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "NORTH",
+              "NORTH"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "C3",
+                "new": 1,
+                "old": 0,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 13,
+            "owner": 0,
+            "pos": "C3",
+            "score": 78,
+            "t": 13,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "SOUTH",
+            "actions": [
+              "SOUTH",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 13,
+            "owner": 1,
+            "pos": "C3",
+            "score": 91,
+            "t": 14,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 3,
+                "cell": "C4",
+                "new": 1,
+                "old": 0,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 16,
+            "owner": 0,
+            "pos": "C4",
+            "score": 107,
+            "t": 15,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "NORTH",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 16,
+            "owner": 1,
+            "pos": "C4",
+            "score": 123,
+            "t": 16,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "NORTH",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 16,
+            "owner": 1,
+            "pos": "C4",
+            "score": 139,
+            "t": 17,
+            "upg": false,
+            "work": 1
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "NORTH",
+              "WEST"
+            ],
+            "changes": [
+              {
+                "base": 3,
+                "cell": "C4",
+                "new": 1,
+                "old": 1,
+                "upgrade": true
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 19,
+            "owner": 1,
+            "pos": "C4",
+            "score": 158,
+            "t": 18,
+            "upg": false,
+            "work": 2
+          },
+          {
+            "action": "SOUTH",
+            "actions": [
+              "SOUTH",
+              "WEST",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 19,
+            "owner": 1,
+            "pos": "C4",
+            "score": 177,
+            "t": 19,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 3,
+                "cell": "C5",
+                "new": 1,
+                "old": 0,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 22,
+            "owner": 0,
+            "pos": "C5",
+            "score": 199,
+            "t": 20,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 22,
+            "owner": 1,
+            "pos": "C5",
+            "score": 221,
+            "t": 21,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 22,
+            "owner": 1,
+            "pos": "C5",
+            "score": 243,
+            "t": 22,
+            "upg": false,
+            "work": 1
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "NORTH",
+              "WEST"
+            ],
+            "changes": [
+              {
+                "base": 3,
+                "cell": "C5",
+                "new": 1,
+                "old": 1,
+                "upgrade": true
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 25,
+            "owner": 1,
+            "pos": "C5",
+            "score": 268,
+            "t": 23,
+            "upg": false,
+            "work": 2
+          }
+        ],
+        "baseline_pw": 1.0,
+        "baseline_score": [
+          2268,
+          2637,
+          2302,
+          2267
+        ],
+        "candidate": [
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "SOUTH",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 3,
+                "cell": "D3",
+                "new": 1,
+                "old": 1,
+                "upgrade": true
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "D3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 11,
+            "owner": 1,
+            "pos": "D3",
+            "score": 54,
+            "t": 11,
+            "upg": false,
+            "work": 2
+          },
+          {
+            "action": "EAST",
+            "actions": [
+              "EAST",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 11,
+            "owner": 1,
+            "pos": "D3",
+            "score": 65,
+            "t": 12,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "NORTH",
+              "NORTH"
+            ],
+            "changes": [
+              {
+                "base": 3,
+                "cell": "E3",
+                "new": 1,
+                "old": 0,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 14,
+            "owner": 0,
+            "pos": "E3",
+            "score": 79,
+            "t": 13,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 14,
+            "owner": 1,
+            "pos": "E3",
+            "score": 93,
+            "t": 14,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 14,
+            "owner": 1,
+            "pos": "E3",
+            "score": 107,
+            "t": 15,
+            "upg": false,
+            "work": 1
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "WEST",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 3,
+                "cell": "E3",
+                "new": 1,
+                "old": 1,
+                "upgrade": true
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 17,
+            "owner": 1,
+            "pos": "E3",
+            "score": 124,
+            "t": 16,
+            "upg": false,
+            "work": 2
+          },
+          {
+            "action": "WEST",
+            "actions": [
+              "WEST",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "D3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 17,
+            "owner": 1,
+            "pos": "E3",
+            "score": 141,
+            "t": 17,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "WEST",
+            "actions": [
+              "WEST",
+              "WEST",
+              "EAST",
+              "WEST"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 17,
+            "owner": 1,
+            "pos": "D3",
+            "score": 158,
+            "t": 18,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "C3",
+                "new": 1,
+                "old": 0,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 19,
+            "owner": 0,
+            "pos": "C3",
+            "score": 177,
+            "t": 19,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "SOUTH",
+            "actions": [
+              "SOUTH",
+              "WEST",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 19,
+            "owner": 1,
+            "pos": "C3",
+            "score": 196,
+            "t": 20,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 3,
+                "cell": "C4",
+                "new": 1,
+                "old": 0,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 22,
+            "owner": 0,
+            "pos": "C4",
+            "score": 218,
+            "t": 21,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 22,
+            "owner": 1,
+            "pos": "C4",
+            "score": 240,
+            "t": 22,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "EAST",
+              "WEST"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 22,
+            "owner": 1,
+            "pos": "C4",
+            "score": 262,
+            "t": 23,
+            "upg": false,
+            "work": 1
+          }
+        ],
+        "candidate_pw": 3.0,
+        "candidate_score": [
+          2455,
+          2242,
+          2128,
+          2418
+        ],
+        "field": "C",
+        "first_divergence": 12,
+        "focal": 1,
+        "map_index": 4,
+        "pair_id": "0ae01380e4fe974c55494239807b786eea252c75e5c310ff53d18781a9917a3c",
+        "token": 3
+      }
+    ],
+    "other": [
+      {
+        "baseline": [
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "NORTH",
+              "SOUTH",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 1,
+                "cell": "C7",
+                "new": 4,
+                "old": 1,
+                "upgrade": false
+              },
+              {
+                "base": 2,
+                "cell": "D8",
+                "new": 1,
+                "old": 1,
+                "upgrade": true
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "D8",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 49,
+            "owner": 1,
+            "pos": "D8",
+            "score": 1873,
+            "t": 62,
+            "upg": false,
+            "work": 2
+          },
+          {
+            "action": "NORTH",
+            "actions": [
+              "NORTH",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "D7",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 49,
+            "owner": 1,
+            "pos": "D8",
+            "score": 1922,
+            "t": 63,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "EAST",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "D7",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 49,
+            "owner": 4,
+            "pos": "D7",
+            "score": 1971,
+            "t": 64,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "D7",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 49,
+            "owner": 4,
+            "pos": "D7",
+            "score": 2020,
+            "t": 65,
+            "upg": true,
+            "work": 1
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "SHIELD"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              4
+            ],
+            "end": "D7",
+            "frozen": [
+              2,
+              0,
+              0,
+              0
+            ],
+            "income": 49,
+            "owner": 4,
+            "pos": "D7",
+            "score": 2069,
+            "t": 66,
+            "upg": true,
+            "work": 2
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "EAST",
+              "SOUTH"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              3
+            ],
+            "end": "D7",
+            "frozen": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "income": 49,
+            "owner": 4,
+            "pos": "D7",
+            "score": 2118,
+            "t": 67,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              2
+            ],
+            "end": "D7",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 49,
+            "owner": 4,
+            "pos": "D7",
+            "score": 2167,
+            "t": 68,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "SHIELD",
+            "actions": [
+              "SHIELD",
+              "SOUTH",
+              "STAY",
+              "EAST"
+            ],
+            "changes": [],
+            "cooldown": [
+              4,
+              0,
+              0,
+              1
+            ],
+            "end": "D7",
+            "frozen": [
+              0,
+              0,
+              2,
+              0
+            ],
+            "income": 49,
+            "owner": 4,
+            "pos": "D7",
+            "score": 2216,
+            "t": 69,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "WEST",
+              "STAY",
+              "EAST"
+            ],
+            "changes": [],
+            "cooldown": [
+              3,
+              0,
+              0,
+              0
+            ],
+            "end": "D7",
+            "frozen": [
+              0,
+              0,
+              1,
+              0
+            ],
+            "income": 49,
+            "owner": 4,
+            "pos": "D7",
+            "score": 2265,
+            "t": 70,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              2,
+              0,
+              0,
+              0
+            ],
+            "end": "D7",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 49,
+            "owner": 4,
+            "pos": "D7",
+            "score": 2314,
+            "t": 71,
+            "upg": true,
+            "work": 1
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "SHIELD"
+            ],
+            "changes": [],
+            "cooldown": [
+              1,
+              0,
+              0,
+              4
+            ],
+            "end": "D7",
+            "frozen": [
+              2,
+              0,
+              0,
+              0
+            ],
+            "income": 49,
+            "owner": 4,
+            "pos": "D7",
+            "score": 2363,
+            "t": 72,
+            "upg": true,
+            "work": 2
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              3
+            ],
+            "end": "D7",
+            "frozen": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "income": 49,
+            "owner": 4,
+            "pos": "D7",
+            "score": 2412,
+            "t": 73,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "NORTH",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 3,
+                "cell": "D2",
+                "new": 3,
+                "old": 1,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              2
+            ],
+            "end": "D7",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 43,
+            "owner": 4,
+            "pos": "D7",
+            "score": 2455,
+            "t": 74,
+            "upg": true,
+            "work": 0
+          }
+        ],
+        "baseline_pw": 1.0,
+        "baseline_score": [
+          2713,
+          2570,
+          2918,
+          2974
+        ],
+        "candidate": [
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "NORTH",
+              "SOUTH",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 1,
+                "cell": "C7",
+                "new": 4,
+                "old": 1,
+                "upgrade": false
+              },
+              {
+                "base": 2,
+                "cell": "D8",
+                "new": 1,
+                "old": 1,
+                "upgrade": true
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "D8",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 49,
+            "owner": 1,
+            "pos": "D8",
+            "score": 1873,
+            "t": 62,
+            "upg": false,
+            "work": 2
+          },
+          {
+            "action": "EAST",
+            "actions": [
+              "EAST",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E8",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 49,
+            "owner": 1,
+            "pos": "D8",
+            "score": 1922,
+            "t": 63,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "EAST",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "E8",
+                "new": 1,
+                "old": 0,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E8",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 51,
+            "owner": 0,
+            "pos": "E8",
+            "score": 1973,
+            "t": 64,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "NORTH",
+            "actions": [
+              "NORTH",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E7",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 51,
+            "owner": 1,
+            "pos": "E8",
+            "score": 2024,
+            "t": 65,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "SOUTH"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E7",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 51,
+            "owner": 3,
+            "pos": "E7",
+            "score": 2075,
+            "t": 66,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "WEST",
+              "EAST"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E7",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 51,
+            "owner": 3,
+            "pos": "E7",
+            "score": 2126,
+            "t": 67,
+            "upg": true,
+            "work": 1
+          },
+          {
+            "action": "NORTH",
+            "actions": [
+              "NORTH",
+              "STAY",
+              "SHIELD",
+              "EAST"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              4,
+              0
+            ],
+            "end": "E6",
+            "frozen": [
+              0,
+              0,
+              2,
+              0
+            ],
+            "income": 51,
+            "owner": 3,
+            "pos": "E7",
+            "score": 2177,
+            "t": 68,
+            "upg": true,
+            "work": 2
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "SOUTH",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "E8",
+                "new": 4,
+                "old": 1,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              3,
+              0
+            ],
+            "end": "E6",
+            "frozen": [
+              0,
+              0,
+              1,
+              0
+            ],
+            "income": 49,
+            "owner": 3,
+            "pos": "E6",
+            "score": 2226,
+            "t": 69,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "WEST",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              2,
+              0
+            ],
+            "end": "E6",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 49,
+            "owner": 3,
+            "pos": "E6",
+            "score": 2275,
+            "t": 70,
+            "upg": true,
+            "work": 1
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 3,
+                "cell": "E6",
+                "new": 1,
+                "old": 3,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              1,
+              0
+            ],
+            "end": "E6",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 52,
+            "owner": 3,
+            "pos": "E6",
+            "score": 2375,
+            "t": 71,
+            "upg": true,
+            "work": 2
+          },
+          {
+            "action": "WEST",
+            "actions": [
+              "WEST",
+              "STAY",
+              "SOUTH",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "D6",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 52,
+            "owner": 1,
+            "pos": "E6",
+            "score": 2427,
+            "t": 72,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "NORTH"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "D6",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 52,
+            "owner": 4,
+            "pos": "D6",
+            "score": 2479,
+            "t": 73,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "EAST",
+              "STAY",
+              "SHIELD"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              4
+            ],
+            "end": "D6",
+            "frozen": [
+              2,
+              0,
+              0,
+              0
+            ],
+            "income": 52,
+            "owner": 4,
+            "pos": "D6",
+            "score": 2531,
+            "t": 74,
+            "upg": true,
+            "work": 1
+          }
+        ],
+        "candidate_pw": 2.0,
+        "candidate_score": [
+          2828,
+          2566,
+          2756,
+          3051
+        ],
+        "field": "E",
+        "first_divergence": 63,
+        "focal": 1,
+        "map_index": 3,
+        "pair_id": "5619e5af020080251f91073a0f4392ccd3057df9246c5bfdee560a445dc34343",
+        "token": 4
+      },
+      {
+        "baseline": [
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "SOUTH",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "E4",
+                "new": 2,
+                "old": 2,
+                "upgrade": true
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 35,
+            "owner": 2,
+            "pos": "E4",
+            "score": 679,
+            "t": 36,
+            "upg": false,
+            "work": 2
+          },
+          {
+            "action": "SOUTH",
+            "actions": [
+              "NORTH",
+              "SOUTH",
+              "STAY",
+              "EAST"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 35,
+            "owner": 2,
+            "pos": "E4",
+            "score": 714,
+            "t": 37,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "NORTH",
+              "STAY",
+              "SOUTH",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 35,
+            "owner": 2,
+            "pos": "E4",
+            "score": 749,
+            "t": 38,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "NORTH",
+            "actions": [
+              "NORTH",
+              "NORTH",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 35,
+            "owner": 2,
+            "pos": "E4",
+            "score": 784,
+            "t": 39,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "NORTH",
+            "actions": [
+              "STAY",
+              "NORTH",
+              "WEST",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E2",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 35,
+            "owner": 2,
+            "pos": "E3",
+            "score": 819,
+            "t": 40,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "NORTH",
+            "actions": [
+              "STAY",
+              "NORTH",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E1",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 35,
+            "owner": 2,
+            "pos": "E2",
+            "score": 854,
+            "t": 41,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "SOUTH"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "E1",
+                "new": 2,
+                "old": 0,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E1",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 37,
+            "owner": 0,
+            "pos": "E1",
+            "score": 891,
+            "t": 42,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "SOUTH"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E1",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 37,
+            "owner": 2,
+            "pos": "E1",
+            "score": 928,
+            "t": 43,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "WEST",
+              "STAY",
+              "STAY",
+              "SOUTH"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E1",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 37,
+            "owner": 2,
+            "pos": "E1",
+            "score": 965,
+            "t": 44,
+            "upg": false,
+            "work": 1
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "EAST",
+              "STAY",
+              "SHIELD",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "E1",
+                "new": 2,
+                "old": 2,
+                "upgrade": true
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              4,
+              0
+            ],
+            "end": "E1",
+            "frozen": [
+              0,
+              0,
+              0,
+              2
+            ],
+            "income": 39,
+            "owner": 2,
+            "pos": "E1",
+            "score": 1004,
+            "t": 45,
+            "upg": false,
+            "work": 2
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "WEST",
+              "STAY",
+              "WEST",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              3,
+              0
+            ],
+            "end": "E1",
+            "frozen": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "income": 39,
+            "owner": 2,
+            "pos": "E1",
+            "score": 1043,
+            "t": 46,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "WEST",
+            "actions": [
+              "EAST",
+              "WEST",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              2,
+              0
+            ],
+            "end": "E1",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 39,
+            "owner": 2,
+            "pos": "E1",
+            "score": 1082,
+            "t": 47,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "WEST",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              1,
+              0
+            ],
+            "end": "E1",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 39,
+            "owner": 2,
+            "pos": "E1",
+            "score": 1121,
+            "t": 48,
+            "upg": true,
+            "work": 0
+          }
+        ],
+        "baseline_pw": 0.0,
+        "baseline_score": [
+          2533,
+          2519,
+          2748,
+          2641
+        ],
+        "candidate": [
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "SOUTH",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "E4",
+                "new": 2,
+                "old": 2,
+                "upgrade": true
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 35,
+            "owner": 2,
+            "pos": "E4",
+            "score": 679,
+            "t": 36,
+            "upg": false,
+            "work": 2
+          },
+          {
+            "action": "NORTH",
+            "actions": [
+              "NORTH",
+              "NORTH",
+              "STAY",
+              "EAST"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 35,
+            "owner": 2,
+            "pos": "E4",
+            "score": 714,
+            "t": 37,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "NORTH",
+            "actions": [
+              "NORTH",
+              "NORTH",
+              "SOUTH",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E2",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 35,
+            "owner": 2,
+            "pos": "E3",
+            "score": 749,
+            "t": 38,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "NORTH",
+            "actions": [
+              "NORTH",
+              "NORTH",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E1",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 35,
+            "owner": 2,
+            "pos": "E2",
+            "score": 784,
+            "t": 39,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "WEST",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "E1",
+                "new": 2,
+                "old": 0,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E1",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 37,
+            "owner": 0,
+            "pos": "E1",
+            "score": 821,
+            "t": 40,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E1",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 37,
+            "owner": 2,
+            "pos": "E1",
+            "score": 858,
+            "t": 41,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "SOUTH"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E1",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 37,
+            "owner": 2,
+            "pos": "E1",
+            "score": 895,
+            "t": 42,
+            "upg": false,
+            "work": 1
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "SOUTH"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "E1",
+                "new": 2,
+                "old": 2,
+                "upgrade": true
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E1",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 39,
+            "owner": 2,
+            "pos": "E1",
+            "score": 934,
+            "t": 43,
+            "upg": false,
+            "work": 2
+          },
+          {
+            "action": "EAST",
+            "actions": [
+              "SOUTH",
+              "EAST",
+              "STAY",
+              "SOUTH"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "F1",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 39,
+            "owner": 2,
+            "pos": "E1",
+            "score": 973,
+            "t": 44,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "EAST",
+              "STAY",
+              "SHIELD",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "F1",
+                "new": 2,
+                "old": 0,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              4,
+              0
+            ],
+            "end": "F1",
+            "frozen": [
+              0,
+              0,
+              0,
+              2
+            ],
+            "income": 41,
+            "owner": 0,
+            "pos": "F1",
+            "score": 1014,
+            "t": 45,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "EAST",
+              "STAY",
+              "WEST",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              3,
+              0
+            ],
+            "end": "F1",
+            "frozen": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "income": 41,
+            "owner": 2,
+            "pos": "F1",
+            "score": 1055,
+            "t": 46,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "F2",
+                "new": 1,
+                "old": 2,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              2,
+              0
+            ],
+            "end": "F1",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 39,
+            "owner": 2,
+            "pos": "F1",
+            "score": 1094,
+            "t": 47,
+            "upg": false,
+            "work": 1
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "F1",
+                "new": 2,
+                "old": 2,
+                "upgrade": true
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              1,
+              0
+            ],
+            "end": "F1",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 41,
+            "owner": 2,
+            "pos": "F1",
+            "score": 1135,
+            "t": 48,
+            "upg": false,
+            "work": 2
+          }
+        ],
+        "candidate_pw": 3.0,
+        "candidate_score": [
+          2684,
+          2710,
+          2690,
+          2689
+        ],
+        "field": "A",
+        "first_divergence": 37,
+        "focal": 2,
+        "map_index": 5,
+        "pair_id": "d261b11c1724f68e0cbb26bd3e27a4c6065e7849977912ad53536a4458b1cf0c",
+        "token": 3
+      },
+      {
+        "baseline": [
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "EAST",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "H5",
+                "new": 2,
+                "old": 0,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "H5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 35,
+            "owner": 0,
+            "pos": "H5",
+            "score": 609,
+            "t": 33,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "WEST",
+              "STAY",
+              "STAY",
+              "WEST"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "H5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 35,
+            "owner": 2,
+            "pos": "H5",
+            "score": 644,
+            "t": 34,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "H5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 35,
+            "owner": 2,
+            "pos": "H5",
+            "score": 679,
+            "t": 35,
+            "upg": false,
+            "work": 1
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "H5",
+                "new": 2,
+                "old": 2,
+                "upgrade": true
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "H5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 37,
+            "owner": 2,
+            "pos": "H5",
+            "score": 716,
+            "t": 36,
+            "upg": false,
+            "work": 2
+          },
+          {
+            "action": "NORTH",
+            "actions": [
+              "STAY",
+              "NORTH",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "H4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 37,
+            "owner": 2,
+            "pos": "H5",
+            "score": 753,
+            "t": 37,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "SOUTH",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "H4",
+                "new": 2,
+                "old": 0,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "H4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 39,
+            "owner": 0,
+            "pos": "H4",
+            "score": 792,
+            "t": 38,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "WEST",
+              "STAY",
+              "STAY",
+              "NORTH"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "H4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 39,
+            "owner": 2,
+            "pos": "H4",
+            "score": 831,
+            "t": 39,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "EAST",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "H4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 39,
+            "owner": 2,
+            "pos": "H4",
+            "score": 870,
+            "t": 40,
+            "upg": false,
+            "work": 1
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "H4",
+                "new": 2,
+                "old": 2,
+                "upgrade": true
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "H4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 41,
+            "owner": 2,
+            "pos": "H4",
+            "score": 911,
+            "t": 41,
+            "upg": false,
+            "work": 2
+          },
+          {
+            "action": "WEST",
+            "actions": [
+              "STAY",
+              "WEST",
+              "EAST",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "G4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 41,
+            "owner": 2,
+            "pos": "H4",
+            "score": 952,
+            "t": 42,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "G4",
+                "new": 2,
+                "old": 0,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "G4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 43,
+            "owner": 0,
+            "pos": "G4",
+            "score": 995,
+            "t": 43,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "SOUTH",
+              "STAY",
+              "STAY",
+              "NORTH"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "G4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 43,
+            "owner": 2,
+            "pos": "G4",
+            "score": 1038,
+            "t": 44,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "WEST",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "G4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 43,
+            "owner": 2,
+            "pos": "G4",
+            "score": 1081,
+            "t": 45,
+            "upg": false,
+            "work": 1
+          }
+        ],
+        "baseline_pw": 2.0,
+        "baseline_score": [
+          2920,
+          2904,
+          2691,
+          2792
+        ],
+        "candidate": [
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "EAST",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "H5",
+                "new": 2,
+                "old": 0,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "H5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 35,
+            "owner": 0,
+            "pos": "H5",
+            "score": 609,
+            "t": 33,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "NORTH",
+            "actions": [
+              "WEST",
+              "NORTH",
+              "STAY",
+              "WEST"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "H4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 35,
+            "owner": 2,
+            "pos": "H5",
+            "score": 644,
+            "t": 34,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "H4",
+                "new": 2,
+                "old": 0,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "H4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 37,
+            "owner": 0,
+            "pos": "H4",
+            "score": 681,
+            "t": 35,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "H4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 37,
+            "owner": 2,
+            "pos": "H4",
+            "score": 718,
+            "t": 36,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "H4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 37,
+            "owner": 2,
+            "pos": "H4",
+            "score": 755,
+            "t": 37,
+            "upg": false,
+            "work": 1
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "SOUTH",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "H4",
+                "new": 2,
+                "old": 2,
+                "upgrade": true
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "H4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 39,
+            "owner": 2,
+            "pos": "H4",
+            "score": 794,
+            "t": 38,
+            "upg": false,
+            "work": 2
+          },
+          {
+            "action": "WEST",
+            "actions": [
+              "WEST",
+              "WEST",
+              "STAY",
+              "NORTH"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "G4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 39,
+            "owner": 2,
+            "pos": "H4",
+            "score": 833,
+            "t": 39,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "G4",
+                "new": 2,
+                "old": 0,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "G4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 41,
+            "owner": 0,
+            "pos": "G4",
+            "score": 874,
+            "t": 40,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "G4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 41,
+            "owner": 2,
+            "pos": "G4",
+            "score": 915,
+            "t": 41,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "G4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 41,
+            "owner": 2,
+            "pos": "G4",
+            "score": 956,
+            "t": 42,
+            "upg": false,
+            "work": 1
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "EAST",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "G4",
+                "new": 2,
+                "old": 2,
+                "upgrade": true
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "G4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 43,
+            "owner": 2,
+            "pos": "G4",
+            "score": 999,
+            "t": 43,
+            "upg": false,
+            "work": 2
+          },
+          {
+            "action": "NORTH",
+            "actions": [
+              "SOUTH",
+              "NORTH",
+              "STAY",
+              "NORTH"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "G3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 43,
+            "owner": 2,
+            "pos": "G4",
+            "score": 1042,
+            "t": 44,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "WEST",
+              "STAY",
+              "EAST",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 1,
+                "cell": "G3",
+                "new": 2,
+                "old": 0,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "G3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 44,
+            "owner": 0,
+            "pos": "G3",
+            "score": 1086,
+            "t": 45,
+            "upg": false,
+            "work": 0
+          }
+        ],
+        "candidate_pw": 3.0,
+        "candidate_score": [
+          2689,
+          2957,
+          2688,
+          2806
+        ],
+        "field": "B",
+        "first_divergence": 34,
+        "focal": 2,
+        "map_index": 6,
+        "pair_id": "005ff8d3d730459acb16f284f42a5f0285e5c800df9d29b62d2791434188036c",
+        "token": 1
+      },
+      {
+        "baseline": [
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 3,
+                "cell": "D5",
+                "new": 2,
+                "old": 2,
+                "upgrade": true
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "D5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 31,
+            "owner": 2,
+            "pos": "D5",
+            "score": 403,
+            "t": 28,
+            "upg": false,
+            "work": 2
+          },
+          {
+            "action": "EAST",
+            "actions": [
+              "STAY",
+              "EAST",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "E5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 31,
+            "owner": 2,
+            "pos": "D5",
+            "score": 434,
+            "t": 29,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "WEST",
+            "actions": [
+              "WEST",
+              "WEST",
+              "NORTH",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "D5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 31,
+            "owner": 2,
+            "pos": "E5",
+            "score": 465,
+            "t": 30,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "SOUTH",
+            "actions": [
+              "STAY",
+              "SOUTH",
+              "STAY",
+              "NORTH"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "D6",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 31,
+            "owner": 2,
+            "pos": "D5",
+            "score": 496,
+            "t": 31,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "WEST",
+            "actions": [
+              "STAY",
+              "WEST",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C6",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 31,
+            "owner": 4,
+            "pos": "D6",
+            "score": 527,
+            "t": 32,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "C6",
+                "new": 2,
+                "old": 0,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C6",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 33,
+            "owner": 0,
+            "pos": "C6",
+            "score": 560,
+            "t": 33,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C6",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 33,
+            "owner": 2,
+            "pos": "C6",
+            "score": 593,
+            "t": 34,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "NORTH",
+              "STAY",
+              "NORTH",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C6",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 33,
+            "owner": 2,
+            "pos": "C6",
+            "score": 626,
+            "t": 35,
+            "upg": false,
+            "work": 1
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "NORTH"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "C6",
+                "new": 2,
+                "old": 2,
+                "upgrade": true
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C6",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 35,
+            "owner": 2,
+            "pos": "C6",
+            "score": 661,
+            "t": 36,
+            "upg": false,
+            "work": 2
+          },
+          {
+            "action": "SOUTH",
+            "actions": [
+              "STAY",
+              "SOUTH",
+              "WEST",
+              "EAST"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C7",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 35,
+            "owner": 2,
+            "pos": "C6",
+            "score": 696,
+            "t": 37,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "C7",
+                "new": 2,
+                "old": 0,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C7",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 37,
+            "owner": 0,
+            "pos": "C7",
+            "score": 733,
+            "t": 38,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C7",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 37,
+            "owner": 2,
+            "pos": "C7",
+            "score": 770,
+            "t": 39,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "NORTH",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C7",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 37,
+            "owner": 2,
+            "pos": "C7",
+            "score": 807,
+            "t": 40,
+            "upg": false,
+            "work": 1
+          }
+        ],
+        "baseline_pw": 2.0,
+        "baseline_score": [
+          3001,
+          2744,
+          2321,
+          2705
+        ],
+        "candidate": [
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 3,
+                "cell": "D5",
+                "new": 2,
+                "old": 2,
+                "upgrade": true
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "D5",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 31,
+            "owner": 2,
+            "pos": "D5",
+            "score": 403,
+            "t": 28,
+            "upg": false,
+            "work": 2
+          },
+          {
+            "action": "NORTH",
+            "actions": [
+              "STAY",
+              "NORTH",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "D4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 31,
+            "owner": 2,
+            "pos": "D5",
+            "score": 434,
+            "t": 29,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "WEST",
+            "actions": [
+              "WEST",
+              "WEST",
+              "NORTH",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C4",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 31,
+            "owner": 1,
+            "pos": "D4",
+            "score": 465,
+            "t": 30,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "NORTH",
+            "actions": [
+              "STAY",
+              "NORTH",
+              "STAY",
+              "NORTH"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 31,
+            "owner": 1,
+            "pos": "C4",
+            "score": 496,
+            "t": 31,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "C3",
+                "new": 2,
+                "old": 0,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 33,
+            "owner": 0,
+            "pos": "C3",
+            "score": 529,
+            "t": 32,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 33,
+            "owner": 2,
+            "pos": "C3",
+            "score": 562,
+            "t": 33,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 33,
+            "owner": 2,
+            "pos": "C3",
+            "score": 595,
+            "t": 34,
+            "upg": false,
+            "work": 1
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "NORTH",
+              "STAY",
+              "NORTH",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "C3",
+                "new": 2,
+                "old": 2,
+                "upgrade": true
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "C3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 35,
+            "owner": 2,
+            "pos": "C3",
+            "score": 630,
+            "t": 35,
+            "upg": false,
+            "work": 2
+          },
+          {
+            "action": "WEST",
+            "actions": [
+              "STAY",
+              "WEST",
+              "STAY",
+              "NORTH"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "B3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 35,
+            "owner": 2,
+            "pos": "C3",
+            "score": 665,
+            "t": 36,
+            "upg": true,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "WEST",
+              "EAST"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "B3",
+                "new": 2,
+                "old": 0,
+                "upgrade": false
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "B3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 37,
+            "owner": 0,
+            "pos": "B3",
+            "score": 702,
+            "t": 37,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "B3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 37,
+            "owner": 2,
+            "pos": "B3",
+            "score": 739,
+            "t": 38,
+            "upg": false,
+            "work": 0
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "STAY",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "B3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 37,
+            "owner": 2,
+            "pos": "B3",
+            "score": 776,
+            "t": 39,
+            "upg": false,
+            "work": 1
+          },
+          {
+            "action": "STAY",
+            "actions": [
+              "SOUTH",
+              "STAY",
+              "STAY",
+              "STAY"
+            ],
+            "changes": [
+              {
+                "base": 2,
+                "cell": "B3",
+                "new": 2,
+                "old": 2,
+                "upgrade": true
+              }
+            ],
+            "cooldown": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "end": "B3",
+            "frozen": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "income": 39,
+            "owner": 2,
+            "pos": "B3",
+            "score": 815,
+            "t": 40,
+            "upg": false,
+            "work": 2
+          }
+        ],
+        "candidate_pw": 3.0,
+        "candidate_score": [
+          2502,
+          2868,
+          2431,
+          2659
+        ],
+        "field": "B",
+        "first_divergence": 29,
+        "focal": 2,
+        "map_index": 20,
+        "pair_id": "8f6eaffeb069d6136e598728208d4e3f9579fa2e868ad526ea59ad3bd0e240c6",
+        "token": 3
+      }
+    ]
+  },
+  "games": 1000,
+  "paired_outcomes": {
+    "delta_pw_+0": 139,
+    "delta_pw_+0.5": 7,
+    "delta_pw_+1": 122,
+    "delta_pw_+1.5": 5,
+    "delta_pw_+2": 69,
+    "delta_pw_+2.5": 5,
+    "delta_pw_+3": 33,
+    "delta_pw_-0.5": 3,
+    "delta_pw_-1": 67,
+    "delta_pw_-1.5": 2,
+    "delta_pw_-2": 37,
+    "delta_pw_-3": 11,
+    "rival_improved": 441,
+    "rival_same": 837,
+    "rival_worsened": 222
+  },
+  "paired_score_changes": {
+    "better_pw_with_lower_score_pairs": 35,
+    "candidate_own_delta": 14394,
+    "candidate_own_delta_when_pw_better": 39538,
+    "opponents_sum_delta": -92131
+  },
+  "pairs": 500,
+  "timing": {
+    "baseline": {
+      "base3_neutral_claim": {
+        "events": 1444,
+        "games_with_event": 459,
+        "mean_first_turn": 8.793028322440087,
+        "median_event_turn": 15.0,
+        "median_first_turn": 8
+      },
+      "base3_raid": {
+        "events": 117,
+        "games_with_event": 100,
+        "mean_first_turn": 69.95,
+        "median_event_turn": 73,
+        "median_first_turn": 73.0
+      },
+      "base3_upgrade": {
+        "events": 1520,
+        "games_with_event": 459,
+        "mean_first_turn": 11.793028322440087,
+        "median_event_turn": 18.0,
+        "median_first_turn": 11
+      },
+      "upgraded_base3_raid": {
+        "events": 116,
+        "games_with_event": 99,
+        "mean_first_turn": 69.91919191919192,
+        "median_event_turn": 73.5,
+        "median_first_turn": 73
+      }
+    },
+    "candidate": {
+      "base3_neutral_claim": {
+        "events": 1629,
+        "games_with_event": 460,
+        "mean_first_turn": 7.091304347826087,
+        "median_event_turn": 13,
+        "median_first_turn": 7.0
+      },
+      "base3_raid": {
+        "events": 754,
+        "games_with_event": 411,
+        "mean_first_turn": 59.23844282238443,
+        "median_event_turn": 66.0,
+        "median_first_turn": 60
+      },
+      "base3_upgrade": {
+        "events": 2113,
+        "games_with_event": 460,
+        "mean_first_turn": 10.152173913043478,
+        "median_event_turn": 20,
+        "median_first_turn": 10.0
+      },
+      "upgraded_base3_raid": {
+        "events": 747,
+        "games_with_event": 411,
+        "mean_first_turn": 59.23844282238443,
+        "median_event_turn": 66,
+        "median_first_turn": 60
+      }
+    }
+  }
+}
