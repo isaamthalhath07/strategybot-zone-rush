@@ -749,3 +749,25 @@ repository's historical bots do, and the worse one otherwise.
 
 Seeds used in this section: 91 to 96 (raid_signal), 95 to 103 (discipline), 2000 to
 2009 (suite3).
+
+## 17. A flaky release test, and what it was really pointing at
+
+`tests/test_root_bot.py` required the shipped bot's tracker to report zero
+"unexplained" freezes in four self-play games. It failed in about three runs out of
+eight, with no code change in between: the bot's random choices decide whether a game
+contains the awkward turn. Reproduced with the root `bot.py` (60 self-play games, two
+cases). In both, a rival cast SHIELD and backfired while standing on another bot's
+land. From the public board that is identical to the landlord catching it, the
+tracker takes the likelier story (the landlord), and three turns later the landlord
+really does shield while the tracker has it on cooldown. The tracker then re-reads
+the turn and ends with the right cooldowns. Own score, own progress and own cooldown
+stayed exact in every run.
+
+So the requirement was wrong, not the bot: the information is not on the board. The
+test now counts those re-reads, prints the count and requires fewer than 1% of
+callbacks (ten runs: 0, 2, 0, 2, 0, 0, 2, 0, 0, 0). `python3 tools/check_release.py`:
+142 tests and six interface groups pass.
+
+Not done, noted for a later tracker: when a bot is frozen on a landlord's cell, weigh
+"the landlord caught it" against "it shielded for its own land and missed" by whether
+it had a raider of its own to shield against that turn.

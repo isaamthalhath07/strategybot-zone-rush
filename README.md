@@ -64,13 +64,37 @@ game, 0 to 3.
 
 Zero faults in every test game. All six pre-registered shipping conditions held.
 
+### Confirmed on a second set of unseen opponents
+
+The same plan was run again on the half of the external bots that had been kept
+aside ([plan](lab/PREREGISTRATION2.md), 8,832 games, zero faults). This time the
+candidate was a later, more cautious design (`zr8`) that had looked 0.37 better
+against strong bots in development; `zr6` played the identical fixtures.
+
+| 960 pooled games | Score | `zr6` minus it (95% interval) |
+|---|---:|---|
+| **`bot.py` (`zr6`)** | **2.709** | |
+| Later candidate `zr8` | 2.676 | +0.034 [-0.02, +0.09] |
+| Previous release | 2.386 | +0.323 [+0.26, +0.39] |
+| Racer | 2.529 | +0.181 [+0.12, +0.24] |
+| Blocker | 2.510 | +0.199 [+0.14, +0.26] |
+
+`zr6` repeated its lead on opponents it had never met and was first or level with the
+first on every field. The later candidate failed three of its six pre-registered
+conditions (no lead against the unseen strong designs, and 0.16 worse against the
+generated families), so it was **not** shipped. Its development lead had been fitted
+to the strong bots already in this repository. [Sections 11 to 16 of the
+log](lab/PROGRESS.md) record what was tried and why each idea was kept or dropped.
+
 What the test does **not** show: a lead against strong bots. On the two fields of
 strong unseen opponents the new bot is level with Racer and Blocker (differences
 +0.01 to -0.02, intervals about +/-0.3) and its lead over the previous release
 (+0.14 and +0.07) is not established. Its margin is made against weak and
 mid-strength opponents. The development figures had suggested +0.55 against strong
-bots; that did not carry over, and [the log](lab/PROGRESS.md) explains why. Work on
-that gap continues in `lab/`.
+bots; that did not carry over, and [the log](lab/PROGRESS.md) explains why. The
+second test puts it 0.07 to 0.09 ahead of Racer and Blocker against a different set
+of strong unseen designs, again not established. No untouched opponents are left, so
+any later candidate needs new outside bots before it can be tested this way.
 
 ## Repository map
 
