@@ -686,3 +686,66 @@ Alternative rule readings (64 games each): `zr8` minus `zr6` is -0.06, -0.05, +0
 EXT2 and all the stress bots now count as seen. No untouched opponents remain, so a
 later candidate cannot be given a clean test of this kind unless new opponents are
 obtained from outside this project.
+
+## 16. After the test: can one bot have both behaviours? (development only, nothing held out)
+
+With every opponent now seen, `lab/suite3.py` reports each opponent group separately
+(three strong groups, two generated groups, the repository's own mid and weak bots,
+the pasted AI bots, the stress bots). The rule from here on: a change is kept only if
+no group pays for it, because "helps one group, costs another" is what fitting to
+opponents looks like.
+
+`zr8` minus `zr6` by group (seed 2000, 120 games per group):
+
+| group | `zr6` | `zr8` minus `zr6` |
+|---|---:|---|
+| `hist_elite` (17 strong bots from this repository's history) | 1.98 | **+0.31 [+0.03, +0.60]** |
+| `ext1_strong` | 2.23 | **+0.34 [+0.14, +0.54]** |
+| `ext2_strong` | 2.52 | +0.00 [-0.12, +0.13] |
+| `hist_mid` | 2.35 | **+0.22 [+0.03, +0.40]** |
+| `ext1_gen` | 2.76 | **-0.13 [-0.24, -0.01]** |
+| `ext2_gen` | 2.75 | -0.14 [-0.30, +0.01] |
+| `hist_weak` | 2.89 | -0.04 |
+| `pasted` | 2.92 | -0.01 |
+| `stress` | 2.92 | **-0.10 [-0.20, -0.01]** |
+| everything mixed | 2.58 | +0.00 [-0.09, +0.09] |
+
+So the cautious play is clearly better against some opponents and clearly worse
+against others, and level on the whole population. Neither bot dominates. Which one is
+right depends on who turns up, and that is not known.
+
+### Tried: play like `zr6`, switch to the cautious play when the game shows it is needed
+
+`lab/build_hybrid.py` builds a two-mode bot (`_head5.py` tracker, both decision halves
+wrapped so their names cannot collide). With the switch off it is move-for-move `zr6`;
+started in the cautious mode it is move-for-move `zr8` (both checked with
+`lab/equiv.py`, 32 games each).
+
+1. **Switch when my own un-upgraded land has been raided** (1 cell, 2 cells, or 2
+   such raids seen on anybody). Result, difference from `zr6`: `hist_elite` +0.03 to
+   +0.06, `ext1_strong` 0.00 to +0.06, `hist_mid` +0.08 to +0.11, but `pasted`
+   **-0.05 to -0.09** and `hist_weak` -0.02 to -0.05 (several significant); mean over
+   groups +0.00. It keeps a fifth of the gain and still pays against weak bots, whose
+   clumsy raids trip the switch. Not adopted.
+   Why so little: `lab/scratch/raid_signal.py` shows that against the strong historical
+   bots the cautious bot is already +0.28 ahead in games where no un-upgraded cell
+   has been raided by turn 30 (157 of 160 games). The raids come after turn 40, too
+   late for a switch to pay.
+2. **Switch on who the rivals are: "keeps its own land upgraded"**
+   (`lab/scratch/discipline.py`). Share of rivals with at most one bare cell at turn
+   20: `hist_elite` 0.80, `hist_mid` 0.68, **`ext2_gen` 0.70**, strong externals 0.5 to
+   0.6, weak / pasted / stress 0.1 to 0.25. It separates weak bots from the rest, but
+   the generated bots that the cautious play loses to look exactly like the strong
+   bots it wins against: tidy land, and they simply never raid. No early public
+   signal tells the two apart. Not built.
+
+### Conclusion of this round
+
+No change found in sections 11 to 16 beats `zr6` across opponent groups. `zr6` remains
+the root `bot.py`, now confirmed on two independent sets of unseen opponents. The
+cautious line is kept in `lab/cand/` (`zr7h`, `zr8`) with its measured profile: it is
+the better bot if the competition's strong entries raid un-upgraded land the way this
+repository's historical bots do, and the worse one otherwise.
+
+Seeds used in this section: 91 to 96 (raid_signal), 95 to 103 (discipline), 2000 to
+2009 (suite3).
