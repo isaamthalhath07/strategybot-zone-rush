@@ -2,10 +2,12 @@
 rivals have shown that they raid un-upgraded land, then plays the cautious generation 4
 decisions for the rest of the game.
 
-  python3 lab/build_hybrid.py NAME [lost1=1] [seen1=0] [start=0]  -> lab/cand/NAME.py
+  python3 lab/build_hybrid.py NAME [lost1=1] [seen1=0] [start=0] [turn=0]  -> lab/cand/NAME.py
 
   lost1  switch once this many of my own un-upgraded cells have been taken (0 = never)
   seen1  switch once rivals have taken this many un-upgraded cells from anybody (0 = never)
+  turn   switch at this turn whatever has happened (0 = never): fast land grab while
+         nobody is near, fortify before the middle game
   start  1 = start in the cautious mode (reproduces zr8); with lost1=0 seen1=0 start=0 the
          result reproduces zr6. Both are checked with lab/equiv.py.
 
@@ -30,7 +32,7 @@ def wrap(name, src):
     return "\n".join(out) + "\n"
 
 
-def build(name, lost1=1, seen1=0, start=0):
+def build(name, lost1=1, seen1=0, start=0, turn=0):
     head = open(os.path.join(HERE, "cand", "_head5.py")).read()
     t2, _ = body("_tail2.py")
     t4, tail_act = body("_tail4.py")
@@ -43,13 +45,13 @@ def build(name, lost1=1, seen1=0, start=0):
 # and is made on what rivals have actually done in this game, not on who they are.
 _PLAIN, _FALLBACK = _plain_mode()
 _WARY, _ = _wary_mode()
-_SWITCH = {"lost1": %d, "seen1": %d, "start": %d}
+_SWITCH = {"lost1": %d, "seen1": %d, "start": %d, "turn": %d}
 
 
 def _decide(v, m):
     if not m.wary:
         k = _SWITCH["lost1"]
-        if _SWITCH["start"] or (k and m.lost_land[0] >= k):
+        if _SWITCH["start"] or (k and m.lost_land[0] >= k) or 0 < _SWITCH["turn"] <= m.turn:
             m.wary = True
         else:
             k = _SWITCH["seen1"]
@@ -61,7 +63,7 @@ def _decide(v, m):
 def _fallback(v):
     return _FALLBACK(v)
 
-''' % (lost1, seen1, start)
+''' % (lost1, seen1, start, turn)
     src = head + wrap("_plain_mode", t2) + "\n\n" + wrap("_wary_mode", t4) + glue + tail_act.lstrip("\n")
     path = os.path.join(HERE, "cand", name + ".py")
     open(path, "w").write(src)

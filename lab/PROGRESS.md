@@ -739,6 +739,27 @@ started in the cautious mode it is move-for-move `zr8` (both checked with
    bots it wins against: tidy land, and they simply never raid. No early public
    signal tells the two apart. Not built.
 
+3. **Switch at a fixed turn** (`turn=20`, `30`, `40`: claim fast while nobody is near,
+   fortify before the middle game). Seed 2100, difference from `zr6`:
+
+   | group | `zr8` | switch at 20 | at 30 | at 40 |
+   |---|---:|---:|---:|---:|
+   | `hist_elite` | +0.44 | +0.23 | +0.23 | +0.03 |
+   | `ext1_strong` | +0.28 | +0.05 | +0.02 | +0.01 |
+   | `ext2_strong` | -0.08 | -0.07 | +0.02 | +0.03 |
+   | `hist_mid` | +0.24 | +0.18 | +0.03 | +0.00 |
+   | `ext1_gen` | -0.15 | +0.08 | +0.04 | +0.00 |
+   | `ext2_gen` | -0.05 | -0.05 | -0.04 | -0.03 |
+   | `hist_weak` | +0.01 | -0.04 | -0.05 | -0.03 |
+   | `pasted` | -0.01 | -0.03 | -0.07 | -0.01 |
+   | `stress` | +0.03 | +0.03 | +0.03 | +0.02 |
+   | everything mixed | +0.03 | -0.01 | -0.03 | +0.02 |
+
+   An early switch keeps half of the gain against the historical strong bots and
+   drops the cost against the first generated group, but it is slightly negative
+   against weak and pasted bots and level on the mixed population. No group-wise
+   gain. Not adopted.
+
 ### Conclusion of this round
 
 No change found in sections 11 to 16 beats `zr6` across opponent groups. `zr6` remains
@@ -748,7 +769,7 @@ the better bot if the competition's strong entries raid un-upgraded land the way
 repository's historical bots do, and the worse one otherwise.
 
 Seeds used in this section: 91 to 96 (raid_signal), 95 to 103 (discipline), 2000 to
-2009 (suite3).
+2009 and 2100 to 2109 (suite3).
 
 ## 17. A flaky release test, and what it was really pointing at
 
