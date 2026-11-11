@@ -141,6 +141,20 @@ def p_shuffled_legal(v):
     return _mk(v.board, v.bot_id, v.is_priority_token, legal), None
 
 
+def p_every_action_listed(v):
+    """A server that always lists all six actions to a bot that is free to act, and sorts
+    out walls, occupied cells and a cooling SHIELD itself (each then resolves as STAY)."""
+    legal = list(v.legal_actions)
+    if len(legal) > 1:
+        legal = ["NORTH", "EAST", "SOUTH", "WEST", "STAY", "SHIELD"]
+    return _mk(v.board, v.bot_id, v.is_priority_token, legal), None
+
+
+def p_every_action_even_frozen(v):
+    """The same, and a frozen bot is shown the full list too (anything but STAY is wasted)."""
+    return _mk(v.board, v.bot_id, v.is_priority_token, ["NORTH", "EAST", "SOUTH", "WEST", "STAY", "SHIELD"]), None
+
+
 PERTURB = [
     ("documented 8x8 Cell objects", p_documented, None),
     ("flat 64-list of Cell objects", p_flat_objects, None),
@@ -159,6 +173,8 @@ PERTURB = [
     ("homes reported unowned", p_homes_unowned, None),
     ("SHIELD listed while on cooldown", p_shield_always_listed, None),
     ("legal_actions in reverse order", p_shuffled_legal, None),
+    ("all six actions listed when free", p_every_action_listed, None),
+    ("all six listed even when frozen", p_every_action_even_frozen, None),
     ("legal list omits occupied cells", p_documented, {"legal_excludes_occupied": True}),
     ("homes cannot be upgraded", p_documented, {"home_upgradable": False}),
     ("Shield catches by presence", p_documented, {"catch_requires_stay": False}),
@@ -170,8 +186,21 @@ OPP = ["a_novel_b_racer", "cur_e8", "a_opp_farmer_04_0db330"]
 GAMES = [("gradient", 11, 0, 1), ("uniform", 12, 1, 3), ("noisy", 13, 2, 2), ("ring", 14, 3, 4)]
 
 
-def play(focal, perturb, rules=None, mode="normal", games=GAMES):
-    """Mean focal score and error count. mode: normal | amnesia | late | shared | second."""
+def play(focal, perturb, rules=None, mode="normal", games=GAMES, homes=None, turns=80):
+    """Mean focal score and error count. mode: normal | amnesia | late | shared | second |
+    skipfrozen (the server does not call a frozen bot). homes: another seat-to-corner map.
+    turns: a game length other than the documented 80."""
+    import referee as _ref
+    saved = dict(_ref.HOMES)
+    if homes:
+        _ref.HOMES.clear(); _ref.HOMES.update(homes)
+    try:
+        return _play(focal, perturb, rules, mode, games, turns)
+    finally:
+        _ref.HOMES.clear(); _ref.HOMES.update(saved)
+
+
+def _play(focal, perturb, rules, mode, games, turns):
     total, errors = 0, 0
     for family, mapseed, seat, token in games:
         base = sim.make_map(family, mapseed)
@@ -184,12 +213,15 @@ def play(focal, perturb, rules=None, mode="normal", games=GAMES):
             actors = [actors[0]] * 4          # one module instance serves every seat
         rounds = 2 if mode == "second" else 1
         for rnd in range(rounds):
-            game = Referee(base, rules=rules, start_token=token)
+            game = Referee(base, rules=rules, start_token=token, max_turns=turns)
             while not game.over():
                 states = sim.build_states(game)
                 chosen = []
                 for i in range(4):
                     legal = states[i].legal_actions
+                    if mode == "skipfrozen" and i == seat and game.frozen[i] > 0:
+                        chosen.append("STAY")           # the bot is simply not asked
+                        continue
                     if i != seat and mode != "shared":
                         try:
                             a = actors[i](states[i])
@@ -223,6 +255,9 @@ def play(focal, perturb, rules=None, mode="normal", games=GAMES):
                         if not (a == "SHIELD" and perturb is p_shield_always_listed):
                             errors += 1
                         a = "STAY"
+                    elif perturb in (p_every_action_listed, p_every_action_even_frozen) and a in DELTA_ \
+                            and game.target(game.pos[i], a) is None:
+                        errors += 1                     # walked into the wall: a wasted turn
                     chosen.append(a)
                 game.step(chosen)
             score = game.score
@@ -230,6 +265,7 @@ def play(focal, perturb, rules=None, mode="normal", games=GAMES):
     return total / len(games), errors
 
 
+DELTA_ = ("NORTH", "EAST", "SOUTH", "WEST")
 actors_late = {}
 
 
@@ -286,6 +322,15 @@ def main(cands):
                 v = verdict(sc, base_ref, er)
             rows.append((name, sc, er, v))
             print("%-36s %7.0f %7d  %s" % (name, sc, er, v))
+        for label, homes in (("seats 2 and 4 in swapped corners", {1: 0, 2: 56, 3: 63, 4: 7}),
+                             ("every seat in the opposite corner", {1: 63, 2: 56, 3: 0, 4: 7})):
+            sc, er = play(cand, p_documented, homes=homes)
+            rows.append((label, sc, er, "ok" if er == 0 and sc >= 0.7 * ref else verdict(sc, ref, er, 0.7)))
+        sc, er = play(cand, p_documented, mode="skipfrozen")
+        rows.append(("not called while frozen", sc, er, verdict(sc, ref, er)))
+        for label, turns in (("game stops after 60 turns", 60), ("game runs for 100 turns", 100)):
+            sc, er = play(cand, p_documented, turns=turns)
+            rows.append((label, sc * 80.0 / turns, er, "ok" if er == 0 else "BROKEN"))
         sc, er = play(cand, p_documented, mode="amnesia")
         rows.append(("fresh module every turn", sc, er, verdict(sc, ref, er, 0.5)))
         sc, er = play(cand, p_documented, mode="second")

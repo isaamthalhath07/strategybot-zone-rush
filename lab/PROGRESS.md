@@ -443,3 +443,401 @@ one risk for both.
 
 Not yet done, and the numbers above are development numbers on seen opponents:
 more than half of the remaining losses fall in the last ten turns.
+
+## 11. Generation 4 starts from `zr7h`; two ideas from a parallel line checked and not adopted
+
+A parallel line of work (kept in commit 1c2f7e2, candidate `zr9old`) had three changes
+on top of the `zr6` design: full upgrade value for the cell the bot is standing on,
+clamped loss probabilities, and "value-aware routes" (among equally short paths to the
+target, walk the one that passes the most claimable land). Before building on either
+line, both were measured on the same fresh fixtures.
+
+Seed 1200, difference from the shipped `zr6` (`python3 lab/suite2.py --seed 1200 --self zr7h zr9old zr7h`):
+
+| | strong | mid | weak | mix | self |
+|---|---:|---:|---:|---:|---:|
+| `zr6` (PW) | 2.109 | 2.628 | 2.865 | 2.486 | 1.965 |
+| `zr9old` | +0.072 [-0.06, +0.21] | -0.032 | -0.019 | +0.010 | +0.016 |
+| `zr7h` | +0.104 [-0.06, +0.25] | +0.032 | -0.051 [-0.12, +0.01] | +0.072 | +0.122 |
+
+`zr7h` is at least as good everywhere that matters, so generation 3 is the base.
+Note the strong-field gain of `zr7h` on this seed (+0.10) is half the +0.22 seen on
+seed 900 where it was developed: the usual shrinkage, and a reminder of its size.
+
+Generation 4 (`lab/cand/_head4.py`, `_tail4.py`; `python3 lab/build.py NAME gen=4`)
+is generation 3 plus optional features, each behind a setting that defaults to off.
+`zr8a_r0` (gen 4, everything off) is move-for-move identical to `zr7h`
+(`python3 lab/equiv.py zr7h zr8a_r0 --maps 10`: 40/40 games, 3,200 decisions).
+
+Value-aware routes on the generation 3 base, seed 1300, difference from `zr7h`
+(`python3 lab/suite2.py --ref zr7h --seed 1300 --self zr8a zr8a`):
+
+| | strong | mid | weak | mix | self |
+|---|---:|---:|---:|---:|---:|
+| `zr7h` (PW) | 2.373 | 2.545 | 2.853 | 2.591 | 2.244 |
+| routes on | **-0.051 [-0.09, -0.02]** | +0.045 [-0.01, +0.10] | +0.013 [-0.01, +0.04] | +0.010 [-0.02, +0.04] | -0.010 [-0.07, +0.06] |
+
+Not adopted: slightly but clearly worse against strong bots, no clear gain elsewhere.
+The setting stays in the file, off (`"routes": 0`).
+
+Seeds used in this section: 1200, 1300.
+
+## 12. Where `zr7h` still loses, and two changes to how land is priced
+
+### Diagnosis (new tools: `lab/gap.py`, `lab/scratch/l2_loss.py`, `waste.py`, `opening.py`)
+
+- `python3 lab/gap.py zr7h --field strong|mid|weak` profiles every seat in every game
+  and compares the focal bot with exactly the rivals that finished ahead of it. In
+  the pairings `zr7h` loses, the rival is not raiding better: it has less raid bonus
+  than `zr7h`. It simply was left alone (0.4 cells lost against our 1.6, no shields
+  needed) and spent those turns on claims and upgrades. `zr7h`'s bad games are the
+  ones in which it is raided repeatedly (about 3 cells lost, one of them upgraded,
+  4 shields cast).
+- Upgraded cells (`l2_loss.py`, 0.47 lost per game against strong bots): half fall
+  while the shield is recharging after catching a different raider, a fifth after
+  the raider side-stepped a shield (backfire), a fifth with the shield ready and not
+  used. Not pursued yet.
+- Wasted turns (`waste.py`): the 2 abandoned progress points per game are almost all
+  deliberate side-steps on turns the landlord did shield. Nothing to recover there.
+- **Opening** (`opening.py`: each bot alone against three bots that never move; the
+  position's worth at turn 27 is score + income x turns left). `zr7h` had the slowest
+  opening of all the strong bots: 1,966 against Racer 2,054 and `zr6` 2,243. Two
+  causes, both visible in the move traces:
+  1. it upgraded its **home cell first**. The home cell cannot be taken, but the
+     risk model priced it like any other un-upgraded cell, which made "upgrade home"
+     look like rescuing a cell about to be lost;
+  2. it walks over cheap cells near home without claiming them, because a claim is
+     priced as "held un-upgraded, and exposed, for the rest of the game".
+
+### Change 1, adopted: no risk on the home cell (`"homefix": 1`)
+
+A modelling error, fixed. Difference from `zr7h`, fresh fixtures:
+
+| seed | strong | mid | weak | mix | self |
+|---|---:|---:|---:|---:|---:|
+| 1400 | +0.040 [-0.03, +0.11] | +0.032 [-0.03, +0.10] | +0.006 [-0.03, +0.04] | +0.014 [-0.04, +0.07] | +0.115 [-0.03, +0.29] |
+| 1500 | +0.104 [+0.03, +0.18] | +0.032 [-0.04, +0.12] | -0.026 [-0.07, +0.02] | +0.043 [-0.03, +0.13] | +0.090 [+0.00, +0.18] |
+
+### Change 2, not adopted: price a claim as exposed for `lag` turns, then upgraded
+
+Three versions were tried.
+
+- Charging the three future upgrade turns at last turn's best rate: the price fed
+  back into itself from one turn to the next and the bot dithered. Dropped before
+  any real-game run.
+- Exposure cut off after `lag` turns for every un-upgraded cell (seed 1400): the
+  undisturbed opening jumps to 2,308, but in real games it is a disaster,
+  **strong -1.11 (lag 8), -0.73 (lag 16)**, mid -0.21 / -0.12. Upgrades of cells
+  already held looked less urgent, were put off, and 4.6 un-upgraded cells per game
+  were raided. This is the `zr6` leak again, and a clean measurement of how hard
+  the known strong bots punish exposed land.
+- Exposure cut off only for a claim made inside the current plan, full urgency for
+  cells already held (seed 1500, difference from the home-fixed bot): the opening
+  now equals Racer's (2,050) and a first look on development seed 78 said +0.10 on
+  strong, but the fresh seed says strong -0.04 / -0.03 / +0.02 (lag 6 / 10 / 16),
+  mid -0.03 / -0.02 / -0.01, weak -0.05 / -0.04 / -0.01. No gain. The setting stays in
+  the file, off (`"lag": 0`).
+
+The slower opening of generation 3 is therefore the price of not exposing land, and
+on the evidence it is a price worth paying against these opponents.
+
+Seeds used in this section: 41, 42, 43 (gap), 51, 52 (audits), 77, 78 (profiles),
+1400, 1500 (suite2).
+
+## 13. The Shield decision mis-priced its own cost; candidate `zr8`
+
+`lab/scratch/l2_loss.py` showed about 0.13 upgraded cells per game lost against
+strong bots (0.20 against mid bots) with the shield ready and not cast. Printing the
+numbers behind those decisions gave two causes.
+
+1. **The price of a turn spiked when the bot was one stay from finishing a job.** The
+   shield's cost is "one turn, plus half a turn per banked stay", and a turn was
+   priced at the best job's gain divided by the work *left* on it. Two stays into an
+   upgrade that is the whole upgrade divided by one turn, about three times a real
+   turn, so at turn 29 the bot judged a shield to cost 555 points and let a
+   base-3 upgraded cell worth 500 go. Fixed (`"fresh_rate": 1`): the tactics price a
+   turn at gain over the full work, banked stays not credited.
+2. **In the last four turns a backfire was charged as if the cell would be lost
+   anyway.** A raider that steps aside needs a move and three stays to come back for
+   an upgraded cell; with fewer than five turns left it cannot. Fixed
+   (`"end_backfire": 1`).
+
+With both, upgraded cells lost with the shield ready fall from 44 to 14 per 312 games
+against strong bots and from 62 to 38 against mid bots (same fixtures, seed 51).
+
+Difference from the home-fixed bot, fresh fixtures:
+
+| seed | strong | mid | weak | mix | self |
+|---|---:|---:|---:|---:|---:|
+| 1600 | -0.003 [-0.03, +0.03] | +0.013 [-0.03, +0.07] | +0.019 [-0.02, +0.06] | +0.022 [-0.01, +0.05] | -0.035 [-0.07, +0.00] |
+| 1700 (x1.5) | -0.002 [-0.01, +0.01] | +0.041 [+0.01, +0.08] | +0.030 [-0.00, +0.06] | -0.011 [-0.04, +0.02] | -0.011 [-0.05, +0.02] |
+
+Small: nothing against strong bots, a few hundredths against mid and weak bots,
+which is where the persistent raiders are. Adopted because both are corrections of
+arithmetic, not tuned values, and no field is significantly worse.
+
+Tried on seed 1600 and not adopted (no gain on any field): trusting "it will stay"
+more after a side-step (`feint_pen` 0.75 and 1.0 instead of 0.5), and using the
+corrected turn price in the planner's tail term (`fresh_tail`).
+
+`zr8` = generation 4 with `homefix`, `fresh_rate`, `end_backfire` on (now the defaults
+in `lab/cand/_tail4.py`; `python3 lab/build.py zr8 gen=4`). `python3 lab/audit.py zr8 40`:
+no exceptions, no illegal actions, worst call 8 ms.
+
+Seeds used in this section: 44, 51, 53 (diagnosis), 1600, 1700 (suite2).
+
+## 14. Last development checks, candidate frozen, second test pre-registered
+
+- "Cast the shield a stay early when waiting would wipe a stay I am about to bank"
+  (`bank_shield`), seed 1800, difference from `zr8`: strong -0.013, mid +0.019,
+  weak +0.026 [+0.01, +0.05], mix -0.005, self -0.019. No clear gain; left off.
+- Summary on a fresh seed (1900, 1.5x fixtures), difference from the shipped `zr6`:
+
+  | | strong | mid | weak | mix | self |
+  |---|---:|---:|---:|---:|---:|
+  | `zr6` (PW) | 2.046 | 2.616 | 2.853 | 2.575 | 1.940 |
+  | `zr7h` | +0.324 [+0.21, +0.43] | +0.054 | -0.065 [-0.12, -0.00] | -0.016 | +0.108 |
+  | `zr8` | **+0.368 [+0.25, +0.48]** | +0.017 [-0.08, +0.11] | -0.043 [-0.10, +0.01] | +0.014 [-0.07, +0.10] | +0.110 [-0.06, +0.28] |
+  | Racer | -0.126 | -0.043 | -0.086 | -0.053 | -0.233 |
+
+- The small cost against weak bots is against passive farmers only
+  (`python3 lab/h2h_field.py weak zr6 zr8 --maps 150 --seed 18`: farmer_early 0.95 to
+  0.79, farmer_noshield 0.94 to 0.85, farmer_coin 0.86 to 0.75; raiders and naive bots
+  unchanged or better). Profiled against six farmers (seed 79), `zr6` makes 11.5
+  raids a game on their exposed land for 264 bonus points, `zr8` 8.9 for 204: the
+  generation 3 risk model prices a cell taken from a rival as likely to be retaken
+  until that rival has shown it does not retake. Known, accepted, written into the
+  pre-registration as the expected price.
+- `python3 lab/robust.py zr8`: all 27 rows pass.
+- `lab/final_test.py` now takes `--focals` (first name is the candidate) and
+  `--report FILE --as NAME`; its defaults and the EXT1 report are unchanged.
+- **`zr8` frozen** at SHA-256 `4b472af3…f5be0`. `lab/PREREGISTRATION2.md` is in force.
+  No EXT2 game has been played.
+
+Seeds used in this section: 18, 79 (diagnosis), 1800, 1900 (suite2).
+
+## 15. The second out-of-sample test (EXT2): `zr8` does not replace `zr6`
+
+`python3 lab/final_test.py --set EXT2 --focals zr8,zr6,zr7h,a_novel_b_racer,a_novel_b_blocker,cur_e8 --out lab/results/test_ext2.json`,
+run once on the frozen `zr8` exactly as pre-registered in `lab/PREREGISTRATION2.md`.
+8,832 games, 0 faults by any focal bot, 0 games that failed to run. Full table:
+`lab/results/test_ext2.txt`; per-game data: `lab/results/test_ext2.json`.
+
+| Field (192 games each) | `zr8` | `zr6` | `zr7h` | Racer | Blocker | `cur_e8` | `zr8` minus `zr6` (95%) |
+|---|---:|---:|---:|---:|---:|---:|---|
+| `ai_pasted` | 2.79 | 2.76 | 2.77 | 2.71 | 2.72 | 2.58 | +0.031 [-0.04, +0.10] |
+| `generated` | 2.61 | **2.78** | 2.67 | 2.37 | 2.29 | 2.23 | **-0.164 [-0.29, -0.04]** |
+| `other_designs` (strong) | 2.42 | 2.41 | 2.45 | 2.33 | 2.32 | 2.13 | +0.016 [-0.14, +0.18] |
+| `stress` | 2.87 | 2.88 | 2.86 | 2.69 | 2.70 | 2.59 | -0.005 [-0.10, +0.08] |
+| `unseen_mixed` | 2.68 | 2.73 | 2.69 | 2.54 | 2.52 | 2.40 | -0.047 [-0.15, +0.05] |
+| **Pooled** (960 games) | 2.676 | **2.709** | 2.686 | 2.529 | 2.510 | 2.386 | -0.034 [-0.09, +0.02] |
+| known map families | 2.69 | 2.76 | 2.70 | 2.61 | 2.58 | 2.44 | -0.069 [-0.14, -0.01] |
+| new map families | 2.66 | 2.64 | 2.66 | 2.43 | 2.42 | 2.32 | +0.012 [-0.07, +0.10] |
+| `with_candidate` | 2.14 | 2.06 | 2.09 | 2.00 | 1.92 | 1.96 | +0.083 [-0.10, +0.27] |
+
+Alternative rule readings (64 games each): `zr8` minus `zr6` is -0.06, -0.05, +0.09,
++0.13, +0.06; none significant.
+
+### The shipping rule, applied as written (`python3 lab/ext2_rule.py lab/results/test_ext2.json`)
+
+| # | Condition | Result |
+|---|---|---|
+| 1 | `other_designs`: `zr8` minus `zr6` lower bound above 0 | +0.016 [-0.14, +0.18]: **fails** |
+| 2 | that lead at least +0.13 | +0.016: **fails** |
+| 3 | pooled: not significantly below `zr6` | -0.034 [-0.09, +0.02]: holds |
+| 4 | no field below `zr6` by more than 0.08, significantly | `generated` -0.164 [-0.29, -0.04]: **fails** |
+| 5 | pooled lead over Racer and Blocker | +0.147 and +0.166, both clear: holds |
+| 6 | zero faults, zero failed games, no rule reading significantly below | holds |
+
+**Decision: `zr6` stays as the root `bot.py`. `zr8` is not shipped.**
+
+### What this test says
+
+1. **The generation 3 and 4 gain was overfitted to the strong bots we had seen.**
+   Development said +0.37 against strong bots on a fresh seed; eight strong designs
+   nobody had looked at give +0.02. The seen strong pool (17 bots from this
+   repository's history plus nine from EXT1) punishes un-upgraded land very hard;
+   the unseen designs evidently do not, so the caution bought nothing there.
+2. **The caution has a real price, larger than development showed.** On the 27
+   unseen generated bots `zr8` is 0.16 below `zr6`. Development had put the price at
+   about 0.04 against weak bots and nothing against mid-strength ones.
+3. **The fresh seeds did not protect against this.** Every development decision in
+   sections 11 to 14 was confirmed on fixtures never used before, and it still did
+   not transfer. Fresh maps and seats guard against fitting the fixtures; they do
+   not guard against fitting the *opponents*. Only opponents never looked at do.
+4. **The small corrections of sections 12 and 13 are not shown to help out of
+   sample:** `zr8` minus `zr7h` is pooled -0.010 [-0.04, +0.02].
+5. **`zr6` replicates.** This is the deferred replication of the first test, on
+   opponents it had never met: pooled 2.709, **+0.32 [+0.26, +0.39] over the
+   previous release, +0.18 [+0.12, +0.24] over Racer, +0.20 [+0.14, +0.26] over
+   Blocker**; first or level with the first on every field. Its lead on the first
+   test was +0.26, +0.10 and +0.10.
+
+### Deviations from the pre-registration
+
+- `lab/ext2_rule.py`, which applies the six conditions mechanically, was written
+  after the plan was committed and while the games were running, before any result
+  had been read. It encodes the rule as written and changes nothing in it.
+- The result file was committed once while still partial (a repository hook asks
+  for every change to be pushed); no number in it had been looked at.
+
+### Where this leaves the work
+
+EXT2 and all the stress bots now count as seen. No untouched opponents remain, so a
+later candidate cannot be given a clean test of this kind unless new opponents are
+obtained from outside this project.
+
+## 16. After the test: can one bot have both behaviours? (development only, nothing held out)
+
+With every opponent now seen, `lab/suite3.py` reports each opponent group separately
+(three strong groups, two generated groups, the repository's own mid and weak bots,
+the pasted AI bots, the stress bots). The rule from here on: a change is kept only if
+no group pays for it, because "helps one group, costs another" is what fitting to
+opponents looks like.
+
+`zr8` minus `zr6` by group (seed 2000, 120 games per group):
+
+| group | `zr6` | `zr8` minus `zr6` |
+|---|---:|---|
+| `hist_elite` (17 strong bots from this repository's history) | 1.98 | **+0.31 [+0.03, +0.60]** |
+| `ext1_strong` | 2.23 | **+0.34 [+0.14, +0.54]** |
+| `ext2_strong` | 2.52 | +0.00 [-0.12, +0.13] |
+| `hist_mid` | 2.35 | **+0.22 [+0.03, +0.40]** |
+| `ext1_gen` | 2.76 | **-0.13 [-0.24, -0.01]** |
+| `ext2_gen` | 2.75 | -0.14 [-0.30, +0.01] |
+| `hist_weak` | 2.89 | -0.04 |
+| `pasted` | 2.92 | -0.01 |
+| `stress` | 2.92 | **-0.10 [-0.20, -0.01]** |
+| everything mixed | 2.58 | +0.00 [-0.09, +0.09] |
+
+So the cautious play is clearly better against some opponents and clearly worse
+against others, and level on the whole population. Neither bot dominates. Which one is
+right depends on who turns up, and that is not known.
+
+### Tried: play like `zr6`, switch to the cautious play when the game shows it is needed
+
+`lab/build_hybrid.py` builds a two-mode bot (`_head5.py` tracker, both decision halves
+wrapped so their names cannot collide). With the switch off it is move-for-move `zr6`;
+started in the cautious mode it is move-for-move `zr8` (both checked with
+`lab/equiv.py`, 32 games each).
+
+1. **Switch when my own un-upgraded land has been raided** (1 cell, 2 cells, or 2
+   such raids seen on anybody). Result, difference from `zr6`: `hist_elite` +0.03 to
+   +0.06, `ext1_strong` 0.00 to +0.06, `hist_mid` +0.08 to +0.11, but `pasted`
+   **-0.05 to -0.09** and `hist_weak` -0.02 to -0.05 (several significant); mean over
+   groups +0.00. It keeps a fifth of the gain and still pays against weak bots, whose
+   clumsy raids trip the switch. Not adopted.
+   Why so little: `lab/scratch/raid_signal.py` shows that against the strong historical
+   bots the cautious bot is already +0.28 ahead in games where no un-upgraded cell
+   has been raided by turn 30 (157 of 160 games). The raids come after turn 40, too
+   late for a switch to pay.
+2. **Switch on who the rivals are: "keeps its own land upgraded"**
+   (`lab/scratch/discipline.py`). Share of rivals with at most one bare cell at turn
+   20: `hist_elite` 0.80, `hist_mid` 0.68, **`ext2_gen` 0.70**, strong externals 0.5 to
+   0.6, weak / pasted / stress 0.1 to 0.25. It separates weak bots from the rest, but
+   the generated bots that the cautious play loses to look exactly like the strong
+   bots it wins against: tidy land, and they simply never raid. No early public
+   signal tells the two apart. Not built.
+
+3. **Switch at a fixed turn** (`turn=20`, `30`, `40`: claim fast while nobody is near,
+   fortify before the middle game). Seed 2100, difference from `zr6`:
+
+   | group | `zr8` | switch at 20 | at 30 | at 40 |
+   |---|---:|---:|---:|---:|
+   | `hist_elite` | +0.44 | +0.23 | +0.23 | +0.03 |
+   | `ext1_strong` | +0.28 | +0.05 | +0.02 | +0.01 |
+   | `ext2_strong` | -0.08 | -0.07 | +0.02 | +0.03 |
+   | `hist_mid` | +0.24 | +0.18 | +0.03 | +0.00 |
+   | `ext1_gen` | -0.15 | +0.08 | +0.04 | +0.00 |
+   | `ext2_gen` | -0.05 | -0.05 | -0.04 | -0.03 |
+   | `hist_weak` | +0.01 | -0.04 | -0.05 | -0.03 |
+   | `pasted` | -0.01 | -0.03 | -0.07 | -0.01 |
+   | `stress` | +0.03 | +0.03 | +0.03 | +0.02 |
+   | everything mixed | +0.03 | -0.01 | -0.03 | +0.02 |
+
+   An early switch keeps half of the gain against the historical strong bots and
+   drops the cost against the first generated group, but it is slightly negative
+   against weak and pasted bots and level on the mixed population. No group-wise
+   gain. Not adopted.
+
+### Conclusion of this round
+
+No change found in sections 11 to 16 beats `zr6` across opponent groups. `zr6` remains
+the root `bot.py`, now confirmed on two independent sets of unseen opponents. The
+cautious line is kept in `lab/cand/` (`zr7h`, `zr8`) with its measured profile: it is
+the better bot if the competition's strong entries raid un-upgraded land the way this
+repository's historical bots do, and the worse one otherwise.
+
+Seeds used in this section: 91 to 96 (raid_signal), 95 to 103 (discipline), 2000 to
+2009 and 2100 to 2109 (suite3).
+
+## 17. A flaky release test, and what it was really pointing at
+
+`tests/test_root_bot.py` required the shipped bot's tracker to report zero
+"unexplained" freezes in four self-play games. It failed in about three runs out of
+eight, with no code change in between: the bot's random choices decide whether a game
+contains the awkward turn. Reproduced with the root `bot.py` (60 self-play games, two
+cases). In both, a rival cast SHIELD and backfired while standing on another bot's
+land. From the public board that is identical to the landlord catching it, the
+tracker takes the likelier story (the landlord), and three turns later the landlord
+really does shield while the tracker has it on cooldown. The tracker then re-reads
+the turn and ends with the right cooldowns. Own score, own progress and own cooldown
+stayed exact in every run.
+
+So the requirement was wrong, not the bot: the information is not on the board. The
+test now counts those re-reads, prints the count and requires fewer than 1% of
+callbacks (ten runs: 0, 2, 0, 2, 0, 0, 2, 0, 0, 0). `python3 tools/check_release.py`:
+142 tests and six interface groups pass.
+
+Not done, noted for a later tracker: when a bot is frozen on a landlord's cell, weigh
+"the landlord caught it" against "it shielded for its own land and missed" by whether
+it had a raider of its own to shield against that turn.
+
+## 18. Conformance with the organisers' README; main merged (2026-11-11)
+
+- Merged `main` (`c4e3f5a`): the `zr6` hybrid validation and feint ablation
+  (`lab/zr6_hybrid_20261111/`). Its findings agree with sections 15 and 16 from an
+  independent set-up: two further hybrids of `zr6` gain +0.003 and +0.008 (nil), and
+  switching the side-steps off costs 0.35, so the side-step is the part of `zr6` that
+  must keep working on the real server.
+- `lab/RULES_AUDIT.md`: every sentence of the official README
+  (<https://github.com/RedPokerJoker123/StrategyBot>, `975b643`) against the referee we
+  measure on and against what the bot assumes, and every point the README leaves open
+  against a row of `lab/robust.py`.
+- Seven rows added to `lab/robust.py` from that reading: all six actions always listed
+  (free, and also when frozen), two other seat-to-corner layouts, the bot not being
+  called while frozen, games of 60 and 100 turns. The shipped `bot.py` passes all 34
+  rows with zero errors.
+- `lab/timing.py`: load 12 ms, first call 4 ms, later calls median 1.4 ms and worst
+  7.3 ms over 4,800 calls. Limits are 2,000 and 200 ms.
+- `bot.py` is unchanged.
+
+## 19. The choice between the two play styles, with firmer numbers (development only)
+
+`python3 lab/suite3.py --seed 2200 --maps 75 zr8 hy_t20` (300 games per group; `hy_t20`
+is `zr6` until turn 20, then the cautious play). Difference from `zr6`, with the two
+earlier seeds of section 16 alongside for `zr8`:
+
+| group | `zr6` | `zr8`, seed 2200 | `zr8`, seeds 2000 / 2100 | switch at turn 20, seed 2200 |
+|---|---:|---|---:|---|
+| `hist_elite` | 1.97 | **+0.41 [+0.27, +0.56]** | +0.31 / +0.44 | **+0.18 [+0.07, +0.28]** |
+| `ext1_strong` | 2.32 | **+0.25 [+0.14, +0.36]** | +0.34 / +0.28 | **+0.10 [+0.02, +0.18]** |
+| `ext2_strong` | 2.43 | +0.10 [+0.00, +0.20] | +0.00 / -0.08 | +0.02 [-0.07, +0.10] |
+| `hist_mid` | 2.40 | +0.08 [-0.05, +0.21] | +0.22 / +0.24 | +0.05 [-0.04, +0.14] |
+| `ext1_gen` | 2.83 | -0.07 [-0.15, +0.01] | -0.13 / -0.15 | -0.02 [-0.08, +0.03] |
+| `ext2_gen` | 2.75 | -0.07 [-0.15, +0.01] | -0.14 / -0.05 | **-0.08 [-0.15, -0.02]** |
+| `hist_weak` | 2.87 | **-0.09 [-0.14, -0.04]** | -0.04 / +0.01 | **-0.06 [-0.11, -0.01]** |
+| `pasted` | 2.89 | -0.04 [-0.08, +0.00] | -0.01 / -0.01 | -0.03 [-0.08, +0.02] |
+| `stress` | 2.83 | -0.02 [-0.09, +0.05] | -0.10 / +0.03 | -0.03 [-0.08, +0.02] |
+| everything mixed | 2.60 | -0.02 [-0.07, +0.04] | +0.00 / +0.03 | -0.01 [-0.05, +0.04] |
+
+Three seeds agree. The cautious play is worth 0.25 to 0.45 against two of the three
+strong groups and nothing against the third; it costs 0.05 to 0.15 against bots that
+do not raid. On the mixed population it is level. The timed switch is the same trade
+at about 40% strength. Neither passes "no group pays", so neither is a development
+gain: choosing one is a bet on who the opponents are. `bot.py` stays `zr6`.
+
+What would settle it is opponents written by other people's AI tools from the
+official README alone, which this project has run out of.
+
+Seeds used in this section: 2200 to 2209.
