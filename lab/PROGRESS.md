@@ -811,3 +811,33 @@ it had a raider of its own to shield against that turn.
 - `lab/timing.py`: load 12 ms, first call 4 ms, later calls median 1.4 ms and worst
   7.3 ms over 4,800 calls. Limits are 2,000 and 200 ms.
 - `bot.py` is unchanged.
+
+## 19. The choice between the two play styles, with firmer numbers (development only)
+
+`python3 lab/suite3.py --seed 2200 --maps 75 zr8 hy_t20` (300 games per group; `hy_t20`
+is `zr6` until turn 20, then the cautious play). Difference from `zr6`, with the two
+earlier seeds of section 16 alongside for `zr8`:
+
+| group | `zr6` | `zr8`, seed 2200 | `zr8`, seeds 2000 / 2100 | switch at turn 20, seed 2200 |
+|---|---:|---|---:|---|
+| `hist_elite` | 1.97 | **+0.41 [+0.27, +0.56]** | +0.31 / +0.44 | **+0.18 [+0.07, +0.28]** |
+| `ext1_strong` | 2.32 | **+0.25 [+0.14, +0.36]** | +0.34 / +0.28 | **+0.10 [+0.02, +0.18]** |
+| `ext2_strong` | 2.43 | +0.10 [+0.00, +0.20] | +0.00 / -0.08 | +0.02 [-0.07, +0.10] |
+| `hist_mid` | 2.40 | +0.08 [-0.05, +0.21] | +0.22 / +0.24 | +0.05 [-0.04, +0.14] |
+| `ext1_gen` | 2.83 | -0.07 [-0.15, +0.01] | -0.13 / -0.15 | -0.02 [-0.08, +0.03] |
+| `ext2_gen` | 2.75 | -0.07 [-0.15, +0.01] | -0.14 / -0.05 | **-0.08 [-0.15, -0.02]** |
+| `hist_weak` | 2.87 | **-0.09 [-0.14, -0.04]** | -0.04 / +0.01 | **-0.06 [-0.11, -0.01]** |
+| `pasted` | 2.89 | -0.04 [-0.08, +0.00] | -0.01 / -0.01 | -0.03 [-0.08, +0.02] |
+| `stress` | 2.83 | -0.02 [-0.09, +0.05] | -0.10 / +0.03 | -0.03 [-0.08, +0.02] |
+| everything mixed | 2.60 | -0.02 [-0.07, +0.04] | +0.00 / +0.03 | -0.01 [-0.05, +0.04] |
+
+Three seeds agree. The cautious play is worth 0.25 to 0.45 against two of the three
+strong groups and nothing against the third; it costs 0.05 to 0.15 against bots that
+do not raid. On the mixed population it is level. The timed switch is the same trade
+at about 40% strength. Neither passes "no group pays", so neither is a development
+gain: choosing one is a bet on who the opponents are. `bot.py` stays `zr6`.
+
+What would settle it is opponents written by other people's AI tools from the
+official README alone, which this project has run out of.
+
+Seeds used in this section: 2200 to 2209.
